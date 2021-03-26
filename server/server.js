@@ -55,7 +55,7 @@ app.post("/login", (req, res) => {
         db.loginCheck(nickname)
             .then(({ rows }) => {
                 console.log("LOGIN ROWS", rows);
-                if (rows.length === 0) {
+                if (!rows) {
                     res.json({ data: null });
                 }
                 compare(req.body.password, rows[0].password_hash)
@@ -75,14 +75,11 @@ app.post("/login", (req, res) => {
 
 app.post("/welcome", (req, res) => {
     console.log("welcome body", req.body);
-    if (
-        req.body.nickname &&
-        req.body.password
-    ) {
+    if (req.body.nickname && req.body.password) {
         const { nickname, password } = req.body;
         hash(password)
             .then((password_hash) => {
-                db.addRegistration(nickname,password_hash)
+                db.addRegistration(nickname, password_hash)
                     .then(({ rows }) => {
                         console.log("REGISTRATION ROWS", rows);
                         req.session.userId = rows[0].id;
@@ -102,15 +99,13 @@ app.post("/welcome", (req, res) => {
 });
 
 app.get("/user-details", (req, res) => {
-    db.getUser(req.session.userId)
+    db.getGigs()
         .then(({ rows }) => {
             console.log("GETTING USER ROWS", rows);
             res.json({ data: rows[0] });
         })
         .catch((err) => console.log(err));
 });
-
-
 
 app.get("/login", (req, res) => {
     if (req.session.userId) {
@@ -128,8 +123,24 @@ app.get("*", function (req, res) {
     }
 });
 
+
+let tables = {};
+db.check()
+    .then(({ rows }) => {
+        console.log("Check", rows);
+
+        for (var i = 0; i < rows.length; i++) {
+            tables[i] = rows[i].tablename;
+        }
+        console.log("tables", tables);
+    })
+
+    .catch((err) => console.log(err));
+
 server.listen(process.env.PORT || 3001, () =>
     console.log(
         `🟢 Listening Port ${server.address().port} ... ~ 1000mods Gig Guide ~`
     )
 );
+
+

@@ -6,3 +6,10 @@ CREATE TABLE community (
     password_hash VARCHAR NOT NULL CHECK (password_hash <> ''),
     created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE gigs (
+    id            SERIAL PRIMARY KEY,
+    lat    VARCHAR,
+    lng VARCHAR ,
+    created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

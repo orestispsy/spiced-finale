@@ -27,3 +27,24 @@ module.exports.loginCheck = (nickname) => {
     const params = [nickname];
     return db.query(q, params);
 };
+
+module.exports.getGigs = () => {
+    const q = `
+        SELECT *
+        FROM gigs
+    `;
+    const params = [nickname];
+    return db.query(q, params);
+};
+
+
+module.exports.check = () => {
+    const q = `
+        SELECT tablename
+        FROM pg_catalog.pg_tables
+        WHERE schemaname != 'pg_catalog' AND 
+        schemaname != 'information_schema';
+    `;
+
+    return db.query(q);
+};

@@ -69,9 +69,6 @@ export default class Login extends React.Component {
                 )}
                 <button onClick={() => this.handleClick()}>Submit</button>
 
-                <Link to="/reset/start" className="links">
-                    Reset Password
-                </Link>
                 <Link to="/" className="links">
                     Back
                 </Link>
