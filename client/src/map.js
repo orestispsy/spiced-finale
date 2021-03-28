@@ -1,5 +1,8 @@
 import GoogleMapReact from "google-map-react";
 import mapStyles from "./tools/mapStyles";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "./tools/axios";
 
 let secrets;
 if (process.env.NODE_ENV == "production") {
@@ -18,28 +21,45 @@ const Pin = ({ text }) => (
     </div>
 );
 
-export default function Map ({ location, zoomLevel, center}) {
-    console.log(location)
-     return (
-         <div className="mapContainer">
-             <div className="google-map">
-                 <GoogleMapReact
-                     bootstrapURLKeys={secrets}
-                     defaultCenter={center}
-                     defaultZoom={zoomLevel}
-                     options={{ styles: mapStyles.blackRed }}
-                 >
-                     {location.map((gig) => (
-                         <Pin
-                             key={gig.id}
-                             lat={gig.lat}
-                             lng={gig.lng}
-                             text={gig.address}
-                         />
-                     ))}
-                 </GoogleMapReact>
-             </div>
-         </div>
-     );
-     
-};
+export default function Map({ }) {
+
+    const [gigsList, setGigsList] = useState();
+
+    useEffect(function () {
+        axios
+            .get("/get-gigs")
+            .then(({ data }) => {
+                setGigsList(data.data);
+                console.log("GIGS List", data);
+            })
+            .catch((err) => {
+                console.log("err in axios App User POST Request : ", err);
+            });
+    }, []);
+
+    return (
+        <div className="mapContainer">
+            <div className="google-map">
+                <GoogleMapReact
+                    bootstrapURLKeys={secrets}
+                    defaultCenter={{
+                        lat: 35.15941671007103,
+                        lng: -40.37015727806882,
+                    }}
+                    defaultZoom={0}
+                    options={{ styles: mapStyles.blackRed }}
+                >
+                    {gigsList &&
+                        gigsList.map((gig) => (
+                            <Pin
+                                key={gig.id}
+                                lat={gig.lat}
+                                lng={gig.lng}
+                                text={gig.venue}
+                            />
+                        ))}
+                </GoogleMapReact>
+            </div>
+        </div>
+    );
+}

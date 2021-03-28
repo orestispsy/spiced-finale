@@ -32,6 +32,8 @@ app.use(express.static(path.join(__dirname, "..", "client", "public")));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+
+
 app.get("/welcome", (req, res) => {
     if (req.session.userId) {
         res.redirect("/");
@@ -42,6 +44,14 @@ app.get("/welcome", (req, res) => {
 
 app.get("/login", (req, res) => {
     if (req.session.userId) {
+        res.redirect("/");
+    } else {
+        res.sendFile(path.join(__dirname, "..", "client", "index.html"));
+    }
+});
+
+app.get("/gig-creator", (req, res) => {
+    if (!req.session.youGotIt) {
         res.redirect("/");
     } else {
         res.sendFile(path.join(__dirname, "..", "client", "index.html"));
@@ -99,21 +109,44 @@ app.post("/welcome", (req, res) => {
 });
 
 app.get("/user-details", (req, res) => {
-    db.getGigs()
+    db.getUser(req.session.userId)
         .then(({ rows }) => {
+            if (rows[0].admin) {
+                req.session.youGotIt = "yes"; 
+            }
             console.log("GETTING USER ROWS", rows);
             res.json({ data: rows[0] });
         })
         .catch((err) => console.log(err));
 });
 
-app.get("/login", (req, res) => {
-    if (req.session.userId) {
-        res.redirect("/");
-    } else {
-        res.sendFile(path.join(__dirname, "..", "client", "index.html"));
+app.post("/gig-creator", (req, res) => {
+    let {date, venue, lat, lng, tour_name} = req.body;
+    if (!req.body.tour_name) {
+        tour_name = '';
     }
+    if (!req.body.venue) {
+       venue = "";
+    }
+    console.log("REQ BODY", req.body);
+    db.addGig(date, venue, lat, lng, tour_name)
+        .then(({ rows }) => {
+            console.log("THIS GIG WAS CREATED", rows);
+            res.json({ data: rows[0] });
+        })
+        .catch((err) => console.log(err));
 });
+
+app.get("/get-gigs", (req, res) => {
+    db.getGigs()
+        .then(({ rows }) => {
+            console.log("GETTING GIGS FULL LIST ROWS", rows);
+            res.json({ data: rows });
+        })
+        .catch((err) => console.log(err));
+});
+
+
 
 app.get("*", function (req, res) {
     if (!req.session.userId) {
@@ -124,18 +157,18 @@ app.get("*", function (req, res) {
 });
 
 
-let tables = {};
-db.check()
-    .then(({ rows }) => {
-        console.log("Check", rows);
+// let tables = [];
+// db.check()
+//     .then(({ rows }) => {
+//         console.log("Check", rows);
 
-        for (var i = 0; i < rows.length; i++) {
-            tables[i] = rows[i].tablename;
-        }
-        console.log("tables", tables);
-    })
+//         for (var i = 0; i < rows.length; i++) {
+//             tables =  tables.concat(rows[i].tablename, );
+//         }
+//         console.log("tables", tables);
+//     })
 
-    .catch((err) => console.log(err));
+//     .catch((err) => console.log(err));
 
 server.listen(process.env.PORT || 3001, () =>
     console.log(
