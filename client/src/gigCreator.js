@@ -6,7 +6,6 @@ import axios from "./tools/axios";
 
 export default class GigCreator extends React.Component {
     constructor(props) {
-         console.log("PROOOOOOOPS",props);
         super(props);
         this.state = {
             error: false,
@@ -32,6 +31,7 @@ export default class GigCreator extends React.Component {
             .catch((err) => {
                 console.log("err in axios POST /gig-creator: ", err);
             });
+            
     }
 
     handleChange(e) {
@@ -53,7 +53,7 @@ export default class GigCreator extends React.Component {
         return (
             <div className="gigCreatorContainer">
                 <form>
-                    <h1>Gig Creator</h1>
+                    <h1>Add Gig</h1>
                     <span>Date</span>
                     <input
                         autoComplete="none"
@@ -101,6 +101,9 @@ export default class GigCreator extends React.Component {
                     )}
                     <button onClick={() => this.handleClick()}>Submit</button>
                 </form>
+                <Link to="/" className="backLink">
+                    Back
+                </Link>
             </div>
         );
     }

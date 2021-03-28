@@ -146,6 +146,48 @@ app.get("/get-gigs", (req, res) => {
         .catch((err) => console.log(err));
 });
 
+app.post("/get-gig-to-edit", (req, res) => {
+    console.log("GET GIG TO EDIT REQ BODY", req.body);
+    db.getGigToEdit(req.body.selectedGig)
+        .then(({ rows }) => {
+            console.log("GETTING GIG TO EDIT ROWS", rows);
+            res.json({ data: rows[0] });
+        })
+        .catch((err) => console.log(err));
+});
+
+app.post("/gig-update", (req, res) => {
+    console.log("UPDATE GIG REQ BODY", req.body, req.body.tour_name);
+    let { date, venue, lat, lng, tour_name } = req.body.selectedGig;
+    db.updateGig(
+        req.body.date || date,
+        req.body.venue || venue,
+        req.body.lat || lat,
+        req.body.lng || lng,
+        req.body.tour_name || tour_name
+    )
+        .then(({ rows }) => {
+            console.log("GETTING UPDATED GIG ROWS", rows);
+            res.json({ data: rows[0] });
+        })
+        .catch((err) => console.log(err));
+});
+
+app.post("/gig-delete", (req, res) => {
+    console.log("DELETE GIG REQ BODY", req.body);
+
+    db.deleteGig(req.body.selectedGig.date)
+        .then(({ rows }) => {
+            console.log("GETTING DELETED GIG ROWS", rows);
+            res.json({ data: rows[0] });
+        })
+        .catch((err) => console.log(err));
+});
+
+app.get("/logout", (req, res) => {
+    req.session = null;
+    res.redirect("/");
+});
 
 
 app.get("*", function (req, res) {

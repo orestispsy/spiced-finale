@@ -10,10 +10,10 @@ CREATE TABLE community (
 
 CREATE TABLE gigs (
     id            SERIAL PRIMARY KEY,
-    date    VARCHAR NOT NULL CHECK (date <> ''),
-    venue VARCHAR DEFAULT '',
+    date    VARCHAR NOT NULL UNIQUE CHECK (date <> ''),
+    venue VARCHAR DEFAULT false,
     lat    VARCHAR NOT NULL CHECK (lat <> ''),
     lng VARCHAR NOT NULL CHECK (lng <> '') ,
-    tour_name VARCHAR DEFAULT '',
+    tour_name VARCHAR DEFAULT false,
     created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

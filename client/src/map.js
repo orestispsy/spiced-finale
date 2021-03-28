@@ -21,20 +21,11 @@ const Pin = ({ text }) => (
     </div>
 );
 
-export default function Map({ }) {
-
-    const [gigsList, setGigsList] = useState();
+export default function Map({ gigsList, mapVisible }) {
 
     useEffect(function () {
-        axios
-            .get("/get-gigs")
-            .then(({ data }) => {
-                setGigsList(data.data);
-                console.log("GIGS List", data);
-            })
-            .catch((err) => {
-                console.log("err in axios App User POST Request : ", err);
-            });
+        mapVisible()
+        console.log(gigsList)
     }, []);
 
     return (

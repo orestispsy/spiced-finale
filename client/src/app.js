@@ -5,11 +5,15 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import Main from "./main";
 import Map from "./map";
 import GigCreator from "./gigCreator";
+import GigEditor from "./gigEditor";
+import GigList from "./gigList";
 
 export default class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            maps: false,
+        };
     }
 
     componentDidMount() {
@@ -20,22 +24,67 @@ export default class App extends Component {
                     console.log("Current User's data in APP", data);
                     this.setState({
                         nickname: data.data.nickname,
-                        admin: data.data.admin
+                        admin: data.data.admin,
                     });
                 }
             })
             .catch((err) => {
                 console.log("err in axios App User POST Request : ", err);
             });
+        axios
+            .get("/get-gigs")
+            .then(({ data }) => {
+                this.setState({
+                    gigsList: data.data,
+                });
+                console.log("APP GIGS List", this.state.gigsList);
+            })
+            .catch((err) => {
+                console.log("err in axios App User POST Request : ", err);
+            });
+    }
+
+    mapVisible() {
+        this.setState({
+            maps: !this.state.maps,
+        });
+    }
+
+    logOut() {
+        axios
+            .get("/logout")
+            .then(() => {
+                location.replace("/");
+            })
+            .catch((err) => {
+                this.setState({
+                    error: true,
+                });
+                console.log("error", err);
+            });
     }
 
     render() {
         return (
             <BrowserRouter>
-                <div className="appContainer">
+                <div
+                    className={
+                        (!this.state.maps && "appContainer") ||
+                        (this.state.maps && "appContainerMap")
+                    }
+                >
                     <div className="appBar">
                         <div className="barProfile">{this.state.nickname}</div>
-                        <Link to="/" className="barMainLink"></Link>
+                        <div className="logout" onClick={() => this.logOut()}>
+                            X
+                        </div>
+                        {this.state.maps && (
+                            <Link
+                                to="/"
+                                className="barMainLink"
+                                onClick={() => this.mapVisible()}
+                            ></Link>
+                        )}
                     </div>
                     <Route
                         exact
@@ -49,7 +98,32 @@ export default class App extends Component {
                             <GigCreator admin={this.state.admin} />
                         )}
                     />
-                    <Route exact path="/map" render={(props) => <Map />} />
+                    <Route
+                        exact
+                        path="/gig-editor"
+                        render={(props) => (
+                            <GigEditor gigsList={this.state.gigsList} />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/map"
+                        render={(props) => (
+                            <Map
+                                gigsList={this.state.gigsList}
+                                mapVisible={() => this.mapVisible()}
+                            />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/gig-list"
+                        render={(props) => (
+                            <GigList
+                                gigsList={this.state.gigsList}
+                            />
+                        )}
+                    />
                 </div>
             </BrowserRouter>
         );

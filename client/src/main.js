@@ -8,8 +8,10 @@ export default function Main({ admin}) {
                 <p>GIG GUIDE</p>
             </div>
             <div className="mainMenu">
-                <Link to="/map"> Gig Map</Link>
-                {admin && <Link to="/gig-creator"> Gig Creator</Link>}
+                <Link to="/map"> Map</Link>
+                <Link to="/gig-list"> Gig List</Link>
+                {admin && <Link to="/gig-creator"> Create Gig</Link>}
+                {admin && <Link to="/gig-editor"> Edit Gig</Link>}
             </div>
         </div>
     );

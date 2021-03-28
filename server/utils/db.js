@@ -56,6 +56,37 @@ module.exports.getGigs = () => {
     return db.query(q);
 };
 
+module.exports.getGigToEdit = (date) => {
+    const q = `
+        SELECT *
+        FROM gigs WHERE gigs.date = $1
+
+        `;
+    const params = [date];
+    return db.query(q, params);
+};
+
+module.exports.updateGig = (date, venue, lat, lng, tour_name) => {
+    const q = `
+        UPDATE gigs
+        SET date = $1, venue = $2, lat = $3, lng = $4, tour_name = $5
+        WHERE gigs.date = $1
+        RETURNING *
+    `;
+    const params = [date, venue, lat, lng, tour_name];
+    return db.query(q, params);
+};
+
+module.exports.deleteGig = (date) => {
+    const q = `
+        DELETE FROM gigs
+        WHERE date = $1
+        RETURNING *
+    `;
+    const params = [date];
+    return db.query(q, params);
+};
+
 
 module.exports.check = () => {
     const q = `
