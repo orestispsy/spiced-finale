@@ -32,8 +32,6 @@ app.use(express.static(path.join(__dirname, "..", "client", "public")));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-
-
 app.get("/welcome", (req, res) => {
     if (req.session.userId) {
         res.redirect("/");
@@ -112,7 +110,7 @@ app.get("/user-details", (req, res) => {
     db.getUser(req.session.userId)
         .then(({ rows }) => {
             if (rows[0].admin) {
-                req.session.youGotIt = "yes"; 
+                req.session.youGotIt = "yes";
             }
             console.log("GETTING USER ROWS", rows);
             res.json({ data: rows[0] });
@@ -121,15 +119,18 @@ app.get("/user-details", (req, res) => {
 });
 
 app.post("/gig-creator", (req, res) => {
-    let {date, venue, lat, lng, tour_name} = req.body;
+    let { date, venue, lat, lng, tour_name, city } = req.body;
     if (!req.body.tour_name) {
-        tour_name = '';
+        tour_name = "";
     }
     if (!req.body.venue) {
-       venue = "";
+        venue = "";
+    }
+    if (!req.body.city) {
+        city = "";
     }
     console.log("REQ BODY", req.body);
-    db.addGig(date, venue, lat, lng, tour_name)
+    db.addGig(date, venue, lat, lng, tour_name, city)
         .then(({ rows }) => {
             console.log("THIS GIG WAS CREATED", rows);
             res.json({ data: rows[0] });
@@ -157,14 +158,15 @@ app.post("/get-gig-to-edit", (req, res) => {
 });
 
 app.post("/gig-update", (req, res) => {
-    console.log("UPDATE GIG REQ BODY", req.body, req.body.tour_name);
-    let { date, venue, lat, lng, tour_name } = req.body.selectedGig;
+    console.log("UPDATE GIG REQ BODY", req.body);
+    let { date, venue, lat, lng, tour_name, city } = req.body.selectedGig;
     db.updateGig(
         req.body.date || date,
         req.body.venue || venue,
         req.body.lat || lat,
         req.body.lng || lng,
-        req.body.tour_name || tour_name
+        req.body.tour_name || tour_name,
+        req.body.city || city
     )
         .then(({ rows }) => {
             console.log("GETTING UPDATED GIG ROWS", rows);
@@ -189,7 +191,6 @@ app.get("/logout", (req, res) => {
     res.redirect("/");
 });
 
-
 app.get("*", function (req, res) {
     if (!req.session.userId) {
         res.redirect("/welcome");
@@ -197,7 +198,6 @@ app.get("*", function (req, res) {
         res.sendFile(path.join(__dirname, "..", "client", "index.html"));
     }
 });
-
 
 // let tables = [];
 // db.check()
@@ -217,5 +217,3 @@ server.listen(process.env.PORT || 3001, () =>
         `🟢 Listening Port ${server.address().port} ... ~ 1000mods Gig Guide ~`
     )
 );
-
-

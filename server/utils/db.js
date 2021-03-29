@@ -37,13 +37,13 @@ module.exports.getUser = (id) => {
     return db.query(q, params);
 };
 
-module.exports.addGig = (date, venue, lat, lng, tour_name) => {
+module.exports.addGig = (date, venue, lat, lng, tour_name, city) => {
     const q = `
-        INSERT INTO gigs (date, venue, lat, lng, tour_name)
-        VALUES ($1, $2, $3, $4, $5)
+        INSERT INTO gigs (date, venue, lat, lng, tour_name, city)
+        VALUES ($1, $2, $3, $4, $5, $6)
         RETURNING *
     `;
-    const params = [date, venue, lat, lng, tour_name];
+    const params = [date, venue, lat, lng, tour_name, city];
     return db.query(q, params);
 };
 
@@ -66,14 +66,14 @@ module.exports.getGigToEdit = (date) => {
     return db.query(q, params);
 };
 
-module.exports.updateGig = (date, venue, lat, lng, tour_name) => {
+module.exports.updateGig = (date, venue, lat, lng, tour_name, city) => {
     const q = `
         UPDATE gigs
-        SET date = $1, venue = $2, lat = $3, lng = $4, tour_name = $5
+        SET date = $1, venue = $2, lat = $3, lng = $4, tour_name = $5, city = $6
         WHERE gigs.date = $1
         RETURNING *
     `;
-    const params = [date, venue, lat, lng, tour_name];
+    const params = [date, venue, lat, lng, tour_name, city];
     return db.query(q, params);
 };
 

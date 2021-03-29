@@ -15,5 +15,6 @@ CREATE TABLE gigs (
     lat    VARCHAR NOT NULL CHECK (lat <> ''),
     lng VARCHAR NOT NULL CHECK (lng <> '') ,
     tour_name VARCHAR DEFAULT false,
-    created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    city VARCHAR DEFAULT false,
 );

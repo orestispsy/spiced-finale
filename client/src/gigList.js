@@ -6,14 +6,16 @@ export default function GigList({ gigsList }) {
         <div className="gigListContainer">
             <h1>Gig Entries</h1>
             Total: {gigsList && gigsList.length}
-            {gigsList &&
-                gigsList.map((gig) => (
-                    <div key={gig.id}>
-                        <h2>
-                            {gig.date} {gig.venue}
-                        </h2>
-                    </div>
-                ))}
+            <div className="gigEntries">
+                {gigsList &&
+                    gigsList.map((gig) => (
+                        <div key={gig.id}>
+                            <h2>
+                                {gig.date} / {gig.venue} / {gig.city}
+                            </h2>
+                        </div>
+                    ))}
+            </div>
             <Link to="/" className="backLink">
                 Back
             </Link>

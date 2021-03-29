@@ -48,6 +48,7 @@ export default class GigEditor extends React.Component {
                 lat: "",
                 lng: "",
                 tour_name: "",
+                city: "",
             },
             () => console.log("State after setState: ", this.state)
         );
@@ -56,7 +57,10 @@ export default class GigEditor extends React.Component {
     inputReset(e) {
         this.setState(
             {
-                selectedGig : {...this.state.selectedGig, [e.target.name]: e.target.value},
+                selectedGig: {
+                    ...this.state.selectedGig,
+                    [e.target.name]: e.target.value,
+                },
             },
             () => console.log("STEEEEEIT: ", this.state)
         );
@@ -91,7 +95,7 @@ export default class GigEditor extends React.Component {
         axios
             .post("/gig-delete", this.state)
             .then(({ data }) => {
-                console.log("got it", data)
+                console.log("got it", data);
             })
             .catch((err) => {
                 console.log("err in axios App User POST Request : ", err);
@@ -114,7 +118,11 @@ export default class GigEditor extends React.Component {
                         onChange={(e) => this.gigSelector(e)}
                         onClick={() => this.inputsReset()}
                     >
-                        <option className="chooseGig" value="" onClick={() => this.inputsReset()}>
+                        <option
+                            className="chooseGig"
+                            value=""
+                            onClick={() => this.inputsReset()}
+                        >
                             Select Gig
                         </option>
                         {this.props.gigsList &&
@@ -133,6 +141,18 @@ export default class GigEditor extends React.Component {
                         name="date"
                         placeholder="date"
                         type="date"
+                        onChange={(e) => this.handleChange(e)}
+                        onClick={() => this.handleErrorMsg()}
+                        onChange={(e) => this.inputReset(e)}
+                    />
+                    <span>City</span>
+                    <input
+                        value={
+                            this.state.city || this.state.selectedGig.city || ""
+                        }
+                        autoComplete="none"
+                        name="city"
+                        placeholder="City"
                         onChange={(e) => this.handleChange(e)}
                         onClick={() => this.handleErrorMsg()}
                         onChange={(e) => this.inputReset(e)}

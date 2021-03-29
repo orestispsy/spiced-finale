@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Main({ admin}) {
+export default function Main({ admin }) {
     return (
         <div className="mainContainer">
             <div className="logoBack">
@@ -10,8 +10,8 @@ export default function Main({ admin}) {
             <div className="mainMenu">
                 <Link to="/map"> Map</Link>
                 <Link to="/gig-list"> Gig List</Link>
-                {admin && <Link to="/gig-creator"> Create Gig</Link>}
-                {admin && <Link to="/gig-editor"> Edit Gig</Link>}
+                {admin && <Link to="/gig-creator"> Add Gig</Link>}
+                {admin && <Link to="/gig-editor"> Edit</Link>}
             </div>
         </div>
     );

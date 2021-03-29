@@ -3,7 +3,7 @@ import axios from "./tools/axios";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
 import Main from "./main";
-import Map from "./map";
+import MyMap from "./map";
 import GigCreator from "./gigCreator";
 import GigEditor from "./gigEditor";
 import GigList from "./gigList";
@@ -75,6 +75,10 @@ export default class App extends Component {
                 >
                     <div className="appBar">
                         <div className="barProfile">{this.state.nickname}</div>
+                        <a target="_blank" href="https://www.1000mods.com">
+                           
+                            <div className="logo2"></div>
+                        </a>
                         <div className="logout" onClick={() => this.logOut()}>
                             X
                         </div>
@@ -109,7 +113,7 @@ export default class App extends Component {
                         exact
                         path="/map"
                         render={(props) => (
-                            <Map
+                            <MyMap
                                 gigsList={this.state.gigsList}
                                 mapVisible={() => this.mapVisible()}
                             />
@@ -119,9 +123,7 @@ export default class App extends Component {
                         exact
                         path="/gig-list"
                         render={(props) => (
-                            <GigList
-                                gigsList={this.state.gigsList}
-                            />
+                            <GigList gigsList={this.state.gigsList} />
                         )}
                     />
                 </div>

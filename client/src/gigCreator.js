@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import React from "react";
 import axios from "./tools/axios";
 
-
-
 export default class GigCreator extends React.Component {
     constructor(props) {
         super(props);
@@ -11,8 +9,6 @@ export default class GigCreator extends React.Component {
             error: false,
         };
     }
-
-   
 
     handleClick() {
         axios
@@ -31,7 +27,6 @@ export default class GigCreator extends React.Component {
             .catch((err) => {
                 console.log("err in axios POST /gig-creator: ", err);
             });
-            
     }
 
     handleChange(e) {
@@ -60,6 +55,14 @@ export default class GigCreator extends React.Component {
                         name="date"
                         placeholder="date"
                         type="date"
+                        onChange={(e) => this.handleChange(e)}
+                        onClick={() => this.handleErrorMsg()}
+                    />
+                    <span>City</span>
+                    <input
+                        autoComplete="none"
+                        name="city"
+                        placeholder="City"
                         onChange={(e) => this.handleChange(e)}
                         onClick={() => this.handleErrorMsg()}
                     />
