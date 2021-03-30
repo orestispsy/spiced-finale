@@ -76,8 +76,9 @@ export default class App extends Component {
                     <div className="appBar">
                         <div className="barProfile">{this.state.nickname}</div>
                         <a target="_blank" href="https://www.1000mods.com">
-                           
-                            <div className="logo2"></div>
+                            <div className="logo2Back">
+                                <div className="logo2"></div>
+                            </div>
                         </a>
                         <div className="logout" onClick={() => this.logOut()}>
                             X
