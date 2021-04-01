@@ -8,10 +8,18 @@ export default function Main({ admin }) {
                 <p>GIG GUIDE</p>
             </div>
             <div className="mainMenu">
-                <Link to="/map"> Map</Link>
+                {!admin && <Link to="/map"> Map</Link>}
+                {admin && <Link to="/gig-creator"> Add</Link>}
+                {admin && (
+                    <div className="easterEgg">
+                        <Link to="/gig-editor"> Edit</Link>
+
+                        <Link to="/map">
+                            <img src="redBall.gif"></img>
+                        </Link>
+                    </div>
+                )}
                 <Link to="/gig-list"> Gig List</Link>
-                {admin && <Link to="/gig-creator"> Add Gig</Link>}
-                {admin && <Link to="/gig-editor"> Edit</Link>}
             </div>
         </div>
     );

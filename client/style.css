@@ -19,23 +19,22 @@ body {
     font-size: 25px;
     color: white;
     margin: 0 0 80px 0;
+    height: 100vh;
 }
 
 a,
 h1 {
+    color: rgba(255, 238, 0, 0.836);
     margin-top: 20px;
     text-decoration: none;
     font-size: 40px;
-    text-shadow: -0 0 5px rgba(255, 255, 255, 0.3),
-        0 -0 5px rgba(255, 255, 255, 0.3), -0 -0 5px rgba(255, 255, 255, 0.3),
-        -0 -0 5px rgba(255, 255, 255, 0.3);
+    text-shadow: -0 0 5px rgba(0, 0, 0, 0.7), 0 -0 5px rgba(0, 0, 0, 0.7),
+        -0 -0 5px rgba(0, 0, 0, 0.7), -0 -0 5px rgba(0, 0, 0, 0.7);
 }
 
 a:hover {
-    color: black;
+    color: white;
 }
-
-
 
 .backLink {
     margin-top: 30px;
@@ -50,7 +49,40 @@ a:hover {
     align-self: center;
     margin: auto;
     padding: 10px;
-    width: 300px;
+    font-family: "Black Ops One", cursive;
+}
+
+.registerContainer span,
+.loginContainer span {
+    margin-bottom: 10px;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+}
+
+.registerContainer a,
+.loginContainer a {
+    color: cyan;
+    font-size: 23px;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+}
+
+.registerContainer a:hover,
+.loginContainer a:hover {
+    color: rgba(0, 38, 255, 0.822);
+    text-shadow: -0 0 5px rgba(255, 255, 255, 0.3),
+        0 -0 5px rgba(255, 255, 255, 0.3), -0 -0 5px rgba(255, 255, 255, 0.3),
+        -0 -0 5px rgba(255, 255, 255, 0.3);
+}
+
+.registerContainer h1,
+.loginContainer h1 {
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+}
+
+.regSpan .links {
+    margin-left: 10px;
 }
 
 .appContainerMap {
@@ -102,9 +134,17 @@ a:hover {
     margin-right: 10px;
     margin-top: 10px;
 }
+.easterEgg {
+    margin-top: 20px;
+}
+.easterEgg img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 
-.barMainLink:hover {
-    background-color: white;
+    position: fixed;
+    right: 195px;
+    bottom: 260px;
 }
 
 .mainContainer,
@@ -123,12 +163,17 @@ a:hover {
 
 .gigListContainer h1 {
     margin-top: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
     color: crimson;
     text-shadow: -0 0 5px rgba(0, 0, 0, 0.7), 0 -0 5px rgba(0, 0, 0, 0.7),
         -0 -0 5px rgba(0, 0, 0, 0.7), -0 -0 5px rgba(0, 0, 0, 0.7);
 }
 
+.gigListContainer p {
+    margin: 0;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+}
 .gigListContainer h2 {
     color: black;
     margin: 10px;
@@ -140,21 +185,26 @@ form {
     justify-content: center;
     align-items: center;
     align-self: center;
-    margin-top: 5vh;
+    margin-top: -6vh;
     font-size: 30px;
     color: orangered;
+    margin-bottom: 20px;
 }
-
-button {
+form button {
+    font-size: 18px;
+    height: 30px;
     margin-bottom: 5px;
 }
 
 form h1 {
+    margin-bottom: 15px;
+    letter-spacing: 5px;
+    font-size: 50px;
     color: white;
     text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
         -0 -0 10px black;
 }
-form input {
+input {
     margin-bottom: 12px;
     background-color: white;
     border: 1px;
@@ -167,12 +217,55 @@ form input {
     box-shadow: -0 0 4px black, 0 -0 4px black, -0 -0 4px black, -0 -0 4px black;
 }
 
-form button {
+button {
     color: orangered;
     border-radius: 100px;
     border-color: orangered;
     font-family: "Poller One", cursive;
     outline: transparent;
+    cursor: pointer;
+}
+
+.delete {
+    color: red;
+    background-color: transparent;
+
+    font-size: 15px;
+    padding: 3px;
+    cursor: default;
+    height: 17px;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+}
+
+.deleteWarn {
+    margin-top: 10px;
+    color: yellow;
+    background-color: transparent;
+    text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
+        -0 -0 10px black;
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.upload {
+    color: greenyellow;
+    background-color: transparent;
+    font-size: 15px;
+    padding: 3px;
+    cursor: pointer;
+    height: 17px;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+}
+
+.upload:hover {
+    color: white;
+}
+
+.upload:active {
+    color: transparent;
 }
 
 .mainMenu {
@@ -209,7 +302,6 @@ form button {
     width: 40vw;
     height: 40vh;
 }
-
 
 .logo2 {
     background-image: url("logo2.png");
@@ -261,28 +353,36 @@ form button {
 
 .logout {
     position: fixed;
-    left: 10px;
+    right: 10px;
     bottom: 10px;
     color: crimson;
     cursor: pointer;
 }
 
+.error {
+    font-size: 20px;
+    color: red;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+}
+
 .gm-style-iw gm-style-iw-c {
-    padding: 0 !important
+    padding: 0 !important;
 }
 .gm-style .gm-style-iw-c {
     padding-right: 13px !important;
-    height: 180px !important;
+    max-height: 320px !important;
+
     position: absolute;
     box-sizing: border-box;
-    outline:none !important;
+    outline: none !important;
     top: 0;
     left: 0;
-    transform: translate(-50%,-100%);
+    transform: translate(-50%, -100%);
     background-color: rgba(255, 0, 51, 0.349);
     border-radius: 8px;
-    color:lime;
-     box-shadow: -0 0 5px rgba(0, 0, 0, 0.3), 0 -0 5px rgba(0, 0, 0, 0.3),
+    color: lime;
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.3), 0 -0 5px rgba(0, 0, 0, 0.3),
         -0 -0 5px rgba(229, 255, 0, 0.3), -0 -0 5px rgba(0, 0, 0, 0.3);
     text-shadow: -0 0 5px rgba(0, 0, 0, 0.7), 0 -0 5px rgba(0, 0, 0, 0.7),
         -0 -0 5px rgba(0, 0, 0, 0.7), -0 -0 5px rgba(0, 0, 0, 0.7);
@@ -290,38 +390,77 @@ form button {
 
 .gm-style-iw-d {
     text-align: center;
-    font-family: 'Black Ops One', cursive;
-    font-size:20px;
+    font-family: "Black Ops One", cursive;
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-self: flex-start;
-    outline:none !important;
-    overflow:hidden !important;
-     width: 200px !important;
-    height: 170px !important;
+    outline: none !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .gm-style .gm-style-iw-c,
 .gm-style .gm-style-iw-t::after {
-    top:-21px !important;
+    top: -21px !important;
 }
 
 .gm-style-iw-d {
-    width:100% !important;
-    height: 100% !important     
+    width: 100% !important;
+    height: 100% !important;
 }
 
-div:focus{
-    outline:none !important;
+div:focus {
+    outline: none !important;
+}
+
+.mapInfoCard {
+    padding: 10px;
 }
 
 .mapInfoCard span {
     color: yellow;
 }
 
+.infoPoster {
+    margin-top: 20px;
+    width: 150px !important;
+    height: 150px !important;
+    border: 1px solid black;
+    border-radius: 1vh;
+}
 
+.fileUploader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    border-radius: 1vh;
+    padding: 10px;
+    margin-top: 40px;
+    background-color: transparent;
+}
+
+.fileUploader p {
+    color: orangered;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+    font-size: 20px;
+    margin: 10px;
+}
+
+.fileUploader input {
+    padding-top: 5px;
+    padding-left: 3px;
+    background-color: rgba(0, 0, 0, 0.185);
+    border: 1px solid black;
+    border-radius: 1px;
+    box-shadow: none;
+}
 
 /* 
 font-family: 'Bangers', cursive;

@@ -66,6 +66,18 @@ module.exports.getGigToEdit = (date) => {
     return db.query(q, params);
 };
 
+module.exports.getGig = (id) => {
+    const q = `
+        SELECT *
+        FROM gigs WHERE gigs.id = $1
+
+        `;
+    const params = [id];
+    return db.query(q, params);
+};
+
+
+
 module.exports.updateGig = (date, venue, lat, lng, tour_name, city) => {
     const q = `
         UPDATE gigs
@@ -84,6 +96,17 @@ module.exports.deleteGig = (date) => {
         RETURNING *
     `;
     const params = [date];
+    return db.query(q, params);
+};
+
+module.exports.addImage = (id, url) => {
+    const q = `
+        UPDATE gigs
+        SET poster = $2
+        WHERE gigs.id = $1
+        RETURNING *
+    `;
+    const params = [id, url];
     return db.query(q, params);
 };
 

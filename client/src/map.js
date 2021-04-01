@@ -78,6 +78,15 @@ const WithGoogleMapComponent = compose(
                         >
                             {props.selectedGig.date}
                         </div>
+                        {props.selectedGig.poster && (
+                            <img
+                                className="infoPoster"
+                                src={
+                                    props.selectedGig.poster &&
+                                    props.selectedGig.poster
+                                }
+                            ></img>
+                        )}
                         {props.selectedGig.venue && (
                             <div>
                                 Venue <span>➤</span> {props.selectedGig.venue}

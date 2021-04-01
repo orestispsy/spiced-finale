@@ -8,6 +8,7 @@ export default class GigEditor extends React.Component {
         super(props);
         this.state = {
             error: false,
+            delete: false,
             selectedGig: "",
         };
     }
@@ -23,11 +24,36 @@ export default class GigEditor extends React.Component {
                     console.log("data fail");
                     this.setState({
                         error: true,
+                        file: null,
                     });
                 }
             })
             .catch((err) => {
                 console.log("err in axios POST /gig-creator: ", err);
+            });
+    }
+
+    handleUploaderClick() {
+        const formData = new FormData();
+        formData.append("file", this.state.file);
+        formData.append("data", JSON.stringify(this.state.selectedGig));
+        axios
+            .post("/upload", formData)
+            .then(({ data }) => {
+                if (data.data) {
+                    location.replace("/");
+                } else {
+                    console.log("data fail");
+                    this.setState({
+                        error: true,
+                    });
+                }
+            })
+            .catch((err) => {
+                this.setState({
+                    error: true,
+                });
+                console.log("err in axios in Image Uploader ", err);
             });
     }
 
@@ -37,6 +63,21 @@ export default class GigEditor extends React.Component {
                 [e.target.name]: e.target.value,
             },
             () => console.log("State after setState: ", this.state)
+        );
+    }
+
+    handleUploaderChange(e) {
+        this.setState(
+            {
+                file: e.target.files[0],
+            },
+            () =>
+                console.log(
+                    "this.state after setState: ",
+                    this.state,
+                    "ok",
+                    this.state.file
+                )
         );
     }
 
@@ -76,10 +117,12 @@ export default class GigEditor extends React.Component {
                 axios
                     .post("/get-gig-to-edit", this.state)
                     .then(({ data }) => {
-                        this.setState({
-                            selectedGig: data.data,
-                        });
-                        console.log("selected Gig", this.state.selectedGig);
+                        if (data.data) {
+                            this.setState({
+                                selectedGig: data.data,
+                            });
+                            console.log("selected Gig", this.state.selectedGig);
+                        }
                     })
                     .catch((err) => {
                         console.log(
@@ -96,10 +139,17 @@ export default class GigEditor extends React.Component {
             .post("/gig-delete", this.state)
             .then(({ data }) => {
                 console.log("got it", data);
+                location.replace("/");
             })
             .catch((err) => {
                 console.log("err in axios App User POST Request : ", err);
             });
+    }
+
+    deleteWarn(e) {
+        this.setState({
+            delete: e,
+        });
     }
 
     handleErrorMsg(e) {
@@ -117,6 +167,7 @@ export default class GigEditor extends React.Component {
                         className="selectGig"
                         onChange={(e) => this.gigSelector(e)}
                         onClick={() => this.inputsReset()}
+                        onClick={(e) => this.deleteWarn(false)}
                     >
                         <option
                             className="chooseGig"
@@ -144,6 +195,7 @@ export default class GigEditor extends React.Component {
                         onChange={(e) => this.handleChange(e)}
                         onClick={() => this.handleErrorMsg()}
                         onChange={(e) => this.inputReset(e)}
+                        onClick={(e) => this.deleteWarn(false)}
                     />
                     <span>City</span>
                     <input
@@ -156,6 +208,7 @@ export default class GigEditor extends React.Component {
                         onChange={(e) => this.handleChange(e)}
                         onClick={() => this.handleErrorMsg()}
                         onChange={(e) => this.inputReset(e)}
+                        onClick={(e) => this.deleteWarn(false)}
                     />
                     <span>Venue</span>
                     <input
@@ -170,6 +223,7 @@ export default class GigEditor extends React.Component {
                         onChange={(e) => this.handleChange(e)}
                         onClick={() => this.handleErrorMsg()}
                         onChange={(e) => this.inputReset(e)}
+                        onClick={(e) => this.deleteWarn(false)}
                     />
                     <span>Latitude</span>
                     <input
@@ -182,6 +236,7 @@ export default class GigEditor extends React.Component {
                         onChange={(e) => this.handleChange(e)}
                         onClick={() => this.handleErrorMsg()}
                         onChange={(e) => this.inputReset(e)}
+                        onClick={(e) => this.deleteWarn(false)}
                     />
                     <span>Longitude</span>
                     <input
@@ -194,6 +249,7 @@ export default class GigEditor extends React.Component {
                         onChange={(e) => this.handleChange(e)}
                         onClick={() => this.handleErrorMsg()}
                         onChange={(e) => this.inputReset(e)}
+                        onClick={(e) => this.deleteWarn(false)}
                     />
                     <span>Tour</span>
                     <input
@@ -208,14 +264,46 @@ export default class GigEditor extends React.Component {
                         onChange={(e) => this.handleChange(e)}
                         onClick={() => this.handleErrorMsg()}
                         onChange={(e) => this.inputReset(e)}
+                        onClick={(e) => this.deleteWarn(false)}
                     />
 
                     {this.state.error && (
                         <p className="error">Oups! Something Went Wrong.</p>
                     )}
-                    <button onClick={() => this.handleClick()}>Submit</button>
-                    <button onClick={() => this.gigDelete()}>Delete</button>
+                    <button onClick={() => this.handleClick()}>Update</button>
+                    <div
+                        className="delete"
+                        onClick={(e) => this.deleteWarn(true)}
+                    >
+                        Delete
+                    </div>
+                    {this.state.delete && this.state.selectedGig.date && (
+                        <div
+                            className="deleteWarn"
+                            onClick={() => this.gigDelete()}
+                        >
+                            Confirm
+                        </div>
+                    )}
                 </form>
+
+                {this.state.selectedGig.id && (
+                    <div className="fileUploader">
+                        <p>Gig Poster</p>
+                        <input
+                            type="file"
+                            name="file"
+                            accept="image/*"
+                            onChange={(e) => this.handleUploaderChange(e)}
+                        />
+                        <div
+                            className="upload"
+                            onClick={() => this.handleUploaderClick()}
+                        >
+                            Upload
+                        </div>
+                    </div>
+                )}
                 <Link to="/" className="backLink">
                     Back
                 </Link>

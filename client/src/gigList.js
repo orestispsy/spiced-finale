@@ -5,7 +5,7 @@ export default function GigList({ gigsList }) {
     return (
         <div className="gigListContainer">
             <h1>Gig Entries</h1>
-            Total: {gigsList && gigsList.length}
+            <p>Total: {gigsList && gigsList.length}</p>
             <div className="gigEntries">
                 {gigsList &&
                     gigsList.map((gig) => (

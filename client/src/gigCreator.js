@@ -102,8 +102,15 @@ export default class GigCreator extends React.Component {
                     {this.state.error && (
                         <p className="error">Oups! Something Went Wrong.</p>
                     )}
-                    <button onClick={() => this.handleClick()}>Submit</button>
+                    <button
+                        onClick={() => {
+                            this.handleClick();
+                        }}
+                    >
+                        Submit
+                    </button>
                 </form>
+
                 <Link to="/" className="backLink">
                     Back
                 </Link>

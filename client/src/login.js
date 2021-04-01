@@ -52,7 +52,7 @@ export default class Login extends React.Component {
                 <input
                     autoComplete="none"
                     name="nickname"
-                    placeholder="nickname"
+                    placeholder="Nickname"
                     onChange={(e) => this.handleChange(e)}
                     onClick={() => this.handleErrorMsg()}
                 />

@@ -12,7 +12,7 @@ export default class Registration extends React.Component {
 
     handleClick() {
         axios
-            .post("/welcome", this.state)
+            .post("/register", this.state)
             .then(({ data }) => {
                 console.log("DATA", data.data);
                 if (data.data) {
@@ -25,6 +25,9 @@ export default class Registration extends React.Component {
                 }
             })
             .catch((err) => {
+                this.setState({
+                    error: true,
+                });
                 console.log("err in axios POST /registration: ", err);
             });
     }
@@ -47,16 +50,16 @@ export default class Registration extends React.Component {
     render() {
         return (
             <div className="registerContainer">
-                <h1>Registration</h1>
+                <h1>Register</h1>
                 <span>Enter a Nickname</span>
                 <input
                     autoComplete="none"
                     name="nickname"
-                    placeholder="nickname"
+                    placeholder="Nickname"
                     onChange={(e) => this.handleChange(e)}
                     onClick={() => this.handleErrorMsg()}
                 />
-                <span>Password</span>
+                <span>Give a Password</span>
                 <input
                     name="password"
                     placeholder="Password"
@@ -71,7 +74,7 @@ export default class Registration extends React.Component {
                 <span className="regSpan">
                     Joined Already?
                     <Link to="/login" className="links">
-                        Login
+                         Login
                     </Link>
                 </span>
             </div>

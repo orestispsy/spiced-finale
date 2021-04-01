@@ -9,6 +9,11 @@ const io = require("socket.io")(server, {
         callback(null, req.headers.referer.startsWith("http://localhost:3000")),
 });
 
+const multer = require("multer");
+const uidSafe = require("uid-safe");
+const s3 = require("./s3");
+const { s3Url } = require("./config");
+
 const crs = require("crypto-random-string");
 
 const { hash, compare } = require("./utils/bc");
@@ -28,6 +33,24 @@ io.use(function (socket, next) {
 app.use(compression());
 
 app.use(express.static(path.join(__dirname, "..", "client", "public")));
+
+const diskStorage = multer.diskStorage({
+    destination: function (req, file, callback) {
+        callback(null, __dirname + "/uploads");
+    },
+    filename: function (req, file, callback) {
+        uidSafe(24).then(function (uid) {
+            callback(null, uid + path.extname(file.originalname));
+        });
+    },
+});
+
+const uploader = multer({
+    storage: diskStorage,
+    limits: {
+        fileSize: 2097152,
+    },
+});
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -79,18 +102,26 @@ app.post("/login", (req, res) => {
                         if (match) {
                             req.session.userId = rows[0].id;
                             res.json({ data: rows[0] });
+                        } else {
+                            res.json({ error: true });
                         }
                     })
-                    .catch((err) => console.log(err));
+                    .catch((err) => {
+                        res.json({ error: true });
+                        console.log(err);
+                    });
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                res.json({ error: true });
+                console.log(err);
+            });
     } else {
         res.json({ data: null });
     }
 });
 
-app.post("/welcome", (req, res) => {
-    console.log("welcome body", req.body);
+app.post("/register", (req, res) => {
+    console.log("registration body", req.body);
     if (req.body.nickname && req.body.password) {
         const { nickname, password } = req.body;
         hash(password)
@@ -103,6 +134,7 @@ app.post("/welcome", (req, res) => {
                         res.json({ data: rows[0] });
                     })
                     .catch((err) => {
+                        res.json({ error: true });
                         console.log(err);
                     });
             })
@@ -143,13 +175,16 @@ app.post("/gig-creator", (req, res) => {
             console.log("THIS GIG WAS CREATED", rows);
             res.json({ data: rows[0] });
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+            res.json({ error: true });
+            console.log(err);
+        });
 });
 
 app.get("/get-gigs", (req, res) => {
     db.getGigs()
         .then(({ rows }) => {
-            console.log("GETTING GIGS FULL LIST ROWS", rows);
+            // console.log("GETTING GIGS FULL LIST ROWS", rows);
             res.json({ data: rows });
         })
         .catch((err) => console.log(err));
@@ -161,6 +196,8 @@ app.post("/get-gig-to-edit", (req, res) => {
         .then(({ rows }) => {
             console.log("GETTING GIG TO EDIT ROWS", rows);
             res.json({ data: rows[0] });
+            req.session.gigId = rows[0].id;
+            console.log("id", req.session.gigId);
         })
         .catch((err) => console.log(err));
 });
@@ -180,7 +217,10 @@ app.post("/gig-update", (req, res) => {
             console.log("GETTING UPDATED GIG ROWS", rows);
             res.json({ data: rows[0] });
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+            res.json({ error: true });
+            console.log(err);
+        });
 });
 
 app.post("/gig-delete", (req, res) => {
@@ -192,6 +232,37 @@ app.post("/gig-delete", (req, res) => {
             res.json({ data: rows[0] });
         })
         .catch((err) => console.log(err));
+});
+
+app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
+    const { filename } = req.file;
+
+    console.log("filename", filename);
+    const data = JSON.parse(req.body.data);
+    console.log("DATA FROM UPLOADERS FORMDATA", data);
+
+    db.getGig(data.id)
+        .then(({ rows }) => {
+            if (rows[0].poster) {
+                const file2delete = rows[0].poster.replace(s3Url, "");
+                console.log("file2delete", file2delete);
+                s3.delete(file2delete);
+                console.log("pic delete done");
+            }
+        })
+        .catch((err) => {
+            res.json({ error: true });
+            console.log(err);
+        });
+    db.addImage(data.id, s3Url + filename)
+        .then(({ rows }) => {
+            console.log(rows, "THIS POSTER WAS CREATED", rows[0].poster);
+            res.json({ data: rows[0] });
+        })
+        .catch((err) => {
+            res.json({ error: true });
+            console.log(err);
+        });
 });
 
 app.get("/logout", (req, res) => {

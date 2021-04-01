@@ -18,3 +18,10 @@ CREATE TABLE gigs (
     created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     city VARCHAR DEFAULT false,
 );
+
+CREATE TABLE posters (
+    id            SERIAL PRIMARY KEY,
+    gig_id INT REFERENCES gigs(id) NOT NULL,
+    poster      VARCHAR DEFAULT false,
+    created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
