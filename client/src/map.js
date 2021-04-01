@@ -28,6 +28,14 @@ const WithGoogleMapComponent = compose(
     withGoogleMap
 )((props) => {
     console.log("take some props", props);
+
+    if (props.selectedGig) {
+        let propsDate = props.selectedGig.date.split("-");
+        var fixedDate = propsDate[2] + "-" + propsDate[1] + "-" + propsDate[0];
+        console.log("FIXED DATE", fixedDate);
+    }
+
+
     return (
         <GoogleMap
             zoom={3}
@@ -76,7 +84,7 @@ const WithGoogleMapComponent = compose(
                                 fontFamily: "Poller One, cursive",
                             }}
                         >
-                            {props.selectedGig.date}
+                            {fixedDate}
                         </div>
                         {props.selectedGig.poster && (
                             <img

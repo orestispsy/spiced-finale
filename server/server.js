@@ -196,8 +196,6 @@ app.post("/get-gig-to-edit", (req, res) => {
         .then(({ rows }) => {
             console.log("GETTING GIG TO EDIT ROWS", rows);
             res.json({ data: rows[0] });
-            req.session.gigId = rows[0].id;
-            console.log("id", req.session.gigId);
         })
         .catch((err) => console.log(err));
 });
@@ -225,6 +223,19 @@ app.post("/gig-update", (req, res) => {
 
 app.post("/gig-delete", (req, res) => {
     console.log("DELETE GIG REQ BODY", req.body);
+    db.getGig(req.body.selectedGig.id)
+        .then(({ rows }) => {
+            if (rows[0].poster) {
+                const file2delete = rows[0].poster.replace(s3Url, "");
+                console.log("file2delete", file2delete);
+                s3.delete(file2delete);
+                console.log("pic delete done");
+            }
+        })
+        .catch((err) => {
+            res.json({ error: true });
+            console.log(err);
+        });
 
     db.deleteGig(req.body.selectedGig.date)
         .then(({ rows }) => {
