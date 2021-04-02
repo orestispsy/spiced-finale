@@ -17,6 +17,7 @@ CREATE TABLE gigs (
     tour_name VARCHAR DEFAULT false,
     created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     city VARCHAR DEFAULT false,
+    poster VARCHAR
 );
 
 CREATE TABLE posters (
