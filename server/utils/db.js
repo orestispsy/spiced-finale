@@ -2,7 +2,7 @@ const spicedPg = require("spiced-pg");
 
 const db = spicedPg(
     process.env.DATABASE_URL ||
-        "postgres:postgres:postgres@localhost:5432/1000mods-gig-guide"
+        "postgres:postgres:postgres@localhost:5432/thousand-gigs-guide"
 );
 
 module.exports.addRegistration = (
