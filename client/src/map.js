@@ -123,8 +123,8 @@ const MyMap = ({ gigsList, mapVisible }) => {
     const [selectedGig, setSelectedGig] = useState(null);
     const [zoom, setZoom] = useState(4);
     const [center, setCenter] = useState({
-        lat: 35.15941671007103,
-        lng: -40.37015727806882,
+        lat: 37.6206184035198,
+        lng: 26.06090137414007,
     });
 
     useEffect(function () {

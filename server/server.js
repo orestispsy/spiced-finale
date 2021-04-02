@@ -6,7 +6,11 @@ const db = require("./utils/db");
 const server = require("http").Server(app);
 const io = require("socket.io")(server, {
     allowRequest: (req, callback) =>
-        callback(null, req.headers.referer.startsWith("http://localhost:3000")),
+        callback(
+            null,
+            req.headers.referer.startsWith("http://localhost:3000") ||
+                req.headers.referer.startsWith("http://mysite.herokuapp.com")
+        ),
 });
 
 const multer = require("multer");
