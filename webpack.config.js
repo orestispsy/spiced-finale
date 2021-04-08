@@ -2,6 +2,8 @@ const path = require("path");
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+const webpack = require("webpack");
+
 module.exports = () => ({
     entry: [
         "@babel/polyfill",
