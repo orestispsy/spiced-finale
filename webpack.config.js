@@ -2,12 +2,6 @@ const path = require("path");
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const Global = `var process = {
-    env: {
-        NODE_ENV: 'production' }
-    }
-}`
-
 module.exports = () => ({
     entry: [
         "@babel/polyfill",
@@ -17,7 +11,6 @@ module.exports = () => ({
     output: {
         path: path.join(__dirname, "client", "public"),
         filename: "bundle.js",
-        banner: Global
     },
     performance: {
         hints: false,
@@ -56,6 +49,13 @@ module.exports = () => ({
     },
     plugins:  [new MiniCssExtractPlugin({
         filename: 'bundle.css',
-    })],
+    }), new webpack.DefinePlugin({
+  PRODUCTION: JSON.stringify(true),
+  VERSION: JSON.stringify('5fa3b9'),
+  BROWSER_SUPPORTS_HTML5: true,
+  TWO: '1+1',
+  'typeof window': JSON.stringify('object'),
+  'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+})],
     
 });
