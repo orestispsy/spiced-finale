@@ -1,8 +1,12 @@
 const path = require("path");
 
-const webpack = require("webpack");
-
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const Global = `var process = {
+    env: {
+        NODE_ENV: 'production' }
+    }
+}`
 
 module.exports = () => ({
     entry: [
@@ -13,6 +17,7 @@ module.exports = () => ({
     output: {
         path: path.join(__dirname, "client", "public"),
         filename: "bundle.js",
+        banner: Global
     },
     performance: {
         hints: false,
@@ -35,8 +40,7 @@ module.exports = () => ({
             {
                 test: /\.js$/,
                 loader: "babel-loader",
-            },
-            {
+            }, {
                 test: /\.css$/i,
                 use: [
                     MiniCssExtractPlugin.loader,
@@ -50,12 +54,8 @@ module.exports = () => ({
             },
         ],
     },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: "bundle.css",
-        }),
-        new webpack.DefinePlugin({
-            "process.env.NODE_ENV": JSON.stringify("production"),
-        }),
-    ],
+    plugins:  [new MiniCssExtractPlugin({
+        filename: 'bundle.css',
+    })],
+    
 });
