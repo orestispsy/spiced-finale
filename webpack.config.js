@@ -55,8 +55,7 @@ module.exports = () => ({
             filename: "bundle.css",
         }),
         new webpack.DefinePlugin({
-            "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
-        }),
-        new webpack.EnvironmentPlugin(["NODE_ENV"]),
+            "process.env": JSON.stringify(process.env),
+        })
     ],
 });
