@@ -66,5 +66,8 @@
     },
     "keywords": [],
     "author": "",
-    "license": "ISC"
+    "license": "ISC",
+    "devDependencies": {
+        "rollup-plugin-replace": "^2.2.0"
+    }
 }
