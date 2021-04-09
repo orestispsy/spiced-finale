@@ -7,6 +7,7 @@ export default class GigCreator extends React.Component {
         super(props);
         this.state = {
             error: false,
+            
         };
     }
 

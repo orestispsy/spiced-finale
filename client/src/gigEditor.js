@@ -10,6 +10,9 @@ export default class GigEditor extends React.Component {
             error: false,
             delete: false,
             selectedGig: "",
+            success: false,
+            deleteSuccess: false,
+            file: false,
         };
     }
 
@@ -40,8 +43,14 @@ export default class GigEditor extends React.Component {
         axios
             .post("/upload", formData)
             .then(({ data }) => {
-                if (data.data) {
-                    location.replace("/");
+                if (data.success) {
+                   this.setState({
+                       success: true,
+                   });
+                   setTimeout(function () {
+                       location.reload();
+                   }, 2000);
+                   
                 } else {
                     console.log("data fail");
                     this.setState({
@@ -139,7 +148,15 @@ export default class GigEditor extends React.Component {
             .post("/gig-delete", this.state)
             .then(({ data }) => {
                 console.log("got it", data);
-                location.replace("/");
+                if (data.deleteSuccess) {
+                    this.setState({
+                        deleteSuccess: true,
+                    });
+                    setTimeout(function () {
+                        location.replace("/");
+                    }, 2000);
+                }
+                
             })
             .catch((err) => {
                 console.log("err in axios App User POST Request : ", err);
@@ -150,6 +167,12 @@ export default class GigEditor extends React.Component {
         this.setState({
             delete: e,
         });
+    }
+
+    resetUploader() {
+         this.setState({
+             success: false,
+         });
     }
 
     handleErrorMsg(e) {
@@ -168,6 +191,7 @@ export default class GigEditor extends React.Component {
                         onChange={(e) => this.gigSelector(e)}
                         onClick={() => this.inputsReset()}
                         onClick={(e) => this.deleteWarn(false)}
+                        onClick={()=> this.resetUploader()}
                     >
                         <option
                             className="chooseGig"
@@ -285,10 +309,15 @@ export default class GigEditor extends React.Component {
                             Confirm
                         </div>
                     )}
+                    {this.state.deleteSuccess &&
+                        (<div className="deleteSuccess">
+                            Successfully Deleted
+                        </div>)}
                 </form>
 
                 {this.state.selectedGig.id && (
                     <div className="fileUploader">
+                        <img className="imgPreview" src={this.state.file.name || this.state.selectedGig.poster || "na.jpg"}></img>
                         <p>Gig Poster</p>
                         <input
                             type="file"
@@ -304,6 +333,7 @@ export default class GigEditor extends React.Component {
                         </div>
                     </div>
                 )}
+                {this.state.success && <div>Successfully Uploaded</div>}
                 <Link to="/" className="backLink">
                     Back
                 </Link>

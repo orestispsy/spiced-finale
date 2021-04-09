@@ -244,7 +244,7 @@ app.post("/gig-delete", (req, res) => {
     db.deleteGig(req.body.selectedGig.date)
         .then(({ rows }) => {
             console.log("GETTING DELETED GIG ROWS", rows);
-            res.json({ data: rows[0] });
+            res.json({ deleteSuccess: true });
         })
         .catch((err) => console.log(err));
 });
@@ -272,7 +272,7 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     db.addImage(data.id, s3Url + filename)
         .then(({ rows }) => {
             console.log(rows, "THIS POSTER WAS CREATED", rows[0].poster);
-            res.json({ data: rows[0] });
+            res.json({ success: true });
         })
         .catch((err) => {
             res.json({ error: true });
