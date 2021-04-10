@@ -119,7 +119,7 @@ a:hover {
     background-image: url("road.png");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 120vh;
 }
 
 .appBar {
