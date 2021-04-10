@@ -22,7 +22,7 @@ export default class GigEditor extends React.Component {
             .then(({ data }) => {
                 // console.log("DATA", data.data);
                 if (data.data) {
-                    location.replace("/");
+                    location.reload();
                 } else {
                     // console.log("data fail");
                     this.setState({

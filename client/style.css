@@ -362,7 +362,7 @@ button:active {
     font-size: 60px;
     letter-spacing: 5px;
     align-self: center;
-    margin-top: -80px;
+   
     text-shadow: -1px 1px 0 orange, 1px -1px 0 orange, -1px -1px 0 orange,
         -1px -1px 0 orange;
 }
