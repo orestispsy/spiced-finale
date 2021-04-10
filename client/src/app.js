@@ -81,7 +81,7 @@ export default class App extends Component {
                             </div>
                         </a>
                         <div className="logout" onClick={() => this.logOut()}>
-                            X
+                            LogOut
                         </div>
                         {this.state.maps && (
                             <Link

@@ -183,7 +183,7 @@ export default class GigEditor extends React.Component {
 
     render() {
         return (
-            <div className="gigCreatorContainer">
+            <div className="gigEditorContainer">
                 <form>
                     <select
                         name="selectedGig"
@@ -191,7 +191,7 @@ export default class GigEditor extends React.Component {
                         onChange={(e) => this.gigSelector(e)}
                         onClick={() => this.inputsReset()}
                         onClick={(e) => this.deleteWarn(false)}
-                        onClick={()=> this.resetUploader()}
+                        onClick={() => this.resetUploader()}
                     >
                         <option
                             className="chooseGig"
@@ -309,16 +309,25 @@ export default class GigEditor extends React.Component {
                             Confirm
                         </div>
                     )}
-                    {this.state.deleteSuccess &&
-                        (<div className="deleteSuccess">
+                    {this.state.deleteSuccess && (
+                        <div className="deleteSuccess">
                             Successfully Deleted
-                        </div>)}
+                        </div>
+                    )}
                 </form>
 
                 {this.state.selectedGig.id && (
                     <div className="fileUploader">
-                        <img className="imgPreview" src={this.state.file.name || this.state.selectedGig.poster || "na.jpg"}></img>
-                        <p>Gig Poster</p>
+                        <p>Poster ➤</p>
+                        <img
+                            className="imgPreview"
+                            src={
+                                this.state.file.name ||
+                                this.state.selectedGig.poster ||
+                                "na.jpg"
+                            }
+                        ></img>
+
                         <input
                             type="file"
                             name="file"
