@@ -15,11 +15,11 @@ export default class GigCreator extends React.Component {
         axios
             .post("/gig-creator", this.state)
             .then(({ data }) => {
-                console.log("DATA", data.data);
+                // console.log("DATA", data.data);
                 if (data.data) {
                     location.replace("/");
                 } else {
-                    console.log("data fail");
+                    // console.log("data fail");
                     this.setState({
                         error: true,
                     });
@@ -35,7 +35,7 @@ export default class GigCreator extends React.Component {
             {
                 [e.target.name]: e.target.value,
             },
-            () => console.log("State after setState: ", this.state)
+            // () => console.log("State after setState: ", this.state)
         );
     }
 
@@ -50,7 +50,7 @@ export default class GigCreator extends React.Component {
             <div className="gigCreatorContainer">
                 <form>
                     <h1>Add Gig</h1>
-                    <span>Date</span>
+                    <span>Date*</span>
                     <input
                         autoComplete="none"
                         name="date"
@@ -75,7 +75,7 @@ export default class GigCreator extends React.Component {
                         onChange={(e) => this.handleChange(e)}
                         onClick={() => this.handleErrorMsg()}
                     />
-                    <span>Latitude</span>
+                    <span>Latitude*</span>
                     <input
                         autoComplete="none"
                         name="lat"
@@ -83,7 +83,7 @@ export default class GigCreator extends React.Component {
                         onChange={(e) => this.handleChange(e)}
                         onClick={() => this.handleErrorMsg()}
                     />
-                    <span>Longitude</span>
+                    <span>Longitude*</span>
                     <input
                         autoComplete="none"
                         name="lng"
@@ -110,6 +110,7 @@ export default class GigCreator extends React.Component {
                     >
                         Submit
                     </button>
+                    <p className="required">*required</p>
                 </form>
 
                 <Link to="/" className="backLink">

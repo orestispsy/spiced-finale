@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function GigList({ gigsList }) {
-    console.log("GIGSLIST IN GIGSLIST", gigsList);
+    // console.log("GIGSLIST IN GIGSLIST", gigsList);
     return (
         <div className="gigListContainer">
             <h1>Gig Entries</h1>

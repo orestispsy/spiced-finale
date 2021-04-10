@@ -27,12 +27,12 @@ const WithGoogleMapComponent = compose(
     withScriptjs,
     withGoogleMap
 )((props) => {
-    console.log("take some props", props);
+    // console.log("take some props", props);
 
     if (props.selectedGig) {
         let propsDate = props.selectedGig.date.split("-");
         var fixedDate = propsDate[2] + "-" + propsDate[1] + "-" + propsDate[0];
-        console.log("FIXED DATE", fixedDate);
+        // console.log("FIXED DATE", fixedDate);
     }
 
 
@@ -56,7 +56,7 @@ const WithGoogleMapComponent = compose(
                         }}
                         icon={{
                             url: "greendot.gif",
-                            scaledSize: new window.google.maps.Size(50, 25),
+                            scaledSize: new window.google.maps.Size(30, 15),
                         }}
                         onClick={() => {
                             props.setSelectedGig(gig);
@@ -71,8 +71,6 @@ const WithGoogleMapComponent = compose(
                     }}
                     onCloseClick={() => {
                         props.setSelectedGig(null);
-
-                        console.log("whatever");
                     }}
                 >
                     <div className="mapInfoCard">

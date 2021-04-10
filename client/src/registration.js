@@ -14,11 +14,11 @@ export default class Registration extends React.Component {
         axios
             .post("/register", this.state)
             .then(({ data }) => {
-                console.log("DATA", data.data);
+                // console.log("DATA", data.data);
                 if (data.data) {
                     location.replace("/");
                 } else {
-                    console.log("data fail");
+                    // console.log("data fail");
                     this.setState({
                         error: true,
                     });
@@ -37,7 +37,7 @@ export default class Registration extends React.Component {
             {
                 [e.target.name]: e.target.value,
             },
-            () => console.log("State after setState: ", this.state)
+            // () => console.log("State after setState: ", this.state)
         );
     }
 

@@ -4,7 +4,7 @@ import axios from "./tools/axios";
 
 export default class GigEditor extends React.Component {
     constructor(props) {
-        console.log("PROPS IN EDITOR", props);
+        // console.log("PROPS IN EDITOR", props);
         super(props);
         this.state = {
             error: false,
@@ -20,11 +20,11 @@ export default class GigEditor extends React.Component {
         axios
             .post("/gig-update", this.state)
             .then(({ data }) => {
-                console.log("DATA", data.data);
+                // console.log("DATA", data.data);
                 if (data.data) {
                     location.replace("/");
                 } else {
-                    console.log("data fail");
+                    // console.log("data fail");
                     this.setState({
                         error: true,
                         file: null,
@@ -32,7 +32,7 @@ export default class GigEditor extends React.Component {
                 }
             })
             .catch((err) => {
-                console.log("err in axios POST /gig-creator: ", err);
+                // console.log("err in axios POST /gig-creator: ", err);
             });
     }
 
@@ -52,7 +52,7 @@ export default class GigEditor extends React.Component {
                    }, 2000);
                    
                 } else {
-                    console.log("data fail");
+                    // console.log("data fail");
                     this.setState({
                         error: true,
                     });
@@ -62,7 +62,7 @@ export default class GigEditor extends React.Component {
                 this.setState({
                     error: true,
                 });
-                console.log("err in axios in Image Uploader ", err);
+                // console.log("err in axios in Image Uploader ", err);
             });
     }
 
@@ -71,7 +71,7 @@ export default class GigEditor extends React.Component {
             {
                 [e.target.name]: e.target.value,
             },
-            () => console.log("State after setState: ", this.state)
+            // () => console.log("State after setState: ", this.state)
         );
     }
 
@@ -80,13 +80,13 @@ export default class GigEditor extends React.Component {
             {
                 file: e.target.files[0],
             },
-            () =>
-                console.log(
-                    "this.state after setState: ",
-                    this.state,
-                    "ok",
-                    this.state.file
-                )
+            // () =>
+            //     console.log(
+            //         "this.state after setState: ",
+            //         this.state,
+            //         "ok",
+            //         this.state.file
+            //     )
         );
     }
 
@@ -100,7 +100,7 @@ export default class GigEditor extends React.Component {
                 tour_name: "",
                 city: "",
             },
-            () => console.log("State after setState: ", this.state)
+            // () => console.log("State after setState: ", this.state)
         );
     }
 
@@ -112,7 +112,7 @@ export default class GigEditor extends React.Component {
                     [e.target.name]: e.target.value,
                 },
             },
-            () => console.log("STEEEEEIT: ", this.state)
+            // () => console.log("STEEEEEIT: ", this.state)
         );
     }
 
@@ -122,7 +122,7 @@ export default class GigEditor extends React.Component {
                 [e.target.name]: e.target.value,
             },
             () => {
-                console.log("State after setState: ", this.state);
+                // console.log("State after setState: ", this.state);
                 axios
                     .post("/get-gig-to-edit", this.state)
                     .then(({ data }) => {
@@ -130,7 +130,7 @@ export default class GigEditor extends React.Component {
                             this.setState({
                                 selectedGig: data.data,
                             });
-                            console.log("selected Gig", this.state.selectedGig);
+                            // console.log("selected Gig", this.state.selectedGig);
                         }
                     })
                     .catch((err) => {
@@ -147,7 +147,7 @@ export default class GigEditor extends React.Component {
         axios
             .post("/gig-delete", this.state)
             .then(({ data }) => {
-                console.log("got it", data);
+                // console.log("got it", data);
                 if (data.deleteSuccess) {
                     this.setState({
                         deleteSuccess: true,

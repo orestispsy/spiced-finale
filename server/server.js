@@ -3,15 +3,6 @@ const app = express();
 const compression = require("compression");
 const path = require("path");
 const db = require("./utils/db");
-const server = require("http").Server(app);
-const io = require("socket.io")(server, {
-    allowRequest: (req, callback) =>
-        callback(
-            null,
-            req.headers.referer.startsWith("http://localhost:3000") ||
-                req.headers.referer.startsWith("http://thousandgigs.herokuapp.com")
-        ),
-});
 
 const multer = require("multer");
 const uidSafe = require("uid-safe");
@@ -29,10 +20,12 @@ const cookieSessionMiddleware = cookieSession({
     maxAge: 1000 * 60 * 60 * 24 * 90,
 });
 
-app.use(cookieSessionMiddleware);
-io.use(function (socket, next) {
-    cookieSessionMiddleware(socket.request, socket.request.res, next);
-});
+app.use(
+    cookieSession({
+        secret: `Hands 0FF ! This one is #dangerous to taz.`,
+        maxAge: 1000 * 60 * 60 * 24 * 14,
+    })
+);
 
 app.use(compression());
 
@@ -306,7 +299,8 @@ app.get("*", function (req, res) {
 
 //     .catch((err) => console.log(err));
 
-server.listen(process.env.PORT || 3001, () =>
+
+var server = app.listen(process.env.PORT || 3001, () =>
     console.log(
         `🟢 Listening Port ${server.address().port} ... ~ 1000mods Gig Guide ~`
     )

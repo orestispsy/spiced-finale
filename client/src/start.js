@@ -13,14 +13,12 @@ const store = createStore(
 
 import Welcome from "./welcome";
 import App from "./app";
-import { init } from "./tools/socket";
 
 let elem;
 
 if (location.pathname === "/welcome") {
     elem = <Welcome />;
 } else {
-    init(store);
     elem = (
         <Provider store={store}>
             <App />

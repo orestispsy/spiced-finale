@@ -21,7 +21,7 @@ export default class App extends Component {
             .get("/user-details")
             .then(({ data }) => {
                 if (data) {
-                    console.log("Current User's data in APP", data);
+                    // console.log("Current User's data in APP", data);
                     this.setState({
                         nickname: data.data.nickname,
                         admin: data.data.admin,
@@ -37,7 +37,7 @@ export default class App extends Component {
                 this.setState({
                     gigsList: data.data,
                 });
-                console.log("APP GIGS List", this.state.gigsList);
+                // console.log("APP GIGS List", this.state.gigsList);
             })
             .catch((err) => {
                 console.log("err in axios App User POST Request : ", err);
