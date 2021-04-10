@@ -310,9 +310,7 @@ export default class GigEditor extends React.Component {
                         </div>
                     )}
                     {this.state.deleteSuccess && (
-                        <div className="deleteSuccess">
-                            Successfully Deleted
-                        </div>
+                        <div className="deleteSuccess"></div>
                     )}
                 </form>
 
@@ -322,7 +320,6 @@ export default class GigEditor extends React.Component {
                         <img
                             className="imgPreview"
                             src={
-                                this.state.file.name ||
                                 this.state.selectedGig.poster ||
                                 "na.jpg"
                             }
@@ -334,15 +331,20 @@ export default class GigEditor extends React.Component {
                             accept="image/*"
                             onChange={(e) => this.handleUploaderChange(e)}
                         />
-                        <div
-                            className="upload"
-                            onClick={() => this.handleUploaderClick()}
-                        >
-                            Upload
-                        </div>
+                        {!this.state.success && (
+                            <div
+                                className="upload"
+                                onClick={() => this.handleUploaderClick()}
+                            >
+                                Upload
+                            </div>
+                        )}
+                        {this.state.success && (
+                            <div className="uploadSuccess"></div>
+                        )}
                     </div>
                 )}
-                {this.state.success && <div>Successfully Uploaded</div>}
+
                 <Link to="/" className="backLink">
                     Back
                 </Link>

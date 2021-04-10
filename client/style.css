@@ -274,7 +274,6 @@ button:active {
 .delete, .deleteSuccess {
     color: red;
     background-color: transparent;
-
     font-size: 15px;
     padding: 3px;
     cursor: default;
@@ -285,12 +284,13 @@ button:active {
 }
 
 .deleteSuccess {
-    color:black;
-    font-size: 20px;
-    text-shadow: -1px 1px 0 red, 1px -1px 0 red, -1px -1px 0 red,
-        -1px -1px 0 red;
-    
-
+    margin-bottom: 10px;
+    background-image: url("giphy.gif");
+    background-size: cover;
+    width:25px;
+    height:25px;
+    border-radius: 50%;
+    margin:5px;
 }
 
 .deleteWarn {
@@ -322,6 +322,15 @@ button:active {
 
 .upload:active {
     color: transparent;
+}
+
+.uploadSuccess {
+    background-image: url("rocket.gif");
+    background-size:cover;
+    width:45px;
+    height:45px;
+    margin-left:10px;
+    margin-right: 10px;
 }
 
 .imgPreview {
@@ -504,7 +513,7 @@ div:focus {
     align-items: center;
     align-self: center;
     border-radius: 1vh;
-    background-color: rgba(0, 0, 0, 0.274);
+
   
 }
 
@@ -524,6 +533,7 @@ div:focus {
     border: 1px solid black;
     border-radius: 1px;
     box-shadow: none;
+    margin: auto;
 }
 
 /* 
