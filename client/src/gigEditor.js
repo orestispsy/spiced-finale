@@ -151,6 +151,7 @@ export default class GigEditor extends React.Component {
                 if (data.deleteSuccess) {
                     this.setState({
                         deleteSuccess: true,
+                        delete:false
                     });
                     setTimeout(function () {
                         location.replace("/");
@@ -301,14 +302,16 @@ export default class GigEditor extends React.Component {
                     >
                         Delete
                     </div>
-                    {this.state.delete && this.state.selectedGig.date && (
-                        <div
-                            className="deleteWarn"
-                            onClick={() => this.gigDelete()}
-                        >
-                            Confirm
-                        </div>
-                    )}
+                    {this.state.delete &&
+                        this.state.selectedGig.date &&
+                        !this.state.deleteSuccess && (
+                            <div
+                                className="deleteWarn"
+                                onClick={() => this.gigDelete()}
+                            >
+                                Confirm
+                            </div>
+                        )}
                     {this.state.deleteSuccess && (
                         <div className="deleteSuccess"></div>
                     )}
@@ -319,10 +322,7 @@ export default class GigEditor extends React.Component {
                         <p>Poster ➤</p>
                         <img
                             className="imgPreview"
-                            src={
-                                this.state.selectedGig.poster ||
-                                "na.jpg"
-                            }
+                            src={this.state.selectedGig.poster || "na.jpg"}
                         ></img>
 
                         <input

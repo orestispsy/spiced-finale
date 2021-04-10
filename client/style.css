@@ -512,9 +512,7 @@ div:focus {
     justify-content: center;
     align-items: center;
     align-self: center;
-    border-radius: 1vh;
-
-  
+    border-radius: 1vh;  
 }
 
 .fileUploader p {
