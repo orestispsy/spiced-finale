@@ -9,8 +9,8 @@ export default function Welcome() {
         <div className="welcomeContainer">
             <HashRouter>
                 <div>
-                    <Route exact path="/" component={Registration} />
-                    <Route path="/login" component={Login} />
+                    <Route exact path="/" component={Login} />
+                    <Route path="/register" component={Registration} />
                 </div>
             </HashRouter>
         </div>

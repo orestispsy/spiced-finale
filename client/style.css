@@ -87,6 +87,15 @@ a:hover {
         -1px -1px 0 black;
 }
 
+.registerContainer input, .loginContainer input {
+    height:25px;
+}
+
+.registerContainer button, .loginContainer button {
+    height:30px;
+    margin: 3px;
+}
+
 .regSpan .links {
     margin-left: 10px;
 }
