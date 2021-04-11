@@ -296,12 +296,12 @@ export default class GigEditor extends React.Component {
                         <p className="error">Oups! Something Went Wrong.</p>
                     )}
                     <button onClick={() => this.handleClick()}>Update</button>
-                    <div
+                    {!this.state.deleteSuccess && (<div
                         className="delete"
                         onClick={(e) => this.deleteWarn(true)}
                     >
                         Delete
-                    </div>
+                    </div>)}
                     {this.state.delete &&
                         this.state.selectedGig.date &&
                         !this.state.deleteSuccess && (
