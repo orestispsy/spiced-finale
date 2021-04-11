@@ -6,13 +6,15 @@ import Login from "./login";
 
 export default function Welcome() {
     return (
-        <div className="welcomeContainer">
-            <HashRouter>
-                <div>
-                    <Route exact path="/" component={Login} />
-                    <Route path="/register" component={Registration} />
-                </div>
-            </HashRouter>
+        <div className="welcomeContainerBack">
+            <div className="welcomeContainer">
+                <HashRouter>
+                    <div>
+                        <Route exact path="/" component={Login} />
+                        <Route path="/register" component={Registration} />
+                    </div>
+                </HashRouter>
+            </div>
         </div>
     );
 }
