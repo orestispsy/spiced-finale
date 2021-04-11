@@ -161,10 +161,13 @@ a:hover {
 .easterEgg {
     align-self: center;
 }
+
 .easterEgg img {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    box-shadow: inset 0 0 0 100vh rgba(170, 3, 3, 0.767), -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
+        -0 -0 5px black;   
 }
 
 .mainContainer,
@@ -184,6 +187,7 @@ a:hover {
 
 .mainMenu a {
     font-size: 30px;
+    margin: 5px 0 10px 0;
 }
 
 .gigListContainer h1 {

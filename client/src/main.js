@@ -11,7 +11,7 @@ export default function Main({ admin }) {
                 {admin && (
                     <div className="easterEgg">
                         <Link to="/map">
-                            <img src="redBall.gif"></img>
+                            <img src="earth-globe.gif"></img>
                         </Link>
                     </div>
                 )}
