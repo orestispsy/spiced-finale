@@ -11,8 +11,8 @@ body {
 }
 
 .welcomeContainerBack {
-    background: radial-gradient(closest-side, #00000000, #0000005e, #000000);
-    height: 120vh;
+    background: radial-gradient(closest-side, #00000034, #000000bb, #000000);
+    height: 100vh;
     
 }
 
@@ -58,8 +58,9 @@ a:hover {
     justify-content: center;
     align-items: center;
     align-self: center;
-    margin-top:200px;
+    margin-top:50%;
     font-family: "Black Ops One", cursive;
+    align-self: center;
 }
 
 .registerContainer span,
