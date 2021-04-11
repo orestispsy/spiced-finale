@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { compose, withProps } from "recompose";
 import {
     withScriptjs,
@@ -47,30 +48,33 @@ const WithGoogleMapComponent = compose(
             }}
         >
             {props.gigsList &&
-                props.gigsList.map((gig) =>{ 
-                     var dot = "greendot.gif";
-                     if (gig.tour_name === "Life Tour") {
-                         dot = "giphy.gif";
-                         var scaleParam = 15;  
-                     }
+                props.gigsList.map((gig) => {
+                    var dot = "greendot.gif";
+                    if (gig.tour_name === "Life Tour") {
+                        dot = "giphy.gif";
+                        var scaleParam = 15;
+                    }
 
-                    
                     return (
-                    <Marker
-                        key={gig.id}
-                        position={{
-                            lat: parseFloat(gig.lat),
-                            lng: parseFloat(gig.lng),
-                        }}
-                        icon={{
-                            url: dot,
-                            scaledSize: new window.google.maps.Size(scaleParam || 30, 15),
-                        }}
-                        onClick={() => {
-                            props.setSelectedGig(gig);
-                        }}
-                    />
-                )})}
+                        <Marker
+                            key={gig.id}
+                            position={{
+                                lat: parseFloat(gig.lat),
+                                lng: parseFloat(gig.lng),
+                            }}
+                            icon={{
+                                url: dot,
+                                scaledSize: new window.google.maps.Size(
+                                    scaleParam || 30,
+                                    15
+                                ),
+                            }}
+                            onClick={() => {
+                                props.setSelectedGig(gig);
+                            }}
+                        />
+                    );
+                })}
             {props.selectedGig && (
                 <InfoWindow
                     position={{
@@ -92,15 +96,19 @@ const WithGoogleMapComponent = compose(
                         >
                             {fixedDate}
                         </div>
+
                         {props.selectedGig.poster && (
-                            <img
-                                className="infoPoster"
-                                src={
-                                    props.selectedGig.poster &&
-                                    props.selectedGig.poster
-                                }
-                            ></img>
+                            <a href={props.selectedGig.poster} target="_blank">
+                                <img
+                                    className="infoPoster"
+                                    src={
+                                        props.selectedGig.poster &&
+                                        props.selectedGig.poster
+                                    }
+                                ></img>
+                            </a>
                         )}
+
                         {props.selectedGig.venue && (
                             <div>
                                 Venue <span>➤</span> {props.selectedGig.venue}
