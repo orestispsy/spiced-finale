@@ -12,7 +12,7 @@ body {
 }
 
 .welcomeContainerBack {
-    background: radial-gradient(closest-side, #00000034, #000000bb, #000000);
+    background: radial-gradient(closest-side, #33052b8c,#000000c2, #000000f5, #000000);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -126,7 +126,7 @@ a:hover {
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
-    height: 100vh;
+    height: 120vh;
 }
 
 .appBar {
@@ -241,6 +241,13 @@ form {
     color: orangered;
 }
 
+form span {
+    font-size: 2.2vmax;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+
+}
+
 form button {
     font-size: 18px;
     height: 30px;
@@ -267,8 +274,8 @@ input {
     text-align: center;
     outline: transparent;
     border-radius: 100px;
-    width: 200px;
-    height: 20px;
+    width: 15vmax;
+    height: 1.5vmax;
     color: orangered;
     box-shadow: -0 0 4px black, 0 -0 4px black, -0 -0 4px black, -0 -0 4px black;
 }
@@ -434,6 +441,7 @@ button:active {
     color: red;
     font-size: 20px;
 }
+
 .pin {
     width: 40px;
     height: 20px;
