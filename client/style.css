@@ -127,8 +127,6 @@ a:hover {
     background-repeat: no-repeat;
     background-position-x: center;
     height: 100vh;
-
-
 }
 
 .appBar {
@@ -149,6 +147,19 @@ a:hover {
     margin-left: 10px;
 }
 
+.switch {
+    width:20px;
+    height:20px;
+    background-image: url("ymc.png");
+    background-size: cover;
+    background-position: center;
+    position:fixed;
+    left: 80px;
+    bottom:4px;
+    z-index: 2345234523;
+    cursor: pointer;
+}
+
 .barMainLink {
     background-image: url("redBall.gif");
     background-size: cover;
@@ -163,12 +174,10 @@ a:hover {
 }
 
 .easterEgg img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    box-shadow: inset 0 0 0 100vh rgba(170, 3, 3, 0.767), -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
-        -0 -0 5px black;
-        margin: 5px;  
+    margin: 10px;  
 }
 
 .mainContainer,
@@ -187,7 +196,7 @@ a:hover {
 }
 
 .mainMenu a {
-    font-size: 30px;
+    font-size:2.2vmax;
     margin: 5px 0 10px 0;
 }
 
@@ -420,7 +429,7 @@ button:active {
     border-radius: 100px;
     border: 0;
     margin-bottom: 10px;
-    margin-top: 30px;
+    margin-top: 10px;
     font-family: "Poller One", cursive;
     color: red;
     font-size: 20px;
@@ -432,18 +441,30 @@ button:active {
 }
 
 .google-map {
-    height: 93vh;
+    height: 92vh;
     width: 100vw;
     background-color: black;
+   
+}
+
+.google-map a {
+ text-shadow:none;
 }
 
 .logout {
     position: fixed;
     right: 10px;
     bottom: 10px;
-    color: crimson;
+    color: rgb(0, 102, 255);
     cursor: pointer;
     font-family: "Black Ops One", cursive;
+    text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
+        -0 -0 5px black;
+    letter-spacing: 1px;
+}
+
+.logout:hover {
+    color: orangered;
 }
 
 .error {

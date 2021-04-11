@@ -35,14 +35,33 @@ const WithGoogleMapComponent = compose(
         var fixedDate = propsDate[2] + "-" + propsDate[1] + "-" + propsDate[0];
         // console.log("FIXED DATE", fixedDate);
     }
-
+    var x = 0;
+    function switcherHelper(e) {
+        if (e > 6) {
+            e = 1;
+        }
+        props.setSwitcher(e);
+        if (e === 1) {
+            props.setStyle(mapStyles.vintage);
+        } else if (e === 2) {
+            props.setStyle(mapStyles.blackRed);
+        } else if (e === 3) {
+            props.setStyle(mapStyles.pinky);
+        } else if (e === 4) {
+            props.setStyle(mapStyles.green);
+        } else if (e === 5) {
+            props.setStyle(mapStyles.normal);
+        } else if (e === 6) {
+            props.setStyle(mapStyles.modest);
+        }
+    }
 
     return (
         <GoogleMap
             zoom={3}
             center={props.center}
             options={{
-                styles: mapStyles.modest,
+                styles: props.style,
                 disableDefaultUI: true,
                 zoomControl: true,
             }}
@@ -129,12 +148,18 @@ const WithGoogleMapComponent = compose(
                     </div>
                 </InfoWindow>
             )}
+            <div
+                className="switch"
+                onClick={(e) => switcherHelper(props.switcher + 1)}
+            ></div>
         </GoogleMap>
     );
 });
 
 const MyMap = ({ gigsList, mapVisible }) => {
     const [selectedGig, setSelectedGig] = useState(null);
+    const [style, setStyle] = useState(mapStyles.modest);
+    const [switcher, setSwitcher] = useState(0);
     const [zoom, setZoom] = useState(4);
     const [center, setCenter] = useState({
         lat: 35.08702515417141,
@@ -153,6 +178,10 @@ const MyMap = ({ gigsList, mapVisible }) => {
                 setCenter={setCenter}
                 center={center}
                 setSelectedGig={setSelectedGig}
+                style={style}
+                setStyle={setStyle}
+                switcher={switcher}
+                setSwitcher={setSwitcher}
             />
         </div>
     );
