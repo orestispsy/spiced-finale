@@ -47,7 +47,15 @@ const WithGoogleMapComponent = compose(
             }}
         >
             {props.gigsList &&
-                props.gigsList.map((gig) => (
+                props.gigsList.map((gig) =>{ 
+                     var dot = "greendot.gif";
+                     if (gig.tour_name === "Life Tour") {
+                         dot = "giphy.gif";
+                         var scaleParam = 15;  
+                     }
+
+                    
+                    return (
                     <Marker
                         key={gig.id}
                         position={{
@@ -55,14 +63,14 @@ const WithGoogleMapComponent = compose(
                             lng: parseFloat(gig.lng),
                         }}
                         icon={{
-                            url: "greendot.gif",
-                            scaledSize: new window.google.maps.Size(30, 15),
+                            url: dot,
+                            scaledSize: new window.google.maps.Size(scaleParam || 30, 15),
                         }}
                         onClick={() => {
                             props.setSelectedGig(gig);
                         }}
                     />
-                ))}
+                )})}
             {props.selectedGig && (
                 <InfoWindow
                     position={{
