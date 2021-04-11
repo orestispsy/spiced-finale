@@ -7,7 +7,6 @@ body {
     background-image: url("sky.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    max-height: 100vh;
     max-width: 100vw;
 }
 
