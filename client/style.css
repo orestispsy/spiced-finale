@@ -294,7 +294,7 @@ button:active {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    margin: 5px;
+    margin-top: 5px;
 }
 
 .deleteWarn {
@@ -329,7 +329,7 @@ button:active {
 }
 
 .uploadSuccess {
-    background-image: url("rocket.gif");
+    background-image: url("rocket2.gif");
     background-size: cover;
     width: 45px;
     height: 45px;

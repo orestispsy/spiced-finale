@@ -170,7 +170,7 @@ app.post("/gig-creator", (req, res) => {
     db.addGig(date, venue, lat, lng, tour_name, city)
         .then(({ rows }) => {
             console.log("THIS GIG WAS CREATED", rows);
-            res.json({ data: rows[0] });
+            res.json({ success: true });
         })
         .catch((err) => {
             res.json({ error: true });

@@ -7,6 +7,7 @@ export default class GigCreator extends React.Component {
         super(props);
         this.state = {
             error: false,
+            success: false
             
         };
     }
@@ -16,7 +17,10 @@ export default class GigCreator extends React.Component {
             .post("/gig-creator", this.state)
             .then(({ data }) => {
                 // console.log("DATA", data.data);
-                if (data.data) {
+                if (data.success) {
+                    this.setState({
+                        success: true,
+                    });
                     location.replace("/");
                 } else {
                     // console.log("data fail");
@@ -103,6 +107,7 @@ export default class GigCreator extends React.Component {
                     {this.state.error && (
                         <p className="error">Oups! Something Went Wrong.</p>
                     )}
+
                     <button
                         onClick={() => {
                             this.handleClick();
@@ -111,6 +116,9 @@ export default class GigCreator extends React.Component {
                         Submit
                     </button>
                     <p className="required">*required</p>
+                    {this.state.success && (
+                        <div className="uploadSuccess"></div>
+                    )}
                 </form>
 
                 <Link to="/" className="backLink">
