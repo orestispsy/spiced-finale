@@ -35,10 +35,10 @@ const WithGoogleMapComponent = compose(
         var fixedDate = propsDate[2] + "-" + propsDate[1] + "-" + propsDate[0];
         // console.log("FIXED DATE", fixedDate);
     }
-    
+
     var x = 0;
     function switcherHelper(e) {
-        if (e > 6) {
+        if (e > 7) {
             e = 1;
         }
         props.setSwitcher(e);
@@ -49,10 +49,12 @@ const WithGoogleMapComponent = compose(
         } else if (e === 3) {
             props.setStyle(mapStyles.pinky);
         } else if (e === 4) {
-            props.setStyle(mapStyles.green);
+            props.setStyle(mapStyles.greenblack);
         } else if (e === 5) {
-            props.setStyle(mapStyles.normal);
+            props.setStyle(mapStyles.green);
         } else if (e === 6) {
+            props.setStyle(mapStyles.normal);
+        } else if (e === 7) {
             props.setStyle(mapStyles.modest);
         }
     }

@@ -702,6 +702,201 @@ const normal = [
     },
 ];
 
+const greenblack = [
+    {
+        featureType: "all",
+        elementType: "all",
+        stylers: [
+            {
+                hue: "#9bff00",
+            },
+        ],
+    },
+    {
+        featureType: "all",
+        elementType: "geometry",
+        stylers: [
+            {
+                hue: "#ff0000",
+            },
+            {
+                visibility: "on",
+            },
+        ],
+    },
+    {
+        featureType: "all",
+        elementType: "geometry.fill",
+        stylers: [
+            {
+                visibility: "on",
+            },
+            {
+                color: "#ffffff",
+            },
+        ],
+    },
+    {
+        featureType: "all",
+        elementType: "geometry.stroke",
+        stylers: [
+            {
+                visibility: "on",
+            },
+            {
+                hue: "#ff0000",
+            },
+        ],
+    },
+    {
+        featureType: "all",
+        elementType: "labels",
+        stylers: [
+            {
+                visibility: "on",
+            },
+            {
+                hue: "#fff400",
+            },
+        ],
+    },
+    {
+        featureType: "administrative.country",
+        elementType: "geometry",
+        stylers: [
+            {
+                visibility: "off",
+            },
+            {
+                color: "#160304",
+            },
+        ],
+    },
+    {
+        featureType: "administrative.country",
+        elementType: "geometry.fill",
+        stylers: [
+            {
+                color: "#b85252",
+            },
+            {
+                visibility: "on",
+            },
+        ],
+    },
+    {
+        featureType: "administrative.country",
+        elementType: "geometry.stroke",
+        stylers: [
+            {
+                color: "#21ff00",
+            },
+            {
+                visibility: "off",
+            },
+        ],
+    },
+    {
+        featureType: "administrative.country",
+        elementType: "labels",
+        stylers: [
+            {
+                visibility: "off",
+            },
+        ],
+    },
+    {
+        featureType: "administrative.province",
+        elementType: "geometry",
+        stylers: [
+            {
+                visibility: "off",
+            },
+            {
+                color: "#9d5252",
+            },
+        ],
+    },
+    {
+        featureType: "administrative.province",
+        elementType: "geometry.fill",
+        stylers: [
+            {
+                visibility: "off",
+            },
+            {
+                hue: "#ff0000",
+            },
+        ],
+    },
+    {
+        featureType: "administrative.province",
+        elementType: "geometry.stroke",
+        stylers: [
+            {
+                visibility: "on",
+            },
+            {
+                color: "#be9999",
+            },
+        ],
+    },
+    {
+        featureType: "administrative.locality",
+        elementType: "geometry",
+        stylers: [
+            {
+                visibility: "off",
+            },
+        ],
+    },
+    {
+        featureType: "administrative.neighborhood",
+        elementType: "geometry",
+        stylers: [
+            {
+                visibility: "off",
+            },
+        ],
+    },
+    {
+        featureType: "administrative.land_parcel",
+        elementType: "geometry",
+        stylers: [
+            {
+                visibility: "off",
+            },
+        ],
+    },
+    {
+        featureType: "landscape",
+        elementType: "all",
+        stylers: [
+            {
+                color: "#a5b11f",
+            },
+        ],
+    },
+    {
+        featureType: "landscape.natural.landcover",
+        elementType: "geometry",
+        stylers: [
+            {
+                visibility: "off",
+            },
+        ],
+    },
+    {
+        featureType: "water",
+        elementType: "geometry",
+        stylers: [
+            {
+                color: "#000000",
+            },
+        ],
+    },
+];
+
 const green = [
     {
         featureType: "all",
@@ -837,4 +1032,4 @@ const green = [
     },
 ];
 
-export default { modest, pinky, vintage, blackRed, normal, green}
+export default { modest, pinky, vintage, blackRed, normal, green, greenblack}
