@@ -35,6 +35,7 @@ const WithGoogleMapComponent = compose(
         var fixedDate = propsDate[2] + "-" + propsDate[1] + "-" + propsDate[0];
         // console.log("FIXED DATE", fixedDate);
     }
+    
     var x = 0;
     function switcherHelper(e) {
         if (e > 6) {

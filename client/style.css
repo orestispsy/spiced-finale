@@ -229,6 +229,7 @@ a:hover {
 .selectGig {
     margin: 0;
     padding: 0;
+    width:40vw
 }
 
 form {
@@ -245,7 +246,10 @@ form span {
     font-size: 2.2vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
+}
 
+form input {
+    margin-bottom: 3vh;
 }
 
 form button {
@@ -275,7 +279,7 @@ input {
     outline: transparent;
     border-radius: 100px;
     width: 15vmax;
-    height: 1.5vmax;
+    height: 1.7vmax;
     color: orangered;
     box-shadow: -0 0 4px black, 0 -0 4px black, -0 -0 4px black, -0 -0 4px black;
 }
@@ -306,7 +310,7 @@ button:active {
     color: red;
     background-color: transparent;
     font-size: 15px;
-    padding: 3px;
+    margin-top: 2vh;
     cursor: default;
     height: 17px;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
@@ -320,11 +324,11 @@ button:active {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    margin-top: 5px;
+    margin-top: 3vh;
 }
 
 .deleteWarn {
-    margin-top: 10px;
+    margin-top: 2vh;
     color: lime;
     background-color: transparent;
     text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
