@@ -13,6 +13,7 @@ body {
 
 .welcomeContainerBack {
     background: radial-gradient(closest-side, #00000000, #0000005e, #000000);
+    height: 120vh;
     
 }
 
