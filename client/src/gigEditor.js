@@ -215,7 +215,7 @@ export default class GigEditor extends React.Component {
                         }
                         autoComplete="none"
                         name="date"
-                        placeholder="date"
+                        placeholder="Date"
                         type="date"
                         onChange={(e) => this.handleChange(e)}
                         onClick={() => this.handleErrorMsg()}
