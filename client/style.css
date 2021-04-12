@@ -222,14 +222,15 @@ a:hover {
     margin: 5px;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
-        color:yellow;
+        color:white;
 }
 .gigListContainer h2 {
     margin: 10px;
+    color:crimson
 }
 
 .gigEditorContainer {
-    max-height: 95vh;
+    max-height: 95vh;  
 }
 
 .gigCreatorContainer {
@@ -440,6 +441,7 @@ button:active {
     text-align: center;
     display:flex;
     flex-direction: column;
+    letter-spacing: 1px;
 }
 
 .gigEntries:hover {

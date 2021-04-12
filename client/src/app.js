@@ -56,8 +56,7 @@ export default class App extends Component {
         console.log(this.state)
         this.setState({
             list: e
-        }),
-            () => console.log("State after setState: ", this.state);
+        })
     }
 
     logOut() {
@@ -109,7 +108,6 @@ export default class App extends Component {
                             <Main
                                 admin={this.state.admin}
                                 listSet={(e) => this.listSet(e)}
-                                list={this.list}
                             />
                         )}
                     />
@@ -144,7 +142,6 @@ export default class App extends Component {
                             <GigList
                                 gigsList={this.state.gigsList}
                                 listSet={(e) => this.listSet(e)}
-                                list={this.list}
                             />
                         )}
                     />

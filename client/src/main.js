@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-export default function Main({ admin, list, listSet }) {
+export default function Main({ admin, listSet }) {
       useEffect(function () {
           listSet(false);
       }, []);
