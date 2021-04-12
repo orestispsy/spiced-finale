@@ -7,12 +7,14 @@ import MyMap from "./map";
 import GigCreator from "./gigCreator";
 import GigEditor from "./gigEditor";
 import GigList from "./gigList";
+import { setMaxListeners } from "process";
 
 export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             maps: false,
+            list: false
         };
     }
 
@@ -50,6 +52,14 @@ export default class App extends Component {
         });
     }
 
+    listSet(e) {
+        console.log(this.state)
+        this.setState({
+            list: e
+        }),
+            () => console.log("State after setState: ", this.state);
+    }
+
     logOut() {
         axios
             .get("/logout")
@@ -69,7 +79,8 @@ export default class App extends Component {
             <BrowserRouter>
                 <div
                     className={
-                        (!this.state.maps && "appContainer") ||
+                        (this.state.list && "appContainerList") ||
+                        (!this.state.maps  && "appContainer") ||
                         (this.state.maps && "appContainerMap")
                     }
                 >
@@ -94,7 +105,13 @@ export default class App extends Component {
                     <Route
                         exact
                         path="/"
-                        render={(props) => <Main admin={this.state.admin} />}
+                        render={(props) => (
+                            <Main
+                                admin={this.state.admin}
+                                listSet={(e) => this.listSet(e)}
+                                list={this.list}
+                            />
+                        )}
                     />
                     <Route
                         exact
@@ -124,7 +141,11 @@ export default class App extends Component {
                         exact
                         path="/gig-list"
                         render={(props) => (
-                            <GigList gigsList={this.state.gigsList} />
+                            <GigList
+                                gigsList={this.state.gigsList}
+                                listSet={(e) => this.listSet(e)}
+                                list={this.list}
+                            />
                         )}
                     />
                 </div>

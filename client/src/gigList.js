@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-export default function GigList({ gigsList }) {
+export default function GigList({ gigsList, list, listSet }) {
+
+       useEffect(function () {
+           listSet(true)
+       }, []);
     // console.log("GIGSLIST IN GIGSLIST", gigsList);
     return (
         <div className="gigListContainer">

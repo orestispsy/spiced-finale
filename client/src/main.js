@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-export default function Main({ admin }) {
+export default function Main({ admin, list, listSet }) {
+      useEffect(function () {
+          listSet(false);
+      }, []);
+
     return (
         <div className="mainContainer">
             <div className="logoBack">
@@ -22,7 +27,9 @@ export default function Main({ admin }) {
                         <Link to="/gig-editor"> Edit</Link>
                     </>
                 )}
-                <Link to="/gig-list"> Gig List</Link>
+                <Link to="/gig-list">
+                    Gig List
+                </Link>
             </div>
         </div>
     );
