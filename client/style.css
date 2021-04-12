@@ -166,7 +166,7 @@ a:hover {
     position:fixed;
     left: 80px;
     bottom:4px;
-    z-index: 2345234523;
+    z-index: 1;
     cursor: pointer;
 }
 
@@ -213,18 +213,18 @@ a:hover {
 .gigListContainer h1 {
     margin-top: 50px;
     margin-bottom: 10px;
-    color: crimson;
+    color: white;
     text-shadow: -0 0 5px rgba(0, 0, 0, 0.7), 0 -0 5px rgba(0, 0, 0, 0.7),
         -0 -0 5px rgba(0, 0, 0, 0.7), -0 -0 5px rgba(0, 0, 0, 0.7);
 }
 
 .gigListContainer p {
-    margin: 0;
+    margin: 5px;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
+        color:yellow;
 }
 .gigListContainer h2 {
-    color: yellow;
     margin: 10px;
 }
 
@@ -434,11 +434,12 @@ button:active {
 }
 
 .gigEntries {
-    max-height: 66vh;
+    max-height: 70vh;
     overflow: hidden;
     font-size: 1vmax;
     text-align: center;
-
+    display:flex;
+    flex-direction: column;
 }
 
 .gigEntries:hover {

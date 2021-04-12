@@ -16,7 +16,27 @@ export default function GigList({ gigsList, list, listSet }) {
                     gigsList.map((gig) => (
                         <div key={gig.id}>
                             <h2>
-                                {gig.date} / {gig.venue} / {gig.city}
+                                <span
+                                    style={{
+                                        color: `lime`,
+                                    }}
+                                >
+                                    {gig.date}
+                                </span>{" "}
+                                <span
+                                    style={{
+                                        color: `crimson`,
+                                    }}
+                                >
+                                    {gig.venue}
+                                </span>{" "}
+                                <span
+                                    style={{
+                                        color: `white`,
+                                    }}
+                                >
+                                    {gig.city}
+                                </span>{" "}
                             </h2>
                         </div>
                     ))}
