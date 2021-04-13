@@ -36,7 +36,7 @@ export default class Registration extends React.Component {
         this.setState(
             {
                 [e.target.name]: e.target.value,
-            },
+            }
             // () => console.log("State after setState: ", this.state)
         );
     }
@@ -47,9 +47,18 @@ export default class Registration extends React.Component {
         });
     }
 
+    submitEnter(e) {
+        if (e.keyCode === 13) {
+            this.handleClick();
+        }
+    }
+
     render() {
         return (
-            <div className="registerContainer">
+            <div
+                className="registerContainer"
+                onKeyDown={(e) => this.submitEnter(e)}
+            >
                 <h1>Register</h1>
                 <span>Enter a Nickname</span>
                 <input
@@ -74,7 +83,7 @@ export default class Registration extends React.Component {
                 <span className="regSpan">
                     Joined Already?
                     <Link to="/" className="links">
-                         Login
+                        Login
                     </Link>
                 </span>
             </div>

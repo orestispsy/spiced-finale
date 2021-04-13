@@ -116,7 +116,7 @@ const WithGoogleMapComponent = compose(
                                 fontFamily: "Poller One, cursive",
                             }}
                         >
-                            {fixedDate}
+                            {props.selectedGig.date}
                         </div>
 
                         {props.selectedGig.poster && (

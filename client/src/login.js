@@ -43,10 +43,18 @@ export default class Login extends React.Component {
             error: false,
         });
     }
+    submitEnter (e) {
+        if (e.keyCode === 13) {
+            this.handleClick();
+        }
+    }
 
     render() {
         return (
-            <div className="loginContainer">
+            <div
+                className="loginContainer"
+                onKeyDown={(e) => this.submitEnter(e)}
+            >
                 <h1>Login</h1>
                 <span>Nickname</span>
                 <input
