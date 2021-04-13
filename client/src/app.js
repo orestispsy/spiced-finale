@@ -36,12 +36,6 @@ export default class App extends Component {
         axios
             .get("/get-gigs")
             .then(({ data }) => {
-                 for (var i = 0; i < data.data.length; i++) {
-                     let propsDate = data.data[i].date.split("-");
-                     let fixedDate =
-                         propsDate[2] + "-" + propsDate[1] + "-" + propsDate[0];
-                     data.data[i].date = fixedDate;
-                 }
                 this.setState({
                     gigsList: data.data,
                 });
