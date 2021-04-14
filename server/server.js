@@ -11,7 +11,7 @@ const io = require("socket.io")(server, {
             null,
             req.headers.referer.startsWith("http://localhost:3000") ||
                 req.headers.referer.startsWith(
-                    "http://thousandgigs.herokuapp.com"
+                    "https://thousandgigs.herokuapp.com"
                 )
         ),
 });

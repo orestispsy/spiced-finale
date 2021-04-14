@@ -15,7 +15,6 @@ export const init = (store) => {
 
         socket.on("chatMessages", (msgs) => {
             store.dispatch(chatMessages(msgs));
-            console.log("chatMessages received in socket", msgs);
         });
 
         socket.on("chatMessage", (msg) => {
@@ -30,7 +29,6 @@ export const init = (store) => {
           });
 
           socket.on("userLeft", (data) => {
-              console.log("After user is leaving: ", data);
               store.dispatch(userLeftAct(data));
           });
     }
