@@ -20,9 +20,9 @@ CREATE TABLE gigs (
     poster VARCHAR
 );
 
-CREATE TABLE posters (
-    id            SERIAL PRIMARY KEY,
-    gig_id INT REFERENCES gigs(id) NOT NULL,
-    poster      VARCHAR DEFAULT false,
-    created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE chatroom(
+    id SERIAL PRIMARY KEY,
+    msg_sender_id INT REFERENCES community(id) NOT NULL,
+    chat_msg TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

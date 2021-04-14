@@ -7,7 +7,7 @@ import MyMap from "./map";
 import GigCreator from "./gigCreator";
 import GigEditor from "./gigEditor";
 import GigList from "./gigList";
-import { setMaxListeners } from "process";
+import Chat from "./chat";
 
 export default class App extends Component {
     constructor(props) {
@@ -78,12 +78,19 @@ export default class App extends Component {
                 <div
                     className={
                         (this.state.list && "appContainerList") ||
-                        (!this.state.maps  && "appContainer") ||
+                        (!this.state.maps && "appContainer") ||
                         (this.state.maps && "appContainerMap")
                     }
                 >
                     <div className="appBar">
-                        <div className="barProfile">{this.state.nickname}</div>
+                        <div className="barLeftSection">
+                            <div className="barProfile">
+                                {this.state.nickname}
+                            </div>
+                            {!this.state.maps &&<Link to="/chat">
+                                <div className="chatBar"></div>
+                            </Link>}
+                        </div>
                         <a target="_blank" href="https://www.1000mods.com">
                             <div className="logo2Back">
                                 <div className="logo2"></div>
@@ -144,6 +151,7 @@ export default class App extends Component {
                             />
                         )}
                     />
+                    <Route path="/chat" render={(props) => <Chat />} />
                 </div>
             </BrowserRouter>
         );

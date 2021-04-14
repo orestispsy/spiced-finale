@@ -121,3 +121,32 @@ module.exports.check = () => {
 
     return db.query(q);
 };
+
+module.exports.getOnlineUsers = (Ids) => {
+    const q =
+        "SELECT id, nickname FROM community WHERE id = ANY($1)";
+    const params = [Ids];
+    return db.query(q, params);
+};
+
+module.exports.addChatMsg = (msg_sender_id, chat_msg) => {
+    const q = `
+        INSERT INTO chatroom (msg_sender_id, chat_msg)
+        VALUES ($1, $2)
+        RETURNING *
+    `;
+    const params = [msg_sender_id, chat_msg];
+    return db.query(q, params);
+};
+
+module.exports.getChatMsgs = () => {
+    const q = `
+        SELECT chatroom.id, nickname, msg_sender_id, chat_msg
+        FROM chatroom
+        JOIN community
+        ON (community.id = msg_sender_id)
+        ORDER BY chatroom.created_at DESC
+        LIMIT 10;
+    `;
+    return db.query(q);
+};

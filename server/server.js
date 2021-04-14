@@ -4,6 +4,18 @@ const compression = require("compression");
 const path = require("path");
 const db = require("./utils/db");
 
+const server = require("http").Server(app);
+const io = require("socket.io")(server, {
+    allowRequest: (req, callback) =>
+        callback(
+            null,
+            req.headers.referer.startsWith("http://localhost:3000") ||
+                req.headers.referer.startsWith(
+                    "http://thousandgigs.herokuapp.com"
+                )
+        ),
+});
+
 const multer = require("multer");
 const uidSafe = require("uid-safe");
 const s3 = require("./s3");
@@ -20,12 +32,10 @@ const cookieSessionMiddleware = cookieSession({
     maxAge: 1000 * 60 * 60 * 24 * 90,
 });
 
-app.use(
-    cookieSession({
-        secret: `Hands 0FF ! This one is #dangerous to taz.`,
-        maxAge: 1000 * 60 * 60 * 24 * 14,
-    })
-);
+app.use(cookieSessionMiddleware);
+io.use(function (socket, next) {
+    cookieSessionMiddleware(socket.request, socket.request.res, next);
+});
 
 app.use(compression());
 
@@ -77,6 +87,14 @@ app.get("/gig-creator", (req, res) => {
 });
 
 app.get("/gig-editor", (req, res) => {
+    if (!req.session.youGotIt) {
+        res.redirect("/");
+    } else {
+        res.sendFile(path.join(__dirname, "..", "client", "index.html"));
+    }
+});
+
+app.get("/chat", (req, res) => {
     if (!req.session.youGotIt) {
         res.redirect("/");
     } else {
@@ -300,8 +318,90 @@ app.get("*", function (req, res) {
 //     .catch((err) => console.log(err));
 
 
-var server = app.listen(process.env.PORT || 3001, () =>
+server.listen(process.env.PORT || 3001, () =>
     console.log(
-        `🟢 Listening Port ${server.address().port} ... ~ 1000mods Gig Guide ~`
+        `🟢 Listening Port ${server.address().port} ... ~ 100mods Gig Guide ~`
     )
 );
+
+let onlineUsers = {};
+io.on("connection", function (socket) {
+    if (!socket.request.session.userId) {
+        return socket.disconnect(true);
+    }
+
+    const userId = socket.request.session.userId;
+
+    onlineUsers[socket.id] = userId;
+
+    console.log("ONLINE USERS", onlineUsers);
+
+    const userIds = Object.values(onlineUsers);
+    console.log("USER IDSSSS", userIds);
+
+    let filteredUsers = userIds.filter(
+        (id, index) => userIds.indexOf(id) === index
+    );
+    console.log("filtered userIds connected:", filteredUsers);
+
+    db.getOnlineUsers(filteredUsers).then(({ rows }) => {
+        console.log(`filtered users rows`, rows);
+        io.emit("users online", rows);
+    });
+
+    db.getUser(userId)
+        .then(({ rows }) => {
+            socket.broadcast.emit("userJoined", rows);
+        })
+        .catch((err) => console.log(err));
+
+    db.getChatMsgs()
+        .then(({ rows }) => {
+            // console.log(" chat-messages ROWS", rows);
+            socket.emit("chatMessages", rows);
+        })
+        .catch((err) => console.log(err));
+
+    socket.on("A CHAT MSG", (msg) => {
+        db.addChatMsg(userId, msg)
+            .then(() => {
+                db.getChatMsgs()
+                    .then(({ rows }) => {
+                        console.log(" chat-messages ROWS IN MSG", rows);
+                        io.emit("chatMessage", rows[0]);
+                    })
+                    .catch((err) => console.log(err));
+            })
+            .catch((err) => console.log(err));
+    });
+
+    console.log("socket userId", userId);
+    console.log(`socket ${socket.id} connected`);
+
+    socket.on("disconnect", () => {
+        var userIdDisconnected = onlineUsers[socket.id];
+        var userStillOnline = false;
+        delete onlineUsers[socket.id];
+
+        for (var socketId in onlineUsers) {
+            if (onlineUsers[socketId] == userIdDisconnected) {
+                userStillOnline = true;
+            }
+        }
+        console.log("userStillOnline:", userStillOnline);
+        if (!userStillOnline) {
+            console.log(`userId: ${userIdDisconnected} disconnected!`);
+            io.emit("userLeft", userIdDisconnected);
+        }
+
+        console.log(`socket ${socket.id} disconnected`);
+    });
+
+    io.emit("trying to talk to everyone", {
+        userId,
+    });
+
+    socket.emit("welcome", {
+        message: "Welome. It is nice to see you",
+    });
+});
