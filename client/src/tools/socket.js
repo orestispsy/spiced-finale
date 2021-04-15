@@ -24,12 +24,12 @@ export const init = (store) => {
         socket.on("users online", (data) => {
             store.dispatch(onlineUsers(data));
         });
-          socket.on("adding connected user", (data) => {
-              store.dispatch(userJoinedAct(data));
-          });
+        socket.on("adding connected user", (data) => {
+            store.dispatch(userJoinedAct(data));
+        });
 
-          socket.on("userLeft", (data) => {
-              store.dispatch(userLeftAct(data));
-          });
+        socket.on("userLeft", (data) => {
+            store.dispatch(userLeftAct(data));
+        });
     }
 };

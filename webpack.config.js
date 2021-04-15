@@ -48,6 +48,13 @@ module.exports = () => ({
                     },
                 ],
             },
+            {
+                test: /\.mp3$/,
+                loader: "file-loader",
+                options: {
+                    name: "[path][name].[ext]",
+                },
+            },
         ],
     },
     plugins: [
@@ -57,7 +64,6 @@ module.exports = () => ({
         new webpack.DefinePlugin({
             "process.env": JSON.stringify(process.env),
             "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
-          
-        })
+        }),
     ],
 });

@@ -5,7 +5,16 @@ import { Link } from "react-router-dom";
 
 import OnlineUsers from "./onlineUsers";
 
+import useSound from "use-sound";
+
+import chatSfx from "./../public/chat.mp3";
+
 export default function Chat({}) {
+
+    
+    const [play] = useSound(chatSfx);
+
+
     const elemRef = useRef();
 
     const chatMessages = useSelector((state) => state && state.chatMessages);
@@ -21,6 +30,7 @@ export default function Chat({}) {
 
     const keyCheck = (e) => {
         if (e.key === "Enter") {
+            play()
             e.preventDefault();
             // console.log("TEXTAREA VALUE", e.target.value);
             socket.emit("A CHAT MSG", e.target.value);
