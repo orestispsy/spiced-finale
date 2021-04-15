@@ -9,7 +9,7 @@ export default function Chat({}) {
     const elemRef = useRef();
 
     const chatMessages = useSelector((state) => state && state.chatMessages);
-    console.log("THE MESSAGES", chatMessages);
+    // console.log("THE MESSAGES", chatMessages);
 
     useEffect(() => {
         if (elemRef.current) {
@@ -22,7 +22,7 @@ export default function Chat({}) {
     const keyCheck = (e) => {
         if (e.key === "Enter") {
             e.preventDefault();
-            console.log("TEXTAREA VALUE", e.target.value);
+            // console.log("TEXTAREA VALUE", e.target.value);
             socket.emit("A CHAT MSG", e.target.value);
             e.target.value = "";
         }

@@ -34,6 +34,6 @@ export default function (state = {}, action) {
             ),
         };
     }
-    console.log("NEXT State", nextState);
+    // console.log("NEXT State", nextState);
     return nextState;
 }
