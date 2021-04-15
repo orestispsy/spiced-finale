@@ -7,9 +7,10 @@ import useSound from "use-sound";
 import chatSfx from "./../public/chat.mp3";
 
 var count = 0;
-export default function OnlineUsers() {
+export default function OnlineUsers({mute}) {
+    console.log("mute", mute)
 
-    const [play] = useSound(chatSfx);
+    const [play] = useSound(chatSfx, { volume: 0.25 });
     
 
     const onlineUsers = useSelector((state) => state && state.onlineUsers);
@@ -21,7 +22,9 @@ export default function OnlineUsers() {
         }, []);
         useEffect(() => {
             if (onlineUsers.length >= count) {
-                play();
+                if (!mute) {
+                    play();
+                }
                 count++
                 console.log("count+", count);
             } else {
