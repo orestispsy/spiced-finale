@@ -17,8 +17,10 @@ export default function OnlineUsers({mute}) {
 
         // console.log("onlineUsers", onlineUsers);
         useEffect(() => {
-         count  = onlineUsers.length;
-          console.log("count", count);
+            if (onlineUsers) {
+                count = onlineUsers.length;
+                // console.log("count", count);
+            }
         }, []);
         useEffect(() => {
             if (onlineUsers.length >= count) {
@@ -26,10 +28,10 @@ export default function OnlineUsers({mute}) {
                     play();
                 }
                 count++
-                console.log("count+", count);
+                // console.log("count+", count);
             } else {
                 count--
-                console.log("count-", count);
+                // console.log("count-", count);
             }
         }, [onlineUsers]);
 
