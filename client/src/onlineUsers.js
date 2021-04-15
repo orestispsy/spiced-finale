@@ -23,15 +23,17 @@ export default function OnlineUsers({mute}) {
             }
         }, []);
         useEffect(() => {
-            if (onlineUsers.length >= count) {
-                if (!mute) {
-                    play();
+            if (onlineUsers){
+                if (onlineUsers.length >= count) {
+                    if (!mute) {
+                        play();
+                    }
+                    count++;
+                    // console.log("count+", count);
+                } else {
+                    count--;
+                    // console.log("count-", count);
                 }
-                count++
-                // console.log("count+", count);
-            } else {
-                count--
-                // console.log("count-", count);
             }
         }, [onlineUsers]);
 
