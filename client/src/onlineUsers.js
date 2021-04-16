@@ -8,7 +8,7 @@ import chatSfx from "./../public/chat.mp3";
 
 var count = 0;
 export default function OnlineUsers({mute}) {
-    console.log("mute", mute)
+    // console.log("mute", mute)
 
     const [play] = useSound(chatSfx, { volume: 0.25 });
     

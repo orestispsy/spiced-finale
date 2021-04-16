@@ -92,6 +92,43 @@ export default function Chat({}) {
                                         {msg.nickname} joined the chat !
                                     </p>
                                 );
+                            } else if (msg.chat_msg.includes("http")) {
+                                console.log("yes")
+                                return (
+                                    <p key={msg.id}>
+                                        <span>{msg.nickname}</span>
+                                        <a
+                                            href={msg.chat_msg}
+                                            target="_blank"
+                                            style={{
+                                                color: `coral`,
+                                                fontSize: `20px`
+                                            }}
+                                        >
+                                            {msg.chat_msg}
+                                        </a>
+                                    </p>
+                                );
+                            } else if (
+                                msg.chat_msg.includes("www") &&
+                                !msg.chat_msg.includes("http")
+                            ) {
+                                console.log("yes");
+                                return (
+                                    <p key={msg.id}>
+                                        <span>{msg.nickname}</span>
+                                        <a
+                                            href={"https://"+msg.chat_msg}
+                                            target="_blank"
+                                            style={{
+                                                color: `coral`,
+                                                fontSize: `20px`,
+                                            }}
+                                        >
+                                            {msg.chat_msg}
+                                        </a>
+                                    </p>
+                                );
                             } else {
                                 return (
                                     <p key={msg.id}>
