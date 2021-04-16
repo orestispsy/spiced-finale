@@ -94,7 +94,8 @@ export default function Chat({}) {
                                 );
                             } else if (
                                 msg.chat_msg.startsWith("http") &&
-                                !msg.chat_msg.includes(" ")
+                                !msg.chat_msg.includes(" ") &&
+                                (msg.chat_msg.length > 11)
                             ) {
                                 console.log("yes");
                                 return (
@@ -115,7 +116,8 @@ export default function Chat({}) {
                             } else if (
                                 msg.chat_msg.startsWith("www") &&
                                 !msg.chat_msg.includes("http") &&
-                                !msg.chat_msg.includes(" ")
+                                !msg.chat_msg.includes(" ") &&
+                                msg.chat_msg.length > 8
                             ) {
                                 console.log("yes");
                                 return (
