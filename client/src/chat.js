@@ -46,7 +46,7 @@ export default function Chat({}) {
     };
 
     const elem = document.querySelectorAll(".chatTypeLine");
-    var chatMSG=false
+    var chatMSG=false;
     const chat = (e) => {
         chatMSG = e.target.value
     };

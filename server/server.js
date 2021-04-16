@@ -16,6 +16,18 @@ const io = require("socket.io")(server, {
         ),
 });
 
+app.use(function(req, res, next) {
+  res.header(
+      "Access-Control-Allow-Origin",
+      "http://localhost:3000" || "https://thousandgigs.herokuapp.com"
+  ); 
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header("Access-Control-Allow-Headers",
+'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json,Authorization');
+  next();
+});
+
 const multer = require("multer");
 const uidSafe = require("uid-safe");
 const s3 = require("./s3");
