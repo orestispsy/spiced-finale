@@ -88,7 +88,7 @@ export default function Chat({}) {
                                 propsDate[0];
                             console.log("here", fixedDate);
 
-                                let propsTime = msg.created_at.slice(11, 18).split(":");
+                                let propsTime = msg.created_at.slice(11, 19).split(":");
                                 console.log("propsTime", propsTime)
                             var fixedTime =
                                 (JSON.parse(propsTime[0]) +
