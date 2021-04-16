@@ -92,8 +92,11 @@ export default function Chat({}) {
                                         {msg.nickname} joined the chat !
                                     </p>
                                 );
-                            } else if (msg.chat_msg.includes("http")) {
-                                console.log("yes")
+                            } else if (
+                                msg.chat_msg.startsWith("http") &&
+                                !msg.chat_msg.includes(" ")
+                            ) {
+                                console.log("yes");
                                 return (
                                     <p key={msg.id}>
                                         <span>{msg.nickname}</span>
@@ -102,7 +105,7 @@ export default function Chat({}) {
                                             target="_blank"
                                             style={{
                                                 color: `coral`,
-                                                fontSize: `20px`
+                                                fontSize: `20px`,
                                             }}
                                         >
                                             {msg.chat_msg}
@@ -110,15 +113,16 @@ export default function Chat({}) {
                                     </p>
                                 );
                             } else if (
-                                msg.chat_msg.includes("www") &&
-                                !msg.chat_msg.includes("http")
+                                msg.chat_msg.startsWith("www") &&
+                                !msg.chat_msg.includes("http") &&
+                                !msg.chat_msg.includes(" ")
                             ) {
                                 console.log("yes");
                                 return (
                                     <p key={msg.id}>
                                         <span>{msg.nickname}</span>
                                         <a
-                                            href={"https://"+msg.chat_msg}
+                                            href={"https://" + msg.chat_msg}
                                             target="_blank"
                                             style={{
                                                 color: `coral`,

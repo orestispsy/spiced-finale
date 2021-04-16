@@ -317,7 +317,6 @@ app.get("*", function (req, res) {
 
 //     .catch((err) => console.log(err));
 
-
 server.listen(process.env.PORT || 3001, () =>
     console.log(
         `🟢 Listening Port ${server.address().port} ... ~ 100mods Gig Guide ~`
@@ -362,16 +361,16 @@ io.on("connection", function (socket) {
         })
         .catch((err) => console.log(err));
 
-     db.addChatMsg(userId, "--##--entered--##--")
-         .then(() => {
-             db.getChatMsgs()
-                 .then(({ rows }) => {
-                     console.log(" chat-messages ROWS IN MSG", rows);
-                     io.emit("chatMessage", rows[0]);
-                 })
-                 .catch((err) => console.log(err));
-         })
-         .catch((err) => console.log(err));   
+    db.addChatMsg(userId, "--##--entered--##--")
+        .then(() => {
+            db.getChatMsgs()
+                .then(({ rows }) => {
+                    console.log(" chat-messages ROWS IN MSG", rows);
+                    io.emit("chatMessage", rows[0]);
+                })
+                .catch((err) => console.log(err));
+        })
+        .catch((err) => console.log(err));
 
     socket.on("A CHAT MSG", (msg) => {
         db.addChatMsg(userId, msg)
@@ -403,19 +402,19 @@ io.on("connection", function (socket) {
         if (!userStillOnline) {
             console.log(`userId: ${userIdDisconnected} disconnected!`);
             io.emit("userLeft", userIdDisconnected);
+            db.addChatMsg(userId, "--##--left--##--")
+                .then(() => {
+                    db.getChatMsgs()
+                        .then(({ rows }) => {
+                            console.log(" chat-messages ROWS IN MSG", rows);
+                            io.emit("chatMessage", rows[0]);
+                        })
+                        .catch((err) => console.log(err));
+                })
+                .catch((err) => console.log(err));
         }
 
         console.log(`socket ${socket.id} disconnected`);
-        db.addChatMsg(userId, "--##--left--##--")
-            .then(() => {
-                db.getChatMsgs()
-                    .then(({ rows }) => {
-                        console.log(" chat-messages ROWS IN MSG", rows);
-                        io.emit("chatMessage", rows[0]);
-                    })
-                    .catch((err) => console.log(err));
-            })
-            .catch((err) => console.log(err));
     });
 
     io.emit("trying to talk to everyone", {
