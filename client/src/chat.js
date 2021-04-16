@@ -69,12 +69,37 @@ export default function Chat({}) {
                 <h1>Live Chat</h1>
                 <div className="chatScreenBack">
                     <div className="chatScreen" ref={elemRef}>
-                        {chatMessages.map((msg) => (
-                            <p key={msg.id}>
-                                <span>{msg.nickname}</span>
-                                {msg.chat_msg}
-                            </p>
-                        ))}
+                        {chatMessages.map((msg) => {
+                            if (msg.chat_msg === "--##--left--##--") {
+                                return (
+                                    <p
+                                        style={{
+                                            color: `red`,
+                                        }}
+                                        key={msg.id}
+                                    >
+                                        {msg.nickname} has left the chat
+                                    </p>
+                                );
+                            } else if (msg.chat_msg === "--##--entered--##--") {
+                                return (
+                                    <p
+                                        style={{
+                                            color: `cyan`,
+                                        }}
+                                        key={msg.id}
+                                    >
+                                        {msg.nickname} joined the chat !
+                                    </p>
+                                );
+                            } else {
+                                return (
+                                    <p key={msg.id}>
+                                        <span>{msg.nickname}</span>
+                                        {msg.chat_msg}
+                                    </p>
+                                );
+                            }})}
                     </div>
                 </div>
                 <div className="typeLine">

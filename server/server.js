@@ -16,18 +16,6 @@ const io = require("socket.io")(server, {
         ),
 });
 
-app.use(function(req, res, next) {
-  res.header(
-      "Access-Control-Allow-Origin",
-      "http://localhost:3000" || "https://thousandgigs.herokuapp.com"
-  ); 
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header("Access-Control-Allow-Headers",
-'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json,Authorization');
-  next();
-});
-
 const multer = require("multer");
 const uidSafe = require("uid-safe");
 const s3 = require("./s3");
@@ -374,6 +362,17 @@ io.on("connection", function (socket) {
         })
         .catch((err) => console.log(err));
 
+     db.addChatMsg(userId, "--##--entered--##--")
+         .then(() => {
+             db.getChatMsgs()
+                 .then(({ rows }) => {
+                     console.log(" chat-messages ROWS IN MSG", rows);
+                     io.emit("chatMessage", rows[0]);
+                 })
+                 .catch((err) => console.log(err));
+         })
+         .catch((err) => console.log(err));   
+
     socket.on("A CHAT MSG", (msg) => {
         db.addChatMsg(userId, msg)
             .then(() => {
@@ -407,6 +406,16 @@ io.on("connection", function (socket) {
         }
 
         console.log(`socket ${socket.id} disconnected`);
+        db.addChatMsg(userId, "--##--left--##--")
+            .then(() => {
+                db.getChatMsgs()
+                    .then(({ rows }) => {
+                        console.log(" chat-messages ROWS IN MSG", rows);
+                        io.emit("chatMessage", rows[0]);
+                    })
+                    .catch((err) => console.log(err));
+            })
+            .catch((err) => console.log(err));
     });
 
     io.emit("trying to talk to everyone", {
