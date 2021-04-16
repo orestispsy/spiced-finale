@@ -68,6 +68,15 @@ export default function Chat({}) {
                 <div className="chatScreenBack">
                     <div className="chatScreen" ref={elemRef}>
                         {chatMessages.map((msg) => {
+                            var offset = new Date().getTimezoneOffset();
+                            var diff = offset / -60;
+                            console.log("diff",diff);
+                            
+                                            console.log("time", msg.created_at);
+                                            console.log(
+                                                "time2",
+                                                msg.created_at.slice(10, 18)
+                                            );
                             let propsDate = msg.created_at
                                 .slice(0, 10)
                                 .split("-");
@@ -78,6 +87,17 @@ export default function Chat({}) {
                                 "-" +
                                 propsDate[0];
                             console.log("here", fixedDate);
+
+                                let propsTime = msg.created_at.slice(11, 18).split(":");
+                                console.log("propsTime", propsTime)
+                            var fixedTime =
+                                (JSON.parse(propsTime[0]) +
+                                offset / -60) +
+                                ":" +
+                                propsTime[1] +
+                                ":" +
+                                propsTime[2];
+                                console.log("fixedtime",fixedTime)
 
                             console.log(msg.created_at.slice(0, 10));
                             console.log(msg.created_at.slice(11, 19));
@@ -160,8 +180,7 @@ export default function Chat({}) {
                                                 marginTop: `-20px`,
                                             }}
                                         >
-                                            {fixedDate}{" "}
-                                            {msg.created_at.slice(11, 19)}
+                                            {fixedDate} {fixedTime}
                                         </div>
                                     </>
                                 );
