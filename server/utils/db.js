@@ -141,7 +141,7 @@ module.exports.addChatMsg = (msg_sender_id, chat_msg) => {
 
 module.exports.getChatMsgs = () => {
     const q = `
-        SELECT chatroom.id, nickname, msg_sender_id, chat_msg
+        SELECT chatroom.id, chatroom.created_at, nickname, msg_sender_id, chat_msg
         FROM chatroom
         JOIN community
         ON (community.id = msg_sender_id)

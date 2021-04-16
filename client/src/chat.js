@@ -12,10 +12,8 @@ import chatSfx from "./../public/msg.mp3";
 export default function Chat({}) {
     const [mute, setMute] = useState(false);
 
-    
     const [play] = useSound(chatSfx, { volume: 0.75 });
-    const [playOff] = useSound(chatSfx, { volume: 0});
-
+    const [playOff] = useSound(chatSfx, { volume: 0 });
 
     const elemRef = useRef();
 
@@ -35,7 +33,7 @@ export default function Chat({}) {
 
     const keyCheck = (e) => {
         if (e.key === "Enter") {
-            if (e.target.value !== ""){
+            if (e.target.value !== "") {
                 e.preventDefault();
                 // console.log("TEXTAREA VALUE", e.target.value);
                 socket.emit("A CHAT MSG", e.target.value);
@@ -46,18 +44,18 @@ export default function Chat({}) {
     };
 
     const elem = document.querySelectorAll(".chatTypeLine");
-    var chatMSG=false;
+    var chatMSG = false;
     const chat = (e) => {
-        chatMSG = e.target.value
+        chatMSG = e.target.value;
     };
 
     const sendChatMsg = () => {
-       if (chatMSG) {
-           socket.emit("A CHAT MSG", chatMSG);
-           chatMSG = false;
-           elem[0].value = "";  
-       }           
-    }
+        if (chatMSG) {
+            socket.emit("A CHAT MSG", chatMSG);
+            chatMSG = false;
+            elem[0].value = "";
+        }
+    };
 
     if (!chatMessages) {
         return null;
@@ -70,6 +68,19 @@ export default function Chat({}) {
                 <div className="chatScreenBack">
                     <div className="chatScreen" ref={elemRef}>
                         {chatMessages.map((msg) => {
+                            let propsDate = msg.created_at
+                                .slice(0, 10)
+                                .split("-");
+                            var fixedDate =
+                                propsDate[2] +
+                                "-" +
+                                propsDate[1] +
+                                "-" +
+                                propsDate[0];
+                            console.log("here", fixedDate);
+
+                            console.log(msg.created_at.slice(0, 10));
+                            console.log(msg.created_at.slice(11, 19));
                             if (msg.chat_msg === "--##--left--##--") {
                                 return (
                                     <p
@@ -95,7 +106,7 @@ export default function Chat({}) {
                             } else if (
                                 msg.chat_msg.startsWith("http") &&
                                 !msg.chat_msg.includes(" ") &&
-                                (msg.chat_msg.length > 11)
+                                msg.chat_msg.length > 11
                             ) {
                                 console.log("yes");
                                 return (
@@ -137,30 +148,39 @@ export default function Chat({}) {
                                 );
                             } else {
                                 return (
-                                    <p key={msg.id}>
-                                        <span>{msg.nickname}</span>
-                                        {msg.chat_msg}
-                                    </p>
+                                    <>
+                                        <p key={msg.id}>
+                                            <span>{msg.nickname}</span>
+                                            {msg.chat_msg}
+                                        </p>
+                                        <div
+                                            style={{
+                                                color: `black`,
+                                                fontSize: `10px`,
+                                                marginTop: `-20px`,
+                                            }}
+                                        >
+                                            {fixedDate}{" "}
+                                            {msg.created_at.slice(11, 19)}
+                                        </div>
+                                    </>
                                 );
-                            }})}
+                            }
+                        })}
                     </div>
                 </div>
                 <div className="typeLine">
-                
-                        <textarea
-                           
-                            rows="1"
-                            className="chatTypeLine"
-                            onKeyDown={(e) => keyCheck(e)}
-                            onChange={(e) => {
-                                chat(e)}}
-                        ></textarea>
-                        <div
-                            className="sendChatMsg"
-                            onClick={() => sendChatMsg()}
-                        >
-                            ➤
-                        </div>
+                    <textarea
+                        rows="1"
+                        className="chatTypeLine"
+                        onKeyDown={(e) => keyCheck(e)}
+                        onChange={(e) => {
+                            chat(e);
+                        }}
+                    ></textarea>
+                    <div className="sendChatMsg" onClick={() => sendChatMsg()}>
+                        ➤
+                    </div>
 
                     {!mute && (
                         <div
