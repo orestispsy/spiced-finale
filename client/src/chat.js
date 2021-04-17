@@ -68,12 +68,36 @@ export default function Chat({}) {
                 <div className="chatScreenBack">
                     <div className="chatScreen" ref={elemRef}>
                         {chatMessages.map((msg) => {
-                            var offset = new Date().getTimezoneOffset();
-                            var diff = offset / -60;
-                            // console.log("diff", diff);
+                            // var msgLink = msg.chat_msg.split(" ");
+                            // console.log(msgLink)
+                            // var fixedLinkMsg="";
+                            // for (let i=0; i<=msgLink.length; i++) {
+                            //     if (
+                            //         msgLink[i]) {
+                            //             if  (msgLink[i].startsWith("http")) {
+                            //                 fixedLinkMsg = (
+                            //                     <a
+                            //                         href={msgLink[i]}
+                            //                         target="_blank"
+                            //                         style={{
+                            //                             color: `coral`,
+                            //                             fontSize: `20px`,
+                            //                         }}
+                            //                     >
+                            //                         {msgLink[i]}
+                            //                     </a>
+                            //                 );
+                                       
+                            //             }
+                                    
+                            //         }
+                                
+                            // }
 
-                            console.log("time", msg.created_at);
-                            console.log("time sliced", msg.created_at.slice(11, 19));
+                            //     console.log("there you go", msg.chat_msg)
+                           
+                            var diff = new Date().getTimezoneOffset() / -60;
+
                             let msgDate = msg.created_at
                                 .slice(0, 10)
                                 .split("-");

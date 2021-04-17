@@ -100,12 +100,10 @@ app.get("/gig-editor", (req, res) => {
 
 
 app.post("/login", (req, res) => {
-    console.log("login body", req.body);
     if (req.body.nickname && req.body.password) {
         const { nickname, password } = req.body;
         db.loginCheck(nickname)
             .then(({ rows }) => {
-                console.log("LOGIN ROWS", rows);
                 if (!rows) {
                     res.json({ data: null });
                 }
@@ -133,16 +131,13 @@ app.post("/login", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-    console.log("registration body", req.body);
     if (req.body.nickname && req.body.password) {
         const { nickname, password } = req.body;
         hash(password)
             .then((password_hash) => {
                 db.addRegistration(nickname, password_hash)
                     .then(({ rows }) => {
-                        console.log("REGISTRATION ROWS", rows);
                         req.session.userId = rows[0].id;
-                        console.log("USER ID IN COOKIE:", req.session.userId);
                         res.json({ data: rows[0] });
                     })
                     .catch((err) => {
@@ -164,7 +159,6 @@ app.get("/user-details", (req, res) => {
             if (rows[0].admin) {
                 req.session.youGotIt = "yes";
             }
-            console.log("GETTING USER ROWS", rows);
             res.json({ data: rows[0] });
         })
         .catch((err) => console.log(err));
@@ -181,10 +175,8 @@ app.post("/gig-creator", (req, res) => {
     if (!req.body.city) {
         city = "";
     }
-    console.log("REQ BODY", req.body);
     db.addGig(date, venue, lat, lng, tour_name, city)
         .then(({ rows }) => {
-            console.log("THIS GIG WAS CREATED", rows);
             res.json({ success: true });
         })
         .catch((err) => {
@@ -196,24 +188,20 @@ app.post("/gig-creator", (req, res) => {
 app.get("/get-gigs", (req, res) => {
     db.getGigs()
         .then(({ rows }) => {
-            // console.log("GETTING GIGS FULL LIST ROWS", rows);
             res.json({ data: rows });
         })
         .catch((err) => console.log(err));
 });
 
 app.post("/get-gig-to-edit", (req, res) => {
-    console.log("GET GIG TO EDIT REQ BODY", req.body);
     db.getGigToEdit(req.body.selectedGig)
         .then(({ rows }) => {
-            console.log("GETTING GIG TO EDIT ROWS", rows);
             res.json({ data: rows[0] });
         })
         .catch((err) => console.log(err));
 });
 
 app.post("/gig-update", (req, res) => {
-    console.log("UPDATE GIG REQ BODY", req.body);
     let { date, venue, lat, lng, tour_name, city } = req.body.selectedGig;
     db.updateGig(
         req.body.date || date,
@@ -224,7 +212,6 @@ app.post("/gig-update", (req, res) => {
         req.body.city || city
     )
         .then(({ rows }) => {
-            console.log("GETTING UPDATED GIG ROWS", rows);
             res.json({ data: rows[0] });
         })
         .catch((err) => {
@@ -234,14 +221,11 @@ app.post("/gig-update", (req, res) => {
 });
 
 app.post("/gig-delete", (req, res) => {
-    console.log("DELETE GIG REQ BODY", req.body);
     db.getGig(req.body.selectedGig.id)
         .then(({ rows }) => {
             if (rows[0].poster) {
                 const file2delete = rows[0].poster.replace(s3Url, "");
-                console.log("file2delete", file2delete);
                 s3.delete(file2delete);
-                console.log("pic delete done");
             }
         })
         .catch((err) => {
@@ -251,7 +235,6 @@ app.post("/gig-delete", (req, res) => {
 
     db.deleteGig(req.body.selectedGig.date)
         .then(({ rows }) => {
-            console.log("GETTING DELETED GIG ROWS", rows);
             res.json({ deleteSuccess: true });
         })
         .catch((err) => console.log(err));
@@ -259,10 +242,7 @@ app.post("/gig-delete", (req, res) => {
 
 app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     const { filename } = req.file;
-
-    console.log("filename", filename);
     const data = JSON.parse(req.body.data);
-    console.log("DATA FROM UPLOADERS FORMDATA", data);
 
     db.getGig(data.id)
         .then(({ rows }) => {
@@ -277,6 +257,7 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
             res.json({ error: true });
             console.log(err);
         });
+
     db.addImage(data.id, s3Url + filename)
         .then(({ rows }) => {
             console.log(rows, "THIS POSTER WAS CREATED", rows[0].poster);
@@ -333,15 +314,14 @@ io.on("connection", function (socket) {
     console.log("ONLINE USERS", onlineUsers);
 
     const userIds = Object.values(onlineUsers);
-    console.log("USER IDSSSS", userIds);
+    console.log("USER IDS", userIds);
 
     let filteredUsers = userIds.filter(
         (id, index) => userIds.indexOf(id) === index
     );
-    console.log("filtered userIds connected:", filteredUsers);
-
+    
     db.getOnlineUsers(filteredUsers).then(({ rows }) => {
-        console.log(`filtered users rows`, rows);
+        console.log(`filtered users`, rows);
         io.emit("users online", rows);
     });
 
