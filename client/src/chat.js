@@ -70,37 +70,35 @@ export default function Chat({}) {
                         {chatMessages.map((msg) => {
                             var offset = new Date().getTimezoneOffset();
                             var diff = offset / -60;
-                            console.log("diff",diff);
-                            
-                                            console.log("time", msg.created_at);
-                                            console.log(
-                                                "time2",
-                                                msg.created_at.slice(10, 18)
-                                            );
-                            let propsDate = msg.created_at
+                            // console.log("diff", diff);
+
+                            // console.log("time", msg.created_at);
+                            // console.log("time sliced", msg.created_at.slice(11, 19));
+                            let msgDate = msg.created_at
                                 .slice(0, 10)
                                 .split("-");
                             var fixedDate =
-                                propsDate[2] +
+                                msgDate[2] +
                                 "-" +
-                                propsDate[1] +
+                                msgDate[1] +
                                 "-" +
-                                propsDate[0];
-                            console.log("here", fixedDate);
+                                msgDate[0];
 
-                                let propsTime = msg.created_at.slice(11, 19).split(":");
-                                console.log("propsTime", propsTime)
+                            let msgTime = msg.created_at
+                                .slice(11, 19)
+                                .split(":");
+
+                            if (msgTime[0].startsWith("0")) {
+                                msgTime[0]=msgTime[0].slice(1,2)
+                            }
                             var fixedTime =
-                                (JSON.parse(propsTime[0]) +
-                                offset / -60) +
+                                JSON.parse(msgTime[0]) +
+                                diff+
                                 ":" +
-                                propsTime[1] +
+                                msgTime[1] +
                                 ":" +
-                                propsTime[2];
-                                console.log("fixedtime",fixedTime)
+                                msgTime[2];
 
-                            console.log(msg.created_at.slice(0, 10));
-                            console.log(msg.created_at.slice(11, 19));
                             if (msg.chat_msg === "--##--left--##--") {
                                 return (
                                     <p
@@ -124,52 +122,44 @@ export default function Chat({}) {
                                     </p>
                                 );
                             } else if (
-                                msg.chat_msg.startsWith("http") &&
-                                !msg.chat_msg.includes(" ") &&
-                                msg.chat_msg.length > 11
+                                (msg.chat_msg.startsWith("http") &&
+                                    !msg.chat_msg.includes(" ") &&
+                                    msg.chat_msg.length > 11) ||
+                                (msg.chat_msg.startsWith("www") &&
+                                    !msg.chat_msg.includes("http") &&
+                                    !msg.chat_msg.includes(" ") &&
+                                    msg.chat_msg.length > 8)
                             ) {
-                                console.log("yes");
                                 return (
-                                    <p key={msg.id}>
-                                        <span>{msg.nickname}</span>
-                                        <a
-                                            href={msg.chat_msg}
-                                            target="_blank"
+                                    <div key={msg.id}>
+                                        <p>
+                                            <span>{msg.nickname}</span>
+                                            <a
+                                                href={"https://" + msg.chat_msg}
+                                                target="_blank"
+                                                style={{
+                                                    color: `coral`,
+                                                    fontSize: `20px`,
+                                                }}
+                                            >
+                                                {msg.chat_msg}
+                                            </a>
+                                        </p>
+                                        <div
                                             style={{
-                                                color: `coral`,
-                                                fontSize: `20px`,
+                                                color: `black`,
+                                                fontSize: `10px`,
+                                                marginTop: `-20px`,
                                             }}
                                         >
-                                            {msg.chat_msg}
-                                        </a>
-                                    </p>
-                                );
-                            } else if (
-                                msg.chat_msg.startsWith("www") &&
-                                !msg.chat_msg.includes("http") &&
-                                !msg.chat_msg.includes(" ") &&
-                                msg.chat_msg.length > 8
-                            ) {
-                                console.log("yes");
-                                return (
-                                    <p key={msg.id}>
-                                        <span>{msg.nickname}</span>
-                                        <a
-                                            href={"https://" + msg.chat_msg}
-                                            target="_blank"
-                                            style={{
-                                                color: `coral`,
-                                                fontSize: `20px`,
-                                            }}
-                                        >
-                                            {msg.chat_msg}
-                                        </a>
-                                    </p>
+                                            {fixedDate} {fixedTime}
+                                        </div>
+                                    </div>
                                 );
                             } else {
                                 return (
-                                    <>
-                                        <p key={msg.id}>
+                                    <div key={msg.id}>
+                                        <p>
                                             <span>{msg.nickname}</span>
                                             {msg.chat_msg}
                                         </p>
@@ -182,7 +172,7 @@ export default function Chat({}) {
                                         >
                                             {fixedDate} {fixedTime}
                                         </div>
-                                    </>
+                                    </div>
                                 );
                             }
                         })}
