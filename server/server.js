@@ -70,37 +70,34 @@ app.get("/welcome", (req, res) => {
     }
 });
 
-app.get("/login", (req, res) => {
-    if (req.session.userId) {
-        res.redirect("/");
-    } else {
-        res.sendFile(path.join(__dirname, "..", "client", "index.html"));
-    }
-});
-
 app.get("/gig-creator", (req, res) => {
-    if (!req.session.youGotIt) {
-        res.redirect("/");
-    } else {
-        res.sendFile(path.join(__dirname, "..", "client", "index.html"));
-    }
+    db.getUser(req.session.userId)
+        .then(({ rows }) => {
+            if (!rows[0].admin) {
+                res.redirect("/");
+            } else {
+                res.sendFile(
+                    path.join(__dirname, "..", "client", "index.html")
+                );
+            }
+        })
+        .catch((err) => console.log(err));
 });
 
 app.get("/gig-editor", (req, res) => {
-    if (!req.session.youGotIt) {
-        res.redirect("/");
-    } else {
-        res.sendFile(path.join(__dirname, "..", "client", "index.html"));
-    }
+    db.getUser(req.session.userId)
+        .then(({ rows }) => {
+            if (!rows[0].admin) {
+                res.redirect("/");
+            } else {
+                res.sendFile(
+                    path.join(__dirname, "..", "client", "index.html")
+                );
+            }
+        })
+        .catch((err) => console.log(err));
 });
 
-app.get("/chat", (req, res) => {
-    if (!req.session.youGotIt) {
-        res.redirect("/");
-    } else {
-        res.sendFile(path.join(__dirname, "..", "client", "index.html"));
-    }
-});
 
 app.post("/login", (req, res) => {
     console.log("login body", req.body);

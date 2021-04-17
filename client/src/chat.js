@@ -72,8 +72,8 @@ export default function Chat({}) {
                             var diff = offset / -60;
                             // console.log("diff", diff);
 
-                            // console.log("time", msg.created_at);
-                            // console.log("time sliced", msg.created_at.slice(11, 19));
+                            console.log("time", msg.created_at);
+                            console.log("time sliced", msg.created_at.slice(11, 19));
                             let msgDate = msg.created_at
                                 .slice(0, 10)
                                 .split("-");
@@ -122,20 +122,16 @@ export default function Chat({}) {
                                     </p>
                                 );
                             } else if (
-                                (msg.chat_msg.startsWith("http") &&
-                                    !msg.chat_msg.includes(" ") &&
-                                    msg.chat_msg.length > 11) ||
-                                (msg.chat_msg.startsWith("www") &&
-                                    !msg.chat_msg.includes("http") &&
-                                    !msg.chat_msg.includes(" ") &&
-                                    msg.chat_msg.length > 8)
+                                msg.chat_msg.startsWith("http") &&
+                                !msg.chat_msg.includes(" ") &&
+                                msg.chat_msg.length > 11
                             ) {
                                 return (
                                     <div key={msg.id}>
                                         <p>
                                             <span>{msg.nickname}</span>
                                             <a
-                                                href={"https://" + msg.chat_msg}
+                                                href={msg.chat_msg}
                                                 target="_blank"
                                                 style={{
                                                     color: `coral`,
@@ -144,6 +140,38 @@ export default function Chat({}) {
                                             >
                                                 {msg.chat_msg}
                                             </a>
+                                        </p>
+                                        <div
+                                            style={{
+                                                color: `black`,
+                                                fontSize: `10px`,
+                                                marginTop: `-20px`,
+                                            }}
+                                        >
+                                            {fixedDate} {fixedTime}
+                                        </div>
+                                    </div>
+                                );
+                            } else if (
+                                msg.chat_msg.startsWith("www") &&
+                                !msg.chat_msg.includes("http") &&
+                                !msg.chat_msg.includes(" ") &&
+                                msg.chat_msg.length > 8
+                            ) {
+                                return (
+                                    <div key={msg.id}>
+                                        <p>
+                                            <span>{msg.nickname}</span>
+                                            <a
+                                            href={"https://" + msg.chat_msg}
+                                            target="_blank"
+                                            style={{
+                                                color: `coral`,
+                                                fontSize: `20px`,
+                                            }}
+                                        >
+                                            {msg.chat_msg}
+                                        </a>
                                         </p>
                                         <div
                                             style={{
