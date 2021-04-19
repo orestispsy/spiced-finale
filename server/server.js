@@ -8,15 +8,12 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server, {
     allowRequest: (req, callback) =>
         callback(
-            null,
-            req.headers.referer.startsWith(
-                "https://thousandgigs.herokuapp.com"
-            ) || req.headers.referer.startsWith("http://localhost:3000")
+            null, req.headers.referer.startsWith(
+                    "https://thousandgigs.herokuapp.com"
+                ) ||
+            req.headers.referer.startsWith("http://localhost:3000")
+                
         ),
-    cors: {
-        origin: "https://thousandgigs.herokuapp.com",
-        methods: ["GET", "POST"],
-    },
 });
 
 
@@ -398,7 +395,7 @@ io.on("connection", function (socket) {
                 .then(() => {
                     db.getChatMsgs()
                         .then(({ rows }) => {
-                            io.emit("chatMessage", rows[0]);
+                            
                         })
                         .catch((err) => console.log(err));
                 })
