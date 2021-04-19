@@ -40,15 +40,18 @@ export default function OnlineUsers({mute}) {
     return (
         <>
             <div className="onlineUsers">
-                {onlineUsers &&
-                    onlineUsers.map((msg) => (
-                        <p key={msg.id}>
-                            <span>
-                                {msg.nickname}
-                            </span>
-                            {msg.chat_msg}
-                        </p>
-                    ))}
+                <Link to="/">
+                    <div className="onlineUsersRedDot"></div>
+                </Link>
+                <div className="chatUserHeadline">Online</div>
+                <div className="usersBack">
+                    {onlineUsers &&
+                        onlineUsers.map((msg) => (
+                            <p key={msg.id}>
+                                <span>{msg.nickname}</span>
+                            </p>
+                        ))}
+                </div>
             </div>
         </>
     );

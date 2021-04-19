@@ -52,7 +52,7 @@ export default function Chat({}) {
         chatMSG = e.target.value;
     };
 
-    const sendChatMsg = () => {
+    const sendChatMsgButton = () => {
         if (chatMSG) {
             socket.emit("A CHAT MSG", chatMSG);
             chatMSG = false;
@@ -75,7 +75,7 @@ export default function Chat({}) {
     return (
         <div className="chatContainerBack">
             <div className="chatContainer">
-                <h1>Live Chat</h1>
+                <h1>Chat</h1>
                 <div className="chatScreenBack">
                     <div className="chatScreen" ref={elemRef}>
                         {chatMessages.map((msg) => {
@@ -137,9 +137,8 @@ export default function Chat({}) {
                             if (msg.chat_msg === "--##--left--##--") {
                                 return (
                                     <p
-                                        style={{
-                                            color: `red`,
-                                        }}
+                                        className="userLeaves"
+                                       
                                         key={msg.id}
                                     >
                                         {msg.nickname} has left the chat
@@ -148,9 +147,8 @@ export default function Chat({}) {
                             } else if (msg.chat_msg === "--##--entered--##--") {
                                 return (
                                     <p
-                                        style={{
-                                            color: `cyan`,
-                                        }}
+                                        className="userEnters"
+                                      
                                         key={msg.id}
                                     >
                                         {msg.nickname} joined the chat !
@@ -169,7 +167,7 @@ export default function Chat({}) {
                                                 href={msg.chat_msg}
                                                 target="_blank"
                                                 style={{
-                                                    color: `coral`,
+                                                    color: `greenolive`,
                                                     fontSize: `20px`,
                                                 }}
                                             >
@@ -261,7 +259,10 @@ export default function Chat({}) {
                             chat(e);
                         }}
                     ></textarea>
-                    <div className="sendChatMsg" onClick={() => sendChatMsg()}>
+                    <div
+                        className="sendChatMsg"
+                        onClick={() => sendChatMsgButton()}
+                    >
                         ➤
                     </div>
 
@@ -280,9 +281,6 @@ export default function Chat({}) {
                 </div>
             </div>
             <OnlineUsers mute={mute} />
-            <Link to="/" className="backLink">
-                Back
-            </Link>
         </div>
     );
 }

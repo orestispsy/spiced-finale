@@ -632,7 +632,9 @@ font-family: 'Ultra', serif; */
         -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
     border-radius: 1vh;
     padding-top: 10px;
-    margin-top: 1vmax
+    margin-top: 1vmax;
+            background: radial-gradient(closest-side, #05303380,#e08216c2, #ff6767, #b1151542);
+
 }
 
 .chatContainerBack {
@@ -641,15 +643,17 @@ font-family: 'Ultra', serif; */
     align-self: center;
     min-width: 50vw;
     margin-bottom: auto;
+
 }
 
 .chatContainer h1 {
-    font-size: 80px;
+    font-size: 100px;
     color: rgb(255, 0, 0);
     text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
         -1px -1px 0 white;
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
     font-family: "Black Ops One", cursive;
+
 }
 
 .chatScreen {
@@ -697,26 +701,42 @@ font-family: 'Ultra', serif; */
 
 
 .chatScreen p {
-    color: rgb(166, 255, 0);
-    font-family: "Jockey One", sans-serif;
+    color: yellow;
+   font-family: "Poller One", cursive;
     font-size: 20px;
-    text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
-        -0 -0 5px black;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
 }
 
 .chatScreen p span {
     margin-right: 5px;
-    color: rgba(0, 255, 42, 0.842);
+    color:rgb(255, 64, 64);
     font-family: "Black Ops One", cursive;
     font-size: 18.5px;
-    text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
-        -0 -0 5px black;
+
+        text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+}
+
+.userEnters {
+    color: lime !important;
+}
+
+.userLeaves {
+   color: rgba(252, 25, 221, 0.747) !important
+}
+
+.chatUserHeadline {
+    color:yellow;
+    font-size:40px;
+    text-align: center;
+    margin:0;
 }
 
 .onlineUsers {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     align-self: center;
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
@@ -724,16 +744,48 @@ font-family: 'Ultra', serif; */
     margin-left:1vmax;
     background-color: rgba(255, 0, 0, 0.158);
     border-radius:10px;
+    width:20vw;
+    height:60vh;
+    overflow-y: scroll;
 }
+
+.usersBack {
+    height:fit-content;
+    width:15vmax;
+    height:35vmax;
+    border: 1px double rgba(243, 45, 227, 0.164);
+    margin:1vmax;
+    padding:0.2vmax;
+    overflow-x:scroll;
+    text-align:center;
+}
+
+.onlineUsersRedDot {
+    background-image: url("redBall.gif");
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    width:2vmax;
+    height:2vmax;      
+    margin:1vmax;
+}          
+
 
 .onlineUsers span {
     margin:1vmax;
     color: lime;
+    font-family: "Black Ops One", cursive;
+    font-size:1.5vmax;
+    overflow-x:scroll;
+    text-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
+        -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
 }
 
-.onlineUsers img {
-    width:50px;
-    height:50px;
+.colorSelector {
+    width:2vmax;
+    background-color:transparent;
+    box-shadow: none;
+    border-radius: 50%;
 }
 
 .mute {
@@ -766,3 +818,4 @@ font-family: 'Ultra', serif; */
     height:2vmax;
     margin:1vmax;
 }
+
