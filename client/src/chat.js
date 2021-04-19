@@ -9,6 +9,9 @@ import useSound from "use-sound";
 
 import chatSfx from "./../public/msg.mp3";
 
+let emoji = require("./tools/customEmoj.json");
+console.log(emoji)
+
 export default function Chat({}) {
     const [mute, setMute] = useState(false);
 
@@ -57,6 +60,14 @@ export default function Chat({}) {
         }
     };
 
+    // const sendEmoji = (e) => {
+    //     chatMSG = e.target.attributes[0].value;
+    //     var y = `<img src=${chatMSG}><img>`;
+    //      console.log(chatMSG);
+    //         socket.emit("A CHAT MSG", y);
+    // };
+
+
     if (!chatMessages) {
         return null;
     }
@@ -87,15 +98,15 @@ export default function Chat({}) {
                             //                         {msgLink[i]}
                             //                     </a>
                             //                 );
-                                       
+
                             //             }
-                                    
+
                             //         }
-                                
+
                             // }
 
                             //     console.log("there you go", msg.chat_msg)
-                           
+
                             var diff = new Date().getTimezoneOffset() / -60;
 
                             let msgDate = msg.created_at
@@ -113,11 +124,11 @@ export default function Chat({}) {
                                 .split(":");
 
                             if (msgTime[0].startsWith("0")) {
-                                msgTime[0]=msgTime[0].slice(1,2)
+                                msgTime[0] = msgTime[0].slice(1, 2);
                             }
                             var fixedTime =
                                 JSON.parse(msgTime[0]) +
-                                diff+
+                                diff +
                                 ":" +
                                 msgTime[1] +
                                 ":" +
@@ -187,15 +198,15 @@ export default function Chat({}) {
                                         <p>
                                             <span>{msg.nickname}</span>
                                             <a
-                                            href={"https://" + msg.chat_msg}
-                                            target="_blank"
-                                            style={{
-                                                color: `coral`,
-                                                fontSize: `20px`,
-                                            }}
-                                        >
-                                            {msg.chat_msg}
-                                        </a>
+                                                href={"https://" + msg.chat_msg}
+                                                target="_blank"
+                                                style={{
+                                                    color: `coral`,
+                                                    fontSize: `20px`,
+                                                }}
+                                            >
+                                                {msg.chat_msg}
+                                            </a>
                                         </p>
                                         <div
                                             style={{
@@ -230,6 +241,17 @@ export default function Chat({}) {
                         })}
                     </div>
                 </div>
+                {/* <div className="emoticons">
+                    {emoji &&
+                        emoji.map((emoj) => (
+                            <p key={emoj.id}>
+                                <img
+                                    src={emoj.url}
+                                    onClick={(e) => sendEmoji(e)}
+                                ></img>
+                            </p>
+                        ))}
+                </div> */}
                 <div className="typeLine">
                     <textarea
                         rows="1"

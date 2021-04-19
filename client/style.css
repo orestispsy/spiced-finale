@@ -755,3 +755,14 @@ font-family: 'Ultra', serif; */
     background-size: cover;
     margin-left: 1vmax;
 }
+
+.emoticons {
+    display: flex;
+    flex-direction:row;
+}
+
+.emoticons img {
+    width:2vmax;
+    height:2vmax;
+    margin:1vmax;
+}
