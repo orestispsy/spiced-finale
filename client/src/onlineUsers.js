@@ -44,6 +44,8 @@ export default function OnlineUsers({mute}) {
                     <div className="onlineUsersRedDot"></div>
                 </Link>
                 <div className="chatUserHeadline">Online</div>
+                <div className="onlineUserCounter">{onlineUsers.length}</div>
+
                 <div className="usersBack">
                     {onlineUsers &&
                         onlineUsers.map((msg) => (

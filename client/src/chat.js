@@ -75,7 +75,7 @@ export default function Chat({}) {
     return (
         <div className="chatContainerBack">
             <div className="chatContainer">
-                <h1>Chat</h1>
+                <h1>Chat Room</h1>
                 <div className="chatScreenBack">
                     <div className="chatScreen" ref={elemRef}>
                         {chatMessages.map((msg) => {

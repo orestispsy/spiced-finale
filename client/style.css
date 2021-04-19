@@ -647,7 +647,7 @@ font-family: 'Ultra', serif; */
 }
 
 .chatContainer h1 {
-    font-size: 6vmax;
+    font-size: 4vmax;
     color: rgb(255, 0, 0);
     text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
         -1px -1px 0 white;
@@ -768,6 +768,17 @@ font-family: 'Ultra', serif; */
     text-align:center;
 }
 
+.onlineUserCounter {
+    color:yellow;
+    border-radius: 50%;
+    border:1px solid green;
+    padding:5px;
+    text-align: center;
+    width:15px;
+    height:15px;
+    font-size:14px;
+}
+
 .onlineUsersRedDot {
     background-image: url("redBall.gif");
     background-position: center;
@@ -830,6 +841,17 @@ font-family: 'Ultra', serif; */
     height:2vmax;
     margin:15px;
     cursor:grab
-
 }
+
+.emoticons p {
+    margin:0;
+}
+
+.emoticons p:hover {
+   
+    background-color: rgba(255, 255, 255, 0.226);
+    border-radius:50%;
+}
+
+
 
