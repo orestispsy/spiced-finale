@@ -43,8 +43,12 @@ export default function OnlineUsers({mute}) {
                 <Link to="/">
                     <div className="onlineUsersRedDot"></div>
                 </Link>
-                <div className="chatUserHeadline">Online</div>
-                <div className="onlineUserCounter">{onlineUsers.length}</div>
+                <div className="chatUserHeadline">
+                    Online
+                    <span className="onlineUserCounter">
+                        {onlineUsers.length}
+                    </span>
+                </div>
 
                 <div className="usersBack">
                     {onlineUsers &&

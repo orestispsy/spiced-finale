@@ -671,6 +671,7 @@ font-family: 'Ultra', serif; */
     margin-right: 30px;
 }
 
+
 .chatTypeLine {
     width: 40vmax;
     height: 1.5vmax;
@@ -735,7 +736,6 @@ font-family: 'Ultra', serif; */
 
 .chatUserHeadline {
     color:rgba(255, 255, 255, 0.418);
-
     font-size:2.5vmax;
     text-align: center;
     margin:0;
@@ -769,14 +769,12 @@ font-family: 'Ultra', serif; */
 }
 
 .onlineUserCounter {
-    color:yellow;
+    color: yellow !important;
     border-radius: 50%;
     border:1px solid green;
-    padding:5px;
+    padding:5px 10px 5px 10px;
     text-align: center;
-    width:15px;
-    height:15px;
-    font-size:14px;
+    font-size:15px !important;
 }
 
 .onlineUsersRedDot {

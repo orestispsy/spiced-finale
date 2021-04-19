@@ -231,7 +231,7 @@ export default function Chat({}) {
                                         </p>
                                         <div
                                             style={{
-                                                color: `black`,
+                                                color: `yellow`,
                                                 fontSize: `10px`,
                                                 marginTop: `-20px`,
                                             }}
