@@ -46,7 +46,7 @@ export default function OnlineUsers({mute}) {
                 <div className="chatUserHeadline">
                     Online
                     <span className="onlineUserCounter">
-                        {onlineUsers.length}
+                        {onlineUsers && onlineUsers.length}
                     </span>
                 </div>
 
