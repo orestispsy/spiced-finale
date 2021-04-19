@@ -690,6 +690,8 @@ font-family: 'Ultra', serif; */
     align-items: center;
     align-self: center;
     padding: 1vmax;
+    padding-top:0;
+
 }
 
 .sendChatMsg {
@@ -716,6 +718,11 @@ font-family: 'Ultra', serif; */
 
         text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
+}
+
+.emojis {
+    width:50px;
+    height:50px;
 }
 
 .userEnters {
@@ -774,7 +781,7 @@ font-family: 'Ultra', serif; */
 
 .onlineUsers span {
     margin:1vmax;
-    color: lime;
+    color: rgb(0, 255, 0);
     font-family: "Black Ops One", cursive;
     font-size:1.5vmax;
     overflow-x:scroll;
@@ -812,11 +819,15 @@ font-family: 'Ultra', serif; */
 .emoticons {
     display: flex;
     flex-direction:row;
+    align-content: space-between;
+    justify-content: space-evenly;
+    width:30vw;
 }
 
 .emoticons img {
     width:2vmax;
     height:2vmax;
-    margin:1vmax;
+    cursor:grab
+
 }
 

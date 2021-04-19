@@ -60,12 +60,12 @@ export default function Chat({}) {
         }
     };
 
-    // const sendEmoji = (e) => {
-    //     chatMSG = e.target.attributes[0].value;
-    //     var y = `<img src=${chatMSG}><img>`;
-    //      console.log(chatMSG);
-    //         socket.emit("A CHAT MSG", y);
-    // };
+    const sendEmoji = (e) => {
+        chatMSG = e.target.attributes[0].value;
+        var y = `<img class="emojis" src=${chatMSG}><img>`;
+         console.log(chatMSG);
+            socket.emit("A CHAT MSG", y);
+    };
 
 
     if (!chatMessages) {
@@ -222,7 +222,12 @@ export default function Chat({}) {
                                     <div key={msg.id}>
                                         <p>
                                             <span>{msg.nickname}</span>
-                                            {msg.chat_msg}
+                                            <div
+                                                dangerouslySetInnerHTML={{
+                                                    __html: msg.chat_msg,
+                                                }}
+                                            >     
+                                            </div>
                                         </p>
                                         <div
                                             style={{
@@ -239,7 +244,7 @@ export default function Chat({}) {
                         })}
                     </div>
                 </div>
-                {/* <div className="emoticons">
+                <div className="emoticons">
                     {emoji &&
                         emoji.map((emoj) => (
                             <p key={emoj.id}>
@@ -249,7 +254,7 @@ export default function Chat({}) {
                                 ></img>
                             </p>
                         ))}
-                </div> */}
+                </div>
                 <div className="typeLine">
                     <textarea
                         rows="1"

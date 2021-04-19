@@ -6,6 +6,30 @@
       {
           "id": "02",
           "url": "./../chat/sad.png"
-      }
+      },
+       {
+           "id": "03",
+           "url": "./../chat/thumbsup.png"
+       },
+       {
+           "id": "04",
+           "url": "./../chat/thumbsdown.png"
+       },
+       {
+           "id": "05",
+           "url": "./../chat/middle.png"
+       },
+       {
+           "id": "06",
+           "url": "./../chat/styles.png"
+       },
+       {
+           "id": "07",
+           "url": "./../chat/party.png"
+       },
+       {
+           "id": "08",
+           "url": "./../chat/rocket.gif"
+       }
 
 ]
