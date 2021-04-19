@@ -647,7 +647,7 @@ font-family: 'Ultra', serif; */
 }
 
 .chatContainer h1 {
-    font-size: 100px;
+    font-size: 6vmax;
     color: rgb(255, 0, 0);
     text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
         -1px -1px 0 white;
@@ -729,7 +729,7 @@ font-family: 'Ultra', serif; */
 .chatUserHeadline {
     color:rgba(255, 255, 255, 0.418);
 
-    font-size:2vmax;
+    font-size:2.5vmax;
     text-align: center;
     margin:0;
 }
