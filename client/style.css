@@ -729,7 +729,7 @@ font-family: 'Ultra', serif; */
 .chatUserHeadline {
     color:rgba(255, 255, 255, 0.418);
 
-    font-size:40px;
+    font-size:2vmax;
     text-align: center;
     margin:0;
 }
@@ -745,14 +745,14 @@ font-family: 'Ultra', serif; */
     margin-left:1vmax;
     background-color: rgba(255, 0, 0, 0.158);
     border-radius:10px;
-    width:20vw;
+    width:18vw;
     height:60vh;
     overflow-y: scroll;
 }
 
 .usersBack {
     height:fit-content;
-    width:15vmax;
+    width:12vmax;
     height:35vmax;
     border: 1px double rgba(243, 45, 227, 0.164);
     margin:1vmax;
