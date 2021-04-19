@@ -98,7 +98,6 @@ app.get("/gig-editor", (req, res) => {
         .catch((err) => console.log(err));
 });
 
-
 app.post("/login", (req, res) => {
     if (req.body.nickname && req.body.password) {
         const { nickname, password } = req.body;
@@ -311,17 +310,28 @@ io.on("connection", function (socket) {
 
     onlineUsers[socket.id] = userId;
 
-    console.log("ONLINE USERS", onlineUsers);
+    // console.log("ONLINE USERS", onlineUsers);
 
     const userIds = Object.values(onlineUsers);
-    console.log("USER IDS", userIds);
+    // console.log("USER IDS", userIds);
+
+    var count = 0;
+    userIds.forEach((item) => {
+        if (item == userId) {
+            count++;
+        }
+    });
+
+    // console.log("COUNT", count);
 
     let filteredUsers = userIds.filter(
-        (id, index) => userIds.indexOf(id) === index
+        (id, user) => userIds.indexOf(id) === user
     );
-    
+
+    // console.log("filtered users", filteredUsers);
+
     db.getOnlineUsers(filteredUsers).then(({ rows }) => {
-        console.log(`filtered users`, rows);
+        // console.log(`filtered users`, rows);
         io.emit("users online", rows);
     });
 
@@ -338,23 +348,23 @@ io.on("connection", function (socket) {
         })
         .catch((err) => console.log(err));
 
-    db.addChatMsg(userId, "--##--entered--##--")
-        .then(() => {
-            db.getChatMsgs()
-                .then(({ rows }) => {
-                    console.log(" chat-messages ROWS IN MSG", rows);
-                    io.emit("chatMessage", rows[0]);
-                })
-                .catch((err) => console.log(err));
-        })
-        .catch((err) => console.log(err));
+    if (count < 2) {
+        db.addChatMsg(userId, "--##--entered--##--")
+            .then(() => {
+                db.getChatMsgs()
+                    .then(({ rows }) => {
+                        io.emit("chatMessage", rows[0]);
+                    })
+                    .catch((err) => console.log(err));
+            })
+            .catch((err) => console.log(err));
+    }
 
     socket.on("A CHAT MSG", (msg) => {
         db.addChatMsg(userId, msg)
             .then(() => {
                 db.getChatMsgs()
                     .then(({ rows }) => {
-                        console.log(" chat-messages ROWS IN MSG", rows);
                         io.emit("chatMessage", rows[0]);
                     })
                     .catch((err) => console.log(err));
@@ -362,8 +372,8 @@ io.on("connection", function (socket) {
             .catch((err) => console.log(err));
     });
 
-    console.log("socket userId", userId);
-    console.log(`socket ${socket.id} connected`);
+    // console.log("socket userId", userId);
+    // console.log(`socket ${socket.id} connected`);
 
     socket.on("disconnect", () => {
         var userIdDisconnected = onlineUsers[socket.id];
@@ -375,15 +385,14 @@ io.on("connection", function (socket) {
                 userStillOnline = true;
             }
         }
-        console.log("userStillOnline:", userStillOnline);
+        // console.log("userStillOnline:", userStillOnline);
         if (!userStillOnline) {
-            console.log(`userId: ${userIdDisconnected} disconnected!`);
+            // console.log(`userId: ${userIdDisconnected} disconnected!`);
             io.emit("userLeft", userIdDisconnected);
             db.addChatMsg(userId, "--##--left--##--")
                 .then(() => {
                     db.getChatMsgs()
                         .then(({ rows }) => {
-                            console.log(" chat-messages ROWS IN MSG", rows);
                             io.emit("chatMessage", rows[0]);
                         })
                         .catch((err) => console.log(err));
@@ -391,7 +400,7 @@ io.on("connection", function (socket) {
                 .catch((err) => console.log(err));
         }
 
-        console.log(`socket ${socket.id} disconnected`);
+        // console.log(`socket ${socket.id} disconnected`);
     });
 
     io.emit("trying to talk to everyone", {
@@ -399,6 +408,6 @@ io.on("connection", function (socket) {
     });
 
     socket.emit("welcome", {
-        message: "Welome. It is nice to see you",
+        message: "Welcome. It is nice to see you",
     });
 });
