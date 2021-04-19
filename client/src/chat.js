@@ -63,7 +63,6 @@ export default function Chat({}) {
     const sendEmoji = (e) => {
         chatMSG = e.target.attributes[0].value;
         var y = `<img class="emojis" src=${chatMSG}><img>`;
-         console.log(chatMSG);
             socket.emit("A CHAT MSG", y);
     };
 
