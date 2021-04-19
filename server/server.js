@@ -13,7 +13,10 @@ const io = require("socket.io")(server, {
                 "https://thousandgigs.herokuapp.com"
             ) || req.headers.referer.startsWith("http://localhost:3000")
         ),
-    cors: { origin: "*" },
+    cors: {
+        origin: "https://thousandgigs.herokuapp.com",
+        methods: ["GET", "POST"],
+    },
 });
 
 
