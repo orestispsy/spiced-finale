@@ -25,11 +25,26 @@
        },
        {
            "id": "07",
-           "url": "./../chat/party.png"
+           "url": "./../chat/beer.png"
        },
        {
            "id": "08",
+           "url": "./../chat/smoke.png"
+       },
+       {
+           "id": "09",
+           "url": "./../chat/party.png"
+       },
+       {
+           "id": "10",
+           "url": "./../chat/sun.png"
+       },
+       {
+           "id": "11",
+           "url": "./../chat/force.png"
+       },
+       {
+           "id": "12",
            "url": "./../chat/rocket.gif"
        }
-
 ]

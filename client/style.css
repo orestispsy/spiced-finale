@@ -819,14 +819,16 @@ font-family: 'Ultra', serif; */
 .emoticons {
     display: flex;
     flex-direction:row;
-    align-content: space-between;
-    justify-content: space-evenly;
-    width:30vw;
+    align-content: center;
+    justify-content: space-around;
+    align-self: center;
+    min-width:20vw;
 }
 
 .emoticons img {
     width:2vmax;
     height:2vmax;
+    margin:15px;
     cursor:grab
 
 }
