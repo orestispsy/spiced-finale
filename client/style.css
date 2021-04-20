@@ -748,8 +748,8 @@ font-family: 'Ultra', serif; */
     color: rgba(255, 255, 255, 0.418);
     font-size: 2.5vmax;
     text-align: center;
-    margin: 0;
-    margin-left:5vmax;
+    align-self:center;
+    width:auto;
 }
 
 .onlineUsers {
@@ -780,17 +780,15 @@ font-family: 'Ultra', serif; */
 }
 
 .onlineUserCounter {
-    color: yellow !important;
+    font-family: "Black Ops One", cursive;
+    color: yellow;
     border-radius: 50%;
     border: 1px solid rgba(243, 45, 227, 0.164);
-    padding: 0 10px 0 10px;
+    width:30px;
+    height:30px;
     text-align: center;
-    position:sticky;
-    margin:20px !important;
-    position:relative;
-    top: 2vmax;
-    right:7vmax;
-    font-size:1vmax !important;
+    font-size:1.8vmax;
+    margin-bottom:-2.5vmax;
 }
 
 .onlineUsersRedDot {
@@ -803,7 +801,7 @@ font-family: 'Ultra', serif; */
     margin: 1vmax;
 }
 
-.onlineUsers span {
+.onlineUsers p span {
     margin: 1vmax;
     color: rgb(0, 255, 0);
     font-family: "Black Ops One", cursive;

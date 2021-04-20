@@ -10,13 +10,11 @@ import useSound from "use-sound";
 import chatSfx from "./../public/msg.mp3";
 
 let emoji = require("./tools/customEmoj.json");
-console.log(emoji);
 
 export default function Chat({}) {
     const [mute, setMute] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.75 });
-    const [playOff] = useSound(chatSfx, { volume: 0 });
 
     const elemRef = useRef();
 
