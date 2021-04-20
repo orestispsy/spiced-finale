@@ -780,15 +780,14 @@ font-family: 'Ultra', serif; */
 }
 
 .onlineUserCounter {
-    font-family: "Black Ops One", cursive;
     color: yellow;
     border-radius: 50%;
     border: 1px solid rgba(243, 45, 227, 0.164);
-    width:30px;
-    height:30px;
+    min-width:1.5vmax;
+    min-height:1.5vmax;
     text-align: center;
-    font-size:1.8vmax;
-    margin-bottom:-2.5vmax;
+    font-size:1.3vmax;
+    margin-bottom:-1.8vmax;
 }
 
 .onlineUsersRedDot {
