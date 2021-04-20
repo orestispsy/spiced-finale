@@ -221,12 +221,12 @@ export default function Chat({}) {
                 <div className="emoticons">
                     {emoji &&
                         emoji.map((emoj) => (
-                            <p key={emoj.id}>
+                            <div key={emoj.id}>
                                 <img
                                     src={emoj.url}
                                     onClick={(e) => sendEmoji(e)}
                                 ></img>
-                            </p>
+                            </div>
                         ))}
                 </div>
                 <div className="typeLine">

@@ -46,5 +46,46 @@
     {
         "id": "12",
         "url": "./../chat/rocket.gif"
+    },
+    {
+        "id": "13",
+        "url": "./../chat/notes.gif"
+    },
+    {
+        "id": "14",
+        "url": "./../chat/fire.gif"
+    },
+    {
+        "id": "15",
+        "url": "./../chat/herman.webp"
+    },
+    {
+        "id": "16",
+        "url": "./../chat/guybrush.gif"
+    },
+    {
+        "id": "17",
+        "url": "./../chat/fire2.gif"
+    },
+    {
+        "id": "18",
+        "url": "./../chat/drums.gif"
+    },
+    {
+        "id": "19",
+        "url": "./../chat/bat.gif"
+    },
+    {
+        "id": "20",
+        "url": "./../chat/panic.gif"
+    },
+    {
+        "id": "21",
+        "url": "./../chat/42.gif"
+    },
+    
+    {
+        "id": "22",
+        "url": "./../chat/mandala.gif"
     }
 ]
