@@ -766,8 +766,9 @@ font-family: 'Ultra', serif; */
     margin:10px !important;
     text-align:center !important;
     background-color: rgba(0, 0, 0, 0.13);
-    width:25vmax;
-    align-self:center
+    width:22vmax;
+    align-self:center;
+    border-radius:2vh;
 }
 
 .userLeaves {
@@ -775,8 +776,9 @@ font-family: 'Ultra', serif; */
      margin:10px !important;
     text-align:center !important;
     background-color: rgba(255, 0, 0, 0.13);
-    width:25vmax;
-    align-self:center
+    width:22vmax;
+    align-self:center;
+    border-radius:2vh;
 
 }
 
