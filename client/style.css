@@ -728,14 +728,14 @@ font-family: 'Ultra', serif; */
 }
 
 .date {
-    color:rgba(0, 0, 0, 0.411);
+    color:rgba(0, 0, 0, 0.692);
     letter-spacing: 1px;
     text-align:right;
     font-size: 10px;
 }
 
 .time{
-    color:rgba(255, 255, 255, 0.507);
+    color:rgba(255, 255, 255, 0.719);
     letter-spacing: 1px;
     text-align:right;
     font-size:15px;
@@ -800,12 +800,17 @@ font-family: 'Ultra', serif; */
     overflow-y: scroll;
 }
 
+.onlineUsers a {
+    margin:0;
+}
+
 .usersBack {
     height: fit-content;
     width: 12vmax;
     height: 35vmax;
     border: 1px double rgba(243, 45, 227, 0.164);
     margin: 1vmax;
+    margin-bottom: 2vmax;
     padding: 0.2vmax;
     overflow-x: scroll;
     text-align: center;
