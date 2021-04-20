@@ -762,6 +762,7 @@ font-family: 'Ultra', serif; */
     background-color: rgba(255, 255, 255, 0.027);
 }
 .userEnters {
+    font-size:1vmax !important;
     color: lime !important;
     margin:10px !important;
     text-align:center !important;
@@ -772,6 +773,7 @@ font-family: 'Ultra', serif; */
 }
 
 .userLeaves {
+    font-size:1vmax !important;
     color: rgba(252, 25, 221, 0.747) !important;
      margin:10px !important;
     text-align:center !important;
@@ -832,7 +834,7 @@ font-family: 'Ultra', serif; */
     min-width:1.5vmax;
     min-height:1.5vmax;
     text-align: center;
-    font-size:1.3vmax;
+    font-size:1.1vmax;
     margin-bottom:-1.8vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
@@ -922,5 +924,14 @@ font-family: 'Ultra', serif; */
     border-radius: 50%;
     position: relative;
     top:-0.3vmax;
-   
+}
+
+.emojiBarToggler {
+    background-image: url("styles.png");
+    background-position: center;
+    background-size:cover;
+    width:2vmax;
+    height:2vmax;
+    margin:1vmax;
+    cursor:pointer;
 }

@@ -21,7 +21,7 @@
     },
     {
         "id": "06",
-        "url": "./../chat/styles.png"
+        "url": "./../chat/rainbow.png"
     },
     {
         "id": "07",
@@ -83,9 +83,44 @@
         "id": "21",
         "url": "./../chat/42.gif"
     },
-    
     {
         "id": "22",
         "url": "./../chat/mandala.gif"
+    },
+    {
+        "id": "23",
+        "url": "./../chat/bomb.gif"
+    },
+    {
+        "id": "24",
+        "url": "./../chat/radial.gif"
+    },
+    {
+        "id": "25",
+        "url": "./../chat/smoke.gif"
+    },
+    {
+        "id": "26",
+        "url": "./../chat/bob.gif"
+    },
+    {
+        "id": "27",
+        "url": "./../chat/patrick.gif"
+    },
+    {
+        "id": "28",
+        "url": "./../chat/bart.gif"
+    },
+    {
+        "id": "28",
+        "url": "./../chat/headbanger.gif"
+    },
+    {
+        "id": "29",
+        "url": "./../chat/tomato.gif"
+    },
+    {
+        "id": "30",
+        "url": "./../chat/chaos.gif"
     }
 ]

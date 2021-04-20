@@ -12,6 +12,8 @@ import chatSfx from "./../public/msg.mp3";
 let emoji = require("./tools/customEmoj.json");
 
 export default function Chat({}) {
+
+    const [emojiBar, setEmojiBar] = useState(false)
     const [mute, setMute] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.75 });
@@ -63,6 +65,11 @@ export default function Chat({}) {
         var y = `<img class="emojis" src=${chatMSG}><img>`;
         socket.emit("A CHAT MSG", y);
     };
+
+    const toggleEmojibar = ()  => {
+         setEmojiBar(!emojiBar)
+
+    }
 
     if (!chatMessages) {
         return null;
@@ -202,34 +209,34 @@ export default function Chat({}) {
                                                 }}
                                             ></div>
                                         </p>
-                                        <div className="date"
-                                            
-                                        >
-                                            {fixedDate}
-                                        </div>
-                                        <div className="time"
-                                            
-                                        >
-                                            {fixedTime}
-                                        </div>
+                                        <div className="date">{fixedDate}</div>
+                                        <div className="time">{fixedTime}</div>
                                     </div>
                                 );
                             }
                         })}
                     </div>
                 </div>
-                <div className="emoticons">
-                    {emoji &&
-                        emoji.map((emoj) => (
-                            <div key={emoj.id}>
-                                <img
-                                    src={emoj.url}
-                                    onClick={(e) => sendEmoji(e)}
-                                ></img>
-                            </div>
-                        ))}
-                </div>
+
+                {emojiBar && (
+                    <div className="emoticons">
+                        {emoji &&
+                            emoji.map((emoj) => (
+                                <div key={emoj.id}>
+                                    <img
+                                        src={emoj.url}
+                                        onClick={(e) => sendEmoji(e)}
+                                    ></img>
+                                </div>
+                            ))}
+                    </div>
+                )}
                 <div className="typeLine">
+                    <div
+                        className="emojiBarToggler"
+                        onClick={() => toggleEmojibar()}
+                    >
+                    </div>
                     <textarea
                         rows="1"
                         className="chatTypeLine"
