@@ -654,6 +654,8 @@ font-family: 'Ultra', serif; */
     margin-bottom: auto;
 }
 
+
+
 .chatContainer h1 {
     font-size: 4vmax;
     color: rgb(255, 0, 0);
@@ -677,6 +679,8 @@ font-family: 'Ultra', serif; */
     margin-left: 30px;
     margin-right: 30px;
 }
+
+
 
 .chatTypeLine {
     width: 40vmax;
@@ -719,6 +723,22 @@ font-family: 'Ultra', serif; */
     font-size: 20px;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
+    letter-spacing: 0.15vmax;
+    margin:0;
+}
+
+.date {
+    color:rgba(0, 0, 0, 0.411);
+    letter-spacing: 1px;
+    text-align:right;
+    font-size: 10px;
+}
+
+.time{
+    color:rgba(255, 255, 255, 0.507);
+    letter-spacing: 1px;
+    text-align:right;
+    font-size:15px;
 }
 
 .chatScreen p span {
@@ -732,16 +752,28 @@ font-family: 'Ultra', serif; */
 }
 
 .emojis {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
+    margin:1vmax;
+    margin-left: 20vw;
 }
 
+.chatPost {
+    margin:20px 20px 20px 0;
+    background-color: rgba(255, 255, 255, 0.027);
+}
 .userEnters {
     color: lime !important;
+    margin:20px !important;
+    text-align:center !important;
+    background-color: rgba(255, 0, 0, 0.13);
 }
 
 .userLeaves {
     color: rgba(252, 25, 221, 0.747) !important;
+     margin:20px !important;
+    text-align:center !important;
+    background-color: rgba(255, 0, 0, 0.13);
 }
 
 .chatUserHeadline {
@@ -777,17 +809,24 @@ font-family: 'Ultra', serif; */
     padding: 0.2vmax;
     overflow-x: scroll;
     text-align: center;
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
+        -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
+
 }
 
 .onlineUserCounter {
     color: yellow;
     border-radius: 50%;
-    border: 1px solid rgba(243, 45, 227, 0.164);
+    border: 1px solid rgba(240, 243, 45, 0.315);
     min-width:1.5vmax;
     min-height:1.5vmax;
     text-align: center;
     font-size:1.3vmax;
     margin-bottom:-1.8vmax;
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
+        -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
+        background-color: rgba(0, 0, 0, 0.384);
+        z-index: 2;
 }
 
 .onlineUsersRedDot {
@@ -856,14 +895,14 @@ font-family: 'Ultra', serif; */
 
 .emoticons p {
     margin: 0;
-    margin-top:0.5vmax;
+    margin-top:1vmax;
 }
 
 .emoticons p:hover {
-    background-color: rgba(255, 255, 255, 0.123);
+    background-color: rgba(0, 0, 0, 0.062);
     border-radius: 50%;
     position: relative;
     top:-0.3vmax;
-   box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
-        -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
+   box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
+        -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
 }

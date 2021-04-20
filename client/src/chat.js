@@ -207,7 +207,7 @@ export default function Chat({}) {
                                 );
                             } else {
                                 return (
-                                    <div key={msg.id}>
+                                    <div className="chatPost" key={msg.id}>
                                         <p>
                                             <span>{msg.nickname}</span>
                                             <div
@@ -216,14 +216,15 @@ export default function Chat({}) {
                                                 }}
                                             ></div>
                                         </p>
-                                        <div
-                                            style={{
-                                                color: `black`,
-                                                fontSize: `10px`,
-                                                marginTop: `-20px`,
-                                            }}
+                                        <div className="date"
+                                            
                                         >
-                                            {fixedDate} {fixedTime}
+                                            {fixedDate}
+                                        </div>
+                                        <div className="time"
+                                            
+                                        >
+                                            {fixedTime}
                                         </div>
                                     </div>
                                 );
