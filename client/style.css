@@ -7,18 +7,23 @@ body {
     background-image: url("sky.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    
+
     max-width: 100vw;
 }
 
 .welcomeContainerBack {
-    background: radial-gradient(closest-side, #33052b8c,#000000c2, #000000f5, #000000);
+    background: radial-gradient(
+        closest-side,
+        #33052b8c,
+        #000000c2,
+        #000000f5,
+        #000000
+    );
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
 
 .welcomeContainer {
@@ -82,7 +87,6 @@ a:hover {
 .registerContainer a:hover,
 .loginContainer a:hover {
     color: rgb(0, 132, 255);
-
 }
 
 .registerContainer h1,
@@ -130,7 +134,7 @@ a:hover {
 }
 
 .appContainerList {
-      display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -158,20 +162,20 @@ a:hover {
 }
 
 .barLeftSection {
-     display: flex;
+    display: flex;
     flex-direction: row;
-     align-items: center;
+    align-items: center;
 }
 
 .switch {
-    width:20px;
-    height:20px;
+    width: 20px;
+    height: 20px;
     background-image: url("ymc.png");
     background-size: cover;
     background-position: center;
-    position:fixed;
+    position: fixed;
     left: 80px;
-    bottom:4px;
+    bottom: 4px;
     z-index: 1;
     cursor: pointer;
 }
@@ -193,7 +197,7 @@ a:hover {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    margin: 10px;  
+    margin: 10px;
 }
 
 .mainContainer,
@@ -212,7 +216,7 @@ a:hover {
 }
 
 .mainMenu a {
-    font-size:2.2vmax;
+    font-size: 2.2vmax;
     margin: 5px 0 10px 0;
 }
 
@@ -228,15 +232,15 @@ a:hover {
     margin: 5px;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
-        color:white;
+    color: white;
 }
 .gigListContainer h2 {
     margin: 10px;
-    color:crimson
+    color: crimson;
 }
 
 .gigEditorContainer {
-    max-height: 95vh;  
+    max-height: 95vh;
 }
 
 .gigCreatorContainer {
@@ -244,13 +248,13 @@ a:hover {
 }
 
 .gigListContainer {
-     max-height: 100vh;
+    max-height: 100vh;
 }
 
 .selectGig {
     margin: 0;
     padding: 0;
-    width:40vw
+    width: 40vw;
 }
 
 form {
@@ -425,8 +429,8 @@ button:active {
     background-image: url("logo.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position:center;
-    height:24vmax;
+    background-position: center;
+    height: 24vmax;
     width: 35vmax;
 }
 
@@ -445,7 +449,7 @@ button:active {
     overflow: hidden;
     font-size: 1vmax;
     text-align: center;
-    display:flex;
+    display: flex;
     flex-direction: column;
     letter-spacing: 1px;
 }
@@ -479,11 +483,10 @@ button:active {
     height: 92vh;
     width: 100vw;
     background-color: black;
-   
 }
 
 .google-map a {
- text-shadow:none;
+    text-shadow: none;
 }
 
 .logout {
@@ -633,8 +636,13 @@ font-family: 'Ultra', serif; */
     border-radius: 1vh;
     padding-top: 10px;
     margin-top: 1vmax;
-            background: radial-gradient(closest-side, #05303380,#e08216c2, #ff6767, #b1151542);
-
+    background: radial-gradient(
+        closest-side,
+        #05303380,
+        #e08216c2,
+        #ff6767,
+        #b1151542
+    );
 }
 
 .chatContainerBack {
@@ -643,7 +651,6 @@ font-family: 'Ultra', serif; */
     align-self: center;
     min-width: 50vw;
     margin-bottom: auto;
-
 }
 
 .chatContainer h1 {
@@ -653,7 +660,6 @@ font-family: 'Ultra', serif; */
         -1px -1px 0 white;
     margin: 0 0 10px 0;
     font-family: "Black Ops One", cursive;
-
 }
 
 .chatScreen {
@@ -671,7 +677,6 @@ font-family: 'Ultra', serif; */
     margin-right: 30px;
 }
 
-
 .chatTypeLine {
     width: 40vmax;
     height: 1.5vmax;
@@ -679,7 +684,7 @@ font-family: 'Ultra', serif; */
         -0 0 5px rgba(209, 255, 4, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
     resize: none;
-    outline:none;
+    outline: none;
     white-space: nowrap;
     overflow-x: hidden;
 }
@@ -691,21 +696,23 @@ font-family: 'Ultra', serif; */
     align-items: center;
     align-self: center;
     padding: 1vmax;
-    padding-top:0;
-
+    padding-top: 0;
 }
 
 .sendChatMsg {
-    font-size:2vmax;
-    color:crimson;
-    margin-left:0.5vmax;
+    font-size: 2vmax;
+    color: crimson;
+    margin-left: 0.5vmax;
     cursor: pointer;
 }
 
+.sendChatMsg:hover {
+    color:lime;
+}
 
 .chatScreen p {
     color: yellow;
-   font-family: "Poller One", cursive;
+    font-family: "Poller One", cursive;
     font-size: 20px;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
@@ -713,17 +720,17 @@ font-family: 'Ultra', serif; */
 
 .chatScreen p span {
     margin-right: 5px;
-    color:rgb(255, 64, 64);
+    color: rgb(255, 64, 64);
     font-family: "Black Ops One", cursive;
     font-size: 18.5px;
 
-        text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
 }
 
 .emojis {
-    width:50px;
-    height:50px;
+    width: 50px;
+    height: 50px;
 }
 
 .userEnters {
@@ -731,14 +738,15 @@ font-family: 'Ultra', serif; */
 }
 
 .userLeaves {
-   color: rgba(252, 25, 221, 0.747) !important
+    color: rgba(252, 25, 221, 0.747) !important;
 }
 
 .chatUserHeadline {
-    color:rgba(255, 255, 255, 0.418);
-    font-size:2.5vmax;
+    color: rgba(255, 255, 255, 0.418);
+    font-size: 2.5vmax;
     text-align: center;
-    margin:0;
+    margin: 0;
+    margin-left:5vmax;
 }
 
 .onlineUsers {
@@ -749,32 +757,37 @@ font-family: 'Ultra', serif; */
     align-self: center;
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
         -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
-    margin-left:1vmax;
+    margin-left: 1vmax;
     background-color: rgba(255, 0, 0, 0.158);
-    border-radius:10px;
-    width:18vw;
-    height:60vh;
+    border-radius: 10px;
+    width: 18vw;
+    height: 60vh;
     overflow-y: scroll;
 }
 
 .usersBack {
-    height:fit-content;
-    width:12vmax;
-    height:35vmax;
+    height: fit-content;
+    width: 12vmax;
+    height: 35vmax;
     border: 1px double rgba(243, 45, 227, 0.164);
-    margin:1vmax;
-    padding:0.2vmax;
-    overflow-x:scroll;
-    text-align:center;
+    margin: 1vmax;
+    padding: 0.2vmax;
+    overflow-x: scroll;
+    text-align: center;
 }
 
 .onlineUserCounter {
     color: yellow !important;
     border-radius: 50%;
-    border:1px solid green;
-    padding:5px 10px 5px 10px;
+    border: 1px solid rgba(243, 45, 227, 0.164);
+    padding: 0 10px 0 10px;
     text-align: center;
-    font-size:15px !important;
+    position:sticky;
+    margin:20px !important;
+    position:relative;
+    top: 2vmax;
+    right:7vmax;
+    font-size:1vmax !important;
 }
 
 .onlineUsersRedDot {
@@ -782,44 +795,44 @@ font-family: 'Ultra', serif; */
     background-position: center;
     background-size: cover;
     border-radius: 50%;
-    width:2vmax;
-    height:2vmax;      
-    margin:1vmax;
-}          
-
+    width: 2vmax;
+    height: 2vmax;
+    margin: 1vmax;
+}
 
 .onlineUsers span {
-    margin:1vmax;
+    margin: 1vmax;
     color: rgb(0, 255, 0);
     font-family: "Black Ops One", cursive;
-    font-size:1.5vmax;
-    overflow-x:scroll;
+    font-size: 1.5vmax;
+    overflow-x: scroll;
     text-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
         -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
 }
 
 .colorSelector {
-    width:2vmax;
-    background-color:transparent;
+    width: 2vmax;
+    background-color: transparent;
     box-shadow: none;
     border-radius: 50%;
 }
 
 .mute {
     position: sticky;
-    width:30px;
-    height:30px;
-    cursor:pointer;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
     background-image: url("play.png");
     background-size: cover;
     margin-left: 1vmax;
 }
 
+
 .play {
     position: sticky;
-    width:30px;
-    height:30px;
-    cursor:pointer;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
     background-image: url("mute.png");
     background-size: cover;
     margin-left: 1vmax;
@@ -827,29 +840,30 @@ font-family: 'Ultra', serif; */
 
 .emoticons {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     align-content: center;
     justify-content: space-around;
     align-self: center;
-    min-width:20vw;
+    min-width: 20vw;
 }
 
 .emoticons img {
-    width:2vmax;
-    height:2vmax;
-    margin:15px;
-    cursor:grab
+    width: 2vmax;
+    height: 2vmax;
+    margin: 15px;
+    cursor: grab;
 }
 
 .emoticons p {
-    margin:0;
+    margin: 0;
+    margin-top:0.5vmax;
 }
 
 .emoticons p:hover {
-   
-    background-color: rgba(255, 255, 255, 0.226);
-    border-radius:50%;
+    background-color: rgba(255, 255, 255, 0.123);
+    border-radius: 50%;
+    position: relative;
+    top:-0.3vmax;
+   box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
+        -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
 }
-
-
-

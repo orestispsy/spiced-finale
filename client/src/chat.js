@@ -10,7 +10,7 @@ import useSound from "use-sound";
 import chatSfx from "./../public/msg.mp3";
 
 let emoji = require("./tools/customEmoj.json");
-console.log(emoji)
+console.log(emoji);
 
 export default function Chat({}) {
     const [mute, setMute] = useState(false);
@@ -63,9 +63,8 @@ export default function Chat({}) {
     const sendEmoji = (e) => {
         chatMSG = e.target.attributes[0].value;
         var y = `<img class="emojis" src=${chatMSG}><img>`;
-            socket.emit("A CHAT MSG", y);
+        socket.emit("A CHAT MSG", y);
     };
-
 
     if (!chatMessages) {
         return null;
@@ -135,21 +134,13 @@ export default function Chat({}) {
 
                             if (msg.chat_msg === "--##--left--##--") {
                                 return (
-                                    <p
-                                        className="userLeaves"
-                                       
-                                        key={msg.id}
-                                    >
+                                    <p className="userLeaves" key={msg.id}>
                                         {msg.nickname} has left the chat
                                     </p>
                                 );
                             } else if (msg.chat_msg === "--##--entered--##--") {
                                 return (
-                                    <p
-                                        className="userEnters"
-                                      
-                                        key={msg.id}
-                                    >
+                                    <p className="userEnters" key={msg.id}>
                                         {msg.nickname} joined the chat !
                                     </p>
                                 );
@@ -225,8 +216,7 @@ export default function Chat({}) {
                                                 dangerouslySetInnerHTML={{
                                                     __html: msg.chat_msg,
                                                 }}
-                                            >     
-                                            </div>
+                                            ></div>
                                         </p>
                                         <div
                                             style={{
