@@ -162,15 +162,8 @@ export default function Chat({}) {
                                                 {msg.chat_msg}
                                             </a>
                                         </p>
-                                        <div
-                                            style={{
-                                                color: `black`,
-                                                fontSize: `10px`,
-                                                marginTop: `-20px`,
-                                            }}
-                                        >
-                                            {fixedDate} {fixedTime}
-                                        </div>
+                                        <div className="date">{fixedDate}</div>
+                                        <div className="time">{fixedTime}</div>
                                     </div>
                                 );
                             } else if (
@@ -194,15 +187,8 @@ export default function Chat({}) {
                                                 {msg.chat_msg}
                                             </a>
                                         </p>
-                                        <div
-                                            style={{
-                                                color: `black`,
-                                                fontSize: `10px`,
-                                                marginTop: `-20px`,
-                                            }}
-                                        >
-                                            {fixedDate} {fixedTime}
-                                        </div>
+                                        <div className="date">{fixedDate}</div>
+                                        <div className="time">{fixedTime}</div>
                                     </div>
                                 );
                             } else {
