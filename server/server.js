@@ -395,7 +395,7 @@ io.on("connection", function (socket) {
                 .then(() => {
                     db.getChatMsgs()
                         .then(({ rows }) => {
-                            
+                         io.emit("chatMessage", rows[0]);   
                         })
                         .catch((err) => console.log(err));
                 })

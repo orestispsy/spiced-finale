@@ -131,6 +131,7 @@ a:hover {
     background-repeat: no-repeat;
     background-position-x: center;
     height: 120vh;
+    width:100vw;
 }
 
 .appContainerList {
@@ -701,13 +702,15 @@ font-family: 'Ultra', serif; */
 
 .sendChatMsg {
     font-size: 2vmax;
-    color: crimson;
-    margin-left: 0.5vmax;
+    color: black;
+    margin-left: 0.7vmax;
     cursor: pointer;
 }
 
 .sendChatMsg:hover {
     color:lime;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
 }
 
 .chatScreen p {
@@ -824,7 +827,7 @@ font-family: 'Ultra', serif; */
     cursor: pointer;
     background-image: url("play.png");
     background-size: cover;
-    margin-left: 1vmax;
+    margin-left: 0.7vmax;
 }
 
 
@@ -835,7 +838,7 @@ font-family: 'Ultra', serif; */
     cursor: pointer;
     background-image: url("mute.png");
     background-size: cover;
-    margin-left: 1vmax;
+    margin-left: 0.7vmax;
 }
 
 .emoticons {
