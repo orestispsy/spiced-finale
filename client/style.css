@@ -375,11 +375,11 @@ button:active {
     margin: 5px;
 }
 
-.upload:hover {
+.upload:hover{
     color: white;
 }
 
-.upload:active {
+.upload:active{
     color: transparent;
 }
 
@@ -597,7 +597,7 @@ div:focus {
     margin: 5px;
 }
 
-.fileUploader input {
+.fileUploader input  {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 3px;
@@ -717,7 +717,14 @@ font-family: 'Ultra', serif; */
         -1px -1px 0 black;
 }
 
-.chatScreen p {
+.userChatDetails {
+    display:flex;
+    align-content: center;
+    justify-content: flex-start;
+    align-self: flex-start;
+}
+
+.post {
     color: yellow;
     font-family: "Poller One", cursive;
     font-size: 20px;
@@ -725,6 +732,12 @@ font-family: 'Ultra', serif; */
         -1px -1px 0 black;
     letter-spacing: 0.15vmax;
     margin:0;
+}
+
+.post img {
+    width:2.2vmax;
+    height:2.2vmax;
+    border-radius: 0.5vmax;
 }
 
 .date {
@@ -738,22 +751,26 @@ font-family: 'Ultra', serif; */
     color:rgba(255, 255, 255, 0.719);
     letter-spacing: 1px;
     text-align:right;
-    font-size:15px;
+    font-size:2.5px;
 }
 
-.chatScreen p span {
-    margin-right: 5px;
+.post h1 {
+    margin-left: 0.5vmax;
     color: rgb(255, 64, 64);
     font-family: "Black Ops One", cursive;
-    font-size: 18.5px;
-
+    font-size: 2vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
 }
 
-.emojis {
-    width: 100px;
-    height: 100px;
+.post div {
+    overflow-wrap: break-word;
+}
+
+.emojis { 
+    height: 6vmax !important;
+    width:6vmax !important;
+
     margin:1vmax;
     margin-left: 20vw;
 }
@@ -819,13 +836,12 @@ font-family: 'Ultra', serif; */
     height: 35vmax;
     border: 1px double rgba(243, 45, 227, 0.164);
     margin: 1vmax;
-    margin-bottom: 2vmax;
+    margin-bottom: 0;
     padding: 0.2vmax;
     overflow-x: scroll;
     text-align: center;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
-
 }
 
 .onlineUserCounter {
@@ -853,14 +869,93 @@ font-family: 'Ultra', serif; */
     margin: 1vmax;
 }
 
-.onlineUsers p span {
-    margin: 1vmax;
+.onlineList {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-self: center;
+
+}
+
+.onlineListImg {
+    height: 2.5vmax;
+    width: 2.5vmax;
+    background-position: center;
+    background-size: cover;
+    border-radius:50%;
+    margin-top:1vmax;
+    margin-left:0.5vmax;
+
+}
+
+.onlineList span {
+    margin-left:0.3vmax;
+    margin-bottom:-1vmax;
     color: rgb(0, 255, 0);
     font-family: "Black Ops One", cursive;
     font-size: 1.5vmax;
-    overflow-x: scroll;
     text-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
         -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
+}
+
+.toggleChatUploader {
+    margin:1vmax;
+    color:rgba(255, 255, 255, 0.692);
+    cursor:pointer;
+    font-size:1vmax;
+}
+
+
+.fileUploaderChat {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    border-radius: 1vh;
+    padding: 0.2vmax;
+
+}
+
+.fileUploaderChat div {
+    color: orangered;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.fileUploaderChat input  {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 3px;
+    background-color: rgba(0, 0, 0, 0.185);
+    border: 1px solid black;
+    border-radius: 1px;
+    box-shadow: none;
+    margin: auto;
+}
+
+
+.uploadChat {
+    color: greenyellow;
+    background-color: transparent;
+    font-size: 15px;
+    padding: 3px;
+    cursor: pointer;
+    height: 17px;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+    margin: 5px;
+}
+
+.uploadChat:hover {
+    color: white;
+}
+
+.uploadChat:active{
+    color: transparent;
 }
 
 .colorSelector {

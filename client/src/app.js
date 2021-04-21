@@ -15,7 +15,8 @@ export default class App extends Component {
         this.state = {
             maps: false,
             list: false,
-            visitors: false
+            visitors: false,
+            chat_img: false
         };
     }
 
@@ -26,8 +27,10 @@ export default class App extends Component {
                 if (data) {
                     // console.log("Current User's data in APP", data);
                     this.setState({
+                        id:data.data.id,
                         nickname: data.data.nickname,
                         admin: data.data.admin,
+                        chat_img: data.data.chat_img
                     });
                 }
             })
@@ -99,9 +102,11 @@ export default class App extends Component {
                             <div className="barProfile">
                                 {this.state.nickname}
                             </div>
-                            {!this.state.maps &&<Link to="/chat">
-                                <div className="chatBar"></div>
-                            </Link>}
+                            {!this.state.maps && (
+                                <Link to="/chat">
+                                    <div className="chatBar"></div>
+                                </Link>
+                            )}
                         </div>
                         <a target="_blank" href="https://www.1000mods.com">
                             <div className="logo2Back">
@@ -164,7 +169,15 @@ export default class App extends Component {
                             />
                         )}
                     />
-                    <Route path="/chat" render={(props) => <Chat />} />
+                    <Route
+                        path="/chat"
+                        render={(props) => (
+                            <Chat
+                                chat_img={this.state.chat_img}
+                                chat_myUserId={this.state.id}
+                            />
+                        )}
+                    />
                 </div>
             </BrowserRouter>
         );

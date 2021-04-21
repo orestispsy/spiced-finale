@@ -298,6 +298,34 @@ app.get("/counter", (req, res) => {
         .catch((err) => console.log(err));
 });
 
+app.post("/addChatPic", uploader.single("file"), s3.upload, (req, res) => {
+    console.log(req.file)
+     const { filename } = req.file;
+
+     db.getUser(req.session.userId)
+         .then(({ rows }) => {
+              if (rows[0].chat_img) {
+                  const file2delete = rows[0].chat_img.replace(s3Url, "");
+                  console.log("file2delete", file2delete);
+                  s3.delete(file2delete);
+                  console.log("pic delete done");
+              }
+         })
+         .catch((err) => console.log(err));
+
+    db.addChatPic(s3Url + filename, req.session.userId)
+        .then(({ rows }) => {
+            console.log(rows, "THIS IS THE CHAT IMG", rows[0]);
+            res.json({ data: rows });
+        })
+        .catch((err) => {
+            res.json({ error: true });
+            console.log(err);
+        });
+});
+
+
+
 app.get("*", function (req, res) {
     if (!req.session.userId) {
         res.redirect("/welcome");

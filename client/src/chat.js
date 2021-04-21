@@ -11,9 +11,10 @@ import chatSfx from "./../public/msg.mp3";
 
 let emoji = require("./tools/customEmoj.json");
 
-export default function Chat({}) {
+export default function Chat({ chat_img, chat_myUserId }) {
+    console.log("img", chat_img);
 
-    const [emojiBar, setEmojiBar] = useState(false)
+    const [emojiBar, setEmojiBar] = useState(false);
     const [mute, setMute] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.75 });
@@ -62,14 +63,13 @@ export default function Chat({}) {
 
     const sendEmoji = (e) => {
         chatMSG = e.target.attributes[0].value;
-        var y = `<img class="emojis" src=${chatMSG}><img>`;
+        var y = `<img class="emojis" src=${chatMSG}>`;
         socket.emit("A CHAT MSG", y);
     };
 
-    const toggleEmojibar = ()  => {
-         setEmojiBar(!emojiBar)
-
-    }
+    const toggleEmojibar = () => {
+        setEmojiBar(!emojiBar);
+    };
 
     if (!chatMessages) {
         return null;
@@ -82,6 +82,7 @@ export default function Chat({}) {
                 <div className="chatScreenBack">
                     <div className="chatScreen" ref={elemRef}>
                         {chatMessages.map((msg) => {
+                            console.log("msg", msg)
                             // var msgLink = msg.chat_msg.split(" ");
                             // console.log(msgLink)
                             // var fixedLinkMsg="";
@@ -156,7 +157,7 @@ export default function Chat({}) {
                             ) {
                                 return (
                                     <div key={msg.id}>
-                                        <p>
+                                        <div className="post">
                                             <span>{msg.nickname}</span>
                                             <a
                                                 href={msg.chat_msg}
@@ -168,7 +169,7 @@ export default function Chat({}) {
                                             >
                                                 {msg.chat_msg}
                                             </a>
-                                        </p>
+                                        </div>
                                         <div className="date">{fixedDate}</div>
                                         <div className="time">{fixedTime}</div>
                                     </div>
@@ -181,7 +182,7 @@ export default function Chat({}) {
                             ) {
                                 return (
                                     <div key={msg.id}>
-                                        <p>
+                                        <div className="post">
                                             <span>{msg.nickname}</span>
                                             <a
                                                 href={"https://" + msg.chat_msg}
@@ -193,7 +194,7 @@ export default function Chat({}) {
                                             >
                                                 {msg.chat_msg}
                                             </a>
-                                        </p>
+                                        </div>
                                         <div className="date">{fixedDate}</div>
                                         <div className="time">{fixedTime}</div>
                                     </div>
@@ -201,14 +202,22 @@ export default function Chat({}) {
                             } else {
                                 return (
                                     <div className="chatPost" key={msg.id}>
-                                        <p>
-                                            <span>{msg.nickname}</span>
+                                        <div className="post">
+                                            <div className="userChatDetails">
+                                                <img
+                                                    src={
+                                                        msg.chat_img ||
+                                                        "https://zero-psy-sp.s3.amazonaws.com/CKHGdVh4L6VsOsky8Sd6WavBj0H88O4U.jpg"
+                                                    }
+                                                ></img>
+                                                <h1>{msg.nickname}</h1>
+                                            </div>
                                             <div
                                                 dangerouslySetInnerHTML={{
                                                     __html: msg.chat_msg,
                                                 }}
                                             ></div>
-                                        </p>
+                                        </div>
                                         <div className="date">{fixedDate}</div>
                                         <div className="time">{fixedTime}</div>
                                     </div>
@@ -235,8 +244,7 @@ export default function Chat({}) {
                     <div
                         className="emojiBarToggler"
                         onClick={() => toggleEmojibar()}
-                    >
-                    </div>
+                    ></div>
                     <textarea
                         rows="1"
                         className="chatTypeLine"
@@ -266,7 +274,11 @@ export default function Chat({}) {
                     )}
                 </div>
             </div>
-            <OnlineUsers mute={mute} />
+            <OnlineUsers
+                mute={mute}
+                chat_img={chat_img}
+                chat_myUserId={chat_myUserId}
+            />
         </div>
     );
 }

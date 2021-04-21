@@ -4,6 +4,7 @@ CREATE TABLE community (
     id            SERIAL PRIMARY KEY,
     nickname    VARCHAR NOT NULL UNIQUE CHECK (nickname <> ''),
     password_hash VARCHAR NOT NULL CHECK (password_hash <> ''),
+    chat_img VARCHAR,
     admin BOOLEAN DEFAULT false,
     created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

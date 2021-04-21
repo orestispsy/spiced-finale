@@ -124,7 +124,7 @@ module.exports.check = () => {
 
 module.exports.getOnlineUsers = (Ids) => {
     const q =
-        "SELECT id, nickname FROM community WHERE id = ANY($1)";
+        "SELECT * FROM community WHERE id = ANY($1)";
     const params = [Ids];
     return db.query(q, params);
 };
@@ -141,7 +141,7 @@ module.exports.addChatMsg = (msg_sender_id, chat_msg) => {
 
 module.exports.getChatMsgs = () => {
     const q = `
-        SELECT chatroom.id, chatroom.created_at, nickname, msg_sender_id, chat_msg
+        SELECT chatroom.id, chatroom.created_at, nickname, chat_img, msg_sender_id, chat_msg
         FROM chatroom
         JOIN community
         ON (community.id = msg_sender_id)
@@ -174,6 +174,16 @@ module.exports.checkAllVisitorIps = () => {
     const q = `
         SELECT * FROM visitors
     `;
-
     return db.query(q);
+};
+
+module.exports.addChatPic = (pic, id) => {
+    const q = `
+        UPDATE community
+        SET chat_img = $1
+        WHERE id = $2
+        RETURNING *
+         `;
+    const params = [pic, id];
+    return db.query(q, params);
 };
