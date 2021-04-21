@@ -207,7 +207,7 @@ export default function Chat({ chat_img, chat_myUserId }) {
                                                 <img
                                                     src={
                                                         msg.chat_img ||
-                                                        "./../public/na.jpg"
+                                                        "./../na.jpg"
                                                     }
                                                 ></img>
                                                 <h1>{msg.nickname}</h1>
