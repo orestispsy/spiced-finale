@@ -9,7 +9,7 @@ import useSound from "use-sound";
 
 import chatSfx from "./../public/msg.mp3";
 
-let emoji = require("./tools/customEmoj.json");
+
 
 export default function Chat({ chat_img, chat_myUserId }) {
     const [emojiBar, setEmojiBar] = useState(false);
@@ -224,19 +224,6 @@ export default function Chat({ chat_img, chat_myUserId }) {
                     </div>
                 </div>
 
-                {emojiBar && (
-                    <div className="emoticons">
-                        {emoji &&
-                            emoji.map((emoj) => (
-                                <div key={emoj.id}>
-                                    <img
-                                        src={emoj.url}
-                                        onClick={(e) => sendEmoji(e)}
-                                    ></img>
-                                </div>
-                            ))}
-                    </div>
-                )}
                 <div className="typeLine">
                     <div
                         className="emojiBarToggler"
@@ -275,6 +262,8 @@ export default function Chat({ chat_img, chat_myUserId }) {
                 mute={mute}
                 chat_img={chat_img}
                 chat_myUserId={chat_myUserId}
+                emojiBar={emojiBar}
+                sendEmoji={(e) => sendEmoji(e)}
             />
         </div>
     );

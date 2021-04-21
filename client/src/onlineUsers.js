@@ -6,8 +6,10 @@ import useSound from "use-sound";
 
 import chatSfx from "./../public/chat.mp3";
 
+let emoji = require("./tools/customEmoj.json");
+
 var count = 0;
-export default function OnlineUsers({ mute, chat_img, chat_myUserId }) {
+export default function OnlineUsers({ mute, chat_img, chat_myUserId, emojiBar, sendEmoji }) {
     if (chat_img) {
         chat_img = "";
     }
@@ -70,53 +72,68 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId }) {
 
     return (
         <>
-            <div className="onlineUsers">
-                <Link to="/">
-                    <div className="onlineUsersRedDot"></div>
-                </Link>
-                <div className="chatUserHeadline">Online</div>
-                <span className="onlineUserCounter">
-                    {onlineUsers && onlineUsers.length}
-                </span>
-                <div className="usersBack">
-                    {onlineUsers &&
-                        onlineUsers.map((msg) => (
-                            <div className="onlineList" key={msg.id}>
-                                <img
-                                    className="onlineListImg"
-                                    src={
-                                        (chat_myUserId == msg.id &&
-                                            onlineUserPic) ||
-                                        (msg.chat_img && msg.chat_img) ||
-                                        "./../na.jpg"
-                                    }
-                                ></img>
-                                <span>{msg.nickname}</span>
-                            </div>
-                        ))}
-                </div>
-                <div
-                    className="toggleChatUploader"
-                    onClick={() => toggleUploader()}
-                >
-                    {" "}
-                    {!closeTag && "Change Pic"} {closeTag && "Close"}
-                </div>
-                {userPicBar && (
-                    <div className="fileUploaderChat">
-                        <input
-                            type="file"
-                            name="file"
-                            accept="image/*"
-                            onChange={(e) => handleUploaderChange(e)}
-                        />
+            <div className="onlineUsersBack">
+                <div className="onlineUsers">
+                    <Link to="/">
+                        <div className="onlineUsersRedDot"></div>
+                    </Link>
+                    <div className="chatUserHeadline">Online</div>
+                    <span className="onlineUserCounter">
+                        {onlineUsers && onlineUsers.length}
+                    </span>
+                    <div className="usersBack">
+                        {onlineUsers &&
+                            onlineUsers.map((msg) => (
+                                <div className="onlineList" key={msg.id}>
+                                    <img
+                                        className="onlineListImg"
+                                        src={
+                                            (chat_myUserId == msg.id &&
+                                                onlineUserPic) ||
+                                            (msg.chat_img && msg.chat_img) ||
+                                            "./../na.jpg"
+                                        }
+                                    ></img>
+                                    <span>{msg.nickname}</span>
+                                </div>
+                            ))}
+                    </div>
+                    <div
+                        className="toggleChatUploader"
+                        onClick={() => toggleUploader()}
+                    >
+                        {" "}
+                        {!closeTag && "Change Pic"} {closeTag && "Close"}
+                    </div>
+                    {userPicBar && (
+                        <div className="fileUploaderChat">
+                            <input
+                                type="file"
+                                name="file"
+                                accept="image/*"
+                                onChange={(e) => handleUploaderChange(e)}
+                            />
 
-                        <div
-                            className="uploadChat"
-                            onClick={() => handleUploaderClick()}
-                        >
-                            <span>➤</span>
+                            <div
+                                className="uploadChat"
+                                onClick={() => handleUploaderClick()}
+                            >
+                                <span>➤</span>
+                            </div>
                         </div>
+                    )}
+                </div>
+                {emojiBar && (
+                    <div className="emoticons">
+                        {emoji &&
+                            emoji.map((emoj) => (
+                                <div key={emoj.id}>
+                                    <img
+                                        src={emoj.url}
+                                        onClick={(e) => sendEmoji(e)}
+                                    ></img>
+                                </div>
+                            ))}
                     </div>
                 )}
             </div>
