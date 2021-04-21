@@ -271,11 +271,14 @@ app.get("/logout", (req, res) => {
 
 app.get("/counter", (req, res) => {
     let forwarded = req.headers["x-forwarded-for"];
-    console.log("forwarded",forwarded)
+    console.log("forwarded", forwarded);
     console.log(req.connection.remoteAddress);
-    if (forwarded){
-        let ip = forwarded.split(/, /)[0];
-    } else{ ip = req.connection.remoteAddress}
+    let ip;
+    if (forwarded) {
+        ip = forwarded.split(/, /)[0];
+    } else {
+        ip = req.connection.remoteAddress;
+    }
     let ipFiltered = ip.split(":");
     ipFiltered = ipFiltered[ipFiltered.length - 1];
 
