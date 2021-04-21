@@ -273,7 +273,28 @@ app.get("/logout", (req, res) => {
 });
 
 app.get("/counter", (req, res) => {
-    res.json({ data: ipCounter});
+      let ip = req.ip.split(":");
+      ip = ip[ip.length - 1];
+      console.log("ip",ip);
+
+      db.checkVisitorIps(ip)
+          .then(({ rows }) => {
+              if (!rows[0]) {
+                  db.addVisitorIp(ip)
+                      .then(({ rows }) => {
+                          console.log("rows", rows);
+                      })
+                      .catch((err) => console.log(err));
+              }
+          })
+          .catch((err) => console.log(err));
+
+      db.checkAllVisitorIps()
+          .then(({ rows }) => {
+              console.log("rows all", rows.length);
+                  res.json({ data: rows.length });
+          })
+          .catch((err) => console.log(err));
 });
 
 app.get("*", function (req, res) {
@@ -296,7 +317,7 @@ app.get("*", function (req, res) {
 //     })
 
 //     .catch((err) => console.log(err));
-var ipCounter;
+
 
 server.listen(process.env.PORT || 3001, () =>
     console.log(
@@ -306,32 +327,6 @@ server.listen(process.env.PORT || 3001, () =>
 
 let onlineUsers = {};
 io.on("connection", function (socket) {
-
-    let ip = socket.handshake.address.split(":");
-    ip=ip[ip.length-1]
-    console.log(ip)
-
-    db.checkVisitorIps(ip)
-        .then(({ rows }) => {
-            if (!rows[0]) {
-                db.addVisitorIp(ip)
-                    .then(({ rows }) => {
-                        console.log("rows", rows);
-                    })
-                    .catch((err) => console.log(err));
-
-            }
-        })
-        .catch((err) => console.log(err));
-
-        db.checkAllVisitorIps()
-            .then(({ rows }) => {
-                console.log("rows all", rows.length);
-                ipCounter=  rows.length
-            })
-            .catch((err) => console.log(err));
-
-    
 
     if (!socket.request.session.userId) {
         return socket.disconnect(true);
