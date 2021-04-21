@@ -115,7 +115,7 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId }) {
                             className="uploadChat"
                             onClick={() => handleUploaderClick()}
                         >
-                            ➤
+                            <span>➤</span>
                         </div>
                     </div>
                 )}

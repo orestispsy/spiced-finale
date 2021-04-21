@@ -920,26 +920,27 @@ font-family: 'Ultra', serif; */
 }
 
 .fileUploaderChat input {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 3px;
+    overflow-wrap:break-word !important;
+    padding: 0.8vmax;
     background-color: rgba(0, 0, 0, 0.185);
     border: 1px solid black;
     border-radius: 1px;
     box-shadow: none;
-    margin: auto;
+    font-size: 0.7vmax;
+    width:12vmax !important;
+    height:1vmax;
 }
 
 .uploadChat {
-    color: greenyellow;
-    background-color: transparent;
-    font-size: 15px;
-    padding: 3px;
     cursor: pointer;
-    height: 17px;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
-    margin: 5px;
+}
+
+.uploadChat span {
+    font-size:2vmax;
+    position:relative;
+    top: -0.5vmax;
 }
 
 .uploadChat:hover {
