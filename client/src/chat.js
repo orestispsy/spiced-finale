@@ -207,7 +207,7 @@ export default function Chat({ chat_img, chat_myUserId }) {
                                                 <img
                                                     src={
                                                         msg.chat_img ||
-                                                        "https://zero-psy-sp.s3.amazonaws.com/CKHGdVh4L6VsOsky8Sd6WavBj0H88O4U.jpg"
+                                                        "./../public/na.jpg"
                                                     }
                                                 ></img>
                                                 <h1>{msg.nickname}</h1>
