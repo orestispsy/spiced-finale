@@ -918,7 +918,8 @@ font-family: 'Ultra', serif; */
     color: rgba(255, 255, 255, 0.692);
     cursor: pointer;
     font-size: 1vmax;
-    margin-top:0.5vmax;
+    margin-top:1vmax;
+    margin-bottom:0.5vmax;
 }
 
 .fileUploaderChat {

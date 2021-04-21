@@ -225,10 +225,6 @@ export default function Chat({ chat_img, chat_myUserId }) {
                 </div>
 
                 <div className="typeLine">
-                    <div
-                        className="emojiBarToggler"
-                        onClick={() => toggleEmojibar()}
-                    ></div>
                     <textarea
                         rows="1"
                         className="chatTypeLine"
@@ -256,6 +252,10 @@ export default function Chat({ chat_img, chat_myUserId }) {
                             onClick={() => setMute(!mute)}
                         ></div>
                     )}
+                    <div
+                        className="emojiBarToggler"
+                        onClick={() => toggleEmojibar()}
+                    ></div>
                 </div>
             </div>
             <OnlineUsers
