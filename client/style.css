@@ -820,6 +820,7 @@ font-family: 'Ultra', serif; */
     border-radius: 10px;
     width: 18vw;
     height: 30vmax;
+    padding:0.5vmax;
     overflow-y: scroll;
 }
 
@@ -882,6 +883,9 @@ font-family: 'Ultra', serif; */
     border-radius: 50%;
     margin-top: 1vmax;
     margin-left: 0.5vmax;
+    margin-right: 0.3vmax;
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
+        -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
 }
 
 .onlineList span {
@@ -895,7 +899,7 @@ font-family: 'Ultra', serif; */
 }
 
 .toggleChatUploader {
-    margin: 1vmax;
+    margin: 0.5vmax;
     color: rgba(255, 255, 255, 0.692);
     cursor: pointer;
     font-size: 1vmax;
@@ -903,22 +907,31 @@ font-family: 'Ultra', serif; */
 
 .fileUploaderChat {
     display: flex;
-    flex-direction: row;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
     align-self: center;
     border-radius: 1vh;
-    padding: 0.2vmax;
+
 }
 
 .fileUploaderChat div {
-    color: orangered;
+    color: yellow;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
-    font-size: 20px;
-    margin: 5px;
+    margin: 0.5vmax;
+    background: radial-gradient(
+        closest-side,
+        #05303380,
+        #e0161642,
+        #0000001f,
+        #ffd00011
+    );
+    border-radius: 50%;
+    width:5vmax;
+    height:5vmax;
+    text-align: center;
 }
-
 .fileUploaderChat input {
     overflow-wrap:break-word !important;
     padding: 0.8vmax;
@@ -928,20 +941,33 @@ font-family: 'Ultra', serif; */
     box-shadow: none;
     font-size: 0.7vmax;
     width:12vmax !important;
-    height:1vmax;
+    height:1.1vmax;
 }
 
 .uploadChat {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
     cursor: pointer;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
 }
 
-.uploadChat span {
-    font-size:2vmax;
-    position:relative;
-    top: -0.5vmax;
+    .uploadChat span {
+       text-align: center;
+        border:1px solid rgba(0, 0, 0, 0.089);
+    font-size: 2vmax;
+    padding-top:0.3vmax;
+    padding-bottom:0.3vmax;
+    border-radius: 1.3vmax;
+
+
 }
+
+.uploadChat span:hover {
+    background-color: rgba(255, 0, 234, 0.027)
+}
+
 
 .uploadChat:hover {
     color: white;
