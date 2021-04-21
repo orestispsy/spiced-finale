@@ -944,11 +944,13 @@ font-family: 'Ultra', serif; */
     align-content: center;
     justify-content: center;
     align-self: center;
-    color:rgba(255, 255, 0, 0.521);
+    color:rgba(255, 208, 0, 0.815);
     position:fixed;
     right:0.5vmax;
     bottom:2.2vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
+        -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
+        text-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
         border-radius:1vh;
         padding:0.5vmax;
@@ -959,5 +961,5 @@ font-family: 'Ultra', serif; */
 }
 
 .visitors div {
-    color:rgba(255, 255, 255, 0.493);
+    color:rgba(255, 255, 255, 0.692);
 }

@@ -30,7 +30,7 @@ export default function Main({ admin, listSet, visitors }) {
                 <Link to="/gig-list">
                     Gig List
                 </Link>
-                {visitors && <div className="visitors">Visitor Counter<div>{visitors}</div></div>}
+                {visitors && <div className="visitors">Visitors Counter<div>{visitors}</div></div>}
             </div>
         </div>
     );
