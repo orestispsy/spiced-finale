@@ -55,6 +55,8 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId, emojiBar, s
             .then(({ data }) => {
                 if (data.data[0]) {
                     setOnlineUserPic(data.data[0].chat_img);
+                    setUserPicBar(!userPicBar)
+                    setcloseTag(!closeTag);
                 } else {
                     console.log("data fail");
                 }
@@ -98,13 +100,6 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId, emojiBar, s
                                 </div>
                             ))}
                     </div>
-                    <div
-                        className="toggleChatUploader"
-                        onClick={() => toggleUploader()}
-                    >
-                        {" "}
-                        {!closeTag && "Change Pic"} {closeTag && "Close"}
-                    </div>
                     {userPicBar && (
                         <div className="fileUploaderChat">
                             <input
@@ -122,6 +117,13 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId, emojiBar, s
                             </div>
                         </div>
                     )}
+                    <div
+                        className="toggleChatUploader"
+                        onClick={() => toggleUploader()}
+                    >
+                        {" "}
+                        {!closeTag && "Change Pic"} {closeTag && "Close"}
+                    </div>
                 </div>
                 {emojiBar && (
                     <div className="emoticons">

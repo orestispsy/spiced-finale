@@ -780,10 +780,13 @@ font-family: 'Ultra', serif; */
 .userEnters {
     font-size: 1vmax !important;
     color: lime !important;
-    margin: 10px !important;
+    margin: 5px !important;
     text-align: center !important;
     background-color: rgba(0, 0, 0, 0.13);
-    width: 22vmax;
+    padding-top:0.5vmax;
+    padding-bottom:0.5vmax;
+    width: 15vmax;
+    height:2vmax;
     align-self: center;
     border-radius: 2vh;
 }
@@ -791,10 +794,13 @@ font-family: 'Ultra', serif; */
 .userLeaves {
     font-size: 1vmax !important;
     color: rgba(252, 25, 221, 0.747) !important;
-    margin: 10px !important;
+    margin: 5px !important;
     text-align: center !important;
     background-color: rgba(255, 0, 0, 0.13);
-    width: 22vmax;
+     padding-top:0.5vmax;
+       padding-bottom:0.5vmax;
+    width: 15vmax;
+    height:1.5vmax;
     align-self: center;
     border-radius: 2vh;
 }
@@ -828,7 +834,6 @@ font-family: 'Ultra', serif; */
     background-color: rgba(255, 0, 0, 0.158);
     border-radius: 10px;
     width: 18vmax;
-    height: 30vmax;
     padding:0.5vmax;
     
 }
@@ -840,7 +845,8 @@ font-family: 'Ultra', serif; */
 .usersBack {
     height: fit-content;
     width: 12vmax;
-    height: 35vmax;
+    height: 15vmax;
+    min-height: 5vmax;
     border: 1px double rgba(243, 45, 227, 0.164);
     margin: 1vmax;
     margin-bottom: 0;
@@ -849,6 +855,7 @@ font-family: 'Ultra', serif; */
     text-align: center;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
+        border-radius: 0.5vmax;;
 }
 
 .onlineUserCounter {
@@ -908,10 +915,10 @@ font-family: 'Ultra', serif; */
 }
 
 .toggleChatUploader {
-    margin: 0.5vmax;
     color: rgba(255, 255, 255, 0.692);
     cursor: pointer;
     font-size: 1vmax;
+    margin-top:0.5vmax;
 }
 
 .fileUploaderChat {
@@ -931,16 +938,17 @@ font-family: 'Ultra', serif; */
     margin: 0.5vmax;
     background: radial-gradient(
         closest-side,
-        #05303380,
-        #e0161642,
-        #0000001f,
-        #ffd00011
+        #00000000,
+        #dde01642,
+        #ffffff1f,
+        #ffffff00
     );
     border-radius: 50%;
     width:5vmax;
     height:5vmax;
     text-align: center;
 }
+
 .fileUploaderChat input {
     overflow-wrap:break-word !important;
     padding: 0.8vmax;
@@ -951,6 +959,7 @@ font-family: 'Ultra', serif; */
     font-size: 0.7vmax;
     width:12vmax !important;
     height:1.1vmax;
+    margin-top:1vmax;
 }
 
 .uploadChat {
@@ -960,21 +969,12 @@ font-family: 'Ultra', serif; */
     cursor: pointer;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
+        margin:0 !important;
 }
 
     .uploadChat span {
        text-align: center;
-        border:1px solid rgba(0, 0, 0, 0.089);
     font-size: 2vmax;
-    padding-top:0.3vmax;
-    padding-bottom:0.3vmax;
-    border-radius: 1.3vmax;
-
-
-}
-
-.uploadChat span:hover {
-    background-color: rgba(255, 0, 234, 0.027)
 }
 
 
@@ -1022,12 +1022,11 @@ font-family: 'Ultra', serif; */
     justify-content: space-around;
     flex-wrap: wrap;
     align-self: center;
-    min-width: 18vmax;
-    width: 10vmax;
-    height: 10vmax;
-    min-height: 3.5vmax;
+    min-width: 19vmax;
+    width: 19vmax;
+    height: 11vmax;
+    min-height: 11vmax;
    overflow-y:scroll;
-    padding-top: 1vmax;
     border-radius: 1vmax;
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
         -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
