@@ -16,7 +16,7 @@ export default class App extends Component {
             maps: false,
             list: false,
             visitors: false,
-            chat_img: false
+            chat_img: false,
         };
     }
 
@@ -27,10 +27,10 @@ export default class App extends Component {
                 if (data) {
                     // console.log("Current User's data in APP", data);
                     this.setState({
-                        id:data.data.id,
+                        id: data.data.id,
                         nickname: data.data.nickname,
                         admin: data.data.admin,
-                        chat_img: data.data.chat_img
+                        chat_img: data.data.chat_img,
                     });
                 }
             })
@@ -52,7 +52,7 @@ export default class App extends Component {
             .get("/counter")
             .then(({ data }) => {
                 this.setState({
-                    visitors: data.data
+                    visitors: data.data,
                 });
                 // console.log("APP GIGS List", this.state.gigsList);
             })
@@ -69,8 +69,8 @@ export default class App extends Component {
 
     listSet(e) {
         this.setState({
-            list: e
-        })
+            list: e,
+        });
     }
 
     logOut() {

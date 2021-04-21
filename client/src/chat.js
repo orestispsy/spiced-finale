@@ -12,8 +12,6 @@ import chatSfx from "./../public/msg.mp3";
 let emoji = require("./tools/customEmoj.json");
 
 export default function Chat({ chat_img, chat_myUserId }) {
-    console.log("img", chat_img);
-
     const [emojiBar, setEmojiBar] = useState(false);
     const [mute, setMute] = useState(false);
 
@@ -82,7 +80,6 @@ export default function Chat({ chat_img, chat_myUserId }) {
                 <div className="chatScreenBack">
                     <div className="chatScreen" ref={elemRef}>
                         {chatMessages.map((msg) => {
-                            console.log("msg", msg)
                             // var msgLink = msg.chat_msg.split(" ");
                             // console.log(msgLink)
                             // var fixedLinkMsg="";

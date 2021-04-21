@@ -243,9 +243,9 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
         .then(({ rows }) => {
             if (rows[0].poster) {
                 const file2delete = rows[0].poster.replace(s3Url, "");
-                console.log("file2delete", file2delete);
+                // console.log("file2delete", file2delete);
                 s3.delete(file2delete);
-                console.log("pic delete done");
+                // console.log("pic delete done");
             }
         })
         .catch((err) => {
@@ -255,7 +255,7 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
 
     db.addImage(data.id, s3Url + filename)
         .then(({ rows }) => {
-            console.log(rows, "THIS POSTER WAS CREATED", rows[0].poster);
+            // console.log(rows, "THIS POSTER WAS CREATED", rows[0].poster);
             res.json({ success: true });
         })
         .catch((err) => {
@@ -271,8 +271,6 @@ app.get("/logout", (req, res) => {
 
 app.get("/counter", (req, res) => {
     let forwarded = req.headers["x-forwarded-for"];
-    console.log("forwarded", forwarded);
-    console.log(req.connection.remoteAddress);
     let ip;
     if (forwarded) {
         ip = forwarded.split(/, /)[0];
@@ -299,23 +297,18 @@ app.get("/counter", (req, res) => {
 });
 
 app.post("/addChatPic", uploader.single("file"), s3.upload, (req, res) => {
-    console.log(req.file)
-     const { filename } = req.file;
-
-     db.getUser(req.session.userId)
-         .then(({ rows }) => {
-              if (rows[0].chat_img) {
-                  const file2delete = rows[0].chat_img.replace(s3Url, "");
-                  console.log("file2delete", file2delete);
-                  s3.delete(file2delete);
-                  console.log("pic delete done");
-              }
-         })
-         .catch((err) => console.log(err));
+    const { filename } = req.file;
+    db.getUser(req.session.userId)
+        .then(({ rows }) => {
+            if (rows[0].chat_img) {
+                const file2delete = rows[0].chat_img.replace(s3Url, "");
+                s3.delete(file2delete);
+            }
+        })
+        .catch((err) => console.log(err));
 
     db.addChatPic(s3Url + filename, req.session.userId)
         .then(({ rows }) => {
-            console.log(rows, "THIS IS THE CHAT IMG", rows[0]);
             res.json({ data: rows });
         })
         .catch((err) => {
@@ -323,8 +316,6 @@ app.post("/addChatPic", uploader.single("file"), s3.upload, (req, res) => {
             console.log(err);
         });
 });
-
-
 
 app.get("*", function (req, res) {
     if (!req.session.userId) {

@@ -11,17 +11,14 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId }) {
     if (chat_img) {
         chat_img = "";
     }
-    console.log("chat_img", chat_img);
-      console.log("my id", chat_myUserId);
     const [userPicBar, setUserPicBar] = useState(false);
-    const [onlineUserPic, setOnlineUserPic] = useState(chat_img)
+    const [onlineUserPic, setOnlineUserPic] = useState(chat_img);
     const [file, setFile] = useState(null);
     const [closeTag, setcloseTag] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.25 });
 
     const onlineUsers = useSelector((state) => state && state.onlineUsers);
-    console.log("online users", onlineUsers);
     // console.log("onlineUsers", onlineUsers);
     useEffect(() => {
         if (onlineUsers) {
@@ -55,7 +52,6 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId }) {
             .post("/addChatPic", formData)
             .then(({ data }) => {
                 if (data.data[0]) {
-                    console.log(data.data[0])
                     setOnlineUserPic(data.data[0].chat_img);
                 } else {
                     console.log("data fail");
@@ -83,15 +79,17 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId }) {
                     {onlineUsers && onlineUsers.length}
                 </span>
                 <div className="usersBack">
-                    {onlineUsers  &&
+                    {onlineUsers &&
                         onlineUsers.map((msg) => (
                             <div className="onlineList" key={msg.id}>
                                 <img
                                     className="onlineListImg"
-                                    src={ 
+                                    src={
                                         (chat_myUserId == msg.id &&
                                             onlineUserPic) ||
-                                        (msg.chat_img && msg.chat_img) || "./../na.jpg"}
+                                        (msg.chat_img && msg.chat_img) ||
+                                        "./../na.jpg"
+                                    }
                                 ></img>
                                 <span>{msg.nickname}</span>
                             </div>
