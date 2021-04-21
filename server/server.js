@@ -273,7 +273,13 @@ app.get("/logout", (req, res) => {
 });
 
 app.get("/counter", (req, res) => {
-      let ip = req.ip.split(":");
+
+    let forwarded = req.headers["x-forwarded-for"];
+    let ip2 = forwarded
+        ? forwarded.split(/, /)[0]
+        : req.connection.remoteAddress;
+        console.log("ip2",ip2)
+      let ip = ip2.split(":");
       ip = ip[ip.length - 1];
       console.log("ip",ip);
 
