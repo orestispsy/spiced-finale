@@ -15,7 +15,7 @@ export default class App extends Component {
         this.state = {
             maps: false,
             list: false,
-            visitors:0
+            visitors: false
         };
     }
 

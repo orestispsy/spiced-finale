@@ -8,15 +8,12 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server, {
     allowRequest: (req, callback) =>
         callback(
-            null, req.headers.referer.startsWith(
-                    "https://thousandgigs.herokuapp.com"
-                ) ||
-            req.headers.referer.startsWith("http://localhost:3000")
-                
+            null,
+            req.headers.referer.startsWith(
+                "https://thousandgigs.herokuapp.com"
+            ) || req.headers.referer.startsWith("http://localhost:3000")
         ),
 });
-
-
 
 const multer = require("multer");
 const uidSafe = require("uid-safe");
@@ -273,34 +270,27 @@ app.get("/logout", (req, res) => {
 });
 
 app.get("/counter", (req, res) => {
-
     let forwarded = req.headers["x-forwarded-for"];
-    let ip2 = forwarded
+    let ip = forwarded
         ? forwarded.split(/, /)[0]
         : req.connection.remoteAddress;
-        console.log("ip2",ip2)
-      let ip = ip2.split(":");
-      ip = ip[ip.length - 1];
-      console.log("ip",ip);
+    let ipFiltered = ip.split(":");
+    ipFiltered = ipFiltered[ipFiltered.length - 1];
 
-      db.checkVisitorIps(ip)
-          .then(({ rows }) => {
-              if (!rows[0]) {
-                  db.addVisitorIp(ip)
-                      .then(({ rows }) => {
-                          console.log("rows", rows);
-                      })
-                      .catch((err) => console.log(err));
-              }
-          })
-          .catch((err) => console.log(err));
-
-      db.checkAllVisitorIps()
-          .then(({ rows }) => {
-              console.log("rows all", rows.length);
-                  res.json({ data: rows.length });
-          })
-          .catch((err) => console.log(err));
+    db.checkVisitorIps(ipFiltered)
+        .then(({ rows }) => {
+            if (!rows[0]) {
+                db.addVisitorIp(ipFiltered)
+                    .then(({ rows }) => {})
+                    .catch((err) => console.log(err));
+            }
+            db.checkAllVisitorIps()
+                .then(({ rows }) => {
+                    res.json({ data: rows.length });
+                })
+                .catch((err) => console.log(err));
+        })
+        .catch((err) => console.log(err));
 });
 
 app.get("*", function (req, res) {
@@ -324,7 +314,6 @@ app.get("*", function (req, res) {
 
 //     .catch((err) => console.log(err));
 
-
 server.listen(process.env.PORT || 3001, () =>
     console.log(
         `🟢 Listening Port ${server.address().port} ... ~ 100mods Gig Guide ~`
@@ -333,7 +322,6 @@ server.listen(process.env.PORT || 3001, () =>
 
 let onlineUsers = {};
 io.on("connection", function (socket) {
-
     if (!socket.request.session.userId) {
         return socket.disconnect(true);
     }
@@ -425,7 +413,7 @@ io.on("connection", function (socket) {
                 .then(() => {
                     db.getChatMsgs()
                         .then(({ rows }) => {
-                         io.emit("chatMessage", rows[0]);   
+                            io.emit("chatMessage", rows[0]);
                         })
                         .catch((err) => console.log(err));
                 })
