@@ -157,9 +157,6 @@ app.post("/register", (req, res) => {
 app.get("/user-details", (req, res) => {
     db.getUser(req.session.userId)
         .then(({ rows }) => {
-            if (rows[0].admin) {
-                req.session.youGotIt = "yes";
-            }
             res.json({ data: rows[0] });
         })
         .catch((err) => console.log(err));
@@ -275,6 +272,10 @@ app.get("/logout", (req, res) => {
     res.redirect("/");
 });
 
+app.get("/counter", (req, res) => {
+    res.json({ data: ipCounter});
+});
+
 app.get("*", function (req, res) {
     if (!req.session.userId) {
         res.redirect("/welcome");
@@ -295,6 +296,7 @@ app.get("*", function (req, res) {
 //     })
 
 //     .catch((err) => console.log(err));
+var ipCounter;
 
 server.listen(process.env.PORT || 3001, () =>
     console.log(
@@ -304,6 +306,33 @@ server.listen(process.env.PORT || 3001, () =>
 
 let onlineUsers = {};
 io.on("connection", function (socket) {
+
+    let ip = socket.handshake.address.split(":");
+    ip=ip[ip.length-1]
+    console.log(ip)
+
+    db.checkVisitorIps(ip)
+        .then(({ rows }) => {
+            if (!rows[0]) {
+                db.addVisitorIp(ip)
+                    .then(({ rows }) => {
+                        console.log("rows", rows);
+                    })
+                    .catch((err) => console.log(err));
+
+            }
+        })
+        .catch((err) => console.log(err));
+
+        db.checkAllVisitorIps()
+            .then(({ rows }) => {
+                console.log("rows all", rows.length);
+                ipCounter=  rows.length
+            })
+            .catch((err) => console.log(err));
+
+    
+
     if (!socket.request.session.userId) {
         return socket.disconnect(true);
     }

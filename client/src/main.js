@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-export default function Main({ admin, listSet }) {
+export default function Main({ admin, listSet, visitors }) {
       useEffect(function () {
           listSet(false);
       }, []);
@@ -30,6 +30,7 @@ export default function Main({ admin, listSet }) {
                 <Link to="/gig-list">
                     Gig List
                 </Link>
+                {visitors && <div className="visitors">{visitors}</div>}
             </div>
         </div>
     );

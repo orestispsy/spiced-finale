@@ -150,3 +150,30 @@ module.exports.getChatMsgs = () => {
     `;
     return db.query(q);
 };
+
+module.exports.addVisitorIp = (ip) => {
+    const q = `
+        INSERT INTO visitors (ip)
+        VALUES ($1)
+        RETURNING *
+    `;
+    const params = [ip];
+    return db.query(q, params);
+};
+
+module.exports.checkVisitorIps = (ip) => {
+    const q = `
+        SELECT FROM visitors
+        WHERE ip = $1
+    `;
+    const params = [ip];
+    return db.query(q, params);
+};
+
+module.exports.checkAllVisitorIps = () => {
+    const q = `
+        SELECT * FROM visitors
+    `;
+
+    return db.query(q);
+};

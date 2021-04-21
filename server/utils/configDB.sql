@@ -26,3 +26,9 @@ CREATE TABLE chatroom(
     chat_msg TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE visitors(
+    id SERIAL PRIMARY KEY,
+    ip TEXT UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

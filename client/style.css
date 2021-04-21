@@ -935,3 +935,10 @@ font-family: 'Ultra', serif; */
     margin:1vmax;
     cursor:pointer;
 }
+
+.visitors{
+    color:red;
+    position:fixed;
+    left:0;
+    bottom:0;
+}

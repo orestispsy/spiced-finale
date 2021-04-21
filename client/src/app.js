@@ -14,7 +14,8 @@ export default class App extends Component {
         super(props);
         this.state = {
             maps: false,
-            list: false
+            list: false,
+            visitors:0
         };
     }
 
@@ -38,6 +39,17 @@ export default class App extends Component {
             .then(({ data }) => {
                 this.setState({
                     gigsList: data.data,
+                });
+                // console.log("APP GIGS List", this.state.gigsList);
+            })
+            .catch((err) => {
+                console.log("err in axios App User POST Request : ", err);
+            });
+        axios
+            .get("/counter")
+            .then(({ data }) => {
+                this.setState({
+                    visitors: data.data
                 });
                 // console.log("APP GIGS List", this.state.gigsList);
             })
@@ -114,6 +126,7 @@ export default class App extends Component {
                             <Main
                                 admin={this.state.admin}
                                 listSet={(e) => this.listSet(e)}
+                                visitors={this.state.visitors}
                             />
                         )}
                     />
