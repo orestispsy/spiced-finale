@@ -61,8 +61,8 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
 
     const sendEmoji = (e) => {
         chatMSG = e.target.attributes[0].value;
-        var y = `<img class="emojis" src=${chatMSG}>`;
-        socket.emit("A CHAT MSG", y);
+        var msg = `<img class="emojis" src=${chatMSG}>`;
+        socket.emit("A CHAT MSG", msg);
     };
 
     const toggleEmojibar = () => {

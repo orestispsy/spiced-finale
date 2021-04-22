@@ -319,6 +319,7 @@ app.post("/addChatPic", uploader.single("file"), s3.upload, (req, res) => {
 
 app.post("/changeColor", (req, res) => {
     let color = Object.keys(req.body)[0];
+    console.log(color)
     db.addChatColor(req.session.userId, color)
         .then(({ rows }) => {
             res.json({ data: rows[0] });
