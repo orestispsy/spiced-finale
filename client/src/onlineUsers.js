@@ -9,7 +9,14 @@ import chatSfx from "./../public/chat.mp3";
 let emoji = require("./tools/customEmoj.json");
 
 var count = 0;
-export default function OnlineUsers({ mute, chat_img, chat_myUserId, emojiBar, sendEmoji, chat_color }) {
+export default function OnlineUsers({
+    mute,
+    chat_img,
+    chat_myUserId,
+    emojiBar,
+    sendEmoji,
+    chat_color,
+}) {
     if (chat_img) {
         chat_img = "";
     }
@@ -17,7 +24,7 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId, emojiBar, s
     const [onlineUserPic, setOnlineUserPic] = useState(chat_img);
     const [file, setFile] = useState(null);
     const [closeTag, setcloseTag] = useState(false);
-    const [chatColor,setChatColor] = useState(false)
+    const [chatColor, setChatColor] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.25 });
 
@@ -56,7 +63,7 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId, emojiBar, s
             .then(({ data }) => {
                 if (data.data[0]) {
                     setOnlineUserPic(data.data[0].chat_img);
-                    setUserPicBar(!userPicBar)
+                    setUserPicBar(!userPicBar);
                     setcloseTag(!closeTag);
                 } else {
                     console.log("data fail");
@@ -68,19 +75,16 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId, emojiBar, s
             });
     };
 
-    
-      const handleColorChange = (e) => {
-
-          axios
-              .post("/changeColor", e.target.value)
-              .then(({ data }) => {
-                    setChatColor(data.data.chat_color)
-              })
-              .catch((err) => {
+    const handleColorChange = (e) => {
+        axios
+            .post("/changeColor", e.target.value)
+            .then(({ data }) => {
+                setChatColor(data.data.chat_color);
+            })
+            .catch((err) => {
                 //   console.log("error", err);
-
-              });
-      };
+            });
+    };
 
     const toggleUploader = () => {
         setUserPicBar(!userPicBar);
@@ -125,14 +129,10 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId, emojiBar, s
                                 </div>
                             ))}
                     </div>
-                    <input
-                        className="colorSelector"
-                        type="color"
-                        defaultValue= {chat_color || `#00f01c`}
-                        onChange={(e) => handleColorChange(e)}
-                    ></input>
+
                     {userPicBar && (
                         <div className="fileUploaderChat">
+                            <h1>Select Image</h1>
                             <input
                                 type="file"
                                 name="file"
@@ -148,13 +148,27 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId, emojiBar, s
                             </div>
                         </div>
                     )}
-                    <div
-                        className="toggleChatUploader"
-                        onClick={() => toggleUploader()}
-                    >
-                        {" "}
-                        {!closeTag && "Change Pic"} {closeTag && "Close"}
-                    </div>
+                    {!closeTag && (
+                        <div className="chatMenuOptions">
+                            <div onClick={() => toggleUploader()}>
+                                <img className="uploaderTogglerImg"></img>
+                            </div>
+                            <input
+                                className="colorSelector"
+                                type="color"
+                                defaultValue={chat_color || `#00f01c`}
+                                onChange={(e) => handleColorChange(e)}
+                            ></input>
+                        </div>
+                    )}
+                    {closeTag && (
+                        <div
+                            className="toggleChatUploader"
+                            onClick={() => toggleUploader()}
+                        >
+                            Close
+                        </div>
+                    )}
                 </div>
                 {emojiBar && (
                     <div className="emoticons">

@@ -670,7 +670,7 @@ font-family: 'Ultra', serif; */
 
 .chatTypeLine {
     width: 30vmax;
-    height: 1.5vmax;
+    height: 1.3vmax;
     box-shadow: inset 0 0 0 100vh rgba(43, 255, 0, 0.103),
         -0 0 5px rgba(209, 255, 4, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
@@ -678,6 +678,7 @@ font-family: 'Ultra', serif; */
     outline: none;
     white-space: nowrap;
     overflow-x: hidden;
+    font-size: 0.9vmax;
 }
 
 .typeLine {
@@ -686,8 +687,7 @@ font-family: 'Ultra', serif; */
     justify-content: center;
     align-items: center;
     align-self: center;
-    padding: 1vmax;
-    padding-top: 0;
+
 }
 
 .sendChatMsg {
@@ -719,8 +719,6 @@ font-family: 'Ultra', serif; */
     letter-spacing: 0.15vmax;
     margin: 0;
 }
-
-
 
 .post img {
     width: 2.2vmax;
@@ -773,8 +771,8 @@ font-family: 'Ultra', serif; */
     margin: 5px !important;
     text-align: center !important;
     background-color: rgba(0, 0, 0, 0.192);
-    padding:0.5vmax;
-    height:1.5vmax;
+    padding: 0.5vmax;
+    height: 1.5vmax;
     align-self: center;
     border-radius: 2vh;
 }
@@ -785,8 +783,8 @@ font-family: 'Ultra', serif; */
     margin: 5px !important;
     text-align: center !important;
     background-color: rgba(255, 0, 0, 0.267);
-     padding:0.5vmax;
-    height:1.5vmax;
+    padding: 0.5vmax;
+    height: 1.5vmax;
     align-self: center;
     border-radius: 2vh;
 }
@@ -799,9 +797,8 @@ font-family: 'Ultra', serif; */
     width: auto;
 }
 
-
 .onlineUsersBack {
-     display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -820,8 +817,7 @@ font-family: 'Ultra', serif; */
     background-color: rgba(255, 0, 0, 0.158);
     border-radius: 10px;
     width: 15vmax;
-    padding:0.5vmax;
-    
+    padding: 0.5vmax;
 }
 
 .onlineUsers a {
@@ -841,7 +837,7 @@ font-family: 'Ultra', serif; */
     text-align: center;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
-        border-radius: 0.5vmax;
+    border-radius: 0.5vmax;
 }
 
 .onlineUserCounter {
@@ -900,21 +896,55 @@ font-family: 'Ultra', serif; */
         -1px -1px 0 black;
 }
 
+.chatMenuOptions {
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    align-items: center;
+    margin-top: 1vmax;
+    width: 10vmax;
+}
+
 .toggleChatUploader {
     color: rgba(255, 255, 255, 0.692);
     cursor: pointer;
     font-size: 1vmax;
-    margin:0.5vmax;
+    margin: 0.5vmax;
+}
+
+.uploaderTogglerImg {
+    background-image: url("./photoc.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 3vmax;
+    height: 3vmax;
+    outline: 0 !important;
+    border: 0 !important;
+    border-radius: 50%;
+    cursor:pointer;
+}
+
+.uploaderTogglerImg:hover {
+    background-color: rgba(0, 0, 0, 0.062);
+    border-radius: 50%;
+    position: relative;
+    top: -0.3vmax;
 }
 
 .fileUploaderChat {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     align-self: center;
     border-radius: 1vh;
+}
 
+.fileUploaderChat h1 {
+    font-size:1.5vmax;
+    margin:0;
+    margin-top:1vmax;
 }
 
 .fileUploaderChat div {
@@ -930,39 +960,38 @@ font-family: 'Ultra', serif; */
         #ffffff00
     );
     border-radius: 50%;
-    width:5vmax;
-    height:5vmax;
+    width: 5vmax;
+    height: 5vmax;
     text-align: center;
 }
 
 .fileUploaderChat input {
-    overflow-wrap:break-word !important;
+    overflow-wrap: break-word !important;
     padding: 0.8vmax;
     background-color: rgba(0, 0, 0, 0.185);
     border: 1px solid black;
     border-radius: 1px;
     box-shadow: none;
     font-size: 0.7vmax;
-    width:12vmax !important;
-    height:1.1vmax;
-    margin-top:1vmax;
+    width: 12vmax !important;
+    height: 1.1vmax;
+    margin-top: 1vmax;
 }
 
 .uploadChat {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content: center;
     cursor: pointer;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
-        margin:0 !important;
+    margin: 0 !important;
 }
 
-    .uploadChat span {
-       text-align: center;
+.uploadChat span {
+    text-align: center;
     font-size: 2vmax;
 }
-
 
 .uploadChat:hover {
     color: white;
@@ -973,23 +1002,22 @@ font-family: 'Ultra', serif; */
 }
 
 .colorSelector {
-    width: 2vmax;
-    height:2vmax;
+    width: 1.9vmax;
+    height: 1.9vmax;
     background-color: transparent;
-    box-shadow: none;
-    border:1px solid rgba(255, 0, 212, 0.336);
-    border-radius: 50%;
-    color: yellow;
     text-align: center;
     font-size: 1.1vmax;
-    box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
-        -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
-    background-color: rgba(0, 0, 0, 0.445);
-    z-index: 2;
-    padding:0.5vmax;
-    opacity:70%;
-    margin-top:1vmax;
-    margin-bottom:0;
+     background: radial-gradient(
+        closest-side,
+        #ffffff7a,
+        #c5050542,
+        #bbff0025,
+        #ff000000
+    );
+    padding: 1.5vmax;
+    margin-bottom: 0;
+    cursor:pointer;
+    box-shadow: none;
 }
 
 .mute {
@@ -1013,8 +1041,8 @@ font-family: 'Ultra', serif; */
 }
 
 .emoticons {
-    margin-top:1vmax;
-    margin-left:1vmax;
+    margin-top: 1vmax;
+    margin-left: 1vmax;
     display: flex;
     flex-direction: row;
     align-content: flex-start;
@@ -1025,7 +1053,7 @@ font-family: 'Ultra', serif; */
     width: 15vmax;
     height: 11vmax;
     min-height: 11vmax;
-   overflow-y:scroll;
+    overflow-y: scroll;
     border-radius: 1vmax;
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
         -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
@@ -1038,15 +1066,11 @@ font-family: 'Ultra', serif; */
     height: 2vmax;
     min-width: 2vmax;
     min-height: 2vmax;
-    margin: 15px;
+    margin: 0.5vmax;
     cursor: grab;
 }
 
-.emoticons div {
-    margin: 0;
-}
-
-.emoticons div:hover {
+.emoticons div:hover, .emojiBarToggler:hover {
     background-color: rgba(0, 0, 0, 0.062);
     border-radius: 50%;
     position: relative;
