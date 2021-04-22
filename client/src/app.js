@@ -17,6 +17,7 @@ export default class App extends Component {
             list: false,
             visitors: false,
             chat_img: false,
+            chat_color: false
         };
     }
 
@@ -31,6 +32,7 @@ export default class App extends Component {
                         nickname: data.data.nickname,
                         admin: data.data.admin,
                         chat_img: data.data.chat_img,
+                        chat_color: data.data.chat_color
                     });
                 }
             })
@@ -175,6 +177,7 @@ export default class App extends Component {
                             <Chat
                                 chat_img={this.state.chat_img}
                                 chat_myUserId={this.state.id}
+                                chat_color={this.state.chat_color}
                             />
                         )}
                     />

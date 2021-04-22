@@ -141,7 +141,7 @@ module.exports.addChatMsg = (msg_sender_id, chat_msg) => {
 
 module.exports.getChatMsgs = () => {
     const q = `
-        SELECT chatroom.id, chatroom.created_at, nickname, chat_img, msg_sender_id, chat_msg
+        SELECT chatroom.id, chatroom.created_at, nickname, chat_img, chat_color, msg_sender_id, chat_msg
         FROM chatroom
         JOIN community
         ON (community.id = msg_sender_id)
@@ -185,5 +185,16 @@ module.exports.addChatPic = (pic, id) => {
         RETURNING *
          `;
     const params = [pic, id];
+    return db.query(q, params);
+};
+
+module.exports.addChatColor = (id, color) => {
+    const q = `
+        UPDATE community
+        SET chat_color = $2
+        WHERE id = $1
+        RETURNING *
+         `;
+    const params = [id, color];
     return db.query(q, params);
 };

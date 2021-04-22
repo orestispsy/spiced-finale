@@ -732,6 +732,8 @@ font-family: 'Ultra', serif; */
     margin: 0;
 }
 
+
+
 .post img {
     width: 2.2vmax;
     height: 2.2vmax;
@@ -779,13 +781,11 @@ font-family: 'Ultra', serif; */
 }
 .userEnters {
     font-size: 1vmax !important;
-    color: lime !important;
+    color: rgba(51, 255, 0, 0.719) !important;
     margin: 5px !important;
     text-align: center !important;
-    background-color: rgba(0, 0, 0, 0.13);
-    padding-top:0.5vmax;
-    padding-bottom:0.5vmax;
-    width: 15vmax;
+    background-color: rgba(0, 0, 0, 0.192);
+    padding:0.5vmax;
     height:1.5vmax;
     align-self: center;
     border-radius: 2vh;
@@ -793,13 +793,11 @@ font-family: 'Ultra', serif; */
 
 .userLeaves {
     font-size: 1vmax !important;
-    color: rgba(252, 25, 221, 0.747) !important;
+    color: rgba(0, 0, 0, 0.61) !important;
     margin: 5px !important;
     text-align: center !important;
-    background-color: rgba(255, 0, 0, 0.13);
-     padding-top:0.5vmax;
-       padding-bottom:0.5vmax;
-    width: 15vmax;
+    background-color: rgba(255, 0, 0, 0.267);
+     padding:0.5vmax;
     height:1.5vmax;
     align-self: center;
     border-radius: 2vh;
@@ -910,8 +908,8 @@ font-family: 'Ultra', serif; */
     color: rgb(0, 255, 0);
     font-family: "Black Ops One", cursive;
     font-size: 1.5vmax;
-    text-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
-        -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
 }
 
 .toggleChatUploader {
@@ -988,10 +986,20 @@ font-family: 'Ultra', serif; */
 }
 
 .colorSelector {
+    margin-top:-1vmax;
     width: 2vmax;
     background-color: transparent;
     box-shadow: none;
+    border:1px solid black;
     border-radius: 50%;
+    color: yellow;
+    text-align: center;
+    font-size: 1.1vmax;
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
+        -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
+    background-color: rgba(0, 0, 0, 0.384);
+    z-index: 2;
+
 }
 
 .mute {

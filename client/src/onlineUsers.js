@@ -9,7 +9,7 @@ import chatSfx from "./../public/chat.mp3";
 let emoji = require("./tools/customEmoj.json");
 
 var count = 0;
-export default function OnlineUsers({ mute, chat_img, chat_myUserId, emojiBar, sendEmoji }) {
+export default function OnlineUsers({ mute, chat_img, chat_myUserId, emojiBar, sendEmoji, chat_color }) {
     if (chat_img) {
         chat_img = "";
     }
@@ -17,6 +17,7 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId, emojiBar, s
     const [onlineUserPic, setOnlineUserPic] = useState(chat_img);
     const [file, setFile] = useState(null);
     const [closeTag, setcloseTag] = useState(false);
+    const [chatColor,setChatColor] = useState(false)
 
     const [play] = useSound(chatSfx, { volume: 0.25 });
 
@@ -67,6 +68,21 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId, emojiBar, s
             });
     };
 
+    
+      const handleColorChange = (e) => {
+          console.log(e.target.value)
+          axios
+              .post("/changeColor", e.target.value)
+              .then(({ data }) => {
+                  console.log("COLOR DATA", data.data.chat_color);
+                    setChatColor(data.data.chat_color)
+              })
+              .catch((err) => {
+                  console.log("error", err);
+                  // console.log("err in axios in Image Uploader ", err);
+              });
+      };
+
     const toggleUploader = () => {
         setUserPicBar(!userPicBar);
         setcloseTag(!closeTag);
@@ -96,10 +112,26 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId, emojiBar, s
                                             "./../na.jpg"
                                         }
                                     ></img>
-                                    <span>{msg.nickname}</span>
+                                    <span
+                                        style={{
+                                            color:
+                                                (chat_myUserId == msg.id &&
+                                                    chatColor) ||
+                                                msg.chat_color ||
+                                                `lime`,
+                                        }}
+                                    >
+                                        {msg.nickname}
+                                    </span>
                                 </div>
                             ))}
                     </div>
+                    <input
+                        className="colorSelector"
+                        type="color"
+                        defaultValue= {chat_color || `#00f01c`}
+                        onChange={(e) => handleColorChange(e)}
+                    ></input>
                     {userPicBar && (
                         <div className="fileUploaderChat">
                             <input

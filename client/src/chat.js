@@ -11,7 +11,7 @@ import chatSfx from "./../public/msg.mp3";
 
 
 
-export default function Chat({ chat_img, chat_myUserId }) {
+export default function Chat({ chat_color, chat_img, chat_myUserId }) {
     const [emojiBar, setEmojiBar] = useState(false);
     const [mute, setMute] = useState(false);
 
@@ -153,14 +153,30 @@ export default function Chat({ chat_img, chat_myUserId }) {
                                 msg.chat_msg.length > 11
                             ) {
                                 return (
-                                    <div key={msg.id}>
+                                    <div key={msg.id} className="chatPost">
                                         <div className="post">
-                                            <span>{msg.nickname}</span>
+                                            <div className="userChatDetails">
+                                                <img
+                                                    src={
+                                                        msg.chat_img ||
+                                                        "./../na.jpg"
+                                                    }
+                                                ></img>
+                                                <h1>{msg.nickname}</h1>
+                                            </div>
+                                            <div
+                                                className="customColor"
+                                                style={{
+                                                    color:
+                                                        msg.chat_color ||
+                                                        `yellow`,
+                                                }}
+                                            ></div>
                                             <a
                                                 href={msg.chat_msg}
                                                 target="_blank"
                                                 style={{
-                                                    color: `greenolive`,
+                                                    color: `cyan`,
                                                     fontSize: `20px`,
                                                 }}
                                             >
@@ -178,14 +194,32 @@ export default function Chat({ chat_img, chat_myUserId }) {
                                 msg.chat_msg.length > 8
                             ) {
                                 return (
-                                    <div key={msg.id}>
-                                        <div className="post">
-                                            <span>{msg.nickname}</span>
+                                    <div key={msg.id} className="chatPost">
+                                        <div
+                                            className="post"
+                                        >
+                                            <div className="userChatDetails">
+                                                <img
+                                                    src={
+                                                        msg.chat_img ||
+                                                        "./../na.jpg"
+                                                    }
+                                                ></img>
+                                                <h1>{msg.nickname}</h1>
+                                            </div>
+                                            <div
+                                                className="customColor"
+                                                style={{
+                                                    color:
+                                                        msg.chat_color ||
+                                                        `yellow`,
+                                                }}
+                                            ></div>
                                             <a
                                                 href={"https://" + msg.chat_msg}
                                                 target="_blank"
                                                 style={{
-                                                    color: `coral`,
+                                                    color: `cyan`,
                                                     fontSize: `20px`,
                                                 }}
                                             >
@@ -209,7 +243,11 @@ export default function Chat({ chat_img, chat_myUserId }) {
                                                 ></img>
                                                 <h1>{msg.nickname}</h1>
                                             </div>
-                                            <div
+                                            <div className="customColor"
+                                                style={{
+                                                    color: msg.chat_color || `yellow`,
+                                                   
+                                                }}
                                                 dangerouslySetInnerHTML={{
                                                     __html: msg.chat_msg,
                                                 }}
@@ -264,6 +302,7 @@ export default function Chat({ chat_img, chat_myUserId }) {
                 chat_myUserId={chat_myUserId}
                 emojiBar={emojiBar}
                 sendEmoji={(e) => sendEmoji(e)}
+                chat_color={chat_color}
             />
         </div>
     );
