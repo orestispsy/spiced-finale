@@ -751,6 +751,9 @@ font-family: 'Ultra', serif; */
 
 .post div {
     overflow-wrap: break-word;
+    font-family: 'Ultra', serif;
+    font-size:1.2vmax;
+
 }
 
 .emojis {
