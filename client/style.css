@@ -828,7 +828,7 @@ font-family: 'Ultra', serif; */
 .usersBack {
     height: fit-content;
     width: 12vmax;
-    height: 15vmax;
+    height: 12vmax;
     min-height: 5vmax;
     border: 1px double rgba(243, 45, 227, 0.164);
     margin: 1vmax;
@@ -1031,10 +1031,10 @@ font-family: 'Ultra', serif; */
     justify-content: space-around;
     flex-wrap: wrap;
     align-self: center;
-    min-width: 15vmax;
-    width: 15vmax;
-    height: 11vmax;
-    min-height: 11vmax;
+    min-width: 16vmax;
+    width: 16vmax;
+    height: 10vmax;
+    min-height: 10vmax;
     overflow-y: scroll;
     border-radius: 1vmax;
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
