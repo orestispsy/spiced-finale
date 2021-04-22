@@ -176,8 +176,12 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                                 href={msg.chat_msg}
                                                 target="_blank"
                                                 style={{
-                                                    color: `cyan`,
+                                                    color: `black`,
+                                                    fontFamily: `none`,
                                                     fontSize: `20px`,
+                                                    textDecoration: `underline`,
+                                                    textShadow: `none`,
+                                                    fontWeight:  `bold`
                                                 }}
                                             >
                                                 {msg.chat_msg}
@@ -195,9 +199,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                             ) {
                                 return (
                                     <div key={msg.id} className="chatPost">
-                                        <div
-                                            className="post"
-                                        >
+                                        <div className="post">
                                             <div className="userChatDetails">
                                                 <img
                                                     src={
@@ -219,8 +221,12 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                                 href={"https://" + msg.chat_msg}
                                                 target="_blank"
                                                 style={{
-                                                    color: `cyan`,
+                                                    color: `black`,
+                                                    fontFamily: `none`,
                                                     fontSize: `20px`,
+                                                    textDecoration: `underline`,
+                                                    textShadow: `none`,
+                                                    fontWeight: `bold`,
                                                 }}
                                             >
                                                 {msg.chat_msg}
