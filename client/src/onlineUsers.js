@@ -150,9 +150,12 @@ export default function OnlineUsers({
                     )}
                     {!closeTag && (
                         <div className="chatMenuOptions">
-                            <div onClick={() => toggleUploader()}>
-                                <img className="uploaderTogglerImg"></img>
-                            </div>
+                           
+                                <img
+                                    className="uploaderTogglerImg"
+                                    onClick={() => toggleUploader()}
+                                ></img>
+                         
                             <input
                                 className="colorSelector"
                                 type="color"

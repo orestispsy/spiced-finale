@@ -923,16 +923,13 @@ font-family: 'Ultra', serif; */
     width: 3vmax;
     height: 3vmax;
     outline: 0 !important;
-    border: 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.452) !important;
     border-radius: 50%;
     cursor:pointer;
-}
+   background-color: rgba(0, 0, 0, 0.377);
+   box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
+        -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
 
-.uploaderTogglerImg:hover {
-    background-color: rgba(0, 0, 0, 0.062);
-    border-radius: 50%;
-    position: relative;
-    top: -0.3vmax;
 }
 
 .fileUploaderChat {
