@@ -122,5 +122,37 @@
     {
         "id": "31",
         "url": "./../chat/chaos.gif"
+    },
+    {
+        "id": "32",
+        "url": "./../chat/sunrise.gif"
+    },
+    {
+        "id": "33",
+        "url": "./../chat/monkey.gif"
+    },
+    {
+        "id": "34",
+        "url": "./../chat/runner.gif"
+    },
+    {
+        "id": "35",
+        "url": "./../chat/lips.gif"
+    },
+    {
+        "id": "36",
+        "url": "./../chat/ok.gif"
+    },
+    {
+        "id": "37",
+        "url": "./../chat/nope.gif"
+    },
+    {
+        "id": "38",
+        "url": "./../chat/hipster.gif"
+    },
+    {
+        "id": "39",
+        "url": "./../chat/headbanger2.gif"
     }
 ]
