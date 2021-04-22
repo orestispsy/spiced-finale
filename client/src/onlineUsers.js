@@ -70,16 +70,15 @@ export default function OnlineUsers({ mute, chat_img, chat_myUserId, emojiBar, s
 
     
       const handleColorChange = (e) => {
-          console.log(e.target.value)
+
           axios
               .post("/changeColor", e.target.value)
               .then(({ data }) => {
-                  console.log("COLOR DATA", data.data.chat_color);
                     setChatColor(data.data.chat_color)
               })
               .catch((err) => {
-                  console.log("error", err);
-                  // console.log("err in axios in Image Uploader ", err);
+                //   console.log("error", err);
+
               });
       };
 
