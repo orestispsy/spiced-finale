@@ -9,8 +9,6 @@ import useSound from "use-sound";
 
 import chatSfx from "./../public/msg.mp3";
 
-
-
 export default function Chat({ chat_color, chat_img, chat_myUserId }) {
     const [emojiBar, setEmojiBar] = useState(false);
     const [mute, setMute] = useState(false);
@@ -181,7 +179,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                                     fontSize: `20px`,
                                                     textDecoration: `underline`,
                                                     textShadow: `none`,
-                                                    fontWeight:  `bold`
+                                                    fontWeight: `bold`,
                                                 }}
                                             >
                                                 {msg.chat_msg}
@@ -249,10 +247,12 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                                 ></img>
                                                 <h1>{msg.nickname}</h1>
                                             </div>
-                                            <div className="customColor"
+                                            <div
+                                                className="customColor"
                                                 style={{
-                                                    color: msg.chat_color || `yellow`,
-                                                   
+                                                    color:
+                                                        msg.chat_color ||
+                                                        `yellow`,
                                                 }}
                                                 dangerouslySetInnerHTML={{
                                                     __html: msg.chat_msg,

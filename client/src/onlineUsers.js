@@ -144,32 +144,31 @@ export default function OnlineUsers({
                                 className="uploadChat"
                                 onClick={() => handleUploaderClick()}
                             >
-                                <span>➤</span>
+                                <h1>UPDATE</h1>
+                                {closeTag && (
+                                    <h1
+                                        className="toggleChatUploader"
+                                        onClick={() => toggleUploader()}
+                                    >
+                                        CLOSE
+                                    </h1>
+                                )}
                             </div>
                         </div>
                     )}
                     {!closeTag && (
                         <div className="chatMenuOptions">
-                           
-                                <img
-                                    className="uploaderTogglerImg"
-                                    onClick={() => toggleUploader()}
-                                ></img>
-                         
+                            <img
+                                className="uploaderTogglerImg"
+                                onClick={() => toggleUploader()}
+                            ></img>
+
                             <input
                                 className="colorSelector"
                                 type="color"
                                 defaultValue={chat_color || `#00f01c`}
                                 onChange={(e) => handleColorChange(e)}
                             ></input>
-                        </div>
-                    )}
-                    {closeTag && (
-                        <div
-                            className="toggleChatUploader"
-                            onClick={() => toggleUploader()}
-                        >
-                            Close
                         </div>
                     )}
                 </div>

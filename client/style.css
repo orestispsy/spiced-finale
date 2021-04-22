@@ -687,7 +687,6 @@ font-family: 'Ultra', serif; */
     justify-content: center;
     align-items: center;
     align-self: center;
-
 }
 
 .sendChatMsg {
@@ -751,9 +750,8 @@ font-family: 'Ultra', serif; */
 
 .post div {
     overflow-wrap: break-word;
-    font-family: 'Ultra', serif;
-    font-size:1.2vmax;
-
+    font-family: "Ultra", serif;
+    font-size: 1.2vmax;
 }
 
 .emojis {
@@ -874,6 +872,7 @@ font-family: 'Ultra', serif; */
     justify-content: flex-start;
     align-items: center;
     align-self: center;
+    overflow-x:hidden;
 }
 
 .onlineListImg {
@@ -909,10 +908,9 @@ font-family: 'Ultra', serif; */
 }
 
 .toggleChatUploader {
-    color: rgba(255, 255, 255, 0.692);
+    color: rgb(252, 100, 73) !important;
     cursor: pointer;
     font-size: 1vmax;
-    margin: 0.5vmax;
 }
 
 .uploaderTogglerImg {
@@ -925,11 +923,10 @@ font-family: 'Ultra', serif; */
     outline: 0 !important;
     border: 1px solid rgba(255, 255, 255, 0.452) !important;
     border-radius: 50%;
-    cursor:pointer;
-   background-color: rgba(0, 0, 0, 0.377);
-   box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.377);
+    box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
         -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
-
 }
 
 .fileUploaderChat {
@@ -942,27 +939,17 @@ font-family: 'Ultra', serif; */
 }
 
 .fileUploaderChat h1 {
-    font-size:1.5vmax;
-    margin:0;
-    margin-top:1vmax;
+    font-size: 1.5vmax;
+    margin: 0;
+    margin-top: 1vmax;
 }
 
-.fileUploaderChat div {
-    color: yellow;
-    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
-        -1px -1px 0 black;
-    margin: 0.5vmax;
-    background: radial-gradient(
-        closest-side,
-        #00000000,
-        #dde01642,
-        #ffffff1f,
-        #ffffff00
-    );
-    border-radius: 50%;
-    width: 5vmax;
-    height: 5vmax;
-    text-align: center;
+.uploadChat h1 {
+    font-size: 1.2vmax;
+    border-radius: 1vh;
+    margin: 1vmax;
+    height: 2vmax;
+    color: lime;
 }
 
 .fileUploaderChat input {
@@ -980,17 +967,12 @@ font-family: 'Ultra', serif; */
 
 .uploadChat {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     cursor: pointer;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
-    margin: 0 !important;
-}
-
-.uploadChat span {
-    text-align: center;
-    font-size: 2vmax;
+    margin-bottom: 0 !important;
 }
 
 .uploadChat:hover {
@@ -1007,7 +989,7 @@ font-family: 'Ultra', serif; */
     background-color: transparent;
     text-align: center;
     font-size: 1.1vmax;
-     background: radial-gradient(
+    background: radial-gradient(
         closest-side,
         #ffffff7a,
         #c5050542,
@@ -1016,7 +998,7 @@ font-family: 'Ultra', serif; */
     );
     padding: 1.5vmax;
     margin-bottom: 0;
-    cursor:pointer;
+    cursor: pointer;
     box-shadow: none;
 }
 
@@ -1070,7 +1052,8 @@ font-family: 'Ultra', serif; */
     cursor: grab;
 }
 
-.emoticons div:hover, .emojiBarToggler:hover {
+.emoticons div:hover,
+.emojiBarToggler:hover {
     background-color: rgba(0, 0, 0, 0.062);
     border-radius: 50%;
     position: relative;
