@@ -16,6 +16,7 @@ export default class GigEditor extends React.Component {
         };
     }
 
+
     handleClick() {
         axios
             .post("/gig-update", this.state)

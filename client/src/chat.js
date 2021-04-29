@@ -1,12 +1,9 @@
-import { useState, setState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { socket } from "./tools/socket";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-
-let emoji = require("./tools/customEmoj.json");
 
 import OnlineUsers from "./onlineUsers";
-import Ticker from "./ticker"
+import Ticker from "./ticker";
 
 import useSound from "use-sound";
 
@@ -71,9 +68,9 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
         setEmojiBar(!emojiBar);
     };
 
-       const toggleTicker = () => {
-           setTickerBar(!tickerBar);
-       };
+    const toggleTicker = () => {
+        setTickerBar(!tickerBar);
+    };
 
     if (!chatMessages) {
         return null;

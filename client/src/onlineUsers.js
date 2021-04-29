@@ -108,12 +108,14 @@ export default function OnlineUsers({
                                 <div className="onlineList" key={msg.id}>
                                     <img
                                         className="onlineListImg"
+                                        title={msg.nickname}
                                         src={
                                             (chat_myUserId == msg.id &&
                                                 onlineUserPic) ||
                                             (msg.chat_img && msg.chat_img) ||
                                             "./../na.jpg"
                                         }
+                                        onClick={(e) => console.log(e)}
                                     ></img>
                                     <span
                                         style={{
