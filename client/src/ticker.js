@@ -56,8 +56,9 @@ export default function Ticker({}) {
     }
 
     return (
-        <div id="headlines" ref={tickerRef}>
-            {/* {emoji && emoji.map((emoj) => { 
+
+            <div id="headlines" ref={tickerRef}>
+                {/* {emoji && emoji.map((emoj) => { 
                 
                 return (
                     <div
@@ -79,60 +80,57 @@ export default function Ticker({}) {
                 );
 
             })} */}
-            <a className="tickerLink" target="_blank">
-                Welcome My Friends
-            </a>
-            <a className="tickerLink" target="_blank">
-                So nice to see you here
-            </a>
-            <a className="tickerLink" target="_blank">
-                I hope you enjoy your stay !
-            </a>
-            <a className="tickerLink" target="_blank">
-                Let me share some nice music links with you . . .
-            </a>
-            <a
-                className="tickerLink"
-                href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-du-beast-special-vol-i-sitting-at-the-bar-with-john/"
-                target="_blank"
-            >
-                Du Beast Special Vol. I : "Sitting at the Bar with John"
-            </a>
-            <a
-                className="tickerLink"
-                href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-09042020/"
-                target="_blank"
-            >
-                Night Flight [09.04.2020]
-            </a>
-            <a
-                className="tickerLink"
-                href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-12112020/"
-                target="_blank"
-            >
-                Night Flight [12.11.2020]
-            </a>
-            <a
-                className="tickerLink"
-                href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-du-beast-special-vol-ii/"
-                target="_blank"
-            >
-                Du Beast Special Vol. II
-            </a>
-            <a
-                className="tickerLink"
-                href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-30052019/"
-                target="_blank"
-            >
-                Night Flight [30.05.2019]
-            </a>
-            <a
-                className="tickerLink"
-                href=" https://www.mixcloud.com/WeirdFishesRadio/night-flight-08042021/"
-                target="_blank"
-            >
-                Night Flight [08.04.2021]
-            </a>
-        </div>
+                <a className="tickerBlankLink" target="_blank">
+                    Welcome My Friends
+                </a>
+                <a className="tickerBlankLink" target="_blank">
+                    Nice to see you here, enjoy your stay !
+                </a>
+                <a className="tickerBlankLink" target="_blank">
+                    Check Out These Selected Music Links I've got for you ➤
+                </a>
+                <a
+                    className="tickerLink"
+                    href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-du-beast-special-vol-i-sitting-at-the-bar-with-john/"
+                    target="_blank"
+                >
+                    Du Beast Special Vol. I : "Sitting at the Bar with John"
+                </a>
+                <a
+                    className="tickerLink"
+                    href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-09042020/"
+                    target="_blank"
+                >
+                    Night Flight [09.04.2020]
+                </a>
+                <a
+                    className="tickerLink"
+                    href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-12112020/"
+                    target="_blank"
+                >
+                    Night Flight [12.11.2020]
+                </a>
+                <a
+                    className="tickerLink"
+                    href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-du-beast-special-vol-ii/"
+                    target="_blank"
+                >
+                    Du Beast Special Vol. II
+                </a>
+                <a
+                    className="tickerLink"
+                    href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-30052019/"
+                    target="_blank"
+                >
+                    Night Flight [30.05.2019]
+                </a>
+                <a
+                    className="tickerLink"
+                    href=" https://www.mixcloud.com/WeirdFishesRadio/night-flight-08042021/"
+                    target="_blank"
+                >
+                    Night Flight [08.04.2021]
+                </a>
+            </div>
     );
 }
