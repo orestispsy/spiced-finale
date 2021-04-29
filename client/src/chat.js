@@ -3,7 +3,10 @@ import { socket } from "./tools/socket";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+let emoji = require("./tools/customEmoj.json");
+
 import OnlineUsers from "./onlineUsers";
+import Ticker from "./ticker"
 
 import useSound from "use-sound";
 
@@ -11,6 +14,7 @@ import chatSfx from "./../public/msg.mp3";
 
 export default function Chat({ chat_color, chat_img, chat_myUserId }) {
     const [emojiBar, setEmojiBar] = useState(false);
+    const [tickerBar, setTickerBar] = useState(true);
     const [mute, setMute] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.75 });
@@ -67,12 +71,17 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
         setEmojiBar(!emojiBar);
     };
 
+       const toggleTicker = () => {
+           setTickerBar(!tickerBar);
+       };
+
     if (!chatMessages) {
         return null;
     }
 
     return (
         <div className="chatContainerBack">
+            {tickerBar && <Ticker />}
             <div className="chatContainer">
                 <h1>Chat Room</h1>
                 <div className="chatScreenBack">
@@ -267,7 +276,6 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                         })}
                     </div>
                 </div>
-
                 <div className="typeLine">
                     <textarea
                         rows="1"
@@ -310,6 +318,14 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                 sendEmoji={(e) => sendEmoji(e)}
                 chat_color={chat_color}
             />
+            {tickerBar && (
+                <div
+                    className="tickerButton"
+                    onClick={() => toggleTicker(!tickerBar)}
+                >
+                    Stop Ticker
+                </div>
+            )}
         </div>
     );
 }
