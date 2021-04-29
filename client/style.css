@@ -221,7 +221,7 @@ a:hover {
 }
 
 .gigListContainer h1 {
-    margin-top: 50px;
+
     margin-bottom: 10px;
     color: white;
     text-shadow: -0 0 5px rgba(0, 0, 0, 0.7), 0 -0 5px rgba(0, 0, 0, 0.7),
@@ -433,13 +433,24 @@ button:active {
 }
 
 .gigEntries {
-    max-height: 70vh;
+    height:80vh;
+    max-height: 80vh;
     overflow: hidden;
     font-size: 1vmax;
     text-align: center;
     display: flex;
     flex-direction: column;
     letter-spacing: 1px;
+}
+
+.gigEntries div {
+   background-color: rgba(255, 0, 0, 0.13);
+    border-radius: 1vmax;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+        margin-top:0.5vmax;
+        width:fit-content;
+        align-self:center;
 }
 
 .gigEntries:hover {
@@ -1146,6 +1157,11 @@ font-family: 'Ultra', serif; */
     font-family: "Press Start 2P", cursive;
     font-size: 0.7vmax;
     width: 3vmax;
+    
+}
+.tickerButton:hover {
+     text-shadow: -0 0 10px rgba(255, 0, 0, 0.37), 0 -0 10px rgba(255, 0, 0, 0.37),
+        -0 -0 10px rgba(255, 0, 0, 0.37), -0 -0 10px rgba(255, 0, 0, 0.37);
 }
 
 /* Ticker !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
