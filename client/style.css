@@ -168,16 +168,22 @@ a:hover {
 }
 
 .switch {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     background-image: url("ymc.png");
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
     position: fixed;
-    left: 80px;
-    bottom: 4px;
+    left: 20px;
+    bottom: 1.8vmax;
     z-index: 1;
     cursor: pointer;
+}
+
+.switch:hover {
+    left: 18px;
+    bottom: 1.5vmax;
 }
 
 .barMainLink {
@@ -221,7 +227,6 @@ a:hover {
 }
 
 .gigListContainer h1 {
-
     margin-bottom: 10px;
     color: white;
     text-shadow: -0 0 5px rgba(0, 0, 0, 0.7), 0 -0 5px rgba(0, 0, 0, 0.7),
@@ -433,7 +438,7 @@ button:active {
 }
 
 .gigEntries {
-    height:80vh;
+    height: 80vh;
     max-height: 80vh;
     overflow: hidden;
     font-size: 1vmax;
@@ -444,13 +449,13 @@ button:active {
 }
 
 .gigEntries div {
-   background-color: rgba(255, 0, 0, 0.13);
+    background-color: rgba(255, 0, 0, 0.13);
     border-radius: 1vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
-        margin-top:0.5vmax;
-        width:fit-content;
-        align-self:center;
+    margin-top: 0.5vmax;
+    width: fit-content;
+    align-self: center;
 }
 
 .gigEntries:hover {
@@ -1157,11 +1162,55 @@ font-family: 'Ultra', serif; */
     font-family: "Press Start 2P", cursive;
     font-size: 0.7vmax;
     width: 3vmax;
-    
 }
 .tickerButton:hover {
-     text-shadow: -0 0 10px rgba(255, 0, 0, 0.37), 0 -0 10px rgba(255, 0, 0, 0.37),
-        -0 -0 10px rgba(255, 0, 0, 0.37), -0 -0 10px rgba(255, 0, 0, 0.37);
+    text-shadow: -0 0 10px rgba(255, 0, 0, 0.37),
+        0 -0 10px rgba(255, 0, 0, 0.37), -0 -0 10px rgba(255, 0, 0, 0.37),
+        -0 -0 10px rgba(255, 0, 0, 0.37);
 }
 
 /* Ticker !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.introPreCover,
+.introCover {
+    position: absolute;
+}
+
+.introCover {
+    background: black;
+    width: 100vw;
+    height: 100vh;
+}
+
+.slider {
+    position: absolute;
+    width: 1vmax;
+    height: 100vh;
+    background-color: black;
+    cursor: pointer;
+}
+
+.slider:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-self: center;
+    width: 100vw;
+    height: 100vh;
+    font-size: 10vmax;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+}
+
+.intro span {
+    align-self: center;
+    font-size: 3vmax;
+    width: 60vw;
+    text-align: center;
+}
