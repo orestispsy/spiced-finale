@@ -245,26 +245,28 @@ export default class App extends Component {
                             />
                         </div>
                     </div>
-                {!this.state.sliderHidden && (   <div
-                        className="introCover"
-                        style={{
-                            width: this.state.left + "px",
-                        }}
-                    >
+                    {!this.state.sliderHidden && (
                         <div
-                            className="intro"
+                            className="introCover"
                             style={{
                                 width: this.state.left + "px",
                             }}
                         >
-                            Welcome
-                            <span>
-                                Hover on the right to find the "slider" and then
-                                move it horizontally to see behind the void.
-                            </span>
+                            <div
+                                className="intro"
+                                style={{
+                                    width: this.state.left + "px",
+                                }}
+                            >
+                                Welcome
+                                <span>
+                                    Hover on the right to find the "slider" and
+                                    then move it horizontally to see behind the
+                                    void.
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                    )} 
+                    )}
                     <div
                         style={{
                             left:
@@ -272,6 +274,7 @@ export default class App extends Component {
                         }}
                         className="slider"
                         onMouseDown={(e) => this.sliderAction(e)}
+                        onTouchMove={(e) => this.sliderAction(e)}
                     ></div>
                 </div>
             </BrowserRouter>

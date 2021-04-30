@@ -1173,7 +1173,7 @@ font-family: 'Ultra', serif; */
 
 .introPreCover,
 .introCover {
-    position: absolute;
+    position: fixed;
 }
 
 .introCover {
@@ -1185,7 +1185,7 @@ font-family: 'Ultra', serif; */
 
 .slider {
     position: absolute;
-    width: 1vmax;
+    width: 2vw;
     height: 100vh;
     background-color: black;
     cursor: pointer;
