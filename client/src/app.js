@@ -95,10 +95,10 @@ export default class App extends Component {
     }
 
     handleMouseMove(e) {
-        if (e.clientX >= body[0].offsetWidth - this.state.sliderWidth / 8) {
+        if (e.clientX >= body[0].offsetWidth - this.state.sliderWidth) {
             this.setState({
                 move: false,
-                left: body[0].offsetWidth,
+   
             });
         }
 
