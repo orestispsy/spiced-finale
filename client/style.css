@@ -1180,6 +1180,7 @@ font-family: 'Ultra', serif; */
     background: black;
     width: 100vw;
     height: 100vh;
+    z-index: 10;
 }
 
 .slider {
@@ -1188,6 +1189,7 @@ font-family: 'Ultra', serif; */
     height: 100vh;
     background-color: black;
     cursor: pointer;
+    z-index:10;
 }
 
 .slider:hover {
@@ -1206,6 +1208,7 @@ font-family: 'Ultra', serif; */
     overflow: hidden;
     color: white;
     text-align: center;
+
 }
 
 .intro span {

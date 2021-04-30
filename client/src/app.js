@@ -23,6 +23,7 @@ export default class App extends Component {
             left: body[0].offsetWidth,
             sliderWidth: 0,
             move: false,
+            sliderHidden: false,
         };
     }
 
@@ -94,10 +95,27 @@ export default class App extends Component {
         });
     }
 
+    hideSlider() {
+         this.setState({
+             sliderHidden:true
+         });
+    }
+
     handleMouseMove(e) {
-        if (e.clientX >= body[0].offsetWidth - this.state.sliderWidth / 8) {
+        if (this.state.move && e.clientX >= body[0].offsetWidth - this.state.sliderWidth / 8) {
             this.setState({
                 move: false,
+                left: body[0].offsetWidth,
+            });
+        }
+
+        if (e.clientX == 0) {
+             this.setState({
+                 sliderHidden: true,
+             });
+        } else {
+            this.setState({
+                sliderHidden: false,
             });
         }
 
@@ -227,7 +245,7 @@ export default class App extends Component {
                             />
                         </div>
                     </div>
-                    <div
+                {!this.state.sliderHidden && (   <div
                         className="introCover"
                         style={{
                             width: this.state.left + "px",
@@ -246,6 +264,7 @@ export default class App extends Component {
                             </span>
                         </div>
                     </div>
+                    )} 
                     <div
                         style={{
                             left:
