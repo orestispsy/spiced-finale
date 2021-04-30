@@ -125,7 +125,7 @@ export default class App extends Component {
             });
         }
     }
-
+ 
     logOut() {
         axios
             .get("/logout")
