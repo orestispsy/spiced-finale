@@ -54,71 +54,91 @@ export default class GigCreator extends React.Component {
             <div className="gigCreatorContainer">
                 <form>
                     <h1>Add Gig</h1>
-                    <span>Date*</span>
-                    <input
-                        autoComplete="none"
-                        name="date"
-                        placeholder="date"
-                        type="date"
-                        onChange={(e) => this.handleChange(e)}
-                        onClick={() => this.handleErrorMsg()}
-                    />
-                    <span>City</span>
-                    <input
-                        autoComplete="none"
-                        name="city"
-                        placeholder="City"
-                        onChange={(e) => this.handleChange(e)}
-                        onClick={() => this.handleErrorMsg()}
-                    />
-                    <span>Venue</span>
-                    <input
-                        autoComplete="none"
-                        name="venue"
-                        placeholder="Venue"
-                        onChange={(e) => this.handleChange(e)}
-                        onClick={() => this.handleErrorMsg()}
-                    />
-                    <span>Latitude*</span>
-                    <input
-                        autoComplete="none"
-                        name="lat"
-                        placeholder="Latitude"
-                        onChange={(e) => this.handleChange(e)}
-                        onClick={() => this.handleErrorMsg()}
-                    />
-                    <span>Longitude*</span>
-                    <input
-                        autoComplete="none"
-                        name="lng"
-                        placeholder="Longitude"
-                        onChange={(e) => this.handleChange(e)}
-                        onClick={() => this.handleErrorMsg()}
-                    />
-                    <span>Tour</span>
-                    <input
-                        autoComplete="none"
-                        name="tour_name"
-                        placeholder="Tour Name"
-                        onChange={(e) => this.handleChange(e)}
-                        onClick={() => this.handleErrorMsg()}
-                    />
-
-                    {this.state.error && (
-                        <p className="error">Oups! Something Went Wrong.</p>
-                    )}
-
-                    <button
-                        onClick={() => {
-                            this.handleClick();
-                        }}
-                    >
-                        Submit
-                    </button>
-                    <p className="required">*required</p>
-                    {this.state.success && (
-                        <div className="uploadSuccess"></div>
-                    )}
+                    <div className="inputBack">
+                        <span>Date*</span>
+                        <input
+                            autoComplete="none"
+                            name="date"
+                            placeholder="date"
+                            type="date"
+                            onChange={(e) => this.handleChange(e)}
+                            onClick={() => this.handleErrorMsg()}
+                        />
+                    </div>
+                    <div className="inputBack">
+                        <span>City</span>
+                        <input
+                            autoComplete="none"
+                            name="city"
+                            placeholder="City"
+                            onChange={(e) => this.handleChange(e)}
+                            onClick={() => this.handleErrorMsg()}
+                        />
+                    </div>
+                    <div className="inputBack">
+                        <span>Tour</span>
+                        <input
+                            autoComplete="none"
+                            name="tour_name"
+                            placeholder="Tour Name"
+                            onChange={(e) => this.handleChange(e)}
+                            onClick={() => this.handleErrorMsg()}
+                        />
+                    </div>
+                    <div className="inputBack">
+                        <span>Venue</span>
+                        <input
+                            autoComplete="none"
+                            name="venue"
+                            placeholder="Venue"
+                            onChange={(e) => this.handleChange(e)}
+                            onClick={() => this.handleErrorMsg()}
+                        />
+                    </div>
+                    <div className="inputBack">
+                        <span>Latitude*</span>
+                        <input
+                            autoComplete="none"
+                            name="lat"
+                            placeholder="Latitude"
+                            onChange={(e) => this.handleChange(e)}
+                            onClick={() => this.handleErrorMsg()}
+                        />
+                    </div>
+                    <div className="inputBack">
+                        <span>Longitude*</span>
+                        <input
+                            autoComplete="none"
+                            name="lng"
+                            placeholder="Longitude"
+                            onChange={(e) => this.handleChange(e)}
+                            onClick={() => this.handleErrorMsg()}
+                        />
+                    </div>
+                    <div className="formOptions">
+                        <div className="inputBack">
+                            {this.state.error && (
+                                <p className="error">
+                                    Oups! Something Went Wrong.
+                                </p>
+                            )}
+                        </div>
+                        <div className="inputBack">
+                            <button
+                                onClick={() => {
+                                    this.handleClick();
+                                }}
+                            >
+                                Submit
+                            </button>
+                        </div>
+                        <div className="inputBack">
+                            <p className="required">*required</p>
+                        </div>
+                        {this.state.success && (
+                            <div className="uploadSuccess"></div>
+                        )}
+                    </div>
                 </form>
 
                 <Link to="/" className="backLink">

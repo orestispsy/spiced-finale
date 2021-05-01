@@ -209,113 +209,148 @@ export default class GigEditor extends React.Component {
                                 </option>
                             ))}
                     </select>
-                    <span>Date</span>
-                    <input
-                        value={
-                            this.state.date || this.state.selectedGig.date || ""
-                        }
-                        autoComplete="none"
-                        name="date"
-                        placeholder="Date"
-                        type="date"
-                        onChange={(e) => this.handleChange(e)}
-                        onClick={() => this.handleErrorMsg()}
-                        onChange={(e) => this.inputReset(e)}
-                        onClick={(e) => this.deleteWarn(false)}
-                    />
-                    <span>City</span>
-                    <input
-                        value={
-                            this.state.city || this.state.selectedGig.city || ""
-                        }
-                        autoComplete="none"
-                        name="city"
-                        placeholder="City"
-                        onChange={(e) => this.handleChange(e)}
-                        onClick={() => this.handleErrorMsg()}
-                        onChange={(e) => this.inputReset(e)}
-                        onClick={(e) => this.deleteWarn(false)}
-                    />
-                    <span>Venue</span>
-                    <input
-                        value={
-                            this.state.venue ||
-                            this.state.selectedGig.venue ||
-                            ""
-                        }
-                        autoComplete="none"
-                        name="venue"
-                        placeholder="Venue"
-                        onChange={(e) => this.handleChange(e)}
-                        onClick={() => this.handleErrorMsg()}
-                        onChange={(e) => this.inputReset(e)}
-                        onClick={(e) => this.deleteWarn(false)}
-                    />
-                    <span>Latitude</span>
-                    <input
-                        value={
-                            this.state.lat || this.state.selectedGig.lat || ""
-                        }
-                        autoComplete="none"
-                        name="lat"
-                        placeholder="Latitude"
-                        onChange={(e) => this.handleChange(e)}
-                        onClick={() => this.handleErrorMsg()}
-                        onChange={(e) => this.inputReset(e)}
-                        onClick={(e) => this.deleteWarn(false)}
-                    />
-                    <span>Longitude</span>
-                    <input
-                        value={
-                            this.state.lng || this.state.selectedGig.lng || ""
-                        }
-                        autoComplete="none"
-                        name="lng"
-                        placeholder="Longitude"
-                        onChange={(e) => this.handleChange(e)}
-                        onClick={() => this.handleErrorMsg()}
-                        onChange={(e) => this.inputReset(e)}
-                        onClick={(e) => this.deleteWarn(false)}
-                    />
-                    <span>Tour</span>
-                    <input
-                        value={
-                            this.state.tour_name ||
-                            this.state.selectedGig.tour_name ||
-                            ""
-                        }
-                        autoComplete="none"
-                        name="tour_name"
-                        placeholder="Tour Name"
-                        onChange={(e) => this.handleChange(e)}
-                        onClick={() => this.handleErrorMsg()}
-                        onChange={(e) => this.inputReset(e)}
-                        onClick={(e) => this.deleteWarn(false)}
-                    />
-
-                    {this.state.error && (
-                        <p className="error">Oups! Something Went Wrong.</p>
-                    )}
-                    <button onClick={() => this.handleClick()}>Update</button>
-                    {!this.state.deleteSuccess && (<div
-                        className="delete"
-                        onClick={(e) => this.deleteWarn(true)}
-                    >
-                        Delete
-                    </div>)}
-                    {this.state.delete &&
-                        this.state.selectedGig.date &&
-                        !this.state.deleteSuccess && (
-                            <div
-                                className="deleteWarn"
-                                onClick={() => this.gigDelete()}
-                            >
-                                Confirm
-                            </div>
-                        )}
-                    {this.state.deleteSuccess && (
-                        <div className="deleteSuccess"></div>
-                    )}
+                    <div className="inputBack">
+                        <span>Date</span>
+                        <input
+                            value={
+                                this.state.date ||
+                                this.state.selectedGig.date ||
+                                ""
+                            }
+                            autoComplete="none"
+                            name="date"
+                            placeholder="Date"
+                            type="date"
+                            onChange={(e) => this.handleChange(e)}
+                            onClick={() => this.handleErrorMsg()}
+                            onChange={(e) => this.inputReset(e)}
+                            onClick={(e) => this.deleteWarn(false)}
+                        />
+                    </div>
+                    <div className="inputBack">
+                        <span>City</span>
+                        <input
+                            value={
+                                this.state.city ||
+                                this.state.selectedGig.city ||
+                                ""
+                            }
+                            autoComplete="none"
+                            name="city"
+                            placeholder="City"
+                            onChange={(e) => this.handleChange(e)}
+                            onClick={() => this.handleErrorMsg()}
+                            onChange={(e) => this.inputReset(e)}
+                            onClick={(e) => this.deleteWarn(false)}
+                        />
+                    </div>
+                    <div className="inputBack">
+                        <span>Tour</span>
+                        <input
+                            value={
+                                this.state.tour_name ||
+                                this.state.selectedGig.tour_name ||
+                                ""
+                            }
+                            autoComplete="none"
+                            name="tour_name"
+                            placeholder="Tour Name"
+                            onChange={(e) => this.handleChange(e)}
+                            onClick={() => this.handleErrorMsg()}
+                            onChange={(e) => this.inputReset(e)}
+                            onClick={(e) => this.deleteWarn(false)}
+                        />
+                    </div>
+                    <div className="inputBack">
+                        <span>Venue</span>
+                        <input
+                            value={
+                                this.state.venue ||
+                                this.state.selectedGig.venue ||
+                                ""
+                            }
+                            autoComplete="none"
+                            name="venue"
+                            placeholder="Venue"
+                            onChange={(e) => this.handleChange(e)}
+                            onClick={() => this.handleErrorMsg()}
+                            onChange={(e) => this.inputReset(e)}
+                            onClick={(e) => this.deleteWarn(false)}
+                        />
+                    </div>
+                    <div className="inputBack">
+                        <span>Latitude</span>
+                        <input
+                            value={
+                                this.state.lat ||
+                                this.state.selectedGig.lat ||
+                                ""
+                            }
+                            autoComplete="none"
+                            name="lat"
+                            placeholder="Latitude"
+                            onChange={(e) => this.handleChange(e)}
+                            onClick={() => this.handleErrorMsg()}
+                            onChange={(e) => this.inputReset(e)}
+                            onClick={(e) => this.deleteWarn(false)}
+                        />
+                    </div>
+                    <div className="inputBack">
+                        <span>Longitude</span>
+                        <input
+                            value={
+                                this.state.lng ||
+                                this.state.selectedGig.lng ||
+                                ""
+                            }
+                            autoComplete="none"
+                            name="lng"
+                            placeholder="Longitude"
+                            onChange={(e) => this.handleChange(e)}
+                            onClick={() => this.handleErrorMsg()}
+                            onChange={(e) => this.inputReset(e)}
+                            onClick={(e) => this.deleteWarn(false)}
+                        />
+                    </div>
+                    <div className="formOptions">
+                        <div className="inputBack">
+                            {this.state.error && (
+                                <p className="error">
+                                    Oups! Something Went Wrong.
+                                </p>
+                            )}
+                        </div>
+                        <div className="inputBack">
+                            <button onClick={() => this.handleClick()}>
+                                Update
+                            </button>
+                        </div>
+                        <div className="inputBack">
+                            {!this.state.deleteSuccess && (
+                                <div
+                                    className="delete"
+                                    onClick={(e) => this.deleteWarn(true)}
+                                >
+                                    Delete
+                                </div>
+                            )}
+                        </div>
+                        <div className="inputBack">
+                            {this.state.delete &&
+                                this.state.selectedGig.date &&
+                                !this.state.deleteSuccess && (
+                                    <div
+                                        className="deleteWarn"
+                                        onClick={() => this.gigDelete()}
+                                    >
+                                        Confirm
+                                    </div>
+                                )}
+                            {this.state.deleteSuccess && (
+                                <div className="deleteSuccess"></div>
+                            )}
+                        </div>
+                    </div>
                 </form>
 
                 {this.state.selectedGig.id && (

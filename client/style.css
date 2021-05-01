@@ -105,6 +105,12 @@ a:hover {
     margin: 3px;
 }
 
+.gigCreatorContainer h1 {
+    width:40vw;
+    text-align:center;
+    font-size: 3vmax;
+}
+
 .regSpan .links {
     margin-left: 10px;
 }
@@ -221,6 +227,8 @@ a:hover {
     width: 100vw;
 }
 
+
+
 .mainMenu a {
     font-size: 2.2vmax;
     margin: 5px 0 10px 0;
@@ -252,12 +260,15 @@ a:hover {
 
 form {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     align-items: center;
     align-self: center;
     font-size: 25px;
     color: orangered;
+    max-height:85vh;
+    width:40vw;
 }
 
 form span {
@@ -266,8 +277,22 @@ form span {
         -1px -1px 0 black;
 }
 
+.inputBack{
+   display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    margin-bottom:1vmax;
+}
+
+.formOptions {
+    width:40vw;
+}
+
 form input {
     margin-bottom: 3vh;
+    height:3vmax;
 }
 
 form button {
@@ -446,6 +471,7 @@ button:active {
     display: flex;
     flex-direction: column;
     letter-spacing: 1px;
+    padding-bottom: 5vmax;
 }
 
 .gigEntries div {
