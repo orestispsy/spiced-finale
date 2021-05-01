@@ -145,9 +145,11 @@ a:hover {
     justify-content: center;
     align-items: center;
     align-self: center;
-    height: 110vh;
+    height: 100vh;
     box-shadow: inset 0 0 0 100vh rgba(0, 0, 0, 0.747);
 }
+
+
 
 .appBar {
     display: flex;
@@ -227,6 +229,9 @@ a:hover {
     width: 100vw;
 }
 
+.gigListContainer {
+    height:92vh;
+}
 
 
 .mainMenu a {
@@ -471,7 +476,7 @@ button:active {
     display: flex;
     flex-direction: column;
     letter-spacing: 1px;
-    padding-bottom: 5vmax;
+    padding-bottom: 1vmax;
 }
 
 .gigEntries div {
