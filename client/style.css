@@ -342,7 +342,7 @@ input {
 button {
     color: orangered;
     border-radius: 100px;
-    border-color: orangered;
+    border: 2px solid orangered;
     font-family: "Poller One", cursive;
     outline: transparent;
     cursor: pointer;
@@ -350,7 +350,7 @@ button {
 }
 
 button:hover {
-    letter-spacing: 2px;
+
     border-color: transparent;
 }
 
@@ -368,8 +368,7 @@ button:active {
     cursor: default;
 
         border-radius: 2vmax;
-     box-shadow: -0 0 5px red, 0 -0 5px red, -0 -0 5px red,
-        -0 -0 5px red; 
+      border: 2px solid orangered;
         padding:0.5vmax; 
 }
 

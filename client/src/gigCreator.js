@@ -116,31 +116,29 @@ export default class GigCreator extends React.Component {
                         />
                     </div>
                     <div className="formOptions">
-                        <div className="inputBack">
-                            {this.state.error && (
-                                <p className="error">
-                                    Oups! Something Went Wrong.
-                                </p>
-                            )}
-                        </div>
-
-                        <button
-                            onClick={() => {
-                                this.handleClick();
-                            }}
-                        >
-                            Submit
-                        </button>
+                        {!this.state.success && (
+                            <button
+                                onClick={() => {
+                                    this.handleClick();
+                                }}
+                            >
+                                Submit
+                            </button>
+                        )}
 
                         {this.state.success && (
                             <div className="uploadSuccess"></div>
                         )}
                     </div>
-                    <div className="inputBack">
-                        <p className="required">*required</p>
-                    </div>
+                    {!this.state.success && (
+                        <div className="inputBack">
+                            <p className="required">*required</p>
+                        </div>
+                    )}
                 </form>
-
+                {this.state.error && (
+                    <p className="error">Oups! Something Went Wrong.</p>
+                )}
                 <Link to="/" className="backLink">
                     Back
                 </Link>
