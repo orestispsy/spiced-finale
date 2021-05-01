@@ -73,7 +73,7 @@ const WithGoogleMapComponent = compose(
                 props.gigsList.map((gig) => {
                     var dot = "greendot.gif";
                     if (gig.tour_name === "Life Tour") {
-                        dot = "giphy.gif";
+                        dot = "redBall.gif";
                         var scaleParam = 15;
                     }
 

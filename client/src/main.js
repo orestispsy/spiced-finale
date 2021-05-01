@@ -16,7 +16,7 @@ export default function Main({ admin, listSet, visitors }) {
                 {admin && (
                     <div className="easterEgg">
                         <Link to="/map">
-                            <img src="giphy.gif"></img>
+                            <img src="redBall.gif"></img>
                         </Link>
                     </div>
                 )}
