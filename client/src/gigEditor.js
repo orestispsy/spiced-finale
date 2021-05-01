@@ -312,14 +312,13 @@ export default class GigEditor extends React.Component {
                             onClick={(e) => this.deleteWarn(false)}
                         />
                     </div>
-
-                    <div className="formOptions">
-                    
+                    {!this.state.deleteSuccess && (
+                        <div className="formOptions">
                             <button onClick={() => this.handleClick()}>
                                 Update
                             </button>
-                   
-                            {!this.state.deleteSuccess && (
+
+                            {this.state.selectedGig.date && (
                                 <div
                                     className="delete"
                                     onClick={(e) => this.deleteWarn(true)}
@@ -327,8 +326,7 @@ export default class GigEditor extends React.Component {
                                     Delete
                                 </div>
                             )}
-                     
-                        <div className="inputBack">
+
                             {this.state.delete &&
                                 this.state.selectedGig.date &&
                                 !this.state.deleteSuccess && (
@@ -339,17 +337,17 @@ export default class GigEditor extends React.Component {
                                         Confirm
                                     </div>
                                 )}
-                            {this.state.deleteSuccess && (
-                                <div className="deleteSuccess"></div>
-                            )}
                         </div>
-                    </div>
+                    )}
+                    {this.state.deleteSuccess && (
+                        <div className="deleteSuccess"></div>
+                    )}
                 </form>
-                <div className="inputBack">
+        
                     {this.state.error && (
                         <p className="error">Oups! Something Went Wrong.</p>
                     )}
-                </div>
+          
                 {this.state.selectedGig.id && (
                     <div className="fileUploader">
                         <p>Poster ➤</p>
