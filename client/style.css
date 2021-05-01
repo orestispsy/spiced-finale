@@ -259,7 +259,7 @@ a:hover {
 
 .selectGig {
     margin: 0;
-    padding: 0;
+    padding:0.5vmax;
     width: 40vw;
 }
 
@@ -277,7 +277,7 @@ form {
 }
 
 form span {
-    font-size: 2.2vmax;
+    font-size: 2.5vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
 }
@@ -292,7 +292,12 @@ form span {
 }
 
 .formOptions {
-    width:40vw;
+    width:30vw;
+ display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    align-self: center;
 }
 
 form input {
@@ -301,14 +306,16 @@ form input {
 }
 
 form button {
-    font-size: 18px;
-    height: 30px;
-    margin-bottom: 5px;
+    font-size: 1.5vmax;
+    padding: 0.5vmax;
+ 
 }
 
 .required {
-    font-size: 15px;
+    font-size: 1vmax;
     margin: 5px;
+    width:20vw;
+    text-align: center;
 }
 
 form h1 {
@@ -353,19 +360,21 @@ button:active {
     border-color: transparent;
 }
 
-.delete,
-.deleteSuccess {
+.delete {
+       margin-left:10px;
     color: red;
-    background-color: transparent;
-    font-size: 15px;
-    margin-top: 2vh;
+    background-color: white;
+    font-size: 1.5vmax;
     cursor: default;
-    height: 17px;
-    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
-        -1px -1px 0 black;
+
+        border-radius: 2vmax;
+     box-shadow: -0 0 5px red, 0 -0 5px red, -0 -0 5px red,
+        -0 -0 5px red; 
+        padding:0.5vmax; 
 }
 
 .deleteSuccess {
+      background-color: transparent;
     margin-bottom: 10px;
     background-image: url("giphy.gif");
     background-size: cover;
@@ -373,17 +382,24 @@ button:active {
     height: 25px;
     border-radius: 50%;
     margin-top: 3vh;
+      margin-left:10px;
 }
 
 .deleteWarn {
     margin-top: 2vh;
-    color: lime;
-    background-color: transparent;
-    text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
-        -0 -0 10px black;
+    margin-left:10px;
+    color: white;
+    background-color: lime;
+    border-radius:10vh;
+    padding:0.5vmax;
     font-size: 15px;
-
+    border: 2px solid white;
     cursor: pointer;
+}
+
+.deleteWarn:hover {
+    background-color:black;
+    color:lime
 }
 
 .upload {

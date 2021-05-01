@@ -312,20 +312,13 @@ export default class GigEditor extends React.Component {
                             onClick={(e) => this.deleteWarn(false)}
                         />
                     </div>
+
                     <div className="formOptions">
-                        <div className="inputBack">
-                            {this.state.error && (
-                                <p className="error">
-                                    Oups! Something Went Wrong.
-                                </p>
-                            )}
-                        </div>
-                        <div className="inputBack">
+                    
                             <button onClick={() => this.handleClick()}>
                                 Update
                             </button>
-                        </div>
-                        <div className="inputBack">
+                   
                             {!this.state.deleteSuccess && (
                                 <div
                                     className="delete"
@@ -334,7 +327,7 @@ export default class GigEditor extends React.Component {
                                     Delete
                                 </div>
                             )}
-                        </div>
+                     
                         <div className="inputBack">
                             {this.state.delete &&
                                 this.state.selectedGig.date &&
@@ -352,7 +345,11 @@ export default class GigEditor extends React.Component {
                         </div>
                     </div>
                 </form>
-
+                <div className="inputBack">
+                    {this.state.error && (
+                        <p className="error">Oups! Something Went Wrong.</p>
+                    )}
+                </div>
                 {this.state.selectedGig.id && (
                     <div className="fileUploader">
                         <p>Poster ➤</p>

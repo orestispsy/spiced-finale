@@ -123,21 +123,21 @@ export default class GigCreator extends React.Component {
                                 </p>
                             )}
                         </div>
-                        <div className="inputBack">
-                            <button
-                                onClick={() => {
-                                    this.handleClick();
-                                }}
-                            >
-                                Submit
-                            </button>
-                        </div>
-                        <div className="inputBack">
-                            <p className="required">*required</p>
-                        </div>
+
+                        <button
+                            onClick={() => {
+                                this.handleClick();
+                            }}
+                        >
+                            Submit
+                        </button>
+
                         {this.state.success && (
                             <div className="uploadSuccess"></div>
                         )}
+                    </div>
+                    <div className="inputBack">
+                        <p className="required">*required</p>
                     </div>
                 </form>
 
