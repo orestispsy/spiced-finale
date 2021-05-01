@@ -8,7 +8,7 @@ export default function Ticker({}) {
 
     if (tickerRef.current) {
         var { offsetLeft } = tickerRef.current;
-        console.log(offsetLeft);
+
 
         var headlines = document.querySelectorAll("#headlines");
         var body = document.querySelectorAll("body");

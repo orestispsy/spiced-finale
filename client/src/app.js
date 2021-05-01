@@ -81,51 +81,54 @@ export default class App extends Component {
         });
     }
 
-    sliderAction(e) {
-        e.preventDefault();
-        this.setState({
-            move: true,
-            sliderWidth: e.target.clientWidth,
-        });
-    }
+    // sliderAction(e) {
+    //     e.preventDefault();
+    //     this.setState({
+    //         move: true,
+    //         sliderWidth: e.target.clientWidth,
+    //     });
+    // }
 
-    sliderStop() {
-        this.setState({
-            move: false,
-        });
-    }
+    // sliderStop() {
+    //     this.setState({
+    //         move: false,
+    //     });
+    // }
 
-    hideSlider() {
-         this.setState({
-             sliderHidden:true
-         });
-    }
+    // hideSlider() {
+    //     this.setState({
+    //         sliderHidden: true,
+    //     });
+    // }
 
-    handleMouseMove(e) {
-        if (this.state.move && e.clientX >= body[0].offsetWidth - this.state.sliderWidth / 8) {
-            this.setState({
-                move: false,
-                left: body[0].offsetWidth,
-            });
-        }
+    // handleMouseMove(e) {
+    //     if (
+    //         this.state.move &&
+    //         e.clientX >= body[0].offsetWidth - this.state.sliderWidth / 8
+    //     ) {
+    //         this.setState({
+    //             move: false,
+    //             left: body[0].offsetWidth,
+    //         });
+    //     }
 
-        if (e.clientX == 0) {
-             this.setState({
-                 sliderHidden: true,
-             });
-        } else {
-            this.setState({
-                sliderHidden: false,
-            });
-        }
+    //     if (e.clientX == 0) {
+    //         this.setState({
+    //             sliderHidden: true,
+    //         });
+    //     } else {
+    //         this.setState({
+    //             sliderHidden: false,
+    //         });
+    //     }
 
-        if (this.state.move) {
-            this.setState({
-                left: e.clientX,
-            });
-        }
-    }
- 
+    //     if (this.state.move) {
+    //         this.setState({
+    //             left: e.clientX,
+    //         });
+    //     }
+    // }
+
     logOut() {
         axios
             .get("/logout")
@@ -144,9 +147,9 @@ export default class App extends Component {
         return (
             <BrowserRouter>
                 <div
-                    // onMouseMove={(e) => this.handleMouseMove(e)}
-                    // onMouseUp={() => this.sliderStop()}
-                    // onTouchEnd={() => this.sliderStop()}
+                // onMouseMove={(e) => this.handleMouseMove(e)}
+                // onMouseUp={() => this.sliderStop()}
+                // onTouchEnd={() => this.sliderStop()}
                 >
                     <div className="introPreCover">
                         <div
@@ -163,7 +166,12 @@ export default class App extends Component {
                                     </div>
                                     {!this.state.maps && (
                                         <Link to="/chat">
-                                            <div className="chatBar"></div>
+                                            <div
+                                                className="chatBar"
+                                                onClick={(e) =>
+                                                    this.listSet(false)
+                                                }
+                                            ></div>
                                         </Link>
                                     )}
                                 </div>
