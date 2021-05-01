@@ -7,7 +7,6 @@ export default function Ticker({}) {
     const tickerRef = useRef();
 
     if (tickerRef.current) {
-        console.log(tickerRef.current.children);
         var { offsetLeft } = tickerRef.current;
         console.log(offsetLeft);
 

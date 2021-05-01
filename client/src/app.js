@@ -144,8 +144,9 @@ export default class App extends Component {
         return (
             <BrowserRouter>
                 <div
-                    onMouseMove={(e) => this.handleMouseMove(e)}
-                    onMouseUp={() => this.sliderStop()}
+                    // onMouseMove={(e) => this.handleMouseMove(e)}
+                    // onMouseUp={() => this.sliderStop()}
+                    // onTouchEnd={() => this.sliderStop()}
                 >
                     <div className="introPreCover">
                         <div
@@ -245,7 +246,7 @@ export default class App extends Component {
                             />
                         </div>
                     </div>
-                    {!this.state.sliderHidden && (
+                    {/* {!this.state.sliderHidden && (
                         <div
                             className="introCover"
                             style={{
@@ -275,7 +276,7 @@ export default class App extends Component {
                         className="slider"
                         onMouseDown={(e) => this.sliderAction(e)}
                         onTouchMove={(e) => this.sliderAction(e)}
-                    ></div>
+                    ></div> */}
                 </div>
             </BrowserRouter>
         );
