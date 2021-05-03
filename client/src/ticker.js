@@ -58,34 +58,52 @@ export default function Ticker({}) {
                 Nice to see you here, enjoy your stay !
             </a>
             <a className="tickerBlankLink" target="_blank">
-                Check Out These Selected Music Links I've got for you ➤
+                Check out some cool music playlists I've got here for you !
             </a>
+
             <a
                 className="tickerLink"
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-du-beast-special-vol-i-sitting-at-the-bar-with-john/"
                 target="_blank"
             >
+                <span
+                >
+                    ➤
+                </span>
                 Du Beast Special Vol. I : "Sitting at the Bar with John"
             </a>
+
             <a
                 className="tickerLink"
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-09042020/"
                 target="_blank"
             >
-                Night Flight [09.04.2020]
+                <span
+                >
+                    ➤
+                </span>
+                Night Flight 09.04.2020
             </a>
             <a
                 className="tickerLink"
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-12112020/"
                 target="_blank"
             >
-                Night Flight [12.11.2020]
+                <span
+                >
+                    ➤
+                </span>
+                Night Flight 12.11.2020
             </a>
             <a
                 className="tickerLink"
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-du-beast-special-vol-ii/"
                 target="_blank"
             >
+                <span
+                >
+                    ➤
+                </span>
                 Du Beast Special Vol. II
             </a>
             <a
@@ -93,14 +111,21 @@ export default function Ticker({}) {
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-30052019/"
                 target="_blank"
             >
-                Night Flight [30.05.2019]
+                <span
+                >
+                    ➤
+                </span>
+                Night Flight 30.05.2019
             </a>
             <a
                 className="tickerLink"
                 href=" https://www.mixcloud.com/WeirdFishesRadio/night-flight-08042021/"
                 target="_blank"
-            >
-                Night Flight [08.04.2021]
+            ><span
+                >
+                    ➤
+                </span>
+                Night Flight 08.04.2021
             </a>
         </div>
     );

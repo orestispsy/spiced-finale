@@ -293,6 +293,11 @@ form span {
     width:20vmax;
 }
 
+.inputBack:focus-within{
+    background-color: rgba(0, 0, 0, 0.151);
+    border-radius: 1vh;
+}
+
 .formOptions {
 width:40vw;
  display: flex;
@@ -1167,18 +1172,17 @@ font-family: 'Ultra', serif; */
     margin: 0;
     z-index: 1;
     padding: 1vmax;
-    margin-top:-1.3vmax;
+    margin-top:-1vmax;
 }
 
 .tickerLink,
 .tickerBlankLink {
-    font-family: fantasy;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding: 0.1vmax 0.8vmax 0.1vmax 0.8vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
     color: lime;
-    font-size: 1.5vmax;
+    font-size: 1.4vmax;
+    letter-spacing: 1px;
     margin-top: 0.5vmax;
     margin-right: 1vmax;
     text-decoration: none;
@@ -1189,12 +1193,17 @@ font-family: 'Ultra', serif; */
     margin-left: 1vmax;
     background-color: rgba(255, 0, 0, 0.13);
     border-radius: 1vmax;
-    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
-        -1px -1px 0 black;
+
 }
 
 .tickerBlankLink {
     color: yellow;
+
+}
+
+.tickerLink span {
+    color:red;
+    margin:10px;
 }
 
 .tickerButton {
