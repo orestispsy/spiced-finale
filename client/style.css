@@ -1172,7 +1172,7 @@ font-family: 'Ultra', serif; */
     margin: 0;
     z-index: 1;
     padding: 1vmax;
-    margin-top:-1vmax;
+    margin-top:-1.2vmax;
 }
 
 .tickerLink,

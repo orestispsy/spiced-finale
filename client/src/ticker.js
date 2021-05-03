@@ -58,7 +58,7 @@ export default function Ticker({}) {
                 Nice to see you here, enjoy your stay !
             </a>
             <a className="tickerBlankLink" target="_blank">
-                Check out some cool music playlists I've got here for you !
+                Check out this selected music I've got here for you
             </a>
 
             <a
