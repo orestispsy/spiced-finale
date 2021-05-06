@@ -10,9 +10,9 @@ app.use(cors())
 const server = require("http").Server(app);
 const io = require("socket.io")(server, {
     cors: {
-        origin: "*",
+        origin: "https://thousandgigs.herokuapp.com",
         methods: ["GET", "POST"],
-        allowedHeaders: ["*"],
+
         credentials: true,
     },
     allowRequest: (req, callback) =>
