@@ -489,6 +489,7 @@ button:active {
     height: 80vh;
     max-height: 80vh;
     overflow: hidden;
+     scrollbar-width: none;
     font-size: 1vmax;
     text-align: center;
     display: flex;
@@ -725,6 +726,7 @@ font-family: 'Ultra', serif; */
     height: 60vh;
     background-color: rgba(255, 255, 255, 0.11);
     overflow-y: auto;
+    scrollbar-width: none;
     color: yellowgreen;
     box-shadow: inset 0 0 0 100vh rgba(30, 255, 0, 0.164),
         -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
@@ -900,7 +902,8 @@ font-family: 'Ultra', serif; */
     margin: 1vmax;
     margin-bottom: 0;
     padding: 0.2vmax;
-    overflow-y: scroll;
+    overflow-y: auto;
+    scrollbar-width: none;
     text-align: center;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
@@ -1101,6 +1104,7 @@ font-family: 'Ultra', serif; */
     height: 10vmax;
     min-height: 10vmax;
     overflow-y: scroll;
+    scrollbar-width: none;
     border-radius: 1vmax;
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
         -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);

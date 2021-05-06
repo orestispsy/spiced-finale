@@ -13,6 +13,13 @@ const io = require("socket.io")(server, {
         origin: "https://thousandgigs.herokuapp.com",
         methods: ["GET", "POST"],
     },
+    // allowRequest: (req, callback) =>
+    //     callback(
+    //         null,
+    //         req.headers.referer.startsWith(
+    //             "https://thousandgigs.herokuapp.com"
+    //         ) || req.headers.referer.startsWith("http://localhost:3000")
+    //     ),
 });
 
 const multer = require("multer");
