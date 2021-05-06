@@ -22,10 +22,11 @@ CREATE TABLE gigs (
     poster VARCHAR
 );
 
-CREATE TABLE chatroom(
+CREATE TABLE private_messages (
     id SERIAL PRIMARY KEY,
     msg_sender_id INT REFERENCES community(id) NOT NULL,
-    chat_msg TEXT,
+    msg_receiver_id INT REFERENCES community(id) NOT NULL
+    private_msg TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

@@ -86,6 +86,17 @@ export default function OnlineUsers({
             });
     };
 
+        const privateMessage = (e) => {
+            axios
+                .post("/changeColor", e.target.value)
+                .then(({ data }) => {
+                    setChatColor(data.data.chat_color);
+                })
+                .catch((err) => {
+                    //   console.log("error", err);
+                });
+        };
+
     const toggleUploader = () => {
         setUserPicBar(!userPicBar);
         setcloseTag(!closeTag);
@@ -104,15 +115,16 @@ export default function OnlineUsers({
                     </span>
                     <div className="usersBack">
                         {onlineUsers &&
-                            onlineUsers.map((msg) => (
-                                <div className="onlineList" key={msg.id}>
+                            onlineUsers.map((user) => (
+                                <div className="onlineList" key={user.id}>
                                     <img
                                         className="onlineListImg"
-                                        title={msg.nickname}
+                                        title={user.id}
+                                        alt={user.nickname}
                                         src={
-                                            (chat_myUserId == msg.id &&
+                                            (chat_myUserId == user.id &&
                                                 onlineUserPic) ||
-                                            (msg.chat_img && msg.chat_img) ||
+                                            (user.chat_img && user.chat_img) ||
                                             "./../na.jpg"
                                         }
                                         onClick={(e) => console.log(e)}
@@ -120,13 +132,13 @@ export default function OnlineUsers({
                                     <span
                                         style={{
                                             color:
-                                                (chat_myUserId == msg.id &&
+                                                (chat_myUserId == user.id &&
                                                     chatColor) ||
-                                                msg.chat_color ||
+                                                user.chat_color ||
                                                 `lime`,
                                         }}
                                     >
-                                        {msg.nickname}
+                                        {user.nickname}
                                     </span>
                                 </div>
                             ))}

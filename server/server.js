@@ -6,6 +6,11 @@ const db = require("./utils/db");
 
 const server = require("http").Server(app);
 const io = require("socket.io")(server, {
+    cors: {
+origin: "localhost:3000",
+methods: ["GET", "POST"]
+},
+    
     allowRequest: (req, callback) =>
         callback(
             null,
@@ -327,6 +332,8 @@ app.post("/changeColor", (req, res) => {
 });
 
 app.get("*", function (req, res) {
+     res.header("Access-Control-Allow-Origin", "*");
+     res.header(`Access-Control-Allow-Headers`, `X-Requested-With`);
     if (!req.session.userId) {
         res.redirect("/welcome");
     } else {
