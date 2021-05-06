@@ -4,13 +4,17 @@ const compression = require("compression");
 const path = require("path");
 const db = require("./utils/db");
 
+const cors = require("cors")
+app.use(cors())
+
 const server = require("http").Server(app);
 const io = require("socket.io")(server, {
     cors: {
-        origin: "https://thousandgigs.herokuapp.com",
+        origin: "*",
         methods: ["GET", "POST"],
+        allowedHeaders: ["*"],
+        credentials: true,
     },
-
     allowRequest: (req, callback) =>
         callback(
             null,
@@ -332,8 +336,6 @@ app.post("/changeColor", (req, res) => {
 });
 
 app.get("*", function (req, res) {
-     res.header("Access-Control-Allow-Origin", "*");
-     res.header(`Access-Control-Allow-Headers`, `X-Requested-With`);
     if (!req.session.userId) {
         res.redirect("/welcome");
     } else {
