@@ -84,33 +84,29 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                 <div className="chatScreenBack">
                     <div className="chatScreen" ref={elemRef}>
                         {chatMessages.map((msg) => {
-                            // var msgLink = msg.chat_msg.split(" ");
-                            // console.log(msgLink)
-                            // var fixedLinkMsg="";
-                            // for (let i=0; i<=msgLink.length; i++) {
-                            //     if (
-                            //         msgLink[i]) {
-                            //             if  (msgLink[i].startsWith("http")) {
-                            //                 fixedLinkMsg = (
-                            //                     <a
-                            //                         href={msgLink[i]}
-                            //                         target="_blank"
-                            //                         style={{
-                            //                             color: `coral`,
-                            //                             fontSize: `20px`,
-                            //                         }}
-                            //                     >
-                            //                         {msgLink[i]}
-                            //                     </a>
-                            //                 );
-
-                            //             }
-
-                            //         }
-
-                            // }
-
-                            //     console.log("there you go", msg.chat_msg)
+                            var msgLink = msg.chat_msg.split(/\s+/);
+                            // console.log("yep", msgLink);
+                            msgLink.forEach((element, index) => {
+                                if (
+                                    element.startsWith("http") ||
+                                    element.startsWith("www.")
+                                ) {
+                                    let url = element;
+                                    if (element.startsWith("www.")) {
+                                        url = `https://` + url;
+                                    }
+                                    // console.log("yes", element);
+                                    msgLink[index] = `
+                                                <a  
+                                                    href=${url}
+                                                    target="_blank"
+                                                   
+                                                >
+                                                    ${element}
+                                                </a>`;
+                                    msg.chat_msg = msgLink.join(" ");
+                                }
+                            }, msgLink);
 
                             var diff = new Date().getTimezoneOffset() / -60;
 
@@ -150,95 +146,6 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                     <p className="userEnters" key={msg.id}>
                                         {msg.nickname} joined the chat !
                                     </p>
-                                );
-                            } else if (
-                                msg.chat_msg.startsWith("http") &&
-                                !msg.chat_msg.includes(" ") &&
-                                msg.chat_msg.length > 11
-                            ) {
-                                return (
-                                    <div key={msg.id} className="chatPost">
-                                        <div className="post">
-                                            <div className="userChatDetails">
-                                                <img
-                                                    src={
-                                                        msg.chat_img ||
-                                                        "./../na.jpg"
-                                                    }
-                                                ></img>
-                                                <h1>{msg.nickname}</h1>
-                                            </div>
-                                            <div
-                                                className="customColor"
-                                                style={{
-                                                    color:
-                                                        msg.chat_color ||
-                                                        `yellow`,
-                                                }}
-                                            ></div>
-                                            <a
-                                                href={msg.chat_msg}
-                                                target="_blank"
-                                                style={{
-                                                    color: `black`,
-                                                    fontFamily: `none`,
-                                                    fontSize: `20px`,
-                                                    textDecoration: `underline`,
-                                                    textShadow: `none`,
-                                                    fontWeight: `bold`,
-                                                }}
-                                            >
-                                                {msg.chat_msg}
-                                            </a>
-                                        </div>
-                                        <div className="date">{fixedDate}</div>
-                                        <div className="time">{fixedTime}</div>
-                                    </div>
-                                );
-                            } else if (
-                                msg.chat_msg.startsWith("www") &&
-                                !msg.chat_msg.includes("http") &&
-                                !msg.chat_msg.includes(" ") &&
-                                msg.chat_msg.length > 8
-                            ) {
-                                return (
-                                    <div key={msg.id} className="chatPost">
-                                        <div className="post">
-                                            <div className="userChatDetails">
-                                                <img
-                                                    src={
-                                                        msg.chat_img ||
-                                                        "./../na.jpg"
-                                                    }
-                                                ></img>
-                                                <h1>{msg.nickname}</h1>
-                                            </div>
-                                            <div
-                                                className="customColor"
-                                                style={{
-                                                    color:
-                                                        msg.chat_color ||
-                                                        `yellow`,
-                                                }}
-                                            ></div>
-                                            <a
-                                                href={"https://" + msg.chat_msg}
-                                                target="_blank"
-                                                style={{
-                                                    color: `black`,
-                                                    fontFamily: `none`,
-                                                    fontSize: `20px`,
-                                                    textDecoration: `underline`,
-                                                    textShadow: `none`,
-                                                    fontWeight: `bold`,
-                                                }}
-                                            >
-                                                {msg.chat_msg}
-                                            </a>
-                                        </div>
-                                        <div className="date">{fixedDate}</div>
-                                        <div className="time">{fixedTime}</div>
-                                    </div>
                                 );
                             } else {
                                 return (
