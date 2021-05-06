@@ -7,10 +7,10 @@ const db = require("./utils/db");
 const server = require("http").Server(app);
 const io = require("socket.io")(server, {
     cors: {
-origin: "localhost:3000",
-methods: ["GET", "POST"]
-},
-    
+        origin: "https://thousandgigs.herokuapp.com",
+        methods: ["GET", "POST"],
+    },
+
     allowRequest: (req, callback) =>
         callback(
             null,
