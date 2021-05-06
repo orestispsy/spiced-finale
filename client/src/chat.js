@@ -102,29 +102,6 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                 <div className="chatScreenBack">
                     <div className="chatScreen" ref={elemRef}>
                         {chatMessages.map((msg) => {
-                            // var msgLink = msg.chat_msg.split(/\s+/);
-                            // // console.log("yep", msgLink);
-                            // msgLink.forEach((element, index) => {
-                            //     if (
-                            //         element.startsWith("http") ||
-                            //         element.startsWith("www.")
-                            //     ) {
-                            //         let url = element;
-                            //         if (element.startsWith("www.")) {
-                            //             url = `https://` + url;
-                            //         }
-                            //         // console.log("yes", element);
-                            //         msgLink[index] = `
-                            //                     <a
-                            //                         href=${url}
-                            //                         target="_blank"
-
-                            //                     >
-                            //                         ${element}
-                            //                     </a>`;
-                            //         msg.chat_msg = msgLink.join(" ");
-                            //     }
-                            // }, msgLink);
 
                             var diff = new Date().getTimezoneOffset() / -60;
 
@@ -179,7 +156,6 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                                 <h1>{msg.nickname}</h1>
                                             </div>
                                             <div
-                                                className="customColor"
                                                 style={{
                                                     color:
                                                         msg.chat_color ||
