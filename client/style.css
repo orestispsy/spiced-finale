@@ -787,6 +787,7 @@ font-family: 'Ultra', serif; */
     text-decoration: underline;
     text-shadow: none;
     font-weight: bold;
+    margin-right:5px;
 }
 
 .post img {
