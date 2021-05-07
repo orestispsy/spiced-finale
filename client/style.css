@@ -485,6 +485,13 @@ button:active {
         height:35vmax !important;
 
     }
+     .mainMenu {
+
+    flex-direction: column!important;
+    justify-content: space-evenly !important;
+    height: 40vw !important
+    
+   }
            .mainMenu a {
     font-size:5vmax !important;
    }
