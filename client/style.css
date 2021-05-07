@@ -463,7 +463,7 @@ button:active {
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .logo{
-        width:75vw !important;
+        width:75vmax !important;
         height:35vh !important;
 
     }
