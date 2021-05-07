@@ -435,33 +435,6 @@ button:active {
     border-radius: 50%;
 }
 
-/* @media only screen and (min-device-height : 200px) and (min-device-width : 396px){
-
-
-      .logo{
-        width:45vmax !important;
-        height:25vh !important;
-
-    }
-
-    .mainMenu a {
-    font-size:5vmax !important;
-   }
-
-} */
-
-@media only screen and (min-device-height : 496px) and (min-device-width : 960px){
-        .mainMenu a {
-       color:lime !important;
-        font-size:5vmax !important;
-   }
-
-   .mainMenu {
-    flex-direction: row!important;
-   }
-
-}
-
 
 .mainMenu {
     display: flex;
@@ -489,6 +462,22 @@ button:active {
         -1px -1px 0 orange;
 }
 
+@media only screen and (min-device-height : 496px) and (min-device-width : 960px) and (max-device-width : 1240px){
+        .mainMenu a {
+       color:lime !important;
+        font-size:5vmax !important;
+      
+   }
+
+   .mainMenu {
+    flex-direction: row!important;
+        justify-content: space-evenly !important;
+    width: 70vw !important
+
+
+   }
+
+}
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .logo{
@@ -502,7 +491,7 @@ button:active {
 }
 
 
-@media only screen and (min-device-width : 768px) {
+/* @media only screen and (min-device-width : 768px){
 .logo{
         width:50vmax !important;
         height:25vmax !important;
@@ -512,11 +501,17 @@ button:active {
        color:yellowgreen !important;
     font-size:5vmax !important;
    }
+
+   .mainMenu a:hover {
+       color:white !important
+   }
           .mainMenu {
     flex-direction: row!important;
+        justify-content: space-evenly !important;
+    width: 70vw !important
    }
 
-}
+} */
 
 @media only screen and (min-device-width : 630px) and (max-device-width :768px) {
 
@@ -532,7 +527,7 @@ button:active {
    }
 }
 
-@media only screen and (min-device-width : 630px) and (max-device-width :768px) and (max-device-height :446px) {
+@media only screen and (min-device-width : 630px) and (max-device-width :768px){
 .logo{
 
         width:55vmax !important;
@@ -547,6 +542,9 @@ button:active {
      .mainMenu {
 
     flex-direction: row!important;
+    justify-content: space-evenly !important;
+    width: 70vw !important
+    
    }
 
 }
@@ -561,6 +559,8 @@ button:active {
     .mainMenu {
 
     flex-direction: row!important;
+        justify-content: space-evenly !important;
+    width: 70vw !important
    }
        .mainMenu a {
        color:red !important;

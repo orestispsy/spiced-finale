@@ -12,14 +12,15 @@ export default function Main({ admin, listSet, visitors }) {
                 <div className="logo"></div>
                 <p>GIG GUIDE</p>
             </div>
-            <div className="mainMenu">
-                {admin && (
+            {admin && (
                     <div className="easterEgg">
                         <Link to="/map">
                             <img src="redBall.gif"></img>
                         </Link>
                     </div>
                 )}
+            <div className="mainMenu">
+                
                 {!admin && <Link to="/map"> Map</Link>}
                 {admin && (
                     <>
