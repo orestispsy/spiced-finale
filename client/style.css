@@ -227,6 +227,7 @@ a:hover {
     width: 100vw;
 }
 
+
 .gigListContainer {
     height: 92vh;
 }
@@ -434,6 +435,34 @@ button:active {
     border-radius: 50%;
 }
 
+/* @media only screen and (min-device-height : 200px) and (min-device-width : 396px){
+
+
+      .logo{
+        width:45vmax !important;
+        height:25vh !important;
+
+    }
+
+    .mainMenu a {
+    font-size:5vmax !important;
+   }
+
+} */
+
+@media only screen and (min-device-height : 496px) and (min-device-width : 960px){
+        .mainMenu a {
+       color:lime !important;
+        font-size:5vmax !important;
+   }
+
+   .mainMenu {
+    flex-direction: row!important;
+   }
+
+}
+
+
 .mainMenu {
     display: flex;
     flex-direction: column;
@@ -467,26 +496,78 @@ button:active {
         height:35vmax !important;
 
     }
+           .mainMenu a {
+    font-size:5vmax !important;
+   }
 }
 
 
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+@media only screen and (min-device-width : 768px) {
+.logo{
+        width:50vmax !important;
+        height:25vmax !important;
+
+    }
+     .mainMenu a {
+       color:yellowgreen !important;
+    font-size:5vmax !important;
+   }
+          .mainMenu {
+    flex-direction: row!important;
+   }
+
+}
+
+@media only screen and (min-device-width : 630px) and (max-device-width :768px) {
+
+    .logo{
+    
+        width:45vmax !important;
+        height:35vh !important;
+
+    }
+       .mainMenu a {
+       color:yellow !important;
+    font-size:3vmax !important;
+   }
+}
+
+@media only screen and (min-device-width : 630px) and (max-device-width :768px) and (max-device-height :446px) {
+.logo{
+
+        width:55vmax !important;
+        height:55vh !important;
+
+    }
+     .mainMenu a {
+       color:lime !important;
+        font-size:5vmax !important;
+   }
+
+     .mainMenu {
+
+    flex-direction: row!important;
+   }
+
+}
+
+@media only screen and (min-device-width : 480px) and (max-device-width :630px) {
 .logo{
 
         width:50vmax !important;
-        height:30vmax !important;
+        height:50vh !important;
 
     }
+    .mainMenu {
+
+    flex-direction: row!important;
+   }
+       .mainMenu a {
+       color:red !important;
+    font-size:5vmax !important;
+   }
 }
 
-@media only screen and (min-device-width : 480px) and (max-device-width :768px) {
-.logo{
-
-        width:50vmax !important;
-        height:33vmax !important;
-
-    }
-}
 
 .logo {
     background-image: url("logo.png");
