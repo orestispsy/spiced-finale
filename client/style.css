@@ -464,7 +464,7 @@ button:active {
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .logo{
         width:75vmax !important;
-        height:35vh !important;
+        height:35vmax !important;
 
     }
 }
@@ -474,7 +474,7 @@ button:active {
 .logo{
 
         width:50vmax !important;
-        height:35vh !important;
+        height:30vmax !important;
 
     }
 }
@@ -483,7 +483,7 @@ button:active {
 .logo{
 
         width:50vmax !important;
-        height:35vh !important;
+        height:33vmax !important;
 
     }
 }
