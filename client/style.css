@@ -460,6 +460,34 @@ button:active {
         -1px -1px 0 orange;
 }
 
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .logo{
+        width:75vw !important;
+        height:35vh !important;
+
+    }
+}
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+.logo{
+
+        width:50vmax !important;
+        height:35vh !important;
+
+    }
+}
+
+@media only screen and (min-device-width : 480px) and (max-device-width :768px) {
+.logo{
+
+        width:50vmax !important;
+        height:35vh !important;
+
+    }
+}
+
 .logo {
     background-image: url("logo.png");
     background-repeat: no-repeat;
