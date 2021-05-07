@@ -201,16 +201,7 @@ a:hover {
     margin-right: 10px;
     margin-top: 10px;
 }
-.easterEgg {
-    align-self: center;
-}
 
-.easterEgg img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin: 10px;
-}
 
 .mainContainer,
 .mapContainer,
@@ -435,6 +426,16 @@ button:active {
     border-radius: 50%;
 }
 
+.easterEgg {
+    align-self: center;
+}
+
+.easterEgg img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 10px;
+}
 
 .mainMenu {
     display: flex;
@@ -495,6 +496,11 @@ button:active {
            .mainMenu a {
     font-size:5vmax !important;
    }
+   .easterEgg img {
+    width: 5vmax !important;
+    height: 5vmax !important;
+
+}
 }
 
 
