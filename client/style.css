@@ -510,10 +510,11 @@ button:active {
     .chatTypeLine {
         margin-top:2vh;
         height:3vmax !important;
-        width:35vmax !important;
+        width:30vmax !important;
         font-size:2vmax !important;
+        border-radius: 10vh !important;
+        padding-left: 1vmax !important
     }
-
      .onlineUsers {
          margin-top:2vh !important;
         flex-direction: row !important;
@@ -629,6 +630,35 @@ button:active {
         flex-direction: row !important;
         justify-content: space-evenly !important;
         width: 70vw !important;
+    }
+    .chatContainer {
+          flex-direction: column !important;
+        height:70vh !important;
+        width:70vw !important
+    }
+    .chatScreen {
+        height:45vh !important;
+           width:60vw !important
+    }
+
+    .chatTypeLine {
+        margin-top:2vh;
+        height:3vmax !important;
+        width:30vmax !important;
+        font-size:2vmax !important;
+        border-radius: 10vh !important;
+        padding-left: 1vmax !important
+    }
+    
+    .mute, .play, .emojiBarToggler {
+        margin-top:2vmax !important;
+        width:4vmax !important;
+        height: 4vmax !important
+    }
+      .sendChatMsg {
+         margin-top:1.5vmax !important;
+        font-size: 4vmax !important;
+
     }
 }
 
