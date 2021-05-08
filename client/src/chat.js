@@ -189,29 +189,31 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                 chat(e);
                             }}
                         ></textarea>
-                        <div
-                            className="sendChatMsg"
-                            onClick={() => sendChatMsgButton()}
-                        >
-                            ➤
-                        </div>
+                        <div className="chatControls">
+                            <div
+                                className="sendChatMsg"
+                                onClick={() => sendChatMsgButton()}
+                            >
+                                ➤
+                            </div>
 
-                        {!mute && (
+                            {!mute && (
+                                <div
+                                    className="mute"
+                                    onClick={() => setMute(!mute)}
+                                ></div>
+                            )}
+                            {mute && (
+                                <div
+                                    className="play"
+                                    onClick={() => setMute(!mute)}
+                                ></div>
+                            )}
                             <div
-                                className="mute"
-                                onClick={() => setMute(!mute)}
+                                className="emojiBarToggler"
+                                onClick={() => toggleEmojibar()}
                             ></div>
-                        )}
-                        {mute && (
-                            <div
-                                className="play"
-                                onClick={() => setMute(!mute)}
-                            ></div>
-                        )}
-                        <div
-                            className="emojiBarToggler"
-                            onClick={() => toggleEmojibar()}
-                        ></div>
+                        </div>
                     </div>
                 </div>
                 <OnlineUsers
