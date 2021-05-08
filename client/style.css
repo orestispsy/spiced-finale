@@ -486,6 +486,9 @@ button:active {
         height:35vmax !important;
 
     }
+      .logoBack p {
+        font-size:4vmax !important;
+    }
      .mainMenu {
 
     flex-direction: column!important;
@@ -543,13 +546,17 @@ button:active {
 @media only screen and (min-device-width : 630px) and (max-device-width :768px){
 .logo{
 
-        width:45vmax !important;
-        height:35vh !important;
+        width:50vmax !important;
+        height:22vmax !important;
 
     }
+
+    .logoBack p {
+        font-size:3vmax !important;
+    }
      .mainMenu a {
-       color:lime !important;
-        font-size:5vmax !important;
+
+        font-size:4vmax !important;
    }
 
      .mainMenu {
@@ -566,8 +573,11 @@ button:active {
 .logo{
 
         width:50vmax !important;
-        height:35vh !important;
+        height:22vmax !important;
 
+    }
+      .logoBack p {
+        font-size:3vmax !important;
     }
     .mainMenu {
 
@@ -577,7 +587,7 @@ button:active {
    }
        .mainMenu a {
        color:red !important;
-    font-size:5vmax !important;
+    font-size:4vmax !important;
    }
 }
 
