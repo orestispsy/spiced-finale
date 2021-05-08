@@ -655,7 +655,7 @@ button:active {
         margin-top:2vh;
         height:3vmax !important;
         width:30vmax !important;
-        font-size:15px !important;
+        font-size:2vmax !important;
         border-radius: 10vh !important;
         padding-left: 1vmax !important
     }
