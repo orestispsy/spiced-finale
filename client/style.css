@@ -503,19 +503,21 @@ button:active {
         width:80vw !important
     }
     .chatScreen {
-        height:50vh !important;
+        height:45vh !important;
            width:70vw !important
     }
      .onlineUsers {
-         margin-top:2vh !important;
+         margin-top:4vh !important;
         flex-direction: row !important;
         width:fit-content !important;
         padding:2vmax !important;
-              background-color: rgba(0, 0, 0, 0.137) !important;
+              background-color:rgba(255, 238, 0, 0.089)!important;
+              
     }
 
     .onlineUsersBack {
         flex-direction: row !important;
+    
         
     }
  
@@ -529,15 +531,21 @@ button:active {
     .onlineUsersRedDot {
    
         width:5vmax !important;
-        height:5vmax !important
+        height:5vmax !important;
+          margin-top:5vmax !important;
+    }
+
+    .mobileChat {
+        flex-direction: column-reverse !important;
     }
 
     .chatMenuOptions {
         flex-direction: column !important;
+        margin-top:5vmax !important
     }
 
     .emoticons {
-        margin-top:2vh !important;
+        margin-top:4vh !important;
         height:20vmax !important
     }
 }
@@ -827,6 +835,11 @@ font-family: 'Ultra', serif; */
     margin-left: 1vmax;
     margin-top: -1vmax;
 }
+
+    .mobileChat {
+        display: flex;
+        flex-direction: row;
+    }
 
 .chatContainer {
     display: flex;

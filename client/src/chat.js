@@ -97,125 +97,132 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
     return (
         <div className="chatContainerBack">
             {tickerBar && <Ticker />}
-            <div className="chatContainer">
-                <h1>Chat Room</h1>
-                <div className="chatScreenBack">
-                    <div className="chatScreen" ref={elemRef}>
-                        {chatMessages.map((msg) => {
+            <div className="mobileChat">
+                <div className="chatContainer">
+                    <h1>Chat Room</h1>
+                    <div className="chatScreenBack">
+                        <div className="chatScreen" ref={elemRef}>
+                            {chatMessages.map((msg) => {
+                                var diff = new Date().getTimezoneOffset() / -60;
 
-                            var diff = new Date().getTimezoneOffset() / -60;
+                                let msgDate = msg.created_at
+                                    .slice(0, 10)
+                                    .split("-");
+                                var fixedDate =
+                                    msgDate[2] +
+                                    "-" +
+                                    msgDate[1] +
+                                    "-" +
+                                    msgDate[0];
 
-                            let msgDate = msg.created_at
-                                .slice(0, 10)
-                                .split("-");
-                            var fixedDate =
-                                msgDate[2] +
-                                "-" +
-                                msgDate[1] +
-                                "-" +
-                                msgDate[0];
+                                let msgTime = msg.created_at
+                                    .slice(11, 19)
+                                    .split(":");
 
-                            let msgTime = msg.created_at
-                                .slice(11, 19)
-                                .split(":");
+                                if (msgTime[0].startsWith("0")) {
+                                    msgTime[0] = msgTime[0].slice(1, 2);
+                                }
+                                var fixedTime =
+                                    JSON.parse(msgTime[0]) +
+                                    diff +
+                                    ":" +
+                                    msgTime[1] +
+                                    ":" +
+                                    msgTime[2];
 
-                            if (msgTime[0].startsWith("0")) {
-                                msgTime[0] = msgTime[0].slice(1, 2);
-                            }
-                            var fixedTime =
-                                JSON.parse(msgTime[0]) +
-                                diff +
-                                ":" +
-                                msgTime[1] +
-                                ":" +
-                                msgTime[2];
-
-                            if (msg.chat_msg === "--##--left--##--") {
-                                return (
-                                    <p className="userLeaves" key={msg.id}>
-                                        {msg.nickname} has left the chat
-                                    </p>
-                                );
-                            } else if (msg.chat_msg === "--##--entered--##--") {
-                                return (
-                                    <p className="userEnters" key={msg.id}>
-                                        {msg.nickname} joined the chat !
-                                    </p>
-                                );
-                            } else {
-                                return (
-                                    <div className="chatPost" key={msg.id}>
-                                        <div className="post">
-                                            <div className="userChatDetails">
-                                                <img
-                                                    src={
-                                                        msg.chat_img ||
-                                                        "./../na.jpg"
-                                                    }
-                                                ></img>
-                                                <h1>{msg.nickname}</h1>
+                                if (msg.chat_msg === "--##--left--##--") {
+                                    return (
+                                        <p className="userLeaves" key={msg.id}>
+                                            {msg.nickname} has left the chat
+                                        </p>
+                                    );
+                                } else if (
+                                    msg.chat_msg === "--##--entered--##--"
+                                ) {
+                                    return (
+                                        <p className="userEnters" key={msg.id}>
+                                            {msg.nickname} joined the chat !
+                                        </p>
+                                    );
+                                } else {
+                                    return (
+                                        <div className="chatPost" key={msg.id}>
+                                            <div className="post">
+                                                <div className="userChatDetails">
+                                                    <img
+                                                        src={
+                                                            msg.chat_img ||
+                                                            "./../na.jpg"
+                                                        }
+                                                    ></img>
+                                                    <h1>{msg.nickname}</h1>
+                                                </div>
+                                                <div
+                                                    style={{
+                                                        color:
+                                                            msg.chat_color ||
+                                                            `yellow`,
+                                                    }}
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: msg.chat_msg,
+                                                    }}
+                                                ></div>
                                             </div>
-                                            <div
-                                                style={{
-                                                    color:
-                                                        msg.chat_color ||
-                                                        `yellow`,
-                                                }}
-                                                dangerouslySetInnerHTML={{
-                                                    __html: msg.chat_msg,
-                                                }}
-                                            ></div>
+                                            <div className="date">
+                                                {fixedDate}
+                                            </div>
+                                            <div className="time">
+                                                {fixedTime}
+                                            </div>
                                         </div>
-                                        <div className="date">{fixedDate}</div>
-                                        <div className="time">{fixedTime}</div>
-                                    </div>
-                                );
-                            }
-                        })}
+                                    );
+                                }
+                            })}
+                        </div>
                     </div>
-                </div>
-                <div className="typeLine">
-                    <textarea
-                        rows="1"
-                        className="chatTypeLine"
-                        onKeyDown={(e) => keyCheck(e)}
-                        onChange={(e) => {
-                            chat(e);
-                        }}
-                    ></textarea>
-                    <div
-                        className="sendChatMsg"
-                        onClick={() => sendChatMsgButton()}
-                    >
-                        ➤
-                    </div>
+                    <div className="typeLine">
+                        <textarea
+                            rows="1"
+                            className="chatTypeLine"
+                            onKeyDown={(e) => keyCheck(e)}
+                            onChange={(e) => {
+                                chat(e);
+                            }}
+                        ></textarea>
+                        <div
+                            className="sendChatMsg"
+                            onClick={() => sendChatMsgButton()}
+                        >
+                            ➤
+                        </div>
 
-                    {!mute && (
+                        {!mute && (
+                            <div
+                                className="mute"
+                                onClick={() => setMute(!mute)}
+                            ></div>
+                        )}
+                        {mute && (
+                            <div
+                                className="play"
+                                onClick={() => setMute(!mute)}
+                            ></div>
+                        )}
                         <div
-                            className="mute"
-                            onClick={() => setMute(!mute)}
+                            className="emojiBarToggler"
+                            onClick={() => toggleEmojibar()}
                         ></div>
-                    )}
-                    {mute && (
-                        <div
-                            className="play"
-                            onClick={() => setMute(!mute)}
-                        ></div>
-                    )}
-                    <div
-                        className="emojiBarToggler"
-                        onClick={() => toggleEmojibar()}
-                    ></div>
+                    </div>
                 </div>
+                <OnlineUsers
+                    mute={mute}
+                    chat_img={chat_img}
+                    chat_myUserId={chat_myUserId}
+                    emojiBar={emojiBar}
+                    sendEmoji={(e) => sendEmoji(e)}
+                    chat_color={chat_color}
+                />
             </div>
-            <OnlineUsers
-                mute={mute}
-                chat_img={chat_img}
-                chat_myUserId={chat_myUserId}
-                emojiBar={emojiBar}
-                sendEmoji={(e) => sendEmoji(e)}
-                chat_color={chat_color}
-            />
             {tickerBar && (
                 <div
                     className="tickerButton"
