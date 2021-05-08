@@ -506,6 +506,14 @@ button:active {
         height:45vh !important;
            width:70vw !important
     }
+
+    .chatTypeLine {
+        margin-top:2vh;
+        height:3vmax !important;
+        width:35vmax !important;
+        font-size:2vmax !important;
+    }
+
      .onlineUsers {
          margin-top:4vh !important;
         flex-direction: row !important;
