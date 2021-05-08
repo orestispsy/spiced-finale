@@ -499,11 +499,11 @@ button:active {
     }
      .chatContainer {
           flex-direction: column !important;
-        height:60vh !important;
+        height:50vh !important;
         width:80vw !important
     }
     .chatScreen {
-        height:45vh !important;
+        height:35vh !important;
            width:70vw !important
     }
 
