@@ -465,7 +465,7 @@ button:active {
 
 @media only screen and (min-device-height : 496px) and (min-device-width : 960px) and (max-device-width : 1240px){
         .mainMenu a {
-       color:lime !important;
+       color:turquoise !important;
         font-size:5vmax !important;
       
    }
@@ -543,8 +543,8 @@ button:active {
 @media only screen and (min-device-width : 630px) and (max-device-width :768px){
 .logo{
 
-        width:55vmax !important;
-        height:55vh !important;
+        width:45vmax !important;
+        height:35vh !important;
 
     }
      .mainMenu a {
@@ -566,7 +566,7 @@ button:active {
 .logo{
 
         width:50vmax !important;
-        height:50vh !important;
+        height:35vh !important;
 
     }
     .mainMenu {

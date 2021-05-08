@@ -463,11 +463,11 @@ io.on("connection", function (socket) {
         // console.log(`socket ${socket.id} disconnected`);
     });
 
-    io.emit("trying to talk to everyone", {
-        userId,
-    });
+    // io.emit("trying to talk to everyone", {
+    //     userId,
+    // });
 
-    socket.emit("welcome", {
-        message: "Welcome. It is nice to see you",
-    });
+    // socket.emit("welcome", {
+    //     message: "Welcome. It is nice to see you",
+    // });
 });
