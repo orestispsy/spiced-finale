@@ -556,6 +556,16 @@ button:active {
         margin-top:2vh !important;
         height:20vmax !important
     }
+    
+    .emoticons img {
+          width:4vmax !important;
+        height: 4vmax !important
+    }
+
+    .chatBar {
+            width:4vmax !important;
+        height: 4vmax !important
+    }
 
     .mute, .play, .emojiBarToggler {
         margin-top:3vmax !important;
@@ -655,6 +665,7 @@ button:active {
         width:4vmax !important;
         height: 4vmax !important
     }
+
       .sendChatMsg {
          margin-top:1.5vmax !important;
         font-size: 4vmax !important;
