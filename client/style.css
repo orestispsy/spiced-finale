@@ -625,8 +625,8 @@ button:active {
 
 @media only screen and (min-device-width: 630px) and (max-device-width: 768px) and (max-device-height: 300px) {
      .chatScreen {
-        max-height: 5vmax !important;
-        overflow:hidden !important;
+        max-height: 20vh !important;
+       
     }
 }
 
