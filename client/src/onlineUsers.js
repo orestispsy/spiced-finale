@@ -109,39 +109,42 @@ export default function OnlineUsers({
                     <Link to="/">
                         <div className="onlineUsersRedDot"></div>
                     </Link>
-                    <div className="chatUserHeadline">Online</div>
-                    <span className="onlineUserCounter">
-                        {onlineUsers && onlineUsers.length}
-                    </span>
-                    <div className="usersBack">
-                        {onlineUsers &&
-                            onlineUsers.map((user) => (
-                                <div className="onlineList" key={user.id}>
-                                    <img
-                                        className="onlineListImg"
-                                        title={user.id}
-                                        alt={user.nickname}
-                                        src={
-                                            (chat_myUserId == user.id &&
-                                                onlineUserPic) ||
-                                            (user.chat_img && user.chat_img) ||
-                                            "./../na.jpg"
-                                        }
-                                        onClick={(e) => console.log(e)}
-                                    ></img>
-                                    <span
-                                        style={{
-                                            color:
+                    <div className="mobileOnlineUsers">
+                        <div className="chatUserHeadline">Online</div>
+                        <span className="onlineUserCounter">
+                            {onlineUsers && onlineUsers.length}
+                        </span>
+                        <div className="usersBack">
+                            {onlineUsers &&
+                                onlineUsers.map((user) => (
+                                    <div className="onlineList" key={user.id}>
+                                        <img
+                                            className="onlineListImg"
+                                            title={user.id}
+                                            alt={user.nickname}
+                                            src={
                                                 (chat_myUserId == user.id &&
-                                                    chatColor) ||
-                                                user.chat_color ||
-                                                `lime`,
-                                        }}
-                                    >
-                                        {user.nickname}
-                                    </span>
-                                </div>
-                            ))}
+                                                    onlineUserPic) ||
+                                                (user.chat_img &&
+                                                    user.chat_img) ||
+                                                "./../na.jpg"
+                                            }
+                                            onClick={(e) => console.log(e)}
+                                        ></img>
+                                        <span
+                                            style={{
+                                                color:
+                                                    (chat_myUserId == user.id &&
+                                                        chatColor) ||
+                                                    user.chat_color ||
+                                                    `lime`,
+                                            }}
+                                        >
+                                            {user.nickname}
+                                        </span>
+                                    </div>
+                                ))}
+                        </div>
                     </div>
 
                     {userPicBar && (

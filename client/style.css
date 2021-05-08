@@ -202,7 +202,6 @@ a:hover {
     margin-top: 10px;
 }
 
-
 .mainContainer,
 .mapContainer,
 .gigEditorContainer,
@@ -217,7 +216,6 @@ a:hover {
     margin-bottom: auto;
     width: 100vw;
 }
-
 
 .gigListContainer {
     height: 92vh;
@@ -463,49 +461,86 @@ button:active {
         -1px -1px 0 orange;
 }
 
-@media only screen and (min-device-height : 496px) and (min-device-width : 960px) and (max-device-width : 1240px){
-        .mainMenu a {
-       color:turquoise !important;
-        font-size:5vmax !important;
-      
-   }
+@media only screen and (min-device-height: 496px) and (min-device-width: 960px) and (max-device-width: 1240px) {
+    .mainMenu a {
+        color: turquoise !important;
+        font-size: 5vmax !important;
+    }
 
-   .mainMenu {
-    flex-direction: row!important;
+    .mainMenu {
+        flex-direction: row !important;
         justify-content: space-evenly !important;
-    width: 70vw !important
-
-
-   }
-
+        width: 70vw !important;
+    }
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-    .logo{
-        width:75vmax !important;
-        height:35vmax !important;
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .logo {
+        width: 75vmax !important;
+        height: 35vmax !important;
+    }
+    .logoBack p {
+        font-size: 4vmax !important;
+    }
+    .mainMenu {
+        flex-direction: column !important;
+        justify-content: space-evenly !important;
+        height: 40vw !important;
+    }
+    .mainMenu a {
+        font-size: 5vmax !important;
+    }
+    .easterEgg img {
+        width: 5vmax !important;
+        height: 5vmax !important;
+    }
+    .chatContainerBack {
+        flex-direction: column !important;
+    }
+     .chatContainer {
+          flex-direction: column !important;
+        height:60vh !important;
+        width:80vw !important
+    }
+    .chatScreen {
+        height:50vh !important;
+           width:70vw !important
+    }
+     .onlineUsers {
+         margin-top:2vh !important;
+        flex-direction: row !important;
+        width:fit-content !important;
+        padding:2vmax !important;
+              background-color: rgba(0, 0, 0, 0.137) !important;
+    }
+
+    .onlineUsersBack {
+        flex-direction: row !important;
+        
+    }
+ 
+    .onlineUserCounter{
+        width:1.5vw;
+        height:1.5vh;
+        align-self:center !important
 
     }
-      .logoBack p {
-        font-size:4vmax !important;
+
+    .onlineUsersRedDot {
+   
+        width:5vmax !important;
+        height:5vmax !important
     }
-     .mainMenu {
 
-    flex-direction: column!important;
-    justify-content: space-evenly !important;
-    height: 40vw !important
-    
-   }
-           .mainMenu a {
-    font-size:5vmax !important;
-   }
-   .easterEgg img {
-    width: 5vmax !important;
-    height: 5vmax !important;
+    .chatMenuOptions {
+        flex-direction: column !important;
+    }
 
+    .emoticons {
+        margin-top:2vh !important;
+        height:20vmax !important
+    }
 }
-}
-
 
 /* @media only screen and (min-device-width : 768px){
 .logo{
@@ -529,68 +564,55 @@ button:active {
 
 } */
 
-@media only screen and (min-device-width : 630px) and (max-device-width :768px) {
-
-    .logo{
-    
-        width:45vmax !important;
-        height:35vh !important;
-
+@media only screen and (min-device-width: 630px) and (max-device-width: 768px) {
+    .logo {
+        width: 45vmax !important;
+        height: 35vh !important;
     }
-       .mainMenu a {
-       color:yellow !important;
-    font-size:3vmax !important;
-   }
+    .mainMenu a {
+        color: yellow !important;
+        font-size: 3vmax !important;
+    }
 }
 
-@media only screen and (min-device-width : 630px) and (max-device-width :768px){
-.logo{
-
-        width:50vmax !important;
-        height:22vmax !important;
-
+@media only screen and (min-device-width: 630px) and (max-device-width: 768px) {
+    .logo {
+        width: 50vmax !important;
+        height: 22vmax !important;
     }
 
     .logoBack p {
-        font-size:3vmax !important;
+        font-size: 3vmax !important;
     }
-     .mainMenu a {
+    .mainMenu a {
+        font-size: 4vmax !important;
+    }
 
-        font-size:4vmax !important;
-   }
-
-     .mainMenu {
-
-    flex-direction: row!important;
-    justify-content: space-evenly !important;
-    width: 70vw !important
-    
-   }
-
+    .mainMenu {
+        flex-direction: row !important;
+        justify-content: space-evenly !important;
+        width: 70vw !important;
+    }
 }
 
-@media only screen and (min-device-width : 480px) and (max-device-width :630px) {
-.logo{
-
-        width:50vmax !important;
-        height:22vmax !important;
-
+@media only screen and (min-device-width: 480px) and (max-device-width: 630px) {
+    .logo {
+        width: 50vmax !important;
+        height: 22vmax !important;
     }
-      .logoBack p {
-        font-size:3vmax !important;
+    .logoBack p {
+        font-size: 3vmax !important;
     }
     .mainMenu {
-
-    flex-direction: row!important;
+        flex-direction: row !important;
         justify-content: space-evenly !important;
-    width: 70vw !important
-   }
-       .mainMenu a {
-       color:red !important;
-    font-size:4vmax !important;
-   }
+        width: 70vw !important;
+    }
+    .mainMenu a {
+        color: red !important;
+        font-size: 4vmax !important;
+    }
 }
-
 
 .logo {
     background-image: url("logo.png");
@@ -830,7 +852,6 @@ font-family: 'Ultra', serif; */
     display: flex;
     flex-direction: row;
     align-self: center;
-
     margin-bottom: auto;
 }
 
@@ -919,7 +940,7 @@ font-family: 'Ultra', serif; */
     text-decoration: underline;
     text-shadow: none;
     font-weight: bold;
-    margin-right:5px;
+    margin-right: 5px;
 }
 
 .post img {
@@ -1030,7 +1051,7 @@ font-family: 'Ultra', serif; */
 }
 
 .usersBack {
-    height: fit-content;
+
     width: 12vmax;
     height: 12vmax;
     min-height: 5vmax;
@@ -1046,7 +1067,13 @@ font-family: 'Ultra', serif; */
     border-radius: 0.5vmax;
 }
 
+   .mobileOnlineUsers {
+        display:flex;
+        flex-direction: column;
+    }
+
 .onlineUserCounter {
+            align-self:center ;
     color: yellow;
     border-radius: 50%;
     border: 1px solid rgba(240, 243, 45, 0.315);
