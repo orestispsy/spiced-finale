@@ -497,50 +497,46 @@ button:active {
     .chatContainerBack {
         flex-direction: column !important;
     }
-     .chatContainer {
-          flex-direction: column !important;
-        height:50vh !important;
-        width:90vw !important
+    .chatContainer {
+        flex-direction: column !important;
+        height: 50vh !important;
+        width: 90vw !important;
     }
     .chatScreen {
-        height:35vh !important;
-           width:80vw !important
+        height: 35vh !important;
+        width: 80vw !important;
     }
 
     .chatTypeLine {
-        margin-top:2vh;
-        height:3vmax !important;
-        width:30vmax !important;
-        font-size:2vmax !important;
+        margin-top: 2vh;
+        height: 3vmax !important;
+        width: 30vmax !important;
+        font-size: 2vmax !important;
         border-radius: 10vh !important;
-        padding-left: 1vmax !important
+        padding-left: 1vmax !important;
     }
-     .onlineUsers {
-         margin-top:2vh !important;
+    .onlineUsers {
+        margin-top: 2vh !important;
         flex-direction: row !important;
-        width:fit-content !important;
-        padding:2vmax !important;              
+        width: fit-content !important;
+        padding: 2vmax !important;
     }
 
     .onlineUsersBack {
         flex-direction: row !important;
-    
-        
     }
- 
-    .onlineUserCounter{
-        width:1.5vw;
-        height:1.5vh;
-        align-self:center !important
 
+    .onlineUserCounter {
+        width: 1.5vw;
+        height: 1.5vh;
+        align-self: center !important;
     }
 
     .onlineUsersRedDot {
-   
-        width:5vmax !important;
-        height:5vmax !important;
-          margin-top:5vmax !important;
-          margin-left:-10vmax !important;
+        width: 5vmax !important;
+        height: 5vmax !important;
+        margin-top: 5vmax !important;
+        margin-left: -10vmax !important;
     }
 
     .mobileChat {
@@ -549,44 +545,45 @@ button:active {
 
     .chatMenuOptions {
         flex-direction: column !important;
-        margin-top:5vmax !important
+        margin-top: 5vmax !important;
     }
 
     .emoticons {
-        margin-top:2vh !important;
-        height:20vmax !important
+        margin-top: 2vh !important;
+        height: 20vmax !important;
     }
-    
+
     .emoticons img {
-          width:4vmax !important;
-        height: 4vmax !important
+        width: 4vmax !important;
+        height: 4vmax !important;
     }
 
     .chatBar {
-            width:4vmax !important;
-        height: 4vmax !important
+        width: 4vmax !important;
+        height: 4vmax !important;
     }
 
-    .mute, .play, .emojiBarToggler {
-        margin-top:3vmax !important;
-        width:4vmax !important;
-        height: 4vmax !important
+    .mute,
+    .play,
+    .emojiBarToggler {
+        margin-top: 3vmax !important;
+        width: 4vmax !important;
+        height: 4vmax !important;
     }
 
-     .uploaderTogglerImg {
-            width:5vmax !important;
-        height: 5vmax !important
-     }
+    .uploaderTogglerImg {
+        width: 5vmax !important;
+        height: 5vmax !important;
+    }
 
-     .colorSelector {
-            width:4vmax !important;
-        height: 4vmax !important
-     }
+    .colorSelector {
+        width: 4vmax !important;
+        height: 4vmax !important;
+    }
 
     .sendChatMsg {
-         margin-top:2vmax !important;
+        margin-top: 2vmax !important;
         font-size: 4vmax !important;
-
     }
 }
 
@@ -624,9 +621,8 @@ button:active {
 }
 
 @media only screen and (min-device-width: 630px) and (max-device-width: 768px) and (max-device-height: 300px) {
-     .chatScreen {
+    .chatScreen {
         max-height: 20vh !important;
-       
     }
 }
 
@@ -649,43 +645,44 @@ button:active {
         width: 70vw !important;
     }
     .chatContainer {
-          flex-direction: column !important;
-        height:70vh !important;
-        width:70vw !important
+        flex-direction: column !important;
+        height: 70vh !important;
+        width: 70vw !important;
     }
     .chatScreen {
-        height:45vh !important;
-           width:60vw !important
+        height: 45vh !important;
+        width: 60vw !important;
     }
 
     .chatTypeLine {
-        margin-top:2vh;
-        height:3vmax !important;
-        width:30vmax !important;
-        font-size:2vmax !important;
+        margin-top: 2vh;
+        height: 3vmax !important;
+        width: 30vmax !important;
+        font-size: 2vmax !important;
         border-radius: 10vh !important;
-        padding-left: 1vmax !important
-    }
-    
-    .mute, .play, .emojiBarToggler {
-        margin-top:2vmax !important;
-        width:4vmax !important;
-        height: 4vmax !important
+        padding-left: 1vmax !important;
     }
 
-      .sendChatMsg {
-         margin-top:1.5vmax !important;
+    .mute,
+    .play,
+    .emojiBarToggler {
+        margin-top: 2vmax !important;
+        width: 4vmax !important;
+        height: 4vmax !important;
+    }
+
+    .sendChatMsg {
+        margin-top: 1.5vmax !important;
         font-size: 4vmax !important;
-
     }
     .emoticons img {
-          width:4vmax !important;
-        height: 4vmax !important
+        width: 4vmax !important;
+        height: 4vmax !important;
     }
 
     .chatBar {
-            width:4vmax !important;
-        height: 4vmax !important
+        width: 4vmax !important;
+        height: 4vmax !important;
     }
 }
 
@@ -904,7 +901,7 @@ div:focus {
     margin: auto;
 }
 
-/* 
+/*
 font-family: 'Bangers', cursive;
 font-family: 'Black Ops One', cursive;
 font-family: 'Molle', cursive;
@@ -922,10 +919,10 @@ font-family: 'Ultra', serif; */
     margin-top: -1vmax;
 }
 
-    .mobileChat {
-        display: flex;
-        flex-direction: row;
-    }
+.mobileChat {
+    display: flex;
+    flex-direction: row;
+}
 
 .chatContainer {
     display: flex;
@@ -982,7 +979,7 @@ font-family: 'Ultra', serif; */
 }
 
 .chatControls {
-     display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-content: center;
@@ -1011,7 +1008,7 @@ font-family: 'Ultra', serif; */
 }
 
 .sendChatMsg {
-    margin-top:0.5vmax;
+    margin-top: 0.5vmax;
     font-size: 2vmax;
     color: black;
     margin-left: 0.7vmax;
@@ -1159,7 +1156,6 @@ font-family: 'Ultra', serif; */
 }
 
 .usersBack {
-
     width: 12vmax;
     height: 12vmax;
     min-height: 5vmax;
@@ -1175,13 +1171,13 @@ font-family: 'Ultra', serif; */
     border-radius: 0.5vmax;
 }
 
-   .mobileOnlineUsers {
-        display:flex;
-        flex-direction: column;
-    }
+.mobileOnlineUsers {
+    display: flex;
+    flex-direction: column;
+}
 
 .onlineUserCounter {
-            align-self:center ;
+    align-self: center;
     color: yellow;
     border-radius: 50%;
     border: 1px solid rgba(240, 243, 45, 0.315);
@@ -1342,25 +1338,23 @@ font-family: 'Ultra', serif; */
 }
 
 .mute {
-
     width: 2vmax;
     height: 2vmax;
     cursor: pointer;
     background-image: url("play.png");
     background-size: cover;
     margin-left: 0.7vmax;
-    margin-top:1vmax;
+    margin-top: 1vmax;
 }
 
 .play {
-
     width: 2vmax;
     height: 2vmax;
     cursor: pointer;
     background-image: url("mute.png");
     background-size: cover;
     margin-left: 0.7vmax;
-    margin-top:1vmax;
+    margin-top: 1vmax;
 }
 
 .emoticons {
@@ -1543,4 +1537,48 @@ font-family: 'Ultra', serif; */
     font-size: 2.5vmax;
     width: 60vw;
     text-align: center;
+}
+
+.pre-wrapper {
+    height:90vh;
+    overflow:hidden;
+    /* margin: 20% 0 0 0; */
+    position:relative;
+}
+
+.pre-wrapper::after {
+    content:'';
+    position: fixed;
+    top: 8vh;
+    width:100%;
+    height:50%;
+    background: linear-gradient(180deg, rgba(20,20,20,1) 40%, rgba(20,20,20,0) 100%);
+}
+
+.wrapper{
+    display:flex;
+    height:100%;
+    width: 60%;
+    margin: 0 auto;
+    perspective: 450px;
+}
+
+.scroll-text {
+    font-size:3vw;
+    color:yellow;
+    line-height:1.5em;
+    font-weight: bold;
+    text-align: justify;
+    position: relative;
+    animation: scroll 120s linear forwards;
+
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+@keyframes scroll {
+    from {top : 0; transform: translateZ(0)  rotateX(20deg)}
+    to {top:-7500px; transform: translateZ(-2500px) rotateX(21deg)}
 }

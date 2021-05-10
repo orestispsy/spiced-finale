@@ -96,7 +96,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
 
     return (
         <div className="chatContainerBack">
-            {tickerBar && <Ticker />}
+            {tickerBar && <Ticker tickerBar={tickerBar}/>}
             <div className="mobileChat">
                 <div className="chatContainer">
                     <h1>Chat Room</h1>
@@ -225,14 +225,13 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                     chat_color={chat_color}
                 />
             </div>
-            {tickerBar && (
-                <div
-                    className="tickerButton"
-                    onClick={() => toggleTicker(!tickerBar)}
-                >
-                    Stop Ticker
-                </div>
-            )}
+
+            <div
+                className="tickerButton"
+                onClick={() => toggleTicker(!tickerBar)}
+            >
+                {tickerBar && `Stop Ticker`} {!tickerBar && `Start Ticker`}
+            </div>
         </div>
     );
 }

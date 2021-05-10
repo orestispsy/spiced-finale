@@ -1,56 +1,58 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import React from "react";
 
-export default function Ticker({}) {
-    useEffect(function () {}, []);
+export default function Ticker({tickerBar}) {
+    useEffect(function () {
+                var headlines = document.querySelectorAll("#headlines");
+                console.log(headlines)
+                var body = document.querySelectorAll("body");
 
-    const tickerRef = useRef();
+                var links = document.querySelectorAll(".tickerLink");
 
-    if (tickerRef.current) {
-        var { offsetLeft } = tickerRef.current;
+                var left = headlines[0].offsetLeft;
 
+                var requestid;
 
-        var headlines = document.querySelectorAll("#headlines");
-        var body = document.querySelectorAll("body");
+                if (left) {
+                    const moveHeadlines = () => {
+                        left = left - 2;
+                        if (left < -headlines[0].offsetWidth) {
+                            left = body[0].offsetWidth;
+                        }
+                        headlines[0].style.left = left + "px";
+                        requestid = requestAnimationFrame(moveHeadlines);
+                    };
 
-        var links = document.querySelectorAll(".tickerLink");
+                    const stopHeadlines = () => {
+                        for (var i = 0; i < links.length; i++) {
+                            links[i].addEventListener(
+                                "mouseenter",
+                                function (event) {
+                                    event.target.style.color = "white";
+                                    cancelAnimationFrame(requestid);
+                                }
+                            );
 
-        var left = headlines[0].offsetLeft;
+                            links[i].addEventListener(
+                                "mouseleave",
+                                function (event) {
+                                    moveHeadlines();
+                                    event.target.style.color = "lime";
+                                    event.target.style.textDecoration = "none";
+                                }
+                            );
+                        }
+                    };
 
-        var requestid;
-
-        if (left) {
-            const moveHeadlines = () => {
-                left = left - 2;
-                if (left < -headlines[0].offsetWidth) {
-                    left = body[0].offsetWidth;
+                    moveHeadlines();
+                    stopHeadlines();
                 }
-                headlines[0].style.left = left + "px";
-                requestid = requestAnimationFrame(moveHeadlines);
-            };
+            
+    }, [tickerBar]);
 
-            const stopHeadlines = () => {
-                for (var i = 0; i < links.length; i++) {
-                    links[i].addEventListener("mouseenter", function (event) {
-                        event.target.style.color = "white";
-                        cancelAnimationFrame(requestid);
-                    });
-
-                    links[i].addEventListener("mouseleave", function (event) {
-                        moveHeadlines();
-                        event.target.style.color = "lime";
-                        event.target.style.textDecoration = "none";
-                    });
-                }
-            };
-
-            moveHeadlines();
-            stopHeadlines();
-        }
-    }
-
+   
     return (
-        <div id="headlines" ref={tickerRef}>
+        <div id="headlines">
             <a className="tickerBlankLink" target="_blank">
                 Welcome My Friends
             </a>
