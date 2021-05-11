@@ -1541,8 +1541,34 @@ font-family: 'Ultra', serif; */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! GIGLIST ANIMATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
 
+.scroll-text {
+
+    animation: scroll 480s linear forwards !important;
+    
+
+}
+.pre-wrapper::after {
+    content:'';
+    position: fixed;
+    top: 10vh!important;
+      width: 100vw;
+    height:30vh!important;
+    background: linear-gradient(180deg, rgba(20,20,20,1) 40%, rgba(20,20,20,0) 100%)!important;
+}
+
+ }
+
+ @media only screen and (min-device-width: 630px) and (max-device-width: 768px) {
+     .scroll-text {
+
+    animation: scroll 240s linear forwards !important;
+
+
+}
+ }
 
 .pre-wrapper {
     height:90vh;
