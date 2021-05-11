@@ -8,6 +8,7 @@ import GigCreator from "./gigCreator";
 import GigEditor from "./gigEditor";
 import GigList from "./gigList";
 import Chat from "./chat";
+import GigListAnimation from "./gigListAnimation"
 
 var body = document.querySelectorAll("body");
 
@@ -237,6 +238,16 @@ export default class App extends Component {
                                 path="/gig-list"
                                 render={(props) => (
                                     <GigList
+                                        gigsList={this.state.gigsList}
+                                        listSet={(e) => this.listSet(e)}
+                                    />
+                                )}
+                            />
+                            <Route
+                                exact
+                                path="/gig-list-animation"
+                                render={(props) => (
+                                    <GigListAnimation
                                         gigsList={this.state.gigsList}
                                         listSet={(e) => this.listSet(e)}
                                     />

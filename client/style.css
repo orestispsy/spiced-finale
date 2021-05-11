@@ -1539,10 +1539,15 @@ font-family: 'Ultra', serif; */
     text-align: center;
 }
 
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! GIGLIST ANIMATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+
+
+
 .pre-wrapper {
     height:90vh;
     overflow:hidden;
-    /* margin: 20% 0 0 0; */
+    margin: 0 0 0 0;
     position:relative;
 }
 
@@ -1550,35 +1555,52 @@ font-family: 'Ultra', serif; */
     content:'';
     position: fixed;
     top: 8vh;
-    width:100%;
-    height:50%;
+      width: 100vw;
+    height:20%;
     background: linear-gradient(180deg, rgba(20,20,20,1) 40%, rgba(20,20,20,0) 100%);
 }
 
 .wrapper{
     display:flex;
     height:100%;
-    width: 60%;
+      width: 100vw;
     margin: 0 auto;
-    perspective: 450px;
+    perspective: 50px;
 }
 
 .scroll-text {
     font-size:3vw;
-    color:yellow;
+    color:red;
     line-height:1.5em;
     font-weight: bold;
     text-align: justify;
     position: relative;
-    animation: scroll 120s linear forwards;
+    animation: scroll 240s linear forwards;
 
 }
 
-h1, h2 {
+.scroll-text div {
+    background-color: rgba(0, 0, 0, 0.13);
+    border-radius: 1vmax;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+    margin-top: 0.5vmax;
+    width: 100vw
+}
+
+ .scroll-text h1, .scroll-text h2 {
     text-align: center;
 }
 
 @keyframes scroll {
-    from {top : 0; transform: translateZ(0)  rotateX(20deg)}
-    to {top:-7500px; transform: translateZ(-2500px) rotateX(21deg)}
+    from {top : 100vh; transform: translateZ(0)  rotateX(5deg)}
+    to {top:-8000vh; transform: translateZ(-800vh) rotateX(6deg)}
 }
+
+.gigAnimationLink {
+    position:fixed;
+    top:8vh;
+    right:1vw;
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! GIGLIST ANIMATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
