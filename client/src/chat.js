@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { socket } from "./tools/socket";
 import { useSelector } from "react-redux";
-
+import { Link } from "react-router-dom";
 import OnlineUsers from "./onlineUsers";
 import Ticker from "./ticker";
 
@@ -96,7 +96,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
 
     return (
         <div className="chatContainerBack">
-            {tickerBar && <Ticker tickerBar={tickerBar}/>}
+            {tickerBar && <Ticker tickerBar={tickerBar} />}
             <div className="mobileChat">
                 <div className="chatContainer">
                     <h1>Chat Room</h1>
@@ -225,7 +225,9 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                     chat_color={chat_color}
                 />
             </div>
-
+            <Link to="/" className="backLink">
+                Back
+            </Link>
             <div
                 className="tickerButton"
                 onClick={() => toggleTicker(!tickerBar)}

@@ -102,7 +102,7 @@ export default function GigList({ gigsList, listSet }) {
                 className="gigAnimationLink"
                 onClick={()=>play()}
             >
-                Animate!
+                Animate
             </Link>
         </div>
     );
