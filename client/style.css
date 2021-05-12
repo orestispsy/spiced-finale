@@ -666,6 +666,10 @@ button:active {
 }
 
 @media only screen and (min-device-width: 630px) and (max-device-width: 768px) {
+
+    .chatContainer{
+        min-height: 15vmax !important;
+    }
     .logo {
         width: 50vmax !important;
         height: 22vmax !important;
@@ -686,11 +690,17 @@ button:active {
     }
     .chatContainer {
         flex-direction: column !important;
-        height: 55vh !important;
+
+        height: 30vmax !important;
         width: 70vw !important;
     }
+
+    .chatContainerBack {
+                min-height: 10vmax !important;
+    }
     .chatScreen {
-        height: 25vh !important;
+          min-height: 5vmax !important;
+        height: 20vmax !important;
         width: 60vw !important;
     }
 
@@ -710,6 +720,7 @@ button:active {
 
     .chatTypeLine {
         margin-top: 2vh;
+                min-height: 3vmax !important;
         height: 3vmax !important;
         width: 30vmax !important;
         font-size: 2vmax !important;
