@@ -1632,7 +1632,7 @@ font-family: 'Ultra', serif; */
     }
 
     .scroll-text {
-        animation: scroll 420s linear forwards !important;
+        animation: scroll 350s linear forwards !important;
     }
     .pre-wrapper::after {
         content: "";
@@ -1645,7 +1645,7 @@ font-family: 'Ultra', serif; */
 
 @media only screen and (min-device-width: 630px) and (max-device-width: 768px) {
     .scroll-text {
-        animation: scroll 500s linear forwards !important;
+        animation: scroll 400s linear forwards !important;
     }
 }
 
@@ -1680,7 +1680,7 @@ font-family: 'Ultra', serif; */
     font-weight: bold;
     text-align: justify;
     position: relative;
-    animation: scroll 450s linear forwards;
+    animation: scroll 400s linear forwards;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -1720,6 +1720,7 @@ font-family: 'Ultra', serif; */
     border:1px solid cyan;
     padding:1vmax;
     border-radius:10vh;
+
 }
 
 .gigAnimationLink:hover {
