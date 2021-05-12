@@ -1559,7 +1559,7 @@ font-family: 'Ultra', serif; */
     .wrapper{
         height:100% !important;
         perspective: 70vmax !important;
-        background-color: rgba(0, 0, 0, 0.192) !important;
+
 
     }
 
@@ -1578,7 +1578,7 @@ font-family: 'Ultra', serif; */
     top: 8vh!important;
       width: 100vw;
     height:20vh!important;
-    background: linear-gradient(180deg, rgba(20,20,20,1) 40%, rgba(20,20,20,0) 100%)!important;
+ 
     
 }
 
