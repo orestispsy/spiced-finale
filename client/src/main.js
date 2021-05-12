@@ -25,7 +25,7 @@ export default function Main({ admin, listSet, visitors }) {
         <div className="mainContainer">
             <div className="logoBack">
                 <div className="logo"></div>
-                <p>•GIG GUIDE•</p>
+                <p>GIG GUIDE</p>
             </div>
             {admin && (
                 <div className="easterEgg">

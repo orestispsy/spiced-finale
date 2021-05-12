@@ -452,8 +452,9 @@ button:active {
 
 @keyframes blinker {
     50% {
-        text-shadow: -2px 2px 0 greenyellow, 2px -2px 0 greenyellow, -2px -2px 0 greenyellow,
-            -2px -2px 0 greenyellow;
+        text-shadow: -2px 2px 0 red, 2px -2px 0 red, -2px -2px 0 red,
+            -2px -2px 0 red;
+            color:lime
     }
 }
 
@@ -462,11 +463,11 @@ button:active {
     font-size: 3vmax;
     letter-spacing: 5px;
     align-self: center;
-    margin: -8vh 0 2vh 0;
-    text-shadow: -2px 2px 0 cyan, 2px -2px 0 cyan, -2px -2px 0 cyan,
-        -2px -2px 0 cyan;
-    animation: blinker 3s linear infinite;
-    background-color:rgba(0, 0, 0, 0.774);
+    margin: -8vh 0 6vh 0;
+    text-shadow: -2px 2px 0 yellow, 2px -2px 0 yellow, -2px -2px 0 yellow,
+        -2px -2px 0 yellow;
+    animation: blinker 9s linear infinite;
+    background-color:rgba(0, 0, 0, 0.849);
     padding:0 1vmax;
     border-radius: 5vh;
 }
