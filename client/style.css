@@ -518,7 +518,7 @@ button:active {
         flex-direction: column !important;
         height: 50vh !important;
         width: 90vw !important;
-        margin-top: 0.5vmax !important
+        margin-top: 1vmax !important
     }
     .chatScreen {
         height: 35vh !important;
@@ -534,14 +534,16 @@ button:active {
         padding-left: 1vmax !important;
     }
     .onlineUsers {
-        margin-top: 3vmax !important;
-        margin-right: 1vmax !important;
+        margin-top: 5vmax !important;
+        margin-right: 2vmax !important;
         flex-direction: row !important;
         justify-content: center !important;
         border-radius: 50% !important;
-        width: 20vmax !important;
-        height:20vmax !important;
+        width: 14vmax !important;
+        height:14vmax !important;
         padding: 7vmax !important;
+         box-shadow: -0 0 20px rgba(0, 0, 0, 0.192), 0 -0 20px rgba(0, 0, 0, 0.192), -0 -0 20px rgba(0, 0, 0, 0.192),
+        -0 -0 20px rgba(0, 0, 0, 0.192) !important
      
    
     }
