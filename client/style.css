@@ -690,16 +690,16 @@ button:active {
     }
     .chatContainer {
         flex-direction: column !important;
-
-        max-height: 33vmax !important;
+        height: 35vmax !important;
+        max-height: 40vmax !important;
         width: 70vw !important;
     }
 
   
     .chatScreen {
           min-height: 0vmax !important;
-        height: 20vmax !important;
-              max-height: 30vh !important;
+        height: 30vmax !important;
+              max-height: 35vh !important;
         width: 60vw !important;
     }
 
