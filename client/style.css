@@ -690,7 +690,7 @@ button:active {
     }
     .chatContainer {
         flex-direction: column !important;
-        height: 33vmax !important;
+        height: 35vmax !important;
         max-height: 40vmax !important;
         width: 70vw !important;
     }
