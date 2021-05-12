@@ -516,12 +516,12 @@ button:active {
     }
     .chatContainer {
         flex-direction: column !important;
-        height: 50vh !important;
+        height: 45vh !important;
         width: 90vw !important;
         margin-top: 4vmax !important
     }
     .chatScreen {
-        height: 35vh !important;
+        height: 30vh !important;
         width: 80vw !important;
     }
 
@@ -691,7 +691,7 @@ button:active {
     .chatContainer {
         flex-direction: column !important;
 
-        height: 30vmax !important;
+        max-height: 35vmax !important;
         width: 70vw !important;
     }
 
