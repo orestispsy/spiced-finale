@@ -130,19 +130,7 @@ export default class App extends Component {
     //     }
     // }
 
-    logOut() {
-        axios
-            .get("/logout")
-            .then(() => {
-                location.replace("/");
-            })
-            .catch((err) => {
-                this.setState({
-                    error: true,
-                });
-                console.log("error", err);
-            });
-    }
+
 
     render() {
         return (
@@ -184,12 +172,7 @@ export default class App extends Component {
                                         <div className="logo2"></div>
                                     </div>
                                 </a>
-                                <div
-                                    className="logout"
-                                    onClick={() => this.logOut()}
-                                >
-                                    LogOut
-                                </div>
+                               
                                 {this.state.maps && (
                                     <Link
                                         to="/"

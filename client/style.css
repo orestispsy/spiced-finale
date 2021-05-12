@@ -451,6 +451,13 @@ button:active {
     font-family: "Black Ops One", cursive;
 }
 
+@keyframes blinker {
+  50% {
+   text-shadow: -1px 1px 0 lime, 1px -1px 0 lime, -1px -1px 0 lime,
+        -1px -1px 0 lime;
+  }
+}
+
 .logoBack p {
     color: red;
     font-size: 3vmax;
@@ -459,6 +466,7 @@ button:active {
     margin: -4vh 0 0 0;
     text-shadow: -1px 1px 0 orange, 1px -1px 0 orange, -1px -1px 0 orange,
         -1px -1px 0 orange;
+        animation: blinker 3s linear infinite;
 }
 
 @media only screen and (min-device-height: 496px) and (min-device-width: 960px) and (max-device-width: 1240px) {
@@ -1573,15 +1581,7 @@ font-family: 'Ultra', serif; */
 
 
 }
-.pre-wrapper::after {
-    content:'';
-    position: fixed;
-    top: 8vh!important;
-      width: 100vw;
-    height:30vh!important;
-    background: linear-gradient(180deg, rgba(20,20,20,1) 40%, rgba(20,20,20,0) 100%)!important;
-    
-}
+
 
  }
 
@@ -1606,7 +1606,8 @@ font-family: 'Ultra', serif; */
     height:100%;
       width: 100vw;
     margin: 0 auto;
-    perspective: 50px;
+    perspective: 80px;
+
 }
 
 .scroll-text {
@@ -1616,7 +1617,7 @@ font-family: 'Ultra', serif; */
     font-weight: bold;
     text-align: justify;
     position: relative;
-    animation: scroll 240s linear forwards;
+    animation: scroll 360s linear forwards;
 
 }
 

@@ -1,16 +1,43 @@
-import { Link } from "react-router-dom";
+import { Link, useRef} from "react-router-dom";
 import { useState, useEffect } from "react";
 
+import useSound from "use-sound";
+
+import introSfx from "./../public/21space.mp3";
+
 export default function GigList({ gigsList, listSet }) {
+
+     const [elem, setElem] = useState(
+         document.querySelectorAll(".scroll-text")
+     );
+     
+                const [play] = useSound(introSfx, { volume: 0.75 });
+    
     useEffect(function () {
         listSet(true);
-        
-    const elem = document.querySelectorAll(".scroll-text");
-    console.log(elem);
-
+      
     }, []);
     // console.log("GIGSLIST IN GIGSLIST", gigsList);
+        useEffect(function () {
+          play();
+           
+        }, [play]);
 
+          
+             
+
+    
+  
+
+    const textMouseEffect = (e) => {
+        e.target.offSetY=0
+        console.log("elem2", elem)
+       console.log(e.target.style)
+       e.target.style.width= `150vw`;
+       e.target.style.marginLeft = `-50vw`;
+    };
+
+    
     if (gigsList) {
         for (var i = 0; i < gigsList.length; i++) {
             let propsDate = gigsList[i].date.split("-");
@@ -47,39 +74,37 @@ export default function GigList({ gigsList, listSet }) {
         // </div>
         <div className="pre-wrapper">
             <div className="wrapper">
-           
-                    <div className="scroll-text">
-                        {gigsList &&
-                            gigsList.map((gig) => (
-                                <div key={gig.id}>
-                                    <h2>
-                                        <span
-                                            style={{
-                                                color: `white`,
-                                            }}
-                                        >
-                                            {gig.date}
-                                        </span>{" "}
-                                        •{" "}
-                                        <span
-                                            style={{
-                                                color: `yellow`,
-                                            }}
-                                        >
-                                            {gig.venue}
-                                        </span>{" "}
-                                        •{" "}
-                                        <span
-                                            style={{
-                                                color: `white`,
-                                            }}
-                                        >
-                                            {gig.city}
-                                        </span>
-                                    </h2>
-                                </div>
-                            ))}
-        
+                <div className="scroll-text" onClick={(e)=>play()}>
+                    {gigsList &&
+                        gigsList.map((gig) => (
+                            <div key={gig.id}>
+                                <h2>
+                                    <span
+                                        style={{
+                                            color: `white`,
+                                        }}
+                                    >
+                                        {gig.date}
+                                    </span>{" "}
+                                    •{" "}
+                                    <span
+                                        style={{
+                                            color: `yellow`,
+                                        }}
+                                    >
+                                        {gig.venue}
+                                    </span>{" "}
+                                    •{" "}
+                                    <span
+                                        style={{
+                                            color: `white`,
+                                        }}
+                                    >
+                                        {gig.city}
+                                    </span>
+                                </h2>
+                            </div>
+                        ))}
                 </div>
             </div>
             <Link to="/gig-list" className="backLink">

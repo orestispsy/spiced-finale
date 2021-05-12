@@ -1,10 +1,25 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "./tools/axios";
 
 export default function Main({ admin, listSet, visitors }) {
       useEffect(function () {
           listSet(false);
       }, []);
+
+         const logOut = () => {
+        axios
+            .get("/logout")
+            .then(() => {
+                location.replace("/");
+            })
+            .catch((err) => {
+                this.setState({
+                    error: true,
+                });
+                console.log("error", err);
+            });
+    }
 
     return (
         <div className="mainContainer">
@@ -30,6 +45,9 @@ export default function Main({ admin, listSet, visitors }) {
                         Visitors Counter<div>{visitors}</div>
                     </div>
                 )}
+            </div>
+            <div className="logout" onClick={() => logOut()}>
+                LogOut
             </div>
         </div>
     );
