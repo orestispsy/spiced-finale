@@ -516,7 +516,7 @@ button:active {
     }
     .chatContainer {
         flex-direction: column !important;
-        height: 50vh !important;
+        height: 45vh !important;
         width: 90vw !important;
         margin-top: 4vmax !important
     }
@@ -550,7 +550,7 @@ button:active {
         border-radius: 50% !important;
         width: 17vmax !important;
         height:17vmax !important;
-        padding: 7vmax !important;
+        padding: 9vmax !important;
          box-shadow: -0 0 20px rgba(0, 0, 0, 0.192), 0 -0 20px rgba(0, 0, 0, 0.192), -0 -0 20px rgba(0, 0, 0, 0.192),
         -0 -0 20px rgba(0, 0, 0, 0.192) !important
      
@@ -570,7 +570,7 @@ button:active {
     .onlineUsersRedDot {
         width: 3vmax !important;
         height: 3vmax !important;
-        margin:0 !important;
+       
       
     }
 
@@ -581,7 +581,7 @@ button:active {
     .chatMenuOptions {
         flex-direction: row !important;
         margin-top: 1vmax !important;
-
+        width:fit-content !important
   
     }
 
@@ -611,13 +611,13 @@ button:active {
     }
 
     .uploaderTogglerImg {
-        width: 5vmax !important;
-        height: 5vmax !important;
+        width: 7vmax !important;
+        height: 7vmax !important;
     }
 
     .colorSelector {
-        width: 4vmax !important;
-        height: 4vmax !important;
+        width: 6vmax !important;
+        height: 6vmax !important;
     }
 
     .sendChatMsg {
