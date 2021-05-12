@@ -686,12 +686,16 @@ button:active {
     }
     .chatContainer {
         flex-direction: column !important;
-        height: 70vh !important;
+        height: 55vh !important;
         width: 70vw !important;
     }
     .chatScreen {
-        height: 35vh !important;
+        height: 25vh !important;
         width: 60vw !important;
+    }
+
+    .onlineUsers {
+        margin-top:3vmax !important;
     }
 
         .typeLine {
