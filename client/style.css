@@ -451,10 +451,16 @@ button:active {
 }
 
 @keyframes blinker {
-    50% {
+    33% {
         text-shadow: -2px 2px 0 red, 2px -2px 0 red, -2px -2px 0 red,
             -2px -2px 0 red;
-            color:lime
+            color:yellow;
+    }
+
+    66% {
+        color:lime;
+        text-shadow: -2px 2px 0 purple, 2px -2px 0 purple, -2px -2px 0 purple,
+            -2px -2px 0 purple;
     }
 }
 
@@ -466,7 +472,7 @@ button:active {
     margin: -8vh 0 6vh 0;
     text-shadow: -2px 2px 0 yellow, 2px -2px 0 yellow, -2px -2px 0 yellow,
         -2px -2px 0 yellow;
-    animation: blinker 9s linear infinite;
+    animation: blinker 10s linear infinite;
     background-color:rgba(0, 0, 0, 0.849);
     padding:0 1vmax;
     border-radius: 5vh;
@@ -496,6 +502,7 @@ button:active {
         width: 75vmax !important;
         height: 35vmax !important;
     }
+
     .logoBack p {
         font-size: 5vmax !important;
           margin: -6vh 0 3vh 0 !important;
