@@ -471,11 +471,10 @@ button:active {
 
 .logoBack p {
     color: red;
-    font-size: 3vmax;
+    font-size: 3.5vw;
     letter-spacing: 5px;
     align-self: center;
-    margin: -8vh 0 6vh 0;
-
+    margin: -8vh 0 5vh 0;
     animation: blinker 10s linear infinite;
         text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
         -0 -0 10px black;
