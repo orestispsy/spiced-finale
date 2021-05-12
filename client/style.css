@@ -1608,7 +1608,7 @@ font-family: 'Ultra', serif; */
     top: 8vh;
       width: 100vw;
     height:20%;
-    background: linear-gradient(180deg, rgba(20,20,20,1) 40%, rgba(20,20,20,0) 100%);
+    background: transparent;
 }
 
 .wrapper{
