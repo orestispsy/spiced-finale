@@ -544,13 +544,13 @@ button:active {
         padding-left: 1vmax !important;
     }
     .onlineUsers {
-        margin-top: 3vmax !important;
+        margin-top: 2vmax !important;
         margin-right: 2vmax !important;
         justify-content: center !important;
         border-radius: 50% !important;
         width: 17vmax !important;
         height:17vmax !important;
-        padding: 9vmax !important;
+        padding: 7vmax !important;
          box-shadow: -0 0 20px rgba(0, 0, 0, 0.192), 0 -0 20px rgba(0, 0, 0, 0.192), -0 -0 20px rgba(0, 0, 0, 0.192),
         -0 -0 20px rgba(0, 0, 0, 0.192) !important
      
@@ -611,13 +611,13 @@ button:active {
     }
 
     .uploaderTogglerImg {
-        width: 7vmax !important;
-        height: 7vmax !important;
+        width: 6vmax !important;
+        height: 6vmax !important;
     }
 
     .colorSelector {
-        width: 6vmax !important;
-        height: 6vmax !important;
+        width: 5vmax !important;
+        height: 5vmax !important;
     }
 
     .sendChatMsg {
