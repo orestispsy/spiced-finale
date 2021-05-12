@@ -49,12 +49,11 @@ a:hover {
 }
 
 .backLink {
-    font-size: 23px;
-    margin: 5px;
+    font-size: 2vmax;
     color: rgb(212, 255, 58);
     position: fixed;
     bottom: 0;
-    left: 10px;
+    left: 1vmax;
     font-family: "Black Ops One", cursive;
 }
 
@@ -1550,15 +1549,26 @@ font-family: 'Ultra', serif; */
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! GIGLIST ANIMATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px)  {
+       .wrapper span:nth-child(2){
+           line-height:12vmax !important;
+           align-self: center;
+       }
+
+
 
     .wrapper{
-        perspective: 20vw !important;
+        height:100% !important;
+        perspective: 70vmax !important;
+        background-color: rgba(0, 0, 0, 0.192) !important;
+
     }
+
+   
 
 
 .scroll-text {
 
-    animation: scroll 480s linear forwards !important;
+    animation: scroll 420s linear forwards !important;
     
 
 }
@@ -1567,7 +1577,7 @@ font-family: 'Ultra', serif; */
     position: fixed;
     top: 8vh!important;
       width: 100vw;
-    height:30vh!important;
+    height:20vh!important;
     background: linear-gradient(180deg, rgba(20,20,20,1) 40%, rgba(20,20,20,0) 100%)!important;
     
 }
@@ -1577,7 +1587,7 @@ font-family: 'Ultra', serif; */
  @media only screen and (min-device-width: 630px) and (max-device-width: 768px) {
      .scroll-text {
 
-    animation: scroll 240s linear forwards !important;
+    animation: scroll 500s linear forwards !important;
 
 
 }
@@ -1588,7 +1598,7 @@ font-family: 'Ultra', serif; */
 .pre-wrapper {
     height:90vh;
     overflow:hidden;
-    margin: 0 0 0 0;
+    margin: 0;
     position:relative;
 }
 
@@ -1603,10 +1613,10 @@ font-family: 'Ultra', serif; */
 
 .wrapper{
     display:flex;
-    height:100%;
+    height:60%;
       width: 100vw;
     margin: 0 auto;
-    perspective: 80px;
+    perspective: 40vh;
 
 }
 
@@ -1617,17 +1627,23 @@ font-family: 'Ultra', serif; */
     font-weight: bold;
     text-align: justify;
     position: relative;
-    animation: scroll 360s linear forwards;
-
+    animation: scroll 450s linear forwards;
+    width:100vw;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
 }
 
 .scroll-text div {
-    background-color: rgba(0, 0, 0, 0.13);
+
     border-radius: 1vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
-    margin-top: 0.5vmax;
-    width: 100vw
+    margin-top: 10vmax;
+    width: fit-content;
+
+    text-align:center !important;
+
 }
 
  .scroll-text h1, .scroll-text h2 {
@@ -1635,8 +1651,8 @@ font-family: 'Ultra', serif; */
 }
 
 @keyframes scroll {
-    from {top : 100vh; transform: translateZ(0)  rotateX(5deg)}
-    to {top:-8000vh; transform: translateZ(-800vh) rotateX(6deg)}
+    from {top : 200vh; transform: translateZ(0vh)  rotateX(50deg)}
+    to {top:-18000vmax; transform: translateZ(-20000vmax) rotateX(35deg)}
 }
 
 .gigAnimationLink {
@@ -1644,5 +1660,43 @@ font-family: 'Ultra', serif; */
     top:8vh;
     right:1vw;
 }
+
+ .wrapper h2 {
+                display:flex;
+flex-direction: column;
+    }
+
+     .wrapper span:nth-child(1){
+        color: white;
+         font-size: 8vmax;
+
+    }
+
+     .wrapper span:nth-child(2){
+        color: yellow;
+        font-size: 14vmax;
+ 
+        text-shadow: -0 0 10px red, 0 -0 10px red,
+        -0 -0 10px red, -0 -0 10px red;
+         line-height:12vmax;
+         margin:2vmax;
+    }
+
+
+    .wrapper span:nth-child(3){
+        color: rgba(166, 255, 0, 0.616);
+        margin-top:-1vw;
+          font-size: 10vw;
+            text-shadow: -0 0 10px rgba(0, 0, 0, 0.281), 0 -0 10px rgba(0, 0, 0, 0.281),
+        -0 -0 10px rgba(0, 0, 0, 0.281), -0 -0 10px rgba(0, 0, 0, 0.281);
+              box-shadow: -0 0 10px rgba(0, 0, 0, 0.281), 0 -0 10px rgba(0, 0, 0, 0.281),
+        -0 -0 10px rgba(0, 0, 0, 0.281), -0 -0 10px rgba(0, 0, 0, 0.281);
+        width:fit-content !important;
+        align-self:center;
+        padding:2vmax;
+        background-color: rgba(255, 255, 255, 0.11);
+        border-radius:5vh;
+           line-height:10vmax;
+    }
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! GIGLIST ANIMATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */

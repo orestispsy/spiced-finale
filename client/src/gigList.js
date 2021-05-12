@@ -100,7 +100,7 @@ export default function GigList({ gigsList, listSet }) {
             <Link
                 to="/gig-list-animation"
                 className="gigAnimationLink"
-           
+                onClick={()=>play()}
             >
                 Animate!
             </Link>

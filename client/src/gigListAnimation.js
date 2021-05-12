@@ -21,7 +21,7 @@ export default function GigList({ gigsList, listSet }) {
         useEffect(function () {
           play();
            
-        }, [play]);
+        }, []);
 
           
              
@@ -74,31 +74,25 @@ export default function GigList({ gigsList, listSet }) {
         // </div>
         <div className="pre-wrapper">
             <div className="wrapper">
-                <div className="scroll-text" onClick={(e)=>play()}>
+                <div className="scroll-text" >
                     {gigsList &&
                         gigsList.map((gig) => (
                             <div key={gig.id}>
                                 <h2>
                                     <span
-                                        style={{
-                                            color: `white`,
-                                        }}
+                                      
                                     >
                                         {gig.date}
-                                    </span>{" "}
-                                    •{" "}
+                                    </span>
+                                 
                                     <span
-                                        style={{
-                                            color: `yellow`,
-                                        }}
+                                       
                                     >
                                         {gig.venue}
-                                    </span>{" "}
-                                    •{" "}
+                                    </span>
+                                 
                                     <span
-                                        style={{
-                                            color: `white`,
-                                        }}
+                                       
                                     >
                                         {gig.city}
                                     </span>
