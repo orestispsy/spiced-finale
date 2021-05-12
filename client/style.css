@@ -661,7 +661,7 @@ button:active {
 
 @media only screen and (min-device-width: 630px) and (max-device-width: 768px) and (max-device-height: 300px) {
     .chatScreen {
-        max-height: 20vh !important;
+        max-height: 10vh !important;
     }
 }
 
@@ -697,8 +697,9 @@ button:active {
 
   
     .chatScreen {
-          min-height: 5vmax !important;
+          min-height: 0vmax !important;
         height: 20vmax !important;
+              max-height: 30vh !important;
         width: 60vw !important;
     }
 
