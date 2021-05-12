@@ -690,7 +690,7 @@ button:active {
     }
     .chatContainer {
         flex-direction: column !important;
-        height: 35vmax !important;
+        height: 33vmax !important;
         max-height: 40vmax !important;
         width: 70vw !important;
     }
@@ -748,6 +748,20 @@ button:active {
         width: 4vmax !important;
         height: 4vmax !important;
     }
+        .uploaderTogglerImg {
+        width: 5vmax !important;
+        height: 5vmax !important;
+    }
+
+    .colorSelector {
+        width: 4vmax !important;
+        height: 4vmax !important;
+    }
+
+    .chatMenuOptions {
+         width:fit-content !important
+    }
+    
 }
 
 @media only screen and (min-device-width: 480px) and (max-device-width: 630px) {
