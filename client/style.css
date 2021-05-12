@@ -518,11 +518,21 @@ button:active {
         flex-direction: column !important;
         height: 50vh !important;
         width: 90vw !important;
-        margin-top: 1vmax !important
+        margin-top: 4vmax !important
     }
     .chatScreen {
         height: 35vh !important;
         width: 80vw !important;
+    }
+
+    .typeLine {
+        width:80vw !important;
+        justify-content: space-evenly !important;
+    }
+
+    .chatControls {
+        width:35vw !important;
+        justify-content: space-evenly !important;
     }
 
     .chatTypeLine {
@@ -534,13 +544,12 @@ button:active {
         padding-left: 1vmax !important;
     }
     .onlineUsers {
-        margin-top: 5vmax !important;
+        margin-top: 3vmax !important;
         margin-right: 2vmax !important;
-        flex-direction: row !important;
         justify-content: center !important;
         border-radius: 50% !important;
-        width: 14vmax !important;
-        height:14vmax !important;
+        width: 17vmax !important;
+        height:17vmax !important;
         padding: 7vmax !important;
          box-shadow: -0 0 20px rgba(0, 0, 0, 0.192), 0 -0 20px rgba(0, 0, 0, 0.192), -0 -0 20px rgba(0, 0, 0, 0.192),
         -0 -0 20px rgba(0, 0, 0, 0.192) !important
@@ -559,31 +568,33 @@ button:active {
     }
 
     .onlineUsersRedDot {
-        width: 0 !important;
-        height: 0 !important;
+        width: 3vmax !important;
+        height: 3vmax !important;
         margin:0 !important;
       
     }
 
     .mobileChat {
-        flex-direction: column-reverse !important;
+        flex-direction: column !important;
     }
 
     .chatMenuOptions {
-        flex-direction: column !important;
-        margin-top: 5vmax !important;
+        flex-direction: row !important;
+        margin-top: 1vmax !important;
 
   
     }
 
     .emoticons {
         margin-top: 2vh !important;
-        height: 20vmax !important;
+        margin-right:1vh !important;
+        height: 25vmax !important;
+        width:25vmax !important;
     }
 
     .emoticons img {
-        width: 4vmax !important;
-        height: 4vmax !important;
+        width: 5vmax !important;
+        height: 5vmax !important;
     }
 
     .chatBar {
@@ -679,8 +690,18 @@ button:active {
         width: 70vw !important;
     }
     .chatScreen {
-        height: 45vh !important;
+        height: 35vh !important;
         width: 60vw !important;
+    }
+
+        .typeLine {
+        width:60vw !important;
+        justify-content: space-evenly !important;
+    }
+
+    .chatControls {
+        width:25vw !important;
+        justify-content: space-evenly !important;
     }
 
     .chatTypeLine {
