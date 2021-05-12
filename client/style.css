@@ -451,16 +451,21 @@ button:active {
 }
 
 @keyframes blinker {
-    33% {
-        text-shadow: -2px 2px 0 red, 2px -2px 0 red, -2px -2px 0 red,
-            -2px -2px 0 red;
-            color:yellow;
+    25% {
+       text-shadow: -0 0 10px red, 0 -0 10px red, -0 -0 10px red,
+        -0 -0 10px red;
+            color:rgb(255, 255, 255);
     }
 
-    66% {
+    50% {
         color:lime;
-        text-shadow: -2px 2px 0 purple, 2px -2px 0 purple, -2px -2px 0 purple,
-            -2px -2px 0 purple;
+           text-shadow: -0 0 10px blue, 0 -0 10px blue, -0 -0 10px blue,
+        -0 -0 10px blue;
+     
+    }
+
+    75% {
+        color:white;
     }
 }
 
@@ -470,12 +475,12 @@ button:active {
     letter-spacing: 5px;
     align-self: center;
     margin: -8vh 0 6vh 0;
-    text-shadow: -2px 2px 0 yellow, 2px -2px 0 yellow, -2px -2px 0 yellow,
-        -2px -2px 0 yellow;
+
     animation: blinker 10s linear infinite;
-    background-color:rgba(0, 0, 0, 0.849);
+        text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
+        -0 -0 10px black;
     padding:0 1vmax;
-    border-radius: 5vh;
+    border-radius: 3vw;
 }
 
 @media only screen and (min-device-height: 496px) and (min-device-width: 960px) and (max-device-width: 1240px) {
