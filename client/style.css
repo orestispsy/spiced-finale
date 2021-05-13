@@ -550,9 +550,6 @@ button:active {
     }
     .chatContainerBack {
         flex-direction: column !important;
-        background-color: rgba(0, 0, 0, 0.178) !important;
-        width: 100vw !important;
-        height:90vh !important;
     }
     .chatContainer {
         flex-direction: column !important;
@@ -584,7 +581,7 @@ button:active {
         padding-left: 1vmax !important;
     }
     .onlineUsers {
-        margin-top: 2vmax !important;
+        margin-top: 1vmax !important;
         margin-right: 2vmax !important;
         justify-content: center !important;
         border-radius: 50% !important;
