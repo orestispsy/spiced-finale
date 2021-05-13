@@ -496,6 +496,18 @@ button:active {
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
+    .logo2 {
+        height:8vmax !important;
+        width:25vmax !important;
+    }
+
+    .barProfile {
+        font-size: 4vmax !important;
+    }
+    .barMainLink {
+        width:4.5vmax !important;
+        height:4.5vmax !important;
+    }
     .loginContainer h1, .registerContainer h1 {
        font-size:6vmax !important;
        margin-bottom: 2vmax !important
