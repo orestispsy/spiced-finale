@@ -550,6 +550,9 @@ button:active {
     }
     .chatContainerBack {
         flex-direction: column !important;
+        background-color: rgba(0, 0, 0, 0.178) !important;
+        width: 100vw !important;
+        height:90vh !important;
     }
     .chatContainer {
         flex-direction: column !important;

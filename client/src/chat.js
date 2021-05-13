@@ -11,7 +11,7 @@ import chatSfx from "./../public/msg.mp3";
 
 export default function Chat({ chat_color, chat_img, chat_myUserId }) {
     const [emojiBar, setEmojiBar] = useState(false);
-    const [tickerBar, setTickerBar] = useState(true);
+    const [tickerBar, setTickerBar] = useState(false);
     const [mute, setMute] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.75 });
