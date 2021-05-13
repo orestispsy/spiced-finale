@@ -1760,14 +1760,16 @@ font-family: 'Ultra', serif; */
 .gigAnimationLink {
     position: fixed;
     top: 8vh;
-    right: 1vw;
+    right: 2.5vmax;
     border: 1px solid cyan;
-    padding: 1vmax;
+    padding: 0.5vmax;
     border-radius: 10vh;
+    font-size: 1.5vmax !important;
+      background-color: rgba(255, 255, 255, 0.158);
 }
 
 .gigAnimationLink:hover {
-    background-color: rgba(255, 255, 255, 0.158);
+    background-color: rgba(0, 0, 0, 0.048);
 }
 
 .wrapper h2 {
