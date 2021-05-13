@@ -6,7 +6,7 @@ import useSound from "use-sound";
 import introSfx from "./../public/21space.mp3";
 
 export default function GigList({ gigsList, listSet }) {
-    const [elem, setElem] = useState(document.querySelectorAll(".scroll-text"));
+    // const [elem, setElem] = useState(document.querySelectorAll(".scroll-text"));
 
     const [play] = useSound(introSfx, { volume: 0.75 });
 
@@ -18,13 +18,13 @@ export default function GigList({ gigsList, listSet }) {
         play();
     }, []);
 
-    const textMouseEffect = (e) => {
-        e.target.offSetY = 0;
-        console.log("elem2", elem);
-        console.log(e.target.style);
-        e.target.style.width = `150vw`;
-        e.target.style.marginLeft = `-50vw`;
-    };
+    // const textMouseEffect = (e) => {
+    //     e.target.offSetY = 0;
+    //     console.log("elem2", elem);
+    //     console.log(e.target.style);
+    //     e.target.style.width = `150vw`;
+    //     e.target.style.marginLeft = `-50vw`;
+    // };
 
     if (gigsList) {
         for (var i = 0; i < gigsList.length; i++) {

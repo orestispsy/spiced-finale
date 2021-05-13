@@ -7,10 +7,12 @@ import introSfx from "./../public/21space.mp3";
 export default function GigList({ gigsList, listSet }) {
     useEffect(function () {
         listSet(true);
+     
     }, []);
     // console.log("GIGSLIST IN GIGSLIST", gigsList);
 
     const [play] = useSound(introSfx, { volume: 0.75 });
+  
 
     if (gigsList) {
         for (var i = 0; i < gigsList.length; i++) {
@@ -103,6 +105,7 @@ export default function GigList({ gigsList, listSet }) {
             >
                 Animate
             </Link>
+            
         </div>
     );
 }

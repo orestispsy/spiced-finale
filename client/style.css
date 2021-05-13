@@ -1711,10 +1711,10 @@ font-family: 'Ultra', serif; */
 
 .wrapper {
     display: flex;
-    height: 60%;
+    height: 70%;
     width: 100vw;
     margin: 0 auto;
-    perspective: 40vh;
+    perspective: 60vh;
 }
 
 .scroll-text {
@@ -1724,7 +1724,7 @@ font-family: 'Ultra', serif; */
     font-weight: bold;
     text-align: justify;
     position: relative;
-    animation: scroll 400s linear forwards;
+    animation: scroll 440s linear forwards;
     width: 100vw;
     display: flex;
     flex-direction: column;
