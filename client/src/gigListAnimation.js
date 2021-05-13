@@ -1,4 +1,4 @@
-import { Link, useRef} from "react-router-dom";
+import { Link, useRef } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import useSound from "use-sound";
@@ -6,38 +6,26 @@ import useSound from "use-sound";
 import introSfx from "./../public/21space.mp3";
 
 export default function GigList({ gigsList, listSet }) {
+    const [elem, setElem] = useState(document.querySelectorAll(".scroll-text"));
 
-     const [elem, setElem] = useState(
-         document.querySelectorAll(".scroll-text")
-     );
-     
-                const [play] = useSound(introSfx, { volume: 0.75 });
-    
+    const [play] = useSound(introSfx, { volume: 0.75 });
+
     useEffect(function () {
         listSet(true);
-      
     }, []);
     // console.log("GIGSLIST IN GIGSLIST", gigsList);
-        useEffect(function () {
-          play();
-           
-        }, []);
-
-          
-             
-
-    
-  
+    useEffect(function () {
+        play();
+    }, []);
 
     const textMouseEffect = (e) => {
-        e.target.offSetY=0
-        console.log("elem2", elem)
-       console.log(e.target.style)
-       e.target.style.width= `150vw`;
-       e.target.style.marginLeft = `-50vw`;
+        e.target.offSetY = 0;
+        console.log("elem2", elem);
+        console.log(e.target.style);
+        e.target.style.width = `150vw`;
+        e.target.style.marginLeft = `-50vw`;
     };
 
-    
     if (gigsList) {
         for (var i = 0; i < gigsList.length; i++) {
             let propsDate = gigsList[i].date.split("-");
@@ -74,28 +62,16 @@ export default function GigList({ gigsList, listSet }) {
         // </div>
         <div className="pre-wrapper">
             <div className="wrapper">
-                <div className="scroll-text" >
+                <div className="scroll-text">
                     {gigsList &&
                         gigsList.map((gig) => (
                             <div key={gig.id}>
                                 <h2>
-                                    <span
-                                      
-                                    >
-                                        {gig.date}
-                                    </span>
-                                 
-                                    <span
-                                       
-                                    >
-                                        {gig.venue}
-                                    </span>
-                                 
-                                    <span
-                                       
-                                    >
-                                        {gig.city}
-                                    </span>
+                                    <span>{gig.date}</span>
+
+                                    <span>{gig.venue}</span>
+
+                                    <span>{gig.city}</span>
                                 </h2>
                             </div>
                         ))}

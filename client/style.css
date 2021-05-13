@@ -452,20 +452,19 @@ button:active {
 
 @keyframes blinker {
     25% {
-       text-shadow: -0 0 10px red, 0 -0 10px red, -0 -0 10px red,
-        -0 -0 10px red;
-            color:rgb(255, 255, 255);
+        text-shadow: -0 0 10px red, 0 -0 10px red, -0 -0 10px red,
+            -0 -0 10px red;
+        color: rgb(255, 255, 255);
     }
 
     50% {
-        color:lime;
-           text-shadow: -0 0 10px blue, 0 -0 10px blue, -0 -0 10px blue,
-        -0 -0 10px blue;
-     
+        color: lime;
+        text-shadow: -0 0 10px blue, 0 -0 10px blue, -0 -0 10px blue,
+            -0 -0 10px blue;
     }
 
     75% {
-        color:white;
+        color: white;
     }
 }
 
@@ -476,9 +475,9 @@ button:active {
     align-self: center;
     margin: -8vh 0 5vh 0;
     animation: blinker 10s linear infinite;
-        text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
+    text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
         -0 -0 10px black;
-    padding:0 1vmax;
+    padding: 0 1vmax;
     border-radius: 3vw;
 }
 
@@ -496,20 +495,46 @@ button:active {
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+
+    .loginContainer h1, .registerContainer h1 {
+       font-size:6vmax !important;
+       margin-bottom: 2vmax !important
+    }
+        .loginContainer span,  .registerContainer span {
+       font-size:5vmax
+    }
+
+
+     .loginContainer input, .registerContainer input {
+       width:35vw;
+       height:5vh;
+       font-size: 2vmax;
+    }
+
+         .loginContainer button, .registerContainer button {
+       width:17vw;
+       height:5vh;
+       font-size: 2vmax;
+       margin:2vmax;
+    }
+
+    .regSpan, .regSpan a {
+        font-size: 3vmax !important
+    }
+
+    
     .tickerButton {
-
-    font-size: 1vmax !important;
-    right:4vmax !important;
-
-}
+        font-size: 1vmax !important;
+        right: 4vmax !important;
+    }
     .logo {
         width: 75vmax !important;
         height: 35vmax !important;
     }
 
     .logoBack p {
-        font-size: 5vmax !important;
-          margin: -6vh 0 3vh 0 !important;
+        font-size: 6vmax !important;
+        margin: -6vh 0 3vh 0 !important;
     }
     .mainMenu {
         flex-direction: column !important;
@@ -530,7 +555,7 @@ button:active {
         flex-direction: column !important;
         height: 45vh !important;
         width: 90vw !important;
-        margin-top: 4vmax !important
+        margin-top: 4vmax !important;
     }
     .chatScreen {
         height: 30vh !important;
@@ -538,12 +563,12 @@ button:active {
     }
 
     .typeLine {
-        width:80vw !important;
+        width: 80vw !important;
         justify-content: space-evenly !important;
     }
 
     .chatControls {
-        width:35vw !important;
+        width: 35vw !important;
         justify-content: space-evenly !important;
     }
 
@@ -561,12 +586,11 @@ button:active {
         justify-content: center !important;
         border-radius: 50% !important;
         width: 17vmax !important;
-        height:17vmax !important;
+        height: 17vmax !important;
         padding: 7vmax !important;
-         box-shadow: -0 0 20px rgba(0, 0, 0, 0.192), 0 -0 20px rgba(0, 0, 0, 0.192), -0 -0 20px rgba(0, 0, 0, 0.192),
-        -0 -0 20px rgba(0, 0, 0, 0.192) !important
-     
-   
+        box-shadow: -0 0 20px rgba(0, 0, 0, 0.192),
+            0 -0 20px rgba(0, 0, 0, 0.192), -0 -0 20px rgba(0, 0, 0, 0.192),
+            -0 -0 20px rgba(0, 0, 0, 0.192) !important;
     }
 
     .onlineUsersBack {
@@ -582,8 +606,6 @@ button:active {
     .onlineUsersRedDot {
         width: 3vmax !important;
         height: 3vmax !important;
-       
-      
     }
 
     .mobileChat {
@@ -593,15 +615,14 @@ button:active {
     .chatMenuOptions {
         flex-direction: row !important;
         margin-top: 1vmax !important;
-        width:fit-content !important
-  
+        width: fit-content !important;
     }
 
     .emoticons {
         margin-top: 2vh !important;
-        margin-right:1vh !important;
+        margin-right: 1vh !important;
         height: 25vmax !important;
-        width:20vmax !important;
+        width: 20vmax !important;
     }
 
     .emoticons img {
@@ -678,8 +699,7 @@ button:active {
 }
 
 @media only screen and (min-device-width: 630px) and (max-device-width: 768px) {
-
-    .chatContainer{
+    .chatContainer {
         min-height: 15vmax !important;
     }
     .logo {
@@ -687,9 +707,9 @@ button:active {
         height: 22vmax !important;
     }
 
-     .logoBack p {
-        font-size: 3vmax !important;
-          margin: -6vh 0 4vh 0 !important;
+    .logoBack p {
+        font-size: 3.5vmax !important;
+        margin: -6vh 0 4vh 0 !important;
     }
     .mainMenu a {
         font-size: 4vmax !important;
@@ -707,31 +727,30 @@ button:active {
         width: 70vw !important;
     }
 
-  
     .chatScreen {
-          min-height: 0vmax !important;
+        min-height: 0vmax !important;
         height: 30vmax !important;
-              max-height: 35vh !important;
+        max-height: 35vh !important;
         width: 60vw !important;
     }
 
     .onlineUsers {
-        margin-top:3vmax !important;
+        margin-top: 3vmax !important;
     }
 
-        .typeLine {
-        width:60vw !important;
+    .typeLine {
+        width: 60vw !important;
         justify-content: space-evenly !important;
     }
 
     .chatControls {
-        width:25vw !important;
+        width: 25vw !important;
         justify-content: space-evenly !important;
     }
 
     .chatTypeLine {
         margin-top: 2vh;
-                min-height: 3vmax !important;
+        min-height: 3vmax !important;
         height: 3vmax !important;
         width: 30vmax !important;
         font-size: 2vmax !important;
@@ -760,7 +779,7 @@ button:active {
         width: 4vmax !important;
         height: 4vmax !important;
     }
-        .uploaderTogglerImg {
+    .uploaderTogglerImg {
         width: 5vmax !important;
         height: 5vmax !important;
     }
@@ -771,9 +790,8 @@ button:active {
     }
 
     .chatMenuOptions {
-         width:fit-content !important
+        width: fit-content !important;
     }
-    
 }
 
 @media only screen and (min-device-width: 480px) and (max-device-width: 630px) {
@@ -1728,14 +1746,13 @@ font-family: 'Ultra', serif; */
     position: fixed;
     top: 8vh;
     right: 1vw;
-    border:1px solid cyan;
-    padding:1vmax;
-    border-radius:10vh;
-
+    border: 1px solid cyan;
+    padding: 1vmax;
+    border-radius: 10vh;
 }
 
 .gigAnimationLink:hover {
-    background-color: rgba(255, 255, 255, 0.158)
+    background-color: rgba(255, 255, 255, 0.158);
 }
 
 .wrapper h2 {

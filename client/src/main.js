@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import axios from "./tools/axios";
 
 export default function Main({ admin, listSet, visitors }) {
-      useEffect(function () {
-          listSet(false);
-      }, []);
+    useEffect(function () {
+        listSet(false);
+    }, []);
 
-         const logOut = () => {
+    const logOut = () => {
         axios
             .get("/logout")
             .then(() => {
@@ -19,7 +19,7 @@ export default function Main({ admin, listSet, visitors }) {
                 });
                 console.log("error", err);
             });
-    }
+    };
 
     return (
         <div className="mainContainer">

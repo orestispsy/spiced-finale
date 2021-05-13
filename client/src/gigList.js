@@ -5,20 +5,19 @@ import useSound from "use-sound";
 import introSfx from "./../public/21space.mp3";
 
 export default function GigList({ gigsList, listSet }) {
-
-       useEffect(function () {
-           listSet(true)
-       }, []);
+    useEffect(function () {
+        listSet(true);
+    }, []);
     // console.log("GIGSLIST IN GIGSLIST", gigsList);
-    
-                const [play] = useSound(introSfx, { volume: 0.75 });
-    
+
+    const [play] = useSound(introSfx, { volume: 0.75 });
+
     if (gigsList) {
         for (var i = 0; i < gigsList.length; i++) {
             let propsDate = gigsList[i].date.split("-");
             var fixedDate =
                 propsDate[2] + "-" + propsDate[1] + "-" + propsDate[0];
-            gigsList[i].date = fixedDate
+            gigsList[i].date = fixedDate;
         }
     }
 
@@ -100,7 +99,7 @@ export default function GigList({ gigsList, listSet }) {
             <Link
                 to="/gig-list-animation"
                 className="gigAnimationLink"
-                onClick={()=>play()}
+                onClick={() => play()}
             >
                 Animate
             </Link>

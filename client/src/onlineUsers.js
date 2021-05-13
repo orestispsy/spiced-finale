@@ -86,16 +86,16 @@ export default function OnlineUsers({
             });
     };
 
-        const privateMessage = (e) => {
-            axios
-                .post("/changeColor", e.target.value)
-                .then(({ data }) => {
-                    setChatColor(data.data.chat_color);
-                })
-                .catch((err) => {
-                    //   console.log("error", err);
-                });
-        };
+    const privateMessage = (e) => {
+        axios
+            .post("/changeColor", e.target.value)
+            .then(({ data }) => {
+                setChatColor(data.data.chat_color);
+            })
+            .catch((err) => {
+                //   console.log("error", err);
+            });
+    };
 
     const toggleUploader = () => {
         setUserPicBar(!userPicBar);
