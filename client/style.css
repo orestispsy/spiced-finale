@@ -581,7 +581,7 @@ button:active {
         padding-left: 1vmax !important;
     }
     .onlineUsers {
-        margin-top: 1vmax !important;
+        margin-top: 2vmax !important;
         margin-right: 2vmax !important;
         justify-content: center !important;
         border-radius: 50% !important;
@@ -591,6 +591,7 @@ button:active {
         box-shadow: -0 0 20px rgba(0, 0, 0, 0.192),
             0 -0 20px rgba(0, 0, 0, 0.192), -0 -0 20px rgba(0, 0, 0, 0.192),
             -0 -0 20px rgba(0, 0, 0, 0.192) !important;
+            background-color: rgba(0, 0, 0, 0.281) !important;
     }
 
     .onlineUsersBack {
