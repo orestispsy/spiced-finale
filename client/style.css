@@ -597,6 +597,10 @@ button:active {
         flex-direction: row !important;
     }
 
+        .onlineList span {
+        font-size: 2vmax !important
+    }
+
     .onlineUserCounter {
         width: 1.5vw;
         height: 1.5vh;
@@ -655,7 +659,8 @@ button:active {
 
     .sendChatMsg {
         margin-top: 2vmax !important;
-        font-size: 4vmax !important;
+           width:5vmax !important;
+        height:3vmax !important;
     }
 }
 
@@ -738,6 +743,10 @@ button:active {
         margin-top: 3vmax !important;
     }
 
+    .onlineList span {
+        font-size: 2vmax !important
+    }
+
     .typeLine {
         width: 60vw !important;
         justify-content: space-evenly !important;
@@ -768,7 +777,8 @@ button:active {
 
     .sendChatMsg {
         margin-top: 1.5vmax !important;
-        font-size: 4vmax !important;
+            width:5vmax !important;
+        height:3vmax !important;
     }
     .emoticons img {
         width: 4vmax !important;
@@ -1116,18 +1126,18 @@ font-family: 'Ultra', serif; */
 }
 
 .sendChatMsg {
-    margin-top: 0.5vmax;
-    font-size: 2vmax;
-    color: black;
+
+    background-image: url("send.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width:2.5vmax;
+    height:1.5vmax;
+     align-self: center;
     margin-left: 0.7vmax;
     cursor: pointer;
 }
 
-.sendChatMsg:hover {
-    color: lime;
-    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
-        -1px -1px 0 black;
-}
 
 .userChatDetails {
     display: flex;

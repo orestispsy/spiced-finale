@@ -194,7 +194,6 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                 className="sendChatMsg"
                                 onClick={() => sendChatMsgButton()}
                             >
-                                ➤
                             </div>
 
                             {!mute && (
