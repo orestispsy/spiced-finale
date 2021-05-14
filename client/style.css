@@ -1678,13 +1678,6 @@ font-family: 'Ultra', serif; */
     .scroll-text {
         animation: scroll 350s linear forwards !important;
     }
-    .pre-wrapper::after {
-        content: "";
-        position: fixed;
-        top: 8vh !important;
-        width: 100vw;
-        height: 20vh !important;
-    }
 }
 
 @media only screen and (min-device-width: 630px) and (max-device-width: 768px) {
@@ -1698,15 +1691,6 @@ font-family: 'Ultra', serif; */
     overflow: hidden;
     margin: 0;
     position: relative;
-}
-
-.pre-wrapper::after {
-    content: "";
-    position: fixed;
-    top: 8vh;
-    width: 100vw;
-    height: 20%;
-    background: transparent;
 }
 
 .wrapper {
