@@ -11,9 +11,6 @@ export default function GigList({ gigsList, listSet }) {
     }, []);
     // console.log("GIGSLIST IN GIGSLIST", gigsList);
 
-    const [play] = useSound(introSfx, { volume: 0.75 });
-  
-
     if (gigsList) {
         for (var i = 0; i < gigsList.length; i++) {
             let propsDate = gigsList[i].date.split("-");
@@ -101,11 +98,9 @@ export default function GigList({ gigsList, listSet }) {
             <Link
                 to="/gig-list-animation"
                 className="gigAnimationLink"
-                onClick={() => play()}
             >
                 Animate
-            </Link>
-            
+            </Link>       
         </div>
     );
 }

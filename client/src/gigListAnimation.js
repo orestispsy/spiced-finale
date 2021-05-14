@@ -8,7 +8,8 @@ import introSfx from "./../public/21space.mp3";
 export default function GigList({ gigsList, listSet }) {
     // const [elem, setElem] = useState(document.querySelectorAll(".scroll-text"));
 
-    const [play] = useSound(introSfx, { volume: 0.75 });
+    const [play, { stop }] = useSound(introSfx, { volume: 0.75 });
+    const [go, setGo] = useState(false);
 
     useEffect(function () {
         listSet(true);
@@ -16,7 +17,7 @@ export default function GigList({ gigsList, listSet }) {
     // console.log("GIGSLIST IN GIGSLIST", gigsList);
     useEffect(function () {
         play();
-    }, []);
+    }, [go]);
 
     // const textMouseEffect = (e) => {
     //     e.target.offSetY = 0;
@@ -61,23 +62,34 @@ export default function GigList({ gigsList, listSet }) {
         //     </div>
         // </div>
         <div className="pre-wrapper">
-            <div className="wrapper">
-                <div className="scroll-text">
-                    {gigsList &&
-                        gigsList.map((gig) => (
-                            <div key={gig.id}>
-                                <h2>
-                                    <span>{gig.date}</span>
-
-                                    <span>{gig.venue}</span>
-
-                                    <span>{gig.city}</span>
-                                </h2>
-                            </div>
-                        ))}
+            {!go && (
+                <div className="go" onClick={() => setGo(true)}>
+                    GO!
                 </div>
-            </div>
-            <Link to="/gig-list" className="backLink">
+            )}
+            {go && (
+                <div className="wrapper">
+                    <div className="scroll-text">
+                        {gigsList &&
+                            gigsList.map((gig) => (
+                                <div key={gig.id}>
+                                    <h2>
+                                        <span>{gig.date}</span>
+
+                                        <span>{gig.venue}</span>
+
+                                        <span>{gig.city}</span>
+                                    </h2>
+                                </div>
+                            ))}
+                    </div>
+                </div>
+            )}
+            <Link
+                to="/gig-list"
+                className="backLink"
+                onClick={() => stop()}
+            >
                 Back
             </Link>
         </div>

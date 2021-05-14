@@ -494,39 +494,41 @@ button:active {
     }
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px)  and (orientation: portrait)  {
-    
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
     .barMainLink {
-        width:4vmax !important;
-        height:4vmax !important;
+        width: 4vmax !important;
+        height: 4vmax !important;
     }
-    .loginContainer h1, .registerContainer h1 {
-       font-size:6vmax !important;
-       margin-bottom: 2vmax !important
+    .loginContainer h1,
+    .registerContainer h1 {
+        font-size: 6vmax !important;
+        margin-bottom: 2vmax !important;
     }
-        .loginContainer span,  .registerContainer span {
-       font-size:5vmax
-    }
-
-
-     .loginContainer input, .registerContainer input {
-       width:35vw;
-       height:5vh;
-       font-size: 2vmax;
+    .loginContainer span,
+    .registerContainer span {
+        font-size: 5vmax;
     }
 
-         .loginContainer button, .registerContainer button {
-       width:17vw;
-       height:5vh;
-       font-size: 2vmax;
-       margin:2vmax;
+    .loginContainer input,
+    .registerContainer input {
+        width: 35vw;
+        height: 5vh;
+        font-size: 2vmax;
     }
 
-    .regSpan, .regSpan a {
-        font-size: 3vmax !important
+    .loginContainer button,
+    .registerContainer button {
+        width: 17vw;
+        height: 5vh;
+        font-size: 2vmax;
+        margin: 2vmax;
     }
 
-    
+    .regSpan,
+    .regSpan a {
+        font-size: 3vmax !important;
+    }
+
     .tickerButton {
         font-size: 1vmax !important;
         right: 4vmax !important;
@@ -595,15 +597,15 @@ button:active {
         box-shadow: -0 0 20px rgba(0, 0, 0, 0.192),
             0 -0 20px rgba(0, 0, 0, 0.192), -0 -0 20px rgba(0, 0, 0, 0.192),
             -0 -0 20px rgba(0, 0, 0, 0.192) !important;
-            background-color: rgba(0, 0, 0, 0.281) !important;
+        background-color: rgba(0, 0, 0, 0.281) !important;
     }
 
     .onlineUsersBack {
         flex-direction: row !important;
     }
 
-        .onlineList span {
-        font-size: 2vmax !important
+    .onlineList span {
+        font-size: 2vmax !important;
     }
 
     .onlineUserCounter {
@@ -664,8 +666,8 @@ button:active {
 
     .sendChatMsg {
         margin-top: 2vmax !important;
-           width:5vmax !important;
-        height:3vmax !important;
+        width: 5vmax !important;
+        height: 3vmax !important;
     }
 }
 
@@ -749,7 +751,7 @@ button:active {
     }
 
     .onlineList span {
-        font-size: 2vmax !important
+        font-size: 2vmax !important;
     }
 
     .typeLine {
@@ -782,8 +784,8 @@ button:active {
 
     .sendChatMsg {
         margin-top: 1.5vmax !important;
-            width:5vmax !important;
-        height:3vmax !important;
+        width: 5vmax !important;
+        height: 3vmax !important;
     }
     .emoticons img {
         width: 4vmax !important;
@@ -1131,18 +1133,16 @@ font-family: 'Ultra', serif; */
 }
 
 .sendChatMsg {
-
     background-image: url("send.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width:2.5vmax;
-    height:1.5vmax;
-     align-self: center;
+    width: 2.5vmax;
+    height: 1.5vmax;
+    align-self: center;
     margin-left: 0.7vmax;
     cursor: pointer;
 }
-
 
 .userChatDetails {
     display: flex;
@@ -1765,11 +1765,25 @@ font-family: 'Ultra', serif; */
     padding: 0.5vmax;
     border-radius: 10vh;
     font-size: 1.5vmax !important;
-      background-color: rgba(255, 255, 255, 0.158);
+    background-color: rgba(255, 255, 255, 0.158);
 }
 
 .gigAnimationLink:hover {
     background-color: rgba(0, 0, 0, 0.048);
+}
+
+.go {
+    padding-top: 40vh;
+    color: lime;
+    font-size: 10vmax;
+    cursor: pointer;
+    text-shadow: -0 0 10px rgba(229, 255, 0, 0.281),
+        0 -0 10px rgba(229, 255, 0, 0.281), -0 -0 10px rgba(229, 255, 0, 0.281),
+        -0 -0 10px rgba(229, 255, 0, 0.281);
+}
+
+.go:hover {
+    color: white;
 }
 
 .wrapper h2 {
