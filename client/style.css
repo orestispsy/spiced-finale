@@ -494,7 +494,7 @@ button:active {
     }
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px)  and (orientation: portrait)  {
     
     .barMainLink {
         width:4vmax !important;
@@ -809,7 +809,7 @@ button:active {
     }
 }
 
-@media only screen and (min-device-width: 480px) and (max-device-width: 630px) {
+@media only screen and (min-device-width: 481px) and (max-device-width: 630px) {
     .logo {
         width: 50vmax !important;
         height: 22vmax !important;
