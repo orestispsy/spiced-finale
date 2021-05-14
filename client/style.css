@@ -481,7 +481,7 @@ button:active {
     border-radius: 3vw;
 }
 
-@media only screen and (min-device-height: 496px) and (min-device-width: 960px) and (max-device-width: 1240px) {
+@media only screen and (min-device-height: 496px) and (min-device-width: 960px) and (max-device-width: 1240px)  {
     .mainMenu a {
         color: turquoise !important;
         font-size: 5vmax !important;
@@ -494,7 +494,7 @@ button:active {
     }
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px)  and (min-device-height: 300px){
     
     .barMainLink {
         width:4vmax !important;
@@ -702,13 +702,13 @@ button:active {
     }
 }
 
-@media only screen and (min-device-width: 630px) and (max-device-width: 768px) and (max-device-height: 300px) {
+@media only screen and (min-device-width: 630px) and (max-device-width: 768px) and (max-device-height: 320px) {
     .chatScreen {
         max-height: 10vh !important;
     }
 }
 
-@media only screen and (min-device-width: 630px) and (max-device-width: 768px) {
+@media only screen and (min-device-width: 480px) and (max-device-width: 768px) and (max-device-height: 460px) {
     .chatContainer {
         min-height: 15vmax !important;
     }
