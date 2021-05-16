@@ -1664,6 +1664,19 @@ font-family: 'Ultra', serif; */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! GIGLIST ANIMATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
+@keyframes scroll {
+    from {
+        top: 200vh;
+        transform: translateZ(0) rotateX(50deg);
+        
+    }
+    to {
+        top: -180000vh;
+        transform: translateZ(-210000vh) rotateX(35deg);
+     
+    }
+}
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     .wrapper span:nth-child(2) {
         line-height: 12vmax !important;
@@ -1672,33 +1685,41 @@ font-family: 'Ultra', serif; */
 
     .wrapper {
         height: 100% !important;
-        perspective: 70vmax !important;
+        perspective: 60vh !important;
+       
     }
 
     .scroll-text {
-        animation: scroll 350s linear forwards !important;
+        animation: scroll 3500s linear forwards !important;
+
     }
 }
 
 @media only screen and (min-device-width: 630px) and (max-device-width: 768px) {
     .scroll-text {
-        animation: scroll 400s linear forwards !important;
+        animation: scroll 2700s linear forwards !important;
     }
+    
+    .wrapper {
+        height: 50% !important;
+        perspective: 60vh !important;
+       
+    }
+
 }
 
 .pre-wrapper {
     height: 90vh;
     overflow: hidden;
-    margin: 0;
+
     position: relative;
 }
 
 .wrapper {
     display: flex;
-    height: 70%;
+    height: 20%;
     width: 100vw;
-    margin: 0 auto;
-    perspective: 60vh;
+    perspective: 11vmax;
 }
 
 .scroll-text {
@@ -1708,7 +1729,7 @@ font-family: 'Ultra', serif; */
     font-weight: bold;
     text-align: justify;
     position: relative;
-    animation: scroll 440s linear forwards;
+    animation: scroll 3000s linear forwards;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -1728,17 +1749,6 @@ font-family: 'Ultra', serif; */
 .scroll-text h1,
 .scroll-text h2 {
     text-align: center;
-}
-
-@keyframes scroll {
-    from {
-        top: 200vh;
-        transform: translateZ(0vh) rotateX(50deg);
-    }
-    to {
-        top: -18000vmax;
-        transform: translateZ(-20000vmax) rotateX(35deg);
-    }
 }
 
 .gigAnimationLink {

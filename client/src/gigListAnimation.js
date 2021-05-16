@@ -6,12 +6,14 @@ import useSound from "use-sound";
 import introSfx from "./../public/21space.mp3";
 
 export default function GigList({ gigsList, listSet }) {
-    // const [elem, setElem] = useState(document.querySelectorAll(".scroll-text"));
 
     const [play, { stop }] = useSound(introSfx, { volume: 0.75 });
     const [go, setGo] = useState(false);
 
+
+
     useEffect(function () {
+              
         listSet(true);
     }, []);
     // console.log("GIGSLIST IN GIGSLIST", gigsList);
@@ -85,11 +87,7 @@ export default function GigList({ gigsList, listSet }) {
                     </div>
                 </div>
             )}
-            <Link
-                to="/gig-list"
-                className="backLink"
-                onClick={() => stop()}
-            >
+            <Link to="/gig-list" className="backLink" onClick={() => stop()}>
                 Back
             </Link>
         </div>
