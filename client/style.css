@@ -746,10 +746,13 @@ button:active {
         width: 70vw !important;
     }
 
+    .mobileChat {
+        height:80vh !important;
+    }
+
     .chatScreen {
         min-height: 0vmax !important;
-        height: 45vmax !important;
-        max-height: 45vh !important;
+        height: 40vh !important;
         width: 60vw !important;
     }
 
