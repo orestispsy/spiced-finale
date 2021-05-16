@@ -729,15 +729,12 @@ button:active {
     }
     .chatContainer {
         flex-direction: column !important;
-        min-height: fit-content !important;
-        height: fit-content !important;
+
 
         width: 70vw !important;
     }
 
-    .mobileChat {
-        height: 70vh !important;
-    }
+
 
     .chatScreen {
         min-height: 0vmax !important;
