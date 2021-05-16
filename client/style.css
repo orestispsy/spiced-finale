@@ -561,22 +561,20 @@ button:active {
         flex-direction: column !important;
         height: fit-content !important;
         width: 90vw !important;
-        padding: 1vmax  !important;
+        padding: 1vmax !important;
     }
     .chatScreen {
         height: 30vh !important;
         width: 80vw !important;
-        margin-bottom: 0.5vmax !important
+        margin-bottom: 0.5vmax !important;
     }
 
     .typeLine {
-
         width: 80vw !important;
         justify-content: space-evenly !important;
     }
 
     .mute {
-
         justify-content: space-evenly !important;
     }
 
@@ -596,11 +594,11 @@ button:active {
         box-shadow: -0 0 20px rgba(0, 0, 0, 0.192),
             0 -0 20px rgba(0, 0, 0, 0.192), -0 -0 20px rgba(0, 0, 0, 0.192),
             -0 -0 20px rgba(0, 0, 0, 0.192) !important;
-               background-color: rgba(116, 7, 7, 0.158) !important;
+        background-color: rgba(116, 7, 7, 0.158) !important;
     }
 
     .usersBack {
-        height:12vh !important;
+        height: 12vh !important;
     }
 
     .onlineUsersBack {
@@ -630,7 +628,6 @@ button:active {
         flex-direction: row !important;
         margin-top: 1vmax !important;
         width: fit-content !important;
-        
     }
 
     .emoticons {
@@ -651,15 +648,13 @@ button:active {
     }
 
     .mute,
-    .play
-    {
+    .play {
         width: 4vmax !important;
         height: 4vmax !important;
     }
 
-
     .emojiBarToggler {
-         width: 5vmax !important;
+        width: 5vmax !important;
         height: 5vmax !important;
     }
 
@@ -701,7 +696,7 @@ button:active {
 
 } */
 
-@media only screen and (min-device-width: 630px) and (max-device-width: 768px)  {
+@media only screen and (min-device-width: 630px) and (max-device-width: 768px) {
     .logo {
         width: 45vmax !important;
         height: 35vh !important;
@@ -712,10 +707,7 @@ button:active {
     }
 }
 
-
-
-@media only screen and (min-device-width: 273px) and (max-device-width: 1024px)  and (orientation: landscape) {
-
+@media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
     .appContainer {
         min-height: 1vmax !important;
     }
@@ -742,14 +734,14 @@ button:active {
     }
     .chatContainer {
         flex-direction: column !important;
-         min-height: fit-content !important;
+        min-height: fit-content !important;
         height: fit-content !important;
-       
+
         width: 70vw !important;
     }
 
     .mobileChat {
-        height:70vh !important;
+        height: 70vh !important;
     }
 
     .chatScreen {
@@ -762,7 +754,6 @@ button:active {
         margin-top: 3vmax !important;
     }
 
-
     .onlineList span {
         font-size: 2vmax !important;
     }
@@ -773,7 +764,6 @@ button:active {
     }
 
     .mute {
- 
         justify-content: space-between !important;
     }
 
@@ -784,13 +774,13 @@ button:active {
     }
 
     .mute,
-    .play{
+    .play {
         width: 4vmax !important;
         height: 4vmax !important;
     }
 
-        .emojiBarToggler {
-         width: 5.5vmax !important;
+    .emojiBarToggler {
+        width: 5.5vmax !important;
         height: 5.5vmax !important;
     }
 
@@ -820,7 +810,6 @@ button:active {
     .chatMenuOptions {
         width: fit-content !important;
     }
-
 }
 
 @media only screen and (min-device-width: 481px) and (max-device-width: 630px) {
@@ -1126,17 +1115,15 @@ font-family: 'Ultra', serif; */
     white-space: nowrap;
     overflow-x: hidden;
     font-size: 0.9vmax;
-        border-radius:10vh;
-        padding-left: 0.5vmax;
-    padding-top: 0.3vmax ;
-     background-color: transparent !important;
-     color:white;
-     font-weight: bold;
-     letter-spacing: 1px;
-     border:none;
-
+    border-radius: 10vh;
+    padding-left: 0.5vmax;
+    padding-top: 0.3vmax;
+    background-color: transparent !important;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
 }
-   
 
 .typeLine {
     display: flex;
@@ -1220,12 +1207,17 @@ font-family: 'Ultra', serif; */
     font-size: 1.2vmax;
 }
 
+.finalMessage {
+    display: flex;
+    justify-content: flex-start;
+}
+
 .emojis {
     height: 6vmax !important;
     width: 6vmax !important;
-
     margin: 1vmax;
-    margin-left: 15vmax;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .chatPost {
@@ -1286,7 +1278,7 @@ font-family: 'Ultra', serif; */
     width: 15vmax;
     padding: 0.5vmax;
     z-index: 10;
-    height:fit-content
+    height: fit-content;
 }
 
 .onlineUsers a {
@@ -1482,7 +1474,7 @@ font-family: 'Ultra', serif; */
     cursor: pointer;
     background-image: url("play.png");
     background-size: cover;
-    margin:0.5vmax;
+    margin: 0.5vmax;
 }
 
 .play {
@@ -1491,17 +1483,17 @@ font-family: 'Ultra', serif; */
     cursor: pointer;
     background-image: url("mute.png");
     background-size: cover;
-    margin:0.5vmax;
+    margin: 0.5vmax;
 }
 
 .chatControls {
-        border-radius: 10vh;
+    border-radius: 10vh;
     width: fit-content;
     height: fit-content;
     box-shadow: inset 0 0 0 100vh rgba(0, 217, 255, 0.103),
         -0 0 5px rgba(209, 255, 4, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
-        margin:0.5vmax;
+    margin: 0.5vmax;
 }
 
 .emoticons {
@@ -1546,7 +1538,7 @@ font-family: 'Ultra', serif; */
     background-size: cover;
     width: 2.5vmax;
     height: 2.5vmax;
-    margin:  0.5vmax ;
+    margin: 0.5vmax;
     margin-bottom: 1vmax;
     cursor: pointer;
 }
@@ -1690,12 +1682,10 @@ font-family: 'Ultra', serif; */
     from {
         top: 200vh;
         transform: translateZ(0) rotateX(50deg);
-        
     }
     to {
         top: -180000vh;
         transform: translateZ(-210000vh) rotateX(35deg);
-     
     }
 }
 
@@ -1708,12 +1698,10 @@ font-family: 'Ultra', serif; */
     .wrapper {
         height: 100% !important;
         perspective: 60vh !important;
-       
     }
 
     .scroll-text {
         animation: scroll 3500s linear forwards !important;
-
     }
 }
 
@@ -1721,13 +1709,11 @@ font-family: 'Ultra', serif; */
     .scroll-text {
         animation: scroll 2700s linear forwards !important;
     }
-    
+
     .wrapper {
         height: 50% !important;
         perspective: 60vh !important;
-       
     }
-
 }
 
 .pre-wrapper {
