@@ -127,7 +127,6 @@ a:hover {
 .appContainer {
     display: flex;
     flex-direction: column;
-
     align-items: center;
     align-self: center;
     background-image: url("road.png");
