@@ -713,7 +713,7 @@ button:active {
 
 
 
-@media only screen and (min-device-width: 630px) and (max-device-width: 768px)  {
+@media only screen and (min-device-width: 273px) and (max-device-width: 1024px)  {
 
     .appContainer {
         min-height: 1vmax !important;
