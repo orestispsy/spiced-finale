@@ -580,8 +580,8 @@ button:active {
 
     .chatTypeLine {
         padding-left: 1.7vmax !important;
-        height: 4vmax !important;
-        font-size: 3vmax !important;
+        height: 3vmax !important;
+        font-size: 2vmax !important;
     }
     .onlineUsers {
         margin-top: 2vmax !important;
@@ -708,12 +708,7 @@ button:active {
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
-    .appContainer {
-        min-height: 1vmax !important;
-    }
-    .chatContainer {
-        min-height: 15vmax !important;
-    }
+
     .logo {
         width: 50vmax !important;
         height: 22vmax !important;
@@ -770,7 +765,7 @@ button:active {
     .chatTypeLine {
         min-height: 3vmax !important;
         font-size: 2vmax !important;
-        padding-left: 1vmax !important;
+        padding-left: 1.3vmax !important;
     }
 
     .mute,
@@ -1059,7 +1054,6 @@ font-family: 'Ultra', serif; */
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
         -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
     border-radius: 1vh;
-    padding-top: 10px;
     margin-top: 3vmax;
     background: radial-gradient(
         closest-side,
