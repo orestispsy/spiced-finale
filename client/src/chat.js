@@ -189,13 +189,11 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                 chat(e);
                             }}
                         ></textarea>
+                        <div
+                            className="sendChatMsg"
+                            onClick={() => sendChatMsgButton()}
+                        ></div>
                         <div className="chatControls">
-                            <div
-                                className="sendChatMsg"
-                                onClick={() => sendChatMsgButton()}
-                            >
-                            </div>
-
                             {!mute && (
                                 <div
                                     className="mute"
@@ -208,11 +206,11 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                     onClick={() => setMute(!mute)}
                                 ></div>
                             )}
-                            <div
-                                className="emojiBarToggler"
-                                onClick={() => toggleEmojibar()}
-                            ></div>
                         </div>
+                        <div
+                            className="emojiBarToggler"
+                            onClick={() => toggleEmojibar()}
+                        ></div>
                     </div>
                 </div>
                 <OnlineUsers

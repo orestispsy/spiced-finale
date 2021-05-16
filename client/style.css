@@ -127,7 +127,7 @@ a:hover {
 .appContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
     align-items: center;
     align-self: center;
     background-image: url("road.png");
@@ -494,7 +494,7 @@ button:active {
     }
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-device-width: 100px) and (max-device-width: 480px) and (orientation: portrait) {
     .barMainLink {
         width: 4vmax !important;
         height: 4vmax !important;
@@ -559,9 +559,9 @@ button:active {
     }
     .chatContainer {
         flex-direction: column !important;
-        height: 45vh !important;
+        height: fit-content !important;
         width: 90vw !important;
-        margin-top: 4vmax !important;
+        padding: 1vmax  !important;
     }
     .chatScreen {
         height: 30vh !important;
@@ -569,22 +569,20 @@ button:active {
     }
 
     .typeLine {
+
         width: 80vw !important;
         justify-content: space-evenly !important;
     }
 
     .chatControls {
-        width: 35vw !important;
+
         justify-content: space-evenly !important;
     }
 
     .chatTypeLine {
-        margin-top: 2vh;
-        height: 3vmax !important;
-        width: 30vmax !important;
-        font-size: 2vmax !important;
-        border-radius: 10vh !important;
-        padding-left: 1vmax !important;
+        padding-left: 1.7vmax !important;
+        height: 4vmax !important;
+        font-size: 3vmax !important;
     }
     .onlineUsers {
         margin-top: 2vmax !important;
@@ -597,7 +595,11 @@ button:active {
         box-shadow: -0 0 20px rgba(0, 0, 0, 0.192),
             0 -0 20px rgba(0, 0, 0, 0.192), -0 -0 20px rgba(0, 0, 0, 0.192),
             -0 -0 20px rgba(0, 0, 0, 0.192) !important;
-        background-color: rgba(0, 0, 0, 0.281) !important;
+               background-color: rgba(116, 7, 7, 0.158) !important;
+    }
+
+    .usersBack {
+        height:12vh !important;
     }
 
     .onlineUsersBack {
@@ -627,6 +629,7 @@ button:active {
         flex-direction: row !important;
         margin-top: 1vmax !important;
         width: fit-content !important;
+        
     }
 
     .emoticons {
@@ -647,11 +650,15 @@ button:active {
     }
 
     .mute,
-    .play,
-    .emojiBarToggler {
-        margin-top: 3vmax !important;
+    .play
+    {
         width: 4vmax !important;
         height: 4vmax !important;
+    }
+
+    .emojiBarToggler {
+         width: 6vmax !important;
+        height: 6vmax !important;
     }
 
     .uploaderTogglerImg {
@@ -665,7 +672,6 @@ button:active {
     }
 
     .sendChatMsg {
-        margin-top: 2vmax !important;
         width: 5vmax !important;
         height: 3vmax !important;
     }
@@ -693,7 +699,7 @@ button:active {
 
 } */
 
-@media only screen and (min-device-width: 630px) and (max-device-width: 768px) {
+@media only screen and (min-device-width: 630px) and (max-device-width: 768px)  {
     .logo {
         width: 45vmax !important;
         height: 35vh !important;
@@ -704,13 +710,13 @@ button:active {
     }
 }
 
-@media only screen and (min-device-width: 630px) and (max-device-width: 768px) and (max-device-height: 300px) {
-    .chatScreen {
-        max-height: 10vh !important;
-    }
-}
 
-@media only screen and (min-device-width: 630px) and (max-device-width: 768px) {
+
+@media only screen and (min-device-width: 630px) and (max-device-width: 768px)  {
+
+    .appContainer {
+        min-height: 1vmax !important;
+    }
     .chatContainer {
         min-height: 15vmax !important;
     }
@@ -734,22 +740,23 @@ button:active {
     }
     .chatContainer {
         flex-direction: column !important;
-        height: 35vmax !important;
-        max-height: 40vmax !important;
+         min-height: fit-content !important;
+        height: fit-content !important;
+       
         width: 70vw !important;
     }
 
     .chatScreen {
         min-height: 0vmax !important;
-        height: 30vmax !important;
-        max-height: 35vh !important;
+        height: 45vmax !important;
+        max-height: 45vh !important;
         width: 60vw !important;
     }
 
     .onlineUsers {
         margin-top: 3vmax !important;
     }
-
+    
     .onlineList span {
         font-size: 2vmax !important;
     }
@@ -760,30 +767,25 @@ button:active {
     }
 
     .chatControls {
-        width: 25vw !important;
-        justify-content: space-evenly !important;
+ 
+        justify-content: space-between !important;
     }
 
     .chatTypeLine {
-        margin-top: 2vh;
         min-height: 3vmax !important;
-        height: 3vmax !important;
-        width: 30vmax !important;
         font-size: 2vmax !important;
-        border-radius: 10vh !important;
         padding-left: 1vmax !important;
     }
 
     .mute,
     .play,
     .emojiBarToggler {
-        margin-top: 2vmax !important;
+
         width: 4vmax !important;
         height: 4vmax !important;
     }
 
     .sendChatMsg {
-        margin-top: 1.5vmax !important;
         width: 5vmax !important;
         height: 3vmax !important;
     }
@@ -1108,12 +1110,16 @@ font-family: 'Ultra', serif; */
     flex-direction: row;
     justify-content: center;
     align-content: center;
-    align-self: center;
+box-shadow: inset 0 0 0 100vh rgba(0, 217, 255, 0.103),
+        -0 0 5px rgba(209, 255, 4, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
+        -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
+    border-radius: 10vh;
+    margin:1vmax;
 }
 
 .chatTypeLine {
-    width: 30vmax;
-    height: 1.3vmax;
+    width: 27vmax;
+    height: 1.4vmax;
     box-shadow: inset 0 0 0 100vh rgba(43, 255, 0, 0.103),
         -0 0 5px rgba(209, 255, 4, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
@@ -1122,7 +1128,17 @@ font-family: 'Ultra', serif; */
     white-space: nowrap;
     overflow-x: hidden;
     font-size: 0.9vmax;
+        border-radius:10vh;
+        padding-left: 0.5vmax;
+    padding-top: 0.3vmax ;
+     background-color: transparent !important;
+     color:white;
+     font-weight: bold;
+     letter-spacing: 1px;
+     border:none;
+
 }
+   
 
 .typeLine {
     display: flex;
@@ -1272,6 +1288,7 @@ font-family: 'Ultra', serif; */
     width: 15vmax;
     padding: 0.5vmax;
     z-index: 10;
+    height:fit-content
 }
 
 .onlineUsers a {
@@ -1280,8 +1297,9 @@ font-family: 'Ultra', serif; */
 
 .usersBack {
     width: 12vmax;
-    height: 12vmax;
-    min-height: 5vmax;
+    height: fit-content;
+    height: 23vh;
+    min-height: 10vh;
     border: 1px double rgba(243, 45, 227, 0.164);
     margin: 1vmax;
     margin-bottom: 0;
@@ -1466,8 +1484,8 @@ font-family: 'Ultra', serif; */
     cursor: pointer;
     background-image: url("play.png");
     background-size: cover;
-    margin-left: 0.7vmax;
-    margin-top: 1vmax;
+    margin:0.5vmax;
+
 }
 
 .play {
@@ -1476,8 +1494,7 @@ font-family: 'Ultra', serif; */
     cursor: pointer;
     background-image: url("mute.png");
     background-size: cover;
-    margin-left: 0.7vmax;
-    margin-top: 1vmax;
+    margin:0.5vmax;
 }
 
 .emoticons {
@@ -1523,9 +1540,9 @@ font-family: 'Ultra', serif; */
     background-image: url("styles.png");
     background-position: center;
     background-size: cover;
-    width: 2vmax;
-    height: 2vmax;
-    margin: 1vmax;
+    width: 3.5vmax;
+    height: 3.5vmax;
+    margin: 0.5vmax;
     cursor: pointer;
 }
 
@@ -1729,7 +1746,7 @@ font-family: 'Ultra', serif; */
     font-weight: bold;
     text-align: justify;
     position: relative;
-    animation: scroll 3000s linear forwards;
+    animation: scroll 2600s linear forwards;
     width: 100vw;
     display: flex;
     flex-direction: column;
