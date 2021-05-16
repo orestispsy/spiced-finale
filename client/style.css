@@ -591,7 +591,7 @@ button:active {
         border-radius: 50% !important;
         width: 17vmax !important;
         height: 17vmax !important;
-        padding: 7vmax !important;
+        padding: 8vmax !important;
         box-shadow: -0 0 20px rgba(0, 0, 0, 0.192),
             0 -0 20px rgba(0, 0, 0, 0.192), -0 -0 20px rgba(0, 0, 0, 0.192),
             -0 -0 20px rgba(0, 0, 0, 0.192) !important;
@@ -747,7 +747,7 @@ button:active {
     }
 
     .mobileChat {
-        height:80vh !important;
+        height:70vh !important;
     }
 
     .chatScreen {
@@ -759,7 +759,8 @@ button:active {
     .onlineUsers {
         margin-top: 3vmax !important;
     }
-    
+
+
     .onlineList span {
         font-size: 2vmax !important;
     }

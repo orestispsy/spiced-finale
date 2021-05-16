@@ -107,7 +107,7 @@ export default function OnlineUsers({
             <div className="onlineUsersBack">
                 <div className="onlineUsers">
                     <Link to="/">
-                        {!userPicBar && (
+                        {!userPicBar && !emojiBar && (
                             <div className="onlineUsersRedDot"></div>
                         )}
                     </Link>
