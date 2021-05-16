@@ -140,7 +140,7 @@ export default class App extends Component {
                 // onMouseUp={() => this.sliderStop()}
                 // onTouchEnd={() => this.sliderStop()}
                 >
-                    {/* <div className="introPreCover"> */}
+                    <div className="introPreCover">
                         <div
                             className={
                                 (this.state.list && "appContainerList") ||
@@ -279,7 +279,7 @@ export default class App extends Component {
                         onMouseDown={(e) => this.sliderAction(e)}
                         onTouchMove={(e) => this.sliderAction(e)}
                     ></div> */}
-                {/* </div> */}
+                </div>
             </BrowserRouter>
         );
     }

@@ -4,7 +4,7 @@ import React from "react";
 export default function Ticker({tickerBar}) {
     useEffect(function () {
                 var headlines = document.querySelectorAll("#headlines");
-                console.log(headlines)
+                // console.log(headlines)
                 var body = document.querySelectorAll("body");
 
                 var links = document.querySelectorAll(".tickerLink");
