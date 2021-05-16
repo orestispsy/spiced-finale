@@ -708,12 +708,7 @@ button:active {
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
-    .appContainer {
-        min-height: 1vmax !important;
-    }
-    .chatContainer {
-        min-height: 15vmax !important;
-    }
+
     .logo {
         width: 50vmax !important;
         height: 22vmax !important;
@@ -1059,7 +1054,6 @@ font-family: 'Ultra', serif; */
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
         -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
     border-radius: 1vh;
-    padding-top: 10px;
     margin-top: 3vmax;
     background: radial-gradient(
         closest-side,
@@ -1103,7 +1097,6 @@ font-family: 'Ultra', serif; */
     border-radius: 1vh;
     margin: 0 2vmax 0 2vmax;
 }
-
 
 .chatTypeLine {
     width: 27vmax;
