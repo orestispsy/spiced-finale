@@ -729,12 +729,15 @@ button:active {
     }
     .chatContainer {
         flex-direction: column !important;
-
+        min-height: fit-content !important;
+        height: fit-content !important;
 
         width: 70vw !important;
     }
 
-
+    .mobileChat {
+        height: 70vh !important;
+    }
 
     .chatScreen {
         min-height: 0vmax !important;
@@ -805,14 +808,6 @@ button:active {
 }
 
 @media only screen and (min-device-width: 481px) and (max-device-width: 630px) {
-
-        .appContainer {
-        min-height: 1vmax !important;
-    }
-    .chatContainer {
-        min-height: 15vmax !important;
-    }
-    
     .logo {
         width: 50vmax !important;
         height: 22vmax !important;
