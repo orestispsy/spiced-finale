@@ -566,6 +566,7 @@ button:active {
     .chatScreen {
         height: 30vh !important;
         width: 80vw !important;
+        margin-bottom: 0.5vmax !important
     }
 
     .typeLine {
