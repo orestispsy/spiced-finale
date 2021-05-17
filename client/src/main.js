@@ -42,12 +42,12 @@ export default function Main({ admin, listSet, visitors }) {
 
                 {visitors && (
                     <div className="visitors">
-                        Visitors Counter<div>{visitors}</div>
+                        Visitors<div>{visitors}</div>
+                        <div className="logout" onClick={() => logOut()}>
+                            LogOut
+                        </div>
                     </div>
                 )}
-            </div>
-            <div className="logout" onClick={() => logOut()}>
-                LogOut
             </div>
         </div>
     );

@@ -451,20 +451,26 @@ button:active {
 }
 
 @keyframes blinker {
+
+    5% {
+        color: rgb(241, 220, 30);
+    }
     25% {
-        text-shadow: -0 0 10px red, 0 -0 10px red, -0 -0 10px red,
-            -0 -0 10px red;
-        color: rgb(255, 255, 255);
+        text-shadow: -0 0 10px orangered, 0 -0 10px orangered, -0 -0 10px orangered,
+            -0 -0 10px orangered;
+        color: rgb(6, 145, 170);
     }
 
     50% {
-        color: lime;
+        color: rgb(32, 182, 57);
         text-shadow: -0 0 10px blue, 0 -0 10px blue, -0 -0 10px blue,
             -0 -0 10px blue;
     }
 
     75% {
         color: white;
+              text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
+            -0 -0 10px black;
     }
 }
 
@@ -474,7 +480,7 @@ button:active {
     letter-spacing: 5px;
     align-self: center;
     margin: -8vh 0 5vh 0;
-    animation: blinker 10s linear infinite;
+    animation: blinker 20s linear infinite;
     text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
         -0 -0 10px black;
     padding: 0 1vmax;
@@ -586,18 +592,33 @@ button:active {
         margin-top: 2vmax !important;
         margin-right: 2vmax !important;
         justify-content: center !important;
-        border-radius: 50% !important;
-        width: 17vmax !important;
-        height: 17vmax !important;
-        padding: 8vmax !important;
+        border-radius: 9vh !important;
+        width: 19vmax !important;
+        height: 19vmax !important;
+        padding: 7vmax !important;
         box-shadow: -0 0 20px rgba(0, 0, 0, 0.192),
             0 -0 20px rgba(0, 0, 0, 0.192), -0 -0 20px rgba(0, 0, 0, 0.192),
             -0 -0 20px rgba(0, 0, 0, 0.192) !important;
         background-color: rgba(116, 7, 7, 0.158) !important;
     }
 
+    .uploadChat h1{
+        font-size:3vw !important;
+    }
+
+    .fileUploaderChat h1 {
+        font-size: 3vw !important
+    }
+
+     .fileUploaderChat input {
+        font-size: 2.5vw !important;
+        height:3vh !important;
+        min-width:25vmax !important;
+    }
+
     .usersBack {
-        height: 12vh !important;
+        height: 14vh !important;
+        width: 25vw !important
     }
 
     .onlineUsersBack {
@@ -655,6 +676,7 @@ button:active {
     .emojiBarToggler {
         min-width: 5vmax !important;
         min-height: 5vmax !important;
+        margin-left:1vmax !important;
     }
 
     .uploaderTogglerImg {
@@ -668,8 +690,9 @@ button:active {
     }
 
     .sendChatMsg {
-        min-width: 5vmax !important;
-        min-height: 3vmax !important;
+        min-width: 3.5vmax !important;
+        min-height: 2.2vmax !important;
+        margin-left:1vmax !important
     }
 }
 
@@ -753,10 +776,12 @@ button:active {
         min-height: 0vmax !important;
         height: 40vh !important;
         width: 60vw !important;
+        border-radius: 10vh !important;
     }
 
     .onlineUsers {
         margin-top: 3vmax !important;
+             width:fit-content !important;
     }
 
     .onlineList span {
@@ -778,22 +803,26 @@ button:active {
         padding-left: 1.3vmax !important;
         width: 40vmax !important;
         margin-right: 0.5vmax;
+        border-radius: 3vh !important;
     }
 
     .mute,
     .play {
-        width: 4vmax !important;
-        height: 4vmax !important;
+        width: 3vmax !important;
+        height: 3vmax !important;
     }
 
     .emojiBarToggler {
-        width: 5.5vmax !important;
-        height: 5.5vmax !important;
+        width: 5vmax !important;
+        height: 5vmax !important;
+        margin-left:1vmax !important;
     }
 
     .sendChatMsg {
-        width: 5vmax !important;
-        height: 3vmax !important;
+        width: 2vmax !important;
+        height: 2vmax !important;
+        padding-right:1vmax !important;
+        padding-left:1vmax !important;
     }
     .emoticons img {
         width: 4vmax !important;
@@ -817,6 +846,12 @@ button:active {
     .chatMenuOptions {
         width: fit-content !important;
     }
+
+    .usersBack {
+        width:15vw !important;
+    }
+
+
 }
 
 /* @media only screen and (min-device-width: 481px) and (max-device-width: 680px){
@@ -919,10 +954,8 @@ button:active {
 }
 
 .logout {
-    font-size: 1vmax;
-    position: fixed;
-    right: 1.2vmax;
-    bottom: 0.5vmax;
+    font-size: 1.1vmax;
+
     color: rgb(0, 102, 255);
     cursor: pointer;
     font-family: "Black Ops One", cursive;
@@ -1153,10 +1186,10 @@ font-family: 'Ultra', serif; */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 2.5vmax;
-    height: 1.5vmax;
+    width: 1.8vmax;
+    height: 1vmax;
     align-self: center;
-    margin-left: 0.7vmax;
+    margin-left: 0.5vmax;
     margin-right: 2vmax;
     cursor: pointer;
 }
@@ -1278,6 +1311,13 @@ font-family: 'Ultra', serif; */
     justify-content: center;
     align-items: center;
     align-self: center;
+}
+
+.chatImageUploaderImage {
+
+    width:20vw;
+    height:20vh;
+    
 }
 
 .onlineUsers {
@@ -1479,7 +1519,6 @@ font-family: 'Ultra', serif; */
         #ff000000
     );
     padding: 1.5vmax;
-    margin-bottom: 0;
     cursor: pointer;
     box-shadow: none;
 }
@@ -1516,7 +1555,7 @@ font-family: 'Ultra', serif; */
         -0 0 5px rgba(209, 255, 4, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
     margin: 0.5vmax;
-    margin-right: 1vmax;
+    margin-right: 0.5vmax;
 }
 
 .emoticons {
@@ -1576,21 +1615,26 @@ font-family: 'Ultra', serif; */
     color: rgba(255, 208, 0, 0.815);
     position: fixed;
     right: 0.5vmax;
-    bottom: 2.2vmax;
+    bottom: 1vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
     text-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
     border-radius: 1vh;
     padding: 0.5vmax;
-    width: 5vmax;
+ 
     background-color: rgba(0, 0, 0, 0.199);
     text-align: center;
-    font-size: 1vmax;
+    font-size: 1.5vmax;
 }
 
-.visitors div {
+.visitors div:nth-child(1) {
     color: rgba(255, 255, 255, 0.692);
+    border: 1px solid rgba(19, 253, 50, 0.267);
+    border-radius: 50%;
+    margin:4vh;
+    margin-top:0;
+    margin-bottom:1vh
 }
 
 /* Ticker !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
@@ -1847,3 +1891,5 @@ font-family: 'Ultra', serif; */
 }
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! GIGLIST ANIMATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+

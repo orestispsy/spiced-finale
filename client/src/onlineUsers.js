@@ -106,12 +106,13 @@ export default function OnlineUsers({
         <>
             <div className="onlineUsersBack">
                 <div className="onlineUsers">
-                    <Link to="/">
-                        {!userPicBar && !emojiBar && (
+                {!userPicBar && !emojiBar && (      <Link to="/">
+                
                             <div className="onlineUsersRedDot"></div>
-                        )}
-                    </Link>
-                    <div className="mobileOnlineUsers">
+                       
+                    </Link>)}
+                    {userPicBar && <img className="imageUploaderImage" src={chat_img && chat_img}></img>}
+                   {!userPicBar && <div className="mobileOnlineUsers">
                         <div className="chatUserHeadline">Online</div>
                         <span className="onlineUserCounter">
                             {onlineUsers && onlineUsers.length}
@@ -120,19 +121,21 @@ export default function OnlineUsers({
                             {onlineUsers &&
                                 onlineUsers.map((user) => (
                                     <div className="onlineList" key={user.id}>
-                                        <img
-                                            className="onlineListImg"
-                                            title={user.id}
-                                            alt={user.nickname}
-                                            src={
-                                                (chat_myUserId == user.id &&
-                                                    onlineUserPic) ||
-                                                (user.chat_img &&
-                                                    user.chat_img) ||
-                                                "./../na.jpg"
-                                            }
-                                            onClick={(e) => console.log(e)}
-                                        ></img>
+                                        <a href={user.chat_img} target="_blank">
+                                            <img
+                                                className="onlineListImg"
+                                                title={user.id}
+                                                alt={user.nickname}
+                                                src={
+                                                    (chat_myUserId == user.id &&
+                                                        onlineUserPic) ||
+                                                    (user.chat_img &&
+                                                        user.chat_img) ||
+                                                    "./../na.jpg"
+                                                }
+                                                onClick={(e) => console.log(e)}
+                                            ></img>
+                                        </a>
                                         <span
                                             style={{
                                                 color:
@@ -148,6 +151,7 @@ export default function OnlineUsers({
                                 ))}
                         </div>
                     </div>
+                    }
 
                     {userPicBar && (
                         <div className="fileUploaderChat">
