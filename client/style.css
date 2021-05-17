@@ -1630,11 +1630,8 @@ font-family: 'Ultra', serif; */
 
 .visitors div:nth-child(1) {
     color: rgba(255, 255, 255, 0.692);
-    border: 1px solid rgba(19, 253, 50, 0.267);
-    border-radius: 50%;
-    margin:4vh;
-    margin-top:0;
-    margin-bottom:1vh
+       text-shadow: -0 0 5px rgba(19, 253, 50, 0.267), 0 -0 5px rgba(19, 253, 50, 0.267),
+        -0 -0 5px rgba(19, 253, 50, 0.267), -0 -0 5px rgba(19, 253, 50, 0.267);
 }
 
 /* Ticker !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
