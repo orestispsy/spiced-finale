@@ -572,15 +572,15 @@ button:active {
 
 
 
-    .mute {
-        justify-content: space-evenly !important;
+    .typeLine {
+        width:80vw !important;
     }
 
     .chatTypeLine {
         padding-left: 1.7vmax !important;
         height: 3vmax !important;
         font-size: 2vmax !important;
-
+        min-width: 40vw !important
     }
     .onlineUsers {
         margin-top: 2vmax !important;
@@ -653,8 +653,8 @@ button:active {
     }
 
     .emojiBarToggler {
-        width: 5vmax !important;
-        height: 5vmax !important;
+        min-width: 5vmax !important;
+        min-height: 5vmax !important;
     }
 
     .uploaderTogglerImg {
@@ -668,9 +668,8 @@ button:active {
     }
 
     .sendChatMsg {
-        width: 5vmax !important;
-        height: 3vmax !important;
-        margin-left:1vmax !important
+        min-width: 5vmax !important;
+        min-height: 3vmax !important;
     }
 }
 
