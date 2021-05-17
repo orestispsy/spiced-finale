@@ -481,7 +481,8 @@ button:active {
     border-radius: 3vw;
 }
 
-@media only screen and (min-device-height: 496px) and (min-device-width: 960px) and (max-device-width: 1240px) {
+/* @media only screen and (min-device-height: 300px) and (max-device-width: 1240px) {
+    
     .mainMenu a {
         color: turquoise !important;
         font-size: 5vmax !important;
@@ -492,7 +493,7 @@ button:active {
         justify-content: space-evenly !important;
         width: 70vw !important;
     }
-}
+} */
 
 @media only screen and (min-device-width: 100px) and (max-device-width: 480px) and (orientation: portrait) {
     .barMainLink {
@@ -560,7 +561,7 @@ button:active {
     .chatContainer {
         flex-direction: column !important;
         height: fit-content !important;
-        width: 90vw !important;
+        width: fit-content !important;
         padding: 1vmax !important;
     }
     .chatScreen {
@@ -569,10 +570,7 @@ button:active {
         margin-bottom: 0.5vmax !important;
     }
 
-    .typeLine {
-        width: 80vw !important;
-        justify-content: space-evenly !important;
-    }
+
 
     .mute {
         justify-content: space-evenly !important;
@@ -582,6 +580,7 @@ button:active {
         padding-left: 1.7vmax !important;
         height: 3vmax !important;
         font-size: 2vmax !important;
+
     }
     .onlineUsers {
         margin-top: 2vmax !important;
@@ -671,10 +670,15 @@ button:active {
     .sendChatMsg {
         width: 5vmax !important;
         height: 3vmax !important;
+        margin-left:1vmax !important
     }
 }
 
 /* @media only screen and (min-device-width : 768px){
+    .mainContainer {
+        min-height: fit-content;
+    }
+
 .logo{
         width:50vmax !important;
         height:25vmax !important;
@@ -692,20 +696,20 @@ button:active {
     flex-direction: row!important;
         justify-content: space-evenly !important;
     width: 70vw !important
-   }
+   } }*/
 
-} */
 
-@media only screen and (min-device-width: 630px) and (max-device-width: 768px) {
+
+/* @media only screen and (min-device-width: 481px) and (max-device-width: 768px) {
     .logo {
-        width: 45vmax !important;
-        height: 35vh !important;
+        width: 50vmax !important;
+        height: 35vmax !important;
     }
     .mainMenu a {
-        color: yellow !important;
+        color: lime !important;
         font-size: 3vmax !important;
     }
-}
+} */
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
 
@@ -766,6 +770,8 @@ button:active {
         min-height: 3vmax !important;
         font-size: 2vmax !important;
         padding-left: 1.3vmax !important;
+        width: 40vmax !important;
+        margin-right: 0.5vmax;
     }
 
     .mute,
@@ -807,13 +813,16 @@ button:active {
     }
 }
 
-@media only screen and (min-device-width: 481px) and (max-device-width: 630px) {
+/* @media only screen and (min-device-width: 481px) and (max-device-width: 680px){
     .logo {
-        width: 50vmax !important;
-        height: 22vmax !important;
+        
+        width: 45vmax !important;
+        height: 25vmax !important;
+    
     }
     .logoBack p {
         font-size: 5vmax !important;
+        margin-top:-5vmax !important;
     }
     .mainMenu {
         flex-direction: row !important;
@@ -824,7 +833,7 @@ button:active {
         color: red !important;
         font-size: 4vmax !important;
     }
-}
+} */
 
 .logo {
     background-image: url("logo.png");
@@ -1101,9 +1110,9 @@ font-family: 'Ultra', serif; */
 .chatTypeLine {
     width: 27vmax;
     height: 1.4vmax;
-    box-shadow: inset 0 0 0 100vh rgba(43, 255, 0, 0.103),
-        -0 0 5px rgba(209, 255, 4, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
-        -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
+    box-shadow: inset 0 0 0 100vh rgba(251, 255, 0, 0.103),
+        -0 0 2px rgba(255, 255, 255, 0.308), 0 -0 2px rgba(255, 255, 255, 0.308),
+        -0 -0 2px rgba(255, 255, 255, 0.308), -0 -0 2px rgba(255, 255, 255, 0.308);
     resize: none;
     outline: none;
     white-space: nowrap;
@@ -1117,6 +1126,12 @@ font-family: 'Ultra', serif; */
     font-weight: bold;
     letter-spacing: 1px;
     border: none;
+}
+
+.chatTypeLine:focus {
+    box-shadow: inset 0 0 0 100vh rgba(43, 255, 0, 0.103),
+        -0 0 2px rgba(255, 255, 255, 0.308), 0 -0 2px rgba(255, 255, 255, 0.308),
+        -0 -0 2px rgba(255, 255, 255, 0.308), -0 -0 2px rgba(255, 255, 255, 0.308);
 }
 
 .typeLine {
@@ -1136,6 +1151,7 @@ font-family: 'Ultra', serif; */
     height: 1.5vmax;
     align-self: center;
     margin-left: 0.7vmax;
+    margin-right: 2vmax;
     cursor: pointer;
 }
 
@@ -1480,6 +1496,12 @@ font-family: 'Ultra', serif; */
     margin: 0.5vmax;
 }
 
+.chatControls:hover {
+    box-shadow: inset 0 0 0 100vh rgba(44, 255, 2, 0.253),
+        -0 0 5px rgba(209, 255, 4, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
+        -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
+}
+
 .chatControls {
     border-radius: 10vh;
     width: fit-content;
@@ -1488,6 +1510,7 @@ font-family: 'Ultra', serif; */
         -0 0 5px rgba(209, 255, 4, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
     margin: 0.5vmax;
+    margin-right: 1vmax;
 }
 
 .emoticons {
