@@ -710,29 +710,7 @@ button:active {
     }
 } */
 
-@media only screen and (max-device-height: 400px) {
-        .loginContainer, .registerContainer {
-         font-size: 5vw !important;
-           min-height: fit-content !important;
-        height: fit-content !important;
-    }
-    .loginContainer a, .registerContainer a {
-         font-size: 4vw !important;
-    }
-        .loginContainer h1, .registerContainer h1{
-            font-size: 7vw !important;
-        } 
-        .loginContainer input, .registerContainer input{
-            font-size: 2vw;
-            height:5vmax !important;
-            width:30vmax !important
-        }
-            .loginContainer button, .registerContainer button {
-            font-size: 2vw;
-            height:5vmax !important;
-            width:15vmax !important
-        }
-    }
+
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
 
@@ -762,7 +740,7 @@ button:active {
         width: 70vw !important;
     }
 
-    .mainContainer {
+    .loginContainer, .registerContainer {
          min-height: fit-content !important;
         height: fit-content !important;
     }
