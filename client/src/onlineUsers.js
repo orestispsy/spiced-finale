@@ -106,52 +106,62 @@ export default function OnlineUsers({
         <>
             <div className="onlineUsersBack">
                 <div className="onlineUsers">
-                {!userPicBar && !emojiBar && (      <Link to="/">
-                
+                    {!userPicBar && !emojiBar && (
+                        <Link to="/">
                             <div className="onlineUsersRedDot"></div>
-                       
-                    </Link>)}
-                    {userPicBar && <img className="imageUploaderImage" src={chat_img && chat_img}></img>}
-                   {!userPicBar && <div className="mobileOnlineUsers">
-                        <div className="chatUserHeadline">Online</div>
-                        <span className="onlineUserCounter">
-                            {onlineUsers && onlineUsers.length}
-                        </span>
-                        <div className="usersBack">
-                            {onlineUsers &&
-                                onlineUsers.map((user) => (
-                                    <div className="onlineList" key={user.id}>
-                                        <a href={user.chat_img} target="_blank">
-                                            <img
-                                                className="onlineListImg"
-                                                title={user.id}
-                                                alt={user.nickname}
-                                                src={
-                                                    (chat_myUserId == user.id &&
-                                                        onlineUserPic) ||
-                                                    (user.chat_img &&
-                                                        user.chat_img) ||
-                                                    "./../na.jpg"
-                                                }
-                                                onClick={(e) => console.log(e)}
-                                            ></img>
-                                        </a>
-                                        <span
-                                            style={{
-                                                color:
-                                                    (chat_myUserId == user.id &&
-                                                        chatColor) ||
-                                                    user.chat_color ||
-                                                    `lime`,
-                                            }}
+                        </Link>
+                    )}
+                    {!userPicBar && (
+                        <div className="mobileOnlineUsers">
+                            <div className="chatUserHeadline">Online</div>
+                            <span className="onlineUserCounter">
+                                {onlineUsers && onlineUsers.length}
+                            </span>
+                            <div className="usersBack">
+                                {onlineUsers &&
+                                    onlineUsers.map((user) => (
+                                        <div
+                                            className="onlineList"
+                                            key={user.id}
                                         >
-                                            {user.nickname}
-                                        </span>
-                                    </div>
-                                ))}
+                                            <a
+                                                href={user.chat_img}
+                                                target="_blank"
+                                            >
+                                                <img
+                                                    className="onlineListImg"
+                                                    title={user.id}
+                                                    alt={user.nickname}
+                                                    src={
+                                                        (chat_myUserId ==
+                                                            user.id &&
+                                                            onlineUserPic) ||
+                                                        (user.chat_img &&
+                                                            user.chat_img) ||
+                                                        "./../na.jpg"
+                                                    }
+                                                    onClick={(e) =>
+                                                        console.log(e)
+                                                    }
+                                                ></img>
+                                            </a>
+                                            <span
+                                                style={{
+                                                    color:
+                                                        (chat_myUserId ==
+                                                            user.id &&
+                                                            chatColor) ||
+                                                        user.chat_color ||
+                                                        `lime`,
+                                                }}
+                                            >
+                                                {user.nickname}
+                                            </span>
+                                        </div>
+                                    ))}
+                            </div>
                         </div>
-                    </div>
-                    }
+                    )}
 
                     {userPicBar && (
                         <div className="fileUploaderChat">

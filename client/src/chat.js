@@ -157,7 +157,8 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                                     ></img>
                                                     <h1>{msg.nickname}</h1>
                                                 </div>
-                                                <div className="finalMessage"
+                                                <div
+                                                    className="finalMessage"
                                                     style={{
                                                         color:
                                                             msg.chat_color ||

@@ -451,13 +451,12 @@ button:active {
 }
 
 @keyframes blinker {
-
     5% {
         color: rgb(241, 220, 30);
     }
     25% {
-        text-shadow: -0 0 10px orangered, 0 -0 10px orangered, -0 -0 10px orangered,
-            -0 -0 10px orangered;
+        text-shadow: -0 0 10px orangered, 0 -0 10px orangered,
+            -0 -0 10px orangered, -0 -0 10px orangered;
         color: rgb(6, 145, 170);
     }
 
@@ -469,7 +468,7 @@ button:active {
 
     75% {
         color: white;
-              text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
+        text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
             -0 -0 10px black;
     }
 }
@@ -576,17 +575,15 @@ button:active {
         margin-bottom: 0.5vmax !important;
     }
 
-
-
     .typeLine {
-        width:80vw !important;
+        width: 80vw !important;
     }
 
     .chatTypeLine {
         padding-left: 1.7vmax !important;
         height: 3vmax !important;
         font-size: 2vmax !important;
-        min-width: 40vw !important
+        min-width: 40vw !important;
     }
     .onlineUsers {
         margin-top: 2vmax !important;
@@ -602,23 +599,23 @@ button:active {
         background-color: rgba(116, 7, 7, 0.158) !important;
     }
 
-    .uploadChat h1{
-        font-size:3vw !important;
+    .uploadChat h1 {
+        font-size: 3vw !important;
     }
 
     .fileUploaderChat h1 {
-        font-size: 3vw !important
+        font-size: 3vw !important;
     }
 
-     .fileUploaderChat input {
+    .fileUploaderChat input {
         font-size: 2.5vw !important;
-        height:3vh !important;
-        min-width:25vmax !important;
+        height: 3vh !important;
+        min-width: 25vmax !important;
     }
 
     .usersBack {
         height: 14vh !important;
-        width: 25vw !important
+        width: 25vw !important;
     }
 
     .onlineUsersBack {
@@ -676,7 +673,7 @@ button:active {
     .emojiBarToggler {
         min-width: 5vmax !important;
         min-height: 5vmax !important;
-        margin-left:1vmax !important;
+        margin-left: 1vmax !important;
     }
 
     .uploaderTogglerImg {
@@ -692,7 +689,7 @@ button:active {
     .sendChatMsg {
         min-width: 3.5vmax !important;
         min-height: 2.2vmax !important;
-        margin-left:1vmax !important
+        margin-left: 1vmax !important;
     }
 }
 
@@ -720,8 +717,6 @@ button:active {
     width: 70vw !important
    } }*/
 
-
-
 /* @media only screen and (min-device-width: 481px) and (max-device-width: 768px) {
     .logo {
         width: 50vmax !important;
@@ -733,10 +728,7 @@ button:active {
     }
 } */
 
-
-
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
-
     .logo {
         width: 50vmax !important;
         height: 22vmax !important;
@@ -763,8 +755,9 @@ button:active {
         width: 70vw !important;
     }
 
-    .loginContainer, .registerContainer {
-         min-height: fit-content !important;
+    .loginContainer,
+    .registerContainer {
+        min-height: fit-content !important;
         height: fit-content !important;
     }
 
@@ -781,7 +774,7 @@ button:active {
 
     .onlineUsers {
         margin-top: 3vmax !important;
-             width:fit-content !important;
+        width: fit-content !important;
     }
 
     .onlineList span {
@@ -815,14 +808,14 @@ button:active {
     .emojiBarToggler {
         width: 5vmax !important;
         height: 5vmax !important;
-        margin-left:1vmax !important;
+        margin-left: 1vmax !important;
     }
 
     .sendChatMsg {
         width: 2vmax !important;
         height: 2vmax !important;
-        padding-right:1vmax !important;
-        padding-left:1vmax !important;
+        padding-right: 1vmax !important;
+        padding-left: 1vmax !important;
     }
     .emoticons img {
         width: 4vmax !important;
@@ -848,10 +841,8 @@ button:active {
     }
 
     .usersBack {
-        width:15vw !important;
+        width: 15vw !important;
     }
-
-
 }
 
 /* @media only screen and (min-device-width: 481px) and (max-device-width: 680px){
@@ -1151,7 +1142,8 @@ font-family: 'Ultra', serif; */
     height: 1.4vmax;
     box-shadow: inset 0 0 0 100vh rgba(251, 255, 0, 0.103),
         -0 0 2px rgba(255, 255, 255, 0.308), 0 -0 2px rgba(255, 255, 255, 0.308),
-        -0 -0 2px rgba(255, 255, 255, 0.308), -0 -0 2px rgba(255, 255, 255, 0.308);
+        -0 -0 2px rgba(255, 255, 255, 0.308),
+        -0 -0 2px rgba(255, 255, 255, 0.308);
     resize: none;
     outline: none;
     white-space: nowrap;
@@ -1170,7 +1162,8 @@ font-family: 'Ultra', serif; */
 .chatTypeLine:focus {
     box-shadow: inset 0 0 0 100vh rgba(43, 255, 0, 0.103),
         -0 0 2px rgba(255, 255, 255, 0.308), 0 -0 2px rgba(255, 255, 255, 0.308),
-        -0 -0 2px rgba(255, 255, 255, 0.308), -0 -0 2px rgba(255, 255, 255, 0.308);
+        -0 -0 2px rgba(255, 255, 255, 0.308),
+        -0 -0 2px rgba(255, 255, 255, 0.308);
 }
 
 .typeLine {
@@ -1311,13 +1304,6 @@ font-family: 'Ultra', serif; */
     justify-content: center;
     align-items: center;
     align-self: center;
-}
-
-.chatImageUploaderImage {
-
-    width:20vw;
-    height:20vh;
-    
 }
 
 .onlineUsers {
@@ -1622,7 +1608,7 @@ font-family: 'Ultra', serif; */
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
     border-radius: 1vh;
     padding: 0.5vmax;
- 
+
     background-color: rgba(0, 0, 0, 0.199);
     text-align: center;
     font-size: 1.5vmax;
@@ -1630,9 +1616,9 @@ font-family: 'Ultra', serif; */
 
 .visitors div:nth-child(1) {
     color: rgba(255, 255, 255, 0.692);
-       text-shadow: -0 0 5px rgba(19, 253, 50, 0.267), 0 -0 5px rgba(19, 253, 50, 0.267),
-        -0 -0 5px rgba(19, 253, 50, 0.267), -0 -0 5px rgba(19, 253, 50, 0.267);
-    letter-spacing: 1vw;
+    text-shadow: -0 0 5px rgba(19, 253, 50, 0.267),
+        0 -0 5px rgba(19, 253, 50, 0.267), -0 -0 5px rgba(19, 253, 50, 0.267),
+        -0 -0 5px rgba(19, 253, 50, 0.267);
 }
 
 /* Ticker !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
@@ -1889,5 +1875,3 @@ font-family: 'Ultra', serif; */
 }
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! GIGLIST ANIMATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-
-
