@@ -2,13 +2,15 @@ import { Link } from "react-router-dom";
 import React from "react";
 import axios from "./tools/axios";
 
+import EditMap from "./editMap";
+
 export default class GigCreator extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             error: false,
-            success: false
-            
+            success: false,
+            map: false,
         };
     }
 
@@ -38,7 +40,7 @@ export default class GigCreator extends React.Component {
         this.setState(
             {
                 [e.target.name]: e.target.value,
-            },
+            }
             // () => console.log("State after setState: ", this.state)
         );
     }
@@ -46,6 +48,19 @@ export default class GigCreator extends React.Component {
     handleErrorMsg(e) {
         this.setState({
             error: false,
+        });
+    }
+
+    coordinator(e) {
+        this.setState({
+            lng: parseFloat(e.latLng.lng()),
+            lat: parseFloat(e.latLng.lat()),
+        });
+    }
+
+    mapToggler() {
+        this.setState({
+            map: !this.state.map,
         });
     }
 
@@ -98,6 +113,7 @@ export default class GigCreator extends React.Component {
                     <div className="inputBack">
                         <span>Latitude*</span>
                         <input
+                            value={this.state.lat || ""}
                             autoComplete="none"
                             name="lat"
                             placeholder="Latitude"
@@ -108,6 +124,7 @@ export default class GigCreator extends React.Component {
                     <div className="inputBack">
                         <span>Longitude*</span>
                         <input
+                            value={this.state.lng || ""}
                             autoComplete="none"
                             name="lng"
                             placeholder="Longitude"
@@ -115,6 +132,16 @@ export default class GigCreator extends React.Component {
                             onClick={() => this.handleErrorMsg()}
                         />
                     </div>
+                    <div
+                        className="editMapToggler"
+                        onClick={() => this.mapToggler()}
+                    >
+                        {!this.state.map && "Get Coordinates"}
+                        {this.state.map && "Close Map"}
+                    </div>
+                    {this.state.map && (
+                        <EditMap coordinator={(e) => this.coordinator(e)} />
+                    )}
                     <div className="formOptions">
                         {!this.state.success && (
                             <button

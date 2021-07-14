@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import React from "react";
 import axios from "./tools/axios";
 
+import EditMap from "./editMap";
+
 export default class GigEditor extends React.Component {
     constructor(props) {
         // console.log("PROPS IN EDITOR", props);
@@ -13,9 +15,9 @@ export default class GigEditor extends React.Component {
             success: false,
             deleteSuccess: false,
             file: false,
+            map: false,
         };
     }
-
 
     handleClick() {
         axios
@@ -45,13 +47,12 @@ export default class GigEditor extends React.Component {
             .post("/upload", formData)
             .then(({ data }) => {
                 if (data.success) {
-                   this.setState({
-                       success: true,
-                   });
-                   setTimeout(function () {
-                       location.reload();
-                   }, 2000);
-                   
+                    this.setState({
+                        success: true,
+                    });
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
                 } else {
                     // console.log("data fail");
                     this.setState({
@@ -71,7 +72,7 @@ export default class GigEditor extends React.Component {
         this.setState(
             {
                 [e.target.name]: e.target.value,
-            },
+            }
             // () => console.log("State after setState: ", this.state)
         );
     }
@@ -80,7 +81,7 @@ export default class GigEditor extends React.Component {
         this.setState(
             {
                 file: e.target.files[0],
-            },
+            }
             // () =>
             //     console.log(
             //         "this.state after setState: ",
@@ -100,7 +101,7 @@ export default class GigEditor extends React.Component {
                 lng: "",
                 tour_name: "",
                 city: "",
-            },
+            }
             // () => console.log("State after setState: ", this.state)
         );
     }
@@ -112,7 +113,7 @@ export default class GigEditor extends React.Component {
                     ...this.state.selectedGig,
                     [e.target.name]: e.target.value,
                 },
-            },
+            }
             // () => console.log("STEEEEEIT: ", this.state)
         );
     }
@@ -152,13 +153,12 @@ export default class GigEditor extends React.Component {
                 if (data.deleteSuccess) {
                     this.setState({
                         deleteSuccess: true,
-                        delete:false
+                        delete: false,
                     });
                     setTimeout(function () {
                         location.replace("/");
                     }, 2000);
                 }
-                
             })
             .catch((err) => {
                 console.log("err in axios App User POST Request : ", err);
@@ -171,10 +171,24 @@ export default class GigEditor extends React.Component {
         });
     }
 
+    coordinator(e) {
+        this.setState({
+            new_lng: parseFloat(e.latLng.lng()),
+            new_lat: parseFloat(e.latLng.lat()),
+        });
+        console.log("State after setState: ", this.state);
+        console.log(this.state.selectedGig.lat);
+    }
+
+    mapToggler() {
+        this.setState({
+            map: !this.state.map,
+        });
+    }
     resetUploader() {
-         this.setState({
-             success: false,
-         });
+        this.setState({
+            success: false,
+        });
     }
 
     handleErrorMsg(e) {
@@ -282,8 +296,9 @@ export default class GigEditor extends React.Component {
                         <span>Latitude</span>
                         <input
                             value={
-                                this.state.lat ||
                                 this.state.selectedGig.lat ||
+                                this.state.new_lat ||
+                                this.state.lat ||
                                 ""
                             }
                             autoComplete="none"
@@ -299,8 +314,9 @@ export default class GigEditor extends React.Component {
                         <span>Longitude</span>
                         <input
                             value={
-                                this.state.lng ||
                                 this.state.selectedGig.lng ||
+                                this.state.new_lng ||
+                                this.state.lng ||
                                 ""
                             }
                             autoComplete="none"
@@ -312,6 +328,20 @@ export default class GigEditor extends React.Component {
                             onClick={(e) => this.deleteWarn(false)}
                         />
                     </div>
+                    {this.state.selectedGig && (
+                        <div
+                            className="editMapToggler"
+                            onClick={() => this.mapToggler()}
+                        >
+                            {!this.state.map && "Get Coordinates"}
+                            {this.state.map && "Close Map"}
+                        </div>
+                    )}
+                    {this.state.map &&
+                        this.state.selectedGig.date &&
+                        !this.state.deleteSuccess && (
+                            <EditMap coordinator={(e) => this.coordinator(e)} />
+                        )}
                     {!this.state.deleteSuccess && (
                         <div className="formOptions">
                             <button onClick={() => this.handleClick()}>
@@ -343,11 +373,11 @@ export default class GigEditor extends React.Component {
                         <div className="deleteSuccess"></div>
                     )}
                 </form>
-        
-                    {this.state.error && (
-                        <p className="error">Oups! Something Went Wrong.</p>
-                    )}
-          
+
+                {this.state.error && (
+                    <p className="error">Oups! Something Went Wrong.</p>
+                )}
+
                 {this.state.selectedGig.id && (
                     <div className="fileUploader">
                         <p>Poster ➤</p>
