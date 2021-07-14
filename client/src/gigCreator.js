@@ -110,28 +110,32 @@ export default class GigCreator extends React.Component {
                             onClick={() => this.handleErrorMsg()}
                         />
                     </div>
-                    <div className="inputBack">
-                        <span>Latitude*</span>
-                        <input
-                            value={this.state.lat || ""}
-                            autoComplete="none"
-                            name="lat"
-                            placeholder="Latitude"
-                            onChange={(e) => this.handleChange(e)}
-                            onClick={() => this.handleErrorMsg()}
-                        />
-                    </div>
-                    <div className="inputBack">
-                        <span>Longitude*</span>
-                        <input
-                            value={this.state.lng || ""}
-                            autoComplete="none"
-                            name="lng"
-                            placeholder="Longitude"
-                            onChange={(e) => this.handleChange(e)}
-                            onClick={() => this.handleErrorMsg()}
-                        />
-                    </div>
+                    {!this.state.map && (
+                        <div className="inputBack">
+                            <span>Latitude*</span>
+                            <input
+                                value={this.state.lat || ""}
+                                autoComplete="none"
+                                name="lat"
+                                placeholder="Latitude"
+                                onChange={(e) => this.handleChange(e)}
+                                onClick={() => this.handleErrorMsg()}
+                            />
+                        </div>
+                    )}
+                    {!this.state.map && (
+                        <div className="inputBack">
+                            <span>Longitude*</span>
+                            <input
+                                value={this.state.lng || ""}
+                                autoComplete="none"
+                                name="lng"
+                                placeholder="Longitude"
+                                onChange={(e) => this.handleChange(e)}
+                                onClick={() => this.handleErrorMsg()}
+                            />
+                        </div>
+                    )}
                     <div
                         className="editMapToggler"
                         onClick={() => this.mapToggler()}

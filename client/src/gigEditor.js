@@ -173,6 +173,11 @@ export default class GigEditor extends React.Component {
 
     coordinator(e) {
         this.setState({
+            selectedGig: {
+                ...this.state.selectedGig,
+                lng: parseFloat(e.latLng.lng()),
+                lat: parseFloat(e.latLng.lat()),
+            },
             new_lng: parseFloat(e.latLng.lng()),
             new_lat: parseFloat(e.latLng.lat()),
         });
@@ -292,43 +297,47 @@ export default class GigEditor extends React.Component {
                             onClick={(e) => this.deleteWarn(false)}
                         />
                     </div>
-                    <div className="inputBack">
-                        <span>Latitude</span>
-                        <input
-                            value={
-                                this.state.selectedGig.lat ||
-                                this.state.new_lat ||
-                                this.state.lat ||
-                                ""
-                            }
-                            autoComplete="none"
-                            name="lat"
-                            placeholder="Latitude"
-                            onChange={(e) => this.handleChange(e)}
-                            onClick={() => this.handleErrorMsg()}
-                            onChange={(e) => this.inputReset(e)}
-                            onClick={(e) => this.deleteWarn(false)}
-                        />
-                    </div>
-                    <div className="inputBack">
-                        <span>Longitude</span>
-                        <input
-                            value={
-                                this.state.selectedGig.lng ||
-                                this.state.new_lng ||
-                                this.state.lng ||
-                                ""
-                            }
-                            autoComplete="none"
-                            name="lng"
-                            placeholder="Longitude"
-                            onChange={(e) => this.handleChange(e)}
-                            onClick={() => this.handleErrorMsg()}
-                            onChange={(e) => this.inputReset(e)}
-                            onClick={(e) => this.deleteWarn(false)}
-                        />
-                    </div>
-                    {this.state.selectedGig && (
+                    {!this.state.map && (
+                        <div className="inputBack">
+                            <span>Latitude</span>
+                            <input
+                                value={
+                                    this.state.selectedGig.lat ||
+                                    this.state.new_lat ||
+                                    this.state.lat ||
+                                    ""
+                                }
+                                autoComplete="none"
+                                name="lat"
+                                placeholder="Latitude"
+                                onChange={(e) => this.handleChange(e)}
+                                onClick={() => this.handleErrorMsg()}
+                                onChange={(e) => this.inputReset(e)}
+                                onClick={(e) => this.deleteWarn(false)}
+                            />
+                        </div>
+                    )}
+                    {!this.state.map && (
+                        <div className="inputBack">
+                            <span>Longitude</span>
+                            <input
+                                value={
+                                    this.state.selectedGig.lng ||
+                                    this.state.new_lng ||
+                                    this.state.lng ||
+                                    ""
+                                }
+                                autoComplete="none"
+                                name="lng"
+                                placeholder="Longitude"
+                                onChange={(e) => this.handleChange(e)}
+                                onClick={() => this.handleErrorMsg()}
+                                onChange={(e) => this.inputReset(e)}
+                                onClick={(e) => this.deleteWarn(false)}
+                            />
+                        </div>
+                    )}
+                    {this.state.selectedGig && !this.state.deleteSuccess && (
                         <div
                             className="editMapToggler"
                             onClick={() => this.mapToggler()}
@@ -378,7 +387,7 @@ export default class GigEditor extends React.Component {
                     <p className="error">Oups! Something Went Wrong.</p>
                 )}
 
-                {this.state.selectedGig.id && (
+                {this.state.selectedGig.id && !this.state.deleteSuccess && (
                     <div className="fileUploader">
                         <p>Poster ➤</p>
                         <img

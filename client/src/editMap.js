@@ -38,8 +38,6 @@ const WithGoogleMapComponent = compose(
                 zoomControl: true,
             }}
             onClick={(e) => {
-                console.log(e.latLng.lat());
-                console.log(e.latLng.lng());
                 props.setShowCoordinates(true);
                 props.setCenter({ lat: e.latLng.lat(), lng: e.latLng.lng() });
                 props.coordinator(e)
@@ -78,10 +76,6 @@ const EditMap = ({ coordinator }) => {
         lat: 35.08702515417141,
         lng: -40.71445657001389,
     });
-
-    const coordinatesCheck = (e) => {
-        setCenter({ lat: e.latLng.lat(), lng: e.latLng.lng() });
-    };
 
     return (
         <div className="google-map-editor">

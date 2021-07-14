@@ -260,7 +260,7 @@ form {
     color: orangered;
     max-height: 85vh;
     width: 40vw;
-    margin-bottom: 1vh;
+    margin-bottom: 4vh;
 }
 
 form span {
@@ -1885,7 +1885,7 @@ font-family: 'Ultra', serif; */
 }
 
 .google-map-editor {
-    height: 20vh;
+    height: 25vh;
     width: 35vw;
     border-radius: 1vmax !important;
     margin-bottom: 1vmax;
