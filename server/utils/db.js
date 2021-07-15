@@ -199,6 +199,20 @@ module.exports.addChatColor = (id, color) => {
     return db.query(q, params);
 };
 
+module.exports.getNextMsgs = (id) => {
+    const q = `
+        SELECT chatroom.id, chatroom.created_at, nickname, chat_img, chat_color, msg_sender_id, chat_msg 
+        FROM chatroom
+         JOIN community
+        ON (community.id = msg_sender_id)
+        WHERE chatroom.id < $1
+        ORDER BY id DESC
+        LIMIT 20;
+    `;
+    const params = [id];
+    return db.query(q, params);
+};
+
 module.exports.getPrivateMsgs = () => {
     const q = `
         SELECT chatroom.id, chatroom.created_at, nickname, chat_img, chat_color, msg_sender_id, chat_msg
@@ -210,3 +224,4 @@ module.exports.getPrivateMsgs = () => {
     `;
     return db.query(q);
 };
+

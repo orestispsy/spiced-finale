@@ -5,6 +5,13 @@ export function chatMessages(arg) {
     };
 }
 
+export function nextChatMessages(arg) {
+    return {
+        type: "NEXT_CHAT_MESSAGES",
+        msgs: arg,
+    };
+}
+
 export function chatMessage(arg) {
     return {
         type: "CHAT_MESSAGE",

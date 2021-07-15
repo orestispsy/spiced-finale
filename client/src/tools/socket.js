@@ -1,5 +1,6 @@
 import {
     chatMessages,
+    nextChatMessages,
     chatMessage,
     onlineUsers,
     userJoinedAct,
@@ -12,6 +13,10 @@ export let socket
 export const init = (store) => {
     if (!socket) {
         socket = io.connect();
+
+        socket.on("nextChatMessages", (msgs) => {
+            store.dispatch(nextChatMessages(msgs));
+        });
 
         socket.on("chatMessages", (msgs) => {
             store.dispatch(chatMessages(msgs));

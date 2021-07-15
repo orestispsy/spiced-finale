@@ -432,6 +432,17 @@ io.on("connection", function (socket) {
             .catch((err) => console.log(err));
     });
 
+    
+    socket.on("NEXT MSGS", (id) => {
+       
+                db.getNextMsgs(id)
+                    .then(({ rows }) => {
+                        socket.emit("nextChatMessages", rows);
+                    })
+                    .catch((err) => console.log(err));
+          
+    });
+
     // console.log("socket userId", userId);
     // console.log(`socket ${socket.id} connected`);
 

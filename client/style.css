@@ -271,7 +271,7 @@ form span {
 
 .editMapToggler {
     font-size: 1.5vmax;
-    color: cyan;
+    color: rgb(59, 253, 146);
     margin-bottom: 1vmax;
     cursor: pointer;
     text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
@@ -779,7 +779,7 @@ button:active {
         min-height: 0vmax !important;
         height: 40vh !important;
         width: 60vw !important;
-        border-radius: 10vh !important;
+        border-radius: 3vh !important;
     }
 
     .onlineUsers {
@@ -1146,6 +1146,49 @@ font-family: 'Ultra', serif; */
     border-radius: 1vh;
     margin: 0 2vmax 0 2vmax;
 }
+
+    .chatNextControls {
+        display:flex;
+        flex-direction: column;
+        align-items:flex-end;
+        text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black, -0 -0 5px black;
+    }
+    .up {
+        position:fixed;
+        font-size: 2vmax;
+        color:chartreuse;
+          margin-top:0.2vmax;
+        margin-right:2.5vmax;
+        cursor:pointer 
+    }
+
+    .down {
+        position:fixed;
+        font-size: 2vmax;
+        color:chartreuse;
+         margin-right:4.5vmax;
+         margin-top:0.2vmax;
+        cursor:pointer;
+    }
+
+    .next {
+        position:fixed;
+       font-size: 2vmax;
+       margin-right:0.2vmax;
+        color:white;
+        cursor:pointer !important;
+    }
+
+    .msgScreenCount {
+        color:white;
+        text-align: center;
+         display:flex;
+        flex-direction: column;
+        align-items:flex-end;
+        margin-top:1vmax;
+        margin-right:2vmax;
+        text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black, -0 -0 5px black;
+    }
 
 .chatTypeLine {
     width: 27vmax;

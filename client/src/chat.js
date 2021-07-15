@@ -8,6 +8,7 @@ import Ticker from "./ticker";
 import useSound from "use-sound";
 
 import chatSfx from "./../public/msg.mp3";
+import { chatMessage } from "./tools/actions";
 
 export default function Chat({ chat_color, chat_img, chat_myUserId }) {
     const [emojiBar, setEmojiBar] = useState(false);
@@ -30,6 +31,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
         if (!mute) {
             play();
         }
+        console.log("chat", chatMessages)
     }, [chatMessages]);
 
     const keyCheck = (e) => {
@@ -76,6 +78,17 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
         }
     };
 
+        const next20ChatMsgs = () => {
+          socket.emit("NEXT MSGS", chatMessages[0].id);
+        };
+
+        const getBack2Top = () => {
+            elemRef.current.scrollTop = -elemRef.current.scrollTop;
+        }
+ const getBack2Bottom = () => {
+     elemRef.current.scrollTop =
+         elemRef.current.scrollHeight - elemRef.current.clientHeight;
+ };
     const sendEmoji = (e) => {
         chatMSG = e.target.attributes[0].value;
         var msg = `<img class="emojis" src=${chatMSG}>`;
@@ -102,6 +115,29 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                     <h1>Chat Room</h1>
                     <div className="chatScreenBack">
                         <div className="chatScreen" ref={elemRef}>
+                            <div className="chatNextControls">
+                                <div
+                                    title="Chat Top"
+                                    className="up"
+                                    onClick={() => getBack2Top()}
+                                >
+                                    ▲
+                                </div>
+                                <div
+                                    title="Chat Bottom"
+                                    className="down"
+                                    onClick={() => getBack2Bottom()}
+                                >
+                                    ▼
+                                </div>
+                                <div
+                                    title="Load Next 20 Chat Posts"
+                                    className="next"
+                                    onClick={() => next20ChatMsgs()}
+                                >
+                                    ⦿
+                                </div>
+                            </div>
                             {chatMessages.map((msg) => {
                                 var diff = new Date().getTimezoneOffset() / -60;
 
@@ -179,6 +215,9 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                     );
                                 }
                             })}
+                        </div>
+                        <div className="msgScreenCount">
+                          Showing {chatMessages.length} Messages
                         </div>
                     </div>
                     <div className="typeLine">

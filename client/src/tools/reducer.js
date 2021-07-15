@@ -7,6 +7,12 @@ export default function (state = {}, action) {
             chatMessages: action.msgs.reverse(),
         };
     }
+    if (action.type == "NEXT_CHAT_MESSAGES") {
+        nextState = {
+            ...state,
+            chatMessages: state.chatMessages.reverse().concat(action.msgs).reverse(),
+        };
+    }
     if (action.type == "CHAT_MESSAGE") {
         nextState = {
             ...state,
