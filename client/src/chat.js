@@ -31,11 +31,6 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
         if (!mute) {
             play();
         }
-        console.log("chat", chatMessages)
-
-        const el1 = document.querySelector(".msgScreenCount");
-     
-        console.log("hey",el1)
 
     }, [chatMessages]);
 

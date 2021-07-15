@@ -27,7 +27,6 @@ const WithGoogleMapComponent = compose(
     withScriptjs,
     withGoogleMap
 )((props) => {
-    console.log(props)
     return (
         <GoogleMap
             zoom={3}
@@ -70,7 +69,6 @@ const WithGoogleMapComponent = compose(
 })
 
 const EditMap = ({ coordinator }) => {
-    console.log(coordinator)
     const [showCoordinates, setShowCoordinates] = useState(false);
     const [center, setCenter] = useState({
         lat: 35.08702515417141,

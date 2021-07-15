@@ -599,7 +599,7 @@ button:active {
     }
 
     .msgScreenCount {
-        font-size: 1.5vh !important;
+        font-size: 1.3vh !important;
     }
 
 
@@ -1190,6 +1190,16 @@ font-family: 'Ultra', serif; */
         cursor:pointer 
     }
 
+    .up:hover, .down:hover {
+        color:white;
+      
+    }
+
+       .up:active, .down:active {
+        color:black;
+        text-shadow: none;
+    }
+
     .down {
         position:fixed;
         font-size: 2vmax;
@@ -1202,14 +1212,20 @@ font-family: 'Ultra', serif; */
     .next {
         position:fixed;
        font-size: 2vmax;
+       font-weight: lighter;
        margin-right:0.2vmax;
         color:white;
         cursor:pointer !important;
+           text-shadow: -0 0 3px black, 0 -0 3px black, -0 -0 3px black, -0 -0 3px black;
+    }
+
+    .next:active {
+         text-shadow: none
     }
 
     .msgScreenCount {
         color:white;
-        font-size:1.5vh;
+        font-size:1.3vh;
         text-align: center;
          display:flex;
         flex-direction: column;
