@@ -32,6 +32,11 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
             play();
         }
         console.log("chat", chatMessages)
+
+        const el1 = document.querySelector(".msgScreenCount");
+     
+        console.log("hey",el1)
+
     }, [chatMessages]);
 
     const keyCheck = (e) => {
@@ -217,7 +222,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                             })}
                         </div>
                         <div className="msgScreenCount">
-                          Showing {chatMessages.length} Messages
+                            Showing {chatMessages.length} Messages
                         </div>
                     </div>
                     <div className="typeLine">

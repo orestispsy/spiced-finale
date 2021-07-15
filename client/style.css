@@ -317,10 +317,14 @@ form button {
 }
 
 .required {
+    letter-spacing: 0.5px;
+    color:red;
     font-size: 1vmax;
-    margin: 5px;
+    margin: 1vh;
     width: 20vw;
     text-align: center;
+     text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
+        -0 -0 5px black;
 }
 
 form h1 {
@@ -402,10 +406,9 @@ button:active {
 .upload {
     color: greenyellow;
     background-color: transparent;
-    font-size: 15px;
+    font-size: 1vmax;
     padding: 3px;
     cursor: pointer;
-    height: 17px;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
     margin: 5px;
@@ -586,6 +589,19 @@ button:active {
         width: 80vw !important;
         margin-bottom: 0.5vmax !important;
     }
+
+        .up {
+        margin-right: 4vh !important;
+    }
+
+     .down {
+        margin-right: 8vh !important;
+    }
+
+    .msgScreenCount {
+        font-size: 1.5vh !important;
+    }
+
 
     .typeLine {
         width: 80vw !important;
@@ -780,6 +796,18 @@ button:active {
         height: 40vh !important;
         width: 60vw !important;
         border-radius: 3vh !important;
+    }
+
+    .up {
+        margin-right: 8vh !important;
+    }
+
+     .down {
+        margin-right: 16vh !important;
+    }
+
+    .msgScreenCount {
+        font-size: 2vh !important;
     }
 
     .onlineUsers {
@@ -1056,7 +1084,7 @@ div:focus {
     color: orangered;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
-    font-size: 20px;
+    font-size: 2vmax;
     margin: 5px;
 }
 
@@ -1156,7 +1184,7 @@ font-family: 'Ultra', serif; */
     .up {
         position:fixed;
         font-size: 2vmax;
-        color:chartreuse;
+        color:yellow;
           margin-top:0.2vmax;
         margin-right:2.5vmax;
         cursor:pointer 
@@ -1165,7 +1193,7 @@ font-family: 'Ultra', serif; */
     .down {
         position:fixed;
         font-size: 2vmax;
-        color:chartreuse;
+        color:yellow;
          margin-right:4.5vmax;
          margin-top:0.2vmax;
         cursor:pointer;
@@ -1181,6 +1209,7 @@ font-family: 'Ultra', serif; */
 
     .msgScreenCount {
         color:white;
+        font-size:1.5vh;
         text-align: center;
          display:flex;
         flex-direction: column;
@@ -1189,6 +1218,7 @@ font-family: 'Ultra', serif; */
         margin-right:2vmax;
         text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black, -0 -0 5px black;
     }
+  
 
 .chatTypeLine {
     width: 27vmax;
