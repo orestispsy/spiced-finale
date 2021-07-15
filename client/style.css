@@ -598,11 +598,6 @@ button:active {
         margin-right: 8vh !important;
     }
 
-    .msgScreenCount {
-        font-size: 1.3vh !important;
-    }
-
-
     .typeLine {
         width: 80vw !important;
     }
@@ -804,10 +799,6 @@ button:active {
 
      .down {
         margin-right: 16vh !important;
-    }
-
-    .msgScreenCount {
-        font-size: 2vh !important;
     }
 
     .onlineUsers {
@@ -1223,17 +1214,6 @@ font-family: 'Ultra', serif; */
          text-shadow: none
     }
 
-    .msgScreenCount {
-        color:white;
-        font-size:1.3vh;
-        text-align: center;
-         display:flex;
-        flex-direction: column;
-        align-items:flex-end;
-        margin-top:1vmax;
-        margin-right:2vmax;
-        text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black, -0 -0 5px black;
-    }
   
 
 .chatTypeLine {

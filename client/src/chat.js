@@ -80,6 +80,10 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
 
         const next20ChatMsgs = () => {
           socket.emit("NEXT MSGS", chatMessages[0].id);
+           const timer = setTimeout(() => {
+                elemRef.current.scrollTop = -elemRef.current.scrollTop;
+           }, 500);
+           return () => clearTimeout(timer);
         };
 
         const getBack2Top = () => {
@@ -216,9 +220,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                 }
                             })}
                         </div>
-                        <div className="msgScreenCount">
-                            Showing {chatMessages.length} Messages
-                        </div>
+                       
                     </div>
                     <div className="typeLine">
                         <textarea
