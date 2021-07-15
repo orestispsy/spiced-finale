@@ -938,6 +938,10 @@ button:active {
     align-self: center;
 }
 
+.gigEntries div:hover {
+    background-color: rgba(172, 255, 104, 0.075);
+}
+
 .gigEntries:hover {
     overflow-y: scroll;
 }

@@ -135,7 +135,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                     ▼
                                 </div>
                                 <div
-                                    title="Load Next 20 Chat Posts"
+                                    title="Load 20 Previous Chat Posts More"
                                     className="next"
                                     onClick={() => next20ChatMsgs()}
                                 >

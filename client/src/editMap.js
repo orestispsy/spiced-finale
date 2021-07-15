@@ -32,7 +32,7 @@ const WithGoogleMapComponent = compose(
             zoom={3}
             center={props.center}
             options={{
-                styles: mapStyles.modest,
+                styles: mapStyles.green,
                 disableDefaultUI: false,
                 zoomControl: true,
             }}
