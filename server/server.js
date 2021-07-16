@@ -203,6 +203,15 @@ app.post("/get-gig-to-edit", (req, res) => {
         .catch((err) => console.log(err));
 });
 
+app.get("/gig/:selection", (req, res) => {
+    db.getGig(req.params.selection)
+        .then(({ rows }) => {
+            res.json({ data: rows[0] });
+        })
+        .catch((err) => console.log(err));
+});
+
+
 app.post("/gig-update", (req, res) => {
     let { date, venue, lat, lng, tour_name, city } = req.body.selectedGig;
     db.updateGig(

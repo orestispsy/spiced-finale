@@ -205,7 +205,8 @@ a:hover {
 .mapContainer,
 .gigEditorContainer,
 .gigCreatorContainer,
-.gigListContainer {
+.gigListContainer,
+.gigEntryContainer {
     color: white;
     display: flex;
     flex-direction: column;
@@ -218,6 +219,7 @@ a:hover {
 
 .gigListContainer {
     height: 92vh;
+    width:80vw;
 }
 
 .mainMenu a {
@@ -712,6 +714,32 @@ button:active {
         min-height: 2.2vmax !important;
         margin-left: 1vmax !important;
     }
+
+    .gigEntryContainer {
+        justify-content: flex-start;
+         text-align: center
+    }
+
+    .gigEntryDetails {
+        flex-direction: column-reverse !important;
+    }
+
+    .detailedEntry h1 span {
+        font-size: 3vmax !important;
+        
+    }
+
+    .detailedEntry h1 {
+        font-size: 2vmax !important;
+    }
+    .gigBox {
+        width: 30vw !important;
+        height:20vw !important
+    }
+
+    .gigEntryContainer form select {
+        font-size: 3vmax !important;
+    }
 }
 
 /* @media only screen and (min-device-width : 768px){
@@ -872,6 +900,12 @@ button:active {
     .usersBack {
         width: 15vw !important;
     }
+
+    .gigEntryDetails img {
+    width: 20vmax !important;
+    height:25vmax !important;
+
+}
 }
 
 /* @media only screen and (min-device-width: 481px) and (max-device-width: 680px){
@@ -918,17 +952,23 @@ button:active {
 .gigEntries {
     height: 80vh;
     max-height: 80vh;
-    overflow: hidden;
+    width:70vw;
+   overflow: hidden;
     scrollbar-width: none;
-    font-size: 1vmax;
-    text-align: center;
     display: flex;
-    flex-direction: column;
     letter-spacing: 1px;
     padding-bottom: 1vmax;
+    flex-wrap:wrap;
 }
 
-.gigEntries div {
+
+.gigEntries a {
+     font-size: 1.8vmax;
+    text-align: center;
+    margin:1vmax;
+}
+
+.gigBox {
     background-color: rgba(255, 0, 0, 0.13);
     border-radius: 1vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
@@ -936,9 +976,14 @@ button:active {
     margin-top: 0.5vmax;
     width: fit-content;
     align-self: center;
+    width:20vw;
+    height:25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.gigEntries div:hover {
+.gigBox:hover {
     background-color: rgba(172, 255, 104, 0.075);
 }
 
@@ -1957,6 +2002,8 @@ font-family: 'Ultra', serif; */
     line-height: 10vmax;
 }
 
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! GIGLIST ANIMATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 .google-map-editor {
     height: 25vh;
     width: 35vw;
@@ -1974,4 +2021,48 @@ font-family: 'Ultra', serif; */
     margin-left: 0vmax !important;
 }
 
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! GIGLIST ANIMATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+.gigEntryContainer {
+    height:70vh;
+    max-height: 70vh;
+    color:yellow;
+    font-size:3vmax;
+}
+
+
+.gigEntryDetails img {
+    width: 25vmax;
+    height:30vmax;
+     box-shadow: -0 0 10px rgba(0, 0, 0, 0.281), 0 -0 10px rgba(0, 0, 0, 0.281),
+        -0 -0 10px rgba(0, 0, 0, 0.281), -0 -0 10px rgba(0, 0, 0, 0.281);
+}
+
+.detailedEntry {
+     margin:1vmax;
+}
+
+.detailedEntry h3 {
+    margin:0;
+}
+
+.detailedEntry h1 {
+    line-break: strict;
+    width:30vw;
+    font-size:1.5vmax;
+}
+
+.detailedEntry h1 span{ 
+    color: lime;
+      font-size:2vmax;
+}
+
+.gigEntryDetails {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 0.1px solid rgba(255, 255, 0, 0.877);
+    border-style: ridge;
+    padding:2vmax;
+    border-radius: 1vh;
+
+}

@@ -38,44 +38,40 @@ export default function GigList({ gigsList, listSet }) {
             <div className="gigEntries">
                 {gigsList &&
                     gigsList.map((gig) => (
-                        <div key={gig.id}>
-                            <h2>
-                                <span
+                        <Link to={`/gig/${gig.id}`} key={gig.id}>
+                            <div className="gigBox">
+                                <div
                                     style={{
-                                        color: `white`,
+                                        color: `yellow`,
+                                        textDecoration: `underline`,
                                     }}
                                 >
                                     {gig.date}
-                                </span>{" "}
-                                •{" "}
-                                <span
+                                </div>{" "}
+                                <div
                                     style={{
-                                        color: `yellow`,
+                                        color: `lime`,
                                     }}
                                 >
                                     {gig.venue}
-                                </span>{" "}
-                                •{" "}
-                                <span
+                                </div>{" "}
+                                <div
                                     style={{
                                         color: `white`,
                                     }}
                                 >
                                     {gig.city}
-                                </span>
-                            </h2>
-                        </div>
+                                </div>
+                            </div>
+                        </Link>
                     ))}
             </div>
             <Link to="/" className="backLink">
                 Back
             </Link>
-            <Link
-                to="/gig-list-animation"
-                className="gigAnimationLink"
-            >
+            <Link to="/gig-list-animation" className="gigAnimationLink">
                 Animate
-            </Link>       
+            </Link>
         </div>
     );
 }

@@ -9,6 +9,7 @@ import GigEditor from "./gigEditor";
 import GigList from "./gigList";
 import Chat from "./chat";
 import GigListAnimation from "./gigListAnimation"
+import GigEntry from "./gigEntry";
 
 var body = document.querySelectorAll("body");
 
@@ -81,6 +82,7 @@ export default class App extends Component {
             list: e,
         });
     }
+    
 
     // sliderAction(e) {
     //     e.preventDefault();
@@ -172,7 +174,7 @@ export default class App extends Component {
                                         <div className="logo2"></div>
                                     </div>
                                 </a>
-                               
+
                                 {this.state.maps && (
                                     <Link
                                         to="/"
@@ -226,6 +228,20 @@ export default class App extends Component {
                                     />
                                 )}
                             />
+
+                            <Route
+                                path="/gig/:id"
+                                render={(props) => (
+                                    <GigEntry
+                                        key={props.match.url}
+                                        match={props.match}
+                                        history={props.history}
+                                        gigsList={this.state.gigsList}
+                                    />
+                                )}
+                            />
+
+
                             <Route
                                 exact
                                 path="/gig-list-animation"
