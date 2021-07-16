@@ -729,11 +729,11 @@ button:active {
     }
 
     .detailedEntry span {
-        font-size: 4vmax !important;
+        font-size: 3vmax !important;
     }
 
     .detailedEntry h1 {
-        font-size: 3vmax !important;
+        font-size: 2vmax !important;
     }
     .gigBox {
         width: 30vw !important;
