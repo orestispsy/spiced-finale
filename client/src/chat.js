@@ -30,81 +30,80 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
         if (!mute) {
             play();
         }
-
     }, [chatMessages]);
 
-        const keyCheck = (e) => {
-             if (e.key === "Enter") {
-                 if (e.target.value !== "") {
-                     e.preventDefault();
-                     // console.log("TEXTAREA VALUE", e.target.value);
-                     var msgLink = e.target.value.split(/\s+/);
-                     // console.log("yep", msgLink);
-                     msgLink.forEach((element, index) => {
-                         if (
-                             element.startsWith("http") ||
-                             element.startsWith("www.")
-                         ) {
-                             let url = element;
-                             if (element.startsWith("www.")) {
-                                 url = `https://` + url;
-                             }
-                             // console.log("yes", element);
-                             msgLink[
-                                 index
-                             ] = `<a href=${url} target="_blank">${element}</a>`;
-                             e.target.value = msgLink.join(" ");
-                         }
-                     }, msgLink);
-                     socket.emit("A CHAT MSG", e.target.value);
-                     e.target.value = "";
-                 }
-                 e.preventDefault();
-             }
-         };
+    const keyCheck = (e) => {
+        if (e.key === "Enter") {
+            if (e.target.value !== "") {
+                e.preventDefault();
+                // console.log("TEXTAREA VALUE", e.target.value);
+                var msgLink = e.target.value.split(/\s+/);
+                // console.log("yep", msgLink);
+                msgLink.forEach((element, index) => {
+                    if (
+                        element.startsWith("http") ||
+                        element.startsWith("www.")
+                    ) {
+                        let url = element;
+                        if (element.startsWith("www.")) {
+                            url = `https://` + url;
+                        }
+                        // console.log("yes", element);
+                        msgLink[
+                            index
+                        ] = `<a href=${url} target="_blank">${element}</a>`;
+                        e.target.value = msgLink.join(" ");
+                    }
+                }, msgLink);
+                socket.emit("A CHAT MSG", e.target.value);
+                e.target.value = "";
+            }
+            e.preventDefault();
+        }
+    };
 
-         const elem = document.querySelectorAll(".chatTypeLine");
-         var chatMSG = false;
-         const chat = (e) => {
-             chatMSG = e.target.value;
-         };
+    const elem = document.querySelectorAll(".chatTypeLine");
+    var chatMSG = false;
+    const chat = (e) => {
+        chatMSG = e.target.value;
+    };
 
-         const sendChatMsgButton = () => {
-             if (chatMSG) {
-                 socket.emit("A CHAT MSG", chatMSG);
-                 chatMSG = false;
-                 elem[0].value = "";
-             }
-         };
+    const sendChatMsgButton = () => {
+        if (chatMSG) {
+            socket.emit("A CHAT MSG", chatMSG);
+            chatMSG = false;
+            elem[0].value = "";
+        }
+    };
 
-         const next20ChatMsgs = () => {
-             socket.emit("NEXT MSGS", chatMessages[0].id);
-             const timer = setTimeout(() => {
-                 elemRef.current.scrollTop = -elemRef.current.scrollTop;
-             }, 500);
-             return () => clearTimeout(timer);
-         };
+    const next20ChatMsgs = () => {
+        socket.emit("NEXT MSGS", chatMessages[0].id);
+        const timer = setTimeout(() => {
+            elemRef.current.scrollTop = -elemRef.current.scrollTop;
+        }, 500);
+        return () => clearTimeout(timer);
+    };
 
-         const getBack2Top = () => {
-             elemRef.current.scrollTop = -elemRef.current.scrollTop;
-         };
-         const getBack2Bottom = () => {
-             elemRef.current.scrollTop =
-                 elemRef.current.scrollHeight - elemRef.current.clientHeight;
-         };
-         const sendEmoji = (e) => {
-             chatMSG = e.target.attributes[0].value;
-             var msg = `<img class="emojis" src=${chatMSG}>`;
-             socket.emit("A CHAT MSG", msg);
-         };
+    const getBack2Top = () => {
+        elemRef.current.scrollTop = -elemRef.current.scrollTop;
+    };
+    const getBack2Bottom = () => {
+        elemRef.current.scrollTop =
+            elemRef.current.scrollHeight - elemRef.current.clientHeight;
+    };
+    const sendEmoji = (e) => {
+        chatMSG = e.target.attributes[0].value;
+        var msg = `<img class="emojis" src=${chatMSG}>`;
+        socket.emit("A CHAT MSG", msg);
+    };
 
-         const toggleEmojibar = () => {
-             setEmojiBar(!emojiBar);
-         };
+    const toggleEmojibar = () => {
+        setEmojiBar(!emojiBar);
+    };
 
-         const toggleTicker = () => {
-             setTickerBar(!tickerBar);
-         };
+    const toggleTicker = () => {
+        setTickerBar(!tickerBar);
+    };
 
     if (!chatMessages) {
         return null;
@@ -219,7 +218,6 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                 }
                             })}
                         </div>
-                       
                     </div>
                     <div className="typeLine">
                         <textarea

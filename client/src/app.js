@@ -8,7 +8,7 @@ import GigCreator from "./gigCreator";
 import GigEditor from "./gigEditor";
 import GigList from "./gigList";
 import Chat from "./chat";
-import GigListAnimation from "./gigListAnimation"
+import GigListAnimation from "./gigListAnimation";
 import GigEntry from "./gigEntry";
 
 var body = document.querySelectorAll("body");
@@ -82,7 +82,6 @@ export default class App extends Component {
             list: e,
         });
     }
-    
 
     // sliderAction(e) {
     //     e.preventDefault();
@@ -131,8 +130,6 @@ export default class App extends Component {
     //         });
     //     }
     // }
-
-
 
     render() {
         return (
@@ -240,7 +237,6 @@ export default class App extends Component {
                                     />
                                 )}
                             />
-
 
                             <Route
                                 exact

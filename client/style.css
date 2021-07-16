@@ -219,7 +219,7 @@ a:hover {
 
 .gigListContainer {
     height: 92vh;
-    width:80vw;
+    width: 80vw;
 }
 
 .mainMenu a {
@@ -320,12 +320,12 @@ form button {
 
 .required {
     letter-spacing: 0.5px;
-    color:red;
+    color: red;
     font-size: 1vmax;
     margin: 1vh;
     width: 20vw;
     text-align: center;
-     text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
+    text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
         -0 -0 5px black;
 }
 
@@ -592,11 +592,11 @@ button:active {
         margin-bottom: 0.5vmax !important;
     }
 
-        .up {
+    .up {
         margin-right: 4vh !important;
     }
 
-     .down {
+    .down {
         margin-right: 8vh !important;
     }
 
@@ -717,29 +717,32 @@ button:active {
 
     .gigEntryContainer {
         justify-content: flex-start;
-         text-align: center
+        text-align: center;
     }
 
     .gigEntryDetails {
         flex-direction: column-reverse !important;
     }
 
-    .detailedEntry h1 span {
-        font-size: 3vmax !important;
-        
+    .detailedEntry h3 {
+        font-size: 5vmax !important;
+    }
+
+    .detailedEntry span {
+        font-size: 4vmax !important;
     }
 
     .detailedEntry h1 {
-        font-size: 2vmax !important;
+        font-size: 3vmax !important;
     }
     .gigBox {
         width: 30vw !important;
-        height:20vw !important
+        height: 20vw !important;
     }
 
     .gigEntryContainer form select {
         font-size: 3vmax !important;
-        width:25vmax !important;
+        width: 24vmax !important;
     }
 }
 
@@ -826,7 +829,7 @@ button:active {
         margin-right: 8vh !important;
     }
 
-     .down {
+    .down {
         margin-right: 16vh !important;
     }
 
@@ -902,16 +905,27 @@ button:active {
         width: 15vw !important;
     }
 
-    .gigEntryDetails img {
-    width: 20vmax !important;
-    height:25vmax !important;
+    .gigEntryDetails .gigEntryDetails img {
+        width: 20vmax !important;
+        height: 25vmax !important;
     }
 
-      .gigEntryContainer form select {
-       font-size: 3vmax;
-        width:25vmax !important;
+    .gigEntryContainer {
+        justify-content: unset !important;
     }
 
+    .gigEntryContainer form select {
+        font-size: 3vmax;
+        width: 25vmax !important;
+    }
+
+    .detailedEntry h1 span {
+        font-size: 2vmax !important;
+    }
+
+    .detailedEntry h1 {
+        font-size: 1vmax !important;
+    }
 }
 
 /* @media only screen and (min-device-width: 481px) and (max-device-width: 680px){
@@ -958,24 +972,23 @@ button:active {
 .gigEntries {
     height: 80vh;
     max-height: 80vh;
-    width:70vw;
-   overflow: hidden;
+    width: 70vw;
+    overflow: hidden;
     scrollbar-width: none;
     display: flex;
     letter-spacing: 1px;
     padding-bottom: 1vmax;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
 }
 
-
 .gigEntries a {
-     font-size: 1.8vmax;
+    font-size: 1.8vmax;
     text-align: center;
-    margin:1vmax;
+    margin: 1vmax;
 }
 
 .gigBox {
-     background-color: rgba(172, 255, 104, 0.075);
+    background-color: rgba(172, 255, 104, 0.075);
 
     border-radius: 1vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
@@ -983,25 +996,23 @@ button:active {
     margin-top: 0.5vmax;
     width: fit-content;
     align-self: center;
-    width:20vw;
-    height:25vh;
+    width: 20vw;
+    height: 25vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .gigBox:hover {
-    
-         background: radial-gradient(
+    background: radial-gradient(
         closest-side,
         #d9ff2e00,
         #ff585217,
         #61ff5210,
         #b1151500
     );
-      background-color: rgba(255, 0, 221, 0.025);
-
- }
+    background-color: rgba(255, 0, 221, 0.025);
+}
 
 .gigEntries:hover {
     overflow-y: scroll;
@@ -1231,55 +1242,56 @@ font-family: 'Ultra', serif; */
     margin: 0 2vmax 0 2vmax;
 }
 
-    .chatNextControls {
-        display:flex;
-        flex-direction: column;
-        align-items:flex-end;
-        text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black, -0 -0 5px black;
-    }
-    .up {
-        position:fixed;
-        font-size: 2vmax;
-        color:yellow;
-          margin-top:0.2vmax;
-        margin-right:2.5vmax;
-        cursor:pointer 
-    }
+.chatNextControls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
+        -0 -0 5px black;
+}
+.up {
+    position: fixed;
+    font-size: 2vmax;
+    color: yellow;
+    margin-top: 0.2vmax;
+    margin-right: 2.5vmax;
+    cursor: pointer;
+}
 
-    .up:hover, .down:hover {
-        color:white;
-      
-    }
+.up:hover,
+.down:hover {
+    color: white;
+}
 
-       .up:active, .down:active {
-        color:black;
-        text-shadow: none;
-    }
+.up:active,
+.down:active {
+    color: black;
+    text-shadow: none;
+}
 
-    .down {
-        position:fixed;
-        font-size: 2vmax;
-        color:yellow;
-         margin-right:4.5vmax;
-         margin-top:0.2vmax;
-        cursor:pointer;
-    }
+.down {
+    position: fixed;
+    font-size: 2vmax;
+    color: yellow;
+    margin-right: 4.5vmax;
+    margin-top: 0.2vmax;
+    cursor: pointer;
+}
 
-    .next {
-        position:fixed;
-       font-size: 2vmax;
-       font-weight: lighter;
-       margin-right:0.2vmax;
-        color:white;
-        cursor:pointer !important;
-           text-shadow: -0 0 3px black, 0 -0 3px black, -0 -0 3px black, -0 -0 3px black;
-    }
+.next {
+    position: fixed;
+    font-size: 2vmax;
+    font-weight: lighter;
+    margin-right: 0.2vmax;
+    color: white;
+    cursor: pointer !important;
+    text-shadow: -0 0 3px black, 0 -0 3px black, -0 -0 3px black,
+        -0 -0 3px black;
+}
 
-    .next:active {
-         text-shadow: none
-    }
-
-  
+.next:active {
+    text-shadow: none;
+}
 
 .chatTypeLine {
     width: 27vmax;
@@ -1959,7 +1971,7 @@ font-family: 'Ultra', serif; */
     top: 8vh;
     right: 2.5vmax;
     border: 1px solid cyan;
-    color:rgb(247, 91, 64);
+    color: rgb(247, 91, 64);
     padding: 0.5vmax;
     border-radius: 10vh;
     font-size: 1.5vmax !important;
@@ -1967,13 +1979,13 @@ font-family: 'Ultra', serif; */
 }
 
 .gigAnimationLink:hover {
- background-color: rgba(255, 255, 255, 0.258);
-        color:rgb(247, 91, 64);
+    background-color: rgba(255, 255, 255, 0.258);
+    color: rgb(247, 91, 64);
 }
 
 .gigAnimationLink:active {
-         background-color: rgba(172, 255, 104, 0.288);
-         color:yellow
+    background-color: rgba(172, 255, 104, 0.288);
+    color: yellow;
 }
 
 .go {
@@ -2025,7 +2037,6 @@ font-family: 'Ultra', serif; */
     line-height: 10vmax;
 }
 
-
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! GIGLIST ANIMATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 .google-map-editor {
     height: 25vh;
@@ -2045,52 +2056,57 @@ font-family: 'Ultra', serif; */
 }
 
 .gigEntryContainer {
-    height:70vh;
+    height: 70vh;
     max-height: 70vh;
-    color:yellow;
-    font-size:3vmax;
+    color: yellow;
+    font-size: 3vmax;
 }
 
-.selectGig{
+.selectGig {
     color: white;
     font-size: 2vmax;
 }
 
+.gigEntryContainer form {
+    margin: 0;
+}
+
 .gigEntryContainer form option {
     font-size: 1vmax;
-    color:red;
+    color: red;
 }
-
 
 .gigEntryContainer form select {
-    width:15vmax;
+    width: 15vmax;
 }
-
 
 .gigEntryDetails img {
     width: 25vmax;
-    height:30vmax;
-     box-shadow: -0 0 10px rgba(0, 0, 0, 0.281), 0 -0 10px rgba(0, 0, 0, 0.281),
+    height: 30vmax;
+    box-shadow: -0 0 10px rgba(0, 0, 0, 0.281), 0 -0 10px rgba(0, 0, 0, 0.281),
         -0 -0 10px rgba(0, 0, 0, 0.281), -0 -0 10px rgba(0, 0, 0, 0.281);
 }
 
 .detailedEntry {
-     margin:1vmax;
+    margin: 1vmax;
+    text-align: center;
 }
 
 .detailedEntry h3 {
-    margin:0;
+    margin: 0;
+    text-decoration: underline 7px purple;
+    letter-spacing: 10px;
 }
 
 .detailedEntry h1 {
     line-break: strict;
-    width:30vw;
-    font-size:1.5vmax;
+    width: 30vw;
+    font-size: 1.5vmax;
 }
 
-.detailedEntry h1 span{ 
+.detailedEntry span {
     color: lime;
-      font-size:2vmax;
+    font-size: 2.5vmax;
 }
 
 .gigEntryDetails {
@@ -2100,7 +2116,6 @@ font-family: 'Ultra', serif; */
     justify-content: center;
     border: 0.1px solid rgba(225, 0, 255, 0.877);
     border-style: ridge;
-    padding:2vmax;
+    padding: 2vmax;
     border-radius: 1vh;
-
 }

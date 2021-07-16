@@ -4,8 +4,8 @@ const compression = require("compression");
 const path = require("path");
 const db = require("./utils/db");
 
-const cors = require("cors")
-app.use(cors())
+const cors = require("cors");
+app.use(cors());
 
 const server = require("http").Server(app);
 const io = require("socket.io")(server, {
@@ -210,7 +210,6 @@ app.get("/gig/:selection", (req, res) => {
         })
         .catch((err) => console.log(err));
 });
-
 
 app.post("/gig-update", (req, res) => {
     let { date, venue, lat, lng, tour_name, city } = req.body.selectedGig;
@@ -441,15 +440,12 @@ io.on("connection", function (socket) {
             .catch((err) => console.log(err));
     });
 
-    
     socket.on("NEXT MSGS", (id) => {
-       
-                db.getNextMsgs(id)
-                    .then(({ rows }) => {
-                        socket.emit("nextChatMessages", rows);
-                    })
-                    .catch((err) => console.log(err));
-          
+        db.getNextMsgs(id)
+            .then(({ rows }) => {
+                socket.emit("nextChatMessages", rows);
+            })
+            .catch((err) => console.log(err));
     });
 
     // console.log("socket userId", userId);
