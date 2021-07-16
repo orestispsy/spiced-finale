@@ -72,7 +72,7 @@ export default class GigEntry extends Component {
                         onChange={(e) => this.gigSelector(e)}
                     >
                         <option className="chooseGig" value="">
-                            Select Gig
+                            Select Gig ►
                         </option>
                         {this.props.gigsList &&
                             this.props.gigsList.map((gig) => (

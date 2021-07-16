@@ -739,6 +739,7 @@ button:active {
 
     .gigEntryContainer form select {
         font-size: 3vmax !important;
+        width:25vmax !important;
     }
 }
 
@@ -904,8 +905,13 @@ button:active {
     .gigEntryDetails img {
     width: 20vmax !important;
     height:25vmax !important;
+    }
 
-}
+      .gigEntryContainer form select {
+       font-size: 3vmax;
+        width:25vmax !important;
+    }
+
 }
 
 /* @media only screen and (min-device-width: 481px) and (max-device-width: 680px){
@@ -969,7 +975,8 @@ button:active {
 }
 
 .gigBox {
-    background-color: rgba(255, 0, 0, 0.13);
+     background-color: rgba(172, 255, 104, 0.075);
+
     border-radius: 1vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
@@ -984,8 +991,17 @@ button:active {
 }
 
 .gigBox:hover {
-    background-color: rgba(172, 255, 104, 0.075);
-}
+    
+         background: radial-gradient(
+        closest-side,
+        #d9ff2e00,
+        #ff585217,
+        #61ff5210,
+        #b1151500
+    );
+      background-color: rgba(255, 0, 221, 0.025);
+
+ }
 
 .gigEntries:hover {
     overflow-y: scroll;
@@ -1943,6 +1959,7 @@ font-family: 'Ultra', serif; */
     top: 8vh;
     right: 2.5vmax;
     border: 1px solid cyan;
+    color:rgb(247, 91, 64);
     padding: 0.5vmax;
     border-radius: 10vh;
     font-size: 1.5vmax !important;
@@ -1950,7 +1967,13 @@ font-family: 'Ultra', serif; */
 }
 
 .gigAnimationLink:hover {
-    background-color: rgba(0, 0, 0, 0.048);
+ background-color: rgba(255, 255, 255, 0.258);
+        color:rgb(247, 91, 64);
+}
+
+.gigAnimationLink:active {
+         background-color: rgba(172, 255, 104, 0.288);
+         color:yellow
 }
 
 .go {
@@ -2028,6 +2051,21 @@ font-family: 'Ultra', serif; */
     font-size:3vmax;
 }
 
+.selectGig{
+    color: white;
+    font-size: 2vmax;
+}
+
+.gigEntryContainer form option {
+    font-size: 1vmax;
+    color:red;
+}
+
+
+.gigEntryContainer form select {
+    width:15vmax;
+}
+
 
 .gigEntryDetails img {
     width: 25vmax;
@@ -2060,7 +2098,7 @@ font-family: 'Ultra', serif; */
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border: 0.1px solid rgba(255, 255, 0, 0.877);
+    border: 0.1px solid rgba(225, 0, 255, 0.877);
     border-style: ridge;
     padding:2vmax;
     border-radius: 1vh;
