@@ -201,7 +201,7 @@ export default function OnlineUsers({
 
                             <input
                                 className="colorSelector"
-                                title="Change Your Chat Color"
+                                title="Change Chat Color"
                                 type="color"
                                 defaultValue={chat_color || `#00f01c`}
                                 onChange={(e) => handleColorChange(e)}

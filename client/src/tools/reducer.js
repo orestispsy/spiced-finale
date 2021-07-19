@@ -18,7 +18,7 @@ export default function (state = {}, action) {
             chatMessages: state.chatMessages
                 .reverse()
                 .concat(action.msgs)
-                .reverse(),
+                .reverse()
         };
     }
     if (action.type == "CHAT_MESSAGE") {

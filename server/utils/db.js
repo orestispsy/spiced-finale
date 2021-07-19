@@ -144,6 +144,7 @@ module.exports.getChatMsgs = () => {
         FROM chatroom
         JOIN community
         ON (community.id = msg_sender_id)
+        WHERE chatroom.chat_msg NOT LIKE '%--##--%'
         ORDER BY chatroom.created_at DESC
         LIMIT 10;
     `;
