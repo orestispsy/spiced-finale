@@ -206,7 +206,8 @@ module.exports.getNextMsgs = (id) => {
          JOIN community
         ON (community.id = msg_sender_id)
         WHERE chatroom.id < $1
-        AND chatroom.chat_msg NOT LIKE '%--##--%'
+        AND chatroom.chat_msg NOT LIKE '%--##--entered--##--%'
+        AND chatroom.chat_msg NOT LIKE '%--##--left--##--%'
         ORDER BY id DESC
         LIMIT 20;
     `;

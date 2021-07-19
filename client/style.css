@@ -825,11 +825,15 @@ button:active {
     }
 
     .up {
-        margin-right: 8vh !important;
+        margin-right: 9vh !important;
     }
 
     .down {
-        margin-right: 16vh !important;
+        margin-right: 17vh !important;
+    }
+
+    .next {
+        margin-right: 1vh !important
     }
 
     .onlineUsers {

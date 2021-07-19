@@ -413,10 +413,14 @@ io.on("connection", function (socket) {
         .then(({ rows }) => {
             var clearRows = [];
             for (x = 0; x < rows.length - 1; x++) {
-                if (!rows[x].chat_msg.includes("--##--")) {
+                if (
+                    !rows[x].chat_msg.includes("--##--entered--##--") &&
+                    !rows[x].chat_msg.includes("--##--left--##--")
+                ) {
                     clearRows.push(rows[x]);
                 }
-            }clearRows.splice(10,rows.length-1)
+            }
+            clearRows.splice(10,rows.length-1)
             socket.emit("chatMessages", clearRows);
         })
         .catch((err) => console.log(err));
