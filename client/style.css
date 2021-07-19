@@ -245,11 +245,7 @@ a:hover {
     color: crimson;
 }
 
-.selectGig {
-    margin: 0;
-    padding: 0.5vmax;
-    width: 40vw;
-}
+
 
 form {
     display: flex;
@@ -270,6 +266,10 @@ form span {
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
 }
+
+form option {  font-size: 1vmax;
+    color: red;}
+
 
 .editMapToggler {
     font-size: 1.5vmax;
@@ -466,6 +466,8 @@ button:active {
     align-self: center;
     font-family: "Black Ops One", cursive;
 }
+
+
 
 @keyframes blinker {
     5% {
@@ -724,9 +726,6 @@ button:active {
         flex-direction: column-reverse !important;
     }
 
-    .detailedEntry h3 {
-        font-size: 5vmax !important;
-    }
 
     .detailedEntry span {
         font-size: 3vmax !important;
@@ -1026,12 +1025,26 @@ button:active {
     background-color: rgba(0, 0, 0, 0.144);
     border-radius: 100px;
     border: 0;
-    margin-bottom: 10px;
-    margin-top: 10px;
     font-family: "Poller One", cursive;
-    color: red;
-    font-size: 20px;
+    color: white;
+    font-size: 1vmax;
+    margin-bottom: 1vh;
+    padding: 0.5vmax;
+    width: 40vw;
 }
+
+.selectGigEntry {
+    background-color: yellow;
+    border-radius: 100px;
+    border: 0;
+    font-family: "Poller One", cursive;
+    color: purple;
+    font-size: 1vmax;
+    margin-bottom: 1vh;
+    padding: 0.5vmax;
+    width: 40vw;
+}
+
 
 .pin {
     width: 40px;
@@ -2056,28 +2069,22 @@ font-family: 'Ultra', serif; */
 }
 
 .gigEntryContainer {
-    height: 70vh;
-    max-height: 70vh;
+    height: 90vh;
     color: yellow;
     font-size: 3vmax;
 }
 
-.selectGig {
-    color: white;
-    font-size: 2vmax;
-}
 
 .gigEntryContainer form {
     margin: 0;
 }
 
-.gigEntryContainer form option {
-    font-size: 1vmax;
-    color: red;
-}
 
 .gigEntryContainer form select {
-    width: 15vmax;
+    width: 17vw;
+}
+.gigEntryContainer form option {
+    color:black
 }
 
 .gigEntryDetails img {
@@ -2085,6 +2092,7 @@ font-family: 'Ultra', serif; */
     height: 30vmax;
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.281), 0 -0 10px rgba(0, 0, 0, 0.281),
         -0 -0 10px rgba(0, 0, 0, 0.281), -0 -0 10px rgba(0, 0, 0, 0.281);
+    margin:5vh;
 }
 
 .detailedEntry {
@@ -2092,21 +2100,25 @@ font-family: 'Ultra', serif; */
     text-align: center;
 }
 
-.detailedEntry h3 {
-    margin: 0;
-    text-decoration: underline 7px purple;
-    letter-spacing: 10px;
-}
 
 .detailedEntry h1 {
-    line-break: strict;
-    width: 30vw;
+
     font-size: 1.5vmax;
+   border-bottom: 1px solid purple;
+  padding-bottom:5vh;
+  height: fit-content;
+}
+
+
+.detailedEntry h1:nth-child(8) {
+    border-bottom: none;
+    padding-bottom:0;
 }
 
 .detailedEntry span {
     color: lime;
     font-size: 2.5vmax;
+
 }
 
 .gigEntryDetails {
@@ -2114,8 +2126,5 @@ font-family: 'Ultra', serif; */
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border: 0.1px solid rgba(225, 0, 255, 0.877);
-    border-style: ridge;
-    padding: 2vmax;
-    border-radius: 1vh;
+    border: 0.1px solid purple;
 }

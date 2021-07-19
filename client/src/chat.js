@@ -169,11 +169,22 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                     msgTime[2];
 
                                 if (msg.chat_msg === "--##--left--##--") {
-                                    return (
-                                        <p className="userLeaves" key={msg.id}>
-                                            {msg.nickname} has left the chat
-                                        </p>
-                                    );
+                                    // console.log("msgDate", msgDate[2]);
+                                    // const date1 = new Date();
+                                    // console.log(date1.getDay());
+                                    // if (date1.getDate() > msgDate[2]) {
+                                    //     return;
+                                    // } else 
+                                    {
+                                        return (
+                                            <p
+                                                className="userLeaves"
+                                                key={msg.id}
+                                            >
+                                                {msg.nickname} has left the chat
+                                            </p>
+                                        );
+                                    }
                                 } else if (
                                     msg.chat_msg === "--##--entered--##--"
                                 ) {

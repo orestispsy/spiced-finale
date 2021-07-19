@@ -12,6 +12,7 @@ export default class GigEntry extends Component {
         axios
             .get("/gig/" + this.props.match.params.id)
             .then(({ data }) => {
+                console.log
                 this.setState({
                     city: data.data.city,
                     id: data.data.id,
@@ -23,7 +24,7 @@ export default class GigEntry extends Component {
                 });
             })
             .catch((err) => {
-                console.log("err in axios App User POST Request : ", err);
+                console.log("err in Gig Entry GET Request : ", err);
             });
     }
 
@@ -66,7 +67,7 @@ export default class GigEntry extends Component {
                 <form>
                     <select
                         name="selectedGig"
-                        className="selectGig"
+                        className="selectGigEntry"
                         onChange={(e) => this.gigSelector(e)}
                     >
                         <option className="chooseGig" value="">
@@ -81,10 +82,10 @@ export default class GigEntry extends Component {
                     </select>
                 </form>
 
-                <div className="gigEntryDetails" key={this.state.key}>
+                <div className="gigEntryDetails" >
                     {this.state.poster && <img src={this.state.poster}></img>}
                     <div className="detailedEntry">
-                        <h3>Info</h3>
+             
                         <span>Venue</span>
                         <h1>{this.state.venue}</h1>
                         <span>City</span>

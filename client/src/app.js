@@ -249,6 +249,7 @@ export default class App extends Component {
                                 )}
                             />
                             <Route
+                                exact
                                 path="/chat"
                                 render={(props) => (
                                     <Chat
