@@ -411,13 +411,15 @@ io.on("connection", function (socket) {
 
     db.getChatMsgs()
         .then(({ rows }) => {
+            var cleanRows = []
           for(x=1; x<rows.length-1; x++) {
-              if (rows[x].chat_msg.includes("--##--")) {
-                rows.splice(0, 10)
+              if (!rows[x].chat_msg.includes("--##--")) {
+                cleanRows.push(rows[x])
               }
           }
+          console.log(cleanRows)
             // console.log(" chat-messages ROWS", rows);
-            socket.emit("chatMessages", rows);
+            socket.emit("chatMessages", cleanRows);
         })
         .catch((err) => console.log(err));
 
