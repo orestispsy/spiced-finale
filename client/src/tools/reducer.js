@@ -4,23 +4,21 @@ export default function (state = {}, action) {
     if (action.type == "CHAT_MESSAGES") {
         nextState = {
             ...state,
-            chatMessages: action.msgs.reverse(),
+            chatMessages: action.msgs
+                .filter((msg) => msg.chat_msg.indexOf("--##--"))
+                .reverse(),
         };
     }
     if (action.type == "NEXT_CHAT_MESSAGES") {
         nextState = {
             ...state,
-            chatMessages: state.chatMessages
-                .reverse()
-                .concat(action.msgs)
-                .reverse()
+            chatMessages: state.chatMessages.reverse().concat(action.msgs).reverse(),
         };
     }
     if (action.type == "CHAT_MESSAGE") {
         nextState = {
             ...state,
-            chatMessages: state.chatMessages
-                .concat(action.msg)
+            chatMessages: state.chatMessages.concat(action.msg),
         };
     }
     if (action.type == "ONLINE_USERS") {
