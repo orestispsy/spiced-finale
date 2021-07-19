@@ -4,12 +4,7 @@ export default function (state = {}, action) {
     if (action.type == "CHAT_MESSAGES") {
         nextState = {
             ...state,
-            chatMessages: action.msgs
-                .filter(
-                    (msg) =>
-                        msg.chat_msg === "--##--"
-                )
-                .reverse(),
+            chatMessages: action.msgs.reverse(),
         };
     }
     if (action.type == "NEXT_CHAT_MESSAGES") {
