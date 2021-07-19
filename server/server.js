@@ -411,6 +411,11 @@ io.on("connection", function (socket) {
 
     db.getChatMsgs()
         .then(({ rows }) => {
+          for(x=1; x<rows.length-1; x++) {
+              if (rows[x].chat_msg.includes("--##--")) {
+                rows.splice(0, 10)
+              }
+          }
             // console.log(" chat-messages ROWS", rows);
             socket.emit("chatMessages", rows);
         })

@@ -5,7 +5,6 @@ export default function (state = {}, action) {
         nextState = {
             ...state,
             chatMessages: action.msgs
-                .filter((msg) => msg.chat_msg.indexOf("--##--"))
                 .reverse(),
         };
     }
