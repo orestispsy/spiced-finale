@@ -416,7 +416,7 @@ io.on("connection", function (socket) {
                 if (!rows[x].chat_msg.includes("--##--")) {
                     clearRows.push(rows[x]);
                 }
-            }
+            }clearRows.splice(10,rows.length-1)
             socket.emit("chatMessages", clearRows);
         })
         .catch((err) => console.log(err));
