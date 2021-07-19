@@ -133,7 +133,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                     ▼
                                 </div>
                                 <div
-                                    title="Load 20 Μore Chat Posts"
+                                    title="Load Μore Chat Posts"
                                     className="next"
                                     onClick={() => next20ChatMsgs()}
                                 >
@@ -174,7 +174,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                     // console.log(date1.getDay());
                                     // if (date1.getDate() > msgDate[2]) {
                                     //     return;
-                                    // } else 
+                                    // } else
                                     {
                                         return (
                                             <p
@@ -240,24 +240,28 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                             }}
                         ></textarea>
                         <div
+                            title="Send Message"
                             className="sendChatMsg"
                             onClick={() => sendChatMsgButton()}
                         ></div>
                         <div className="chatControls">
                             {!mute && (
                                 <div
+                                    title="Mute"
                                     className="mute"
                                     onClick={() => setMute(!mute)}
                                 ></div>
                             )}
                             {mute && (
                                 <div
+                                    title="Play"
                                     className="play"
                                     onClick={() => setMute(!mute)}
                                 ></div>
                             )}
                         </div>
                         <div
+                            title="Emojis!"
                             className="emojiBarToggler"
                             onClick={() => toggleEmojibar()}
                         ></div>

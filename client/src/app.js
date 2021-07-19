@@ -155,6 +155,7 @@ export default class App extends Component {
                                     {!this.state.maps && (
                                         <Link to="/chat">
                                             <div
+                                                title="Chat Room"
                                                 className="chatBar"
                                                 onClick={(e) =>
                                                     this.listSet(false)
@@ -176,6 +177,7 @@ export default class App extends Component {
                                     <Link
                                         to="/"
                                         className="barMainLink"
+                                        title="Back"
                                         onClick={() => this.mapVisible()}
                                     ></Link>
                                 )}

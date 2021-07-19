@@ -28,14 +28,18 @@ export default function Main({ admin, listSet, visitors }) {
                 <p>GIG GUIDE</p>
             </div>
             {admin && (
-                <div className="easterEgg">
+                <div className="easterEgg" title="Map">
                     <Link to="/map">
                         <img src="redBall.gif"></img>
                     </Link>
                 </div>
             )}
             <div className="mainMenu">
-                {!admin && <Link to="/map"> Map</Link>}
+                {!admin && (
+                    <Link to="/map" title="Map">
+                        Map
+                    </Link>
+                )}
                 {admin && <Link to="/gig-creator"> Add</Link>}
                 <Link to="/gig-list">Gig List</Link>
                 {admin && <Link to="/gig-editor"> Edit</Link>}

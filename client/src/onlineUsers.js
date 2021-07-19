@@ -108,7 +108,10 @@ export default function OnlineUsers({
                 <div className="onlineUsers">
                     {!userPicBar && !emojiBar && (
                         <Link to="/">
-                            <div className="onlineUsersRedDot"></div>
+                            <div
+                                className="onlineUsersRedDot"
+                                title="Back"
+                            ></div>
                         </Link>
                     )}
                     {!userPicBar && (
@@ -198,6 +201,7 @@ export default function OnlineUsers({
 
                             <input
                                 className="colorSelector"
+                                title="Change Your Chat Color"
                                 type="color"
                                 defaultValue={chat_color || `#00f01c`}
                                 onChange={(e) => handleColorChange(e)}
