@@ -19,7 +19,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
     const elemRef = useRef();
 
     const chatMessages = useSelector((state) => state && state.chatMessages);
-    
+
     // console.log("THE MESSAGES", chatMessages);
 
     useEffect(() => {
