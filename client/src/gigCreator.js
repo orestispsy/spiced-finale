@@ -166,6 +166,7 @@ export default class GigCreator extends React.Component {
                             <p className="required">*required</p>
                         </div>
                     )}
+                   
                 </form>
                 {this.state.error && (
                     <p className="error">Oups! Something Went Wrong.</p>

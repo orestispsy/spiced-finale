@@ -152,6 +152,7 @@ const WithGoogleMapComponent = compose(
                 </InfoWindow>
             )}
             <div
+            title="Change Map Color"
                 className="switch"
                 onClick={(e) => switcherHelper(props.switcher + 1)}
             ></div>
