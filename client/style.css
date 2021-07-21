@@ -439,24 +439,22 @@ button:active {
     border-radius: 50%;
 }
 
-
 .easterEgg img {
     width: 10vmax;
     border-radius: 50%;
     margin: 20px;
-    margin-top:-3vmax;
-     background: radial-gradient(
+    margin-top: -3vmax;
+    background: radial-gradient(
         closest-side,
         #d9ff2e00,
         #ff585217,
         #61ff5210,
-        #b1151500)
-     
+        #b1151500
+    );
 }
 
 .easterEgg img:hover {
-     box-shadow: inset 0 0 0 100px rgba(187, 255, 0, 0.033)
- 
+    box-shadow: inset 0 0 0 100px rgba(187, 255, 0, 0.033);
 }
 
 .mainMenu {
@@ -469,13 +467,12 @@ button:active {
 }
 
 .mainMenu a:nth-child(2) {
-    margin-top:-1vmax;
+    margin-top: -1vmax;
 }
 
-
 .mainMenuEditOptions {
-    display:flex;
-    margin: 0 1vmax 0 1vmax
+    display: flex;
+    margin: 1vmax 0 1vmax;
 }
 
 .logoBack {
@@ -594,12 +591,12 @@ button:active {
     }
     .easterEgg img {
         width: 20vmax !important;
-        margin-top:-4vmax !important
+        margin-top: -4vmax !important;
     }
 
     .mainMenu a:nth-child(2) {
-    margin-top:-7vmax !important
-}
+        margin-top: -5vmax !important;
+    }
     .chatContainerBack {
         flex-direction: column !important;
     }
@@ -815,13 +812,11 @@ button:active {
     }
 
     .mainMenu {
-
         width: 70vw !important;
     }
 
-     .easterEgg img {
+    .easterEgg img {
         width: 14vmax !important;
-       
     }
 
     .chatContainer {
@@ -1427,6 +1422,16 @@ font-family: 'Ultra', serif; */
     text-shadow: none;
     font-weight: bold;
     margin-right: 5px;
+}
+
+.deleteChatMsg {
+    background-image: url("delete.png");
+    background-size: cover;
+    width: 0.8vmax;
+    height: 0.8vmax;
+    margin-top: -0.8vmax;
+    mix-blend-mode: hard-light;
+    cursor: pointer;
 }
 
 .post img {

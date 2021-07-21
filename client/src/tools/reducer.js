@@ -39,7 +39,9 @@ export default function (state = {}, action) {
         nextState = {
             ...state,
             onlineUsers: state.onlineUsers.filter(
+                (user) => user.id != action.onlineUserfilter(
                 (user) => user.id != action.onlineUser
+            )
             ),
         };
     }

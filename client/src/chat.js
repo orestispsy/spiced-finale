@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import axios from "./tools/axios";
 import { socket } from "./tools/socket";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -106,6 +107,21 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
         setTickerBar(!tickerBar);
     };
 
+    const handleChatPostDelete = (e) => {
+        const position = elemRef.current.scrollTop;
+
+        socket.emit(
+            "DELETE MSG",
+            chatMessages.reverse().filter((msg) => msg.id !== e),
+            e
+        );
+
+        const timer = setTimeout(() => {
+            elemRef.current.scrollTop = position;
+        }, 500);
+        return () => clearTimeout(timer);
+    };
+
     if (!chatMessages) {
         return null;
     }
@@ -207,6 +223,18 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                                     ></img>
                                                     <h1>{msg.nickname}</h1>
                                                 </div>
+                                                {chat_myUserId ==
+                                                    msg.msg_sender_id && (
+                                                    <div
+                                                        title="Delete"
+                                                        className="deleteChatMsg"
+                                                        onClick={(e) =>
+                                                            handleChatPostDelete(
+                                                                msg.id
+                                                            )
+                                                        }
+                                                    ></div>
+                                                )}
                                                 <div
                                                     className="finalMessage"
                                                     style={{
@@ -219,6 +247,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                                     }}
                                                 ></div>
                                             </div>
+
                                             <div className="date">
                                                 {fixedDate}
                                             </div>

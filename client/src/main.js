@@ -30,9 +30,12 @@ export default function Main({ admin, listSet, visitors }) {
 
             <div className="mainMenu">
                 {!admin && (
-                    <Link to="/map" title="Map">
-                        Map
-                    </Link>
+                   
+                        <div className="easterEgg" title="Map">
+                            <Link to="/map">
+                                <img src="globe-rocket.png"></img>
+                            </Link>
+                            </div>
                 )}
                 {admin && (
                     <div className="mainMenuEditOptions">

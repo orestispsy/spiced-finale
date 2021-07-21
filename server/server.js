@@ -230,25 +230,13 @@ app.post("/gig-update", (req, res) => {
         });
 });
 
-app.post("/gig-delete", (req, res) => {
-    db.getGig(req.body.selectedGig.id)
-        .then(({ rows }) => {
-            if (rows[0].poster) {
-                const file2delete = rows[0].poster.replace(s3Url, "");
-                s3.delete(file2delete);
-            }
-        })
-        .catch((err) => {
-            res.json({ error: true });
-            console.log(err);
-        });
-
-    db.deleteGig(req.body.selectedGig.date)
-        .then(({ rows }) => {
-            res.json({ deleteSuccess: true });
-        })
-        .catch((err) => console.log(err));
-});
+// app.post("/chat-post-delete", (req, res) => {
+//     db.deleteChatPost(req.body.id)
+//         .then(({ rows }) => {
+//             res.json(rows[0]);
+//         })
+//         .catch((err) => console.log(err));
+// });
 
 app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     const { filename } = req.file;
@@ -420,7 +408,7 @@ io.on("connection", function (socket) {
                     clearRows.push(rows[x]);
                 }
             }
-            clearRows.splice(10,rows.length-1)
+            clearRows.splice(10, rows.length - 1);
             socket.emit("chatMessages", clearRows);
         })
         .catch((err) => console.log(err));
@@ -445,6 +433,14 @@ io.on("connection", function (socket) {
                         io.emit("chatMessage", rows[0]);
                     })
                     .catch((err) => console.log(err));
+            })
+            .catch((err) => console.log(err));
+    });
+
+    socket.on("DELETE MSG", (chatMessages, e) => {
+        db.deleteChatPost(e)
+            .then(({ rows }) => {
+                socket.emit("chatMessages", chatMessages);
             })
             .catch((err) => console.log(err));
     });
