@@ -203,6 +203,26 @@ app.post("/get-gig-to-edit", (req, res) => {
         .catch((err) => console.log(err));
 });
 
+app.post("/gig-delete", (req, res) => {
+    db.getGig(req.body.selectedGig.id)
+        .then(({ rows }) => {
+            if (rows[0].poster) {
+                const file2delete = rows[0].poster.replace(s3Url, "");
+                s3.delete(file2delete);
+            }
+        })
+        .catch((err) => {
+            res.json({ error: true });
+            console.log(err);
+        });
+
+    db.deleteGig(req.body.selectedGig.date)
+        .then(({ rows }) => {
+            res.json({ deleteSuccess: true });
+        })
+        .catch((err) => console.log(err));
+});
+
 app.get("/gig/:selection", (req, res) => {
     db.getGig(req.params.selection)
         .then(({ rows }) => {
@@ -229,14 +249,6 @@ app.post("/gig-update", (req, res) => {
             console.log(err);
         });
 });
-
-// app.post("/chat-post-delete", (req, res) => {
-//     db.deleteChatPost(req.body.id)
-//         .then(({ rows }) => {
-//             res.json(rows[0]);
-//         })
-//         .catch((err) => console.log(err));
-// });
 
 app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     const { filename } = req.file;

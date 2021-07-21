@@ -258,6 +258,7 @@ export default class App extends Component {
                                         chat_img={this.state.chat_img}
                                         chat_myUserId={this.state.id}
                                         chat_color={this.state.chat_color}
+                                        admin={this.state.admin}
                                     />
                                 )}
                             />

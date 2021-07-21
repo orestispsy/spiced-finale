@@ -10,7 +10,7 @@ import useSound from "use-sound";
 
 import chatSfx from "./../public/msg.mp3";
 
-export default function Chat({ chat_color, chat_img, chat_myUserId }) {
+export default function Chat({ chat_color, chat_img, chat_myUserId, admin }) {
     const [emojiBar, setEmojiBar] = useState(false);
     const [tickerBar, setTickerBar] = useState(false);
     const [mute, setMute] = useState(false);
@@ -223,7 +223,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId }) {
                                                     ></img>
                                                     <h1>{msg.nickname}</h1>
                                                 </div>
-                                                {chat_myUserId ==
+                                                {admin && chat_myUserId ==
                                                     msg.msg_sender_id && (
                                                     <div
                                                         title="Delete"

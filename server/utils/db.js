@@ -145,7 +145,7 @@ module.exports.getChatMsgs = () => {
         JOIN community
         ON (community.id = msg_sender_id)
         ORDER BY chatroom.created_at DESC
-        LIMIT 200
+        LIMIT 250
         ;
     `;
     return db.query(q);
