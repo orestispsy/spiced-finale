@@ -33,7 +33,7 @@ export default function Main({ admin, listSet, visitors }) {
                    
                         <div className="easterEgg" title="Map">
                             <Link to="/map">
-                                <img src="globe-rocket.png"></img>
+                                <img src="globe.png"></img>
                             </Link>
                             </div>
                 )}
@@ -42,7 +42,7 @@ export default function Main({ admin, listSet, visitors }) {
                         <Link to="/gig-creator"> Add</Link>
                         <div className="easterEgg" title="Map">
                             <Link to="/map">
-                                <img src="globe-rocket.png"></img>
+                                <img src="globe4.gif"></img>
                             </Link>
                         </div>
                         <Link to="/gig-editor"> Edit</Link>

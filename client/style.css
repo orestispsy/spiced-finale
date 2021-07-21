@@ -440,21 +440,26 @@ button:active {
 }
 
 .easterEgg img {
-    width: 10vmax;
+    width: 7vmax;
+    height: 7vmax;
+    
     border-radius: 50%;
-    margin: 20px;
-    margin-top: -3vmax;
-    background: radial-gradient(
-        closest-side,
-        #d9ff2e00,
-        #ff585217,
-        #61ff5210,
-        #b1151500
-    );
+    margin: -3vmax 2vmax 2vmax 2vmax;
+    object-fit:cover;
+
+    
+
+  box-shadow: -0 0 15px black, 0 -0 15px black, -0 -0 15px black,
+        -0 -0 15px black;
+
+
 }
 
 .easterEgg img:hover {
-    box-shadow: inset 0 0 0 100px rgba(187, 255, 0, 0.033);
+  box-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
+        -0 -0 10px black;
+
+
 }
 
 .mainMenu {
@@ -590,8 +595,9 @@ button:active {
         font-size: 6vmax !important;
     }
     .easterEgg img {
-        width: 20vmax !important;
-        margin-top: -4vmax !important;
+        width: 11vmax !important;
+        height: 11vmax !important;
+        margin-top: -2vmax !important;
     }
 
     .mainMenu a:nth-child(2) {
@@ -816,7 +822,9 @@ button:active {
     }
 
     .easterEgg img {
-        width: 14vmax !important;
+        width: 8vmax !important;
+        height: 8vmax !important;
+     margin-top: -1vmax!important
     }
 
     .chatContainer {
