@@ -439,7 +439,7 @@ button:active {
     height: 8vmax;
     
     border-radius: 50%;
-    margin: -3vmax 4vmax 3vmax 4vmax;
+    margin: -3vmax 4vmax 2vmax 4vmax;
     object-fit:cover;
 
     
@@ -480,9 +480,9 @@ button:active {
 .mainMenuLink{
     background:linear-gradient(112.72013189013455deg, rgba(240, 92, 7, 0.253) 4.927083333333334%,rgba(30, 189, 176, 0.671) 97.84374999999999%);
 color:#e5ff00;
-        font-size: 2.5vmax;
+        font-size: 2.3vmax;
     height:3vmax;
-    padding:1vmax;
+    padding:0.5vmax 1vmax;
     border-radius: 10vh;
      box-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432),
         -0 -0 10px rgba(0, 0, 0, 0.432);
@@ -629,7 +629,7 @@ color:#e5ff00;
     .easterEgg img {
         width: 16vmax !important;
         height: 16vmax !important;
-        margin: -5vmax 5vmax 5vmax 5vmax!important;
+        margin: -5vmax 3vmax 7vmax 3vmax!important;
     }
 
     .mainMenu a:nth-child(2) {
