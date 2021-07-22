@@ -2234,7 +2234,8 @@ font-family: 'Ultra', serif; */
     width:10vw;
     height:20vh;
     margin:1vmax;
-    border-radius: 1vh
+    border-radius: 1vh;
+    cursor:pointer;
 }
 
 .gigEditorContainer {
@@ -2243,6 +2244,7 @@ font-family: 'Ultra', serif; */
 
 .posterEdit{
     width:40vw;
+    margin-left: 5vmax;
 }
 
 .posterEditBox {

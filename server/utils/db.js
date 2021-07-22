@@ -217,8 +217,7 @@ module.exports.getNextMsgs = (id) => {
 
 module.exports.getImages = () => {
     const q = `
-     SELECT *
-        FROM gigs WHERE gigs.poster IS NOT null
+    SELECT DISTINCT(poster) FROM gigs;
 
     `;
     const params = [];
