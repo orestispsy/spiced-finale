@@ -251,7 +251,7 @@ form {
     color: orangered;
     max-height: 85vh;
     width: 40vw;
-    margin-bottom: 4vh;
+
 }
 
 form span {
@@ -266,9 +266,10 @@ form option {
 }
 
 .editMapToggler {
+    margin: -0.5vmax 0 0.5vmax 0;
     font-size: 1.5vmax;
     color: rgb(59, 253, 146);
-    margin-bottom: 1vmax;
+
     cursor: pointer;
     text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
         -0 -0 10px black;
@@ -437,26 +438,20 @@ button:active {
 .easterEgg img {
     width: 8vmax;
     height: 8vmax;
-    
     border-radius: 50%;
-    margin: -3vmax 4vmax 2vmax 4vmax;
-    object-fit:cover;
-
-    
-
-  box-shadow: -0 0 15px black, 0 -0 15px black, -0 -0 15px black,
+    margin: -3vmax 4vmax 3vmax 4vmax;
+    object-fit: cover;
+    box-shadow: -0 0 15px black, 0 -0 15px black, -0 -0 15px black,
         -0 -0 15px black;
-
-
 }
 
 .easterEgg img:hover {
-  box-shadow: -0 0 25px black, 0 -0 25px black, -0 -0 25px black,
+    box-shadow: -0 0 25px black, 0 -0 25px black, -0 -0 25px black,
         -0 -0 25px black;
 }
 
 .easterEgg img:active {
-      box-shadow: -0 0 15px black, 0 -0 15px black, -0 -0 15px black,
+    box-shadow: -0 0 15px black, 0 -0 15px black, -0 -0 15px black,
         -0 -0 15px black;
 }
 
@@ -467,40 +462,50 @@ button:active {
     align-items: center;
     align-self: center;
     margin-top: 2vmax;
-    
+
     background: radial-gradient(
         closest-side,
         #d9ff2e00,
         #ff585217,
-        #52fff638,
+        #52fff627,
         #b1151500
     );
 }
 
-.mainMenuLink{
-    background:linear-gradient(112.72013189013455deg, rgba(240, 92, 7, 0.253) 4.927083333333334%,rgba(30, 189, 176, 0.671) 97.84374999999999%);
-color:#e5ff00;
-        font-size: 2.3vmax;
-    height:3vmax;
-    padding:0.5vmax 1vmax;
+.mainMenuLink {
+    background: linear-gradient(
+        112.72013189013455deg,
+        rgba(240, 92, 7, 0.253) 4.927083333333334%,
+        rgba(30, 189, 176, 0.671) 97.84374999999999%
+    );
+    color: #e5ff00;
+    font-size: 2.3vmax;
+    height: 3vmax;
+    padding: 0.5vmax 1vmax;
     border-radius: 10vh;
-     box-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432),
-        -0 -0 10px rgba(0, 0, 0, 0.432);
-        border:1px solid rgba(255, 230, 0, 0.37);
-        border-style: double;
+    box-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
+        -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
+    border: 1px solid rgba(255, 230, 0, 0.37);
+    border-style: double;
 }
 
 .mainMenuLink:hover {
-      box-shadow: -0 0 10px rgba(255, 208, 0, 0.205), 0 -0 10px rgba(255, 208, 0, 0.205), -0 -0 10px rgba(255, 208, 0, 0.212),
+    box-shadow: -0 0 10px rgba(255, 208, 0, 0.205),
+        0 -0 10px rgba(255, 208, 0, 0.205), -0 -0 10px rgba(255, 208, 0, 0.212),
         -0 -0 10px rgba(255, 208, 0, 0.178);
-        background: linear-gradient(112.72013189013455deg, rgba(224, 247, 135,1) 4.927083333333334%,rgba(78, 227, 250,1) 97.84374999999999%);    
+    background: linear-gradient(
+        112.72013189013455deg,
+        rgba(224, 247, 135, 1) 4.927083333333334%,
+        rgba(78, 227, 250, 1) 97.84374999999999%
+    );
 }
 
 .mainMenuLink:hover:active {
-   box-shadow: -0 0 15px rgba(255, 208, 0, 0.205), 0 -0 15px rgba(255, 208, 0, 0.205), -0 -0 15px rgba(255, 208, 0, 0.205),
+    box-shadow: -0 0 15px rgba(255, 208, 0, 0.205),
+        0 -0 15px rgba(255, 208, 0, 0.205), -0 -0 15px rgba(255, 208, 0, 0.205),
         -0 -0 15px rgba(255, 208, 0, 0.205);
     color: rgba(255, 208, 0, 0.541);
-    text-shadow:none;
+    text-shadow: none;
 }
 
 .mainMenu a:nth-child(2) {
@@ -622,14 +627,14 @@ color:#e5ff00;
         justify-content: space-evenly !important;
         height: 40vw !important;
     }
-    .mainMenuLink{
+    .mainMenuLink {
         font-size: 4vmax !important;
         padding: 2vmax 3vmax 4vmax 3vmax !important;
     }
     .easterEgg img {
         width: 16vmax !important;
         height: 16vmax !important;
-        margin: -5vmax 3vmax 7vmax 3vmax!important;
+        margin: -5vmax 3vmax 7vmax 3vmax !important;
     }
 
     .mainMenu a:nth-child(2) {
@@ -847,7 +852,7 @@ color:#e5ff00;
     }
     .mainMenuLink {
         font-size: 4vmax !important;
-        padding: 1vmax 2vmax 3vmax 2vmax!important;
+        padding: 1vmax 2vmax 3vmax 2vmax !important;
     }
 
     .mainMenu {
@@ -857,7 +862,7 @@ color:#e5ff00;
     .easterEgg img {
         width: 12vmax !important;
         height: 12vmax !important;
-     margin: -2.5vmax 4vmax 3vmax 4vmax!important
+        margin: -2.5vmax 4vmax 3vmax 4vmax !important;
     }
 
     .chatContainer {
@@ -992,8 +997,7 @@ color:#e5ff00;
     }
 
     .google-map-editor {
-        height:15vmax !important;
-
+        height: 15vmax !important;
     }
 }
 
@@ -1238,6 +1242,14 @@ div:focus {
     border-radius: 1vh;
 }
 
+.preFileUploader {
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
 .fileUploader {
     display: flex;
     flex-direction: row;
@@ -1245,6 +1257,7 @@ div:focus {
     align-items: center;
     align-self: center;
     border-radius: 1vh;
+    margin: 3vh 0 0 -2.2vmax
 }
 
 .fileUploader p {
@@ -2215,4 +2228,33 @@ font-family: 'Ultra', serif; */
     align-items: center;
     justify-content: center;
     border: 0.1px solid purple;
+}
+
+.posterEditPreview {
+    width:10vw;
+    height:20vh;
+    margin:1vmax;
+    border-radius: 1vh
+}
+
+.gigEditorContainer {
+    flex-direction: row;
+}
+
+.posterEdit{
+    width:40vw;
+}
+
+.posterEditBox {
+display:flex;
+align-items: center;
+justify-content: center;
+width:100vw
+}
+
+.posterSectionToggler {
+    font-size:1.3vmax;
+    font-family: "Black Ops One", cursive;
+    color:cyan;
+    cursor: pointer;
 }

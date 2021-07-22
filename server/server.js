@@ -232,14 +232,15 @@ app.get("/gig/:selection", (req, res) => {
 });
 
 app.post("/gig-update", (req, res) => {
-    let { date, venue, lat, lng, tour_name, city } = req.body.selectedGig;
+    let { date, venue, lat, lng, tour_name, city, poster } = req.body.selectedGig;
     db.updateGig(
         req.body.date || date,
         req.body.venue || venue,
         req.body.lat || lat,
         req.body.lng || lng,
         req.body.tour_name || tour_name,
-        req.body.city || city
+        req.body.city || city,
+        req.body.selectedPoster || poster
     )
         .then(({ rows }) => {
             res.json({ data: rows[0] });
@@ -337,6 +338,14 @@ app.post("/changeColor", (req, res) => {
     db.addChatColor(req.session.userId, color)
         .then(({ rows }) => {
             res.json({ data: rows[0] });
+        })
+        .catch((err) => console.log(err));
+});
+
+app.get("/get-images", (req, res) => {
+    db.getImages()
+        .then(({ rows }) => {
+            res.json({ rows });
         })
         .catch((err) => console.log(err));
 });

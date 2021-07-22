@@ -77,14 +77,14 @@ module.exports.getGig = (id) => {
 
 
 
-module.exports.updateGig = (date, venue, lat, lng, tour_name, city) => {
+module.exports.updateGig = (date, venue, lat, lng, tour_name, city, poster) => {
     const q = `
         UPDATE gigs
-        SET date = $1, venue = $2, lat = $3, lng = $4, tour_name = $5, city = $6
+        SET date = $1, venue = $2, lat = $3, lng = $4, tour_name = $5, city = $6, poster = $7
         WHERE gigs.date = $1
         RETURNING *
     `;
-    const params = [date, venue, lat, lng, tour_name, city];
+    const params = [date, venue, lat, lng, tour_name, city, poster];
     return db.query(q, params);
 };
 
@@ -212,6 +212,16 @@ module.exports.getNextMsgs = (id) => {
         LIMIT 20;
     `;
     const params = [id];
+    return db.query(q, params);
+};
+
+module.exports.getImages = () => {
+    const q = `
+     SELECT *
+        FROM gigs WHERE gigs.poster IS NOT null
+
+    `;
+    const params = [];
     return db.query(q, params);
 };
 

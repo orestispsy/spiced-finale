@@ -4,6 +4,8 @@ import axios from "./tools/axios";
 
 import EditMap from "./editMap";
 
+import Posters from "./posters";
+
 export default class GigEditor extends React.Component {
     constructor(props) {
         // console.log("PROPS IN EDITOR", props);
@@ -16,6 +18,8 @@ export default class GigEditor extends React.Component {
             deleteSuccess: false,
             file: false,
             map: false,
+            selectedPoster: "",
+            posterSection: false,
         };
     }
 
@@ -101,6 +105,8 @@ export default class GigEditor extends React.Component {
                 lng: "",
                 tour_name: "",
                 city: "",
+                poster: "",
+                selectedPoster: "",
             }
             // () => console.log("State after setState: ", this.state)
         );
@@ -137,12 +143,18 @@ export default class GigEditor extends React.Component {
                     })
                     .catch((err) => {
                         console.log(
-                            "err in axios App User POST Request : ",
+                            "err in axios Gig Editor POST Request : ",
                             err
                         );
                     });
             }
         );
+    }
+
+    posterSelector(e) {
+        this.setState({
+            selectedPoster: e,
+        });
     }
 
     gigDelete() {
@@ -171,6 +183,12 @@ export default class GigEditor extends React.Component {
         });
     }
 
+    setPosterSection() {
+        this.setState({
+            posterSection: !this.state.posterSection,
+        });
+    }
+
     coordinator(e) {
         this.setState({
             selectedGig: {
@@ -181,8 +199,6 @@ export default class GigEditor extends React.Component {
             new_lng: parseFloat(e.latLng.lng()),
             new_lat: parseFloat(e.latLng.lat()),
         });
-        console.log("State after setState: ", this.state);
-        console.log(this.state.selectedGig.lat);
     }
 
     mapToggler() {
@@ -346,6 +362,71 @@ export default class GigEditor extends React.Component {
                             {this.state.map && "Close Map"}
                         </div>
                     )}
+                    {!this.state.map && (
+                        <div className="posterEditBox">
+                            <div className="inputBack">
+                                <span>Poster</span>
+                                <input
+                                    value={
+                                        this.state.selectedPoster ||
+                                        this.state.selectedGig.poster ||
+                                        ""
+                                    }
+                                    autoComplete="none"
+                                    name="poster"
+                                    placeholder="Poster"
+                                    onChange={(e) => this.handleChange(e)}
+                                    onClick={() => this.handleErrorMsg()}
+                                    onChange={(e) => this.inputReset(e)}
+                                    onClick={(e) => this.deleteWarn(false)}
+                                />
+                            </div>
+                            {this.state.selectedGig.id &&
+                                !this.state.deleteSuccess && (
+                                    <div className="fileUploader">
+                                        <img
+                                            className="imgPreview"
+                                            src={
+                                                this.state.selectedPoster ||
+                                                this.state.selectedGig.poster ||
+                                                "na.jpg"
+                                            }
+                                        ></img>
+
+                                        <input
+                                            type="file"
+                                            name="file"
+                                            accept="image/*"
+                                            onChange={(e) =>
+                                                this.handleUploaderChange(e)
+                                            }
+                                        />
+                                        {!this.state.success && (
+                                            <div
+                                                className="upload"
+                                                onClick={() =>
+                                                    this.handleUploaderClick()
+                                                }
+                                            >
+                                                Upload
+                                            </div>
+                                        )}
+                                        {this.state.success && (
+                                            <div className="uploadSuccess"></div>
+                                        )}
+                                    </div>
+                                )}
+                        </div>
+                    )}
+                    {this.state.selectedGig && (
+                        <div
+                            className="posterSectionToggler"
+                            onClick={() => this.setPosterSection()}
+                        >
+                            {!this.state.posterSection && "Gallery"}
+                            {this.state.posterSection && "Close Gallery"}
+                        </div>
+                    )}
                     {this.state.map &&
                         this.state.selectedGig.date &&
                         !this.state.deleteSuccess && (
@@ -381,43 +462,17 @@ export default class GigEditor extends React.Component {
                     {this.state.deleteSuccess && (
                         <div className="deleteSuccess"></div>
                     )}
+                    {this.state.error && (
+                        <p className="error">Oups! Something Went Wrong.</p>
+                    )}
                 </form>
-
-                {this.state.error && (
-                    <p className="error">Oups! Something Went Wrong.</p>
-                )}
-
-                {this.state.selectedGig.id && !this.state.deleteSuccess && (
-                    <div className="fileUploader">
-                        <p>Poster ➤</p>
-                        <img
-                            className="imgPreview"
-                            src={this.state.selectedGig.poster || "na.jpg"}
-                        ></img>
-
-                        <input
-                            type="file"
-                            name="file"
-                            accept="image/*"
-                            onChange={(e) => this.handleUploaderChange(e)}
-                        />
-                        {!this.state.success && (
-                            <div
-                                className="upload"
-                                onClick={() => this.handleUploaderClick()}
-                            >
-                                Upload
-                            </div>
-                        )}
-                        {this.state.success && (
-                            <div className="uploadSuccess"></div>
-                        )}
-                    </div>
-                )}
 
                 <Link to="/" className="backLink">
                     Back
                 </Link>
+                {this.state.posterSection && (
+                    <Posters posterSelector={(e) => this.posterSelector(e)} />
+                )}
             </div>
         );
     }
