@@ -30,25 +30,32 @@ export default function Main({ admin, listSet, visitors }) {
 
             <div className="mainMenu">
                 {!admin && (
-                   
-                        <div className="easterEgg" title="Map">
-                            <Link to="/map">
-                                <img src="globe.png"></img>
-                            </Link>
-                            </div>
+                    <div className="easterEgg" title="Map">
+                        <Link to="/map">
+                            <img src="globe.gif"></img>
+                        </Link>
+                    </div>
                 )}
                 {admin && (
                     <div className="mainMenuEditOptions">
-                        <Link to="/gig-creator"> Add</Link>
+                        <Link to="/gig-creator" className="mainMenuLink">
+                            {" "}
+                            Add
+                        </Link>
                         <div className="easterEgg" title="Map">
                             <Link to="/map">
-                                <img src="globe4.gif"></img>
+                                <img src="globe.gif"></img>
                             </Link>
                         </div>
-                        <Link to="/gig-editor"> Edit</Link>
+                        <Link to="/gig-editor" className="mainMenuLink">
+                            {" "}
+                            Edit
+                        </Link>
                     </div>
                 )}
-                <Link to="/gig-list">Gig List</Link>
+                <Link to="/gig-list" className="mainMenuLink">
+                    Gig List
+                </Link>
 
                 {visitors && (
                     <div className="visitors">
