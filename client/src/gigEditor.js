@@ -379,6 +379,7 @@ export default class GigEditor extends React.Component {
                                     onClick={() => this.handleErrorMsg()}
                                     onChange={(e) => this.inputReset(e)}
                                     onClick={(e) => this.deleteWarn(false)}
+                                    onChange={(e) => this.posterSelector(e.target.value)}
                                 />
                             </div>
                             {this.state.selectedGig.id &&
