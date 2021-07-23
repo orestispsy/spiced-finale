@@ -804,8 +804,8 @@ button:active {
     }
 
     .posterEditPreview {
-        width:12vmax !important;
-        height:17vmax !important;
+        width:10vmax !important;
+        height:15vmax !important;
     }
 }
 
@@ -2243,10 +2243,8 @@ font-family: 'Ultra', serif; */
 }
 
 .posterEdit{
-    width:60vw;
     height:50vh;
     overflow-y: scroll;
-
 }
 
 .posterEditBox {
@@ -2261,4 +2259,9 @@ width:100vw
     font-family: "Black Ops One", cursive;
     color:cyan;
     cursor: pointer;
+    text-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black;
+}
+
+.posterSectionToggler:hover {
+    color:white;
 }

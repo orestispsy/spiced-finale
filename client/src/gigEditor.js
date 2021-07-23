@@ -442,7 +442,7 @@ export default class GigEditor extends React.Component {
                             className="posterSectionToggler"
                             onClick={() => this.setPosterSection()}
                         >
-                            {!this.state.posterSection && "Gallery"}
+                            {!this.state.posterSection && "Photo Gallery"}
                             {this.state.posterSection && "Close Gallery"}
                         </div>
                     )}
