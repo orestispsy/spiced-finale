@@ -804,8 +804,21 @@ button:active {
     }
 
     .posterEditPreview {
-        width:10vmax !important;
-        height:15vmax !important;
+        width:12vmax !important;
+        height:14vmax !important;
+    }
+
+    .posterSectionToggler {
+        margin-bottom: 2vmax !important;
+          font-size: 2vmax !important;
+    }
+
+    form {
+        width: 55vw !important
+    }
+
+    .editMapToggler {
+        font-size: 2vmax !important;
     }
 }
 
