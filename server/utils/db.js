@@ -217,8 +217,7 @@ module.exports.getNextMsgs = (id) => {
 
 module.exports.getImages = () => {
     const q = `
-    SELECT DISTINCT(poster) FROM gigs;
-
+    SELECT DISTINCT ON (poster) id, poster FROM gigs WHERE NOT (poster IS null)
     `;
     const params = [];
     return db.query(q, params);

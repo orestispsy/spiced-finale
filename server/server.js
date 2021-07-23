@@ -233,6 +233,9 @@ app.get("/gig/:selection", (req, res) => {
 
 app.post("/gig-update", (req, res) => {
     let { date, venue, lat, lng, tour_name, city, poster } = req.body.selectedGig;
+    if (poster == ""){
+        poster = null
+    }
     db.updateGig(
         req.body.date || date,
         req.body.venue || venue,

@@ -401,22 +401,12 @@ button:active {
 }
 
 .upload {
-    color: greenyellow;
-    background-color: transparent;
-    font-size: 1vmax;
-    padding: 3px;
     cursor: pointer;
-    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
-        -1px -1px 0 black;
-    margin: 5px;
-}
-
-.upload:hover {
-    color: white;
-}
-
-.upload:active {
-    color: transparent;
+    background-image: url("upload.png");
+    width:2.5vmax;
+    height:2.5vmax;
+    background-size: cover;
+    margin-left: 0.5vmax;
 }
 
 .uploadSuccess {
@@ -429,9 +419,10 @@ button:active {
 }
 
 .imgPreview {
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     margin: 5px;
+    margin-top: -5px;
     border-radius: 50%;
 }
 
@@ -689,6 +680,14 @@ button:active {
         font-size: 3vw !important;
     }
 
+    .fileUploader{ 
+        margin:0!important
+    }
+
+        .fileUploader input{ 
+        margin-left:2vmax!important
+    }
+
     .fileUploaderChat h1 {
         font-size: 3vw !important;
     }
@@ -802,6 +801,11 @@ button:active {
     .gigEntryContainer form select {
         font-size: 2.5vmax !important;
         width: 24vmax !important;
+    }
+
+    .posterEditPreview {
+        width:12vmax !important;
+        height:17vmax !important;
     }
 }
 
@@ -2238,13 +2242,11 @@ font-family: 'Ultra', serif; */
     cursor:pointer;
 }
 
-.gigEditorContainer {
-    flex-direction: row;
-}
-
 .posterEdit{
-    width:40vw;
-    margin-left: 5vmax;
+    width:60vw;
+    height:50vh;
+    overflow-y: scroll;
+
 }
 
 .posterEditBox {

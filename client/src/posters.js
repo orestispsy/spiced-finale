@@ -8,6 +8,7 @@ export default function Posters({ posterSelector }) {
         axios
             .get("/get-images")
             .then(({ data }) => {
+                console.log("data", data)
                 setPosters(data);
             })
             .catch((err) => {
@@ -19,9 +20,10 @@ export default function Posters({ posterSelector }) {
         <div className="posterEdit">
             {posters &&
                 posters.rows.map((poster) => (
+                
                     <img
                         title={poster.poster}
-                        src={poster.poster}
+                         src={poster.poster} 
                         key={poster.id}
                         className="posterEditPreview"
                         onClick={(e) => posterSelector(e.target.title)}
