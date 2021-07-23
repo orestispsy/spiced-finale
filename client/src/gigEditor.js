@@ -379,7 +379,7 @@ export default class GigEditor extends React.Component {
                                 {this.state.map && "Close Map"}
                             </div>
                         )}
-                    {!this.state.map && (
+                    {!this.state.map && !this.state.deleteSuccess && (
                         <div className="posterEditBox">
                             <div className="inputBack">
                                 <span>Poster</span>
@@ -404,7 +404,7 @@ export default class GigEditor extends React.Component {
                             </div>
                             {this.state.selectedGig.id &&
                                 !this.state.deleteSuccess && (
-                                    <div className="fileUploader">
+                                  
                                         <img
                                             className="imgPreview"
                                             src={
@@ -412,9 +412,11 @@ export default class GigEditor extends React.Component {
                                                 this.state.selectedGig.poster ||
                                                 "na.jpg"
                                             }
-                                        ></img>
-
-                                        <input
+                                        ></img>)}
+                            {this.state.selectedGig.id &&
+                                !this.state.deleteSuccess && (
+                                    <div className="fileUploader">
+                                       <input
                                             type="file"
                                             name="file"
                                             accept="image/*"
@@ -424,6 +426,7 @@ export default class GigEditor extends React.Component {
                                         />
                                         {!this.state.success && (
                                             <div
+                                                title="Upload Poster"
                                                 className="upload"
                                                 onClick={() =>
                                                     this.handleUploaderClick()
@@ -437,15 +440,17 @@ export default class GigEditor extends React.Component {
                                 )}
                         </div>
                     )}
-                    {this.state.selectedGig && !this.state.map && (
-                        <div
-                            className="posterSectionToggler"
-                            onClick={() => this.setPosterSection()}
-                        >
-                            {!this.state.posterSection && "Photo Gallery"}
-                            {this.state.posterSection && "Close Gallery"}
-                        </div>
-                    )}
+                    {this.state.selectedGig &&
+                        !this.state.map &&
+                        !this.state.deleteSuccess && (
+                            <div
+                                className="posterSectionToggler"
+                                onClick={() => this.setPosterSection()}
+                            >
+                                {!this.state.posterSection && "Photo Gallery"}
+                                {this.state.posterSection && "Close Gallery"}
+                            </div>
+                        )}
                     {this.state.map &&
                         this.state.selectedGig.date &&
                         !this.state.deleteSuccess && (

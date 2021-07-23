@@ -150,7 +150,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId, admin }) {
                                     ▼
                                 </div>
                                 <div
-                                    title="Load Μore Chat Posts"
+                                    title="Load Μore Chat Messages"
                                     className="next"
                                     onClick={() => next20ChatMsgs()}
                                 >

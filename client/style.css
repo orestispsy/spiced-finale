@@ -251,7 +251,6 @@ form {
     color: orangered;
     max-height: 85vh;
     width: 40vw;
-
 }
 
 form span {
@@ -403,8 +402,8 @@ button:active {
 .upload {
     cursor: pointer;
     background-image: url("upload.png");
-    width:2.5vmax;
-    height:2.5vmax;
+    width: 2.5vmax;
+    height: 2.5vmax;
     background-size: cover;
     margin-left: 0.5vmax;
 }
@@ -421,8 +420,7 @@ button:active {
 .imgPreview {
     width: 100px;
     height: 100px;
-    margin: 5px;
-    margin-top: -5px;
+    margin: 0 1vmax 0 -1.5vmax;
     border-radius: 50%;
 }
 
@@ -680,12 +678,12 @@ button:active {
         font-size: 3vw !important;
     }
 
-    .fileUploader{ 
-        margin:0!important
+    .fileUploader {
+        margin-top: -0.1vh !important;
     }
 
-        .fileUploader input{ 
-        margin-left:2vmax!important
+    .fileUploader input {
+        margin-left: 2vmax !important;
     }
 
     .fileUploaderChat h1 {
@@ -803,22 +801,30 @@ button:active {
         width: 24vmax !important;
     }
 
+    .posterEdit {
+        margin:0 !important;
+    }
+
     .posterEditPreview {
-        width:12vmax !important;
-        height:14vmax !important;
+        width: 12vmax !important;
+        height: 14vmax !important;
     }
 
     .posterSectionToggler {
         margin-bottom: 2vmax !important;
-          font-size: 2vmax !important;
+        font-size: 2vmax !important;
     }
 
     form {
-        width: 55vw !important
+        width: 55vw !important;
     }
 
     .editMapToggler {
         font-size: 2vmax !important;
+    }
+    
+    .imgPreview {
+        margin:0 1.5vmax 0 -0.5vmax !important
     }
 }
 
@@ -1015,6 +1021,16 @@ button:active {
 
     .google-map-editor {
         height: 15vmax !important;
+    }
+
+    .imgPreview {
+        margin:0 0.5vmax 1vmax -1vmax !important
+    }
+
+    .fileUploader input { width:13vmax !important}
+
+    .editMapToggler {
+        margin:1vmax !important;
     }
 }
 
@@ -1260,7 +1276,7 @@ div:focus {
 }
 
 .preFileUploader {
-     display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -1274,7 +1290,10 @@ div:focus {
     align-items: center;
     align-self: center;
     border-radius: 1vh;
-    margin: 3vh 0 0 -2.2vmax
+    margin: 3vh 0 0 0vmax;
+      background-color: rgba(0, 0, 0, 0.185);
+    border: 1px solid black;
+    padding:0.5vmax;
 }
 
 .fileUploader p {
@@ -1294,6 +1313,8 @@ div:focus {
     border-radius: 1px;
     box-shadow: none;
     margin: auto;
+    height:1.5vmax;
+    width:12vmax;
 }
 
 /*
@@ -2248,33 +2269,34 @@ font-family: 'Ultra', serif; */
 }
 
 .posterEditPreview {
-    width:10vw;
-    height:20vh;
-    margin:1vmax;
+    width: 10vw;
+    height: 20vh;
+    margin: 1vmax;
     border-radius: 1vh;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.posterEdit{
-    height:50vh;
+.posterEdit {
+    height: 50vh;
     overflow-y: scroll;
+    margin-left:6vh;
 }
 
 .posterEditBox {
-display:flex;
-align-items: center;
-justify-content: center;
-width:100vw
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
 }
 
 .posterSectionToggler {
-    font-size:1.3vmax;
+    font-size: 1.3vmax;
     font-family: "Black Ops One", cursive;
-    color:cyan;
+    color: cyan;
     cursor: pointer;
     text-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black;
 }
 
 .posterSectionToggler:hover {
-    color:white;
+    color: white;
 }
