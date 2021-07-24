@@ -57,7 +57,7 @@ export default function SuperAdmin({ mapVisible }) {
                                 <img src={user.chat_img || "na.jpg"}></img>
                                 <div>User</div>
                                 <span>{user.nickname}</span>
-                                <div>Last Login</div>
+                                <div>Last Online</div>
                                 <span>{fixedDate}</span>
                                 <span>{fixedTime}</span>
                                 {user.admin && (

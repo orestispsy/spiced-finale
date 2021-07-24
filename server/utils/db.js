@@ -252,7 +252,6 @@ module.exports.getAllUsers = () => {
         FROM chatroom
         JOIN community
         ON (community.id = msg_sender_id)
-        WHERE chatroom.chat_msg LIKE '%--##--entered--##--%'
         ORDER BY msg_sender_id, chatroom.created_at DESC;
      `;
     return db.query(q);
