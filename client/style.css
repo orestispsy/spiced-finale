@@ -2335,7 +2335,7 @@ font-family: 'Ultra', serif; */
     border: 1px solid white;
     margin: 2vmax;
     width: 20vmax;
-    height: 25vmax;
+    height: 30vmax;
     background-color: rgba(0, 0, 0, 0.205);
 }
 
@@ -2373,4 +2373,11 @@ font-family: 'Ultra', serif; */
     padding: 1vh !important;
     border-radius: 3vh;
     background-color: rgb(255, 0, 55);
+}
+
+.deleteUser {
+    color: red !important;
+    background-color: white;
+        padding: 1vh !important;
+        border-radius: 3vh;
 }

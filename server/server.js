@@ -362,6 +362,21 @@ app.get("/get-all-users", (req, res) => {
         .catch((err) => console.log(err));
 });
 
+app.post("/delete-user", (req, res) => {
+    console.log(req.body.id)
+    db.deleteAllUserPosts(req.body.id)
+        .then(({ rows }) => {
+              db.deleteUser(req.body.id)
+                  .then(({ rows }) => {
+                      res.json({ data: rows });
+                  })
+                  .catch((err) => console.log(err));
+  
+        })
+        .catch((err) => console.log(err));
+
+});
+
 app.get("*", function (req, res) {
     if (!req.session.userId) {
         res.redirect("/welcome");

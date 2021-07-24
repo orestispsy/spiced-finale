@@ -17,6 +17,19 @@ export default function SuperAdmin({ mapVisible }) {
             });
     }, []);
 
+    const deleteUser = (e) => {
+         axios
+             .post("/delete-user", {id:e})
+             .then(({ data }) => {
+                 console.log("data", data.data);
+                 setUserList(data.data);
+             })
+             .catch((err) => {
+                 console.log("err in axios get-all-users ", err);
+             });
+
+    }
+
     return (
         <div className="superAdminContainer">
             <div className="superList">
@@ -66,6 +79,9 @@ export default function SuperAdmin({ mapVisible }) {
                                         SUPER ADMIN
                                     </div>
                                 )}
+                                <div className="deleteUser" title={user.id} onClick={(e)=> deleteUser(e.target.title)}>
+                                   DELETE
+                                </div>
                             </div>
                         );
                     })}

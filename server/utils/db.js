@@ -226,6 +226,26 @@ module.exports.deleteChatPost = (id) => {
     return db.query(q, params);
 };
 
+module.exports.deleteUser = (id) => {
+    const q = `
+        DELETE FROM community
+        WHERE community.id  = $1
+        RETURNING *
+    `;
+    const params = [id];
+    return db.query(q, params);
+};
+
+module.exports.deleteAllUserPosts = (id) => {
+    const q = `
+        DELETE FROM chatroom
+        WHERE msg_sender_id  = $1
+        RETURNING *
+    `;
+    const params = [id];
+    return db.query(q, params);
+};
+
 module.exports.getAllUsers = () => {
     const q = `
         SELECT DISTINCT ON (msg_sender_id) community.id, community.nickname, chat_img, admin, super_admin,
