@@ -366,6 +366,10 @@ app.post("/delete-user", (req, res) => {
     console.log(req.body.id)
     db.deleteAllUserPosts(req.body.id)
         .then(({ rows }) => {
+            // if (rows[0].poster) {
+            //     const file2delete = rows[0].poster.replace(s3Url, "");
+            //     s3.delete(file2delete);
+            // }
               db.deleteUser(req.body.id)
                   .then(({ rows }) => {
                       res.json({ data: rows });

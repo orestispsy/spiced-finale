@@ -18,17 +18,16 @@ export default function SuperAdmin({ mapVisible }) {
     }, []);
 
     const deleteUser = (e) => {
-         axios
-             .post("/delete-user", {id:e})
-             .then(({ data }) => {
-                 console.log("data", data.data);
-                 setUserList(data.data);
-             })
-             .catch((err) => {
-                 console.log("err in axios get-all-users ", err);
-             });
-
-    }
+        console.log("id", e);
+        axios
+            .post("/delete-user", { id: e })
+            .then(({ data }) => {
+                setUserList(userList.filter((user) => user.id != e));
+            })
+            .catch((err) => {
+                console.log("err in axios get-all-users ", err);
+            });
+    };
 
     return (
         <div className="superAdminContainer">
@@ -55,32 +54,34 @@ export default function SuperAdmin({ mapVisible }) {
                             msgTime[2];
                         return (
                             <div key={user.id} className="superListItem">
-                                <img src={user.chat_img}></img>
+                                <img src={user.chat_img || "na.jpg"}></img>
                                 <div>User</div>
                                 <span>{user.nickname}</span>
-                                <div>Last Chat Post</div>
-                                <span>{user.chat_msg}</span>
-                                <div>Sent At</div>
-                                <span>{fixedTime}</span>
+                                <div>Last Login</div>
                                 <span>{fixedDate}</span>
+                                <span>{fixedTime}</span>
                                 {user.admin && (
                                     <div className="adminYes">ADMIN</div>
                                 )}
                                 {!user.admin && (
-                                    <div className="adminNo">
-                                        ADMIN
-                                    </div>
+                                    <div className="adminNo">ADMIN</div>
                                 )}
                                 {user.super_admin && (
-                                    <div className="superAdminYes">SUPER ADMIN</div>
+                                    <div className="superAdminYes">
+                                        SUPER ADMIN
+                                    </div>
                                 )}
                                 {!user.super_admin && (
                                     <div className="superAdminNo">
                                         SUPER ADMIN
                                     </div>
                                 )}
-                                <div className="deleteUser" title={user.id} onClick={(e)=> deleteUser(e.target.title)}>
-                                   DELETE
+                                <div
+                                    className="deleteUser"
+                                    title={user.id}
+                                    onClick={(e) => deleteUser(e.target.title)}
+                                >
+                                    DELETE
                                 </div>
                             </div>
                         );

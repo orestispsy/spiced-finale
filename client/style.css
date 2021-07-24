@@ -2334,26 +2334,30 @@ font-family: 'Ultra', serif; */
     justify-content: center;
     border: 1px solid white;
     margin: 2vmax;
-    width: 20vmax;
-    height: 30vmax;
+    width: 25vmax;
+    height: 40vmax;
     background-color: rgba(0, 0, 0, 0.205);
 }
 
 .superListItem img {
-    width: 4vmax;
-    height: 4vmax;
+    width: 10vmax;
+    height: 10vmax;
     margin-bottom: 1vmax;
+    border-radius: 50%;
 }
 
 .superListItem span {
+        font-size: 1vmax;
     margin-bottom: 1vh;
     color: rgb(0, 255, 0);
 }
 
 .superListItem div {
+    font-size: 1.5vmax;
     color: rgb(255, 145, 0);
     border: 1px solid white;
     margin-bottom: 1vh;
+    margin-top:1vh;
     padding: 0.5vh;
 }
 

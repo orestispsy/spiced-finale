@@ -248,14 +248,11 @@ module.exports.deleteAllUserPosts = (id) => {
 
 module.exports.getAllUsers = () => {
     const q = `
-        SELECT DISTINCT ON (msg_sender_id) community.id, community.nickname, chat_img, admin, super_admin,
-        chat_msg, chatroom.created_at
+        SELECT DISTINCT ON (msg_sender_id) community.id, community.nickname, chat_msg, chat_img, admin, super_admin, chatroom.created_at
         FROM chatroom
         JOIN community
         ON (community.id = msg_sender_id)
-        WHERE chatroom.chat_msg NOT LIKE '%--##--entered--##--%'
-        AND chatroom.chat_msg NOT LIKE '%--##--left--##--%'
-        AND chatroom.chat_msg NOT LIKE '%img%'
+        WHERE chatroom.chat_msg LIKE '%--##--entered--##--%'
         ORDER BY msg_sender_id, chatroom.created_at DESC;
      `;
     return db.query(q);
