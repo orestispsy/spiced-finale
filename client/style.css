@@ -2260,6 +2260,10 @@ font-family: 'Ultra', serif; */
     font-size: 2.5vmax;
 }
 
+.gigEntryDetailsBack {
+    display:flex;
+}
+
 .gigEntryDetails {
     display: flex;
     flex-direction: row;
@@ -2299,4 +2303,33 @@ font-family: 'Ultra', serif; */
 
 .posterSectionToggler:hover {
     color: white;
+}
+
+.loading {
+    background-image: url("loading.gif");
+    width:5vmax;
+    height:5vmax;
+    background-size: cover;
+}
+
+.superList {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.superListItem {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  border: 1px solid black;
+  margin: 2vmax;
+}
+
+.superListItem img {
+    width:4vmax;
+    height:4vmax;
+    
 }

@@ -81,24 +81,26 @@ export default class GigEntry extends Component {
                             ))}
                     </select>
                 </form>
-
-                <div className="gigEntryDetails" >
-                    {this.state.poster && <img src={this.state.poster}></img>}
-                    <div className="detailedEntry">
-             
-                        <span>Venue</span>
-                        <h1>{this.state.venue}</h1>
-                        <span>City</span>
-                        <h1>
-                            {" "}
-                            {(this.state.selectedGig &&
-                                this.state.selectedGig.city) ||
-                                this.state.city}
-                        </h1>
-                        <span>Tour Name</span>
-                        <h1>{this.state.tour_name}</h1>
-                        <span>Date</span>
-                        <h1>{this.state.date}</h1>
+                <div className="gigEntryDetailsBack">
+                    <div className="gigEntryDetails">
+                        {this.state.poster && (
+                            <img src={this.state.poster}></img>
+                        )}
+                        <div className="detailedEntry">
+                            <span>Venue</span>
+                            <h1>{this.state.venue}</h1>
+                            <span>City</span>
+                            <h1>
+                                {" "}
+                                {(this.state.selectedGig &&
+                                    this.state.selectedGig.city) ||
+                                    this.state.city}
+                            </h1>
+                            <span>Tour Name</span>
+                            <h1>{this.state.tour_name}</h1>
+                            <span>Date</span>
+                            <h1>{this.state.date}</h1>
+                        </div>
                     </div>
                 </div>
                 <Link to="/gig-list/" className="backLink">

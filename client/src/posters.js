@@ -8,7 +8,6 @@ export default function Posters({ posterSelector }) {
         axios
             .get("/get-images")
             .then(({ data }) => {
-                console.log("data", data);
                 setPosters(data);
             })
             .catch((err) => {

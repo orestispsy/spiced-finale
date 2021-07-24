@@ -354,6 +354,14 @@ app.get("/get-images", (req, res) => {
         .catch((err) => console.log(err));
 });
 
+app.get("/get-all-users", (req, res) => {
+    db.getAllUsers()
+        .then(({ rows }) => {
+            res.json({ data : rows });
+        })
+        .catch((err) => console.log(err));
+});
+
 app.get("*", function (req, res) {
     if (!req.session.userId) {
         res.redirect("/welcome");

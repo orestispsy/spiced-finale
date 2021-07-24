@@ -5,10 +5,7 @@ const db = spicedPg(
         "postgres:postgres:postgres@localhost:5432/1000mods-gig-guide"
 );
 
-module.exports.addRegistration = (
-    nickname,
-    password_hash
-) => {
+module.exports.addRegistration = (nickname, password_hash) => {
     const q = `
         INSERT INTO community (nickname,
     password_hash)
@@ -75,8 +72,6 @@ module.exports.getGig = (id) => {
     return db.query(q, params);
 };
 
-
-
 module.exports.updateGig = (date, venue, lat, lng, tour_name, city, poster) => {
     const q = `
         UPDATE gigs
@@ -109,7 +104,6 @@ module.exports.addImage = (id, url) => {
     return db.query(q, params);
 };
 
-
 module.exports.check = () => {
     const q = `
         SELECT tablename
@@ -122,8 +116,7 @@ module.exports.check = () => {
 };
 
 module.exports.getOnlineUsers = (Ids) => {
-    const q =
-        "SELECT * FROM community WHERE id = ANY($1)";
+    const q = "SELECT * FROM community WHERE id = ANY($1)";
     const params = [Ids];
     return db.query(q, params);
 };
@@ -233,6 +226,21 @@ module.exports.deleteChatPost = (id) => {
     return db.query(q, params);
 };
 
+module.exports.getAllUsers = () => {
+    const q = `
+        SELECT DISTINCT ON (msg_sender_id) community.id, community.nickname, chat_img, admin, super_admin,
+        chat_msg, chatroom.created_at
+        FROM chatroom
+        JOIN community
+        ON (community.id = msg_sender_id)
+        WHERE chatroom.chat_msg NOT LIKE '%--##--entered--##--%'
+        AND chatroom.chat_msg NOT LIKE '%--##--left--##--%'
+        AND chatroom.chat_msg NOT LIKE '%img%'
+        ORDER BY msg_sender_id, chatroom.created_at DESC;
+     `;
+    return db.query(q);
+};
+
 module.exports.getPrivateMsgs = () => {
     const q = `
         SELECT chatroom.id, chatroom.created_at, nickname, chat_img, chat_color, msg_sender_id, chat_msg
@@ -244,4 +252,3 @@ module.exports.getPrivateMsgs = () => {
     `;
     return db.query(q);
 };
-

@@ -7,6 +7,7 @@ CREATE TABLE community (
     chat_img VARCHAR,
     chat_color VARCHAR;
     admin BOOLEAN DEFAULT false,
+    super_admin BOOLEAN DEFAULT null,
     created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

@@ -10,6 +10,7 @@ import GigList from "./gigList";
 import Chat from "./chat";
 import GigListAnimation from "./gigListAnimation";
 import GigEntry from "./gigEntry";
+import SuperAdmin from "./superAdmin";
 
 var body = document.querySelectorAll("body");
 
@@ -39,6 +40,7 @@ export default class App extends Component {
                         id: data.data.id,
                         nickname: data.data.nickname,
                         admin: data.data.admin,
+                        super_admin: data.data.super_admin,
                         chat_img: data.data.chat_img,
                         chat_color: data.data.chat_color,
                     });
@@ -187,6 +189,7 @@ export default class App extends Component {
                                 path="/"
                                 render={(props) => (
                                     <Main
+                                        super_admin={this.state.super_admin}
                                         admin={this.state.admin}
                                         listSet={(e) => this.listSet(e)}
                                         visitors={this.state.visitors}
@@ -259,6 +262,16 @@ export default class App extends Component {
                                         chat_myUserId={this.state.id}
                                         chat_color={this.state.chat_color}
                                         admin={this.state.admin}
+                                        super_admin={this.state.super_admin}
+                                    />
+                                )}
+                            />
+                            <Route
+                                exact
+                                path="/super-admin"
+                                render={(props) => (
+                                    <SuperAdmin
+                                        
                                     />
                                 )}
                             />

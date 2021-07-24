@@ -10,7 +10,7 @@ import useSound from "use-sound";
 
 import chatSfx from "./../public/msg.mp3";
 
-export default function Chat({ chat_color, chat_img, chat_myUserId, admin }) {
+export default function Chat({ chat_color, chat_img, chat_myUserId, admin, super_admin }) {
     const [emojiBar, setEmojiBar] = useState(false);
     const [tickerBar, setTickerBar] = useState(false);
     const [mute, setMute] = useState(false);
@@ -123,7 +123,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId, admin }) {
     };
 
     if (!chatMessages) {
-        return null;
+        return (<div className="loading"></div>)
     }
 
     return (
@@ -223,18 +223,30 @@ export default function Chat({ chat_color, chat_img, chat_myUserId, admin }) {
                                                     ></img>
                                                     <h1>{msg.nickname}</h1>
                                                 </div>
-                                                {admin && chat_myUserId ==
-                                                    msg.msg_sender_id && (
-                                                    <div
-                                                        title="Delete"
-                                                        className="deleteChatMsg"
-                                                        onClick={(e) =>
-                                                            handleChatPostDelete(
-                                                                msg.id
-                                                            )
-                                                        }
-                                                    ></div>
-                                                )}
+                                                {admin &&
+                                                    chat_myUserId ==
+                                                        msg.msg_sender_id && (
+                                                        <div
+                                                            title="Delete"
+                                                            className="deleteChatMsg"
+                                                            onClick={(e) =>
+                                                                handleChatPostDelete(
+                                                                    msg.id
+                                                                )
+                                                            }
+                                                        ></div>
+                                                    )}
+                                                {super_admin &&(
+                                                        <div
+                                                            title="Delete"
+                                                            className="deleteChatMsg"
+                                                            onClick={(e) =>
+                                                                handleChatPostDelete(
+                                                                    msg.id
+                                                                )
+                                                            }
+                                                        ></div>
+                                                    )}
                                                 <div
                                                     className="finalMessage"
                                                     style={{

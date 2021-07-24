@@ -11,14 +11,7 @@ export default function GigList({ gigsList, listSet }) {
     }, []);
     // console.log("GIGSLIST IN GIGSLIST", gigsList);
 
-    if (gigsList) {
-        for (var i = 0; i < gigsList.length; i++) {
-            let propsDate = gigsList[i].date.split("-");
-            var fixedDate =
-                propsDate[2] + "-" + propsDate[1] + "-" + propsDate[0];
-            gigsList[i].date = fixedDate;
-        }
-    }
+
 
     return (
         <div className="gigListContainer">

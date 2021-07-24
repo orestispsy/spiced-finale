@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "./tools/axios";
 
-export default function Main({ admin, listSet, visitors }) {
+export default function Main({ super_admin, admin, listSet, visitors }) {
     useEffect(function () {
         listSet(false);
     }, []);
@@ -56,6 +56,11 @@ export default function Main({ admin, listSet, visitors }) {
                 <Link to="/gig-list" className="mainMenuLink">
                     Gig List
                 </Link>
+                {super_admin && (
+                    <Link to="/super-admin" className="superAdmin">
+                        super
+                    </Link>
+                )}
 
                 {visitors && (
                     <div className="visitors">
