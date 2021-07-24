@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "./tools/axios";
 
-export default function SuperAdmin({}) {
+export default function SuperAdmin({ mapVisible }) {
     const [userList, setUserList] = useState(null);
     useEffect(function () {
+        mapVisible();
         axios
             .get("/get-all-users")
             .then(({ data }) => {
@@ -14,45 +15,62 @@ export default function SuperAdmin({}) {
             .catch((err) => {
                 console.log("err in axios get-all-users ", err);
             });
-             
     }, []);
 
     return (
         <div className="superAdminContainer">
-            {userList &&
-                userList.map((user) =>{
-                    var diff = new Date().getTimezoneOffset() / -60;
+            <div className="superList">
+                {userList &&
+                    userList.map((user) => {
+                        var diff = new Date().getTimezoneOffset() / -60;
 
-                    let msgDate = user.created_at.slice(0, 10).split("-");
-                    var fixedDate =
-                        msgDate[2] + "-" + msgDate[1] + "-" + msgDate[0];
+                        let msgDate = user.created_at.slice(0, 10).split("-");
+                        var fixedDate =
+                            msgDate[2] + "-" + msgDate[1] + "-" + msgDate[0];
 
-                    let msgTime = user.created_at.slice(11, 19).split(":");
+                        let msgTime = user.created_at.slice(11, 19).split(":");
 
-                    if (msgTime[0].startsWith("0")) {
-                        msgTime[0] = msgTime[0].slice(1, 2);
-                    }
-                    var fixedTime =
-                        JSON.parse(msgTime[0]) +
-                        diff +
-                        ":" +
-                        msgTime[1] +
-                        ":" +
-                        msgTime[2];
+                        if (msgTime[0].startsWith("0")) {
+                            msgTime[0] = msgTime[0].slice(1, 2);
+                        }
+                        var fixedTime =
+                            JSON.parse(msgTime[0]) +
+                            diff +
+                            ":" +
+                            msgTime[1] +
+                            ":" +
+                            msgTime[2];
                         return (
-                            <div key={user.id} className="superList">
-                                <div className="superListItem">
+                            <div key={user.id} className="superListItem">
                                 <img src={user.chat_img}></img>
-                                {user.nickname}
+                                <div>User</div>
+                                <span>{user.nickname}</span>
+                                <div>Last Chat Post</div>
                                 <span>{user.chat_msg}</span>
+                                <div>Sent At</div>
                                 <span>{fixedTime}</span>
                                 <span>{fixedDate}</span>
-                                </div>
+                                {user.admin && (
+                                    <div className="adminYes">ADMIN</div>
+                                )}
+                                {!user.admin && (
+                                    <div className="adminNo">
+                                        ADMIN
+                                    </div>
+                                )}
+                                {user.super_admin && (
+                                    <div className="superAdminYes">SUPER ADMIN</div>
+                                )}
+                                {!user.super_admin && (
+                                    <div className="superAdminNo">
+                                        SUPER ADMIN
+                                    </div>
+                                )}
                             </div>
                         );
-                })}
-
-            <Link to="/" className="backLink">
+                    })}
+            </div>
+            <Link to="/" className="backLink" onClick={() => mapVisible()}>
                 Back
             </Link>
         </div>

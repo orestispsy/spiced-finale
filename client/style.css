@@ -206,7 +206,8 @@ a:hover {
 .gigEditorContainer,
 .gigCreatorContainer,
 .gigListContainer,
-.gigEntryContainer {
+.gigEntryContainer,
+.superAdminContainer {
     color: white;
     display: flex;
     flex-direction: column;
@@ -802,7 +803,7 @@ button:active {
     }
 
     .posterEdit {
-        margin:0 !important;
+        margin: 0 !important;
     }
 
     .posterEditPreview {
@@ -822,9 +823,9 @@ button:active {
     .editMapToggler {
         font-size: 2vmax !important;
     }
-    
+
     .imgPreview {
-        margin:0 1.5vmax 0 -0.5vmax !important
+        margin: 0 1.5vmax 0 -0.5vmax !important;
     }
 }
 
@@ -1024,13 +1025,15 @@ button:active {
     }
 
     .imgPreview {
-        margin:0 0.5vmax 1vmax -1vmax !important
+        margin: 0 0.5vmax 1vmax -1vmax !important;
     }
 
-    .fileUploader input { width:13vmax !important}
+    .fileUploader input {
+        width: 13vmax !important;
+    }
 
     .editMapToggler {
-        margin:1vmax !important;
+        margin: 1vmax !important;
     }
 }
 
@@ -1291,9 +1294,9 @@ div:focus {
     align-self: center;
     border-radius: 1vh;
     margin: 3vh 0 0 0vmax;
-      background-color: rgba(0, 0, 0, 0.185);
+    background-color: rgba(0, 0, 0, 0.185);
     border: 1px solid black;
-    padding:0.5vmax;
+    padding: 0.5vmax;
 }
 
 .fileUploader p {
@@ -1313,8 +1316,8 @@ div:focus {
     border-radius: 1px;
     box-shadow: none;
     margin: auto;
-    height:1.5vmax;
-    width:12vmax;
+    height: 1.5vmax;
+    width: 12vmax;
 }
 
 /*
@@ -2261,7 +2264,7 @@ font-family: 'Ultra', serif; */
 }
 
 .gigEntryDetailsBack {
-    display:flex;
+    display: flex;
 }
 
 .gigEntryDetails {
@@ -2283,7 +2286,7 @@ font-family: 'Ultra', serif; */
 .posterEdit {
     height: 50vh;
     overflow-y: scroll;
-    margin-left:6vh;
+    margin-left: 6vh;
 }
 
 .posterEditBox {
@@ -2307,29 +2310,67 @@ font-family: 'Ultra', serif; */
 
 .loading {
     background-image: url("loading.gif");
-    width:5vmax;
-    height:5vmax;
+    width: 5vmax;
+    height: 5vmax;
     background-size: cover;
 }
 
+.superAdminContainer {
+    overflow-y: scroll;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 0, 0.233);
+}
+
 .superList {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 60vmax;
 }
 
 .superListItem {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  border: 1px solid black;
-  margin: 2vmax;
+    border: 1px solid white;
+    margin: 2vmax;
+    width: 20vmax;
+    height: 25vmax;
+    background-color: rgba(0, 0, 0, 0.205);
 }
 
 .superListItem img {
-    width:4vmax;
-    height:4vmax;
-    
+    width: 4vmax;
+    height: 4vmax;
+    margin-bottom: 1vmax;
+}
+
+.superListItem span {
+    margin-bottom: 1vh;
+    color: rgb(0, 255, 0);
+}
+
+.superListItem div {
+    color: rgb(255, 145, 0);
+    border: 1px solid white;
+    margin-bottom: 1vh;
+    padding: 0.5vh;
+}
+
+.adminYes,
+.superAdminYes {
+    color: rgb(9, 255, 0) !important;
+    font-size: 1.5vmax;
+    border-radius: 3vh;
+    background-color: rgba(217, 255, 0, 0.397);
+    padding: 1vh !important;
+}
+
+.adminNo,
+.superAdminNo {
+    color: yellow !important;
+    font-size: 1.5vmax;
+    padding: 1vh !important;
+    border-radius: 3vh;
+    background-color: rgb(255, 0, 55);
 }

@@ -271,7 +271,7 @@ export default class App extends Component {
                                 path="/super-admin"
                                 render={(props) => (
                                     <SuperAdmin
-                                        
+                                        mapVisible={() => this.mapVisible()}
                                     />
                                 )}
                             />
