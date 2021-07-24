@@ -55,8 +55,7 @@ export default function SuperAdmin({ mapVisible }) {
                         return (
                             <div key={user.id} className="superListItem">
                                 <img src={user.chat_img || "na.jpg"}></img>
-                                <div>User</div>
-                                <span>{user.nickname}</span>
+                                 <h1>{user.nickname}</h1>
                                 <div>Last Online</div>
                                 <span>{fixedDate}</span>
                                 <span>{fixedTime}</span>
@@ -81,7 +80,7 @@ export default function SuperAdmin({ mapVisible }) {
                                     title={user.id}
                                     onClick={(e) => deleteUser(e.target.title)}
                                 >
-                                    DELETE
+                                    DELETE USER
                                 </div>
                             </div>
                         );

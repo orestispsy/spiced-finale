@@ -827,6 +827,9 @@ button:active {
     .imgPreview {
         margin: 0 1.5vmax 0 -0.5vmax !important;
     }
+    .superListItem {
+        height:50vmax !important;
+    }
 }
 
 /* @media only screen and (min-device-width : 768px){
@@ -1034,6 +1037,10 @@ button:active {
 
     .editMapToggler {
         margin: 1vmax !important;
+    }
+
+    .superListItem h1  {
+      font-size: 3vmax !important;
     }
 }
 
@@ -2335,7 +2342,7 @@ font-family: 'Ultra', serif; */
     border: 1px solid white;
     margin: 2vmax;
     width: 25vmax;
-    height: 40vmax;
+    height: 41vmax;
     background-color: rgba(0, 0, 0, 0.205);
 }
 
@@ -2347,13 +2354,13 @@ font-family: 'Ultra', serif; */
 }
 
 .superListItem span {
-        font-size: 1vmax;
+        font-size: 1.5vmax;
     margin-bottom: 1vh;
-    color: rgb(0, 255, 0);
+    color: rgb(255, 255, 255);
 }
 
 .superListItem div {
-    font-size: 1.5vmax;
+    font-size: 2vmax;
     color: rgb(255, 238, 0);
  
     margin-bottom: 1vh;
@@ -2368,6 +2375,7 @@ font-family: 'Ultra', serif; */
     border-radius: 3vh;
     background-color: rgba(217, 255, 0, 0.397);
     padding: 1vh !important;
+      border: 1px solid white;
     
 }
 
@@ -2378,11 +2386,31 @@ font-family: 'Ultra', serif; */
     padding: 1vh !important;
     border-radius: 3vh;
     background-color: rgb(255, 0, 55);
+      border: 1px solid white;
 }
 
 .deleteUser {
-    color: red !important;
-    background-color: white;
+
+    background-color: purple;
         padding: 1vh !important;
         border-radius: 3vh;
+          border: 1px solid white;
+          margin-top: 2vmax !important;
+          cursor:pointer;
+}
+
+.deleteUser:hover {
+    background-color: red;
+    color:white;
+}
+
+.confirmUserDelete {
+    color:white !important;
+        background-color:lime;
+        padding: 1vh !important;
+        border-radius: 3vh;
+          border: 1px solid white;
+          margin-top: 2vmax !important;
+          cursor:pointer;
+              text-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black;
 }
