@@ -56,11 +56,6 @@ export default function Main({ super_admin, admin, listSet, visitors }) {
                 <Link to="/gig-list" className="mainMenuLink">
                     Gig List
                 </Link>
-                {super_admin && (
-                    <Link to="/super-admin" className="superAdmin">
-                        super
-                    </Link>
-                )}
 
                 {visitors && (
                     <div className="visitors">
@@ -71,6 +66,13 @@ export default function Main({ super_admin, admin, listSet, visitors }) {
                     </div>
                 )}
             </div>
+            {super_admin && (
+                <Link to="/super-admin">
+                    <div className="superAdminButton">
+                        <img src="superAdmin.png"></img>
+                    </div>
+                </Link>
+            )}
         </div>
     );
 }

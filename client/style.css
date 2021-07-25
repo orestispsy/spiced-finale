@@ -2426,3 +2426,15 @@ font-family: 'Ultra', serif; */
     cursor: pointer;
     text-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black;
 }
+
+.superAdminButton{
+    position:fixed;
+    left: 1vmax;
+    bottom:0.5vmax;;
+}
+
+.superAdminButton img {
+    width:5vmax;
+    height:4vmax;
+    background-size: cover;
+}

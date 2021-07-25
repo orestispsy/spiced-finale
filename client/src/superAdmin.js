@@ -10,7 +10,6 @@ export default function SuperAdmin({ mapVisible }) {
         axios
             .get("/get-all-users")
             .then(({ data }) => {
-                console.log("data", data.data);
                 setUserList(data.data);
             })
             .catch((err) => {
@@ -31,7 +30,6 @@ export default function SuperAdmin({ mapVisible }) {
     };
 
     const setAdmin = (e, boolean) => {
-        console.log("id", e, boolean);
         for (var x = 0; x < userList.length; x++) {
             if (userList[x].id == e) {
                 let newList = [...userList];
@@ -42,7 +40,6 @@ export default function SuperAdmin({ mapVisible }) {
         axios
             .post("/set-admin", { id: e, boolean: !boolean })
             .then(({ data }) => {
-                console.log("done");
             })
             .catch((err) => {
                 console.log("err in axios get-all-users ", err);
@@ -50,7 +47,6 @@ export default function SuperAdmin({ mapVisible }) {
     };
 
     const setSuperAdmin = (e, boolean) => {
-        console.log("id", e, boolean);
         for (var x = 0; x < userList.length; x++) {
             if (userList[x].id == e) {
                 let newList = [...userList];
@@ -61,7 +57,6 @@ export default function SuperAdmin({ mapVisible }) {
         axios
             .post("/set-super-admin", { id: e, boolean: !boolean })
             .then(({ data }) => {
-                console.log("done");
             })
             .catch((err) => {
                 console.log("err in axios get-all-users ", err);
