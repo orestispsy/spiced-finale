@@ -2277,6 +2277,9 @@ font-family: 'Ultra', serif; */
     overflow-y: scroll;
     justify-content: flex-start;
     background-color: rgba(0, 0, 0, 0.233);
+    scrollbar-width:none;
+    overflow-y: scroll;
+    height:100vh;
 }
 
 .superList {
@@ -2290,7 +2293,7 @@ font-family: 'Ultra', serif; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid white;
+    border: 1px double white;
     margin: 2vmax;
     width: 25vmax;
     min-height: 41vmax;

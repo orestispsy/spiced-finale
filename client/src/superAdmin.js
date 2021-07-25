@@ -88,7 +88,7 @@ export default function SuperAdmin({ mapVisible, chat_myUserId }) {
                             msgTime[2];
                         return (
                             <>
-                                {chat_myUserId != user.id && (
+                                {chat_myUserId != user.id && user.id !="1" &&(
                                     <div
                                         key={user.id}
                                         className="superListItem"
