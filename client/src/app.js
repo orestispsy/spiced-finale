@@ -152,7 +152,7 @@ export default class App extends Component {
                             <div className="appBar">
                                 <div className="barLeftSection">
                                     <img
-                                        src={this.state.chat_img}
+                                        src={this.state.chat_img || "avatar.png"}
                                         className="barProfileImage"
                                     ></img>
                                     <div className="barProfile">
