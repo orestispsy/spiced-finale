@@ -166,6 +166,14 @@ a:hover {
     margin-left: 10px;
 }
 
+.barProfileImage {
+    width:3vmax;
+    height:3vmax;
+    background-size:cover;
+    border-radius:50%;
+    margin-left: 0.5vmax;
+}
+
 .barLeftSection {
     display: flex;
     flex-direction: row;
@@ -734,6 +742,11 @@ button:active {
         height: 4vmax !important;
     }
 
+    .barProfileImage {
+    width:5vmax !important;
+    height: 5vmax !important;
+    }
+
     .mute,
     .play {
         width: 4vmax !important;
@@ -931,9 +944,17 @@ button:active {
     }
 
     .chatBar {
-        width: 4vmax !important;
-        height: 4vmax !important;
+        width: 3vmax !important;
+        height: 3vmax !important;
+         margin-left:1vmax !important
     }
+
+    .barProfileImage {
+    width: 4vmax !important;
+    height: 4vmax !important;
+    margin-top:0.5vmax !important
+    }
+
     .uploaderTogglerImg {
         width: 5vmax !important;
         height: 5vmax !important;
@@ -1290,10 +1311,10 @@ font-family: 'Ultra', serif; */
     background-image: url("chat.png");
     background-position: center;
     background-size: cover;
-    width: 2vmax;
-    height: 2vmax;
-    margin-left: 1vmax;
-    margin-top: -1vmax;
+    width: 1.5vmax;
+    height: 1.5vmax;
+    margin-left: 0.5vmax;
+    margin-top: -0.5vmax;
 }
 
 .mobileChat {
