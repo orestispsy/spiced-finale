@@ -167,12 +167,12 @@ a:hover {
 }
 
 .barProfileImage {
-    width:3vmax;
-    height:3vmax;
-    background-size:cover;
-    border-radius:50%;
+    width: 3vmax;
+    height: 3vmax;
+    background-size: cover;
+    border-radius: 50%;
     margin-left: 0.5vmax;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
 
 .barLeftSection {
@@ -744,8 +744,12 @@ button:active {
     }
 
     .barProfileImage {
-    width:5vmax !important;
-    height: 5vmax !important;
+        width: 5vmax !important;
+        height: 5vmax !important;
+    }
+
+    .barProfile {
+        font-size: 3vmax !important;
     }
 
     .mute,
@@ -947,13 +951,13 @@ button:active {
     .chatBar {
         width: 2.5vmax !important;
         height: 2.5vmax !important;
-         margin-left:1vmax !important
+        margin-left: 1vmax !important;
     }
 
     .barProfileImage {
-    width: 4vmax !important;
-    height: 4vmax !important;
-    margin-top:0.5vmax !important
+        width: 4vmax !important;
+        height: 4vmax !important;
+        margin-top: 0.5vmax !important;
     }
 
     .uploaderTogglerImg {
@@ -2298,12 +2302,12 @@ font-family: 'Ultra', serif; */
 .superAdminContainer {
     overflow-y: scroll;
     justify-content: flex-start;
-    background-color: rgba(0, 0, 0, 0.233);
-    scrollbar-width:none;
+    background-color: rgba(255, 0, 0, 0.096);
+    scrollbar-width: none;
     overflow-y: scroll;
-    height:100vh;
+    height: 100vh;
 }
-
+ 
 .superList {
     display: flex;
     flex-wrap: wrap;
@@ -2367,7 +2371,7 @@ font-family: 'Ultra', serif; */
     font-size: 1.5vmax;
     padding: 1vh !important;
     border-radius: 3vh;
-    background-color: rgb(255, 0, 55);
+    background-color: rgba(245, 173, 39, 0.137);
     border: 1px solid white;
     cursor: pointer;
 }
@@ -2379,17 +2383,20 @@ font-family: 'Ultra', serif; */
 }
 
 .deleteUser {
-    background-color: purple;
+    background-color: black;
     padding: 1vh !important;
     border-radius: 3vh;
     border: 1px solid white;
     margin-top: 2vmax !important;
     cursor: pointer;
+    color:rgb(255, 47, 47) !important;
+    font-size:1.5vmax !important;
+    font-weight: lighter;
 }
 
 .deleteUser:hover {
-    background-color: red;
-    color: white;
+    background-color: rgba(255, 46, 46, 0.24);
+    color: rgb(255, 255, 255) !important;
 }
 
 .deleteUserConfirm {
@@ -2400,17 +2407,23 @@ font-family: 'Ultra', serif; */
     border: 1px solid white;
     margin-top: 2vmax !important;
     cursor: pointer;
-    text-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black;
+    font-size:1.5vmax !important;
+        font-weight: lighter;
 }
 
-.superAdminButton{
-    position:fixed;
+.superAdminButton {
+    position: fixed;
     left: 1vmax;
-    bottom:0.5vmax;;
+    bottom: 0.5vmax;
 }
 
 .superAdminButton img {
-    width:5vmax;
-    height:4vmax;
+    width: 5vmax;
+    height: 4vmax;
     background-size: cover;
+}
+
+.superAdminButton img:hover {
+    width: 5.5vmax;
+    height: 4.5vmax;
 }

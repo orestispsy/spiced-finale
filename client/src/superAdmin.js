@@ -39,8 +39,7 @@ export default function SuperAdmin({ mapVisible, chat_myUserId }) {
         }
         axios
             .post("/set-admin", { id: e, boolean: !boolean })
-            .then(({ data }) => {
-            })
+            .then(({ data }) => {})
             .catch((err) => {
                 console.log("err in axios get-all-users ", err);
             });
@@ -56,8 +55,7 @@ export default function SuperAdmin({ mapVisible, chat_myUserId }) {
         }
         axios
             .post("/set-super-admin", { id: e, boolean: !boolean })
-            .then(({ data }) => {
-            })
+            .then(({ data }) => {})
             .catch((err) => {
                 console.log("err in axios get-all-users ", err);
             });
@@ -87,12 +85,9 @@ export default function SuperAdmin({ mapVisible, chat_myUserId }) {
                             ":" +
                             msgTime[2];
                         return (
-                            <>
-                                {chat_myUserId != user.id && user.id !="1" &&(
-                                    <div
-                                        key={user.id}
-                                        className="superListItem"
-                                    >
+                            <div key={user.id}>
+                                {chat_myUserId != user.id && user.id != "1" && (
+                                    <div className="superListItem">
                                         <img
                                             src={user.chat_img || "na.jpg"}
                                         ></img>
@@ -164,7 +159,7 @@ export default function SuperAdmin({ mapVisible, chat_myUserId }) {
                                                     setConfirm(e.target.id)
                                                 }
                                             >
-                                                DELETE USER
+                                                DELETE
                                             </div>
                                         )}
                                         {confirm == user.id && (
@@ -180,7 +175,7 @@ export default function SuperAdmin({ mapVisible, chat_myUserId }) {
                                         )}
                                     </div>
                                 )}
-                            </>
+                            </div>
                         );
                     })}
             </div>
