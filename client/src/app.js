@@ -152,12 +152,11 @@ export default class App extends Component {
                             <div className="appBar">
                                 <div className="barLeftSection">
                                     <img
-                                        src={this.state.chat_img || "avatar.png"}
+                                        src={
+                                            this.state.chat_img || "avatar.png"
+                                        }
                                         className="barProfileImage"
                                     ></img>
-                                    <div className="barProfile">
-                                        {this.state.nickname}
-                                    </div>
                                     {!this.state.maps && (
                                         <Link to="/chat">
                                             <div
@@ -169,6 +168,9 @@ export default class App extends Component {
                                             ></div>
                                         </Link>
                                     )}
+                                    <div className="barProfile">
+                                        {this.state.nickname}
+                                    </div>
                                 </div>
                                 <a
                                     target="_blank"
@@ -276,7 +278,7 @@ export default class App extends Component {
                                 render={(props) => (
                                     <SuperAdmin
                                         chat_myUserId={this.state.id}
-                                        mapVisible={() => this.mapVisible()}
+                                        listSet={(e) => this.listSet(e)}
                                     />
                                 )}
                             />

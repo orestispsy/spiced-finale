@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "./tools/axios";
 
-export default function SuperAdmin({ mapVisible, chat_myUserId }) {
+export default function SuperAdmin({ listSet, chat_myUserId }) {
     const [userList, setUserList] = useState(null);
     const [confirm, setConfirm] = useState(false);
     useEffect(function () {
-        mapVisible();
+        listSet(true);
         axios
             .get("/get-all-users")
             .then(({ data }) => {
@@ -179,6 +179,13 @@ export default function SuperAdmin({ mapVisible, chat_myUserId }) {
                         );
                     })}
             </div>
+            <Link
+                to="/"
+                className="superAdminExit"
+                title="Back"
+                onClick={() => listSet(false)}
+            ><img src="redBall.gif">
+            </img></Link>
         </div>
     );
 }

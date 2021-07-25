@@ -951,7 +951,7 @@ button:active {
     .chatBar {
         width: 2.5vmax !important;
         height: 2.5vmax !important;
-        margin-left: 1vmax !important;
+        margin-left: -1vmax !important;
     }
 
     .barProfileImage {
@@ -1318,8 +1318,8 @@ font-family: 'Ultra', serif; */
     background-size: cover;
     width: 1.5vmax;
     height: 1.5vmax;
-    margin-left: 0.5vmax;
-    margin-top: -0.5vmax;
+    margin-left: -1vmax;
+    margin-bottom: -2vmax;
 }
 
 .mobileChat {
@@ -2426,4 +2426,15 @@ font-family: 'Ultra', serif; */
 .superAdminButton img:hover {
     width: 5.5vmax;
     height: 4.5vmax;
+}
+
+.superAdminExit img {
+    position:fixed;
+    bottom: 1vmax;
+    right: 1vmax;
+    background-position: cover;
+    width:3vmax;
+    height:3vmax;
+    border-radius: 50%;
+    padding:1vmax;
 }
