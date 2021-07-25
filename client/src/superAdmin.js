@@ -165,9 +165,6 @@ export default function SuperAdmin({ mapVisible }) {
                         );
                     })}
             </div>
-            <Link to="/" className="backLink" onClick={() => mapVisible()}>
-                Back
-            </Link>
         </div>
     );
 }
