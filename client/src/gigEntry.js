@@ -5,14 +5,21 @@ import { Link } from "react-router-dom";
 export default class GigEntry extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            city: "",
+            id: "",
+            venue: "",
+            date: "",
+            tour_name: "",
+            poster: "",
+            selectedGig: "",
+        };
     }
 
     componentDidMount() {
         axios
             .get("/gig/" + this.props.match.params.id)
             .then(({ data }) => {
-                console.log
                 this.setState({
                     city: data.data.city,
                     id: data.data.id,
@@ -47,13 +54,11 @@ export default class GigEntry extends Component {
                                 tour_name: data.data.tour_name,
                                 poster: data.data.poster,
                             });
-
-                            console.log("selected Gig", this.state.selectedGig);
                         }
                     })
                     .catch((err) => {
                         console.log(
-                            "err in axios App User POST Request : ",
+                            "err in axios Gig Entry Get Request : ",
                             err
                         );
                     });

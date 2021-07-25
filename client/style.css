@@ -442,11 +442,13 @@ button:active {
     object-fit: cover;
     box-shadow: -0 0 15px black, 0 -0 15px black, -0 -0 15px black,
         -0 -0 15px black;
+        transition: 0.5s;
 }
 
 .easterEgg img:hover {
     box-shadow: -0 0 25px black, 0 -0 25px black, -0 -0 25px black,
         -0 -0 25px black;
+    transition:0.5s;
 }
 
 .easterEgg img:active {
@@ -486,6 +488,7 @@ button:active {
         -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
     border: 1px solid rgba(255, 230, 0, 0.37);
     border-style: double;
+       transition: 1s;
 }
 
 .mainMenuLink:hover {
@@ -497,6 +500,7 @@ button:active {
         rgba(224, 247, 135, 1) 4.927083333333334%,
         rgba(78, 227, 250, 1) 97.84374999999999%
     );
+    transition: 1s
 }
 
 .mainMenuLink:hover:active {
@@ -1096,15 +1100,20 @@ button:active {
     justify-content: center;
 }
 
-.gigBox:hover {
-    background: radial-gradient(
-        closest-side,
-        #d9ff2e00,
-        #ff585217,
-        #61ff5210,
-        #b1151500
-    );
+.gigBoxBack:hover {
+    background: linear-gradient(rgba(0, 0, 0, 0.658), rgba(0, 0, 0, 0.76)),
+        url("rocket.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: fit-content;
+    height: fit-content;
     background-color: rgba(255, 0, 221, 0.025);
+    border-radius: 1vmax;
+}
+
+.gigBox:hover {
+    opacity: 100% !important;
 }
 
 .gigEntries:hover {
@@ -2307,7 +2316,7 @@ font-family: 'Ultra', serif; */
     overflow-y: scroll;
     height: 100vh;
 }
- 
+
 .superList {
     display: flex;
     flex-wrap: wrap;
@@ -2389,8 +2398,8 @@ font-family: 'Ultra', serif; */
     border: 1px solid white;
     margin-top: 2vmax !important;
     cursor: pointer;
-    color:rgb(255, 47, 47) !important;
-    font-size:1.5vmax !important;
+    color: rgb(255, 47, 47) !important;
+    font-size: 1.5vmax !important;
     font-weight: lighter;
 }
 
@@ -2407,8 +2416,8 @@ font-family: 'Ultra', serif; */
     border: 1px solid white;
     margin-top: 2vmax !important;
     cursor: pointer;
-    font-size:1.5vmax !important;
-        font-weight: lighter;
+    font-size: 1.5vmax !important;
+    font-weight: lighter;
 }
 
 .superAdminButton {
@@ -2421,20 +2430,22 @@ font-family: 'Ultra', serif; */
     width: 5vmax;
     height: 4vmax;
     background-size: cover;
+       transition: 0.5s;
 }
 
 .superAdminButton img:hover {
     width: 5.5vmax;
     height: 4.5vmax;
+    transition: 0.5s;
 }
 
 .superAdminExit img {
-    position:fixed;
+    position: fixed;
     bottom: 1vmax;
     right: 1vmax;
     background-position: cover;
-    width:3vmax;
-    height:3vmax;
+    width: 3vmax;
+    height: 3vmax;
     border-radius: 50%;
-    padding:1vmax;
+    padding: 1vmax;
 }

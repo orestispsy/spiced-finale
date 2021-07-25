@@ -32,28 +32,30 @@ export default function GigList({ gigsList, listSet }) {
                 {gigsList &&
                     gigsList.map((gig) => (
                         <Link to={`/gig/${gig.id}`} key={gig.id}>
-                            <div className="gigBox">
-                                <div
-                                    style={{
-                                        color: `yellow`,
-                                        textDecoration: `underline`,
-                                    }}
-                                >
-                                    {gig.date}
-                                </div>{" "}
-                                <div
-                                    style={{
-                                        color: `lime`,
-                                    }}
-                                >
-                                    {gig.venue}
-                                </div>{" "}
-                                <div
-                                    style={{
-                                        color: `white`,
-                                    }}
-                                >
-                                    {gig.city}
+                            <div className="gigBoxBack">
+                                <div className="gigBox">
+                                    <div
+                                        style={{
+                                            color: `yellow`,
+                                            textDecoration: `underline`,
+                                        }}
+                                    >
+                                        {gig.date}
+                                    </div>{" "}
+                                    <div
+                                        style={{
+                                            color: `lime`,
+                                        }}
+                                    >
+                                        {gig.venue}
+                                    </div>{" "}
+                                    <div
+                                        style={{
+                                            color: `white`,
+                                        }}
+                                    >
+                                        {gig.city}
+                                    </div>
                                 </div>
                             </div>
                         </Link>
