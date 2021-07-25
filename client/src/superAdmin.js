@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "./tools/axios";
 
-export default function SuperAdmin({ mapVisible }) {
+export default function SuperAdmin({ mapVisible, chat_myUserId }) {
     const [userList, setUserList] = useState(null);
     const [confirm, setConfirm] = useState(false);
     useEffect(function () {
@@ -87,81 +87,100 @@ export default function SuperAdmin({ mapVisible }) {
                             ":" +
                             msgTime[2];
                         return (
-                            <div key={user.id} className="superListItem">
-                                <img src={user.chat_img || "na.jpg"}></img>
-                                <h1>{user.nickname}</h1>
-                                <div>Last Online</div>
-                                <span>{fixedDate}</span>
-                                <span>{fixedTime}</span>
-                                {user.admin && (
+                            <>
+                                {chat_myUserId != user.id && (
                                     <div
-                                        id={user.id}
-                                        className="adminYes"
-                                        onClick={(e, boolean) =>
-                                            setAdmin(e.target.id, user.admin)
-                                        }
+                                        key={user.id}
+                                        className="superListItem"
                                     >
-                                        ADMIN
+                                        <img
+                                            src={user.chat_img || "na.jpg"}
+                                        ></img>
+                                        <h1>{user.nickname}</h1>
+                                        <div>Last Online</div>
+                                        <span>{fixedDate}</span>
+                                        <span>{fixedTime}</span>
+                                        {user.admin && (
+                                            <div
+                                                id={user.id}
+                                                className="adminYes"
+                                                onClick={(e, boolean) =>
+                                                    setAdmin(
+                                                        e.target.id,
+                                                        user.admin
+                                                    )
+                                                }
+                                            >
+                                                ADMIN
+                                            </div>
+                                        )}
+                                        {!user.admin && (
+                                            <div
+                                                id={user.id}
+                                                className="adminNo"
+                                                onClick={(e, boolean) =>
+                                                    setAdmin(
+                                                        e.target.id,
+                                                        user.admin
+                                                    )
+                                                }
+                                            >
+                                                ADMIN
+                                            </div>
+                                        )}
+                                        {user.super_admin && (
+                                            <div
+                                                id={user.id}
+                                                className="superAdminYes"
+                                                onClick={(e, boolean) =>
+                                                    setSuperAdmin(
+                                                        e.target.id,
+                                                        user.super_admin
+                                                    )
+                                                }
+                                            >
+                                                SUPER ADMIN
+                                            </div>
+                                        )}
+                                        {!user.super_admin && (
+                                            <div
+                                                id={user.id}
+                                                className="superAdminNo"
+                                                onClick={(e, boolean) =>
+                                                    setSuperAdmin(
+                                                        e.target.id,
+                                                        user.super_admin
+                                                    )
+                                                }
+                                            >
+                                                SUPER ADMIN
+                                            </div>
+                                        )}
+                                        {confirm != user.id && (
+                                            <div
+                                                id={user.id}
+                                                className="deleteUser"
+                                                onClick={(e) =>
+                                                    setConfirm(e.target.id)
+                                                }
+                                            >
+                                                DELETE USER
+                                            </div>
+                                        )}
+                                        {confirm == user.id && (
+                                            <div
+                                                className="deleteUserConfirm"
+                                                id={user.id}
+                                                onClick={(e) =>
+                                                    deleteUser(e.target.id)
+                                                }
+                                            >
+                                                CONFIRM
+                                            </div>
+                                        )}
                                     </div>
                                 )}
-                                {!user.admin && (
-                                    <div
-                                        id={user.id}
-                                        className="adminNo"
-                                        onClick={(e, boolean) =>
-                                            setAdmin(e.target.id, user.admin)
-                                        }
-                                    >
-                                        ADMIN
-                                    </div>
-                                )}
-                                {user.super_admin && (
-                                    <div
-                                        id={user.id}
-                                        className="superAdminYes"
-                                        onClick={(e, boolean) =>
-                                            setSuperAdmin(
-                                                e.target.id,
-                                                user.super_admin
-                                            )
-                                        }
-                                    >
-                                        SUPER ADMIN
-                                    </div>
-                                )}
-                                {!user.super_admin && (
-                                    <div
-                                        id={user.id}
-                                        className="superAdminNo"
-                                        onClick={(e, boolean) =>
-                                            setSuperAdmin(
-                                                e.target.id,
-                                                user.super_admin
-                                            )
-                                        }
-                                    >
-                                        SUPER ADMIN
-                                    </div>
-                                )}
-                                {confirm != user.id && (
-                                    <div
-                                        id={user.id}
-                                        className="deleteUser"
-                                        onClick={(e) => setConfirm(e.target.id)}
-                                    >
-                                        DELETE USER
-                                    </div>
-                                )}
-                                {confirm == user.id && (
-                                    <div
-                                        className="deleteUserConfirm"
-                                        id={user.id}
-                                        onClick={(e) => deleteUser(e.target.id)}
-                                    >
-                                        CONFIRM
-                                    </div>
-                                )}
-                            </div>
+                            </>
                         );
                     })}
             </div>

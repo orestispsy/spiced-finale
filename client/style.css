@@ -550,20 +550,6 @@ button:active {
     border-radius: 3vw;
 }
 
-/* @media only screen and (min-device-height: 300px) and (max-device-width: 1240px) {
-    
-    .mainMenu a {
-        color: turquoise !important;
-        font-size: 5vmax !important;
-    }
-
-    .mainMenu {
-        flex-direction: row !important;
-        justify-content: space-evenly !important;
-        width: 70vw !important;
-    }
-} */
-
 @media only screen and (min-device-width: 100px) and (max-device-width: 480px) and (orientation: portrait) {
     .barMainLink {
         width: 4vmax !important;
@@ -831,41 +817,6 @@ button:active {
         height: 50vmax !important;
     }
 }
-
-/* @media only screen and (min-device-width : 768px){
-    .mainContainer {
-        min-height: fit-content;
-    }
-
-.logo{
-        width:50vmax !important;
-        height:25vmax !important;
-
-    }
-     .mainMenu a {
-       color:yellowgreen !important;
-    font-size:5vmax !important;
-   }
-
-   .mainMenu a:hover {
-       color:white !important
-   }
-          .mainMenu {
-    flex-direction: row!important;
-        justify-content: space-evenly !important;
-    width: 70vw !important
-   } }*/
-
-/* @media only screen and (min-device-width: 481px) and (max-device-width: 768px) {
-    .logo {
-        width: 50vmax !important;
-        height: 35vmax !important;
-    }
-    .mainMenu a {
-        color: lime !important;
-        font-size: 3vmax !important;
-    }
-} */
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
     .logo {

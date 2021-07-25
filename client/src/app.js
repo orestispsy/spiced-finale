@@ -271,6 +271,7 @@ export default class App extends Component {
                                 path="/super-admin"
                                 render={(props) => (
                                     <SuperAdmin
+                                        chat_myUserId={this.state.id}
                                         mapVisible={() => this.mapVisible()}
                                     />
                                 )}
