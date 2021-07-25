@@ -357,28 +357,43 @@ app.get("/get-images", (req, res) => {
 app.get("/get-all-users", (req, res) => {
     db.getAllUsers()
         .then(({ rows }) => {
-            res.json({ data : rows });
+            res.json({ data: rows });
         })
         .catch((err) => console.log(err));
 });
 
 app.post("/delete-user", (req, res) => {
-    console.log(req.body.id)
+    console.log(req.body.id);
     db.deleteAllUserPosts(req.body.id)
         .then(({ rows }) => {
-            // if (rows[0].poster) {
-            //     const file2delete = rows[0].poster.replace(s3Url, "");
-            //     s3.delete(file2delete);
-            // }
-              db.deleteUser(req.body.id)
-                  .then(({ rows }) => {
-                      res.json({ data: rows });
-                  })
-                  .catch((err) => console.log(err));
-  
+            db.deleteUser(req.body.id)
+                .then(({ rows }) => {
+                    console.log("delete", rows);
+                    if (rows[0].chat_img) {
+                        const file2delete = rows[0].chat_img.replace(s3Url, "");
+                        s3.delete(file2delete);
+                    }
+                    res.json({ data: rows });
+                })
+                .catch((err) => console.log(err));
         })
         .catch((err) => console.log(err));
+});
 
+app.post("/set-admin", (req, res) => {
+    db.setUserAdmin(req.body.id, req.body.boolean)
+        .then(({ rows }) => {
+            res.json({ data: rows });
+        })
+        .catch((err) => console.log(err));
+});
+
+app.post("/set-super-admin", (req, res) => {
+    db.setUserSuperAdmin(req.body.id, req.body.boolean)
+        .then(({ rows }) => {
+            res.json({ data: rows });
+        })
+        .catch((err) => console.log(err));
 });
 
 app.get("*", function (req, res) {

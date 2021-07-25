@@ -239,7 +239,7 @@ module.exports.deleteUser = (id) => {
 module.exports.deleteAllUserPosts = (id) => {
     const q = `
         DELETE FROM chatroom
-        WHERE msg_sender_id  = $1
+        WHERE chatroom.msg_sender_id  = $1
         RETURNING *
     `;
     const params = [id];
@@ -255,6 +255,24 @@ module.exports.getAllUsers = () => {
         ORDER BY msg_sender_id, chatroom.created_at DESC;
      `;
     return db.query(q);
+};
+
+module.exports.setUserAdmin= (id, boolean) => {
+    const q = `
+        UPDATE community SET admin = $2
+        WHERE community.id = $1
+     `;
+   const params = [id, boolean];
+   return db.query(q, params);
+};
+
+module.exports.setUserSuperAdmin = (id, boolean) => {
+    const q = `
+        UPDATE community SET super_admin = $2
+        WHERE community.id = $1
+     `;
+    const params = [id, boolean];
+    return db.query(q, params);
 };
 
 module.exports.getPrivateMsgs = () => {

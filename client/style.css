@@ -828,7 +828,7 @@ button:active {
         margin: 0 1.5vmax 0 -0.5vmax !important;
     }
     .superListItem {
-        height:50vmax !important;
+        height: 50vmax !important;
     }
 }
 
@@ -1039,8 +1039,8 @@ button:active {
         margin: 1vmax !important;
     }
 
-    .superListItem h1  {
-      font-size: 3vmax !important;
+    .superListItem h1 {
+        font-size: 3vmax !important;
     }
 }
 
@@ -2342,7 +2342,7 @@ font-family: 'Ultra', serif; */
     border: 1px solid white;
     margin: 2vmax;
     width: 25vmax;
-    height: 41vmax;
+    min-height: 41vmax;
     background-color: rgba(0, 0, 0, 0.205);
 }
 
@@ -2354,7 +2354,7 @@ font-family: 'Ultra', serif; */
 }
 
 .superListItem span {
-        font-size: 1.5vmax;
+    font-size: 1.5vmax;
     margin-bottom: 1vh;
     color: rgb(255, 255, 255);
 }
@@ -2362,9 +2362,9 @@ font-family: 'Ultra', serif; */
 .superListItem div {
     font-size: 2vmax;
     color: rgb(255, 238, 0);
- 
+
     margin-bottom: 1vh;
-    margin-top:1vh;
+    margin-top: 1vh;
     padding: 0.5vh;
 }
 
@@ -2375,8 +2375,14 @@ font-family: 'Ultra', serif; */
     border-radius: 3vh;
     background-color: rgba(217, 255, 0, 0.397);
     padding: 1vh !important;
-      border: 1px solid white;
-    
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.adminYes:hover,
+.superAdminYes:hover {
+    background-color: rgb(255, 0, 55);
+    color: yellow !important;
 }
 
 .adminNo,
@@ -2386,31 +2392,37 @@ font-family: 'Ultra', serif; */
     padding: 1vh !important;
     border-radius: 3vh;
     background-color: rgb(255, 0, 55);
-      border: 1px solid white;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.adminNo:hover,
+.superAdminNo:hover {
+    background-color: rgba(217, 255, 0, 0.397);
+    color: rgb(9, 255, 0) !important;
 }
 
 .deleteUser {
-
     background-color: purple;
-        padding: 1vh !important;
-        border-radius: 3vh;
-          border: 1px solid white;
-          margin-top: 2vmax !important;
-          cursor:pointer;
+    padding: 1vh !important;
+    border-radius: 3vh;
+    border: 1px solid white;
+    margin-top: 2vmax !important;
+    cursor: pointer;
 }
 
 .deleteUser:hover {
     background-color: red;
-    color:white;
+    color: white;
 }
 
-.confirmUserDelete {
-    color:white !important;
-        background-color:lime;
-        padding: 1vh !important;
-        border-radius: 3vh;
-          border: 1px solid white;
-          margin-top: 2vmax !important;
-          cursor:pointer;
-              text-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black;
+.deleteUserConfirm {
+    color: white !important;
+    background-color: lime;
+    padding: 1vh !important;
+    border-radius: 3vh;
+    border: 1px solid white;
+    margin-top: 2vmax !important;
+    cursor: pointer;
+    text-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black;
 }
