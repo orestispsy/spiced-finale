@@ -314,6 +314,20 @@ app.post("/get-community-images", (req, res) => {
         });
 });
 
+app.post("/delete-community-image", (req, res) => {
+    console.log(req.body.imageId);
+    db.deleteCommunityImage(req.body.imageId)
+        .then(({ rows }) => {
+            const file2delete = rows[0].img_url.replace(s3Url, "");
+            s3.delete(file2delete);
+            res.json({ success: true });
+        })
+        .catch((err) => {
+            res.json({ error: true });
+            console.log(err);
+        });
+});
+
 app.get("/logout", (req, res) => {
     req.session = null;
     res.redirect("/");

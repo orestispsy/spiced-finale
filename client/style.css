@@ -2469,6 +2469,7 @@ font-family: 'Ultra', serif; */
     overflow-y: scroll;
     padding: 1vmax;
     margin: 0.5vmax;
+    scrollbar-width: none;
 }
 
 .communityPhotos img {
@@ -2489,4 +2490,14 @@ font-family: 'Ultra', serif; */
 
 #contribute:hover {
     color: white;
+}
+
+.deletecommunityPhoto {
+     width: 1.5vmax;
+    height: 1.5vmax;
+    cursor: pointer;
+    background-image: url("delete.png");
+    background-size: cover;
+     mix-blend-mode: hard-light;
+     margin: 0 0 -2.5vmax 1vmax ;
 }

@@ -113,6 +113,7 @@ export default class GigEntry extends Component {
                     <Community
                         selectedGigId={this.state.id}
                         myUserId={this.props.myUserId}
+                        super_admin={this.props.super_admin}
                     />
                 </div>
                 <Link to="/gig-list/" className="backLink">

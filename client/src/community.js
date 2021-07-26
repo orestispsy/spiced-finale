@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "./tools/axios";
 
-export default function Community({ selectedGigId, myUserId }) {
+export default function Community({ selectedGigId, myUserId, super_admin }) {
     const [contribute, setContribute] = useState(false);
     const [file, setFile] = useState("");
     const [images, setImages] = useState("");
@@ -25,12 +25,21 @@ export default function Community({ selectedGigId, myUserId }) {
         [selectedGigId]
     );
 
-    useEffect(
-        function () {
-            console.log("IMAGES", images);
-        },
-        [images]
-    );
+    const imageDelete = (e) => {
+         axios
+             .post("/delete-community-image/", {
+                 imageId: e,
+             })
+             .then(({ data }) => {
+                 if (data.success) {
+                         setImages(images.filter((img) => img.id != e));
+                 }
+             })
+             .catch((err) => {
+                 console.log("err in Gig Entry GET Request : ", err);
+             });
+      
+    };
 
     const handleUploaderClick = () => {
         const formData = new FormData();
@@ -63,9 +72,28 @@ export default function Community({ selectedGigId, myUserId }) {
             <div className="communityPhotos">
                 {images &&
                     images.map((img) => (
-                        <a href={img.img_url} target="_blank" key={img.id}>
-                            <img src={img.img_url}></img>
-                        </a>
+                        <div key={img.id}>
+                            {super_admin ||
+                                (myUserId == img.img_sender_id && (
+                                    <div
+                                        className="deletecommunityPhoto"
+                                        title="Delete"
+                                        id={img.id}
+                                        onClick={(e) => imageDelete(e.target.id)}
+                                    ></div>
+                                ))}
+                            {super_admin && (
+                                <div
+                                    className="deletecommunityPhoto"
+                                    title="Delete"
+                                    id={img.id}
+                                    onClick={(e) => imageDelete(e.target.id)}
+                                ></div>
+                            )}
+                            <a href={img.img_url} target="_blank">
+                                <img src={img.img_url}></img>
+                            </a>
+                        </div>
                     ))}
             </div>
             {!contribute && (

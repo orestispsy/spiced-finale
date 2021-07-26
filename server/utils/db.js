@@ -293,6 +293,16 @@ module.exports.getCommunityImages = (id) => {
     return db.query(q, params);
 };
 
+module.exports.deleteCommunityImage = (id) => {
+    const q = `
+          DELETE FROM images
+        WHERE images.id  = $1
+        RETURNING *
+    `;
+    const params = [id];
+    return db.query(q, params);
+};
+
 module.exports.getPrivateMsgs = () => {
     const q = `
         SELECT chatroom.id, chatroom.created_at, nickname, chat_img, chat_color, msg_sender_id, chat_msg

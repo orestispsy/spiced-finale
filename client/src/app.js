@@ -247,6 +247,7 @@ export default class App extends Component {
                                         match={props.match}
                                         gigsList={this.state.gigsList}
                                         myUserId={this.state.id}
+                                        super_admin={this.state.super_admin}
                                     />
                                 )}
                             />
