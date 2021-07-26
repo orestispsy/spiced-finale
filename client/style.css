@@ -838,6 +838,22 @@ button:active {
     .superListItem {
         height: 50vmax !important;
     }
+      #contribute {
+        font-size: 1.5vmax !important;
+   
+        padding:1vmax 1vmax 0.5vmax 1vmax !important
+    }
+
+     .gigEntryDetails {
+         margin-bottom:3vmax;
+     }
+
+    .gigEntryDetailsBack{
+        flex-direction: column;
+        overflow-y: scroll;
+    }
+
+    .communityContainer {margin-left:0 !important}
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1023,29 +1039,13 @@ button:active {
     .superListItem h1 {
         font-size: 3vmax !important;
     }
-}
-
-/* @media only screen and (min-device-width: 481px) and (max-device-width: 680px){
-    .logo {
-        
-        width: 45vmax !important;
-        height: 25vmax !important;
     
+    #contribute {
+        font-size: 1.5vmax !important;
+   
+        padding:1vmax 1vmax 0.5vmax 1vmax !important
     }
-    .logoBack p {
-        font-size: 5vmax !important;
-        margin-top:-5vmax !important;
-    }
-    .mainMenu {
-        flex-direction: row !important;
-        justify-content: space-evenly !important;
-        width: 70vw !important;
-    }
-    .mainMenu a {
-        color: red !important;
-        font-size: 4vmax !important;
-    }
-} */
+}
 
 .logo {
     background-image: url("logo.png");
@@ -2482,7 +2482,9 @@ font-family: 'Ultra', serif; */
 }
 
 #contribute {
-    margin-top: 0.5vmax;
+    height:2vmax;
+    font-size: 1.5vmax;
+    margin-top: 1vmax;
     text-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
         -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
     cursor: pointer;
