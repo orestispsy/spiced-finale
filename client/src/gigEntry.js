@@ -2,6 +2,7 @@ import { Component } from "react";
 import axios from "./tools/axios";
 import { Link } from "react-router-dom";
 
+
 export default class GigEntry extends Component {
     constructor(props) {
         super(props);
@@ -17,6 +18,7 @@ export default class GigEntry extends Component {
     }
 
     componentDidMount() {
+
         axios
             .get("/gig/" + this.props.match.params.id)
             .then(({ data }) => {

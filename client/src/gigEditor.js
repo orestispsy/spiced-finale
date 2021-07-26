@@ -8,7 +8,7 @@ import Posters from "./posters";
 
 export default class GigEditor extends React.Component {
     constructor(props) {
-        // console.log("PROPS IN EDITOR", props);
+        console.log("PROPS IN EDITOR", props);
         super(props);
         this.state = {
             error: false,
@@ -21,6 +21,12 @@ export default class GigEditor extends React.Component {
             selectedPoster: "",
             posterSection: false,
         };
+    }
+
+    componentDidMount() {
+           if (!this.props.admin) {
+               location.replace("/");
+           }
     }
 
     handleClick() {
@@ -404,19 +410,19 @@ export default class GigEditor extends React.Component {
                             </div>
                             {this.state.selectedGig.id &&
                                 !this.state.deleteSuccess && (
-                                  
-                                        <img
-                                            className="imgPreview"
-                                            src={
-                                                this.state.selectedPoster ||
-                                                this.state.selectedGig.poster ||
-                                                "na.jpg"
-                                            }
-                                        ></img>)}
+                                    <img
+                                        className="imgPreview"
+                                        src={
+                                            this.state.selectedPoster ||
+                                            this.state.selectedGig.poster ||
+                                            "na.jpg"
+                                        }
+                                    ></img>
+                                )}
                             {this.state.selectedGig.id &&
                                 !this.state.deleteSuccess && (
                                     <div className="fileUploader">
-                                       <input
+                                        <input
                                             type="file"
                                             name="file"
                                             accept="image/*"

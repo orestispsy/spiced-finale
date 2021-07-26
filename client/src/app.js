@@ -213,7 +213,10 @@ export default class App extends Component {
                                 exact
                                 path="/gig-editor"
                                 render={(props) => (
-                                    <GigEditor gigsList={this.state.gigsList} />
+                                    <GigEditor
+                                        gigsList={this.state.gigsList}
+                                        admin={this.state.admin}
+                                    />
                                 )}
                             />
                             <Route
@@ -248,7 +251,7 @@ export default class App extends Component {
                                     />
                                 )}
                             />
-                            
+
                             <Route
                                 exact
                                 path="/gig-list-animation"
@@ -277,6 +280,7 @@ export default class App extends Component {
                                 path="/super-admin"
                                 render={(props) => (
                                     <SuperAdmin
+                                        super_admin={this.state.super_admin}
                                         chat_myUserId={this.state.id}
                                         listSet={(e) => this.listSet(e)}
                                     />
