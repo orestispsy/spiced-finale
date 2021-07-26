@@ -17,6 +17,7 @@ exports.upload = (req, res, next) => {
     console.log("multer req file", req.file);
     if (!req.file) {
         console.log("multer fail");
+          res.json({ error: true });
         return res.sendStatus(500);
     }
     const { filename, mimetype, size, path } = req.file;

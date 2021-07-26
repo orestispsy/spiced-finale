@@ -2,6 +2,7 @@ import { Component } from "react";
 import axios from "./tools/axios";
 import { Link } from "react-router-dom";
 
+import Community from "./community";
 
 export default class GigEntry extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ export default class GigEntry extends Component {
                     date: data.data.date,
                     tour_name: data.data.tour_name,
                     poster: data.data.poster,
-                    selectedGig: data.data.date,
+                    selectedGig: data.data.date
                 });
             })
             .catch((err) => {
@@ -109,6 +110,10 @@ export default class GigEntry extends Component {
                             <h1>{this.state.date}</h1>
                         </div>
                     </div>
+                    <Community
+                        selectedGigId={this.state.id}
+                        myUserId={this.props.myUserId}
+                    />
                 </div>
                 <Link to="/gig-list/" className="backLink">
                     Back

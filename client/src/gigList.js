@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import useSound from "use-sound";
-import introSfx from "./../public/21space.mp3";
-
 export default function GigList({ gigsList, listSet }) {
     useEffect(function () {
         listSet(true);

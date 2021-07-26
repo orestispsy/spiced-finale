@@ -61,7 +61,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
             .post("/set-super-admin", { id: e, boolean: !boolean })
             .then(({ data }) => {})
             .catch((err) => {
-                console.log("err in axios get-all-users ", err);
+                console.log("err in axios set-super-admin ", err);
             });
     };
 

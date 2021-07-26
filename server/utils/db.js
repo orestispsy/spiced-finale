@@ -275,6 +275,24 @@ module.exports.setUserSuperAdmin = (id, boolean) => {
     return db.query(q, params);
 };
 
+module.exports.addCommunityImage = (gig_id, img_sender_id, img_url) => {
+    const q = `
+        INSERT INTO images (gig_id, img_sender_id, img_url)
+        VALUES ($1, $2, $3)
+        RETURNING *
+    `;
+    const params = [gig_id, img_sender_id, img_url];
+    return db.query(q, params);
+};
+
+module.exports.getCommunityImages = (id) => {
+    const q = `
+        SELECT * FROM images WHERE images.gig_id= $1;
+    `;
+    const params = [id];
+    return db.query(q, params);
+};
+
 module.exports.getPrivateMsgs = () => {
     const q = `
         SELECT chatroom.id, chatroom.created_at, nickname, chat_img, chat_color, msg_sender_id, chat_msg

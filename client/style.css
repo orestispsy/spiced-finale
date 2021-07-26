@@ -442,13 +442,13 @@ button:active {
     object-fit: cover;
     box-shadow: -0 0 15px black, 0 -0 15px black, -0 -0 15px black,
         -0 -0 15px black;
-        transition: 0.5s;
+    transition: 0.5s;
 }
 
 .easterEgg img:hover {
     box-shadow: -0 0 25px black, 0 -0 25px black, -0 -0 25px black,
         -0 -0 25px black;
-    transition:0.5s;
+    transition: 0.5s;
 }
 
 .easterEgg img:active {
@@ -488,7 +488,7 @@ button:active {
         -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
     border: 1px solid rgba(255, 230, 0, 0.37);
     border-style: double;
-       transition: 1s;
+    transition: 1s;
 }
 
 .mainMenuLink:hover {
@@ -500,7 +500,7 @@ button:active {
         rgba(224, 247, 135, 1) 4.927083333333334%,
         rgba(78, 227, 250, 1) 97.84374999999999%
     );
-    transition: 1s
+    transition: 1s;
 }
 
 .mainMenuLink:hover:active {
@@ -2430,7 +2430,7 @@ font-family: 'Ultra', serif; */
     width: 5vmax;
     height: 4vmax;
     background-size: cover;
-       transition: 0.5s;
+    transition: 0.5s;
 }
 
 .superAdminButton img:hover {
@@ -2448,4 +2448,45 @@ font-family: 'Ultra', serif; */
     height: 3vmax;
     border-radius: 50%;
     padding: 1vmax;
+}
+
+.communityContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vmax;
+    height: 38vmax;
+    border: 1px double purple;
+    margin-left: 2vmax;
+}
+
+.communityPhotos {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30vmax;
+    height: 25vmax;
+    border: 1px double purple;
+    overflow-y: scroll;
+    padding: 1vmax;
+    margin: 0.5vmax;
+}
+
+.communityPhotos img {
+    width: 13vmax;
+    height: 14vmax;
+    margin: 1vmax;
+    box-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
+        -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
+    border-radius: 1vh;
+}
+
+#contribute {
+    margin-top: 0.5vmax;
+    text-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
+        -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
+    cursor: pointer;
+}
+
+#contribute:hover {
+    color: white;
 }

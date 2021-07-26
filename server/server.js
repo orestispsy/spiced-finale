@@ -284,6 +284,36 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
         });
 });
 
+app.post(
+    "/upload-community-image",
+    uploader.single("file"),
+    s3.upload,
+    (req, res) => {
+        const { filename } = req.file;
+        const data = JSON.parse(req.body.data);
+        db.addCommunityImage(req.body.data, req.body.user, s3Url + filename)
+            .then(({ rows }) => {
+                res.json({ rows, success: true });
+            })
+            .catch((err) => {
+                res.json({ error: true });
+                console.log(err);
+            });
+    }
+);
+
+app.post("/get-community-images", (req, res) => {
+    console.log(req.body.selectedGigId);
+    db.getCommunityImages(req.body.selectedGigId)
+        .then(({ rows }) => {
+            res.json({ rows });
+        })
+        .catch((err) => {
+            res.json({ error: true });
+            console.log(err);
+        });
+});
+
 app.get("/logout", (req, res) => {
     req.session = null;
     res.redirect("/");

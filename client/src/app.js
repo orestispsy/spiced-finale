@@ -244,10 +244,9 @@ export default class App extends Component {
                                 path="/gig/:id"
                                 render={(props) => (
                                     <GigEntry
-                                        key={props.match.url}
                                         match={props.match}
-                                        history={props.history}
                                         gigsList={this.state.gigsList}
+                                        myUserId={this.state.id}
                                     />
                                 )}
                             />
