@@ -56,15 +56,17 @@ export default function Community({ selectedGigId, myUserId, super_admin }) {
                     setContribute(false)
                      setError(false);
                      setFile("");
-                        setUpload(false);
+                    setUpload(false);
                  
                 } else if (data.error){
                     setError(true)
+                     setUpload(false);
                 }
                 
             })
             .catch((err) => {
                 setError(true);
+                 setUpload(false);
                 // console.log("err in axios in Image Uploader ", err);
             });
     };
