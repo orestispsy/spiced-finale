@@ -617,13 +617,13 @@ button:active {
         height: 40vw !important;
     }
     .mainMenuLink {
-        font-size: 4vmax !important;
-        padding: 2vmax 3vmax 4vmax 3vmax !important;
+        font-size: 3.5vmax !important;
+        padding: 1.5vmax 1.5vmax 2vmax 1.5vmax !important;
     }
     .easterEgg img {
-        width: 16vmax !important;
-        height: 16vmax !important;
-        margin: -5vmax 3vmax 7vmax 3vmax !important;
+        width: 14vmax !important;
+        height: 14vmax !important;
+        margin: -4vmax 4vmax 7vmax 4vmax !important;
     }
 
     .mainMenu a:nth-child(2) {
@@ -840,12 +840,20 @@ button:active {
     }
       #contribute {
         font-size: 1.5vmax !important;
-   
+        margin-bottom:1vmax !important;
         padding:1vmax 1vmax 0.5vmax 1vmax !important
     }
 
      .gigEntryDetails {
-         margin-bottom:3vmax;
+         margin-bottom:3vmax
+     }
+
+     .gigEntryDetails h1{
+         padding-bottom:2vmax !important
+     }
+
+      .gigEntryDetails img{
+         margin-top:0 !important
      }
 
     .gigEntryDetailsBack{
@@ -1091,10 +1099,10 @@ button:active {
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
     margin-top: 0.5vmax;
-    width: fit-content;
+
     align-self: center;
-    width: 20vw;
-    height: 25vh;
+    width: 20vmax;
+    height: 16vmax;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2237,11 +2245,12 @@ font-family: 'Ultra', serif; */
 .detailedEntry {
     margin: 1vmax;
     text-align: center;
+    max-width:22vmax;
 }
 
 .detailedEntry h1 {
     font-size: 1.5vmax;
-    border-bottom: 1px solid purple;
+    border-bottom: 2px solid purple;
     padding-bottom: 5vh;
     height: fit-content;
 }
@@ -2265,7 +2274,7 @@ font-family: 'Ultra', serif; */
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border: 0.1px solid purple;
+    border: 2px solid purple;
 }
 
 .posterEditPreview {
@@ -2456,7 +2465,7 @@ font-family: 'Ultra', serif; */
     align-items: center;
     width: 40vmax;
     height: 38vmax;
-    border: 1px double purple;
+    border: 2px double purple;
     margin-left: 2vmax;
 }
 
@@ -2465,7 +2474,7 @@ font-family: 'Ultra', serif; */
     flex-wrap: wrap;
     width: 30vmax;
     height: 25vmax;
-    border: 1px double purple;
+    border: 2px double purple;
     overflow-y: scroll;
     padding: 1vmax;
     margin: 0.5vmax;
