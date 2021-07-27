@@ -68,7 +68,7 @@ export default function Community({ selectedGigId, myUserId, super_admin }) {
 
     return (
         <div className="communityContainer">
-            <div>Community</div>
+            <div className="gallery">Gallery</div>
             <div className="communityPhotos">
                 {images &&
                     images.map((img) => (

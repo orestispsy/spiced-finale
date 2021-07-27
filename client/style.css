@@ -1050,7 +1050,7 @@ button:active {
     
     #contribute {
         font-size: 1.5vmax !important;
-   
+        margin-bottom: 1vmax !important;
         padding:1vmax 1vmax 0.5vmax 1vmax !important
     }
 }
@@ -2221,6 +2221,7 @@ font-family: 'Ultra', serif; */
     height: 90vh;
     color: yellow;
     font-size: 3vmax;
+    justify-content: flex-start;
 }
 
 .gigEntryContainer form {
@@ -2469,6 +2470,10 @@ font-family: 'Ultra', serif; */
     margin-left: 2vmax;
 }
 
+.gallery {
+    margin: 1vmax;
+}
+
 .communityPhotos {
     display: flex;
     flex-wrap: wrap;
@@ -2477,7 +2482,7 @@ font-family: 'Ultra', serif; */
     border: 2px double purple;
     overflow-y: scroll;
     padding: 1vmax;
-    margin: 0.5vmax;
+
     scrollbar-width: none;
 }
 
