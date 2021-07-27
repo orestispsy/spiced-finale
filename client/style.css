@@ -838,30 +838,32 @@ button:active {
     .superListItem {
         height: 50vmax !important;
     }
-      #contribute {
+    #contribute {
         font-size: 1.5vmax !important;
-        margin-bottom:1vmax !important;
-        padding:1vmax 1vmax 0.5vmax 1vmax !important
+        margin-bottom: 1vmax !important;
+        padding: 1vmax 1vmax 0.5vmax 1vmax !important;
     }
 
-     .gigEntryDetails {
-         margin-bottom:3vmax
-     }
+    .gigEntryDetails {
+        margin-bottom: 3vmax;
+    }
 
-     .gigEntryDetails h1{
-         padding-bottom:2vmax !important
-     }
+    .gigEntryDetails h1 {
+        padding-bottom: 2vmax !important;
+    }
 
-      .gigEntryDetails img{
-         margin-top:0 !important
-     }
+    .gigEntryDetails img {
+        margin-top: 0 !important;
+    }
 
-    .gigEntryDetailsBack{
+    .gigEntryDetailsBack {
         flex-direction: column;
         overflow-y: scroll;
     }
 
-    .communityContainer {margin-left:0 !important}
+    .communityContainer {
+        margin-left: 0 !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1047,11 +1049,11 @@ button:active {
     .superListItem h1 {
         font-size: 3vmax !important;
     }
-    
+
     #contribute {
         font-size: 1.5vmax !important;
         margin-bottom: 1vmax !important;
-        padding:1vmax 1vmax 0.5vmax 1vmax !important
+        padding: 1vmax 1vmax 0.5vmax 1vmax !important;
     }
 }
 
@@ -1094,12 +1096,10 @@ button:active {
 
 .gigBox {
     background-color: rgba(172, 255, 104, 0.075);
-
     border-radius: 1vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
     margin-top: 0.5vmax;
-
     align-self: center;
     width: 20vmax;
     height: 16vmax;
@@ -1108,20 +1108,13 @@ button:active {
     justify-content: center;
 }
 
-.gigBoxBack:hover {
+.gigBox:hover {
+    opacity: 100% !important;
     background: linear-gradient(rgba(0, 0, 0, 0.658), rgba(0, 0, 0, 0.76)),
-        url("rocket.gif");
+        url("rocket2.gif");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: fit-content;
-    height: fit-content;
-    background-color: rgba(255, 0, 221, 0.025);
-    border-radius: 1vmax;
-}
-
-.gigBox:hover {
-    opacity: 100% !important;
 }
 
 .gigEntries:hover {
@@ -2246,7 +2239,7 @@ font-family: 'Ultra', serif; */
 .detailedEntry {
     margin: 1vmax;
     text-align: center;
-    max-width:22vmax;
+    max-width: 22vmax;
 }
 
 .detailedEntry h1 {
@@ -2465,7 +2458,7 @@ font-family: 'Ultra', serif; */
     flex-direction: column;
     align-items: center;
     width: 40vmax;
-    height: 40vmax;
+    min-height: 40vmax;
     border: 2px double purple;
     margin-left: 2vmax;
 }
@@ -2492,25 +2485,25 @@ font-family: 'Ultra', serif; */
     justify-content: center;
     font-size: 1vmax;
 
-          margin: 1vmax 1vmax 2vmax 1vmax;
-              border-radius: 1vh;
-              color:white;
+    margin: 1vmax 1vmax 2vmax 1vmax;
+    border-radius: 1vh;
+    color: white;
 }
 
 .communityPhotosDetails div {
     margin-bottom: 1vmax;
-    color:rgb(79, 255, 196)
+    color: rgb(79, 255, 196);
 }
 
 .communityPhotos img {
     width: 13vmax;
     height: 14vmax;
     border-radius: 1vh;
-       margin: 0.5vmax;
+    margin: 0.5vmax;
 }
 
 #contribute {
-    height:2vmax;
+    height: 2vmax;
     font-size: 1.5vmax;
     margin-top: 1vmax;
     text-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
@@ -2523,23 +2516,23 @@ font-family: 'Ultra', serif; */
 }
 
 #fileUploader {
-    margin-top:0.5vmax !important
+    margin-top: 0.5vmax !important;
 }
 
 .uploading {
     width: 2vmax;
-    height:2vmax;
-      background-image: url("loading.gif");
+    height: 2vmax;
+    background-image: url("loading.gif");
     background-size: cover;
-    margin-left:0.5vmax;
+    margin-left: 0.5vmax;
 }
 
 .deletecommunityPhoto {
-     width: 1.5vmax;
+    width: 1.5vmax;
     height: 1.5vmax;
     cursor: pointer;
     background-image: url("delete.png");
     background-size: cover;
-     mix-blend-mode: hard-light;
-     margin: 0 0 -2.5vmax 1vmax ;
+    mix-blend-mode: hard-light;
+    margin: 0 0 -2.5vmax 1vmax;
 }

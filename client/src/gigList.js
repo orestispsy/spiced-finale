@@ -4,11 +4,8 @@ import { useState, useEffect } from "react";
 export default function GigList({ gigsList, listSet }) {
     useEffect(function () {
         listSet(true);
-     
     }, []);
     // console.log("GIGSLIST IN GIGSLIST", gigsList);
-
-
 
     return (
         <div className="gigListContainer">
@@ -29,30 +26,28 @@ export default function GigList({ gigsList, listSet }) {
                 {gigsList &&
                     gigsList.map((gig) => (
                         <Link to={`/gig/${gig.id}`} key={gig.id}>
-                            <div className="gigBoxBack">
-                                <div className="gigBox">
-                                    <div
-                                        style={{
-                                            color: `yellow`,
-                                            textDecoration: `underline`,
-                                        }}
-                                    >
-                                        {gig.date}
-                                    </div>{" "}
-                                    <div
-                                        style={{
-                                            color: `lime`,
-                                        }}
-                                    >
-                                        {gig.venue}
-                                    </div>{" "}
-                                    <div
-                                        style={{
-                                            color: `white`,
-                                        }}
-                                    >
-                                        {gig.city}
-                                    </div>
+                            <div className="gigBox">
+                                <div
+                                    style={{
+                                        color: `yellow`,
+                                        textDecoration: `underline`,
+                                    }}
+                                >
+                                    {gig.date}
+                                </div>{" "}
+                                <div
+                                    style={{
+                                        color: `lime`,
+                                    }}
+                                >
+                                    {gig.venue}
+                                </div>{" "}
+                                <div
+                                    style={{
+                                        color: `white`,
+                                    }}
+                                >
+                                    {gig.city}
                                 </div>
                             </div>
                         </Link>
