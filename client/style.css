@@ -2508,6 +2508,18 @@ font-family: 'Ultra', serif; */
     color: white;
 }
 
+#fileUploader {
+    margin-top:0.5vmax !important
+}
+
+.uploading {
+    width: 2vmax;
+    height:2vmax;
+      background-image: url("loading.gif");
+    background-size: cover;
+    margin-left:0.5vmax;
+}
+
 .deletecommunityPhoto {
      width: 1.5vmax;
     height: 1.5vmax;

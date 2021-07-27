@@ -6,8 +6,9 @@ export default function Community({ selectedGigId, myUserId, super_admin }) {
     const [file, setFile] = useState("");
     const [images, setImages] = useState("");
     const [error, setError] = useState(false);
-    useEffect(
-           
+    const [upload, setUpload] = useState(false);
+
+    useEffect(    
         function () {
              setError(false);
             setContribute(false);
@@ -42,6 +43,7 @@ export default function Community({ selectedGigId, myUserId, super_admin }) {
     };
 
     const handleUploaderClick = () => {
+        setUpload(true)
         const formData = new FormData();
         formData.append("file", file);
         formData.append("data", JSON.stringify(selectedGigId));
@@ -53,15 +55,16 @@ export default function Community({ selectedGigId, myUserId, super_admin }) {
                     setImages(images.concat(data.rows[0]));
                     setContribute(false)
                      setError(false);
+                     setFile("");
+                        setUpload(false);
+                 
                 } else if (data.error){
                     setError(true)
                 }
                 
             })
             .catch((err) => {
-                this.setState({
-                    error: true,
-                });
+                setError(true);
                 // console.log("err in axios in Image Uploader ", err);
             });
     };
@@ -79,7 +82,9 @@ export default function Community({ selectedGigId, myUserId, super_admin }) {
                                         className="deletecommunityPhoto"
                                         title="Delete"
                                         id={img.id}
-                                        onClick={(e) => imageDelete(e.target.id)}
+                                        onClick={(e) =>
+                                            imageDelete(e.target.id)
+                                        }
                                     ></div>
                                 ))}
                             {super_admin && (
@@ -106,7 +111,7 @@ export default function Community({ selectedGigId, myUserId, super_admin }) {
                 </div>
             )}
             {contribute && (
-                <div className="fileUploader">
+                <div className="fileUploader" id="fileUploader">
                     <input
                         type="file"
                         name="file"
@@ -115,11 +120,14 @@ export default function Community({ selectedGigId, myUserId, super_admin }) {
                         onClick={() => setError(false)}
                     />
 
-                    <div
-                        title="Upload Image"
-                        className="upload"
-                        onClick={() => handleUploaderClick()}
-                    ></div>
+                    {!upload && (
+                        <div
+                            title="Upload Image"
+                            className="upload"
+                            onClick={() => handleUploaderClick()}
+                        ></div>
+                    )}
+                    {upload && <div className="uploading"></div>}
                 </div>
             )}
             {error && <p className="error">Select an Image [Max Size: 2MB]</p>}
