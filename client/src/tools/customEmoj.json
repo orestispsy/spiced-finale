@@ -158,5 +158,21 @@
     {
         "id": "40",
         "url": "./../chat/grill.gif"
+    },
+    {
+        "id": "41",
+        "url": "./../chat/flag.gif"
+    },
+    {
+        "id": "42",
+        "url": "./../chat/banjo.gif"
+    },
+    {
+        "id": "43",
+        "url": "./../chat/parrot.gif"
+    },
+    {
+        "id": "44",
+        "url": "./../chat/ship.gif"
     }
 ]

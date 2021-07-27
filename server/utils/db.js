@@ -48,6 +48,7 @@ module.exports.getGigs = () => {
     const q = `
         SELECT *
         FROM gigs
+        ORDER BY gigs.created_at DESC
     `;
 
     return db.query(q);
