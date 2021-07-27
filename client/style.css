@@ -2465,7 +2465,7 @@ font-family: 'Ultra', serif; */
     flex-direction: column;
     align-items: center;
     width: 40vmax;
-    height: 38vmax;
+    height: 40vmax;
     border: 2px double purple;
     margin-left: 2vmax;
 }
@@ -2477,22 +2477,36 @@ font-family: 'Ultra', serif; */
 .communityPhotos {
     display: flex;
     flex-wrap: wrap;
-    width: 30vmax;
-    height: 25vmax;
+    width: 32vmax;
+    height: 27vmax;
     border: 2px double purple;
     overflow-y: scroll;
     padding: 1vmax;
-
     scrollbar-width: none;
+}
+
+.communityPhotosDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1vmax;
+
+          margin: 1vmax 1vmax 2vmax 1vmax;
+              border-radius: 1vh;
+              color:white;
+}
+
+.communityPhotosDetails div {
+    margin-bottom: 1vmax;
+    color:rgb(79, 255, 196)
 }
 
 .communityPhotos img {
     width: 13vmax;
     height: 14vmax;
-    margin: 1vmax;
-    box-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
-        -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
     border-radius: 1vh;
+       margin: 0.5vmax;
 }
 
 #contribute {

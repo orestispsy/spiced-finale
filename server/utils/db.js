@@ -287,7 +287,12 @@ module.exports.addCommunityImage = (gig_id, img_sender_id, img_url) => {
 
 module.exports.getCommunityImages = (id) => {
     const q = `
-        SELECT * FROM images WHERE images.gig_id= $1;
+        SELECT images.id, gig_id, img_sender_id, img_url, images.created_at, nickname
+        FROM images
+        JOIN community
+        ON (community.id = images.img_sender_id)
+        WHERE images.gig_id = $1;
+
     `;
     const params = [id];
     return db.query(q, params);

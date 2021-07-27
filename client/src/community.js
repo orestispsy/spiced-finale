@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "./tools/axios";
 
-export default function Community({ selectedGigId, myUserId, super_admin }) {
+export default function Community({ selectedGigId, myUserId, super_admin, nickname }) {
     const [contribute, setContribute] = useState(false);
     const [file, setFile] = useState("");
     const [images, setImages] = useState("");
     const [error, setError] = useState(false);
     const [upload, setUpload] = useState(false);
 
-    useEffect(    
+    useEffect(
         function () {
-             setError(false);
+            setError(false);
             setContribute(false);
             axios
                 .post("/get-community-images/", {
@@ -18,6 +18,7 @@ export default function Community({ selectedGigId, myUserId, super_admin }) {
                 })
                 .then(({ data }) => {
                     setImages(data.rows);
+                    console.log(data.rows);
                 })
                 .catch((err) => {
                     console.log("err in Gig Entry GET Request : ", err);
@@ -27,23 +28,22 @@ export default function Community({ selectedGigId, myUserId, super_admin }) {
     );
 
     const imageDelete = (e) => {
-         axios
-             .post("/delete-community-image/", {
-                 imageId: e,
-             })
-             .then(({ data }) => {
-                 if (data.success) {
-                         setImages(images.filter((img) => img.id != e));
-                 }
-             })
-             .catch((err) => {
-                 console.log("err in Gig Entry GET Request : ", err);
-             });
-      
+        axios
+            .post("/delete-community-image/", {
+                imageId: e,
+            })
+            .then(({ data }) => {
+                if (data.success) {
+                    setImages(images.filter((img) => img.id != e));
+                }
+            })
+            .catch((err) => {
+                console.log("err in Gig Entry GET Request : ", err);
+            });
     };
 
     const handleUploaderClick = () => {
-        setUpload(true)
+        setUpload(true);
         const formData = new FormData();
         formData.append("file", file);
         formData.append("data", JSON.stringify(selectedGigId));
@@ -51,22 +51,20 @@ export default function Community({ selectedGigId, myUserId, super_admin }) {
         axios
             .post("/upload-community-image", formData)
             .then(({ data }) => {
-                if(data.success){
+                if (data.success) {
                     setImages(images.concat(data.rows[0]));
-                    setContribute(false)
-                     setError(false);
-                     setFile("");
+                    setContribute(false);
+                    setError(false);
+                    setFile("");
                     setUpload(false);
-                 
-                } else if (data.error){
-                    setError(true)
-                     setUpload(false);
+                } else if (data.error) {
+                    setError(true);
+                    setUpload(false);
                 }
-                
             })
             .catch((err) => {
                 setError(true);
-                 setUpload(false);
+                setUpload(false);
                 // console.log("err in axios in Image Uploader ", err);
             });
     };
@@ -97,9 +95,12 @@ export default function Community({ selectedGigId, myUserId, super_admin }) {
                                     onClick={(e) => imageDelete(e.target.id)}
                                 ></div>
                             )}
-                            <a href={img.img_url} target="_blank">
-                                <img src={img.img_url}></img>
-                            </a>
+                            <div className="communityPhotosDetails">
+                                <a href={img.img_url} target="_blank">
+                                    <img src={img.img_url}></img>
+                                </a>
+                                Uploaded by: <div>{img.nickname || nickname}</div>
+                            </div>
                         </div>
                     ))}
             </div>
