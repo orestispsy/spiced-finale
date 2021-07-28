@@ -99,8 +99,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                 msgTime[2];
                             return (
                                 <div key={user.id}>
-                                    {chat_myUserId != user.id &&
-                                        user.id != "1" && (
+                                    {chat_myUserId != user.id && (
                                             <div className="superListItem">
                                                 <img
                                                     src={

@@ -253,6 +253,7 @@ module.exports.getAllUsers = () => {
         FROM chatroom
         JOIN community
         ON (community.id = msg_sender_id)
+        WHERE community.id != '1'
         ORDER BY msg_sender_id, chatroom.created_at DESC;
      `;
     return db.query(q);
