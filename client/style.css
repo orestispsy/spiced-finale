@@ -1110,9 +1110,9 @@ button:active {
 
 .gigBox:hover {
     opacity: 100% !important;
-    background: linear-gradient(rgba(0, 0, 0, 0.658), rgba(0, 0, 0, 0.76)),
+    background: 
         url("rocket2.gif");
-    background-size: contain;
+    background-size:cover;
     background-repeat: no-repeat;
     background-position: center;
 }

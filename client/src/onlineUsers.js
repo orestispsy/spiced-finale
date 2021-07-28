@@ -133,7 +133,7 @@ export default function OnlineUsers({
                                             >
                                                 <img
                                                     className="onlineListImg"
-                                                    title={user.id}
+                                                  
                                                     alt={user.nickname}
                                                     src={
                                                         (chat_myUserId ==

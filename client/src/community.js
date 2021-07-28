@@ -18,7 +18,6 @@ export default function Community({ selectedGigId, myUserId, super_admin, nickna
                 })
                 .then(({ data }) => {
                     setImages(data.rows);
-                    console.log(data.rows);
                 })
                 .catch((err) => {
                     console.log("err in Gig Entry GET Request : ", err);
