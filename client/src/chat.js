@@ -130,7 +130,6 @@ export default function Chat({
 
     const handleChatPostDelete = (e) => {
         setPostScroll(true);
-        const position = elemRef.current.scrollTop;
 
         socket.emit(
             "DELETE MSG",
@@ -138,7 +137,6 @@ export default function Chat({
             e
         );
 
-        elemRef.current.scrollTop = position;
     };
 
     if (!chatMessages) {
