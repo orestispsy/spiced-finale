@@ -31,13 +31,13 @@ export default function Chat({
 
     // console.log("THE MESSAGES", chatMessages);
 
-    useEffect(() => {
-        if (chatMessages) {
-            if (scrollTop < 1) {
-                next20ChatMsgs();
-            }
-        }
-    }, [scrollTop]);
+    // useEffect(() => {
+    //     if (chatMessages) {
+    //         if (scrollTop < 1) {
+    //             next20ChatMsgs();
+    //         }
+    //     }
+    // }, [scrollTop]);
 
     useEffect(() => {
         if (!postScroll) {
