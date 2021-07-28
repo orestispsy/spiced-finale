@@ -10,18 +10,11 @@ import useSound from "use-sound";
 
 import chatSfx from "./../public/msg.mp3";
 
-export default function Chat({
-    chat_color,
-    chat_img,
-    chat_myUserId,
-    admin,
-    super_admin,
-}) {
+export default function Chat({ chat_color, chat_img, chat_myUserId, admin, super_admin }) {
     const [emojiBar, setEmojiBar] = useState(false);
     const [tickerBar, setTickerBar] = useState(false);
     const [mute, setMute] = useState(false);
-    const [postScroll, setPostScroll] = useState(false);
-    const [scrollTop, setScrollTop] = useState(false);
+        const [postDelete, setPostDelete] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.75 });
 
@@ -31,26 +24,18 @@ export default function Chat({
 
     // console.log("THE MESSAGES", chatMessages);
 
-    // useEffect(() => {
-    //     if (chatMessages) {
-    //         if (scrollTop < 1) {
-    //             next20ChatMsgs();
-    //         }
-    //     }
-    // }, [scrollTop]);
-
     useEffect(() => {
-        if (!postScroll) {
+        if(!postDelete) {
             if (elemRef.current) {
                 const newScrollTop =
                     elemRef.current.scrollHeight - elemRef.current.clientHeight;
                 elemRef.current.scrollTop = newScrollTop;
             }
         }
-        if (!mute && scrollTop > 1) {
+        if (!mute) {
             play();
         }
-        setPostScroll(false);
+        setPostDelete(false)
     }, [chatMessages]);
 
     const keyCheck = (e) => {
@@ -98,13 +83,10 @@ export default function Chat({
     };
 
     const next20ChatMsgs = () => {
-        setPostScroll(true);
-        const position = elemRef.current.scrollTop;
-        if (position == 0) {
-            elemRef.current.scrollTop = position + 1;
-        }
-
+        setPostDelete(true)
         socket.emit("NEXT MSGS", chatMessages[0].id);
+       
+        return () => clearTimeout(timer);
     };
 
     const getBack2Top = () => {
@@ -129,7 +111,8 @@ export default function Chat({
     };
 
     const handleChatPostDelete = (e) => {
-        setPostScroll(true);
+        setPostDelete(true)
+        const position = elemRef.current.scrollTop;
 
         socket.emit(
             "DELETE MSG",
@@ -137,10 +120,14 @@ export default function Chat({
             e
         );
 
+        const timer = setTimeout(() => {
+            elemRef.current.scrollTop = position;
+        }, 500);
+        return () => clearTimeout(timer);
     };
 
     if (!chatMessages) {
-        return <div className="loading"></div>;
+        return (<div className="loading"></div>)
     }
 
     return (
@@ -150,13 +137,7 @@ export default function Chat({
                 <div className="chatContainer">
                     <h1>Chat Room</h1>
                     <div className="chatScreenBack">
-                        <div
-                            className="chatScreen"
-                            ref={elemRef}
-                            onScrollCapture={() =>
-                                setScrollTop(elemRef.current.scrollTop)
-                            }
-                        >
+                        <div className="chatScreen" ref={elemRef}>
                             <div className="chatNextControls">
                                 <div
                                     title="Chat Top"
@@ -259,17 +240,17 @@ export default function Chat({
                                                             }
                                                         ></div>
                                                     )}
-                                                {super_admin && (
-                                                    <div
-                                                        title="Delete"
-                                                        className="deleteChatMsg"
-                                                        onClick={(e) =>
-                                                            handleChatPostDelete(
-                                                                msg.id
-                                                            )
-                                                        }
-                                                    ></div>
-                                                )}
+                                                {super_admin &&(
+                                                        <div
+                                                            title="Delete"
+                                                            className="deleteChatMsg"
+                                                            onClick={(e) =>
+                                                                handleChatPostDelete(
+                                                                    msg.id
+                                                                )
+                                                            }
+                                                        ></div>
+                                                    )}
                                                 <div
                                                     className="finalMessage"
                                                     style={{
