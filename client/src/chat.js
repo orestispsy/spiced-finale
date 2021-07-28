@@ -10,11 +10,17 @@ import useSound from "use-sound";
 
 import chatSfx from "./../public/msg.mp3";
 
-export default function Chat({ chat_color, chat_img, chat_myUserId, admin, super_admin }) {
+export default function Chat({
+    chat_color,
+    chat_img,
+    chat_myUserId,
+    admin,
+    super_admin,
+}) {
     const [emojiBar, setEmojiBar] = useState(false);
     const [tickerBar, setTickerBar] = useState(false);
     const [mute, setMute] = useState(false);
-        const [postDelete, setPostDelete] = useState(false);
+    const [postScroll, setPostScroll] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.75 });
 
@@ -25,7 +31,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId, admin, super
     // console.log("THE MESSAGES", chatMessages);
 
     useEffect(() => {
-        if(!postDelete) {
+        if (!postScroll) {
             if (elemRef.current) {
                 const newScrollTop =
                     elemRef.current.scrollHeight - elemRef.current.clientHeight;
@@ -35,7 +41,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId, admin, super
         if (!mute) {
             play();
         }
-        setPostDelete(false)
+        setPostScroll(false);
     }, [chatMessages]);
 
     const keyCheck = (e) => {
@@ -83,10 +89,11 @@ export default function Chat({ chat_color, chat_img, chat_myUserId, admin, super
     };
 
     const next20ChatMsgs = () => {
-        setPostDelete(true)
+        if (elemRef.current.scrollTop == 0) {
+            elemRef.current.scrollTop = elemRef.current.scrollTop + 1;
+        }
+        setPostScroll(true);
         socket.emit("NEXT MSGS", chatMessages[0].id);
-       
-        return () => clearTimeout(timer);
     };
 
     const getBack2Top = () => {
@@ -111,7 +118,7 @@ export default function Chat({ chat_color, chat_img, chat_myUserId, admin, super
     };
 
     const handleChatPostDelete = (e) => {
-        setPostDelete(true)
+        setPostScroll(true);
         const position = elemRef.current.scrollTop;
 
         socket.emit(
@@ -122,12 +129,12 @@ export default function Chat({ chat_color, chat_img, chat_myUserId, admin, super
 
         const timer = setTimeout(() => {
             elemRef.current.scrollTop = position;
-        }, 500);
+        }, 200);
         return () => clearTimeout(timer);
     };
 
     if (!chatMessages) {
-        return (<div className="loading"></div>)
+        return <div className="loading"></div>;
     }
 
     return (
@@ -240,17 +247,17 @@ export default function Chat({ chat_color, chat_img, chat_myUserId, admin, super
                                                             }
                                                         ></div>
                                                     )}
-                                                {super_admin &&(
-                                                        <div
-                                                            title="Delete"
-                                                            className="deleteChatMsg"
-                                                            onClick={(e) =>
-                                                                handleChatPostDelete(
-                                                                    msg.id
-                                                                )
-                                                            }
-                                                        ></div>
-                                                    )}
+                                                {super_admin && (
+                                                    <div
+                                                        title="Delete"
+                                                        className="deleteChatMsg"
+                                                        onClick={(e) =>
+                                                            handleChatPostDelete(
+                                                                msg.id
+                                                            )
+                                                        }
+                                                    ></div>
+                                                )}
                                                 <div
                                                     className="finalMessage"
                                                     style={{
