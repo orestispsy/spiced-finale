@@ -37,7 +37,7 @@ export default function Chat({
             if (scrollTop < 1) {
                  const timer = setTimeout(() => {
                       next20ChatMsgs();
-                 }, 500);
+                 }, 1000);
                  return () => clearTimeout(timer);
              
             }
