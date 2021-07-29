@@ -21,6 +21,7 @@ export default function Chat({
     const [tickerBar, setTickerBar] = useState(false);
     const [mute, setMute] = useState(false);
     const [postScroll, setPostScroll] = useState(false);
+       const [scrollTop, setScrollTop] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.75 });
 
@@ -30,6 +31,19 @@ export default function Chat({
 
     // console.log("THE MESSAGES", chatMessages);
 
+     useEffect(() => {
+
+        if (chatMessages) {
+            if (scrollTop < 1) {
+                 const timer = setTimeout(() => {
+                      next20ChatMsgs();
+                 }, 500);
+                 return () => clearTimeout(timer);
+             
+            }
+        }
+    }, [scrollTop]);
+
     useEffect(() => {
         if (!postScroll) {
             if (elemRef.current) {
@@ -38,7 +52,7 @@ export default function Chat({
                 elemRef.current.scrollTop = newScrollTop;
             }
         }
-        if (!mute) {
+        if (!mute && scrollTop > 1) {
             play();
         }
         setPostScroll(false);
@@ -118,7 +132,19 @@ export default function Chat({
     };
 
     const handleChatPostDelete = (e) => {
-        setPostScroll(true);
+        console.log("h", elemRef.current.scrollHeight);
+        console.log("t", elemRef.current.scrollTop);
+        console.log("ch", elemRef.current.clientHeight);
+        if (
+            elemRef.current.scrollHeight <=
+            elemRef.current.scrollTop + elemRef.current.clientHeight +100
+        ) {
+            console.log("yesssssssss");
+            setPostScroll(false);
+        } else {
+            setPostScroll(true);
+        }
+
         const position = elemRef.current.scrollTop;
 
         socket.emit(
@@ -144,7 +170,13 @@ export default function Chat({
                 <div className="chatContainer">
                     <h1>Chat Room</h1>
                     <div className="chatScreenBack">
-                        <div className="chatScreen" ref={elemRef}>
+                        <div
+                            className="chatScreen"
+                            ref={elemRef}
+                            onScrollCapture={() =>
+                                setScrollTop(elemRef.current.scrollTop)
+                            }
+                        >
                             <div className="chatNextControls">
                                 <div
                                     title="Chat Top"
