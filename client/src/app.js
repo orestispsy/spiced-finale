@@ -241,7 +241,7 @@ export default class App extends Component {
                             />
 
                             <Route
-                                path="/gig/:id"
+                                path="/gig/"
                                 render={(props) => (
                                     <GigEntry
                                         match={props.match}

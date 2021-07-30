@@ -51,3 +51,11 @@ CREATE TABLE images (
     img_url VARCHAR,
     created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE comments (
+    id SERIAL PRIMARY KEY,
+    gig_id INT REFERENCES gigs(id) NOT NULL,
+    msg_sender_id INT REFERENCES community(id) NOT NULL,
+    comment TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "./tools/axios";
 
-export default function Community({ selectedGigId, myUserId, super_admin, nickname }) {
+export default function Community({ selectedGigId, myUserId, super_admin, nickname, toggleComments }) {
     const [contribute, setContribute] = useState(false);
     const [file, setFile] = useState("");
     const [images, setImages] = useState("");
@@ -98,20 +98,31 @@ export default function Community({ selectedGigId, myUserId, super_admin, nickna
                                 <a href={img.img_url} target="_blank">
                                     <img src={img.img_url}></img>
                                 </a>
-                                Uploaded by: <div>{img.nickname || nickname}</div>
+                                Uploaded by:{" "}
+                                <div>{img.nickname || nickname}</div>
                             </div>
                         </div>
                     ))}
             </div>
             {!contribute && (
-                <div
-                    id="contribute"
-                    className="mainMenuLink"
-                    onClick={() => setContribute(true)}
-                >
-                    Contribute!
+                <div className="galleryControls">
+                    <div
+                        id="contribute"
+                        className="mainMenuLink"
+                        onClick={() => setContribute(true)}
+                    >
+                        Contribute!
+                    </div>
+                    <div
+                        id="commentsButton"
+                        className="mainMenuLink"
+                        onClick={() => toggleComments()}
+                    >
+                        Comments
+                    </div>
                 </div>
             )}
+
             {contribute && (
                 <div className="fileUploader" id="fileUploader">
                     <input
@@ -132,6 +143,17 @@ export default function Community({ selectedGigId, myUserId, super_admin, nickna
                     {upload && <div className="uploading"></div>}
                 </div>
             )}
+            {contribute && (
+                <div className="communityConfig">
+                    <div
+                        className="onlineUsersRedDot"
+                        id="commentsBack"
+                        title="Back"
+                        onClick={() => setContribute(false)}
+                    ></div>
+                </div>
+            )}
+
             {error && <p className="error">Select an Image [Max Size: 2MB]</p>}
         </div>
     );

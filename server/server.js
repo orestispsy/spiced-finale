@@ -439,6 +439,28 @@ app.post("/set-super-admin", (req, res) => {
         .catch((err) => console.log(err));
 });
 
+app.post("/get-comments", (req, res) => {
+    db.getComments(req.body.selectedGigId)
+        .then(({ rows }) => {
+            res.json({ data: rows });
+        })
+        .catch((err) => console.log(err));
+});
+
+app.post("/add-comment", (req, res) => {
+    console.log(
+        "yo",
+        req.body.selectedGigId,
+        req.body.myUserId,
+        req.body.comment
+    );
+    db.addComment(req.body.selectedGigId, req.body.myUserId, req.body.comment)
+        .then(({ rows }) => {
+            res.json({ data: rows });
+        })
+        .catch((err) => console.log(err));
+});
+
 app.get("*", function (req, res) {
     if (!req.session.userId) {
         res.redirect("/welcome");

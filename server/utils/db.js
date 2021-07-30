@@ -310,6 +310,27 @@ module.exports.deleteCommunityImage = (id) => {
     return db.query(q, params);
 };
 
+module.exports.getComments = (id) => {
+    const q = `
+    SELECT  comments.id, gig_id, msg_sender_id, comment, community.nickname
+    FROM comments
+    JOIN community
+    ON (community.id = comments.msg_sender_id) WHERE comments.gig_id = $1;
+    `;
+    const params = [id];
+    return db.query(q, params);
+};
+
+module.exports.addComment = (gig_id, msg_sender_id, comment) => {
+    const q = `
+        INSERT INTO comments (gig_id, msg_sender_id, comment)
+        VALUES ($1, $2, $3)
+        RETURNING *
+    `;
+    const params = [gig_id, msg_sender_id, comment];
+    return db.query(q, params);
+};
+
 module.exports.getPrivateMsgs = () => {
     const q = `
         SELECT chatroom.id, chatroom.created_at, nickname, chat_img, chat_color, msg_sender_id, chat_msg

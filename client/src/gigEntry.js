@@ -3,6 +3,7 @@ import axios from "./tools/axios";
 import { Link } from "react-router-dom";
 
 import Community from "./community";
+import Comments from "./comments";
 
 export default class GigEntry extends Component {
     constructor(props) {
@@ -15,6 +16,7 @@ export default class GigEntry extends Component {
             tour_name: "",
             poster: "",
             selectedGig: "",
+            toggleComments: false
         };
     }
 
@@ -69,6 +71,12 @@ export default class GigEntry extends Component {
         );
     }
 
+    toggleComments () {
+         this.setState({
+             toggleComments:!this.state.toggleComments
+         });
+    }
+
     render() {
         return (
             <div className="gigEntryContainer">
@@ -110,12 +118,24 @@ export default class GigEntry extends Component {
                             <h1>{this.state.date}</h1>
                         </div>
                     </div>
-                    <Community
-                        selectedGigId={this.state.id}
-                        myUserId={this.props.myUserId}
-                        super_admin={this.props.super_admin}
-                        nickname={this.props.nickname}
-                    />
+                    {!this.state.toggleComments && (
+                        <Community
+                            selectedGigId={this.state.id}
+                            myUserId={this.props.myUserId}
+                            super_admin={this.props.super_admin}
+                            nickname={this.props.nickname}
+                            toggleComments={() => this.toggleComments()}
+                        />
+                    )}
+                    {this.state.toggleComments && (
+                        <Comments
+                            selectedGigId={this.state.id}
+                            myUserId={this.props.myUserId}
+                            super_admin={this.props.super_admin}
+                            nickname={this.props.nickname}
+                            toggleComments={() => this.toggleComments()}
+                        />
+                    )}
                 </div>
                 <Link to="/gig-list/" className="backLink">
                     Back
