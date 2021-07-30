@@ -1196,7 +1196,7 @@ button:active {
     border-radius: 100px;
     border: 0;
     font-family: "Poller One", cursive;
-    color: purple;
+    color: tomato;
     font-size: 1vmax;
     margin-bottom: 2vh;
     padding: 0.5vmax;
@@ -2283,7 +2283,7 @@ font-family: 'Ultra', serif; */
 
 .detailedEntry h1 {
     font-size: 1.5vmax;
-    border-bottom: 2px solid purple;
+    border-bottom: 2px solid tomato;
     padding-bottom: 5vh;
     height: fit-content;
 }
@@ -2313,7 +2313,7 @@ font-family: 'Ultra', serif; */
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border: 2px solid purple;
+    border: 2px solid tomato;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
         height:38vmax;
@@ -2508,7 +2508,7 @@ font-family: 'Ultra', serif; */
     align-items: center;
     width: 40vmax;
     min-height: 38vmax;
-    border: 2px double purple;
+    border: 2px double tomato;
     margin-left: 2vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
@@ -2523,10 +2523,12 @@ font-family: 'Ultra', serif; */
     flex-wrap: wrap;
     width: 32vmax;
     height: 25vmax;
-    border: 2px double purple;
+    border: 2px double tomato;
     overflow-y: scroll;
     padding: 1vmax;
     scrollbar-width: none;
+     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+        -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
 }
 
 .communityPhotosDetails {
@@ -2608,7 +2610,7 @@ font-family: 'Ultra', serif; */
     justify-content: flex-start;
 
     margin-left: 2vmax;
-
+    border: 2px double tomato;
     border-radius: 1vmax;
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
         -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
@@ -2674,18 +2676,19 @@ font-family: 'Ultra', serif; */
 .commentBox {
     margin-bottom: 2vmax;
     min-width: 30vmax;
-
     max-width: 30vmax;
     min-height: 23vmax;
     max-height: 23vmax;
     overflow-y: scroll;
-    border: 2px double purple;
+    border: 2px double tomato;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     text-align: center;
     margin-bottom: 0.5vmax;
+     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+        -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
 }
 
 #commentButton {
@@ -2705,6 +2708,7 @@ font-family: 'Ultra', serif; */
     width: 22vmax !important;
     min-height: 1.5vmax !important;
     margin-top: 0.5vmax;
+
 }
 
 .comment {
