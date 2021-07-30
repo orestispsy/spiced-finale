@@ -21,7 +21,7 @@ export default function Chat({
     const [tickerBar, setTickerBar] = useState(false);
     const [mute, setMute] = useState(false);
     const [postScroll, setPostScroll] = useState(false);
-       const [scrollTop, setScrollTop] = useState(false);
+    const [scrollTop, setScrollTop] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.75 });
 
@@ -31,15 +31,13 @@ export default function Chat({
 
     // console.log("THE MESSAGES", chatMessages);
 
-     useEffect(() => {
-
+    useEffect(() => {
         if (chatMessages) {
             if (scrollTop < 1) {
-                 const timer = setTimeout(() => {
-                      next20ChatMsgs();
-                 }, 1000);
-                 return () => clearTimeout(timer);
-             
+                const timer = setTimeout(() => {
+                    next20ChatMsgs();
+                }, 1000);
+                return () => clearTimeout(timer);
             }
         }
     }, [scrollTop]);
@@ -132,14 +130,10 @@ export default function Chat({
     };
 
     const handleChatPostDelete = (e) => {
-        console.log("h", elemRef.current.scrollHeight);
-        console.log("t", elemRef.current.scrollTop);
-        console.log("ch", elemRef.current.clientHeight);
         if (
             elemRef.current.scrollHeight <=
-            elemRef.current.scrollTop + elemRef.current.clientHeight +100
+            elemRef.current.scrollTop + elemRef.current.clientHeight + 100
         ) {
-            console.log("yesssssssss");
             setPostScroll(false);
         } else {
             setPostScroll(true);
@@ -155,7 +149,7 @@ export default function Chat({
 
         const timer = setTimeout(() => {
             elemRef.current.scrollTop = position;
-        }, 200);
+        }, 500);
         return () => clearTimeout(timer);
     };
 
@@ -186,18 +180,18 @@ export default function Chat({
                                     ▲
                                 </div>
                                 <div
-                                    title="Chat Bottom"
-                                    className="down"
-                                    onClick={() => getBack2Bottom()}
-                                >
-                                    ▼
-                                </div>
-                                <div
                                     title="Load Μore Chat Messages"
                                     className="next"
                                     onClick={() => next20ChatMsgs()}
                                 >
                                     ⦿
+                                </div>
+                                <div
+                                    title="Chat Bottom"
+                                    className="down"
+                                    onClick={() => getBack2Bottom()}
+                                >
+                                    ▼
                                 </div>
                             </div>
                             {chatMessages.map((msg) => {

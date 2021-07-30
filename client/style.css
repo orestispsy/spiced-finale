@@ -644,12 +644,12 @@ button:active {
         margin-bottom: 0.5vmax !important;
     }
 
-    .up {
-        margin-right: 4vh !important;
+    .chatNextControls {
+        width: 80vw !important;
     }
 
-    .down {
-        margin-right: 8vh !important;
+    .next {
+        margin: 0 1vmax !important;
     }
 
     .typeLine {
@@ -916,16 +916,12 @@ button:active {
         border-radius: 3vh !important;
     }
 
-    .up {
-        margin-right: 9vh !important;
-    }
-
-    .down {
-        margin-right: 17vh !important;
+    .chatNextControls {
+        width: 60vw !important;
     }
 
     .next {
-        margin-right: 1vh !important;
+        margin: 0 1vw !important;
     }
 
     .onlineUsers {
@@ -1110,9 +1106,8 @@ button:active {
 
 .gigBox:hover {
     opacity: 100% !important;
-    background: 
-        url("rocket2.gif");
-    background-size:cover;
+    background: url("rocket2.gif");
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -1392,17 +1387,19 @@ font-family: 'Ultra', serif; */
 
 .chatNextControls {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
     text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
         -0 -0 5px black;
+    position: fixed;
+    width: 40vmax;
 }
 .up {
-    position: fixed;
     font-size: 2vmax;
     color: yellow;
     margin-top: 0.2vmax;
-    margin-right: 2.5vmax;
+
     cursor: pointer;
 }
 
@@ -1418,27 +1415,29 @@ font-family: 'Ultra', serif; */
 }
 
 .down {
-    position: fixed;
     font-size: 2vmax;
     color: yellow;
-    margin-right: 4.5vmax;
     margin-top: 0.2vmax;
     cursor: pointer;
 }
 
 .next {
-    position: fixed;
     font-size: 2vmax;
     font-weight: lighter;
-    margin-right: 0.2vmax;
     color: white;
     cursor: pointer !important;
     text-shadow: -0 0 3px black, 0 -0 3px black, -0 -0 3px black,
         -0 -0 3px black;
+        margin: 0 0.5vmax;
 }
 
 .next:active {
     text-shadow: none;
+}
+
+.next:hover {
+            color: rgb(255, 123, 0)
+            
 }
 
 .chatTypeLine {
