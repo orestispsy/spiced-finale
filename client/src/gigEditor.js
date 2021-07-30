@@ -8,7 +8,6 @@ import Posters from "./posters";
 
 export default class GigEditor extends React.Component {
     constructor(props) {
-        console.log("PROPS IN EDITOR", props);
         super(props);
         this.state = {
             error: false,

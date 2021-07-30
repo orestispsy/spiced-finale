@@ -36,7 +36,6 @@ export default function Comments({
                 elemRef.current.scrollHeight - elemRef.current.clientHeight;
             elemRef.current.scrollTop = newScrollTop;
         }
-        console.log("comments", comments);
     }, [comments]);
 
     const getPost = (e) => {
