@@ -645,10 +645,10 @@ button:active {
     }
 
     .chatNextControls {
-        width: 80vw !important;
+        width: 79.5vw !important;
     }
 
-    .next {
+    .down {
         margin: 0 1vmax !important;
     }
 
@@ -917,10 +917,11 @@ button:active {
     }
 
     .chatNextControls {
-        width: 60vw !important;
+        width: 59vw !important;
+   
     }
 
-    .next {
+    .down {
         margin: 0 1vw !important;
     }
 
@@ -1387,19 +1388,19 @@ font-family: 'Ultra', serif; */
 
 .chatNextControls {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
         -0 -0 5px black;
     position: fixed;
     width: 40vmax;
+    margin-left:-1vmax !important;
 }
 .up {
     font-size: 2vmax;
     color: yellow;
     margin-top: 0.2vmax;
-
     cursor: pointer;
 }
 

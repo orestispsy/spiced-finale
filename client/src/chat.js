@@ -180,18 +180,18 @@ export default function Chat({
                                     ▲
                                 </div>
                                 <div
-                                    title="Load Μore Chat Messages"
-                                    className="next"
-                                    onClick={() => next20ChatMsgs()}
-                                >
-                                    ⦿
-                                </div>
-                                <div
                                     title="Chat Bottom"
                                     className="down"
                                     onClick={() => getBack2Bottom()}
                                 >
                                     ▼
+                                </div>
+                                <div
+                                    title="Load Μore Chat Messages"
+                                    className="next"
+                                    onClick={() => next20ChatMsgs()}
+                                >
+                                    ⦿
                                 </div>
                             </div>
                             {chatMessages.map((msg) => {
