@@ -15,7 +15,7 @@ export default class GigEntry extends Component {
             date: "",
             tour_name: "",
             poster: "",
-            selectedGig: "",
+            selectedGig: false,
             toggleComments: false
         };
     }

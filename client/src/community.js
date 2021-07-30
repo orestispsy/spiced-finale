@@ -9,7 +9,9 @@ export default function Community({ selectedGigId, myUserId, super_admin, nickna
     const [upload, setUpload] = useState(false);
 
     useEffect(
+    
         function () {
+                if (selectedGigId) {
             setError(false);
             setContribute(false);
             axios
@@ -21,9 +23,11 @@ export default function Community({ selectedGigId, myUserId, super_admin, nickna
                 })
                 .catch((err) => {
                     console.log("err in Gig Entry GET Request : ", err);
-                });
+                });}
+                
         },
         [selectedGigId]
+        
     );
 
     const imageDelete = (e) => {
