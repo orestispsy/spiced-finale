@@ -7,7 +7,7 @@ import Comments from "./comments";
 
 export default class GigEntry extends Component {
     constructor(props) {
-        console.log(props.match)
+        console.log(props.match);
         super(props);
         this.state = {
             city: "",
@@ -17,7 +17,7 @@ export default class GigEntry extends Component {
             tour_name: "",
             poster: "",
             selectedGig: false,
-            toggleComments: false
+            toggleComments: false,
         };
     }
 
@@ -34,7 +34,7 @@ export default class GigEntry extends Component {
                     date: data.data.date,
                     tour_name: data.data.tour_name,
                     poster: data.data.poster,
-                    selectedGig: data.data.date
+                    selectedGig: data.data.date,
                 });
             })
             .catch((err) => {
@@ -43,8 +43,6 @@ export default class GigEntry extends Component {
     }
 
     gigSelector(e) {
-     
-
         this.setState(
             {
                 [e.target.name]: e.target.value,
@@ -63,8 +61,9 @@ export default class GigEntry extends Component {
                                 tour_name: data.data.tour_name,
                                 poster: data.data.poster,
                             });
-                               this.props.history.push(`/api/gig/${this.state.id}`);
-                               
+                            this.props.history.push(
+                                `/api/gig/${this.state.id}`
+                            );
                         }
                     })
                     .catch((err) => {
@@ -77,10 +76,10 @@ export default class GigEntry extends Component {
         );
     }
 
-    toggleComments () {
-         this.setState({
-             toggleComments:!this.state.toggleComments
-         });
+    toggleComments() {
+        this.setState({
+            toggleComments: !this.state.toggleComments,
+        });
     }
 
     render() {

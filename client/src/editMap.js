@@ -9,7 +9,6 @@ import { compose, withProps } from "recompose";
 import { useState, useEffect } from "react";
 import mapStyles from "./tools/mapStyles";
 
-
 let secrets;
 if (process.env.NODE_ENV == "production") {
     secrets = process.env;
@@ -39,7 +38,7 @@ const WithGoogleMapComponent = compose(
             onClick={(e) => {
                 props.setShowCoordinates(true);
                 props.setCenter({ lat: e.latLng.lat(), lng: e.latLng.lng() });
-                props.coordinator(e)
+                props.coordinator(e);
             }}
             defaultZoom={8}
             defaultCenter={{ lat: -34.397, lng: 150.644 }}
@@ -57,14 +56,12 @@ const WithGoogleMapComponent = compose(
                         props.setShowCoordinates(false);
                     }}
                 >
-                    <div>
-                       
-                    </div>
+                    <div></div>
                 </InfoWindow>
             )}
         </GoogleMap>
     );
-})
+});
 
 const EditMap = ({ coordinator }) => {
     const [showCoordinates, setShowCoordinates] = useState(false);

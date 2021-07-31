@@ -23,9 +23,9 @@ export default class GigEditor extends React.Component {
     }
 
     componentDidMount() {
-           if (!this.props.admin) {
-               location.replace("/");
-           }
+        if (!this.props.admin) {
+            location.replace("/");
+        }
     }
 
     handleClick() {
@@ -474,7 +474,7 @@ export default class GigEditor extends React.Component {
 
                                 {this.state.selectedGig.date &&
                                     !this.state.map &&
-                                    !this.state.posterSection &&(
+                                    !this.state.posterSection && (
                                         <div
                                             className="delete"
                                             onClick={(e) =>

@@ -55,7 +55,6 @@ a:hover {
     bottom: 0;
     left: 1vmax;
     font-family: "Black Ops One", cursive;
-
 }
 
 .registerContainer,
@@ -106,22 +105,22 @@ a:hover {
 }
 
 .gigCreatorContainer h1 {
-    width: 25vw;
+    width: 50vw;
     text-align: center;
     font-size: 3vmax;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     margin: 2vmax 0 1.5vmax 0;
     border-bottom: 2px solid tomato;
-    padding:1vmax;
+    padding: 1vmax;
 }
 
 .gigCreatorContainerInner {
     padding: 0vmax 2vmax 2vmax 2vmax;
-     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
     background-color: rgba(0, 0, 0, 0.164);
     border-radius: 1vh;
-    height:fit-content;
+    height: fit-content;
 }
 
 .regSpan .links {
@@ -244,18 +243,16 @@ a:hover {
 
 .gigEditorContainerInner {
     padding: 2vmax 2vmax 1vmax 2vmax;
-     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
     background-color: rgba(0, 0, 0, 0.164);
     border-radius: 1vh;
-    height:fit-content;
+    height: fit-content;
 }
 
 .gigEditorContainerInner select {
     border: 2px solid black;
- 
 }
-
 
 .gigListContainer {
     height: 92vh;
@@ -937,47 +934,56 @@ button:active {
     }
 
     .commentsContainer {
-        margin-left:0 !important;
+        margin-left: 0 !important;
     }
 
     .superList {
         width: 58vmax !important;
-           padding: 1vmax 1vmax !important;
+        padding: 1vmax 1vmax !important;
     }
 
     .superListItem {
-        margin:1vmax !important;
-     
+        margin: 1vmax !important;
     }
 
     .superListItemBack {
-        margin:1vmax !important;
+        margin: 1vmax !important;
     }
 
-    .gigEditorContainerInner form{
-        min-width: 75vw!important
+    .gigEditorContainerInner form {
+        min-width: 75vw !important;
     }
 
-     .gigEditorContainerInner select {
-         width:50vw !important
-     }
+    .gigEditorContainerInner select {
+        width: 50vw !important;
+    }
 
-     .editMapToggler{
-         width:75vw !important;
-         text-align:center;
-      
-         padding-bottom:1vmax !important;
-     }
+    .gigCreatorContainerInner {
+        width: 80vw !important;
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-     .posterSectionToggler {
-            width:75vw !important;
-                 text-align:center;
-     }
+    .gigCreatorContainerInner form {
+        width: 80vw !important;
+    }
 
-     .google-map-editor {
-         width:70vmax !important;
-         height:50vh !important;
-     }
+    .editMapToggler {
+        width: 75vw !important;
+        text-align: center;
+
+        padding-bottom: 1vmax !important;
+    }
+
+    .posterSectionToggler {
+        width: 75vw !important;
+        text-align: center;
+    }
+
+    .google-map-editor {
+        width: 70vmax !important;
+        height: 50vh !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1149,13 +1155,12 @@ button:active {
     }
 
     .google-map-editor {
-        height: 15vmax !important;
+        height: 20vmax !important;
     }
-
 
     .imgPreview {
         margin: 0 0.5vmax 1vmax -1vmax !important;
-        width:6vmax !important;
+        width: 6vmax !important;
         height: 6vmax !important;
     }
 
@@ -1190,9 +1195,8 @@ button:active {
         width: 80vmax;
     }
     #fileUploader input {
-    width: 18vmax !important
-}
-
+        width: 18vmax !important;
+    }
 }
 
 .logo {
@@ -1371,8 +1375,7 @@ button:active {
 }
 
 .gm-style .gm-style-iw-c:hover {
-
-    border-color:rgb(156, 255, 255)
+    border-color: rgb(156, 255, 255);
 }
 
 .gm-style-iw-d {
@@ -1447,11 +1450,11 @@ div:focus {
 }
 
 .fileUploaderBack {
-       display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-margin-left:-2vmax;
+    margin-left: -2vmax;
 }
 
 .fileUploader {
@@ -1469,12 +1472,12 @@ margin-left:-2vmax;
 
 .addPhoto {
     text-align: center;
-    width:5vmax;
+    width: 5vmax;
     font-size: 1.5vmax;
-    margin:1vmax 2vmax 0 0;
-        text-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
+    margin: 1vmax 2vmax 0 0;
+    text-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
         -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
-        user-select: none;
+    user-select: none;
 }
 
 .fileUploader p {
@@ -1737,7 +1740,7 @@ font-family: 'Ultra', serif; */
     letter-spacing: 1px;
     text-align: right;
     font-size: 0.8vmax;
-       user-select: none;
+    user-select: none;
 }
 
 .post h1 {
@@ -1792,7 +1795,7 @@ font-family: 'Ultra', serif; */
     height: 1.5vmax;
     align-self: center;
     border-radius: 2vh;
-      user-select: none;
+    user-select: none;
 }
 
 .chatUserHeadline {
@@ -1801,7 +1804,7 @@ font-family: 'Ultra', serif; */
     text-align: center;
     align-self: center;
     width: auto;
-   user-select: none;
+    user-select: none;
 }
 
 .onlineUsersBack {
@@ -2348,7 +2351,7 @@ font-family: 'Ultra', serif; */
     text-shadow: -0 0 10px rgba(229, 255, 0, 0.281),
         0 -0 10px rgba(229, 255, 0, 0.281), -0 -0 10px rgba(229, 255, 0, 0.281),
         -0 -0 10px rgba(229, 255, 0, 0.281);
-        user-select: none;
+    user-select: none;
 }
 
 .go:hover {
@@ -2433,7 +2436,7 @@ font-family: 'Ultra', serif; */
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.281), 0 -0 10px rgba(0, 0, 0, 0.281),
         -0 -0 10px rgba(0, 0, 0, 0.281), -0 -0 10px rgba(0, 0, 0, 0.281);
     margin: 5vh;
-    align-self:center;
+    align-self: center;
 }
 
 .detailedEntry {
@@ -2454,7 +2457,7 @@ font-family: 'Ultra', serif; */
 
 .detailedEntry h1:nth-child(8) {
     border-bottom: none;
-    padding-bottom:1vmax !important;
+    padding-bottom: 1vmax !important;
 }
 .detailedEntry:nth-child(1) {
     padding-top: 1vmax !important;
@@ -2464,7 +2467,7 @@ font-family: 'Ultra', serif; */
     color: lime;
     font-size: 2.5vmax;
     padding: 0 1vmax;
-      text-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+    text-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
 }
 
@@ -2503,10 +2506,10 @@ font-family: 'Ultra', serif; */
     height: 50vh;
     overflow-y: scroll;
     margin-left: 6vh;
-        box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
-        border-radius: 1vh;
-            background-color: rgba(0, 0, 0, 0.164);
+    border-radius: 1vh;
+    background-color: rgba(0, 0, 0, 0.164);
 }
 
 .posterEditBox {
@@ -2514,7 +2517,7 @@ font-family: 'Ultra', serif; */
     align-items: center;
     justify-content: center;
     width: 100vw;
-    margin-top:1vmax;
+    margin-top: 1vmax;
 }
 
 .posterSectionToggler {
@@ -2524,8 +2527,8 @@ font-family: 'Ultra', serif; */
     cursor: pointer;
     text-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black;
     user-select: none;
-    margin-top:-0.5vmax;
-    padding-bottom:1vmax;
+    margin-top: -0.5vmax;
+    padding-bottom: 1vmax;
 }
 
 .posterSectionToggler:hover {
@@ -2546,28 +2549,27 @@ font-family: 'Ultra', serif; */
     overflow-y: scroll;
     height: 100vh;
     user-select: none;
-
 }
 
 .superList {
-    margin-top:2vmax;
+    margin-top: 2vmax;
     display: flex;
     flex-wrap: wrap;
-    width:68vw;
-     background-color: rgba(113, 255, 212, 0.021);
+    width: 68vw;
+    background-color: rgba(113, 255, 212, 0.021);
     padding: 1vmax 2vmax;
-           box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
-          border-radius:1vh;
+    border-radius: 1vh;
 }
 
 .superListItemBack {
-      background-color: rgba(0, 0, 0, 0.205);
-       box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+    background-color: rgba(0, 0, 0, 0.205);
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
-     margin: 1.5vmax 3vmax;
-        border-radius: 1vh;
-          padding:1vmax;
+    margin: 1.5vmax 3vmax;
+    border-radius: 1vh;
+    padding: 1vmax;
 }
 
 .superListItem {
@@ -2576,28 +2578,27 @@ font-family: 'Ultra', serif; */
     align-items: center;
     justify-content: center;
     margin: 2vmax;
-    border-radius:1vh;
+    border-radius: 1vh;
     width: 23vmax;
     min-height: fit-content;
-         background-color: rgba(255, 255, 255, 0.068);
+    background-color: rgba(255, 255, 255, 0.068);
 
-        box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
 }
 
-.superListItemBack:nth-child(odd){
-     margin-right: 0.5vmax;
+.superListItemBack:nth-child(odd) {
+    margin-right: 0.5vmax;
 }
 
-
 .superListItem:hover {
-  background-color: rgba(0, 255, 242, 0.068);
+    background-color: rgba(0, 255, 242, 0.068);
 }
 
 .superListItem img {
     width: 10vmax;
     height: 10vmax;
-    margin:1vmax 0;
+    margin: 1vmax 0;
     border-radius: 50%;
 }
 
@@ -2725,9 +2726,9 @@ font-family: 'Ultra', serif; */
 
 .gallery {
     margin: 1vmax;
-        text-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+    text-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
-          user-select: none;
+    user-select: none;
 }
 
 .communityPhotos {
@@ -2763,9 +2764,9 @@ font-family: 'Ultra', serif; */
 }
 
 .communityPhotos h1 {
-    font-size:1vmax;
-    margin:0;
-    color:white;
+    font-size: 1vmax;
+    margin: 0;
+    color: white;
 }
 
 .communityPhotos img {
@@ -2787,7 +2788,7 @@ font-family: 'Ultra', serif; */
     margin-top: 1vmax;
     text-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
         -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
-  user-select: none;
+    user-select: none;
     cursor: pointer;
     background: rgba(0, 255, 234, 0.253);
 }
@@ -2812,7 +2813,6 @@ font-family: 'Ultra', serif; */
 #fileUploader {
     margin-top: 1vmax !important;
 }
-
 
 .uploading {
     width: 2vmax;
@@ -2851,7 +2851,7 @@ font-family: 'Ultra', serif; */
     margin: 1vmax;
     text-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
-          user-select: none;
+    user-select: none;
 }
 
 .commentBox {
@@ -2875,10 +2875,10 @@ font-family: 'Ultra', serif; */
 }
 
 .commentBox h1 {
-    font-size:1vmax;
-  align-self:flex-start;
-    color:white;
-    margin-left:1vmax;
+    font-size: 1vmax;
+    align-self: flex-start;
+    color: white;
+    margin-left: 1vmax;
 }
 
 #commentsTypeLine {

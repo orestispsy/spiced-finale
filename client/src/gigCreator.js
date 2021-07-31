@@ -154,16 +154,15 @@ export default class GigCreator extends React.Component {
                             <EditMap coordinator={(e) => this.coordinator(e)} />
                         )}
                         <div className="formOptions">
-                            {!this.state.success &&
-                                !this.state.map &&(
-                                    <button
-                                        onClick={() => {
-                                            this.handleClick();
-                                        }}
-                                    >
-                                        Submit
-                                    </button>
-                                )}
+                            {!this.state.success && !this.state.map && (
+                                <button
+                                    onClick={() => {
+                                        this.handleClick();
+                                    }}
+                                >
+                                    Submit
+                                </button>
+                            )}
 
                             {this.state.success && (
                                 <div className="uploadSuccess"></div>

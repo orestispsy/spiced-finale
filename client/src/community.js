@@ -80,7 +80,7 @@ export default function Community({
         <div className="communityContainer">
             <div className="gallery">Gallery</div>
             <div className="communityPhotos">
-                {images.length==0 && <h1>Nothing here yet .</h1>}
+                {images.length == 0 && <h1>Nothing here yet .</h1>}
                 {images &&
                     images.map((img) => (
                         <div key={img.id}>
@@ -134,7 +134,7 @@ export default function Community({
 
             {contribute && (
                 <div className="fileUploaderBack">
-                    <div className="addPhoto">  Add Image</div>
+                    <div className="addPhoto"> Add Image</div>
                     <div className="fileUploader" id="fileUploader">
                         <input
                             type="file"
