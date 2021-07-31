@@ -25,7 +25,7 @@ export default function GigList({ gigsList, listSet }) {
             <div className="gigEntries">
                 {gigsList &&
                     gigsList.map((gig) => (
-                        <Link to={`/gig/${gig.id}`} key={gig.id}>
+                        <Link to={`/api/gig/${gig.id}`} key={gig.id}>
                             <div className="gigBox">
                                 <div
                                     style={{

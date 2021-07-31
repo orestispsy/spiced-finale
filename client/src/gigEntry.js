@@ -21,6 +21,7 @@ export default class GigEntry extends Component {
     }
 
     componentDidMount() {
+        this.props.listSet(true);
 
         axios
             .get("/gig/" + this.props.match.params.id)

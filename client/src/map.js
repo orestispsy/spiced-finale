@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import { compose, withProps } from "recompose";
 import {
     withScriptjs,
@@ -148,6 +148,7 @@ const WithGoogleMapComponent = compose(
                                 {props.selectedGig.tour_name}
                             </div>
                         )}
+                        <div id="mapLink" className="mainMenuLink" onClick={()=>location.replace(`/api/gig/${props.selectedGig.id}`)}>Enter Community</div>
                     </div>
                 </InfoWindow>
             )}

@@ -1165,6 +1165,8 @@ button:active {
     display: flex;
     flex-direction: column;
     justify-content: center;
+      box-shadow: -0 0 5px rgba(0, 0, 0, 0.032), 0 -0 5px rgba(0, 0, 0, 0.032),
+        -0 -0 5px rgba(0, 0, 0, 0.032), -0 -0 5px rgba(0, 0, 0, 0.032);
 }
 
 .gigBox:hover {
@@ -1268,7 +1270,7 @@ button:active {
 }
 .gm-style .gm-style-iw-c {
     padding-right: 13px !important;
-    max-height: 320px !important;
+    max-height: fit-content !important;
 
     position: absolute;
     box-sizing: border-box;
@@ -1321,6 +1323,15 @@ div:focus {
 .mapInfoCard span {
     color: yellow;
 }
+
+#mapLink { 
+   font-size: 1.5vmax !important;
+text-align: center !important;
+   height:2vmax !important;
+margin-top:1vmax !important;
+
+}
+
 
 .infoPoster {
     margin-top: 20px;

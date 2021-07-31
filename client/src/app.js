@@ -241,7 +241,7 @@ export default class App extends Component {
                             />
 
                             <Route
-                                path="/gig/:id"
+                                path="/api/gig/:id"
                                 render={(props) => (
                                     <GigEntry
                                         match={props.match}
@@ -249,6 +249,7 @@ export default class App extends Component {
                                         myUserId={this.state.id}
                                         super_admin={this.state.super_admin}
                                         nickname={this.state.nickname}
+                                        listSet={(e) => this.listSet(e)}
                                     />
                                 )}
                             />
