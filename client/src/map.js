@@ -148,7 +148,7 @@ const WithGoogleMapComponent = compose(
                                 {props.selectedGig.tour_name}
                             </div>
                         )}
-                        <div id="mapLink" className="mainMenuLink" onClick={()=>location.replace(`/api/gig/${props.selectedGig.id}`)}>Enter Community</div>
+                        <div id="mapLink" className="mainMenuLink" onClick={()=>location.replace(`/api/gig/${props.selectedGig.id}`)}>Community</div>
                     </div>
                 </InfoWindow>
             )}

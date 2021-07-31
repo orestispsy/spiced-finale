@@ -1265,20 +1265,26 @@ button:active {
         -1px -1px 0 black;
 }
 
+.gm-ui-hover-effect {
+    background-color:white !important;
+
+}
+
 .gm-style-iw gm-style-iw-c {
     padding: 0 !important;
 }
 .gm-style .gm-style-iw-c {
     padding-right: 13px !important;
     max-height: fit-content !important;
-
+    max-width: 17vw !important;
     position: absolute;
     box-sizing: border-box;
     outline: none !important;
     top: 0;
     left: 0;
     transform: translate(-50%, -100%);
-    background-color: rgba(255, 0, 51, 0.349);
+    background-color: rgba(0, 0, 0, 0.164);
+    border:1px solid white;
     border-radius: 8px;
     color: lime;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.3), 0 -0 5px rgba(0, 0, 0, 0.3),
@@ -1320,6 +1326,10 @@ div:focus {
     padding: 10px;
 }
 
+.mapInfoCard div {
+    margin-bottom: 0.5vmax !important
+}
+
 .mapInfoCard span {
     color: yellow;
 }
@@ -1334,7 +1344,7 @@ margin-top:1vmax !important;
 
 
 .infoPoster {
-    margin-top: 20px;
+    margin-top: 0.5vmax !important;
     width: 150px !important;
     height: 150px !important;
     border: 1px solid black;
