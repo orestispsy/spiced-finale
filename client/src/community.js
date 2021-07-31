@@ -133,7 +133,7 @@ export default function Community({
 
             {contribute && (
                 <div className="fileUploaderBack">
-                    <div className="addPhoto">  Add Photo</div>
+                    <div className="addPhoto">  Add Image</div>
                     <div className="fileUploader" id="fileUploader">
                         <input
                             type="file"

@@ -161,7 +161,7 @@
     },
     {
         "id": "41",
-        "url": "./../chat/flag.gif"
+        "url": "./../chat/pitogyro.gif"
     },
     {
         "id": "42",
@@ -174,5 +174,21 @@
     {
         "id": "44",
         "url": "./../chat/ship.gif"
+    },
+    {
+        "id": "45",
+        "url": "./../chat/flag.gif"
+    },
+    {
+        "id": "46",
+        "url": "./../chat/sun2.gif"
+    },
+    {
+        "id": "47",
+        "url": "./../chat/phoenix.gif"
+    },
+    {
+        "id": "48",
+        "url": "./../chat/waves.gif"
     }
 ]

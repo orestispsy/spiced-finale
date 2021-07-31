@@ -58,9 +58,7 @@ const WithGoogleMapComponent = compose(
                     }}
                 >
                     <div>
-                        Latitude: {props.center.lat}
-                        <br></br>
-                        Longitude: {props.center.lng}
+                       
                     </div>
                 </InfoWindow>
             )}
