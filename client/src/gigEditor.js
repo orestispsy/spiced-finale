@@ -229,276 +229,286 @@ export default class GigEditor extends React.Component {
     render() {
         return (
             <div className="gigEditorContainer">
-                <form>
-                    <select
-                        name="selectedGig"
-                        className="selectGig"
-                        onChange={(e) => this.gigSelector(e)}
-                        onClick={() => this.inputsReset()}
-                        onClick={(e) => this.deleteWarn(false)}
-                    >
-                        <option
-                            className="chooseGig"
-                            value=""
+                <div className="gigEditorContainerInner">
+                    <form>
+                        <select
+                            name="selectedGig"
+                            className="selectGig"
+                            onChange={(e) => this.gigSelector(e)}
                             onClick={() => this.inputsReset()}
+                            onClick={(e) => this.deleteWarn(false)}
                         >
-                            Select Gig
-                        </option>
-                        {this.props.gigsList &&
-                            this.props.gigsList.map((gig) => (
-                                <option value={gig.date} key={gig.id}>
-                                    {gig.date} {gig.venue}
-                                </option>
-                            ))}
-                    </select>
-                    {this.state.posterSection && (
-                        <Posters
-                            posterSelector={(e) => this.posterSelector(e)}
-                        />
-                    )}
-                    {!this.state.posterSection && (
-                        <div className="inputBack">
-                            <span>Date</span>
-                            <input
-                                value={
-                                    this.state.date ||
-                                    this.state.selectedGig.date ||
-                                    ""
-                                }
-                                autoComplete="none"
-                                name="date"
-                                placeholder="Date"
-                                type="date"
-                                onChange={(e) => this.handleChange(e)}
-                                onClick={() => this.handleErrorMsg()}
-                                onChange={(e) => this.inputReset(e)}
-                                onClick={(e) => this.deleteWarn(false)}
-                            />
-                        </div>
-                    )}
-                    {!this.state.posterSection && (
-                        <div className="inputBack">
-                            <span>City</span>
-                            <input
-                                value={
-                                    this.state.city ||
-                                    this.state.selectedGig.city ||
-                                    ""
-                                }
-                                autoComplete="none"
-                                name="city"
-                                placeholder="City"
-                                onChange={(e) => this.handleChange(e)}
-                                onClick={() => this.handleErrorMsg()}
-                                onChange={(e) => this.inputReset(e)}
-                                onClick={(e) => this.deleteWarn(false)}
-                            />
-                        </div>
-                    )}
-                    {!this.state.posterSection && (
-                        <div className="inputBack">
-                            <span>Tour</span>
-                            <input
-                                value={
-                                    this.state.tour_name ||
-                                    this.state.selectedGig.tour_name ||
-                                    ""
-                                }
-                                autoComplete="none"
-                                name="tour_name"
-                                placeholder="Tour Name"
-                                onChange={(e) => this.handleChange(e)}
-                                onClick={() => this.handleErrorMsg()}
-                                onChange={(e) => this.inputReset(e)}
-                                onClick={(e) => this.deleteWarn(false)}
-                            />
-                        </div>
-                    )}
-                    {!this.state.posterSection && (
-                        <div className="inputBack">
-                            <span>Venue</span>
-                            <input
-                                value={
-                                    this.state.venue ||
-                                    this.state.selectedGig.venue ||
-                                    ""
-                                }
-                                autoComplete="none"
-                                name="venue"
-                                placeholder="Venue"
-                                onChange={(e) => this.handleChange(e)}
-                                onClick={() => this.handleErrorMsg()}
-                                onChange={(e) => this.inputReset(e)}
-                                onClick={(e) => this.deleteWarn(false)}
-                            />
-                        </div>
-                    )}
-                    {!this.state.map && !this.state.posterSection && (
-                        <div className="inputBack">
-                            <span>Latitude</span>
-                            <input
-                                value={
-                                    this.state.selectedGig.lat ||
-                                    this.state.new_lat ||
-                                    this.state.lat ||
-                                    ""
-                                }
-                                autoComplete="none"
-                                name="lat"
-                                placeholder="Latitude"
-                                onChange={(e) => this.handleChange(e)}
-                                onClick={() => this.handleErrorMsg()}
-                                onChange={(e) => this.inputReset(e)}
-                                onClick={(e) => this.deleteWarn(false)}
-                            />
-                        </div>
-                    )}
-                    {!this.state.map && !this.state.posterSection && (
-                        <div className="inputBack">
-                            <span>Longitude</span>
-                            <input
-                                value={
-                                    this.state.selectedGig.lng ||
-                                    this.state.new_lng ||
-                                    this.state.lng ||
-                                    ""
-                                }
-                                autoComplete="none"
-                                name="lng"
-                                placeholder="Longitude"
-                                onChange={(e) => this.handleChange(e)}
-                                onClick={() => this.handleErrorMsg()}
-                                onChange={(e) => this.inputReset(e)}
-                                onClick={(e) => this.deleteWarn(false)}
-                            />
-                        </div>
-                    )}
-                    {this.state.selectedGig &&
-                        !this.state.deleteSuccess &&
-                        !this.state.posterSection && (
-                            <div
-                                className="editMapToggler"
-                                onClick={() => this.mapToggler()}
+                            <option
+                                className="chooseGig"
+                                value=""
+                                onClick={() => this.inputsReset()}
                             >
-                                {!this.state.map && "Get Coordinates"}
-                                {this.state.map && "Close Map"}
-                            </div>
+                                Select Gig
+                            </option>
+                            {this.props.gigsList &&
+                                this.props.gigsList.map((gig) => (
+                                    <option value={gig.date} key={gig.id}>
+                                        {gig.date} {gig.venue}
+                                    </option>
+                                ))}
+                        </select>
+                        {this.state.posterSection && (
+                            <Posters
+                                posterSelector={(e) => this.posterSelector(e)}
+                            />
                         )}
-                    {!this.state.map && !this.state.deleteSuccess && (
-                        <div className="posterEditBox">
+                        {!this.state.posterSection && (
                             <div className="inputBack">
-                                <span>Poster</span>
+                                <span>Date</span>
                                 <input
                                     value={
-                                        this.state.selectedGig.poster ||
-                                        this.state.poster ||
-                                        this.state.selectedPoster ||
+                                        this.state.date ||
+                                        this.state.selectedGig.date ||
                                         ""
                                     }
                                     autoComplete="none"
-                                    name="poster"
-                                    placeholder="Poster"
+                                    name="date"
+                                    placeholder="Date"
+                                    type="date"
                                     onChange={(e) => this.handleChange(e)}
                                     onClick={() => this.handleErrorMsg()}
                                     onChange={(e) => this.inputReset(e)}
                                     onClick={(e) => this.deleteWarn(false)}
-                                    onChange={(e) =>
-                                        this.posterSelector(e.target.value)
-                                    }
                                 />
                             </div>
-                            {this.state.selectedGig.id &&
-                                !this.state.deleteSuccess && (
-                                    <img
-                                        className="imgPreview"
-                                        src={
-                                            this.state.selectedPoster ||
-                                            this.state.selectedGig.poster ||
-                                            "na.jpg"
-                                        }
-                                    ></img>
-                                )}
-                            {this.state.selectedGig.id &&
-                                !this.state.deleteSuccess && (
-                                    <div className="fileUploader">
-                                        <input
-                                            type="file"
-                                            name="file"
-                                            accept="image/*"
-                                            onChange={(e) =>
-                                                this.handleUploaderChange(e)
-                                            }
-                                        />
-                                        {!this.state.success && (
-                                            <div
-                                                title="Upload Poster"
-                                                className="upload"
-                                                onClick={() =>
-                                                    this.handleUploaderClick()
-                                                }
-                                            ></div>
-                                        )}
-                                        {this.state.success && (
-                                            <div className="uploadSuccess"></div>
-                                        )}
-                                    </div>
-                                )}
-                        </div>
-                    )}
-                    {this.state.selectedGig &&
-                        !this.state.map &&
-                        !this.state.deleteSuccess && (
-                            <div
-                                className="posterSectionToggler"
-                                onClick={() => this.setPosterSection()}
-                            >
-                                {!this.state.posterSection && "Photo Gallery"}
-                                {this.state.posterSection && "Close Gallery"}
+                        )}
+                        {!this.state.posterSection && (
+                            <div className="inputBack">
+                                <span>City</span>
+                                <input
+                                    value={
+                                        this.state.city ||
+                                        this.state.selectedGig.city ||
+                                        ""
+                                    }
+                                    autoComplete="none"
+                                    name="city"
+                                    placeholder="City"
+                                    onChange={(e) => this.handleChange(e)}
+                                    onClick={() => this.handleErrorMsg()}
+                                    onChange={(e) => this.inputReset(e)}
+                                    onClick={(e) => this.deleteWarn(false)}
+                                />
                             </div>
                         )}
-                    {this.state.map &&
-                        this.state.selectedGig.date &&
-                        !this.state.deleteSuccess && (
-                            <EditMap coordinator={(e) => this.coordinator(e)} />
+                        {!this.state.posterSection && (
+                            <div className="inputBack">
+                                <span>Tour</span>
+                                <input
+                                    value={
+                                        this.state.tour_name ||
+                                        this.state.selectedGig.tour_name ||
+                                        ""
+                                    }
+                                    autoComplete="none"
+                                    name="tour_name"
+                                    placeholder="Tour Name"
+                                    onChange={(e) => this.handleChange(e)}
+                                    onClick={() => this.handleErrorMsg()}
+                                    onChange={(e) => this.inputReset(e)}
+                                    onClick={(e) => this.deleteWarn(false)}
+                                />
+                            </div>
                         )}
-                    {!this.state.deleteSuccess && (
-                        <div className="formOptions">
-                            <button onClick={() => this.handleClick()}>
-                                Update
-                            </button>
-
-                            {this.state.selectedGig.date && (
+                        {!this.state.posterSection && (
+                            <div className="inputBack">
+                                <span>Venue</span>
+                                <input
+                                    value={
+                                        this.state.venue ||
+                                        this.state.selectedGig.venue ||
+                                        ""
+                                    }
+                                    autoComplete="none"
+                                    name="venue"
+                                    placeholder="Venue"
+                                    onChange={(e) => this.handleChange(e)}
+                                    onClick={() => this.handleErrorMsg()}
+                                    onChange={(e) => this.inputReset(e)}
+                                    onClick={(e) => this.deleteWarn(false)}
+                                />
+                            </div>
+                        )}
+                        {!this.state.map && !this.state.posterSection && (
+                            <div className="inputBack">
+                                <span>Latitude</span>
+                                <input
+                                    value={
+                                        this.state.selectedGig.lat ||
+                                        this.state.new_lat ||
+                                        this.state.lat ||
+                                        ""
+                                    }
+                                    autoComplete="none"
+                                    name="lat"
+                                    placeholder="Latitude"
+                                    onChange={(e) => this.handleChange(e)}
+                                    onClick={() => this.handleErrorMsg()}
+                                    onChange={(e) => this.inputReset(e)}
+                                    onClick={(e) => this.deleteWarn(false)}
+                                />
+                            </div>
+                        )}
+                        {!this.state.map && !this.state.posterSection && (
+                            <div className="inputBack">
+                                <span>Longitude</span>
+                                <input
+                                    value={
+                                        this.state.selectedGig.lng ||
+                                        this.state.new_lng ||
+                                        this.state.lng ||
+                                        ""
+                                    }
+                                    autoComplete="none"
+                                    name="lng"
+                                    placeholder="Longitude"
+                                    onChange={(e) => this.handleChange(e)}
+                                    onClick={() => this.handleErrorMsg()}
+                                    onChange={(e) => this.inputReset(e)}
+                                    onClick={(e) => this.deleteWarn(false)}
+                                />
+                            </div>
+                        )}
+                        {this.state.selectedGig &&
+                            !this.state.deleteSuccess &&
+                            !this.state.posterSection && (
                                 <div
-                                    className="delete"
-                                    onClick={(e) => this.deleteWarn(true)}
+                                    className="editMapToggler"
+                                    onClick={() => this.mapToggler()}
                                 >
-                                    Delete
+                                    {!this.state.map && "Get Coordinates"}
+                                    {this.state.map && "Close Map"}
                                 </div>
                             )}
+                        {!this.state.map && !this.state.deleteSuccess && (
+                            <div className="posterEditBox">
+                                <div className="inputBack">
+                                    <span>Poster</span>
+                                    <input
+                                        value={
+                                            this.state.selectedGig.poster ||
+                                            this.state.poster ||
+                                            this.state.selectedPoster ||
+                                            ""
+                                        }
+                                        autoComplete="none"
+                                        name="poster"
+                                        placeholder="Poster"
+                                        onChange={(e) => this.handleChange(e)}
+                                        onClick={() => this.handleErrorMsg()}
+                                        onChange={(e) => this.inputReset(e)}
+                                        onClick={(e) => this.deleteWarn(false)}
+                                        onChange={(e) =>
+                                            this.posterSelector(e.target.value)
+                                        }
+                                    />
+                                </div>
+                                {this.state.selectedGig.id &&
+                                    !this.state.deleteSuccess && (
+                                        <img
+                                            className="imgPreview"
+                                            src={
+                                                this.state.selectedPoster ||
+                                                this.state.selectedGig.poster ||
+                                                "na.jpg"
+                                            }
+                                        ></img>
+                                    )}
+                                {this.state.selectedGig.id &&
+                                    !this.state.deleteSuccess && (
+                                        <div className="fileUploader">
+                                            <input
+                                                type="file"
+                                                name="file"
+                                                accept="image/*"
+                                                onChange={(e) =>
+                                                    this.handleUploaderChange(e)
+                                                }
+                                            />
+                                            {!this.state.success && (
+                                                <div
+                                                    title="Upload Poster"
+                                                    className="upload"
+                                                    onClick={() =>
+                                                        this.handleUploaderClick()
+                                                    }
+                                                ></div>
+                                            )}
+                                            {this.state.success && (
+                                                <div className="uploadSuccess"></div>
+                                            )}
+                                        </div>
+                                    )}
+                            </div>
+                        )}
+                        {this.state.selectedGig &&
+                            !this.state.map &&
+                            !this.state.deleteSuccess && (
+                                <div
+                                    className="posterSectionToggler"
+                                    onClick={() => this.setPosterSection()}
+                                >
+                                    {!this.state.posterSection &&
+                                        "Photo Gallery"}
+                                    {this.state.posterSection &&
+                                        "Close Gallery"}
+                                </div>
+                            )}
+                        {this.state.map &&
+                            this.state.selectedGig.date &&
+                            !this.state.deleteSuccess && (
+                                <EditMap
+                                    coordinator={(e) => this.coordinator(e)}
+                                />
+                            )}
+                        {!this.state.deleteSuccess && !this.state.map && (
+                            <div className="formOptions">
+                                <button onClick={() => this.handleClick()}>
+                                    Update
+                                </button>
 
-                            {this.state.delete &&
-                                this.state.selectedGig.date &&
-                                !this.state.deleteSuccess && (
-                                    <div
-                                        className="deleteWarn"
-                                        onClick={() => this.gigDelete()}
-                                    >
-                                        Confirm
-                                    </div>
-                                )}
-                        </div>
-                    )}
-                    {this.state.deleteSuccess && (
-                        <div className="deleteSuccess"></div>
-                    )}
-                    {this.state.error && (
-                        <p className="error">Oups! Something Went Wrong.</p>
-                    )}
-                </form>
+                                {this.state.selectedGig.date &&
+                                    !this.state.map &&
+                                    !this.state.posterSection &&(
+                                        <div
+                                            className="delete"
+                                            onClick={(e) =>
+                                                this.deleteWarn(true)
+                                            }
+                                        >
+                                            Delete
+                                        </div>
+                                    )}
 
-                <Link to="/" className="backLink">
-                    Back
-                </Link>
+                                {this.state.delete &&
+                                    this.state.selectedGig.date &&
+                                    !this.state.deleteSuccess && (
+                                        <div
+                                            className="deleteWarn"
+                                            onClick={() => this.gigDelete()}
+                                        >
+                                            Confirm
+                                        </div>
+                                    )}
+                            </div>
+                        )}
+                        {this.state.deleteSuccess && (
+                            <div className="deleteSuccess"></div>
+                        )}
+                        {this.state.error && (
+                            <p className="error">Oups! Something Went Wrong.</p>
+                        )}
+                    </form>
+
+                    <Link to="/" className="backLink">
+                        Back
+                    </Link>
+                </div>
             </div>
         );
     }

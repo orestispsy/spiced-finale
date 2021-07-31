@@ -106,9 +106,22 @@ a:hover {
 }
 
 .gigCreatorContainer h1 {
-    width: 40vw;
+    width: 25vw;
     text-align: center;
     font-size: 3vmax;
+    color:rgb(255, 255, 255);
+    margin: 2vmax 0 1.5vmax 0;
+    border-bottom: 2px solid tomato;
+    padding:1vmax;
+}
+
+.gigCreatorContainerInner {
+    padding: 0vmax 2vmax 2vmax 2vmax;
+     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+        -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
+    background-color: rgba(0, 0, 0, 0.164);
+    border-radius: 1vh;
+    height:fit-content;
 }
 
 .regSpan .links {
@@ -229,6 +242,21 @@ a:hover {
     width: 100vw;
 }
 
+.gigEditorContainerInner {
+    padding: 2vmax 2vmax 1vmax 2vmax;
+     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+        -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
+    background-color: rgba(0, 0, 0, 0.164);
+    border-radius: 1vh;
+    height:fit-content;
+}
+
+.gigEditorContainerInner select {
+    border: 2px solid black;
+ 
+}
+
+
 .gigListContainer {
     height: 92vh;
     width: 80vw;
@@ -278,7 +306,7 @@ form option {
 }
 
 .editMapToggler {
-    margin: -0.5vmax 0 0.5vmax 0;
+    margin: -0.5vmax 0 1.5vmax 0;
     font-size: 1.5vmax;
     color: rgb(59, 253, 146);
     cursor: pointer;
@@ -832,7 +860,7 @@ button:active {
     }
 
     .posterSectionToggler {
-        margin-bottom: 2vmax !important;
+        margin-bottom: 1vmax !important;
         font-size: 2vmax !important;
     }
 
@@ -925,6 +953,31 @@ button:active {
     .superListItemBack {
         margin:1vmax !important;
     }
+
+    .gigEditorContainerInner form{
+        min-width: 75vw!important
+    }
+
+     .gigEditorContainerInner select {
+         width:50vw !important
+     }
+
+     .editMapToggler{
+         width:75vw !important;
+         text-align:center;
+      
+         padding-bottom:1vmax !important;
+     }
+
+     .posterSectionToggler {
+            width:75vw !important;
+                 text-align:center;
+     }
+
+     .google-map-editor {
+         width:70vmax !important;
+         height:50vh !important;
+     }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1099,8 +1152,11 @@ button:active {
         height: 15vmax !important;
     }
 
+
     .imgPreview {
         margin: 0 0.5vmax 1vmax -1vmax !important;
+        width:6vmax !important;
+        height: 6vmax !important;
     }
 
     .fileUploader input {
@@ -2447,6 +2503,10 @@ font-family: 'Ultra', serif; */
     height: 50vh;
     overflow-y: scroll;
     margin-left: 6vh;
+        box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+        -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
+        border-radius: 1vh;
+            background-color: rgba(0, 0, 0, 0.164);
 }
 
 .posterEditBox {
@@ -2454,6 +2514,7 @@ font-family: 'Ultra', serif; */
     align-items: center;
     justify-content: center;
     width: 100vw;
+    margin-top:1vmax;
 }
 
 .posterSectionToggler {
@@ -2463,6 +2524,8 @@ font-family: 'Ultra', serif; */
     cursor: pointer;
     text-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black;
     user-select: none;
+    margin-top:-0.5vmax;
+    padding-bottom:1vmax;
 }
 
 .posterSectionToggler:hover {

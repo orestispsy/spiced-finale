@@ -63,7 +63,7 @@ export default class GigEntry extends Component {
                                 tour_name: data.data.tour_name,
                                 poster: data.data.poster,
                             });
-                               window.history.pushState({}, null, `/api/gig/${this.state.id}`);
+                               this.props.history.push(`/api/gig/${this.state.id}`);
                                
                         }
                     })

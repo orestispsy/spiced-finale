@@ -252,6 +252,7 @@ export default class App extends Component {
                                         super_admin={this.state.super_admin}
                                         nickname={this.state.nickname}
                                         listSet={(e) => this.listSet(e)}
+                                        history={props.history}
                                     />
                                 )}
                             />
