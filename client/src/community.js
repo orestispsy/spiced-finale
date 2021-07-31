@@ -157,7 +157,9 @@ export default function Community({
                         className="onlineUsersRedDot"
                         id="commentsBack"
                         title="Back"
-                        onClick={() => setContribute(false)}
+                        onClick={() => {setContribute(false);
+                        setError(false)}}
+                   
                     ></div>
                 </div>
             )}

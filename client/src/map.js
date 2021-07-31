@@ -148,12 +148,22 @@ const WithGoogleMapComponent = compose(
                                 {props.selectedGig.tour_name}
                             </div>
                         )}
-                        <div id="mapLink" className="mainMenuLink" onClick={()=>location.replace(`/api/gig/${props.selectedGig.id}`)}>Community</div>
+                        <div
+                            id="mapLink"
+                            className="mainMenuLink"
+                            onClick={() =>
+                                location.replace(
+                                    `/api/gig/${props.selectedGig.id}`
+                                )
+                            }
+                        >
+                            Community
+                        </div>
                     </div>
                 </InfoWindow>
             )}
             <div
-            title="Change Map Color"
+                title="Change Map Color"
                 className="switch"
                 onClick={(e) => switcherHelper(props.switcher + 1)}
             ></div>
