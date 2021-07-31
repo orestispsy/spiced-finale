@@ -893,19 +893,18 @@ button:active {
         height: unset !important;
         align-self: center !important;
     }
-    /* 
-    .dodge {
-     background:radial-gradient(circle, white, black 35%) center / 10% 5% !important;
-        top:-120 !important;
-        left:-100 !important;
-    }
 
-    .neon-wrapper{ height:5vmax !important;
-  
-    }
-    .txt {
-        font-size:4vmax !important;
-    } */
+    
+#mapLink { 
+   font-size: 1.5vmax !important;
+text-align: center !important;
+   height:2vmax !important;
+margin-top:1vmax !important;
+
+padding: 0.5vmax 2vmax!important
+
+}
+
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1276,14 +1275,14 @@ button:active {
 .gm-style .gm-style-iw-c {
     padding-right: 13px !important;
     max-height: fit-content !important;
-    max-width: 17vw !important;
+   
     position: absolute;
     box-sizing: border-box;
     outline: none !important;
     top: 0;
     left: 0;
     transform: translate(-50%, -100%);
-    background-color: rgba(0, 0, 0, 0.164);
+    background-color: rgba(0, 0, 0, 0.342);
     border:1px solid white;
     border-radius: 8px;
     color: lime;
@@ -1339,6 +1338,7 @@ div:focus {
 text-align: center !important;
    height:2vmax !important;
 margin-top:1vmax !important;
+padding-bottom: 0.5vmax !important;
 
 }
 
@@ -2643,7 +2643,7 @@ font-family: 'Ultra', serif; */
 }
 
 #fileUploader {
-    margin-top: 0.5vmax !important;
+    margin-top: 1vmax !important;
 }
 
 .uploading {
