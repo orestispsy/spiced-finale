@@ -81,6 +81,7 @@ export default function Comments({
             <div className="commentHead">Comments</div>
 
             <div className="commentBox" ref={elemRef}>
+                {comments.length == 0 && <h1>Nothing here yet .</h1>}
                 {comments &&
                     comments.map((comment) => (
                         <div key={comment.id}>

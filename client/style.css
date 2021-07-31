@@ -2699,6 +2699,12 @@ font-family: 'Ultra', serif; */
     color: rgb(79, 255, 196);
 }
 
+.communityPhotos h1 {
+    font-size:1vmax;
+    margin:0;
+    color:white;
+}
+
 .communityPhotos img {
     width: 13vmax;
     height: 14vmax;
@@ -2803,6 +2809,13 @@ font-family: 'Ultra', serif; */
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
     border-radius: 1vmax;
     scrollbar-width: none;
+}
+
+.commentBox h1 {
+    font-size:1vmax;
+  align-self:flex-start;
+    color:white;
+    margin-left:1vmax;
 }
 
 #commentsTypeLine {
