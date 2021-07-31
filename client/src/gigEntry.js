@@ -7,6 +7,7 @@ import Comments from "./comments";
 
 export default class GigEntry extends Component {
     constructor(props) {
+        console.log(props.match)
         super(props);
         this.state = {
             city: "",
@@ -42,6 +43,8 @@ export default class GigEntry extends Component {
     }
 
     gigSelector(e) {
+     
+
         this.setState(
             {
                 [e.target.name]: e.target.value,
@@ -60,6 +63,8 @@ export default class GigEntry extends Component {
                                 tour_name: data.data.tour_name,
                                 poster: data.data.poster,
                             });
+                               window.history.pushState({}, null, `/api/gig/${this.state.id}`);
+                               
                         }
                     })
                     .catch((err) => {
