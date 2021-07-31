@@ -2492,7 +2492,7 @@ font-family: 'Ultra', serif; */
     flex-wrap: wrap;
     width:70vw;
      background-color: rgba(113, 255, 212, 0.021);
-    padding: 2vmax 0;
+    padding: 2vmax 2vmax;
            box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
           border-radius:1vh;
