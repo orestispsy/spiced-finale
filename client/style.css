@@ -2490,9 +2490,9 @@ font-family: 'Ultra', serif; */
     margin-top:2vmax;
     display: flex;
     flex-wrap: wrap;
-    width:fit-content;
+    width:70vw;
      background-color: rgba(113, 255, 212, 0.021);
-    padding:3vmax 3vmax;
+    padding: 2vmax 0;
            box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
           border-radius:1vh;
@@ -2502,7 +2502,7 @@ font-family: 'Ultra', serif; */
       background-color: rgba(0, 0, 0, 0.205);
        box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
-     margin: 0 3vmax;
+     margin: 1.5vmax 3vmax;
         border-radius: 1vh;
           padding:1vmax;
 }
