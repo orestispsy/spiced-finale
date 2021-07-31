@@ -181,6 +181,8 @@ a:hover {
     align-items: center;
 }
 
+
+
 .switch {
     width: 40px;
     height: 40px;
@@ -1130,7 +1132,6 @@ padding: 0.5vmax 2vmax!important
     background-size: cover;
     width: 250px;
     height: 70px;
-    margin-right: 10px;
     margin-bottom: 20px;
 }
 
@@ -1323,6 +1324,10 @@ div:focus {
 
 .mapInfoCard {
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
 }
 
 .mapInfoCard div {
@@ -1337,6 +1342,7 @@ div:focus {
    font-size: 1.5vmax !important;
 text-align: center !important;
    height:2vmax !important;
+   max-width:fit-content !important;
 margin-top:1vmax !important;
 padding-bottom: 0.5vmax !important;
 

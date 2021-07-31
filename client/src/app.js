@@ -172,14 +172,16 @@ export default class App extends Component {
                                         {this.state.nickname}
                                     </div>
                                 </div>
-                                <a
-                                    target="_blank"
-                                    href="https://www.1000mods.com"
-                                >
-                                    <div className="logo2Back">
-                                        <div className="logo2"></div>
-                                    </div>
-                                </a>
+                                {this.state.maps && (
+                                    <a
+                                        target="_blank"
+                                        href="https://www.1000mods.com"
+                                    >
+                                        <div className="logo2Back">
+                                            <div className="logo2"></div>
+                                        </div>
+                                    </a>
+                                )}
 
                                 {this.state.maps && (
                                     <Link
