@@ -911,6 +911,20 @@ button:active {
     .commentsContainer {
         margin-left:0 !important;
     }
+
+    .superList {
+        width: 58vmax !important;
+           padding: 1vmax 1vmax !important;
+    }
+
+    .superListItem {
+        margin:1vmax !important;
+     
+    }
+
+    .superListItemBack {
+        margin:1vmax !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -2465,7 +2479,6 @@ font-family: 'Ultra', serif; */
 .superAdminContainer {
     overflow-y: scroll;
     justify-content: flex-start;
-    background-color: rgba(255, 0, 0, 0.096);
     scrollbar-width: none;
     overflow-y: scroll;
     height: 100vh;
@@ -2474,13 +2487,24 @@ font-family: 'Ultra', serif; */
 }
 
 .superList {
+    margin-top:2vmax;
     display: flex;
     flex-wrap: wrap;
-    width: 60vmax;
-       background-color: rgba(0, 0, 0, 0.205);
+    width:fit-content;
+     background-color: rgba(113, 255, 212, 0.021);
+    padding:3vmax 3vmax;
            box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
           border-radius:1vh;
+}
+
+.superListItemBack {
+      background-color: rgba(0, 0, 0, 0.205);
+       box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+        -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
+     margin: 0 3vmax;
+        border-radius: 1vh;
+          padding:1vmax;
 }
 
 .superListItem {
@@ -2490,10 +2514,10 @@ font-family: 'Ultra', serif; */
     justify-content: center;
     margin: 2vmax;
     border-radius:1vh;
-    width: 25vmax;
-    min-height: 41vmax;
+    width: 23vmax;
+    min-height: fit-content;
          background-color: rgba(255, 255, 255, 0.068);
-  
+
         box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
 }
@@ -2506,7 +2530,7 @@ font-family: 'Ultra', serif; */
 .superListItem img {
     width: 10vmax;
     height: 10vmax;
-    margin-bottom: 1vmax;
+    margin:1vmax 0;
     border-radius: 50%;
 }
 
