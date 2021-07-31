@@ -132,23 +132,26 @@ export default function Community({
             )}
 
             {contribute && (
-                <div className="fileUploader" id="fileUploader">
-                    <input
-                        type="file"
-                        name="file"
-                        accept="image/*"
-                        onChange={(e) => setFile(e.target.files[0])}
-                        onClick={() => setError(false)}
-                    />
+                <div className="fileUploaderBack">
+                    <div className="addPhoto">  Add Photo</div>
+                    <div className="fileUploader" id="fileUploader">
+                        <input
+                            type="file"
+                            name="file"
+                            accept="image/*"
+                            onChange={(e) => setFile(e.target.files[0])}
+                            onClick={() => setError(false)}
+                        />
 
-                    {!upload && (
-                        <div
-                            title="Upload Image"
-                            className="upload"
-                            onClick={() => handleUploaderClick()}
-                        ></div>
-                    )}
-                    {upload && <div className="uploading"></div>}
+                        {!upload && (
+                            <div
+                                title="Upload Image"
+                                className="upload"
+                                onClick={() => handleUploaderClick()}
+                            ></div>
+                        )}
+                        {upload && <div className="uploading"></div>}
+                    </div>
                 </div>
             )}
             {contribute && (
@@ -157,9 +160,10 @@ export default function Community({
                         className="onlineUsersRedDot"
                         id="commentsBack"
                         title="Back"
-                        onClick={() => {setContribute(false);
-                        setError(false)}}
-                   
+                        onClick={() => {
+                            setContribute(false);
+                            setError(false);
+                        }}
                     ></div>
                 </div>
             )}
