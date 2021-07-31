@@ -7,7 +7,7 @@ export default function Comments({
     myUserId,
     super_admin,
     nickname,
-   toggleComments
+    toggleComments,
 }) {
     const [comments, setComments] = useState("");
     const [post, setPost] = useState(false);
@@ -78,14 +78,7 @@ export default function Comments({
 
     return (
         <div className="commentsContainer">
-            <div className="wrapper2">
-                <div className="neon-wrapper">
-                    <div className="txt">Comments</div>
-                    <div className="gradient"></div>
-
-                    <div className="dodge"></div>
-                </div>
-            </div>
+            <div className="commentHead">Comments</div>
 
             <div className="commentBox" ref={elemRef}>
                 {comments &&

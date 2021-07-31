@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "./tools/axios";
 
-export default function Community({ selectedGigId, myUserId, super_admin, nickname, toggleComments }) {
+export default function Community({
+    selectedGigId,
+    myUserId,
+    super_admin,
+    nickname,
+    toggleComments,
+}) {
     const [contribute, setContribute] = useState(false);
     const [file, setFile] = useState("");
     const [images, setImages] = useState("");
@@ -9,25 +15,23 @@ export default function Community({ selectedGigId, myUserId, super_admin, nickna
     const [upload, setUpload] = useState(false);
 
     useEffect(
-    
         function () {
-                if (selectedGigId) {
-            setError(false);
-            setContribute(false);
-            axios
-                .post("/get-community-images/", {
-                    selectedGigId: selectedGigId,
-                })
-                .then(({ data }) => {
-                    setImages(data.rows);
-                })
-                .catch((err) => {
-                    console.log("err in Gig Entry GET Request : ", err);
-                });}
-                
+            if (selectedGigId) {
+                setError(false);
+                setContribute(false);
+                axios
+                    .post("/get-community-images/", {
+                        selectedGigId: selectedGigId,
+                    })
+                    .then(({ data }) => {
+                        setImages(data.rows);
+                    })
+                    .catch((err) => {
+                        console.log("err in Gig Entry GET Request : ", err);
+                    });
+            }
         },
         [selectedGigId]
-        
     );
 
     const imageDelete = (e) => {

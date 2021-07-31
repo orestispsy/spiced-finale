@@ -791,9 +791,13 @@ button:active {
 
     .gigEntryDetails {
         flex-direction: column-reverse !important;
+        align-self: center !important;
     }
 
-
+    .detailedEntry {
+        width: 60vw !important;
+        max-width: 60vw !important;
+    }
 
     .detailedEntry span {
         font-size: 3vmax !important;
@@ -840,40 +844,40 @@ button:active {
     .superListItem {
         height: 50vmax !important;
     }
-    #contribute, #commentButton, #commentsButton {
+
+    #contribute,
+    #commentButton,
+    #commentsButton {
         font-size: 1.5vmax !important;
-        margin-bottom: 1vmax !important;
+        margin-top: 2vmax !important;
+        margin-bottom: 1.5vmax !important;
         padding: 1vmax 1vmax 0.5vmax 1vmax !important;
     }
 
     .gigEntryDetails {
-        margin-bottom: 3vmax;
-        height:fit-content !important;
-    }
-
-    .gigEntryDetails h1 {
-        padding-bottom: 2vmax !important;
+        margin-bottom: 1vmax;
+        height: fit-content !important;
     }
 
     .gigEntryDetails img {
-        margin-top: 0 !important;
+        margin-top: 1vmax !important;
+        margin-bottom: 1vmax !important;
     }
 
-    .gigEntryDetails{
+    .gigEntryDetails {
         min-height: unset !important;
-
     }
 
-    .gigEntryContainer{
-        overflow-y:scroll !important;
+    .gigEntryContainer {
+        overflow-y: scroll !important;
     }
 
     .gigEntryDetailsBack {
         flex-direction: column;
         overflow-y: scroll;
         height: 100vh !important;
-        flex-wrap:nowrap !important;
-         justify-content: flex-start !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
     }
 
     .communityContainer {
@@ -881,15 +885,27 @@ button:active {
     }
 
     .communityPhotos {
-        max-height:22vmax !important;
-        min-height:22vmax !important
+        max-height: 22vmax !important;
+        min-height: 22vmax !important;
     }
 
-    .commentsContainer{
-        height:unset !important;
+    .commentsContainer {
+        height: unset !important;
+        align-self: center !important;
+    }
+    /* 
+    .dodge {
+     background:radial-gradient(circle, white, black 35%) center / 10% 5% !important;
+        top:-120 !important;
+        left:-100 !important;
     }
 
-
+    .neon-wrapper{ height:5vmax !important;
+  
+    }
+    .txt {
+        font-size:4vmax !important;
+    } */
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1031,11 +1047,10 @@ button:active {
     }
 
     .gigEntryDetails {
-
-       align-items: unset !important
+        align-items: unset !important;
     }
 
-.gigEntryDetails img {
+    .gigEntryDetails img {
         width: 20vmax !important;
         height: 25vmax !important;
     }
@@ -1049,8 +1064,8 @@ button:active {
         width: 25vmax !important;
     }
 
-    .detailedEntry{
-        overflow-y:scroll
+    .detailedEntry {
+        overflow-y: scroll;
     }
 
     .detailedEntry h1 span {
@@ -1081,22 +1096,24 @@ button:active {
         font-size: 3vmax !important;
     }
 
-    #contribute, #commentButton, #commentsButton {
+    #contribute,
+    #commentButton,
+    #commentsButton {
         font-size: 1.5vmax !important;
         margin-bottom: 1vmax !important;
         padding: 1vmax 1vmax 0.5vmax 1vmax !important;
     }
 
-     #commentButton {
-         text-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
-        -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
-        margin-top:1.5vmax !important;
-     }
+    #commentButton {
+        text-shadow: -0 0 10px rgba(0, 0, 0, 0.432),
+            0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432),
+            -0 -0 10px rgba(0, 0, 0, 0.432);
+        margin-top: 1.5vmax !important;
+    }
 
-     #communityConfig{
-         width:80vmax;
-     }
-
+    #communityConfig {
+        width: 80vmax;
+    }
 }
 
 .logo {
@@ -2263,6 +2280,7 @@ font-family: 'Ultra', serif; */
 
 .gigEntryContainer form {
     margin: 0;
+    max-height: 5vmax !important;
 }
 
 .gigEntryContainer form select {
@@ -2284,12 +2302,15 @@ font-family: 'Ultra', serif; */
     margin: 1vmax;
     text-align: center;
     max-width: 22vmax;
+    background-color: rgba(255, 255, 255, 0.164);
+    border-radius: 1vh;
+    border: 1px solid white;
 }
 
 .detailedEntry h1 {
     font-size: 1.5vmax;
-    border-bottom: 2px solid tomato;
-    padding-bottom: 5vh;
+    border-bottom: 2px solid white;
+    padding-bottom: 3vh;
     height: fit-content;
 }
 
@@ -2301,6 +2322,7 @@ font-family: 'Ultra', serif; */
 .detailedEntry span {
     color: lime;
     font-size: 2.5vmax;
+    padding: 0 1vmax;
 }
 
 .gigEntryDetailsBack {
@@ -2308,21 +2330,22 @@ font-family: 'Ultra', serif; */
     align-items: center;
     justify-content: center;
     width: 100vw;
-    height:40vmax;
+    height: 40vmax;
     flex-wrap: wrap;
-   
 }
 
 .gigEntryDetails {
+    min-height: 37vmax;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border: 2px solid tomato;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
-        height:38vmax;
-        min-height:38vmax;
+    height: fit-content;
+    border-radius: 1vh;
+    background-color: rgba(0, 0, 0, 0.164);
+    align-self: flex-start;
 }
 
 .posterEditPreview {
@@ -2511,12 +2534,14 @@ font-family: 'Ultra', serif; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 40vmax;
-    min-height: 38vmax;
-    border: 2px double tomato;
+    width: 39vmax;
+    min-height: 36vmax;
     margin-left: 2vmax;
+    margin-bottom: 2vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
+    border-radius: 1vh;
+    background-color: rgba(255, 255, 255, 0.116);
 }
 
 .gallery {
@@ -2527,13 +2552,15 @@ font-family: 'Ultra', serif; */
     display: flex;
     flex-wrap: wrap;
     width: 32vmax;
-    height: 25vmax;
-    border: 2px double tomato;
+    height: 23vmax;
+
+    border-radius: 0.5vh;
     overflow-y: scroll;
     padding: 1vmax;
     scrollbar-width: none;
-     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
+    background-color: rgba(255, 255, 255, 0.164);
 }
 
 .communityPhotosDetails {
@@ -2565,7 +2592,8 @@ font-family: 'Ultra', serif; */
 }
 
 #contribute,
-#commentsButton {
+#commentsButton,
+#commentButton {
     height: 2vmax;
     font-size: 1.5vmax;
     margin-top: 1vmax;
@@ -2573,14 +2601,23 @@ font-family: 'Ultra', serif; */
         -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
 
     cursor: pointer;
+    background: rgba(0, 255, 234, 0.253);
 }
 
 #commentsButton {
     margin-left: 1vmax;
 }
 
+#commentButton:hover {
+    transition: 0s;
+}
+#commentButton {
+    margin-bottom: 1vmax;
+}
+
 #contribute:hover,
-#commentsButton:hover {
+#commentsButton:hover,
+#commentButton:hover {
     color: white;
 }
 
@@ -2607,76 +2644,22 @@ font-family: 'Ultra', serif; */
 }
 
 .commentsContainer {
-    height: 38vmax;
-    width: 40vmax;
+    width: 39vmax;
     display: flex;
     flex-direction: column;
     align-items: center;
-    align-self: center;
+    align-self: flex-start;
     justify-content: flex-start;
-
     margin-left: 2vmax;
-    border: 2px double tomato;
+    border: 2px double white;
     border-radius: 1vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
+    background-color: rgba(255, 255, 255, 0.164);
 }
 
-.wrapper2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #000000;
-    margin: 0.5vmax;
-    padding: 0.5vmax 1vmax;
-    border-radius: 10vh;
-}
-.txt {
-    color: #ffffff;
-    background: #000000;
-    font-size: 3vmax;
-    font-weight: bold;
-    font-family: "Black Ops One", cursive;
-}
-.txt::before {
-    content: "Comments";
-    position: absolute;
-    mix-blend-mode: difference;
-    filter: blur(1px);
-    font-family: "Black Ops One", cursive;
-}
-.neon-wrapper {
-    display: inline-flex;
-    filter: brightness(200%);
-    overflow: hidden;
-}
-.gradient {
-    background: linear-gradient(
-        114.5793141156962deg,
-        rgba(6, 227, 250, 1) 4.927083333333334%,
-        rgba(229, 151, 64, 1) 97.84374999999999%
-    );
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    mix-blend-mode: multiply;
-}
-.dodge {
-    background: radial-gradient(circle, white, black 35%) center / 25% 25%;
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    right: 0;
-    bottom: 0;
-    mix-blend-mode: color-dodge;
-    animation: dodge-area 5s linear infinite;
-}
-@keyframes dodge-area {
-    to {
-        transform: translate(50%, 50%);
-    }
+.commentHead {
+    margin: 1vmax;
 }
 
 .commentBox {
@@ -2686,36 +2669,23 @@ font-family: 'Ultra', serif; */
     min-height: 23vmax;
     max-height: 23vmax;
     overflow-y: scroll;
-    border: 2px double tomato;
+    border: 2px double white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     text-align: center;
     margin-bottom: 0.5vmax;
-     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
-        border-radius:1vmax;
-}
-
-#commentButton {
-    font-size: 1.5vmax;
-    margin: 1vmax 0 1vmax 0;
-    padding: 1vmax 1vmax 0 1vmax;
-    cursor:pointer;
-}
-
-#commentButton:hover {
-    color: rgb(255, 255, 255);
-    text-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
-        -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
+    border-radius: 1vmax;
+    scrollbar-width: none;
 }
 
 #commentsTypeLine {
     width: 22vmax !important;
     min-height: 1.5vmax !important;
     margin-top: 0.5vmax;
-
 }
 
 .comment {

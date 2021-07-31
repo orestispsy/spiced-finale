@@ -303,7 +303,6 @@ app.post(
 );
 
 app.post("/get-community-images", (req, res) => {
-    console.log(req.body.selectedGigId);
     db.getCommunityImages(req.body.selectedGigId)
         .then(({ rows }) => {
             res.json({ rows });
@@ -315,7 +314,6 @@ app.post("/get-community-images", (req, res) => {
 });
 
 app.post("/delete-community-image", (req, res) => {
-    console.log(req.body.imageId);
     db.deleteCommunityImage(req.body.imageId)
         .then(({ rows }) => {
             const file2delete = rows[0].img_url.replace(s3Url, "");
@@ -407,7 +405,6 @@ app.get("/get-all-users", (req, res) => {
 });
 
 app.post("/delete-user", (req, res) => {
-    console.log(req.body.id);
     db.deleteAllUserPosts(req.body.id)
         .then(({ rows }) => {
             db.deleteUser(req.body.id)
@@ -448,12 +445,6 @@ app.post("/get-comments", (req, res) => {
 });
 
 app.post("/add-comment", (req, res) => {
-    console.log(
-        "yo",
-        req.body.selectedGigId,
-        req.body.myUserId,
-        req.body.comment
-    );
     db.addComment(req.body.selectedGigId, req.body.myUserId, req.body.comment)
         .then(({ rows }) => {
             res.json({ data: rows });
