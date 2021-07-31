@@ -2490,9 +2490,9 @@ font-family: 'Ultra', serif; */
     margin-top:2vmax;
     display: flex;
     flex-wrap: wrap;
-    width:70vw;
+    width:68vw;
      background-color: rgba(113, 255, 212, 0.021);
-    padding: 2vmax 2vmax;
+    padding: 1vmax 2vmax;
            box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
           border-radius:1vh;
@@ -2520,6 +2520,10 @@ font-family: 'Ultra', serif; */
 
         box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
+}
+
+.superListItemBack:nth-child(odd){
+     margin-right: 0.5vmax;
 }
 
 
@@ -2633,7 +2637,7 @@ font-family: 'Ultra', serif; */
 
 .superAdminExit img {
     position: fixed;
-    bottom: 1vmax;
+    top: 1vmax;
     right: 1vmax;
     background-position: cover;
     width: 3vmax;
