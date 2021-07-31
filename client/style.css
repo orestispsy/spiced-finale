@@ -248,6 +248,7 @@ a:hover {
     background-color: rgba(0, 0, 0, 0.164);
     border-radius: 1vh;
     height: fit-content;
+    overflow-y: scroll;
 }
 
 .gigEditorContainerInner select {
@@ -303,7 +304,6 @@ form option {
 }
 
 .editMapToggler {
-    margin: -0.5vmax 0 1.5vmax 0;
     font-size: 1.5vmax;
     color: rgb(59, 253, 146);
     cursor: pointer;
@@ -857,7 +857,7 @@ button:active {
     }
 
     .posterSectionToggler {
-        margin-bottom: 1vmax !important;
+        margin: 1vmax 0 1vmax 0 !important;
         font-size: 2vmax !important;
     }
 
@@ -950,10 +950,6 @@ button:active {
         margin: 1vmax !important;
     }
 
-    .gigEditorContainerInner form {
-        min-width: 75vw !important;
-    }
-
     .gigEditorContainerInner select {
         width: 50vw !important;
     }
@@ -983,6 +979,10 @@ button:active {
     .google-map-editor {
         width: 70vmax !important;
         height: 50vh !important;
+    }
+
+    .required {
+        width: 80vw !important;
     }
 }
 
@@ -1166,10 +1166,6 @@ button:active {
 
     .fileUploader input {
         width: 13vmax !important;
-    }
-
-    .editMapToggler {
-        margin: 1vmax !important;
     }
 
     .superListItem h1 {
@@ -2395,7 +2391,7 @@ font-family: 'Ultra', serif; */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! GIGLIST ANIMATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 .google-map-editor {
-    height: 25vh;
+    height: 35vh;
     width: 35vw;
     border-radius: 1vmax !important;
     margin-bottom: 1vmax;

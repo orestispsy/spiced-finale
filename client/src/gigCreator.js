@@ -169,9 +169,7 @@ export default class GigCreator extends React.Component {
                             )}
                         </div>
                         {!this.state.success && !this.state.map && (
-                            <div className="inputBack">
-                                <p className="required">*required</p>
-                            </div>
+                            <p className="required">*required</p>
                         )}
                     </form>
                     {this.state.error && (

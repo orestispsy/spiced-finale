@@ -5,7 +5,7 @@ import axios from "./tools/axios";
 export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
     const [userList, setUserList] = useState(null);
     const [confirm, setConfirm] = useState(false);
-    
+
     useEffect(function () {
         if (!super_admin) {
             location.replace("/");
@@ -98,11 +98,17 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                 ":" +
                                 msgTime[2];
                             return (
-                                <div className="superListItemBack" key={user.id}>
+                                <div
+                                    className="superListItemBack"
+                                    key={user.id}
+                                >
                                     {chat_myUserId != user.id && (
                                         <div className="superListItem">
                                             <img
-                                                src={user.chat_img || "na.jpg"}
+                                                src={
+                                                    user.chat_img ||
+                                                    "avatar.png"
+                                                }
                                             ></img>
                                             <h1>{user.nickname}</h1>
                                             <div>Last Online</div>
