@@ -855,6 +855,7 @@ button:active {
 
     .posterEdit {
         margin: 0 !important;
+        width:54vw !important
     }
 
     .posterEditPreview {
@@ -958,7 +959,7 @@ button:active {
 
     
 .gigEditorContainerInner form {
-   width:70vw !important
+   width:80vw !important
 
 }
 
@@ -2512,6 +2513,7 @@ font-family: 'Ultra', serif; */
 
 .posterEdit {
     height: 50vh;
+    width: 38vw;
     overflow-y: scroll;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
