@@ -27,6 +27,7 @@ export default function Community({
                 elemRef.current.scrollHeight - elemRef.current.clientHeight;
             elemRef.current.scrollTop = newScrollTop;
         }
+        console.log(images);
     }, [images]);
 
     useEffect(
@@ -55,7 +56,6 @@ export default function Community({
                 imageId: e,
             })
             .then(({ data }) => {
-                console.log("dataaaaa", data);
                 if (data.success) {
                     socket.emit("DELETE IMAGE", data.data);
                 }
@@ -75,7 +75,10 @@ export default function Community({
             .post("/upload-community-image", formData)
             .then(({ data }) => {
                 if (data.success) {
-                    socket.emit("ADD IMAGE", data.rows[0]);
+                    socket.emit("ADD IMAGE", {
+                        ...data.rows[0],
+                        nickname: nickname,
+                    });
                     setContribute(false);
                     setError(false);
                     setFile("");
@@ -97,6 +100,7 @@ export default function Community({
             <div className="gallery">Gallery</div>
             <div className="communityPhotos" ref={elemRef}>
                 {images && images.length == 0 && <h1>Nothing here yet .</h1>}
+
                 {images &&
                     images.map((img) => (
                         <div key={img.id}>
@@ -124,8 +128,7 @@ export default function Community({
                                     <a href={img.img_url} target="_blank">
                                         <img src={img.img_url}></img>
                                     </a>
-                                    Uploaded by:{" "}
-                                    <div>{img.nickname || nickname}</div>
+                                    Uploaded by: <div>{img.nickname}</div>
                                 </div>
                             )}
                         </div>

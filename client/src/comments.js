@@ -58,7 +58,10 @@ export default function Comments({
                     comment: post,
                 })
                 .then(({ data }) => {
-                    socket.emit("ADD COMMENT", data.data[0]);
+                    socket.emit("ADD COMMENT", {
+                        ...data.data[0],
+                        nickname: nickname,
+                    });
                     elem[0].value = "";
                     setPost(false);
                 })
@@ -94,9 +97,7 @@ export default function Comments({
                                 <div>
                                     <div className="comment" id={comment.id}>
                                         {comment.comment}
-                                        <div>
-                                            {comment.nickname || nickname}
-                                        </div>
+                                        <div>{comment.nickname}</div>
                                     </div>
                                 </div>
                             )}
