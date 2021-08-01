@@ -315,6 +315,8 @@ form option {
     text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
         -0 -0 10px black;
     user-select: none;
+    width:50vw;
+    text-align: center;
 }
 
 .editMapToggler:hover {
