@@ -411,11 +411,20 @@ export default class GigEditor extends React.Component {
                                 {this.state.selectedGig.id &&
                                     !this.state.deleteSuccess && (
                                         <img
+                                            title={
+                                                (!this.state.posterSection &&
+                                                    "Poster Gallery") ||
+                                                (this.state.posterSection &&
+                                                    "Close Gallery")
+                                            }
                                             className="imgPreview"
                                             src={
                                                 this.state.selectedPoster ||
                                                 this.state.selectedGig.poster ||
                                                 "na.jpg"
+                                            }
+                                            onClick={() =>
+                                                this.setPosterSection()
                                             }
                                         ></img>
                                     )}
@@ -446,19 +455,7 @@ export default class GigEditor extends React.Component {
                                     )}
                             </div>
                         )}
-                        {this.state.selectedGig &&
-                            !this.state.map &&
-                            !this.state.deleteSuccess && (
-                                <div
-                                    className="posterSectionToggler"
-                                    onClick={() => this.setPosterSection()}
-                                >
-                                    {!this.state.posterSection &&
-                                        "Photo Gallery"}
-                                    {this.state.posterSection &&
-                                        "Close Gallery"}
-                                </div>
-                            )}
+
                         {this.state.map &&
                             this.state.selectedGig.date &&
                             !this.state.deleteSuccess && (

@@ -16,7 +16,7 @@ export default function OnlineUsers({
     emojiBar,
     sendEmoji,
     chat_color,
-    setProfileImage
+    setProfileImage,
 }) {
     if (chat_img) {
         chat_img = "";
@@ -135,7 +135,6 @@ export default function OnlineUsers({
                                             >
                                                 <img
                                                     className="onlineListImg"
-                                                  
                                                     alt={user.nickname}
                                                     src={
                                                         (chat_myUserId ==
@@ -145,7 +144,6 @@ export default function OnlineUsers({
                                                             user.chat_img) ||
                                                         "./../na.jpg"
                                                     }
-                                                   
                                                 ></img>
                                             </a>
                                             <span
