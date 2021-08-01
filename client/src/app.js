@@ -79,6 +79,12 @@ export default class App extends Component {
         });
     }
 
+    setProfileImage(e) {
+          this.setState({
+              chat_img:e
+          });
+    }
+
     listSet(e) {
         this.setState({
             list: e,
@@ -277,6 +283,7 @@ export default class App extends Component {
                                         chat_color={this.state.chat_color}
                                         admin={this.state.admin}
                                         super_admin={this.state.super_admin}
+                                        setProfileImage={(e) => this.setProfileImage(e)}
                                     />
                                 )}
                             />

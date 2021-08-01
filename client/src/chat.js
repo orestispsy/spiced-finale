@@ -16,6 +16,7 @@ export default function Chat({
     chat_myUserId,
     admin,
     super_admin,
+    setProfileImage
 }) {
     const [emojiBar, setEmojiBar] = useState(false);
     const [tickerBar, setTickerBar] = useState(false);
@@ -353,6 +354,7 @@ export default function Chat({
                     emojiBar={emojiBar}
                     sendEmoji={(e) => sendEmoji(e)}
                     chat_color={chat_color}
+                    setProfileImage={(e)=> setProfileImage(e)}
                 />
             </div>
             <Link to="/" className="backLink">

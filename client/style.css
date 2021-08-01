@@ -118,7 +118,7 @@ a:hover {
     padding: 0vmax 2vmax 2vmax 2vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
-    background-color: rgba(0, 0, 0, 0.164);
+     background-color: rgba(255, 255, 255, 0.158);
     border-radius: 1vh;
     height: fit-content;
 }
@@ -245,7 +245,7 @@ a:hover {
     padding: 2vmax 2vmax 1vmax 2vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
-    background-color: rgba(0, 0, 0, 0.164);
+     background-color: rgba(255, 255, 255, 0.158);
     border-radius: 1vh;
     height: fit-content;
     overflow-y: scroll;

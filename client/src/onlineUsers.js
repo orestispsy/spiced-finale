@@ -16,6 +16,7 @@ export default function OnlineUsers({
     emojiBar,
     sendEmoji,
     chat_color,
+    setProfileImage
 }) {
     if (chat_img) {
         chat_img = "";
@@ -65,6 +66,7 @@ export default function OnlineUsers({
                     setOnlineUserPic(data.data[0].chat_img);
                     setUserPicBar(!userPicBar);
                     setcloseTag(!closeTag);
+                    setProfileImage(data.data[0].chat_img);
                 } else {
                     console.log("data fail");
                 }
@@ -143,9 +145,7 @@ export default function OnlineUsers({
                                                             user.chat_img) ||
                                                         "./../na.jpg"
                                                     }
-                                                    onClick={(e) =>
-                                                        console.log(e)
-                                                    }
+                                                   
                                                 ></img>
                                             </a>
                                             <span
