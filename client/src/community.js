@@ -1,5 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "./tools/axios";
+
+import { socket } from "./tools/socket";
+import { useSelector } from "react-redux";
 
 export default function Community({
     selectedGigId,
@@ -10,9 +13,21 @@ export default function Community({
 }) {
     const [contribute, setContribute] = useState(false);
     const [file, setFile] = useState("");
-    const [images, setImages] = useState("");
+
     const [error, setError] = useState(false);
     const [upload, setUpload] = useState(false);
+
+    const elemRef = useRef();
+
+    const images = useSelector((state) => state && state.images);
+
+    useEffect(() => {
+        if (elemRef.current) {
+            const newScrollTop =
+                elemRef.current.scrollHeight - elemRef.current.clientHeight;
+            elemRef.current.scrollTop = newScrollTop;
+        }
+    }, [images]);
 
     useEffect(
         function () {
@@ -24,7 +39,7 @@ export default function Community({
                         selectedGigId: selectedGigId,
                     })
                     .then(({ data }) => {
-                        setImages(data.rows);
+                        socket.emit("GET IMAGES", data.rows);
                     })
                     .catch((err) => {
                         console.log("err in Gig Entry GET Request : ", err);
@@ -40,8 +55,9 @@ export default function Community({
                 imageId: e,
             })
             .then(({ data }) => {
+                console.log("dataaaaa", data);
                 if (data.success) {
-                    setImages(images.filter((img) => img.id != e));
+                    socket.emit("DELETE IMAGE", data.data);
                 }
             })
             .catch((err) => {
@@ -59,7 +75,7 @@ export default function Community({
             .post("/upload-community-image", formData)
             .then(({ data }) => {
                 if (data.success) {
-                    setImages(images.concat(data.rows[0]));
+                    socket.emit("ADD IMAGE", data.rows[0]);
                     setContribute(false);
                     setError(false);
                     setFile("");
@@ -79,8 +95,8 @@ export default function Community({
     return (
         <div className="communityContainer">
             <div className="gallery">Gallery</div>
-            <div className="communityPhotos">
-                {images.length == 0 && <h1>Nothing here yet .</h1>}
+            <div className="communityPhotos" ref={elemRef}>
+                {images && images.length == 0 && <h1>Nothing here yet .</h1>}
                 {images &&
                     images.map((img) => (
                         <div key={img.id}>
@@ -95,7 +111,7 @@ export default function Community({
                                         }
                                     ></div>
                                 ))}
-                            {super_admin && (
+                            {img.gig_id == selectedGigId && super_admin && (
                                 <div
                                     className="deletecommunityPhoto"
                                     title="Delete"
@@ -103,13 +119,15 @@ export default function Community({
                                     onClick={(e) => imageDelete(e.target.id)}
                                 ></div>
                             )}
-                            <div className="communityPhotosDetails">
-                                <a href={img.img_url} target="_blank">
-                                    <img src={img.img_url}></img>
-                                </a>
-                                Uploaded by:{" "}
-                                <div>{img.nickname || nickname}</div>
-                            </div>
+                            {img.gig_id == selectedGigId && (
+                                <div className="communityPhotosDetails">
+                                    <a href={img.img_url} target="_blank">
+                                        <img src={img.img_url}></img>
+                                    </a>
+                                    Uploaded by:{" "}
+                                    <div>{img.nickname || nickname}</div>
+                                </div>
+                            )}
                         </div>
                     ))}
             </div>

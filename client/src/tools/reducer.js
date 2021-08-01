@@ -57,6 +57,29 @@ export default function (state = {}, action) {
             comments: state.comments.concat(action.comment),
         };
     }
+
+    if (action.type == "IMAGES") {
+        nextState = {
+            ...state,
+            images: action.images,
+        };
+    }
+
+    if (action.type == "ADD_IMAGE") {
+        nextState = {
+            ...state,
+            images: state.images.concat(action.image),
+        };
+    }
+
+    if (action.type == "DELETE_IMAGE") {
+        console.log("action id", action.image);
+        nextState = {
+            ...state,
+            images: state.images.filter((img) => img.id != action.image.id),
+        };
+    }
+
     // console.log("NEXT State", nextState);
     return nextState;
 }

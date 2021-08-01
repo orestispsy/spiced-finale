@@ -7,6 +7,9 @@ import {
     userLeftAct,
     comments,
     addCommentAct,
+    images,
+    addImageAct,
+    deleteImageAct,
 } from "./../tools/actions";
 import { io } from "socket.io-client";
 
@@ -45,6 +48,18 @@ export const init = (store) => {
 
         socket.on("addComment", (data) => {
             store.dispatch(addCommentAct(data));
+        });
+
+        socket.on("images", (rows) => {
+            store.dispatch(images(rows));
+        });
+
+        socket.on("addImage", (data) => {
+            store.dispatch(addImageAct(data));
+        });
+
+        socket.on("deleteImage", (data) => {
+            store.dispatch(deleteImageAct(data));
         });
     }
 };

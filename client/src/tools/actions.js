@@ -53,3 +53,24 @@ export function addCommentAct(arg) {
         comment: arg,
     };
 }
+
+export function images(arg) {
+    return {
+        type: "IMAGES",
+        images: arg,
+    };
+}
+
+export function addImageAct(arg) {
+    return {
+        type: "ADD_IMAGE",
+        image: arg,
+    };
+}
+
+export function deleteImageAct(arg) {
+    return {
+        type: "DELETE_IMAGE",
+        image: arg,
+    };
+}

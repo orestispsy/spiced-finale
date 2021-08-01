@@ -318,7 +318,7 @@ app.post("/delete-community-image", (req, res) => {
         .then(({ rows }) => {
             const file2delete = rows[0].img_url.replace(s3Url, "");
             s3.delete(file2delete);
-            res.json({ success: true });
+            res.json({ success: true, data: rows[0] });
         })
         .catch((err) => {
             res.json({ error: true });
@@ -582,6 +582,18 @@ io.on("connection", function (socket) {
 
     socket.on("COMMENTS", (comments) => {
         socket.emit("comments", comments);
+    });
+
+    socket.on("ADD IMAGE", (image) => {
+        io.emit("addImage", image);
+    });
+
+    socket.on("DELETE IMAGE", (image) => {
+        io.emit("deleteImage", image);
+    });
+
+    socket.on("GET IMAGES", (images) => {
+        socket.emit("images", images);
     });
 
     // console.log("socket userId", userId);

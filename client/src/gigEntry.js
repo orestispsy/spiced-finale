@@ -7,7 +7,6 @@ import Comments from "./comments";
 
 export default class GigEntry extends Component {
     constructor(props) {
-        console.log(props.match);
         super(props);
         this.state = {
             city: "",
