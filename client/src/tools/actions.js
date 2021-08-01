@@ -27,7 +27,6 @@ export function onlineUsers(arg) {
 }
 
 export function userJoinedAct(arg) {
-
     return {
         type: "USER_JOINED",
         onlineUser: arg,
@@ -38,5 +37,19 @@ export function userLeftAct(arg) {
     return {
         type: "USER_LEFT",
         onlineUser: arg,
+    };
+}
+
+export function comments(arg) {
+    return {
+        type: "COMMENTS",
+        comments: arg,
+    };
+}
+
+export function addCommentAct(arg) {
+    return {
+        type: "ADD_COMMENT",
+        comment: arg,
     };
 }

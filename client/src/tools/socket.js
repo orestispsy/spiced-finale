@@ -5,10 +5,12 @@ import {
     onlineUsers,
     userJoinedAct,
     userLeftAct,
+    comments,
+    addCommentAct,
 } from "./../tools/actions";
 import { io } from "socket.io-client";
 
-export let socket
+export let socket;
 
 export const init = (store) => {
     if (!socket) {
@@ -35,6 +37,14 @@ export const init = (store) => {
 
         socket.on("userLeft", (data) => {
             store.dispatch(userLeftAct(data));
+        });
+
+        socket.on("comments", (rows) => {
+            store.dispatch(comments(rows));
+        });
+
+        socket.on("addComment", (data) => {
+            store.dispatch(addCommentAct(data));
         });
     }
 };

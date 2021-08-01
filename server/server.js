@@ -576,6 +576,14 @@ io.on("connection", function (socket) {
             .catch((err) => console.log(err));
     });
 
+    socket.on("ADD COMMENT", (comment) => {
+        io.emit("addComment", comment);
+    });
+
+    socket.on("COMMENTS", (comments) => {
+        socket.emit("comments", comments);
+    });
+
     // console.log("socket userId", userId);
     // console.log(`socket ${socket.id} connected`);
 

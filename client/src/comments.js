@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "./tools/axios";
 import { Link } from "react-router-dom";
+import { socket } from "./tools/socket";
+import { useSelector } from "react-redux";
 
 export default function Comments({
     selectedGigId,
@@ -9,10 +11,11 @@ export default function Comments({
     nickname,
     toggleComments,
 }) {
-    const [comments, setComments] = useState("");
     const [post, setPost] = useState(false);
 
     const elemRef = useRef();
+
+    const comments = useSelector((state) => state && state.comments);
 
     useEffect(
         function () {
@@ -21,7 +24,7 @@ export default function Comments({
                     selectedGigId: selectedGigId,
                 })
                 .then(({ data }) => {
-                    setComments(data.data);
+                    socket.emit("COMMENTS", data.data);
                 })
                 .catch((err) => {
                     console.log("err in Gig Entry GET Request : ", err);
@@ -55,7 +58,7 @@ export default function Comments({
                     comment: post,
                 })
                 .then(({ data }) => {
-                    setComments(comments.concat(data.data[0]));
+                    socket.emit("ADD COMMENT", data.data[0]);
                     elem[0].value = "";
                     setPost(false);
                 })
@@ -81,14 +84,22 @@ export default function Comments({
             <div className="commentHead">Comments</div>
 
             <div className="commentBox" ref={elemRef}>
-                {comments.length == 0 && <h1>Nothing here yet .</h1>}
+                {comments && comments.length == 0 && (
+                    <h1>Nothing here yet .</h1>
+                )}
                 {comments &&
                     comments.map((comment) => (
                         <div key={comment.id}>
-                            <div className="comment" id={comment.id}>
-                                {comment.comment}
-                                <div>{comment.nickname || nickname}</div>
-                            </div>
+                            {comment.gig_id == selectedGigId && (
+                                <div>
+                                    <div className="comment" id={comment.id}>
+                                        {comment.comment}
+                                        <div>
+                                            {comment.nickname || nickname}
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     ))}
             </div>

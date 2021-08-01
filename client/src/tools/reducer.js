@@ -43,6 +43,20 @@ export default function (state = {}, action) {
             ),
         };
     }
+
+    if (action.type == "COMMENTS") {
+        nextState = {
+            ...state,
+            comments: action.comments,
+        };
+    }
+
+    if (action.type == "ADD_COMMENT") {
+        nextState = {
+            ...state,
+            comments: state.comments.concat(action.comment),
+        };
+    }
     // console.log("NEXT State", nextState);
     return nextState;
 }
