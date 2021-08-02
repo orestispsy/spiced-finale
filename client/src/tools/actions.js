@@ -74,3 +74,17 @@ export function deleteImageAct(arg) {
         image: arg,
     };
 }
+
+export function privateMessagesAct(arg) {
+    return {
+        type: "PRIVATE_MESSAGES",
+        messages: arg,
+    };
+}
+
+export function privateMessageAct(arg) {
+    return {
+        type: "PRIVATE_MESSAGE",
+        message: arg,
+    };
+}

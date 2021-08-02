@@ -293,8 +293,7 @@ module.exports.getCommunityImages = (id) => {
         FROM images
         JOIN community
         ON (community.id = images.img_sender_id)
-        WHERE images.gig_id = $1;
-
+        WHERE images.gig_id = $1
     `;
     const params = [id];
     return db.query(q, params);
@@ -331,14 +330,26 @@ module.exports.addComment = (gig_id, msg_sender_id, comment) => {
     return db.query(q, params);
 };
 
-module.exports.getPrivateMsgs = () => {
+module.exports.getPrivateMsgs = (sender_id, receiver_id) => {
     const q = `
-        SELECT chatroom.id, chatroom.created_at, nickname, chat_img, chat_color, msg_sender_id, chat_msg
-        FROM chatroom
-        JOIN community
-        ON (community.id = msg_sender_id)
-        ORDER BY chatroom.created_at DESC
+        SELECT * FROM private_messages
+        WHERE msg_sender_id = $1
+        AND msg_receiver_id = $2
+        OR msg_sender_id = $2 AND
+        msg_receiver_id = $1
+        ORDER BY created_at DESC
         LIMIT 10;
     `;
-    return db.query(q);
+     const params = [sender_id, receiver_id];
+    return db.query(q, params);
+};
+
+module.exports.addPrivateMsg = (msg_sender_id, msg_receiver_id, message) => {
+    const q = `
+        INSERT INTO private_messages (msg_sender_id, msg_receiver_id, private_msg)
+        VALUES ($1, $2, $3)
+        RETURNING *
+    `;
+    const params = [msg_sender_id, msg_receiver_id, message];
+    return db.query(q, params);
 };

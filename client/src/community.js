@@ -27,7 +27,6 @@ export default function Community({
                 elemRef.current.scrollHeight - elemRef.current.clientHeight;
             elemRef.current.scrollTop = newScrollTop;
         }
-        console.log(images);
     }, [images]);
 
     useEffect(

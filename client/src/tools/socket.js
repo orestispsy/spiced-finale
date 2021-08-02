@@ -10,6 +10,8 @@ import {
     images,
     addImageAct,
     deleteImageAct,
+    privateMessagesAct,
+    privateMessageAct,
 } from "./../tools/actions";
 import { io } from "socket.io-client";
 
@@ -60,6 +62,14 @@ export const init = (store) => {
 
         socket.on("deleteImage", (data) => {
             store.dispatch(deleteImageAct(data));
+        });
+
+        socket.on("privateMessages", (data) => {
+            store.dispatch(privateMessagesAct(data));
+        });
+
+        socket.on("privateMessage", (data) => {
+            store.dispatch(privateMessageAct(data));
         });
     }
 };

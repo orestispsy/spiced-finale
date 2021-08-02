@@ -115,14 +115,14 @@ a:hover {
 }
 
 .gigCreatorContainerInner form .formOptions button {
-    margin-top:1vmax;
+    margin-top: 1vmax;
 }
 
 .gigCreatorContainerInner {
     padding: 0vmax 2vmax 2vmax 2vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
-     background-color: rgba(255, 211, 66, 0.137);
+    background-color: rgba(255, 211, 66, 0.137);
     border-radius: 1vh;
     height: fit-content;
 }
@@ -245,13 +245,12 @@ a:hover {
     width: 100vw;
 }
 
-
 .gigEditorContainerInner {
     padding: 2vmax 2vmax 1vmax 2vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
-  background-color: rgba(255, 211, 66, 0.137);
-      border-radius: 1vh;
+    background-color: rgba(255, 211, 66, 0.137);
+    border-radius: 1vh;
     height: fit-content;
     overflow-y: scroll;
 }
@@ -315,7 +314,7 @@ form option {
     text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
         -0 -0 10px black;
     user-select: none;
-    width:50vw;
+    width: 50vw;
     text-align: center;
 }
 
@@ -468,7 +467,7 @@ button:active {
     height: 100px;
     margin: 0 1vmax 0 -1.5vmax;
     border-radius: 50%;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .easterEgg img {
@@ -857,7 +856,7 @@ button:active {
 
     .posterEdit {
         margin: 0 !important;
-        width:54vw !important
+        width: 54vw !important;
     }
 
     .posterEditPreview {
@@ -959,11 +958,9 @@ button:active {
         margin: 1vmax !important;
     }
 
-    
-.gigEditorContainerInner form {
-   width:80vw !important
-
-}
+    .gigEditorContainerInner form {
+        width: 80vw !important;
+    }
 
     .gigEditorContainerInner select {
         width: 50vw !important;
@@ -1854,7 +1851,6 @@ font-family: 'Ultra', serif; */
     min-height: 10vh;
     border: 1px double rgba(243, 45, 227, 0.164);
     margin: 1vmax;
-    margin-bottom: 0;
     padding: 0.2vmax;
     overflow-y: auto;
     scrollbar-width: none;
@@ -1893,6 +1889,7 @@ font-family: 'Ultra', serif; */
     width: 2vmax;
     height: 2vmax;
     margin: 1vmax;
+    cursor: pointer;
 }
 
 .onlineList {
@@ -1914,6 +1911,7 @@ font-family: 'Ultra', serif; */
     margin-right: 0.3vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
+    cursor: pointer;
 }
 
 .onlineList span {
@@ -1931,7 +1929,6 @@ font-family: 'Ultra', serif; */
     justify-content: space-around;
     align-self: center;
     align-items: center;
-    margin-top: 1vmax;
     width: 10vmax;
 }
 
@@ -2917,4 +2914,48 @@ font-family: 'Ultra', serif; */
 #commentsBack {
     margin-top: -3vmax;
     cursor: pointer;
+}
+
+#date {
+    font-family: "Poller One", cursive;
+    font-size: 0.5vmax;
+    text-shadow: none;
+}
+
+#time {
+    font-family: "Poller One", cursive;
+    font-size: 0.8vmax;
+    text-shadow: none;
+}
+
+#nickname {
+    color: lime;
+    margin-left: 0.5vmax;
+}
+
+#finalMessage {
+    color: rgb(151, 248, 255);
+}
+
+#typeline {
+    margin: 1vmax 0;
+}
+
+#chatScreen {
+    height: 35vh !important;
+}
+
+#privateUserImage {
+    width: 7vmax;
+    height: 7vmax;
+    border-radius: 50%;
+    padding: 0.5vmax 0 0 0;
+}
+
+#privateMsgUserDetails {
+    margin: -0.5vmax 0 0 0;
+    font-size: 2vmax;
+    color: cyan;
+    text-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+        -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
 }

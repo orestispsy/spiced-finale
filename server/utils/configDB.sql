@@ -59,3 +59,4 @@ CREATE TABLE comments (
     comment TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+

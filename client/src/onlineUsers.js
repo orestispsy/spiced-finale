@@ -17,7 +17,16 @@ export default function OnlineUsers({
     sendEmoji,
     chat_color,
     setProfileImage,
+    togglePrivateMSGS,
+    openPrivate,
+    setPrivatePic,
+    privateNick,
+    setPrivateNick,
+    setPrivateMode,
+    privateMode,
+    userPrivate,
 }) {
+  
     if (chat_img) {
         chat_img = "";
     }
@@ -88,17 +97,6 @@ export default function OnlineUsers({
             });
     };
 
-    const privateMessage = (e) => {
-        axios
-            .post("/changeColor", e.target.value)
-            .then(({ data }) => {
-                setChatColor(data.data.chat_color);
-            })
-            .catch((err) => {
-                //   console.log("error", err);
-            });
-    };
-
     const toggleUploader = () => {
         setUserPicBar(!userPicBar);
         setcloseTag(!closeTag);
@@ -109,55 +107,90 @@ export default function OnlineUsers({
             <div className="onlineUsersBack">
                 <div className="onlineUsers">
                     {!userPicBar && !emojiBar && (
-                        <Link to="/">
-                            <div
-                                className="onlineUsersRedDot"
-                                title="Back"
-                            ></div>
-                        </Link>
+                        <div
+                            className="onlineUsersRedDot"
+                            title="Back"
+                            onClick={() => setPrivateMode(false)}
+                        ></div>
                     )}
                     {!userPicBar && (
                         <div className="mobileOnlineUsers">
-                            <div className="chatUserHeadline">Online</div>
-                            <span className="onlineUserCounter">
-                                {onlineUsers && onlineUsers.length}
-                            </span>
+                            <div className="chatUserHeadline">
+                                {!privateMode && "Online"}
+                                {privateMode && "User"}
+                            </div>
+                            {!privateMode && (
+                                <span className="onlineUserCounter">
+                                    {onlineUsers && onlineUsers.length}
+                                </span>
+                            )}
                             <div className="usersBack">
                                 {onlineUsers &&
                                     onlineUsers.map((user) => (
-                                        <div
-                                            className="onlineList"
-                                            key={user.id}
-                                        >
-                                            <a
-                                                href={user.chat_img}
-                                                target="_blank"
-                                            >
-                                                <img
-                                                    className="onlineListImg"
-                                                    alt={user.nickname}
-                                                    src={
-                                                        (chat_myUserId ==
-                                                            user.id &&
-                                                            onlineUserPic) ||
-                                                        (user.chat_img &&
-                                                            user.chat_img) ||
-                                                        "./../na.jpg"
-                                                    }
-                                                ></img>
-                                            </a>
-                                            <span
-                                                style={{
-                                                    color:
-                                                        (chat_myUserId ==
-                                                            user.id &&
-                                                            chatColor) ||
-                                                        user.chat_color ||
-                                                        `lime`,
-                                                }}
-                                            >
-                                                {user.nickname}
-                                            </span>
+                                        <div id="privateMsgUserDetails" key={user.id}>
+                                            {privateMode &&
+                                                user.id == userPrivate && (
+                                                    <div>
+                                                        <img
+                                                            src={
+                                                                user.chat_img ||
+                                                                "avatar.png"
+                                                            }
+                                                            id="privateUserImage"
+                                                        ></img>
+                                                        <div>{privateNick}</div>
+                                                    </div>
+                                                )}
+                                            {!privateMode && (
+                                                <div
+                                                    className="onlineList"
+                                                    key={user.id}
+                                                >
+                                                    <img
+                                                        id={user.id}
+                                                        className="onlineListImg"
+                                                        alt={user.nickname}
+                                                        src={
+                                                            (chat_myUserId ==
+                                                                user.id &&
+                                                                onlineUserPic) ||
+                                                            (user.chat_img &&
+                                                                user.chat_img) ||
+                                                            "./../na.jpg"
+                                                        }
+                                                        onClick={(e) => {
+                                                            if (
+                                                                e.target.id !=
+                                                                chat_myUserId
+                                                            ) {
+                                                                togglePrivateMSGS();
+                                                                openPrivate(
+                                                                    user.id
+                                                                );
+                                                                setPrivatePic(
+                                                                    user.chat_img
+                                                                );
+                                                                setPrivateNick(
+                                                                    user.nickname
+                                                                );
+                                                            }
+                                                        }}
+                                                    ></img>
+
+                                                    <span
+                                                        style={{
+                                                            color:
+                                                                (chat_myUserId ==
+                                                                    user.id &&
+                                                                    chatColor) ||
+                                                                user.chat_color ||
+                                                                `lime`,
+                                                        }}
+                                                    >
+                                                        {user.nickname}
+                                                    </span>
+                                                </div>
+                                            )}
                                         </div>
                                     ))}
                             </div>
@@ -190,7 +223,7 @@ export default function OnlineUsers({
                             </div>
                         </div>
                     )}
-                    {!closeTag && (
+                    {!closeTag && !privateMode && (
                         <div className="chatMenuOptions">
                             <img
                                 className="uploaderTogglerImg"

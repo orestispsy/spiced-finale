@@ -73,10 +73,22 @@ export default function (state = {}, action) {
     }
 
     if (action.type == "DELETE_IMAGE") {
-        console.log("action id", action.image);
         nextState = {
             ...state,
             images: state.images.filter((img) => img.id != action.image.id),
+        };
+    }
+
+    if (action.type == "PRIVATE_MESSAGES") {
+        nextState = {
+            ...state,
+            messages: action.messages.reverse(),
+        };
+    }
+    if (action.type == "PRIVATE_MESSAGE") {
+        nextState = {
+            ...state,
+            messages: state.messages.concat(action.message),
         };
     }
 

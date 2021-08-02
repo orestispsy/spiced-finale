@@ -452,6 +452,22 @@ app.post("/add-comment", (req, res) => {
         .catch((err) => console.log(err));
 });
 
+app.post("/get-private-messages", (req, res) => {
+    db.getPrivateMsgs(req.body.chat_myUserId, req.body.userPrivate)
+        .then(({ rows }) => {
+            res.json({ data: rows });
+        })
+        .catch((err) => console.log(err));
+});
+
+app.post("/add-private-message", (req, res) => {
+    db.addPrivateMsg(req.body.chat_myUserId, req.body.userPrivate, req.body.message)
+        .then(({ rows }) => {
+            res.json({ data: rows });
+        })
+        .catch((err) => console.log(err));
+});
+
 app.get("*", function (req, res) {
     if (!req.session.userId) {
         res.redirect("/welcome");
@@ -594,6 +610,14 @@ io.on("connection", function (socket) {
 
     socket.on("GET IMAGES", (images) => {
         socket.emit("images", images);
+    });
+
+    socket.on("PRIVATE MESSAGES", (messages) => {
+        socket.emit("privateMessages", messages);
+    });
+
+    socket.on("PRIVATE MESSAGE", (message) => {
+        io.emit("privateMessage", message);
     });
 
     // console.log("socket userId", userId);
