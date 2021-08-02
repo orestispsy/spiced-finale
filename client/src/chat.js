@@ -403,6 +403,7 @@ export default function Chat({
                     privateMode={privateMode}
                     userPrivate={userPrivate}
                     privateNick={privateNick}
+                    privatePic={privatePic}
                 />
             </div>
 

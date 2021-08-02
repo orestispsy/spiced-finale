@@ -43,8 +43,8 @@ export default function PrivateMSGS({
     }, []);
 
     const addPrivateMsg = (e) => {
-        if (e==""){
-           return
+        if (e == "") {
+            return;
         }
         axios
             .post("/add-private-message/", {
@@ -150,7 +150,10 @@ export default function PrivateMSGS({
                                                                     (msg.msg_sender_id ==
                                                                         chat_myUserId &&
                                                                         chat_img) ||
-                                                                    privatePic
+                                                                    (msg.msg_sender_id !=
+                                                                        chat_myUserId &&
+                                                                        privatePic) ||
+                                                                    "./../avatar.png"
                                                                 }
                                                             ></img>
                                                             <div id="nickname">

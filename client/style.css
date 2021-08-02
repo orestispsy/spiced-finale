@@ -700,16 +700,37 @@ button:active {
         font-size: 2vmax !important;
         min-width: 40vw !important;
     }
+
+    .chatUserHeadline {
+        font-size: 4vmax !important;
+    }
     .onlineUsers {
         margin-top: 2vmax !important;
         margin-right: 2vmax !important;
         justify-content: center !important;
-        border-radius: 9vh !important;
-        width: 19vmax !important;
-        height: 19vmax !important;
-        padding: 7vmax !important;
-
+        border-radius: 2vh !important;
+        min-width: 25vmax !important;
+        min-height: 25vmax !important;
+        padding: 0vmax !important;
         background-color: rgba(116, 7, 7, 0.158) !important;
+    }
+
+    #privateUserImage {
+        width: 15vmax !important;
+        height: 15vmax !important;
+    }
+
+    #privateMessageUserDetails {
+        width: 10vmax;
+        height: 4vmax;
+    }
+
+    .mobileOnlineUsers {
+        height: 27vmax !important;
+    }
+
+    .usersBack {
+        min-height: 18vmax !important;
     }
 
     .uploadChat h1 {
@@ -735,22 +756,29 @@ button:active {
     }
 
     .usersBack {
-        height: 14vh !important;
-        width: 25vw !important;
+        height: 13vmax !important;
+        width: 20vmax !important;
+
+        padding: 1vmax !important;
     }
 
     .onlineUsersBack {
         flex-direction: row !important;
     }
 
+    #privateUserImage {
+        width: 17vmax !important;
+        height: 17vmax !important;
+    }
+
     .onlineList span {
-        font-size: 2vmax !important;
+        font-size: 3vmax !important;
     }
 
     .onlineUserCounter {
-        width: 1.5vw;
-        height: 1.5vh;
+        font-size: 2vmax !important;
         align-self: center !important;
+        padding: 1vmax !important;
     }
 
     .onlineUsersRedDot {
@@ -765,7 +793,16 @@ button:active {
     .chatMenuOptions {
         flex-direction: row !important;
         margin-top: 1vmax !important;
-        width: fit-content !important;
+        width: 20vmax !important;
+    }
+
+    .onlineList img {
+        width: 5vmax !important;
+        height: 5vmax !important;
+    }
+
+    .onlineList {
+        margin-bottom: 1vmax !important;
     }
 
     .emoticons {
@@ -995,6 +1032,11 @@ button:active {
 
     .required {
         width: 80vw !important;
+    }
+
+    #onlineUsersRedDot {
+        width: 10vmax !important;
+        height: 10vmax !important;
     }
 }
 
@@ -2946,15 +2988,16 @@ font-family: 'Ultra', serif; */
 }
 
 #privateUserImage {
-    width: 7vmax;
-    height: 7vmax;
+    width: 9vmax;
+    height: 9vmax;
     border-radius: 50%;
     padding: 0.5vmax 0 0 0;
 }
 
-#privateMsgUserDetails {
+#privateMsgUserNick {
+    text-align: center;
     margin: -0.5vmax 0 0 0;
-    font-size: 2vmax;
+    font-size: 3vmax;
     color: cyan;
     text-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
