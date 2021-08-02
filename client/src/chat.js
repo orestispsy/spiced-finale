@@ -392,7 +392,7 @@ export default function Chat({
                     chat_img={chat_img}
                     chat_myUserId={chat_myUserId}
                     emojiBar={emojiBar}
-                    toggleEmojibar={ (e) => toggleEmojibar(e)}
+                    toggleEmojibar={(e) => toggleEmojibar(e)}
                     sendEmoji={(e) => sendEmoji(e)}
                     chat_color={chat_color}
                     setProfileImage={(e) => setProfileImage(e)}
@@ -408,9 +408,11 @@ export default function Chat({
                 />
             </div>
 
-            <Link to="/" className="backLink">
-                Back
-            </Link>
+            {!privateMode && (
+                <Link to="/" className="backLink">
+                    Back
+                </Link>
+            )}
             <div
                 className="tickerButton"
                 onClick={() => {

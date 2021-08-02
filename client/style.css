@@ -1075,10 +1075,12 @@ button:active {
 
     .chatContainer {
         flex-direction: column !important;
+        align-content:center !important;
+        justify-content:center !important;
         min-height: fit-content !important;
         height: fit-content !important;
-
-        width: 70vw !important;
+    
+        width: 65vw !important;
     }
 
     .loginContainer,
@@ -1087,9 +1089,7 @@ button:active {
         height: fit-content !important;
     }
 
-    .mobileChat {
-        height: 70vh !important;
-    }
+    
 
     .chatScreen {
         min-height: 0vmax !important;
@@ -1156,6 +1156,10 @@ button:active {
         height: 4vmax !important;
     }
 
+     .emoticons {
+         width:20vmax !important;
+     }
+
     .chatBar {
         width: 2.5vmax !important;
         height: 2.5vmax !important;
@@ -1179,7 +1183,7 @@ button:active {
     }
 
     .chatMenuOptions {
-        width: fit-content !important;
+        width: 20vmax !important;
     }
 
     .usersBack {
@@ -3019,3 +3023,4 @@ font-family: 'Ultra', serif; */
     text-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
 }
+

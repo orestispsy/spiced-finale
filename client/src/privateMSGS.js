@@ -102,7 +102,7 @@ export default function PrivateMSGS({
 
     return (
         <>
-            <div className="chatContainer">
+            <div className="chatContainer" id="chatContainer">
                 <h1>Private</h1>
                 <div className="chatScreenBack">
                     <div className="chatScreen" id="chatScreen" ref={elemRef}>

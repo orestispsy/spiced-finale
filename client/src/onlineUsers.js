@@ -159,7 +159,9 @@ export default function OnlineUsers({
                                                             e.target.id !=
                                                             chat_myUserId
                                                         ) {
-                                                        toggleEmojibar(false);
+                                                            toggleEmojibar(
+                                                                false
+                                                            );
                                                             togglePrivateMSGS();
                                                             openPrivate(
                                                                 user.id
@@ -196,6 +198,9 @@ export default function OnlineUsers({
                                                 privatePic || "./../avatar.png"
                                             }
                                             id="privateUserImage"
+                                            onClick={() =>
+                                                setPrivateMode(false)
+                                            }
                                         ></img>
                                     </div>
                                 )}
