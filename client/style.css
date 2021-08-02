@@ -677,7 +677,7 @@ button:active {
         padding: 1vmax !important;
     }
     .chatScreen {
-        height: 25vh !important;
+        height: 29vh !important;
         width: 80vw !important;
         margin-bottom: 0.5vmax !important;
     }
@@ -1038,6 +1038,14 @@ button:active {
         width: 10vmax !important;
         height: 10vmax !important;
     }
+    
+    #headlines {
+        margin-top:-2.5vmax !important;
+    }
+    .tickerLink, .tickerBlankLink {
+    
+        font-size:2.5vmax !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1246,6 +1254,12 @@ button:active {
     }
     #fileUploader input {
         width: 18vmax !important;
+    }
+
+
+    .tickerLink, .tickerBlankLink {
+    
+        font-size:2.5vmax !important;
     }
 }
 
@@ -2987,7 +3001,7 @@ font-family: 'Ultra', serif; */
 }
 
 #chatScreen {
-    height: 37vh !important;
+    height: 35vh !important;
 }
 
 #privateUserImage {
