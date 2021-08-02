@@ -14,6 +14,7 @@ export default function OnlineUsers({
     chat_img,
     chat_myUserId,
     emojiBar,
+    toggleEmojibar,
     sendEmoji,
     chat_color,
     setProfileImage,
@@ -158,6 +159,7 @@ export default function OnlineUsers({
                                                             e.target.id !=
                                                             chat_myUserId
                                                         ) {
+                                                        toggleEmojibar(false);
                                                             togglePrivateMSGS();
                                                             openPrivate(
                                                                 user.id

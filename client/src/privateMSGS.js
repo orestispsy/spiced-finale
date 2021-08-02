@@ -103,7 +103,7 @@ export default function PrivateMSGS({
     return (
         <>
             <div className="chatContainer">
-                <h1>Private Zone</h1>
+                <h1>Private</h1>
                 <div className="chatScreenBack">
                     <div className="chatScreen" id="chatScreen" ref={elemRef}>
                         {messages &&

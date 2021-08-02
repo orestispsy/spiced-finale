@@ -130,12 +130,12 @@ export default function Chat({
         socket.emit("A CHAT MSG", msg);
     };
 
-    const toggleEmojibar = () => {
-        setEmojiBar(!emojiBar);
+    const toggleEmojibar = (e) => {
+        setEmojiBar(e);
     };
 
-    const toggleTicker = () => {
-        setTickerBar(!tickerBar);
+    const toggleTicker = (e) => {
+        setTickerBar(e);
     };
 
     const openPrivate = (e, img) => {
@@ -382,7 +382,7 @@ export default function Chat({
                             <div
                                 title="Emojis!"
                                 className="emojiBarToggler"
-                                onClick={() => toggleEmojibar()}
+                                onClick={(e) => toggleEmojibar(!emojiBar)}
                             ></div>
                         </div>
                     </div>
@@ -392,6 +392,7 @@ export default function Chat({
                     chat_img={chat_img}
                     chat_myUserId={chat_myUserId}
                     emojiBar={emojiBar}
+                    toggleEmojibar={ (e) => toggleEmojibar(e)}
                     sendEmoji={(e) => sendEmoji(e)}
                     chat_color={chat_color}
                     setProfileImage={(e) => setProfileImage(e)}
