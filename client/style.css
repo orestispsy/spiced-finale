@@ -1945,7 +1945,7 @@ font-family: 'Ultra', serif; */
     min-height: 12vh;
     border: 1px double rgba(243, 45, 227, 0.164);
     margin: 1vmax;
-    padding: 0.2vmax;
+
     overflow-y: auto;
     scrollbar-width: none;
     text-align: center;
@@ -3054,7 +3054,7 @@ font-family: 'Ultra', serif; */
 
 #privateMsgUserNick {
     text-align: center;
-    padding: 1vmax;
+    padding: 0 1vmax 1vmax 1vmax;
     font-size: 2.5vmax;
     color: cyan;
     text-shadow: -0 0 20px rgba(0, 0, 0, 0.432), 0 -0 20px rgba(0, 0, 0, 0.432),

@@ -121,7 +121,7 @@ export default function OnlineUsers({
                 className="onlineUsersBack"
                 style={{
                     marginBottom:
-                        emojiBar && `-5vmax`
+                        (emojiBar && `-5vmax`) || (privateMode && `-2vmax`),
                 }}
             >
                 <div className="onlineUsers">
@@ -163,7 +163,14 @@ export default function OnlineUsers({
                                     {networkList && networkUsers.length}
                                 </span>
                             )}
-                            <div className="usersBack">
+                            <div
+                                className="usersBack"
+                                style={{
+                                    marginTop: privateMode && `-0.2vmax`,
+                                    boxShadow: privateMode && `none`,
+                                    border: privateMode && `none`,
+                                }}
+                            >
                                 {!privateMode &&
                                     networkList &&
                                     networkUsers.map((user) => (
@@ -322,6 +329,7 @@ export default function OnlineUsers({
                     {!closeTag && !privateMode && (
                         <div className="chatMenuOptions">
                             <div
+                                title="User Network"
                                 className="networkList"
                                 onClick={() => setNetworkList(!networkList)}
                             ></div>
