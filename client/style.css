@@ -1939,7 +1939,7 @@ font-family: 'Ultra', serif; */
 }
 
 .usersBack {
-    width: 10vmax;
+    min-width: 10vmax;
     height: fit-content;
     height: 10vmax;
     min-height: 12vh;
@@ -2004,7 +2004,7 @@ font-family: 'Ultra', serif; */
     height: 2.5vmax;
     width: 2.5vmax;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     border-radius: 50%;
     margin-top: 1vmax;
     margin-left: 0.5vmax;
