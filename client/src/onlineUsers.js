@@ -20,13 +20,13 @@ export default function OnlineUsers({
     setProfileImage,
     togglePrivateMSGS,
     openPrivate,
+    privatePic,
     setPrivatePic,
     privateNick,
     setPrivateNick,
-    setPrivateMode,
     privateMode,
+    setPrivateMode,
     userPrivate,
-    privatePic,
 }) {
     if (chat_img) {
         chat_img = "";
@@ -36,8 +36,8 @@ export default function OnlineUsers({
     const [file, setFile] = useState(null);
     const [closeTag, setcloseTag] = useState(false);
     const [chatColor, setChatColor] = useState(false);
-    const [networkList, setNetworkList] = useState(false)
-      const [networkUsers, setNetworkUsers] = useState(false);
+    const [networkList, setNetworkList] = useState(false);
+    const [networkUsers, setNetworkUsers] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.25 });
 
@@ -51,8 +51,8 @@ export default function OnlineUsers({
         axios
             .get("/get-network-users")
             .then(({ data }) => {
-                setNetworkUsers(data.data)
-                console.log(data.data)
+                setNetworkUsers(data.data);
+                console.log(data.data);
             })
             .catch((err) => {
                 //   console.log("error", err);
@@ -112,19 +112,32 @@ export default function OnlineUsers({
     const toggleUploader = () => {
         setUserPicBar(!userPicBar);
         setcloseTag(!closeTag);
+        toggleEmojibar(false);
     };
 
     return (
         <>
-            <div className="onlineUsersBack">
+            <div
+                className="onlineUsersBack"
+                style={{
+                    marginBottom:
+                        emojiBar && `-5vmax`
+                }}
+            >
                 <div className="onlineUsers">
-                    {!userPicBar  && (
+                    {!userPicBar && (
                         <div
                             className="onlineUsersRedDot"
-                            title="Back"
-                            onClick={() => {
+                            title={
+                                (privateMode && "Back") ||
+                                (networkList && "Online Users")
+                            }
+                            onClick={(e) => {
                                 setPrivateMode(false);
-                                setNetworkList(false);
+                                toggleEmojibar(false);
+                                if (!privateMode) {
+                                    setNetworkList(false);
+                                }
                             }}
                         ></div>
                     )}
@@ -137,7 +150,12 @@ export default function OnlineUsers({
                             )}
 
                             {!privateMode && networkList && (
-                                <div className="chatUserHeadline" id="chatUserHeadline">Network</div>
+                                <div
+                                    className="chatUserHeadline"
+                                    id="chatUserHeadline"
+                                >
+                                    Network
+                                </div>
                             )}
                             {!privateMode && (
                                 <span className="onlineUserCounter">

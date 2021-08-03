@@ -412,6 +412,17 @@ export default function Chat({
                     Back
                 </Link>
             )}
+
+            {privateMode && (
+                <Link
+                    className="backLink"
+                    onClick={(e) => {
+                        setPrivateMode(false);
+                    }}
+                >
+                    Back{" "}
+                </Link>
+            )}
             <div
                 className="tickerButton"
                 onClick={() => {

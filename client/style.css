@@ -1915,7 +1915,7 @@ font-family: 'Ultra', serif; */
     justify-content: center;
     align-items: center;
     align-self: stretch;
-    margin-bottom: -5vmax;
+ 
 }
 
 .onlineUsers {
@@ -3066,8 +3066,8 @@ font-family: 'Ultra', serif; */
     background-size: contain;
     background-repeat: no-repeat;
     background-color: rgb(59, 255, 255);
-    width: 3.5vmax;
-    height: 3.5vmax;
+    width: 3.3vmax;
+    height: 3.3vmax;
     border-radius: 50%;
     box-shadow: -0 0 10px rgba(255, 255, 255, 0.25),
         0 -0 10px rgba(255, 255, 255, 0.25),
@@ -3085,5 +3085,6 @@ font-family: 'Ultra', serif; */
 }
 
 #chatUserHeadline {
-    margin-top: -1vmax;
+        font-family: "Black Ops One", cursive;
+    font-size:2.5vmax;
 }
