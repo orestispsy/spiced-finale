@@ -55,6 +55,7 @@ a:hover {
     bottom: 0;
     left: 1vmax;
     font-family: "Black Ops One", cursive;
+    cursor: pointer;
 }
 
 .registerContainer,
@@ -200,21 +201,21 @@ a:hover {
 }
 
 .switch {
-    width: 40px;
-    height: 40px;
+    width: 3vmax;
+    height: 3vmax;
     background-image: url("ymc.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     position: fixed;
-    left: 20px;
-    bottom: 1.8vmax;
+    left: 1vmax;
+    bottom: 1vmax;
     z-index: 1;
     cursor: pointer;
 }
 
 .switch:hover {
-    left: 18px;
+    right: 18px;
     bottom: 1.5vmax;
 }
 
@@ -675,6 +676,7 @@ button:active {
         height: fit-content !important;
         width: fit-content !important;
         padding: 1vmax !important;
+     
     }
     .chatScreen {
         height: 29vh !important;
@@ -734,6 +736,8 @@ button:active {
 
     .usersBack {
         min-height: 18vmax !important;
+        width:45vmax !important;
+        max-width: 45vmax !important;
     }
 
     .uploadChat h1 {
@@ -749,7 +753,7 @@ button:active {
     }
 
     .fileUploaderChat h1 {
-        font-size: 3vw !important;
+        font-size: 5vw !important;
     }
 
     .fileUploaderChat input {
@@ -887,11 +891,6 @@ button:active {
     .gigBox {
         width: 30vw !important;
         height: 20vw !important;
-    }
-
-    .gigEntryContainer form select {
-        font-size: 2.5vmax !important;
-        width: 24vmax !important;
     }
 
     .posterEdit {
@@ -1058,6 +1057,17 @@ button:active {
             -0 -0 10px rgba(255, 255, 255, 0.432),
             -0 -0 10px rgba(255, 255, 255, 0.432);
     }
+
+    .switch {
+        width: 5vmax !important;
+        height: 5vmax !important;
+        left: 2vmax !important;
+        bottom: 2vmax !important;
+    }
+
+    .gigEntryContainer form select {
+        width: 35vmax !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1091,7 +1101,7 @@ button:active {
         justify-content: center !important;
         min-height: fit-content !important;
         height: fit-content !important;
-
+        margin-top: 0 !important;
         width: 65vw !important;
     }
 
@@ -1114,11 +1124,6 @@ button:active {
 
     .down {
         margin: 0 1vw !important;
-    }
-
-    .onlineUsers {
-        margin-top: 3vmax !important;
-        width: fit-content !important;
     }
 
     .onlineList span {
@@ -1168,6 +1173,7 @@ button:active {
 
     .emoticons {
         width: 20vmax !important;
+        height:16vmax !important
     }
 
     .chatBar {
@@ -1197,7 +1203,8 @@ button:active {
     }
 
     .usersBack {
-        width: 15vw !important;
+        max-width: 17vw !important;
+        width:17vw !important
     }
 
     .gigEntryDetails {
@@ -1215,7 +1222,7 @@ button:active {
 
     .gigEntryContainer form select {
         font-size: 2vmax;
-        width: 25vmax !important;
+        width: 45vmax !important;
     }
 
     .detailedEntry {
@@ -1296,6 +1303,13 @@ button:active {
         align-self: center !important;
         padding-top: 2vmax !important;
         margin-bottom: 0 !important;
+    }
+
+    .switch {
+        width: 5vmax !important;
+        height: 5vmax !important;
+        left: 2vmax !important;
+        bottom: 2vmax !important;
     }
 }
 
@@ -1406,7 +1420,7 @@ button:active {
     font-size: 1vmax;
     margin-bottom: 2vh;
     padding: 0.5vmax;
-    width: 40vw;
+    width: 35vw !important;
 }
 
 .pin {
@@ -1445,6 +1459,10 @@ button:active {
     color: red;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
+}
+
+.gm-style-cc {
+    visibility: hidden !important;
 }
 
 .gm-ui-hover-effect {
@@ -1952,14 +1970,16 @@ font-family: 'Ultra', serif; */
 }
 
 .usersBack {
-    min-width: 10vmax;
+    min-width: 13vmax;
+    max-width: 13vmax;
     height: fit-content;
     height: 10vmax;
     min-height: 12vh;
     border: 1px double rgba(243, 45, 227, 0.164);
     margin: 1vmax;
-
+    transform: 1s;
     overflow-y: auto;
+    overflow-x:hidden;
     scrollbar-width: none;
     text-align: center;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
@@ -2078,7 +2098,7 @@ font-family: 'Ultra', serif; */
 .fileUploaderChat h1 {
     font-size: 1.5vmax;
     margin: 0;
-    margin-top: 1vmax;
+
 }
 
 .uploadChat h1 {
@@ -2515,11 +2535,17 @@ font-family: 'Ultra', serif; */
 }
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! GIGLIST ANIMATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+.gm-style a {
+    visibility: hidden !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+}
+
 .google-map-editor {
-    height: 32vh;
-    width: 35vw;
+    height: 38vh;
+    width: 40vw;
     border-radius: 1vmax !important;
-    margin-bottom: 1vmax;
+    margin-top: 1vmax;
 }
 
 .gm-style .gm-style-iw-c {
@@ -2545,7 +2571,7 @@ font-family: 'Ultra', serif; */
 }
 
 .gigEntryContainer form select {
-    width: 17vw;
+    width: 30vw;
 }
 .gigEntryContainer form option {
     color: black;
@@ -2698,14 +2724,24 @@ font-family: 'Ultra', serif; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align:left;
     margin: 2vmax;
     border-radius: 1vh;
+    overflow-x: hidden;
     width: 23vmax;
+    max-width: 23vmax;
     min-height: fit-content;
     background-color: rgba(255, 255, 255, 0.068);
 
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
+}
+
+.superListItem h1 {
+    text-align:center;
+    overflow-x: hidden;
+    width: 23vmax;
+    max-width: 23vmax;
 }
 
 .superListItemBack:nth-child(odd) {
@@ -3066,6 +3102,8 @@ font-family: 'Ultra', serif; */
 }
 
 #privateMsgUserNick {
+    max-width:20vmax;
+    overflow-x: hidden;
     text-align: center;
     padding: 0 1vmax 1vmax 1vmax;
     font-size: 2.5vmax;

@@ -52,7 +52,6 @@ export default function OnlineUsers({
             .get("/get-network-users")
             .then(({ data }) => {
                 setNetworkUsers(data.data);
-                console.log(data.data);
             })
             .catch((err) => {
                 //   console.log("error", err);
@@ -138,8 +137,11 @@ export default function OnlineUsers({
                         <div
                             className="onlineUsersRedDot"
                             title={
-                                (privateMode && "Back") ||
-                                (networkList && "Online Users")
+                                privateMode
+                                    ? "Back"
+                                    : "" || networkList
+                                    ? "Online List"
+                                    : ""
                             }
                             onClick={(e) => {
                                 setPrivateMode(false);
@@ -184,9 +186,25 @@ export default function OnlineUsers({
                                     networkList &&
                                     networkUsers.map((user) => (
                                         <div key={user.id}>
-                                            <div className="onlineList">
+                                            <div
+                                                className="onlineList"
+                                                onClick={(e) => {
+                                                    if (
+                                                        user.id != chat_myUserId
+                                                    ) {
+                                                        toggleEmojibar(false);
+                                                        togglePrivateMSGS();
+                                                        openPrivate(user.id);
+                                                        setPrivatePic(
+                                                            user.chat_img
+                                                        );
+                                                        setPrivateNick(
+                                                            user.nickname
+                                                        );
+                                                    }
+                                                }}
+                                            >
                                                 <img
-                                                    id={user.id}
                                                     className="onlineListImg"
                                                     alt={user.nickname}
                                                     src={
@@ -197,26 +215,6 @@ export default function OnlineUsers({
                                                             user.chat_img) ||
                                                         "./../avatar.png"
                                                     }
-                                                    onClick={(e) => {
-                                                        if (
-                                                            e.target.id !=
-                                                            chat_myUserId
-                                                        ) {
-                                                            toggleEmojibar(
-                                                                false
-                                                            );
-                                                            togglePrivateMSGS();
-                                                            openPrivate(
-                                                                user.id
-                                                            );
-                                                            setPrivatePic(
-                                                                user.chat_img
-                                                            );
-                                                            setPrivateNick(
-                                                                user.nickname
-                                                            );
-                                                        }
-                                                    }}
                                                 ></img>
                                                 <span
                                                     style={{
@@ -239,9 +237,25 @@ export default function OnlineUsers({
                                     !privateMode &&
                                     onlineUsers.map((user) => (
                                         <div key={user.id}>
-                                            <div className="onlineList">
+                                            <div
+                                                className="onlineList"
+                                                onClick={(e) => {
+                                                    if (
+                                                        user.id != chat_myUserId
+                                                    ) {
+                                                        toggleEmojibar(false);
+                                                        togglePrivateMSGS();
+                                                        openPrivate(user.id);
+                                                        setPrivatePic(
+                                                            user.chat_img
+                                                        );
+                                                        setPrivateNick(
+                                                            user.nickname
+                                                        );
+                                                    }
+                                                }}
+                                            >
                                                 <img
-                                                    id={user.id}
                                                     className="onlineListImg"
                                                     alt={user.nickname}
                                                     src={
@@ -252,26 +266,6 @@ export default function OnlineUsers({
                                                             user.chat_img) ||
                                                         "./../avatar.png"
                                                     }
-                                                    onClick={(e) => {
-                                                        if (
-                                                            e.target.id !=
-                                                            chat_myUserId
-                                                        ) {
-                                                            toggleEmojibar(
-                                                                false
-                                                            );
-                                                            togglePrivateMSGS();
-                                                            openPrivate(
-                                                                user.id
-                                                            );
-                                                            setPrivatePic(
-                                                                user.chat_img
-                                                            );
-                                                            setPrivateNick(
-                                                                user.nickname
-                                                            );
-                                                        }
-                                                    }}
                                                 ></img>
 
                                                 <span
@@ -311,7 +305,7 @@ export default function OnlineUsers({
 
                     {userPicBar && (
                         <div className="fileUploaderChat">
-                            <h1>Select Image</h1>
+                            <h1>Chat Image</h1>
                             <input
                                 type="file"
                                 name="file"

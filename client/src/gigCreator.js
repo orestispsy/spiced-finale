@@ -76,55 +76,15 @@ export default class GigCreator extends React.Component {
                 <div className="gigCreatorContainerInner">
                     <form>
                         <h1>Add Gig</h1>
-                        <div className="inputBack">
-                            <span>Date*</span>
-                            <input
-                                autoComplete="none"
-                                name="date"
-                                placeholder="date"
-                                type="date"
-                                onChange={(e) => this.handleChange(e)}
-                                onClick={() => this.handleErrorMsg()}
-                            />
-                        </div>
-                        <div className="inputBack">
-                            <span>City</span>
-                            <input
-                                autoComplete="none"
-                                name="city"
-                                placeholder="City"
-                                onChange={(e) => this.handleChange(e)}
-                                onClick={() => this.handleErrorMsg()}
-                            />
-                        </div>
-                        <div className="inputBack">
-                            <span>Tour</span>
-                            <input
-                                autoComplete="none"
-                                name="tour_name"
-                                placeholder="Tour Name"
-                                onChange={(e) => this.handleChange(e)}
-                                onClick={() => this.handleErrorMsg()}
-                            />
-                        </div>
-                        <div className="inputBack">
-                            <span>Venue</span>
-                            <input
-                                autoComplete="none"
-                                name="venue"
-                                placeholder="Venue"
-                                onChange={(e) => this.handleChange(e)}
-                                onClick={() => this.handleErrorMsg()}
-                            />
-                        </div>
+
                         {!this.state.map && (
                             <div className="inputBack">
-                                <span>Latitude*</span>
+                                <span>Date*</span>
                                 <input
-                                    value={this.state.lat || ""}
                                     autoComplete="none"
-                                    name="lat"
-                                    placeholder="Latitude"
+                                    name="date"
+                                    placeholder="date"
+                                    type="date"
                                     onChange={(e) => this.handleChange(e)}
                                     onClick={() => this.handleErrorMsg()}
                                 />
@@ -132,17 +92,64 @@ export default class GigCreator extends React.Component {
                         )}
                         {!this.state.map && (
                             <div className="inputBack">
-                                <span>Longitude*</span>
+                                <span>City</span>
                                 <input
-                                    value={this.state.lng || ""}
                                     autoComplete="none"
-                                    name="lng"
-                                    placeholder="Longitude"
+                                    name="city"
+                                    placeholder="City"
                                     onChange={(e) => this.handleChange(e)}
                                     onClick={() => this.handleErrorMsg()}
                                 />
                             </div>
                         )}
+                        {!this.state.map && (
+                            <div className="inputBack">
+                                <span>Tour</span>
+                                <input
+                                    autoComplete="none"
+                                    name="tour_name"
+                                    placeholder="Tour Name"
+                                    onChange={(e) => this.handleChange(e)}
+                                    onClick={() => this.handleErrorMsg()}
+                                />
+                            </div>
+                        )}
+                        {!this.state.map && (
+                            <div className="inputBack">
+                                <span>Venue</span>
+                                <input
+                                    autoComplete="none"
+                                    name="venue"
+                                    placeholder="Venue"
+                                    onChange={(e) => this.handleChange(e)}
+                                    onClick={() => this.handleErrorMsg()}
+                                />
+                            </div>
+                        )}
+                        <div className="inputBack">
+                            <span>Latitude*</span>
+                            <input
+                                value={this.state.lat || ""}
+                                autoComplete="none"
+                                name="lat"
+                                placeholder="Latitude"
+                                onChange={(e) => this.handleChange(e)}
+                                onClick={() => this.handleErrorMsg()}
+                            />
+                        </div>
+
+                        <div className="inputBack">
+                            <span>Longitude*</span>
+                            <input
+                                value={this.state.lng || ""}
+                                autoComplete="none"
+                                name="lng"
+                                placeholder="Longitude"
+                                onChange={(e) => this.handleChange(e)}
+                                onClick={() => this.handleErrorMsg()}
+                            />
+                        </div>
+
                         <div
                             className="editMapToggler"
                             onClick={() => this.mapToggler()}
@@ -175,9 +182,21 @@ export default class GigCreator extends React.Component {
                     {this.state.error && (
                         <p className="error">Oups! Something Went Wrong.</p>
                     )}
-                    <Link to="/" className="backLink">
-                        Back
-                    </Link>
+                    {!this.state.map && (
+                        <Link to="/" className="backLink">
+                            Back
+                        </Link>
+                    )}
+                    {this.state.map && (
+                        <a
+                            className="backLink"
+                            onClick={() => {
+                                this.mapToggler();
+                            }}
+                        >
+                            Back{" "}
+                        </a>
+                    )}
                 </div>
             </div>
         );

@@ -257,7 +257,7 @@ export default class GigEditor extends React.Component {
                                 posterSelector={(e) => this.posterSelector(e)}
                             />
                         )}
-                        {!this.state.posterSection && (
+                        {!this.state.map && !this.state.posterSection && (
                             <div className="inputBack">
                                 <span>Date</span>
                                 <input
@@ -277,7 +277,7 @@ export default class GigEditor extends React.Component {
                                 />
                             </div>
                         )}
-                        {!this.state.posterSection && (
+                        {!this.state.map && !this.state.posterSection && (
                             <div className="inputBack">
                                 <span>City</span>
                                 <input
@@ -296,7 +296,7 @@ export default class GigEditor extends React.Component {
                                 />
                             </div>
                         )}
-                        {!this.state.posterSection && (
+                        {!this.state.map && !this.state.posterSection && (
                             <div className="inputBack">
                                 <span>Tour</span>
                                 <input
@@ -315,7 +315,7 @@ export default class GigEditor extends React.Component {
                                 />
                             </div>
                         )}
-                        {!this.state.posterSection && (
+                        {!this.state.map && !this.state.posterSection && (
                             <div className="inputBack">
                                 <span>Venue</span>
                                 <input
@@ -334,7 +334,7 @@ export default class GigEditor extends React.Component {
                                 />
                             </div>
                         )}
-                        {!this.state.map && !this.state.posterSection && (
+                        {!this.state.posterSection && (
                             <div className="inputBack">
                                 <span>Latitude</span>
                                 <input
@@ -354,7 +354,7 @@ export default class GigEditor extends React.Component {
                                 />
                             </div>
                         )}
-                        {!this.state.map && !this.state.posterSection && (
+                        {!this.state.posterSection && (
                             <div className="inputBack">
                                 <span>Longitude</span>
                                 <input
@@ -408,28 +408,26 @@ export default class GigEditor extends React.Component {
                                         }
                                     />
                                 </div>
+                                {this.state.selectedGig.id && (
+                                    <img
+                                        title={
+                                            (!this.state.posterSection &&
+                                                "Poster Gallery") ||
+                                            (this.state.posterSection &&
+                                                "Close Gallery")
+                                        }
+                                        className="imgPreview"
+                                        src={
+                                            this.state.selectedPoster ||
+                                            this.state.selectedGig.poster ||
+                                            "na.jpg"
+                                        }
+                                        onClick={() => this.setPosterSection()}
+                                    ></img>
+                                )}
                                 {this.state.selectedGig.id &&
-                                    !this.state.deleteSuccess && (
-                                        <img
-                                            title={
-                                                (!this.state.posterSection &&
-                                                    "Poster Gallery") ||
-                                                (this.state.posterSection &&
-                                                    "Close Gallery")
-                                            }
-                                            className="imgPreview"
-                                            src={
-                                                this.state.selectedPoster ||
-                                                this.state.selectedGig.poster ||
-                                                "na.jpg"
-                                            }
-                                            onClick={() =>
-                                                this.setPosterSection()
-                                            }
-                                        ></img>
-                                    )}
-                                {this.state.selectedGig.id &&
-                                    !this.state.deleteSuccess && (
+                                    !this.state.deleteSuccess &&
+                                    !this.state.posterSection && (
                                         <div className="fileUploader">
                                             <input
                                                 type="file"
@@ -494,18 +492,40 @@ export default class GigEditor extends React.Component {
                                     )}
                             </div>
                         )}
-                        {this.state.deleteSuccess && (
-                            <div className="deleteSuccess"></div>
-                        )}
-                        {this.state.error && (
-                            <p className="error">Oups! Something Went Wrong.</p>
-                        )}
                     </form>
 
-                    <Link to="/" className="backLink">
-                        Back
-                    </Link>
+                    {!this.state.map && !this.state.posterSection && (
+                        <Link to="/" className="backLink">
+                            Back
+                        </Link>
+                    )}
+                    {this.state.posterSection && (
+                        <a
+                            className="backLink"
+                            onClick={() => {
+                                this.setPosterSection();
+                            }}
+                        >
+                            Back{" "}
+                        </a>
+                    )}
+                    {this.state.map && (
+                        <a
+                            className="backLink"
+                            onClick={() => {
+                                this.mapToggler();
+                            }}
+                        >
+                            Back{" "}
+                        </a>
+                    )}
                 </div>
+                {this.state.deleteSuccess && (
+                    <div className="deleteSuccess"></div>
+                )}
+                {this.state.error && (
+                    <p className="error">Oups! Something Went Wrong.</p>
+                )}
             </div>
         );
     }

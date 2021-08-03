@@ -80,9 +80,9 @@ export default class App extends Component {
     }
 
     setProfileImage(e) {
-          this.setState({
-              chat_img:e
-          });
+        this.setState({
+            chat_img: e,
+        });
     }
 
     listSet(e) {

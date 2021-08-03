@@ -38,8 +38,6 @@ export default function Chat({
 
     const chatMessages = useSelector((state) => state && state.chatMessages);
 
-    // console.log("THE MESSAGES", chatMessages);
-
     useEffect(() => {
         if (chatMessages) {
             if (scrollTop < 1) {
@@ -69,9 +67,7 @@ export default function Chat({
         if (e.key === "Enter") {
             if (e.target.value !== "") {
                 e.preventDefault();
-                // console.log("TEXTAREA VALUE", e.target.value);
                 var msgLink = e.target.value.split(/\s+/);
-                // console.log("yep", msgLink);
                 msgLink.forEach((element, index) => {
                     if (
                         element.startsWith("http") ||
@@ -81,7 +77,6 @@ export default function Chat({
                         if (element.startsWith("www.")) {
                             url = `https://` + url;
                         }
-                        // console.log("yes", element);
                         msgLink[
                             index
                         ] = `<a href=${url} target="_blank">${element}</a>`;
@@ -187,6 +182,7 @@ export default function Chat({
                     privatePic={privatePic}
                     nickname={nickname}
                     privateNick={privateNick}
+                    setChecker={(e) => setChecker(e)}
                 />
             )}
 
@@ -414,14 +410,14 @@ export default function Chat({
             )}
 
             {privateMode && (
-                <Link
+                <a
                     className="backLink"
                     onClick={(e) => {
                         setPrivateMode(false);
                     }}
                 >
                     Back{" "}
-                </Link>
+                </a>
             )}
             <div
                 className="tickerButton"
