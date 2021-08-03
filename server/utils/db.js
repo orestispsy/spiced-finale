@@ -357,7 +357,8 @@ module.exports.addPrivateMsg = (msg_sender_id, msg_receiver_id, message) => {
 
 module.exports.getNetworkUsers = () => {
     const q = `
-        SELECT * FROM community;
+        SELECT * FROM community
+        ORDER BY created_at;
     `;
    
     return db.query(q);

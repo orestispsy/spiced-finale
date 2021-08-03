@@ -2416,7 +2416,7 @@ font-family: 'Ultra', serif; */
 
 .gigAnimationLink {
     position: fixed;
-    top: 8vh;
+    top: 2vh;
     right: 2.5vmax;
     border: 1px solid cyan;
     color: rgb(247, 91, 64);
