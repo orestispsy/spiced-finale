@@ -122,9 +122,18 @@ export default function OnlineUsers({
                 style={{
                     marginBottom:
                         (emojiBar && `-5vmax`) || (privateMode && `-2vmax`),
+                    marginLeft: privateMode && `1vmax`,
                 }}
             >
-                <div className="onlineUsers">
+                <div
+                    className="onlineUsers"
+                    style={{
+                        boxShadow:
+                            privateMode &&
+                            `-0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
+        -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308)`,
+                    }}
+                >
                     {!userPicBar && (
                         <div
                             className="onlineUsersRedDot"
