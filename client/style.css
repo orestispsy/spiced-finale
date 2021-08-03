@@ -1973,6 +1973,7 @@ font-family: 'Ultra', serif; */
     height: 2.5vmax;
     margin: 1vmax;
     cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.041)
 }
 
 .onlineList {
@@ -3038,11 +3039,11 @@ font-family: 'Ultra', serif; */
 
 #privateMsgUserNick {
     text-align: center;
-    
+    padding:1vmax;
     font-size: 2.5vmax;
     color: cyan;
-    text-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
-        -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
+    text-shadow: -0 0 20px rgba(0, 0, 0, 0.432), 0 -0 20px rgba(0, 0, 0, 0.432),
+        -0 -0 20px rgba(0, 0, 0, 0.432), -0 -0 20px rgba(0, 0, 0, 0.432);
 }
 
 .networkList {
