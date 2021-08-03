@@ -36,6 +36,8 @@ export default function OnlineUsers({
     const [file, setFile] = useState(null);
     const [closeTag, setcloseTag] = useState(false);
     const [chatColor, setChatColor] = useState(false);
+    const [networkList, setNetworkList] = useState(false)
+      const [networkUsers, setNetworkUsers] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.25 });
 
@@ -46,6 +48,15 @@ export default function OnlineUsers({
             count = onlineUsers.length;
             // console.log("count", count);
         }
+        axios
+            .get("/get-network-users")
+            .then(({ data }) => {
+                setNetworkUsers(data.data)
+                console.log(data.data)
+            })
+            .catch((err) => {
+                //   console.log("error", err);
+            });
     }, []);
     useEffect(() => {
         if (onlineUsers) {
@@ -123,25 +134,82 @@ export default function OnlineUsers({
                             onClick={() => setPrivateMode(false)}
                         ></div>
                     )}
+
                     {!userPicBar && (
                         <div className="mobileOnlineUsers">
                             {!privateMode && (
-                                <div className="chatUserHeadline">Online</div>
+                                <div className="chatUserHeadline">
+                                    {!networkList && "Online"}
+                                    {networkList && "Network"}
+                                </div>
                             )}
                             {!privateMode && (
                                 <span className="onlineUserCounter">
-                                    {onlineUsers && onlineUsers.length}
+                                    {!networkList && onlineUsers.length}
+                                    {networkList && networkUsers.length}
                                 </span>
                             )}
                             <div className="usersBack">
+                                {!privateMode &&
+                                    networkList &&
+                                    networkUsers.map((user) => (
+                                        <div key={user.id}>
+                                            <div className="onlineList">
+                                                <img
+                                                    id={user.id}
+                                                    className="onlineListImg"
+                                                    alt={user.nickname}
+                                                    src={
+                                                        (chat_myUserId ==
+                                                            user.id &&
+                                                            onlineUserPic) ||
+                                                        (user.chat_img &&
+                                                            user.chat_img) ||
+                                                        "./../avatar.png"
+                                                    }
+                                                    onClick={(e) => {
+                                                        if (
+                                                            e.target.id !=
+                                                            chat_myUserId
+                                                        ) {
+                                                            toggleEmojibar(
+                                                                false
+                                                            );
+                                                            togglePrivateMSGS();
+                                                            openPrivate(
+                                                                user.id
+                                                            );
+                                                            setPrivatePic(
+                                                                user.chat_img
+                                                            );
+                                                            setPrivateNick(
+                                                                user.nickname
+                                                            );
+                                                        }
+                                                    }}
+                                                ></img>
+                                                <span
+                                                    style={{
+                                                        color:
+                                                            (chat_myUserId ==
+                                                                user.id &&
+                                                                chatColor) ||
+                                                            user.chat_color ||
+                                                            `yellow`,
+                                                    }}
+                                                >
+                                                    {user.nickname}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    ))}
+
                                 {onlineUsers &&
+                                    !networkList &&
                                     !privateMode &&
                                     onlineUsers.map((user) => (
                                         <div key={user.id}>
-                                            <div
-                                                className="onlineList"
-                                                key={user.id}
-                                            >
+                                            <div className="onlineList">
                                                 <img
                                                     id={user.id}
                                                     className="onlineListImg"
@@ -239,11 +307,15 @@ export default function OnlineUsers({
                     )}
                     {!closeTag && !privateMode && (
                         <div className="chatMenuOptions">
+                            <div
+                                className="networkList"
+                                onClick={() => setNetworkList(!networkList)}
+                            ></div>
+
                             <img
                                 className="uploaderTogglerImg"
                                 onClick={() => toggleUploader()}
                             ></img>
-
                             <input
                                 className="colorSelector"
                                 title="Change Chat Color"

@@ -793,7 +793,7 @@ button:active {
     .chatMenuOptions {
         flex-direction: row !important;
         margin-top: 1vmax !important;
-        width: 20vmax !important;
+        width: 26vmax !important;
     }
 
     .onlineList img {
@@ -1046,6 +1046,13 @@ button:active {
     
         font-size:2.5vmax !important;
     }
+
+    .networkList {
+          width: 6vmax !important;
+        height:6vmax !important;
+            box-shadow: -0 0 10px rgba(255, 255, 255, 0.432), 0 -0 10px rgba(255, 255, 255, 0.432),
+        -0 -0 10px rgba(255, 255, 255, 0.432), -0 -0 10px rgba(255, 255, 255, 0.432);
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1183,7 +1190,7 @@ button:active {
     }
 
     .chatMenuOptions {
-        width: 20vmax !important;
+        width: 22vmax !important;
     }
 
     .usersBack {
@@ -1264,6 +1271,13 @@ button:active {
     .tickerLink, .tickerBlankLink {
     
         font-size:2.5vmax !important;
+    }
+
+       .networkList {
+          width: 5vmax !important;
+        height:5vmax !important;
+            box-shadow: -0 0 10px rgba(255, 255, 255, 0.432), 0 -0 10px rgba(255, 255, 255, 0.432),
+        -0 -0 10px rgba(255, 255, 255, 0.432), -0 -0 10px rgba(255, 255, 255, 0.432);
     }
 }
 
@@ -1921,6 +1935,11 @@ font-family: 'Ultra', serif; */
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
     border-radius: 0.5vmax;
+    
+}
+
+.usersBack div {
+       cursor: pointer;
 }
 
 .mobileOnlineUsers {
@@ -1974,7 +1993,7 @@ font-family: 'Ultra', serif; */
     margin-right: 0.3vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
-    cursor: pointer;
+ 
 }
 
 .onlineList span {
@@ -1992,7 +2011,7 @@ font-family: 'Ultra', serif; */
     justify-content: space-around;
     align-self: center;
     align-items: center;
-    width: 10vmax;
+    width: 15vmax;
 }
 
 .toggleChatUploader {
@@ -2087,6 +2106,7 @@ font-family: 'Ultra', serif; */
     padding: 1.5vmax;
     cursor: pointer;
     box-shadow: none;
+    margin-bottom:0;
 }
 
 .mute {
@@ -3024,3 +3044,23 @@ font-family: 'Ultra', serif; */
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
 }
 
+.networkList {
+    background-image: url("network.png");
+    background-size: contain;
+    background-repeat:no-repeat;
+    background-color: rgb(59, 255, 255);
+    width:3.5vmax;
+    height:3.5vmax;
+    border-radius:50%;
+     box-shadow: -0 0 10px rgba(255, 255, 255, 0.250), 0 -0 10px rgba(255, 255, 255, 0.250),
+        -0 -0 10px rgba(255, 255, 255, 0.250), -0 -0 10px rgba(255, 255, 255, 0.250);
+    cursor:pointer;
+    margin:0 1vmax;
+    transition:0.5s;
+}
+
+.networkList:hover {
+ box-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
+        -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
+ transition:0s;
+}

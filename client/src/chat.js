@@ -141,7 +141,6 @@ export default function Chat({
     const openPrivate = (e, img) => {
         setUserPrivate(e);
         setPrivatePic(img);
-        console.log(userPrivate);
     };
 
     const togglePrivateMSGS = () => {

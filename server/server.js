@@ -468,6 +468,14 @@ app.post("/add-private-message", (req, res) => {
         .catch((err) => console.log(err));
 });
 
+app.get("/get-network-users", (req, res) => {
+    db.getNetworkUsers()
+        .then(({ rows }) => {
+            res.json({ data: rows });
+        })
+        .catch((err) => console.log(err));
+});
+
 app.get("*", function (req, res) {
     if (!req.session.userId) {
         res.redirect("/welcome");

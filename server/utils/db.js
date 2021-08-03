@@ -353,3 +353,12 @@ module.exports.addPrivateMsg = (msg_sender_id, msg_receiver_id, message) => {
     const params = [msg_sender_id, msg_receiver_id, message];
     return db.query(q, params);
 };
+
+
+module.exports.getNetworkUsers = () => {
+    const q = `
+        SELECT * FROM community;
+    `;
+   
+    return db.query(q);
+};
