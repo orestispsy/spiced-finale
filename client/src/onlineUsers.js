@@ -118,30 +118,26 @@ export default function OnlineUsers({
         <>
             <div className="onlineUsersBack">
                 <div className="onlineUsers">
-                    {!userPicBar && !emojiBar && !privateMode && (
-                        <Link to="/">
-                            <div
-                                className="onlineUsersRedDot"
-                                title="Back"
-                            ></div>
-                        </Link>
-                    )}
-
-                    {privateMode && (
+                    {!userPicBar  && (
                         <div
                             className="onlineUsersRedDot"
                             title="Back"
-                            onClick={() => setPrivateMode(false)}
+                            onClick={() => {
+                                setPrivateMode(false);
+                                setNetworkList(false);
+                            }}
                         ></div>
                     )}
-
                     {!userPicBar && (
                         <div className="mobileOnlineUsers">
                             {!privateMode && (
                                 <div className="chatUserHeadline">
                                     {!networkList && "Online"}
-                                    {networkList && "Network"}
                                 </div>
+                            )}
+
+                            {!privateMode && networkList && (
+                                <div className="chatUserHeadline" id="chatUserHeadline">Network</div>
                             )}
                             {!privateMode && (
                                 <span className="onlineUserCounter">

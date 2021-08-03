@@ -705,7 +705,6 @@ button:active {
         font-size: 4vmax !important;
     }
     .onlineUsers {
-    
         margin-right: 2vmax !important;
         justify-content: center !important;
         border-radius: 2vh !important;
@@ -723,6 +722,10 @@ button:active {
     #privateMessageUserDetails {
         width: 10vmax;
         height: 4vmax;
+    }
+
+    .onlineUsers {
+        margin-top: 2vmax !important;
     }
 
     .mobileOnlineUsers {
@@ -808,7 +811,7 @@ button:active {
     .emoticons {
         margin-top: 2vh !important;
         margin-right: 1vh !important;
-        height: 25vmax !important;
+        height: 40vmax !important;
         width: 20vmax !important;
     }
 
@@ -1038,20 +1041,22 @@ button:active {
         width: 10vmax !important;
         height: 10vmax !important;
     }
-    
+
     #headlines {
-        margin-top:-2.5vmax !important;
+        margin-top: -2.5vmax !important;
     }
-    .tickerLink, .tickerBlankLink {
-    
-        font-size:2.5vmax !important;
+    .tickerLink,
+    .tickerBlankLink {
+        font-size: 2.5vmax !important;
     }
 
     .networkList {
-          width: 6vmax !important;
-        height:6vmax !important;
-            box-shadow: -0 0 10px rgba(255, 255, 255, 0.432), 0 -0 10px rgba(255, 255, 255, 0.432),
-        -0 -0 10px rgba(255, 255, 255, 0.432), -0 -0 10px rgba(255, 255, 255, 0.432);
+        width: 6vmax !important;
+        height: 6vmax !important;
+        box-shadow: -0 0 10px rgba(255, 255, 255, 0.432),
+            0 -0 10px rgba(255, 255, 255, 0.432),
+            -0 -0 10px rgba(255, 255, 255, 0.432),
+            -0 -0 10px rgba(255, 255, 255, 0.432);
     }
 }
 
@@ -1082,11 +1087,11 @@ button:active {
 
     .chatContainer {
         flex-direction: column !important;
-        align-content:center !important;
-        justify-content:center !important;
+        align-content: center !important;
+        justify-content: center !important;
         min-height: fit-content !important;
         height: fit-content !important;
-    
+
         width: 65vw !important;
     }
 
@@ -1095,8 +1100,6 @@ button:active {
         min-height: fit-content !important;
         height: fit-content !important;
     }
-
-    
 
     .chatScreen {
         min-height: 0vmax !important;
@@ -1163,9 +1166,9 @@ button:active {
         height: 4vmax !important;
     }
 
-     .emoticons {
-         width:20vmax !important;
-     }
+    .emoticons {
+        width: 20vmax !important;
+    }
 
     .chatBar {
         width: 2.5vmax !important;
@@ -1267,17 +1270,32 @@ button:active {
         width: 18vmax !important;
     }
 
-
-    .tickerLink, .tickerBlankLink {
-    
-        font-size:2.5vmax !important;
+    .tickerLink,
+    .tickerBlankLink {
+        font-size: 2.5vmax !important;
     }
 
-       .networkList {
-          width: 5vmax !important;
-        height:5vmax !important;
-            box-shadow: -0 0 10px rgba(255, 255, 255, 0.432), 0 -0 10px rgba(255, 255, 255, 0.432),
-        -0 -0 10px rgba(255, 255, 255, 0.432), -0 -0 10px rgba(255, 255, 255, 0.432);
+    .networkList {
+        width: 5vmax !important;
+        height: 5vmax !important;
+        box-shadow: -0 0 10px rgba(255, 255, 255, 0.432),
+            0 -0 10px rgba(255, 255, 255, 0.432),
+            -0 -0 10px rgba(255, 255, 255, 0.432),
+            -0 -0 10px rgba(255, 255, 255, 0.432);
+    }
+
+    .chatContainerBack {
+        height: 45vmax !important;
+    }
+
+    #headlines {
+        margin: 0 !important;
+    }
+
+    .onlineUsersBack {
+        align-self: center !important;
+        padding-top: 2vmax !important;
+        margin-bottom: 0 !important;
     }
 }
 
@@ -1896,8 +1914,8 @@ font-family: 'Ultra', serif; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    align-self: center;
-    margin-top:3vmax;
+    align-self: stretch;
+    margin-bottom: -5vmax;
 }
 
 .onlineUsers {
@@ -1911,10 +1929,9 @@ font-family: 'Ultra', serif; */
     margin-left: 1vmax;
     background-color: rgba(255, 0, 0, 0.158);
     border-radius: 10px;
-  
     padding: 0.5vmax;
     z-index: 10;
-    height: fit-content;
+    min-height: fit-content;
 }
 
 .onlineUsers a {
@@ -1922,10 +1939,10 @@ font-family: 'Ultra', serif; */
 }
 
 .usersBack {
-    width: 12vmax;
+    width: 10vmax;
     height: fit-content;
     height: 10vmax;
-    min-height: 10vh;
+    min-height: 12vh;
     border: 1px double rgba(243, 45, 227, 0.164);
     margin: 1vmax;
     padding: 0.2vmax;
@@ -1935,17 +1952,16 @@ font-family: 'Ultra', serif; */
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
     border-radius: 0.5vmax;
-    
 }
 
 .usersBack div {
-       cursor: pointer;
+    cursor: pointer;
 }
 
 .mobileOnlineUsers {
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
 }
 
 .onlineUserCounter {
@@ -1973,7 +1989,7 @@ font-family: 'Ultra', serif; */
     height: 2.5vmax;
     margin: 1vmax;
     cursor: pointer;
-      background-color: rgba(0, 0, 0, 0.041)
+    background-color: rgba(0, 0, 0, 0.041);
 }
 
 .onlineList {
@@ -1995,7 +2011,6 @@ font-family: 'Ultra', serif; */
     margin-right: 0.3vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
- 
 }
 
 .onlineList span {
@@ -2108,7 +2123,7 @@ font-family: 'Ultra', serif; */
     padding: 1.5vmax;
     cursor: pointer;
     box-shadow: none;
-    margin-bottom:0;
+    margin-bottom: 0;
 }
 
 .mute {
@@ -3039,7 +3054,7 @@ font-family: 'Ultra', serif; */
 
 #privateMsgUserNick {
     text-align: center;
-    padding:1vmax;
+    padding: 1vmax;
     font-size: 2.5vmax;
     color: cyan;
     text-shadow: -0 0 20px rgba(0, 0, 0, 0.432), 0 -0 20px rgba(0, 0, 0, 0.432),
@@ -3049,20 +3064,26 @@ font-family: 'Ultra', serif; */
 .networkList {
     background-image: url("network.png");
     background-size: contain;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     background-color: rgb(59, 255, 255);
-    width:3.5vmax;
-    height:3.5vmax;
-    border-radius:50%;
-     box-shadow: -0 0 10px rgba(255, 255, 255, 0.250), 0 -0 10px rgba(255, 255, 255, 0.250),
-        -0 -0 10px rgba(255, 255, 255, 0.250), -0 -0 10px rgba(255, 255, 255, 0.250);
-    cursor:pointer;
-    margin:0 1vmax;
-    transition:0.5s;
+    width: 3.5vmax;
+    height: 3.5vmax;
+    border-radius: 50%;
+    box-shadow: -0 0 10px rgba(255, 255, 255, 0.25),
+        0 -0 10px rgba(255, 255, 255, 0.25),
+        -0 -0 10px rgba(255, 255, 255, 0.25),
+        -0 -0 10px rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    margin: 0 1vmax;
+    transition: 0.5s;
 }
 
 .networkList:hover {
- box-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
+    box-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
         -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
- transition:0s;
+    transition: 0s;
+}
+
+#chatUserHeadline {
+    margin-top: -1vmax;
 }
