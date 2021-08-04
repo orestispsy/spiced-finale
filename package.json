@@ -59,6 +59,7 @@
         "uid-safe": "^2.1.4",
         "use-sound": "^2.0.1",
         "use-supercluster": "^0.2.9",
+        "util": "^0.12.4",
         "webpack": "^5.11.0",
         "webpack-cli": "^4.2.0",
         "webpack-dev-server": "^3.11.0"
