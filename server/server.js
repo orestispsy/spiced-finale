@@ -279,7 +279,7 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
             res.json({ success: true });
         })
         .catch((err) => {
-            res.json({ error: true });
+            res.json({ error2: true });
             console.log(err);
         });
 });

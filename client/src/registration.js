@@ -76,16 +76,21 @@ export default class Registration extends React.Component {
                     onChange={(e) => this.handleChange(e)}
                     onClick={() => this.handleErrorMsg()}
                 />
-                {this.state.error && (
-                    <p className="error">Oups! Something Went Wrong.</p>
-                )}
-                <button onClick={() => this.handleClick()}>Submit</button>
+
+                <div className="button" onClick={() => this.handleClick()}>
+                    Submit
+                </div>
                 <span className="regSpan">
                     Joined Already?
                     <Link to="/" className="links">
                         Login
                     </Link>
                 </span>
+                {this.state.error && (
+                    <p className="error">
+                        {"Insert A Nickname And A Password to Proceed"}
+                    </p>
+                )}
             </div>
         );
     }

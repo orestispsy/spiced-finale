@@ -162,13 +162,13 @@ export default class GigCreator extends React.Component {
                         )}
                         <div className="formOptions">
                             {!this.state.success && !this.state.map && (
-                                <button
+                                <div className="button"
                                     onClick={() => {
                                         this.handleClick();
                                     }}
                                 >
                                     Submit
-                                </button>
+                                </div>
                             )}
 
                             {this.state.success && (
@@ -178,10 +178,11 @@ export default class GigCreator extends React.Component {
                         {!this.state.success && !this.state.map && (
                             <p className="required">*required</p>
                         )}
+                        {this.state.error && (
+                            <p className="error">{"Date, Latitude & Longitude Fields Are Required"}</p>
+                        )}
                     </form>
-                    {this.state.error && (
-                        <p className="error">Oups! Something Went Wrong.</p>
-                    )}
+
                     {!this.state.map && (
                         <Link to="/" className="backLink">
                             Back

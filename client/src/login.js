@@ -33,7 +33,7 @@ export default class Login extends React.Component {
         this.setState(
             {
                 [e.target.name]: e.target.value,
-            },
+            }
             // () => console.log("this.state after setState: ", this.state)
         );
     }
@@ -43,7 +43,7 @@ export default class Login extends React.Component {
             error: false,
         });
     }
-    submitEnter (e) {
+    submitEnter(e) {
         if (e.keyCode === 13) {
             this.handleClick();
         }
@@ -72,10 +72,10 @@ export default class Login extends React.Component {
                     onChange={(e) => this.handleChange(e)}
                     onClick={() => this.handleErrorMsg()}
                 />
-                {this.state.error && (
-                    <p className="error">Oups! Something Went Wrong.</p>
-                )}
-                <button onClick={() => this.handleClick()}>Submit</button>
+
+                <div className="button" onClick={() => this.handleClick()}>
+                    Submit
+                </div>
 
                 <span className="regSpan">
                     Not a Member?
@@ -83,6 +83,12 @@ export default class Login extends React.Component {
                         Register
                     </Link>
                 </span>
+                {this.state.error && (
+                    <p className="error">
+                        {" "}
+                        {"Oups ! Your Nickname or Password is Wrong"}
+                    </p>
+                )}
             </div>
         );
     }

@@ -28,16 +28,14 @@ export default function OnlineUsers({
     setPrivateMode,
     userPrivate,
 }) {
-    if (chat_img) {
-        chat_img = "";
-    }
     const [userPicBar, setUserPicBar] = useState(false);
-    const [onlineUserPic, setOnlineUserPic] = useState(chat_img);
+    const [onlineUserPic, setOnlineUserPic] = useState("");
     const [file, setFile] = useState(null);
     const [closeTag, setcloseTag] = useState(false);
     const [chatColor, setChatColor] = useState(false);
     const [networkList, setNetworkList] = useState(false);
     const [networkUsers, setNetworkUsers] = useState(false);
+    const [errorMsg, setErrorMsg] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.25 });
 
@@ -87,12 +85,14 @@ export default function OnlineUsers({
                     setUserPicBar(!userPicBar);
                     setcloseTag(!closeTag);
                     setProfileImage(data.data[0].chat_img);
+                    setFile(null);
                 } else {
-                    console.log("data fail");
+                    setErrorMsg(true);
                 }
             })
             .catch((err) => {
                 console.log("error", err);
+                setErrorMsg(true);
                 // console.log("err in axios in Image Uploader ", err);
             });
     };
@@ -305,28 +305,41 @@ export default function OnlineUsers({
 
                     {userPicBar && (
                         <div className="fileUploaderChat">
+                            <img
+                                src={chat_img || "./../avatar.png"}
+                                id="privateUserImage"
+                            ></img>
                             <h1>Chat Image</h1>
+
                             <input
                                 type="file"
                                 name="file"
                                 accept="image/*"
                                 onChange={(e) => handleUploaderChange(e)}
+                                onClick={(e) => setErrorMsg(false)}
                             />
 
-                            <div
-                                className="uploadChat"
-                                onClick={() => handleUploaderClick()}
-                            >
-                                <h1>UPDATE</h1>
+                            <div className="uploadChat">
+                                <h1 onClick={() => handleUploaderClick()}>
+                                    UPDATE
+                                </h1>
                                 {closeTag && (
                                     <h1
                                         className="toggleChatUploader"
-                                        onClick={() => toggleUploader()}
+                                        onClick={() => {
+                                            setErrorMsg(false);
+                                            toggleUploader();
+                                        }}
                                     >
                                         CLOSE
                                     </h1>
                                 )}
                             </div>
+                            {errorMsg && (
+                                <p className="error" id="error">
+                                    Select an Image [Max Size: 2MB]
+                                </p>
+                            )}
                         </div>
                     )}
                     {!closeTag && !privateMode && (
