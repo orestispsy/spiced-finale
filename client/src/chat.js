@@ -50,6 +50,12 @@ export default function Chat({
     }, [scrollTop]);
 
     useEffect(() => {
+        if (elemRef.current) {
+            setScrollBarBottom();
+        }
+    }, [privateMode]);
+
+    useEffect(() => {
         if (!postScroll) {
             if (elemRef.current) {
                 const newScrollTop =
@@ -62,6 +68,12 @@ export default function Chat({
         }
         setPostScroll(false);
     }, [chatMessages]);
+
+    const setScrollBarBottom = () => {
+        if (elemRef.current) {
+            elemRef.current.scrollTop = scrollTop;
+        }
+    };
 
     const keyCheck = (e) => {
         if (e.key === "Enter") {

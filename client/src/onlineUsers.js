@@ -26,7 +26,6 @@ export default function OnlineUsers({
     setPrivateNick,
     privateMode,
     setPrivateMode,
-    userPrivate,
 }) {
     const [userPicBar, setUserPicBar] = useState(false);
     const [onlineUserPic, setOnlineUserPic] = useState("");
@@ -292,6 +291,7 @@ export default function OnlineUsers({
                                             id="privateUserImage"
                                             onClick={() =>
                                                 setPrivateMode(false)
+                                         
                                             }
                                         ></img>
                                     </div>
