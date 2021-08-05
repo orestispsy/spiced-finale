@@ -259,13 +259,13 @@ module.exports.getAllUsers = () => {
     return db.query(q);
 };
 
-module.exports.setUserAdmin= (id, boolean) => {
+module.exports.setUserAdmin = (id, boolean) => {
     const q = `
         UPDATE community SET admin = $2
         WHERE community.id = $1
      `;
-   const params = [id, boolean];
-   return db.query(q, params);
+    const params = [id, boolean];
+    return db.query(q, params);
 };
 
 module.exports.setUserSuperAdmin = (id, boolean) => {
@@ -277,23 +277,26 @@ module.exports.setUserSuperAdmin = (id, boolean) => {
     return db.query(q, params);
 };
 
-module.exports.addCommunityImage = (gig_id, img_sender_id, img_url) => {
+module.exports.addCommunityImage = (
+    gig_id,
+    img_sender_id,
+    nickname,
+    img_url
+) => {
     const q = `
-        INSERT INTO images (gig_id, img_sender_id, img_url)
-        VALUES ($1, $2, $3)
+        INSERT INTO images (gig_id, img_sender_id,nickname, img_url)
+        VALUES ($1, $2, $3, $4)
         RETURNING *
     `;
-    const params = [gig_id, img_sender_id, img_url];
+    const params = [gig_id, img_sender_id, nickname, img_url];
     return db.query(q, params);
 };
 
 module.exports.getCommunityImages = (id) => {
     const q = `
-        SELECT images.id, gig_id, img_sender_id, img_url, images.created_at, nickname
+        SELECT *
         FROM images
-        JOIN community
-        ON (community.id = images.img_sender_id)
-        WHERE images.gig_id = $1
+        WHERE images.gig_id = $1;
     `;
     const params = [id];
     return db.query(q, params);
@@ -301,7 +304,7 @@ module.exports.getCommunityImages = (id) => {
 
 module.exports.deleteCommunityImage = (id) => {
     const q = `
-          DELETE FROM images
+        DELETE FROM images
         WHERE images.id  = $1
         RETURNING *
     `;
@@ -311,10 +314,10 @@ module.exports.deleteCommunityImage = (id) => {
 
 module.exports.getComments = (id) => {
     const q = `
-    SELECT  comments.id, gig_id, msg_sender_id, comment, community.nickname
-    FROM comments
-    JOIN community
-    ON (community.id = comments.msg_sender_id) WHERE comments.gig_id = $1;
+        SELECT  comments.id, gig_id, msg_sender_id, comment, community.nickname
+        FROM comments
+        JOIN community
+        ON (community.id = comments.msg_sender_id) WHERE comments.gig_id = $1;
     `;
     const params = [id];
     return db.query(q, params);
@@ -330,6 +333,16 @@ module.exports.addComment = (gig_id, msg_sender_id, comment) => {
     return db.query(q, params);
 };
 
+module.exports.deleteComments = (id) => {
+    const q = `
+        DELETE FROM comments
+        WHERE  comments.msg_sender_id  = $1
+        RETURNING *
+    `;
+    const params = [id];
+    return db.query(q, params);
+};
+
 module.exports.getPrivateMsgs = (sender_id, receiver_id) => {
     const q = `
         SELECT * FROM private_messages
@@ -340,7 +353,7 @@ module.exports.getPrivateMsgs = (sender_id, receiver_id) => {
         ORDER BY created_at DESC
         LIMIT 10;
     `;
-     const params = [sender_id, receiver_id];
+    const params = [sender_id, receiver_id];
     return db.query(q, params);
 };
 
@@ -354,12 +367,36 @@ module.exports.addPrivateMsg = (msg_sender_id, msg_receiver_id, message) => {
     return db.query(q, params);
 };
 
+module.exports.getPrivateMsgs = (sender_id, receiver_id) => {
+    const q = `
+        SELECT * FROM private_messages
+        WHERE msg_sender_id = $1
+        AND msg_receiver_id = $2
+        OR msg_sender_id = $2 AND
+        msg_receiver_id = $1
+        ORDER BY created_at DESC
+        LIMIT 10;
+    `;
+    const params = [sender_id, receiver_id];
+    return db.query(q, params);
+};
+
+module.exports.deletePrivateMessages = (id) => {
+    const q = `
+          DELETE FROM private_messages
+        WHERE private_messages.msg_sender_id  = $1
+        OR  private_messages.msg_receiver_id  = $1
+        RETURNING *
+    `;
+    const params = [id];
+    return db.query(q, params);
+};
 
 module.exports.getNetworkUsers = () => {
     const q = `
         SELECT * FROM community
         ORDER BY created_at;
     `;
-   
+
     return db.query(q);
 };

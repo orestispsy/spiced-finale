@@ -161,7 +161,12 @@ app.post("/register", (req, res) => {
 app.get("/user-details", (req, res) => {
     db.getUser(req.session.userId)
         .then(({ rows }) => {
-            res.json({ data: rows[0] });
+            if (!rows[0]) {
+                req.session = null;
+                res.redirect("/");
+            } else {
+                res.json({ data: rows[0] });
+            }
         })
         .catch((err) => console.log(err));
 });
@@ -290,8 +295,12 @@ app.post(
     s3.upload,
     (req, res) => {
         const { filename } = req.file;
-        const data = JSON.parse(req.body.data);
-        db.addCommunityImage(req.body.data, req.body.user, s3Url + filename)
+        db.addCommunityImage(
+            req.body.data,
+            req.body.user,
+            req.body.nickname,
+            s3Url + filename
+        )
             .then(({ rows }) => {
                 res.json({ rows, success: true });
             })
@@ -407,13 +416,22 @@ app.get("/get-all-users", (req, res) => {
 app.post("/delete-user", (req, res) => {
     db.deleteAllUserPosts(req.body.id)
         .then(({ rows }) => {
-            db.deleteUser(req.body.id)
+            db.deletePrivateMessages(req.body.id)
                 .then(({ rows }) => {
-                    if (rows[0].chat_img) {
-                        const file2delete = rows[0].chat_img.replace(s3Url, "");
-                        s3.delete(file2delete);
-                    }
-                    res.json({ data: rows });
+                    db.deleteComments(req.body.id)
+                        .then(({ rows }) => {
+                            db.deleteUser(req.body.id)
+                                .then(({ rows }) => {
+                                    if (rows[0].chat_img) {
+                                        const file2delete =
+                                            rows[0].chat_img.replace(s3Url, "");
+                                        s3.delete(file2delete);
+                                    }
+                                    res.json({ data: rows });
+                                })
+                                .catch((err) => console.log(err));
+                        })
+                        .catch((err) => console.log(err));
                 })
                 .catch((err) => console.log(err));
         })
@@ -461,7 +479,11 @@ app.post("/get-private-messages", (req, res) => {
 });
 
 app.post("/add-private-message", (req, res) => {
-    db.addPrivateMsg(req.body.chat_myUserId, req.body.userPrivate, req.body.message)
+    db.addPrivateMsg(
+        req.body.chat_myUserId,
+        req.body.userPrivate,
+        req.body.message
+    )
         .then(({ rows }) => {
             res.json({ data: rows });
         })
@@ -573,6 +595,7 @@ io.on("connection", function (socket) {
     }
 
     socket.on("A CHAT MSG", (msg) => {
+        console.log(msg);
         db.addChatMsg(userId, msg)
             .then(() => {
                 db.getChatMsgs()
@@ -627,7 +650,6 @@ io.on("connection", function (socket) {
     socket.on("PRIVATE MESSAGE", (message) => {
         io.emit("privateMessage", message);
     });
-
 
     // console.log("socket userId", userId);
     // console.log(`socket ${socket.id} connected`);

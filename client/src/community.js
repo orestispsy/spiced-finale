@@ -40,6 +40,7 @@ export default function Community({
                     })
                     .then(({ data }) => {
                         socket.emit("GET IMAGES", data.rows);
+                        console.log(data.rows);
                     })
                     .catch((err) => {
                         console.log("err in Gig Entry GET Request : ", err);
@@ -70,14 +71,12 @@ export default function Community({
         formData.append("file", file);
         formData.append("data", JSON.stringify(selectedGigId));
         formData.append("user", JSON.stringify(myUserId));
+        formData.append("nickname", nickname);
         axios
             .post("/upload-community-image", formData)
             .then(({ data }) => {
                 if (data.success) {
-                    socket.emit("ADD IMAGE", {
-                        ...data.rows[0],
-                        nickname: nickname,
-                    });
+                    socket.emit("ADD IMAGE", data.rows[0]);
                     setContribute(false);
                     setError(false);
                     setFile("");

@@ -46,8 +46,9 @@ CREATE TABLE visitors(
 
 CREATE TABLE images (
     id            SERIAL PRIMARY KEY,
-    gig_id INT REFERENCES gigs(id) NOT NULL,   
-    img_sender_id INT REFERENCES community(id) NOT NULL,   
+    gig_id  VARCHAR,   
+    img_sender_id  VARCHAR,
+    nickname VARCHAR,   
     img_url VARCHAR,
     created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

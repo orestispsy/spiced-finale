@@ -36,6 +36,7 @@ export default class App extends Component {
             .then(({ data }) => {
                 if (data) {
                     // console.log("Current User's data in APP", data);
+                    
                     this.setState({
                         id: data.data.id,
                         nickname: data.data.nickname,

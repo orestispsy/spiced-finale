@@ -22,7 +22,6 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
     }, []);
 
     const deleteUser = (e) => {
-        console.log("id", e);
         axios
             .post("/delete-user", { id: e })
             .then(({ data }) => {
@@ -187,9 +186,6 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                     id={user.id}
                                                     onClick={(e) =>
                                                         deleteUser(e.target.id)
-                                                    }
-                                                    onMouseLeave={(e) =>
-                                                        setConfirm(false)
                                                     }
                                                 >
                                                     CONFIRM

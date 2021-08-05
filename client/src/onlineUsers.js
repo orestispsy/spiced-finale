@@ -291,7 +291,6 @@ export default function OnlineUsers({
                                             id="privateUserImage"
                                             onClick={() =>
                                                 setPrivateMode(false)
-                                         
                                             }
                                         ></img>
                                     </div>
