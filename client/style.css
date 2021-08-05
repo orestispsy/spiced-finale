@@ -739,9 +739,9 @@ input {
         max-width: 45vmax !important;
     }
 
-    .chatContainerBack {
+    .appContainer {
     background-color:rgba(0, 0, 0, 0.116) !important;
-            width:100vw !important;
+
     }
 
       .fileUploaderChat {
