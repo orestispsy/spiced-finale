@@ -35,6 +35,7 @@ CREATE TABLE private_messages (
     msg_sender_id INT REFERENCES community(id) NOT NULL,
     msg_receiver_id INT REFERENCES community(id) NOT NULL,
     private_msg TEXT,
+    receiver_seen BOOLEAN DEFAULT false,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

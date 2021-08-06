@@ -1079,6 +1079,14 @@ input {
         width: 35vmax !important;
     }
 
+    .notification {
+   
+    width: 9vmax;
+    height: 7vmax;
+   padding-left:1vmax;
+   margin-top:0.5vmax !important;
+}
+
         
 }
 
@@ -3174,8 +3182,8 @@ font-family: 'Ultra', serif; */
     background-image : url("greendot.gif");
         background-size: cover;
     background-repeat: no-repeat;
-    width: 2vmax;
-    height: 1vmax;
+    width: 4vmax;
+    height: 2vmax;
     margin-top:1vmax;
-    margin-left:-0.5vmax;
+    margin-left:-1.3vmax;
 }
