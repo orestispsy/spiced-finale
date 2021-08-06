@@ -30,6 +30,7 @@ export default function Chat({
     const [userPrivate, setUserPrivate] = useState(false);
     const [privatePic, setPrivatePic] = useState(false);
     const [privateNick, setPrivateNick] = useState(false);
+    const [notification, setNotification] = useState(0);
 
     const [play] = useSound(chatSfx, { volume: 0.75 });
     const [playTicker, { stop }] = useSound(tickerSfx, { volume: 0.75 });
@@ -195,6 +196,8 @@ export default function Chat({
                     nickname={nickname}
                     privateNick={privateNick}
                     setChecker={(e) => setChecker(e)}
+                    setNotification={(e) => setNotification(e)}
+                    notification={notification}
                 />
             )}
 
@@ -412,6 +415,7 @@ export default function Chat({
                     userPrivate={userPrivate}
                     privateNick={privateNick}
                     privatePic={privatePic}
+                    notification={notification}
                 />
             </div>
 

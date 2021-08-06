@@ -478,6 +478,22 @@ app.post("/get-private-messages", (req, res) => {
         .catch((err) => console.log(err));
 });
 
+app.get("/get-all-private-messages", (req, res) => {
+    db.getAllPrivateMsgs(req.session.userId)
+        .then(({ rows }) => {
+            res.json({ data: rows });
+        })
+        .catch((err) => console.log(err));
+});
+
+app.post("/seen-private-messages", (req, res) => {
+    db.seenPrivateMsgs(req.body.firstMsgId)
+        .then(({ rows }) => {
+            res.json({ data: rows });
+        })
+        .catch((err) => console.log(err));
+});
+
 app.post("/add-private-message", (req, res) => {
     db.addPrivateMsg(
         req.body.chat_myUserId,
@@ -649,6 +665,10 @@ io.on("connection", function (socket) {
     socket.on("PRIVATE MESSAGE", (message) => {
         io.emit("privateMessage", message);
     });
+    
+        socket.on("NOTIFICATION", (arg) => {
+            io.emit("notification", arg);
+        });
 
     // console.log("socket userId", userId);
     // console.log(`socket ${socket.id} connected`);

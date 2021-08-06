@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { socket } from "./tools/socket";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "./tools/axios";
@@ -26,6 +27,7 @@ export default function OnlineUsers({
     setPrivateNick,
     privateMode,
     setPrivateMode,
+    notification,
 }) {
     const [userPicBar, setUserPicBar] = useState(false);
     const [onlineUserPic, setOnlineUserPic] = useState("");
@@ -35,10 +37,15 @@ export default function OnlineUsers({
     const [networkList, setNetworkList] = useState(false);
     const [networkUsers, setNetworkUsers] = useState(false);
     const [errorMsg, setErrorMsg] = useState(false);
+    const [privateMessages, setPrivateMessages] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.25 });
 
     const onlineUsers = useSelector((state) => state && state.onlineUsers);
+
+    const notificationCheck = useSelector(
+        (state) => state && state.notification
+    );
     // console.log("onlineUsers", onlineUsers);
     useEffect(() => {
         if (onlineUsers) {
@@ -51,9 +58,30 @@ export default function OnlineUsers({
                 setNetworkUsers(data.data);
             })
             .catch((err) => {
-                //   console.log("error", err);
+                console.log("error", err);
+            });
+        axios
+            .get("/get-all-private-messages")
+            .then(({ data }) => {
+                setPrivateMessages(data.data);
+            })
+            .catch((err) => {
+                console.log("error", err);
             });
     }, []);
+
+    useEffect(() => {
+        axios
+            .get("/get-all-private-messages")
+            .then(({ data }) => {
+                setPrivateMessages(data.data);
+                socket.emit("NOTIFICATION", notification++);
+            })
+            .catch((err) => {
+                console.log("error", err);
+            });
+    }, [notificationCheck]);
+    
     useEffect(() => {
         if (onlineUsers) {
             if (onlineUsers.length >= count) {
@@ -61,10 +89,8 @@ export default function OnlineUsers({
                     play();
                 }
                 count++;
-                // console.log("count+", count);
             } else {
                 count--;
-                // console.log("count-", count);
             }
         }
     }, [onlineUsers]);
@@ -92,7 +118,6 @@ export default function OnlineUsers({
             .catch((err) => {
                 console.log("error", err);
                 setErrorMsg(true);
-                // console.log("err in axios in Image Uploader ", err);
             });
     };
 
@@ -103,7 +128,7 @@ export default function OnlineUsers({
                 setChatColor(data.data.chat_color);
             })
             .catch((err) => {
-                //   console.log("error", err);
+                console.log("error", err);
             });
     };
 
@@ -227,6 +252,25 @@ export default function OnlineUsers({
                                                 >
                                                     {user.nickname}
                                                 </span>
+                                                {privateMessages &&
+                                                    privateMessages.map(
+                                                        (msg) => {
+                                                            if (
+                                                                !msg.receiver_seen &&
+                                                                msg.msg_sender_id ==
+                                                                    user.id
+                                                            ) {
+                                                                return (
+                                                                    <div
+                                                                        className="notification"
+                                                                        key={
+                                                                            msg.id
+                                                                        }
+                                                                    ></div>
+                                                                );
+                                                            }
+                                                        }
+                                                    )}
                                             </div>
                                         </div>
                                     ))}
@@ -279,6 +323,25 @@ export default function OnlineUsers({
                                                 >
                                                     {user.nickname}
                                                 </span>
+                                                {privateMessages &&
+                                                    privateMessages.map(
+                                                        (msg) => {
+                                                            if (
+                                                                !msg.receiver_seen &&
+                                                                msg.msg_sender_id ==
+                                                                    user.id
+                                                            ) {
+                                                                return (
+                                                                    <div
+                                                                        className="notification"
+                                                                        key={
+                                                                            msg.id
+                                                                        }
+                                                                    ></div>
+                                                                );
+                                                            }
+                                                        }
+                                                    )}
                                             </div>
                                         </div>
                                     ))}
@@ -289,8 +352,10 @@ export default function OnlineUsers({
                                                 privatePic || "./../avatar.png"
                                             }
                                             id="privateUserImage"
-                                            onClick={() =>
+                                            onClick={() =>{
                                                 setPrivateMode(false)
+                                                  socket.emit("NOTIFICATION", notification++);
+                                            }
                                             }
                                         ></img>
                                     </div>

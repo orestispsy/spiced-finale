@@ -88,3 +88,10 @@ export function privateMessageAct(arg) {
         message: arg,
     };
 }
+
+export function notification(arg) {
+    return {
+        type: "NOTIFICATION",
+        notification: arg,
+    };
+}

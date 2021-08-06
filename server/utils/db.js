@@ -357,6 +357,29 @@ module.exports.getPrivateMsgs = (sender_id, receiver_id) => {
     return db.query(q, params);
 };
 
+module.exports.getAllPrivateMsgs = (receiver_id) => {
+    const q = `
+         SELECT * FROM (SELECT DISTINCT ON (msg_sender_id) id, msg_sender_id, msg_receiver_id, private_msg, receiver_seen, created_at    
+        FROM private_messages
+        WHERE msg_receiver_id = $1
+        ORDER BY msg_sender_id, created_at DESC)
+        private_messages
+        ORDER BY created_at;
+    `;
+    const params = [receiver_id];
+    return db.query(q, params);
+};
+
+module.exports.seenPrivateMsgs = (id) => {
+    const q = `
+           UPDATE private_messages SET receiver_seen = 'true'
+        WHERE private_messages.id = $1
+                RETURNING *
+    `;
+    const params = [id];
+    return db.query(q, params);
+};
+
 module.exports.addPrivateMsg = (msg_sender_id, msg_receiver_id, message) => {
     const q = `
         INSERT INTO private_messages (msg_sender_id, msg_receiver_id, private_msg)

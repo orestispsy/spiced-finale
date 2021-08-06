@@ -12,7 +12,11 @@ export default function PrivateMSGS({
     privatePic,
     nickname,
     privateNick,
+    setNotification,
+    notification
 }) {
+    const [firstMsgId, setFirstMsgId] = useState(null);
+    
     const messages = useSelector((state) => state && state.messages);
 
     const elemRef = useRef();
@@ -34,13 +38,29 @@ export default function PrivateMSGS({
                     privatePic,
                 })
                 .then(({ data }) => {
+                    console.log(data.data);
                     socket.emit("PRIVATE MESSAGES", data.data);
+                    setFirstMsgId(data.data[0].id);
+                    socket.emit("NOTIFICATION", notification++);
                 })
                 .catch((err) => {
                     //   console.log("error", err);
                 });
         }
     }, []);
+
+    useEffect(() => {
+        axios
+            .post("/seen-private-messages", { firstMsgId })
+            .then(({ data }) => {
+                console.log(data);
+                setNotification(notification+1)
+          
+            })
+            .catch((err) => {
+                //   console.log("error", err);
+            });
+    }, [firstMsgId]);
 
     const addPrivateMsg = (e) => {
         if (e == "") {
@@ -58,6 +78,7 @@ export default function PrivateMSGS({
                     chat_img: chat_img,
                 });
                 elem[0].value = "";
+                      socket.emit("NOTIFICATION", notification++);
             })
             .catch((err) => {
                 console.log("err in Gig Entry GET Request : ", err);

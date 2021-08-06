@@ -3168,3 +3168,14 @@ font-family: 'Ultra', serif; */
     font-family: "Black Ops One", cursive;
     font-size: 2.5vmax;
 }
+
+
+.notification {
+    background-image : url("greendot.gif");
+        background-size: cover;
+    background-repeat: no-repeat;
+    width: 2vmax;
+    height: 1vmax;
+    margin-top:1vmax;
+    margin-left:-0.5vmax;
+}
