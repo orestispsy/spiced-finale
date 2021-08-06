@@ -40,7 +40,6 @@ export default function Community({
                     })
                     .then(({ data }) => {
                         socket.emit("GET IMAGES", data.rows);
-                        console.log(data.rows);
                     })
                     .catch((err) => {
                         console.log("err in Gig Entry GET Request : ", err);

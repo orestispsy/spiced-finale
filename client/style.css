@@ -744,10 +744,14 @@ input {
 
     }
 
-      .fileUploaderChat {
+      .fileUploaderChat{
           margin-bottom: 1vmax !important;
-            font-size: 3vw !important;
-    
+            font-size: 5vw !important;
+        }
+
+            .fileUploaderChat h1{
+          margin-top: 1vmax !important;
+            font-size: 5vw !important;
         }
 
     .fileUploader {
@@ -758,8 +762,8 @@ input {
         margin-left: 2vmax !important;
     }
 
-    .fileUploaderChat h1 {
-        font-size: 5vw !important;
+    .uploadChat h1 {
+        font-size: 4vw !important;
     }
 
     .fileUploaderChat input {
@@ -1320,8 +1324,14 @@ input {
         bottom: 2vmax !important;
     }
 
-      .fileUploaderChat h1{
-          font-size: 2vmax !important      }
+    .fileUploaderChat h1{
+        font-size: 2vmax !important;
+    }
+
+    .fileUploaderChat input {
+        width: 15vmax !important;
+        height: 2vmax !important;
+    }
 }
 
 .logo {
@@ -1485,6 +1495,7 @@ input {
 
 .gm-ui-hover-effect {
     background-color: white !important;
+    border-radius: 50% !important;
 }
 
 .gm-style-iw gm-style-iw-c {
@@ -2135,7 +2146,7 @@ font-family: 'Ultra', serif; */
     border-radius: 1px;
     box-shadow: none;
     font-size: 0.7vmax;
-    width: 12vmax !important;
+    width: 12vmax ;
     height: 1.1vmax;
     margin-top: 1vmax;
 }

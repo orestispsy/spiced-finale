@@ -595,7 +595,6 @@ io.on("connection", function (socket) {
     }
 
     socket.on("A CHAT MSG", (msg) => {
-        console.log(msg);
         db.addChatMsg(userId, msg)
             .then(() => {
                 db.getChatMsgs()

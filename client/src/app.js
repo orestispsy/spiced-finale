@@ -34,7 +34,9 @@ export default class App extends Component {
         axios
             .get("/user-details")
             .then(({ data }) => {
-                if (data) {
+                if (!data.data) {
+
+                 location.replace("/");}
                     // console.log("Current User's data in APP", data);
                     
                     this.setState({
@@ -45,7 +47,7 @@ export default class App extends Component {
                         chat_img: data.data.chat_img,
                         chat_color: data.data.chat_color,
                     });
-                }
+                
             })
             .catch((err) => {
                 console.log("err in axios App User POST Request : ", err);
