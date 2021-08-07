@@ -214,18 +214,20 @@ app.post("/gig-delete", (req, res) => {
             if (rows[0].poster) {
                 const file2delete = rows[0].poster.replace(s3Url, "");
                 s3.delete(file2delete);
+                
             }
         })
         .catch((err) => {
             res.json({ error: true });
             console.log(err);
         });
-
-    db.deleteGig(req.body.selectedGig.date)
-        .then(({ rows }) => {
-            res.json({ deleteSuccess: true });
-        })
-        .catch((err) => console.log(err));
+       db.deleteCommentsEditor(req.body.selectedGig.id)
+           .then(({ rows }) => {
+               db.deleteGig(req.body.selectedGig.date).then(({ rows }) => {
+                   res.json({ deleteSuccess: true });
+               });
+           })
+           .catch((err) => console.log(err));         
 });
 
 app.get("/gig/:selection", (req, res) => {
@@ -665,10 +667,7 @@ io.on("connection", function (socket) {
     socket.on("PRIVATE MESSAGE", (message) => {
         io.emit("privateMessage", message);
     });
-    
-        socket.on("NOTIFICATION", (arg) => {
-            io.emit("notification", arg);
-        });
+
 
     // console.log("socket userId", userId);
     // console.log(`socket ${socket.id} connected`);

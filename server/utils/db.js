@@ -343,6 +343,16 @@ module.exports.deleteComments = (id) => {
     return db.query(q, params);
 };
 
+module.exports.deleteCommentsEditor = (id) => {
+    const q = `
+        DELETE FROM comments
+        WHERE  comments.gig_id  = $1
+        RETURNING *
+    `;
+    const params = [id];
+    return db.query(q, params);
+};
+
 module.exports.getPrivateMsgs = (sender_id, receiver_id) => {
     const q = `
         SELECT * FROM private_messages
