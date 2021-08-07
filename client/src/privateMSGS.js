@@ -13,10 +13,9 @@ export default function PrivateMSGS({
     nickname,
     privateNick,
     setPrivateMessages,
-
 }) {
     const [firstMsgId, setFirstMsgId] = useState(null);
-    
+
     const messages = useSelector((state) => state && state.messages);
 
     const elemRef = useRef();
@@ -42,26 +41,25 @@ export default function PrivateMSGS({
                     setFirstMsgId(data.data[0].id);
                 })
                 .catch((err) => {
-                      console.log("error", err);
+                    console.log("error", err);
                 });
-                    axios
-                        .get("/filtered-private")
-                        .then(({ data }) => {
-                            setPrivateMessages(data.data);
-                        })
-                        .catch((err) => {
-                            console.log("error", err);
-                        });
+            axios
+                .get("/filtered-private")
+                .then(({ data }) => {
+                    setPrivateMessages(data.data);
+                })
+                .catch((err) => {
+                    console.log("error", err);
+                });
         }
     }, []);
 
     useEffect(() => {
         axios
             .post("/seen-private-messages", { firstMsgId })
-            .then(({ data }) => {               
-            })
+            .then(({ data }) => {})
             .catch((err) => {
-                  console.log("error", err);
+                console.log("error", err);
             });
     }, [firstMsgId]);
 

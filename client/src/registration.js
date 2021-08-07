@@ -59,6 +59,9 @@ export default class Registration extends React.Component {
                 className="registerContainer"
                 onKeyDown={(e) => this.submitEnter(e)}
             >
+                <div className="logoBack">
+                    <p id="logoIntro">WELCOME</p>
+                </div>
                 <h1>Register</h1>
                 <span>Enter a Nickname</span>
                 <input

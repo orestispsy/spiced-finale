@@ -55,6 +55,9 @@ export default class Login extends React.Component {
                 className="loginContainer"
                 onKeyDown={(e) => this.submitEnter(e)}
             >
+                <div className="logoBack">
+                    <p id="logoIntro">WELCOME</p>
+                </div>
                 <h1>Login</h1>
                 <span>Nickname</span>
                 <input

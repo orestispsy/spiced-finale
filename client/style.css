@@ -353,8 +353,6 @@ form input {
     height: 3vmax;
 }
 
-
-
 .required {
     letter-spacing: 0.5px;
     color: red;
@@ -381,7 +379,7 @@ input {
     text-align: center;
     outline: transparent;
     border-radius: 100px;
-    width: 15vmax;
+    width: 10vmax;
     height: 1.7vmax;
     color: orangered;
     box-shadow: -0 0 4px black, 0 -0 4px black, -0 -0 4px black, -0 -0 4px black;
@@ -395,8 +393,8 @@ input {
     outline: transparent;
     cursor: pointer;
     background-color: white;
-    padding:0.5vmax;
-    margin-top:0.5vmax;
+    padding: 0.5vmax;
+    margin-top: 0.5vmax;
 }
 
 .button:hover {
@@ -625,10 +623,9 @@ input {
 
     .loginContainer .button,
     .registerContainer .button {
-
         font-size: 3vmax;
         margin: 2vmax;
-        padding:2vmax 2vmax 4vmax 2vmax
+        padding: 2vmax 2vmax 4vmax 2vmax;
     }
 
     .regSpan,
@@ -643,6 +640,11 @@ input {
     .logo {
         width: 75vmax !important;
         height: 35vmax !important;
+    }
+
+    #logoIntro {
+        margin: 0 0 1.5vh 0 !important;
+        font-size: 9vmax !important;
     }
 
     .logoBack p {
@@ -675,7 +677,6 @@ input {
         height: fit-content !important;
         width: fit-content !important;
         padding: 1vmax !important;
-     
     }
     .chatScreen {
         height: 29vh !important;
@@ -735,24 +736,23 @@ input {
 
     .usersBack {
         min-height: 18vmax !important;
-        width:45vmax !important;
+        width: 45vmax !important;
         max-width: 45vmax !important;
     }
 
     .appContainer {
-    background-color:rgba(0, 0, 0, 0.116) !important;
-
+        background-color: rgba(0, 0, 0, 0.116) !important;
     }
 
-      .fileUploaderChat{
-          margin-bottom: 1vmax !important;
-            font-size: 5vw !important;
-        }
+    .fileUploaderChat {
+        margin-bottom: 1vmax !important;
+        font-size: 5vw !important;
+    }
 
-            .fileUploaderChat h1{
-          margin-top: 1vmax !important;
-            font-size: 5vw !important;
-        }
+    .fileUploaderChat h1 {
+        margin-top: 1vmax !important;
+        font-size: 5vw !important;
+    }
 
     .fileUploader {
         margin-top: -0.1vh !important;
@@ -1080,20 +1080,22 @@ input {
     }
 
     .notification {
-   
-    width: 9vmax;
-    height: 7vmax;
-   padding-left:1vmax;
-   margin-top:0.5vmax !important;
-}
-
-        
+        width: 9vmax;
+        height: 7vmax;
+        padding-left: 1vmax;
+        margin-top: 0.5vmax !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
     .logo {
         width: 50vmax !important;
         height: 22vmax !important;
+    }
+
+    #logoIntro {
+        margin: 0 0 1vh 0 !important;
+        font-size: 7vmax !important;
     }
 
     .logoBack p {
@@ -1193,7 +1195,7 @@ input {
 
     .emoticons {
         width: 20vmax !important;
-        height:16vmax !important
+        height: 16vmax !important;
     }
 
     .chatBar {
@@ -1224,7 +1226,7 @@ input {
 
     .usersBack {
         max-width: 17vw !important;
-        width:17vw !important
+        width: 17vw !important;
     }
 
     .gigEntryDetails {
@@ -1332,7 +1334,7 @@ input {
         bottom: 2vmax !important;
     }
 
-    .fileUploaderChat h1{
+    .fileUploaderChat h1 {
         font-size: 2vmax !important;
     }
 
@@ -1484,17 +1486,17 @@ input {
 }
 
 #error {
-    width:20vmax;
+    width: 20vmax;
 }
 
 .error {
     font-family: "Black Ops One", cursive;
     font-size: 1vmax;
     color: tomato;
-    width:40vmax;
+    width: 40vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
-    text-align: center; 
+    text-align: center;
 }
 
 .gm-style-cc {
@@ -2016,7 +2018,7 @@ font-family: 'Ultra', serif; */
     margin: 1vmax;
     transform: 1s;
     overflow-y: auto;
-    overflow-x:hidden;
+    overflow-x: hidden;
     scrollbar-width: none;
     text-align: center;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
@@ -2135,7 +2137,6 @@ font-family: 'Ultra', serif; */
 .fileUploaderChat h1 {
     font-size: 2vmax;
     margin: 0;
-
 }
 
 .uploadChat h1 {
@@ -2154,7 +2155,7 @@ font-family: 'Ultra', serif; */
     border-radius: 1px;
     box-shadow: none;
     font-size: 0.7vmax;
-    width: 12vmax ;
+    width: 12vmax;
     height: 1.1vmax;
     margin-top: 1vmax;
 }
@@ -2761,7 +2762,7 @@ font-family: 'Ultra', serif; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align:left;
+    text-align: left;
     margin: 2vmax;
     border-radius: 1vh;
     overflow-x: hidden;
@@ -2775,7 +2776,7 @@ font-family: 'Ultra', serif; */
 }
 
 .superListItem h1 {
-    text-align:center;
+    text-align: center;
     overflow-x: hidden;
     width: 23vmax;
     max-width: 23vmax;
@@ -3139,7 +3140,7 @@ font-family: 'Ultra', serif; */
 }
 
 #privateMsgUserNick {
-    max-width:20vmax;
+    max-width: 20vmax;
     overflow-x: hidden;
     text-align: center;
     padding: 0 1vmax 1vmax 1vmax;
@@ -3177,13 +3178,17 @@ font-family: 'Ultra', serif; */
     font-size: 2.5vmax;
 }
 
-
 .notification {
-    background-image : url("greendot.gif");
-        background-size: cover;
+    background-image: url("greendot.gif");
+    background-size: cover;
     background-repeat: no-repeat;
     width: 4vmax;
     height: 2vmax;
-    margin-top:1vmax;
-    margin-left:-1.3vmax;
+    margin-top: 1vmax;
+    margin-left: -1.3vmax;
+}
+
+#logoIntro {
+    margin: 0 0 1vmax 0;
+    font-size: 4vmax;
 }
