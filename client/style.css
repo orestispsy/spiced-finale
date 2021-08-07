@@ -3176,10 +3176,9 @@ font-family: 'Ultra', serif; */
     background-image: url("notify.gif");
     background-size: cover;
     background-repeat: no-repeat;
-    width: 2vmax;
-    height: 2vmax;
-    margin: 0 0 0 0;
-    padding-left:1vmax;
+    width: 2.3vmax;
+    height: 2.3vmax;
+    margin: 0.5vmax 0 0 0.3vmax;
 }
 
 #logoIntro {
