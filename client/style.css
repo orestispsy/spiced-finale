@@ -707,7 +707,7 @@ input {
         margin-right: 2vmax !important;
         justify-content: center !important;
         border-radius: 2vh !important;
-        min-width: 28vmax !important;
+        min-width: 34vmax !important;
         min-height: 25vmax !important;
         padding: 0vmax !important;
         background-color: rgba(116, 7, 7, 0.158) !important;
@@ -729,12 +729,6 @@ input {
 
     .mobileOnlineUsers {
         height: 27vmax !important;
-    }
-
-    .usersBack {
-        min-height: 18vmax !important;
-        width: 45vmax !important;
-        max-width: 45vmax !important;
     }
 
     .appContainer {
@@ -770,9 +764,8 @@ input {
     }
 
     .usersBack {
-        height: 13vmax !important;
-        width: 20vmax !important;
-
+        min-height: 17vmax !important;
+        min-width: 25vmax !important;
         padding: 1vmax !important;
     }
 
@@ -1077,10 +1070,9 @@ input {
     }
 
     .notification {
-        width: 9vmax;
-        height: 7vmax;
-        padding-left: 1vmax;
-        margin-top: 0.5vmax !important;
+        width: 5vmax !important;
+        height: 5vmax !important;
+        margin-left: 1vmax !important;
     }
 }
 
@@ -1338,6 +1330,11 @@ input {
     .fileUploaderChat input {
         width: 15vmax !important;
         height: 2vmax !important;
+    }
+
+    .notification {
+        margin-left: 0.5vmax !important;
+        padding: 0 1vmax 1vmax 0 !important;
     }
 }
 
@@ -3176,16 +3173,14 @@ font-family: 'Ultra', serif; */
 }
 
 .notification {
-    background-image: url("greendot.gif");
+    background-image: url("notify.gif");
     background-size: cover;
     background-repeat: no-repeat;
-    width: 4vmax;
+    width: 2vmax;
     height: 2vmax;
-    margin-top: 1vmax;
-    margin-left: -1.3vmax;
+    margin: 1vmax 2vmax 0 0;
 }
 
 #logoIntro {
-    margin: 0 0 1vmax 0;
     font-size: 4vmax;
 }
