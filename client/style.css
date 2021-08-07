@@ -37,7 +37,7 @@ body {
 a,
 h1 {
     color: rgb(212, 255, 58);
-    margin-top: 10px;
+    margin-top: 5px;
     text-decoration: none;
     font-size: 40px;
     text-shadow: -0 0 5px rgba(0, 0, 0, 0.7), 0 -0 5px rgba(0, 0, 0, 0.7),
@@ -68,15 +68,14 @@ a:hover {
     font-family: "Black Ops One", cursive;
 }
 
-.loginContainer input, .registerContainer input {
-
-    width:10vmax
-
+.loginContainer input,
+.registerContainer input {
+    width: 10vmax;
+    height: 25px;
 }
 
 .registerContainer span,
 .loginContainer span {
-    margin-bottom: 10px;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
 }
@@ -100,15 +99,11 @@ a:hover {
         -1px -1px 0 black;
 }
 
-.registerContainer input,
-.loginContainer input {
-    height: 25px;
-}
-
 .registerContainer .button,
 .loginContainer .button {
     height: 30px;
     margin: 0.5vmax;
+    margin-bottom: 1vmax;
 }
 
 .gigCreatorContainer h1 {
@@ -132,10 +127,6 @@ a:hover {
     background-color: rgba(255, 211, 66, 0.137);
     border-radius: 1vh;
     height: fit-content;
-}
-
-.regSpan .links {
-    margin-left: 10px;
 }
 
 .appContainerMap {
@@ -635,7 +626,7 @@ input {
     }
 
     .regSpan,
-    .regSpan a {
+    .links {
         font-size: 3vmax !important;
     }
 

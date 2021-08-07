@@ -63,7 +63,7 @@ export default class Registration extends React.Component {
                     <p id="logoIntro">WELCOME</p>
                 </div>
                 <h1>Register</h1>
-                <span>Enter a Nickname</span>
+                <span>Nickname</span>
                 <input
                     autoComplete="none"
                     name="nickname"
@@ -71,7 +71,7 @@ export default class Registration extends React.Component {
                     onChange={(e) => this.handleChange(e)}
                     onClick={() => this.handleErrorMsg()}
                 />
-                <span>Give a Password</span>
+                <span>Password</span>
                 <input
                     name="password"
                     placeholder="Password"
@@ -83,12 +83,10 @@ export default class Registration extends React.Component {
                 <div className="button" onClick={() => this.handleClick()}>
                     Submit
                 </div>
-                <span className="regSpan">
-                    Joined Already?
-                    <Link to="/" className="links">
-                        Login
-                    </Link>
-                </span>
+                <span className="regSpan">Joined Already?</span>
+                <Link to="/" className="links">
+                    Login
+                </Link>
                 {this.state.error && (
                     <p className="error">
                         {"Insert A Nickname And A Password to Proceed"}
