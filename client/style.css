@@ -68,6 +68,12 @@ a:hover {
     font-family: "Black Ops One", cursive;
 }
 
+.loginContainer input, .registerContainer input {
+
+    width:10vmax
+
+}
+
 .registerContainer span,
 .loginContainer span {
     margin-bottom: 10px;
@@ -379,7 +385,7 @@ input {
     text-align: center;
     outline: transparent;
     border-radius: 100px;
-    width: 10vmax;
+    width: 13vmax;
     height: 1.7vmax;
     color: orangered;
     box-shadow: -0 0 4px black, 0 -0 4px black, -0 -0 4px black, -0 -0 4px black;
