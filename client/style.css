@@ -933,7 +933,7 @@ input {
     }
 
     .imgPreview {
-        margin: 0 1.5vmax 0 -0.5vmax !important;
+        margin: 0 1vmax 0 -1.7vmax !important;
     }
     .superListItem {
         height: 50vmax !important;
@@ -1270,7 +1270,7 @@ input {
     }
 
     .imgPreview {
-        margin: 0 0.5vmax 1vmax -1vmax !important;
+        margin: 0 0.5vmax 1vmax -2vmax !important;
         width: 6vmax !important;
         height: 6vmax !important;
     }
