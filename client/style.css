@@ -385,7 +385,7 @@ input {
     text-align: center;
     outline: transparent;
     border-radius: 100px;
-    width: 13vmax;
+    width: 14vmax;
     height: 1.7vmax;
     color: orangered;
     box-shadow: -0 0 4px black, 0 -0 4px black, -0 -0 4px black, -0 -0 4px black;
@@ -469,7 +469,7 @@ input {
 .imgPreview {
     width: 100px;
     height: 100px;
-    margin: 0 1vmax 0 -1.5vmax;
+    margin: 0 1vmax 0 -2vmax;
     border-radius: 50%;
     cursor: pointer;
 }
