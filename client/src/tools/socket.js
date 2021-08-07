@@ -12,7 +12,7 @@ import {
     deleteImageAct,
     privateMessagesAct,
     privateMessageAct,
-    notification
+
 } from "./../tools/actions";
 import { io } from "socket.io-client";
 
@@ -73,8 +73,6 @@ export const init = (store) => {
             store.dispatch(privateMessageAct(data));
         });
 
-            socket.on("notification", (data) => {
-                store.dispatch(notification(data));
-            });
+
     }
 };

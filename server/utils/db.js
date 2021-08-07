@@ -357,7 +357,7 @@ module.exports.getPrivateMsgs = (sender_id, receiver_id) => {
     return db.query(q, params);
 };
 
-module.exports.getAllPrivateMsgs = (receiver_id) => {
+module.exports.getFilteredPrivate = (receiver_id) => {
     const q = `
          SELECT * FROM (SELECT DISTINCT ON (msg_sender_id) id, msg_sender_id, msg_receiver_id, private_msg, receiver_seen, created_at    
         FROM private_messages

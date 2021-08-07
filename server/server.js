@@ -478,8 +478,8 @@ app.post("/get-private-messages", (req, res) => {
         .catch((err) => console.log(err));
 });
 
-app.get("/get-all-private-messages", (req, res) => {
-    db.getAllPrivateMsgs(req.session.userId)
+app.get("/filtered-private", (req, res) => {
+    db.getFilteredPrivate(req.session.userId)
         .then(({ rows }) => {
             res.json({ data: rows });
         })

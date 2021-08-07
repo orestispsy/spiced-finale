@@ -91,12 +91,6 @@ export default function (state = {}, action) {
             messages: state.messages.concat(action.message),
         };
     }
-        if (action.type == "NOTIFICATION") {
-            nextState = {
-                ...state,
-                notification: action.notification,
-            };
-        }
 
     // console.log("NEXT State", nextState);
     return nextState;

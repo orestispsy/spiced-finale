@@ -27,7 +27,8 @@ export default function OnlineUsers({
     setPrivateNick,
     privateMode,
     setPrivateMode,
-    notification,
+    setPrivateMessages,
+    privateMessages,
 }) {
     const [userPicBar, setUserPicBar] = useState(false);
     const [onlineUserPic, setOnlineUserPic] = useState("");
@@ -37,20 +38,16 @@ export default function OnlineUsers({
     const [networkList, setNetworkList] = useState(false);
     const [networkUsers, setNetworkUsers] = useState(false);
     const [errorMsg, setErrorMsg] = useState(false);
-    const [privateMessages, setPrivateMessages] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.25 });
 
     const onlineUsers = useSelector((state) => state && state.onlineUsers);
 
-    const notificationCheck = useSelector(
-        (state) => state && state.notification
-    );
-    // console.log("onlineUsers", onlineUsers);
+    const statePrivateMsgs = useSelector((state) => state && state.messages);
+
     useEffect(() => {
         if (onlineUsers) {
             count = onlineUsers.length;
-            // console.log("count", count);
         }
         axios
             .get("/get-network-users")
@@ -60,28 +57,33 @@ export default function OnlineUsers({
             .catch((err) => {
                 console.log("error", err);
             });
-        axios
-            .get("/get-all-private-messages")
-            .then(({ data }) => {
-                setPrivateMessages(data.data);
-            })
-            .catch((err) => {
-                console.log("error", err);
-            });
+
+        if (!statePrivateMsgs) {
+            axios
+
+                .get("/filtered-private")
+                .then(({ data }) => {
+                    setPrivateMessages(data.data);
+                    socket.emit("PRIVATE MESSAGES", data.data);
+                })
+                .catch((err) => {
+                    console.log("error", err);
+                });
+        }
     }, []);
 
     useEffect(() => {
         axios
-            .get("/get-all-private-messages")
+
+            .get("/filtered-private")
             .then(({ data }) => {
                 setPrivateMessages(data.data);
-                socket.emit("NOTIFICATION", notification++);
             })
             .catch((err) => {
                 console.log("error", err);
             });
-    }, [notificationCheck]);
-    
+    }, [statePrivateMsgs]);
+
     useEffect(() => {
         if (onlineUsers) {
             if (onlineUsers.length >= count) {
@@ -352,11 +354,9 @@ export default function OnlineUsers({
                                                 privatePic || "./../avatar.png"
                                             }
                                             id="privateUserImage"
-                                            onClick={() =>{
-                                                setPrivateMode(false)
-                                                  socket.emit("NOTIFICATION", notification++);
-                                            }
-                                            }
+                                            onClick={() => {
+                                                setPrivateMode(false);
+                                            }}
                                         ></img>
                                     </div>
                                 )}

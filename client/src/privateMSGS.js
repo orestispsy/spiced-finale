@@ -12,8 +12,8 @@ export default function PrivateMSGS({
     privatePic,
     nickname,
     privateNick,
-    setNotification,
-    notification
+    setPrivateMessages,
+
 }) {
     const [firstMsgId, setFirstMsgId] = useState(null);
     
@@ -38,27 +38,30 @@ export default function PrivateMSGS({
                     privatePic,
                 })
                 .then(({ data }) => {
-                    console.log(data.data);
                     socket.emit("PRIVATE MESSAGES", data.data);
                     setFirstMsgId(data.data[0].id);
-                    socket.emit("NOTIFICATION", notification++);
                 })
                 .catch((err) => {
-                    //   console.log("error", err);
+                      console.log("error", err);
                 });
+                    axios
+                        .get("/filtered-private")
+                        .then(({ data }) => {
+                            setPrivateMessages(data.data);
+                        })
+                        .catch((err) => {
+                            console.log("error", err);
+                        });
         }
     }, []);
 
     useEffect(() => {
         axios
             .post("/seen-private-messages", { firstMsgId })
-            .then(({ data }) => {
-                console.log(data);
-                setNotification(notification+1)
-          
+            .then(({ data }) => {               
             })
             .catch((err) => {
-                //   console.log("error", err);
+                  console.log("error", err);
             });
     }, [firstMsgId]);
 
@@ -78,10 +81,9 @@ export default function PrivateMSGS({
                     chat_img: chat_img,
                 });
                 elem[0].value = "";
-                      socket.emit("NOTIFICATION", notification++);
             })
             .catch((err) => {
-                console.log("err in Gig Entry GET Request : ", err);
+                console.log("err in Private Message Post Request : ", err);
             });
     };
 
@@ -95,9 +97,7 @@ export default function PrivateMSGS({
         if (e.key === "Enter") {
             if (e.target.value !== "") {
                 e.preventDefault();
-                // console.log("TEXTAREA VALUE", e.target.value);
                 var msgLink = e.target.value.split(/\s+/);
-                // console.log("yep", msgLink);
                 msgLink.forEach((element, index) => {
                     if (
                         element.startsWith("http") ||
@@ -107,7 +107,6 @@ export default function PrivateMSGS({
                         if (element.startsWith("www.")) {
                             url = `https://` + url;
                         }
-                        // console.log("yes", element);
                         msgLink[
                             index
                         ] = `<a href=${url} target="_blank">${element}</a>`;
