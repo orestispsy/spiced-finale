@@ -7,6 +7,7 @@ import Comments from "./comments";
 
 export default class GigEntry extends Component {
     constructor(props) {
+        console.log(props)
         super(props);
         this.state = {
             city: "",
@@ -34,7 +35,9 @@ export default class GigEntry extends Component {
                     tour_name: data.data.tour_name,
                     poster: data.data.poster,
                     selectedGig: data.data.date,
+                    
                 });
+                   this.props.setGigEntry(data.data);
             })
             .catch((err) => {
                 console.log("err in Gig Entry GET Request : ", err);
@@ -63,6 +66,7 @@ export default class GigEntry extends Component {
                             this.props.history.push(
                                 `/api/gig/${this.state.id}`
                             );
+                                 this.props.setGigEntry(data.data);
                         }
                     })
                     .catch((err) => {
@@ -85,6 +89,11 @@ export default class GigEntry extends Component {
         return (
             <div className="gigEntryContainer">
                 <form>
+                    <Link
+                        to="/map"
+                        className="gigEntryMapLink"
+                        title="Map"
+                    ></Link>
                     <select
                         name="selectedGig"
                         className="selectGigEntry"

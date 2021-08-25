@@ -81,18 +81,27 @@ const WithGoogleMapComponent = compose(
                         <Marker
                             key={gig.id}
                             position={{
-                                lat: parseFloat(gig.lat),
+                                lat:
+                                    
+                                    parseFloat(gig.lat),
                                 lng: parseFloat(gig.lng),
                             }}
                             icon={{
-                                url: dot,
+                                url:
+                                    (props.selectedGigEntry.id == gig.id &&
+                                        "pin.png") ||
+                                    dot,
                                 scaledSize: new window.google.maps.Size(
-                                    scaleParam || 30,
-                                    15
+                                    (props.selectedGigEntry.id == gig.id &&
+                                        50) ||
+                                        scaleParam ||
+                                        30,
+                                    props.selectedGigEntry.id == gig.id && 50 || 15
                                 ),
                             }}
                             onClick={() => {
                                 props.setSelectedGig(gig);
+                                props.setGigEntry(gig)
                             }}
                         />
                     );
@@ -170,7 +179,7 @@ const WithGoogleMapComponent = compose(
     );
 });
 
-const MyMap = ({ gigsList, mapVisible }) => {
+const MyMap = ({ gigsList, mapVisible, selectedGigEntry, setGigEntry }) => {
     const [selectedGig, setSelectedGig] = useState(null);
     const [style, setStyle] = useState(mapStyles.modest);
     const [switcher, setSwitcher] = useState(0);
@@ -196,6 +205,8 @@ const MyMap = ({ gigsList, mapVisible }) => {
                 setStyle={setStyle}
                 switcher={switcher}
                 setSwitcher={setSwitcher}
+                selectedGigEntry={selectedGigEntry}
+                setGigEntry={setGigEntry}
             />
         </div>
     );

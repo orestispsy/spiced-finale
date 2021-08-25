@@ -2578,6 +2578,11 @@ font-family: 'Ultra', serif; */
     margin-top: 1vmax;
 }
 
+.locationEditor{
+    width:6vmax;
+    padding:1vmax;
+}
+
 .gm-style .gm-style-iw-c {
     color: white !important;
 }
@@ -2589,8 +2594,19 @@ font-family: 'Ultra', serif; */
     justify-content: flex-start;
 }
 
+.gigEntryMapLink {
+    background-image: url("rocket2.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width:4vmax;
+    height:4vmax;
+    margin:0 -4vmax 1vmax 0;
+    border-radius:50%;
+
+}
+
 .gigEntryContainer form {
-    margin: 0;
+    margin: -1vmax 0 0vmax 0;
     max-height: 5vmax !important;
 }
 

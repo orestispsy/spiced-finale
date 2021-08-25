@@ -485,6 +485,7 @@ export default class GigEditor extends React.Component {
                             !this.state.deleteSuccess && (
                                 <EditMap
                                     coordinator={(e) => this.coordinator(e)}
+                                    selectedGig={this.state.selectedGig}
                                 />
                             )}
                         {!this.state.deleteSuccess && !this.state.map && (

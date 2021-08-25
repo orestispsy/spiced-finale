@@ -27,6 +27,7 @@ export default class App extends Component {
             sliderWidth: 0,
             move: false,
             sliderHidden: false,
+            selectedGigEntry: false,
         };
     }
 
@@ -35,19 +36,18 @@ export default class App extends Component {
             .get("/user-details")
             .then(({ data }) => {
                 if (!data.data) {
+                    location.replace("/");
+                }
+                // console.log("Current User's data in APP", data);
 
-                 location.replace("/");}
-                    // console.log("Current User's data in APP", data);
-                    
-                    this.setState({
-                        id: data.data.id,
-                        nickname: data.data.nickname,
-                        admin: data.data.admin,
-                        super_admin: data.data.super_admin,
-                        chat_img: data.data.chat_img,
-                        chat_color: data.data.chat_color,
-                    });
-                
+                this.setState({
+                    id: data.data.id,
+                    nickname: data.data.nickname,
+                    admin: data.data.admin,
+                    super_admin: data.data.super_admin,
+                    chat_img: data.data.chat_img,
+                    chat_color: data.data.chat_color,
+                });
             })
             .catch((err) => {
                 console.log("err in axios App User POST Request : ", err);
@@ -80,6 +80,13 @@ export default class App extends Component {
         this.setState({
             maps: !this.state.maps,
         });
+    }
+
+    setGigEntry(e) {
+        this.setState({
+            selectedGigEntry: e
+        });
+        console.log(e)
     }
 
     setProfileImage(e) {
@@ -197,7 +204,10 @@ export default class App extends Component {
                                         to="/"
                                         className="barMainLink"
                                         title="Back"
-                                        onClick={() => this.mapVisible()}
+                                        onClick={() => {
+                                            this.setGigEntry(false);
+                                            this.mapVisible();
+                                        }}
                                     ></Link>
                                 )}
                             </div>
@@ -237,6 +247,10 @@ export default class App extends Component {
                                     <MyMap
                                         gigsList={this.state.gigsList}
                                         mapVisible={() => this.mapVisible()}
+                                        selectedGigEntry={
+                                            this.state.selectedGigEntry
+                                        }
+                                        setGigEntry={(e) => this.setGigEntry(e)}
                                     />
                                 )}
                             />
@@ -262,6 +276,10 @@ export default class App extends Component {
                                         nickname={this.state.nickname}
                                         listSet={(e) => this.listSet(e)}
                                         history={props.history}
+                                        setGigEntry={(e) => this.setGigEntry(e)}
+                                        selectedGigEntry={
+                                            this.state.selectedGigEntry
+                                        }
                                     />
                                 )}
                             />

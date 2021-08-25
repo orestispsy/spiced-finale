@@ -28,8 +28,15 @@ const WithGoogleMapComponent = compose(
 )((props) => {
     return (
         <GoogleMap
-            zoom={3}
-            center={props.center}
+            zoom={props.selectedGig && 15 || 3}
+            center={{
+                lat:
+                    parseFloat(props.selectedGig && props.selectedGig.lat) ||
+                    35.08702515417141,
+                lng:
+                    (props.selectedGig && parseFloat(props.selectedGig.lng)) ||
+                    -40.71445657001389,
+            }}
             options={{
                 styles: mapStyles.green,
                 disableDefaultUI: false,
@@ -40,11 +47,20 @@ const WithGoogleMapComponent = compose(
                 props.setCenter({ lat: e.latLng.lat(), lng: e.latLng.lng() });
                 props.coordinator(e);
             }}
-            defaultZoom={8}
-            defaultCenter={{ lat: -34.397, lng: 150.644 }}
         >
-            {props.isMarkerShown && (
-                <Marker position={{ lat: -34.397, lng: 150.644 }} />
+            {!props.showCoordinates && (
+                <Marker
+                    position={{
+                        lat:
+                            parseFloat(
+                                props.selectedGig && props.selectedGig.lat
+                            ) || 35.08702515417141,
+                        lng:
+                            (props.selectedGig &&
+                                parseFloat(props.selectedGig.lng)) ||
+                            -40.71445657001389,
+                    }}
+                />
             )}
             {props.showCoordinates && (
                 <InfoWindow
@@ -56,14 +72,14 @@ const WithGoogleMapComponent = compose(
                         props.setShowCoordinates(false);
                     }}
                 >
-                    <div></div>
+                    <div className="locationEditor">New Location</div>
                 </InfoWindow>
             )}
         </GoogleMap>
     );
 });
 
-const EditMap = ({ coordinator }) => {
+const EditMap = ({ coordinator, selectedGig }) => {
     const [showCoordinates, setShowCoordinates] = useState(false);
     const [center, setCenter] = useState({
         lat: 35.08702515417141,
@@ -78,6 +94,7 @@ const EditMap = ({ coordinator }) => {
                 showCoordinates={showCoordinates}
                 setShowCoordinates={setShowCoordinates}
                 coordinator={coordinator}
+                selectedGig={selectedGig}
             />
         </div>
     );
