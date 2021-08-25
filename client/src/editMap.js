@@ -38,7 +38,7 @@ const WithGoogleMapComponent = compose(
                     -40.71445657001389,
             }}
             options={{
-                styles: mapStyles.green,
+                styles: mapStyles.styles [5],
                 disableDefaultUI: false,
                 zoomControl: true,
             }}

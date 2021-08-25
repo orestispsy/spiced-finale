@@ -1032,4 +1032,6 @@ const green = [
     },
 ];
 
-export default { modest, pinky, vintage, blackRed, normal, green, greenblack}
+export default {
+    styles: [modest, vintage, pinky, blackRed, normal, green, greenblack],
+};

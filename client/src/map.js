@@ -28,7 +28,7 @@ const WithGoogleMapComponent = compose(
     withScriptjs,
     withGoogleMap
 )((props) => {
-    console.log("take some props", props);
+    // console.log("take some props", props);
 
     if (props.selectedGig) {
         let propsDate = props.selectedGig.date.split("-");
@@ -36,27 +36,12 @@ const WithGoogleMapComponent = compose(
         // console.log("FIXED DATE", fixedDate);
     }
 
-    var x = 0;
     function switcherHelper(e) {
-        if (e > 7) {
-            e = 1;
+        if (e > mapStyles.styles.length - 1) {
+            e = 0;
         }
         props.setSwitcher(e);
-        if (e === 1) {
-            props.setStyle(mapStyles.vintage);
-        } else if (e === 2) {
-            props.setStyle(mapStyles.blackRed);
-        } else if (e === 3) {
-            props.setStyle(mapStyles.pinky);
-        } else if (e === 4) {
-            props.setStyle(mapStyles.greenblack);
-        } else if (e === 5) {
-            props.setStyle(mapStyles.green);
-        } else if (e === 6) {
-            props.setStyle(mapStyles.normal);
-        } else if (e === 7) {
-            props.setStyle(mapStyles.modest);
-        }
+        props.setStyle(mapStyles.styles[e]);
     }
 
     return (
@@ -81,9 +66,7 @@ const WithGoogleMapComponent = compose(
                         <Marker
                             key={gig.id}
                             position={{
-                                lat:
-                                    
-                                    parseFloat(gig.lat),
+                                lat: parseFloat(gig.lat),
                                 lng: parseFloat(gig.lng),
                             }}
                             icon={{
@@ -96,12 +79,14 @@ const WithGoogleMapComponent = compose(
                                         50) ||
                                         scaleParam ||
                                         30,
-                                    props.selectedGigEntry.id == gig.id && 50 || 15
+                                    (props.selectedGigEntry.id == gig.id &&
+                                        50) ||
+                                        15
                                 ),
                             }}
                             onClick={() => {
                                 props.setSelectedGig(gig);
-                                props.setGigEntry(gig)
+                                props.setGigEntry(gig);
                             }}
                         />
                     );
@@ -132,9 +117,7 @@ const WithGoogleMapComponent = compose(
                             <a href={props.selectedGig.poster} target="_blank">
                                 <img
                                     className="infoPoster"
-                                    src={
-                                        props.selectedGig.poster
-                                    }
+                                    src={props.selectedGig.poster}
                                 ></img>
                             </a>
                         )}
@@ -146,8 +129,7 @@ const WithGoogleMapComponent = compose(
                         )}
                         {props.selectedGig.city && (
                             <div>
-                                Location <span>➤</span>{" "}
-                                {props.selectedGig.city}
+                                Location <span>➤</span> {props.selectedGig.city}
                             </div>
                         )}
                         {props.selectedGig.tour_name && (
@@ -181,7 +163,7 @@ const WithGoogleMapComponent = compose(
 
 const MyMap = ({ gigsList, mapVisible, selectedGigEntry, setGigEntry }) => {
     const [selectedGig, setSelectedGig] = useState(null);
-    const [style, setStyle] = useState(mapStyles.modest);
+    const [style, setStyle] = useState(mapStyles.styles[0]);
     const [switcher, setSwitcher] = useState(0);
     const [zoom, setZoom] = useState(4);
     const [center, setCenter] = useState({
