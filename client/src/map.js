@@ -28,7 +28,7 @@ const WithGoogleMapComponent = compose(
     withScriptjs,
     withGoogleMap
 )((props) => {
-    // console.log("take some props", props);
+    console.log("take some props", props);
 
     if (props.selectedGig) {
         let propsDate = props.selectedGig.date.split("-");
@@ -124,7 +124,6 @@ const WithGoogleMapComponent = compose(
                                 <img
                                     className="infoPoster"
                                     src={
-                                        props.selectedGig.poster &&
                                         props.selectedGig.poster
                                     }
                                 ></img>
@@ -138,7 +137,7 @@ const WithGoogleMapComponent = compose(
                         )}
                         {props.selectedGig.city && (
                             <div>
-                                City/Place <span>➤</span>{" "}
+                                Location <span>➤</span>{" "}
                                 {props.selectedGig.city}
                             </div>
                         )}

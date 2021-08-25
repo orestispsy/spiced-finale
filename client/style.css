@@ -205,8 +205,8 @@ a:hover {
     background-position: center;
     background-repeat: no-repeat;
     position: fixed;
-    left: 1vmax;
-    bottom: 1vmax;
+    left: 0.5vmax;
+    bottom: 1.5vmax;
     z-index: 1;
     cursor: pointer;
 }
@@ -1061,8 +1061,8 @@ input {
     .switch {
         width: 5vmax !important;
         height: 5vmax !important;
-        left: 2vmax !important;
-        bottom: 2vmax !important;
+        left: 1.5vmax !important;
+        bottom: 3vmax !important;
     }
 
     .gigEntryContainer form select {
@@ -1319,8 +1319,8 @@ input {
     .switch {
         width: 5vmax !important;
         height: 5vmax !important;
-        left: 2vmax !important;
-        bottom: 2vmax !important;
+        left: 1.5vmax !important;
+        bottom: 4vmax !important;
     }
 
     .fileUploaderChat h1 {
@@ -1559,12 +1559,14 @@ div:focus {
 }
 
 .mapInfoCard {
-    padding: 10px;
+    padding:0.5vmax;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     user-select: none;
+     width: 20vmax !important;
+    height: fit-content !important;
 }
 
 .mapInfoCard div {
@@ -1585,11 +1587,11 @@ div:focus {
 }
 
 .infoPoster {
-    margin-top: 0.5vmax !important;
-    width: 150px !important;
-    height: 150px !important;
+    width: 14vmax !important;
+    height: 14vmax !important;
     border: 1px solid black;
     border-radius: 1vh;
+    margin: 0 0 0.5vmax 0;
 }
 
 .preFileUploader {
@@ -2003,8 +2005,8 @@ font-family: 'Ultra', serif; */
 }
 
 .usersBack {
-    min-width: 13vmax;
-    max-width: 13vmax;
+    min-width: 15vmax;
+    max-width: 15vmax;
     height: fit-content;
     height: 10vmax;
     min-height: 12vh;
@@ -2143,7 +2145,7 @@ font-family: 'Ultra', serif; */
 
 .fileUploaderChat input {
     overflow-wrap: break-word !important;
-    padding: 0.8vmax;
+    padding: 0.8vmax 1vmax 2vmax 0.8vmax;
     background-color: rgba(0, 0, 0, 0.185);
     border: 1px solid black;
     border-radius: 1px;
@@ -2567,11 +2569,7 @@ font-family: 'Ultra', serif; */
 }
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! GIGLIST ANIMATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-.gm-style a {
-    visibility: hidden !important;
-    max-width: 0 !important;
-    max-height: 0 !important;
-}
+
 
 .google-map-editor {
     height: 38vh;
@@ -2582,12 +2580,6 @@ font-family: 'Ultra', serif; */
 
 .gm-style .gm-style-iw-c {
     color: white !important;
-}
-
-.gm-style-iw-d {
-    font-size: 1vmax !important;
-    margin: 0.5vmax !important;
-    margin-left: 0vmax !important;
 }
 
 .gigEntryContainer {
