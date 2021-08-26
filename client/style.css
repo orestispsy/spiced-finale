@@ -268,7 +268,6 @@ a:hover {
     flex-direction: column;
     align-items: center;
     justify-self: center;
-
     border-radius: 2vh;
     padding: 1vmax 1vmax 1vmax 1.5vmax;
     background-color: rgba(172, 255, 104, 0.075);
@@ -1038,10 +1037,6 @@ input {
         height: 20vw !important;
     }
 
-    .gigEntries{
-        align-items:unset !important;
-    }
-
     .posterEdit {
         margin: 0 !important;
         width: 54vw !important;
@@ -1530,6 +1525,34 @@ input {
     margin-bottom: 20px;
 }
 
+.gigListMonths {
+    display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+ 
+}
+
+.exactMonth {
+    margin-top:1vmax;
+    font-size:3vmax;
+        font-family: "Black Ops One", cursive;
+           text-shadow: -0 0 5px red, 0 -0 5px red, -0 -0 5px red, -0 -0 5px red;
+     color:yellow;
+     display:flex;
+     flex-direction: column;
+   
+     text-align:center;
+}
+
+.monthInnerBox {
+      display:flex;
+ flex-wrap:wrap;
+   justify-content: center;
+     align-items: center;
+
+}
+
 .gigEntries {
     height: 80vh;
     max-height: 80vh;
@@ -1537,7 +1560,7 @@ input {
     overflow: hidden;
     scrollbar-width: none;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     letter-spacing: 1px;
     padding-bottom: 1vmax;
