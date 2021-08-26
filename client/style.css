@@ -270,7 +270,7 @@ a:hover {
     justify-self: center;
     border-radius: 2vh;
     padding: 1vmax 1vmax 1vmax 1.5vmax;
-    background-color: rgba(172, 255, 104, 0.075);
+    background-color: rgba(255, 104, 104, 0.075);
 }
 
 .gigListControls {
@@ -281,7 +281,7 @@ a:hover {
 
 .sortedGigReset {
     color: #529de1;
-    font-size: 0.5vmax;
+    font-size: 0.7vmax;
     cursor: pointer;
     font-family: "Press Start 2P", cursive;
 }
@@ -301,19 +301,18 @@ a:hover {
 }
 
 .gigEntriesCounter {
-     text-shadow: -0 0 5px red, 0 -0 5px red, -0 -0 5px red, -0 -0 5px red;
-     color:yellow;
+    text-shadow: -0 0 5px red, 0 -0 5px red, -0 -0 5px red, -0 -0 5px red;
+    color: yellow;
     background-color: black;
     border-radius: 50%;
-
-   width:5vmax;
-   height:6vmax;
+    width: 5vmax;
+    height: 6vmax;
     margin-top: -2vmax;
     z-index: 23423;
     font-size: 1.5vmax;
-    display:flex;
-    flex-direction:column;
-    align-items:center ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
@@ -1094,8 +1093,7 @@ input {
         overflow-y: scroll !important;
     }
 
-    
-    .sortedGigReset{
+    .sortedGigReset {
         font-size: 1.5vmax;
     }
 
@@ -1215,20 +1213,18 @@ input {
     }
 
     .gigEntryContainer form {
-        display:flex !important;
+        display: flex !important;
         flex-direction: row-reverse !important;
         margin: 0 !important;
         align-items: center !important;
         flex-wrap: unset !important;
-        width:30vmax !important;
+        width: 30vmax !important;
     }
-
 
     .gigEntryContainer form select {
         width: 25vmax !important;
-        margin-left:-2vmax !important;
+        margin-left: -2vmax !important;
     }
-
 
     .notification {
         width: 5vmax !important;
@@ -1392,13 +1388,13 @@ input {
         justify-content: unset !important;
     }
 
-    .sortedGigReset{
+    .sortedGigReset {
         font-size: 1.5vmax;
     }
 
-        .gigEntryContainer form{
-             width: 65vmax !important;
-        }
+    .gigEntryContainer form {
+        width: 65vmax !important;
+    }
 
     .gigEntryContainer form select {
         font-size: 2vmax;
@@ -1527,30 +1523,28 @@ input {
 
 .gigListMonths {
     display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
- 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .exactMonth {
-    margin-top:1vmax;
-    font-size:3vmax;
-        font-family: "Black Ops One", cursive;
-           text-shadow: -0 0 5px red, 0 -0 5px red, -0 -0 5px red, -0 -0 5px red;
-     color:yellow;
-     display:flex;
-     flex-direction: column;
-   
-     text-align:center;
+    margin-top: 1vmax;
+    font-size: 3vmax;
+    font-family: "Black Ops One", cursive;
+    text-shadow: -0 0 5px red, 0 -0 5px red, -0 -0 5px red, -0 -0 5px red;
+    color: yellow;
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
 }
 
 .monthInnerBox {
-      display:flex;
- flex-wrap:wrap;
-   justify-content: center;
-     align-items: center;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .gigEntries {
@@ -1558,7 +1552,8 @@ input {
     max-height: 80vh;
     width: 70vw;
     overflow: hidden;
-    scrollbar-width: none;
+    scrollbar-width: 20px;
+    scrollbar-color: rgba(255, 255, 0, 0.39) rgba(172, 255, 104, 0.041) ;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -1566,6 +1561,10 @@ input {
     padding-bottom: 1vmax;
     flex-wrap: wrap;
     margin-top: -1vmax;
+}
+
+.gigEntries:hover{
+    margin-right:-20px;
 }
 
 .gigEntries a {
@@ -1606,21 +1605,27 @@ input {
     width: 0;
 }
 
-.chatScreen::-webkit-scrollbar {
+.chatScreen::-webkit-scrollbar, .gigEntries::-webkit-scrollbar {
     width: 20px;
 }
 
-.chatScreen::-webkit-scrollbar-track {
+.chatScreen::-webkit-scrollbar-track{
     box-shadow: inset 0 0 5px rgb(136, 135, 135);
     border-radius: 10px;
 }
 
-.chatScreen::-webkit-scrollbar-thumb {
-    background: #96ff592a;
+.gigEntries::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.075);
     border-radius: 10px;
 }
 
-.chatScreen::-webkit-scrollbar-thumb:hover {
+.chatScreen::-webkit-scrollbar-thumb, .gigEntries::-webkit-scrollbar-thumb {
+    background: #96ff592a;
+    border-radius: 10px;
+   
+}
+
+.chatScreen::-webkit-scrollbar-thumb:hover, .gigEntries::-webkit-scrollbar-thumb:hover {
     background: #ffc4015b;
 }
 
@@ -1938,7 +1943,7 @@ font-family: 'Ultra', serif; */
     height: 60vh;
     background-color: rgba(255, 255, 255, 0.11);
     overflow-y: auto;
-    scrollbar-width: none;
+       scrollbar-color: rgba(255, 255, 0, 0.39) rgba(172, 255, 104, 0.075) ;
     color: yellowgreen;
     box-shadow: inset 0 0 0 100vh rgba(30, 255, 0, 0.164),
         -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
