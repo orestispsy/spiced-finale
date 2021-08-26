@@ -51,17 +51,7 @@ export default function GigList({ gigsList, listSet }) {
                 </div>
                 <div className="year"> {year && year} </div>
             </div>
-            <div
-                style={{
-                    color: `#529DE1 `,
-                    backgroundColor: `black`,
-                    borderRadius: `50%`,
-                    borderBottom: `1px solid yellow`,
-                    borderTop: `1px solid yellow`,
-                    padding: `1.5vmax`,
-                    marginTop: "-1.5vmax",
-                    zIndex: `23423`,
-                }}
+            <div className="gigEntriesCounter"
             >
                 {gigsList && !sortedGigs && gigsList.length}
                 {sortedGigs && sortedGigs.length}

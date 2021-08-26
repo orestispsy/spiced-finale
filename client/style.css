@@ -264,143 +264,155 @@ a:hover {
 }
 
 .gigEntriesBox {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-self: center;
-    border:1px solid rgba(255, 255, 0, 0.699);
-    outline:1px solid #529ce1a9 ;
-    border-radius:2vh;
-    outline-offset:2vh;
-    padding:1vmax 1vmax 1vmax 1.5vmax ;
+
+    border-radius: 2vh;
+    padding: 1vmax 1vmax 1vmax 1.5vmax;
+    background-color: rgba(172, 255, 104, 0.075);
 }
 
 .gigListControls {
-    display:flex;
+    display: flex;
     align-items: center;
-    padding:0 1.5vmax 1vmax 1vmax;
+    padding: 0 1.5vmax 1vmax 1vmax;
 }
 
 .sortedGigReset {
-        color:#529DE1 ;
+    color: #529de1;
     font-size: 0.5vmax;
-    cursor:pointer;
-    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    font-family: "Press Start 2P", cursive;
 }
 
 .gigListContainer input {
-    width:18vmax !important; 
-    background-color:transparent !important;
-    box-shadow:none !important;
-
+    width: 18vmax !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
 }
 
 .year {
-    color:529DE1;
-       text-shadow: 1px 1px 0 white;
-        margin: -1vmax 0 1vmax 0;
-        font-size:3vmax;
-          font-family: "Black Ops One", cursive;
+    color: 529de1;
+    text-shadow: 1px 1px 0 white;
+    margin: -1vmax 0 1vmax 0;
+    font-size: 3vmax;
+    font-family: "Black Ops One", cursive;
+}
+
+.gigEntriesCounter {
+     text-shadow: -0 0 5px red, 0 -0 5px red, -0 -0 5px red, -0 -0 5px red;
+     color:yellow;
+    background-color: black;
+    border-radius: 50%;
+
+   width:5vmax;
+   height:6vmax;
+    margin-top: -2vmax;
+    z-index: 23423;
+    font-size: 1.5vmax;
+    display:flex;
+    flex-direction:column;
+    align-items:center ;
+    justify-content: center;
 }
 
 /* ######### INPUT RANGE RESETING VALUE CSS ######### */
 
-input[type=range] {
-  height: 26px;
-  -webkit-appearance: none;
-  margin: 10px 0;
-  width: 100%;
+input[type="range"] {
+    height: 26px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
 }
 
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 14px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px #50555C;
-  background: #5c5c50;
-  border-radius: 14px;
-  border: 0px solid #000000;
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 14px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #50555c;
+    background: #5c5c50;
+    border-radius: 14px;
+    border: 0px solid #000000;
 }
-input[type=range]::-webkit-slider-thumb {
-  box-shadow: 0px 0px 0px #000000;
-  border: 0px solid #000000;
-  height: 20px;
-  width: 40px;
-  border-radius: 12px;
-  background: #529DE1;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -3px;
+input[type="range"]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 20px;
+    width: 40px;
+    border-radius: 12px;
+    background: #529de1;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -3px;
 }
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #50555C;
+input[type="range"]:focus::-webkit-slider-runnable-track {
+    background: #50555c;
 }
-input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 14px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px #50555C;
-  background: #50555C;
-  border-radius: 14px;
-  border: 0px solid #000000;
+input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 14px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #50555c;
+    background: #50555c;
+    border-radius: 14px;
+    border: 0px solid #000000;
 }
-input[type=range]::-moz-range-thumb {
-  box-shadow: 0px 0px 0px #000000;
-  border: 0px solid #000000;
-  height: 20px;
-  width: 40px;
-  border-radius: 12px;
-  background: #529DE1;
-  cursor: pointer;
+input[type="range"]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 20px;
+    width: 40px;
+    border-radius: 12px;
+    background: #529de1;
+    cursor: pointer;
 }
-input[type=range]::-ms-track {
-  width: 100%;
-  height: 14px;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
+input[type="range"]::-ms-track {
+    width: 100%;
+    height: 14px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
 }
-input[type=range]::-ms-fill-lower {
-  background: #50555C;
-  border: 0px solid #000000;
-  border-radius: 28px;
-  box-shadow: 1px 1px 1px #50555C;
+input[type="range"]::-ms-fill-lower {
+    background: #50555c;
+    border: 0px solid #000000;
+    border-radius: 28px;
+    box-shadow: 1px 1px 1px #50555c;
 }
-input[type=range]::-ms-fill-upper {
-  background: #50555C;
-  border: 0px solid #000000;
-  border-radius: 28px;
-  box-shadow: 1px 1px 1px #50555C;
+input[type="range"]::-ms-fill-upper {
+    background: #50555c;
+    border: 0px solid #000000;
+    border-radius: 28px;
+    box-shadow: 1px 1px 1px #50555c;
 }
-input[type=range]::-ms-thumb {
-  margin-top: 1px;
-  box-shadow: 0px 0px 0px #000000;
-  border: 0px solid #000000;
-  height: 20px;
-  width: 40px;
-  border-radius: 12px;
-  background: #529DE1;
-  cursor: pointer;
+input[type="range"]::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 20px;
+    width: 40px;
+    border-radius: 12px;
+    background: #529de1;
+    cursor: pointer;
 }
-input[type=range]:focus::-ms-fill-lower {
-  background: #50555C;
+input[type="range"]:focus::-ms-fill-lower {
+    background: #50555c;
 }
-input[type=range]:focus::-ms-fill-upper {
-  background: #50555C;
+input[type="range"]:focus::-ms-fill-upper {
+    background: #50555c;
 }
 
 /* ######### INPUT RANGE RESETING VALUE CSS ######### */
-
-
 
 .gigListContainer h1 {
     margin-bottom: 10px;
- color:rgb(255, 251, 0);
-       text-shadow: -0 0 5px red, 0 -0 5px red,
-        -0 -0 5px red, -0 -0 5px red;
-          font-family: "Black Ops One", cursive;
-          font-size:4vmax;
+    color: rgb(255, 251, 0);
+    text-shadow: -0 0 5px red, 0 -0 5px red, -0 -0 5px red, -0 -0 5px red;
+    font-family: "Black Ops One", cursive;
+    font-size: 4vmax;
 }
 
 .gigListContainer p {
@@ -1026,6 +1038,10 @@ input {
         height: 20vw !important;
     }
 
+    .gigEntries{
+        align-items:unset !important;
+    }
+
     .posterEdit {
         margin: 0 !important;
         width: 54vw !important;
@@ -1081,6 +1097,11 @@ input {
 
     .gigEntryContainer {
         overflow-y: scroll !important;
+    }
+
+    
+    .sortedGigReset{
+        font-size: 1.5vmax;
     }
 
     .gigEntryDetailsBack {
@@ -1198,9 +1219,21 @@ input {
         bottom: 3vmax !important;
     }
 
-    .gigEntryContainer form select {
-        width: 35vmax !important;
+    .gigEntryContainer form {
+        display:flex !important;
+        flex-direction: row-reverse !important;
+        margin: 0 !important;
+        align-items: center !important;
+        flex-wrap: unset !important;
+        width:30vmax !important;
     }
+
+
+    .gigEntryContainer form select {
+        width: 25vmax !important;
+        margin-left:-2vmax !important;
+    }
+
 
     .notification {
         width: 5vmax !important;
@@ -1364,6 +1397,14 @@ input {
         justify-content: unset !important;
     }
 
+    .sortedGigReset{
+        font-size: 1.5vmax;
+    }
+
+        .gigEntryContainer form{
+             width: 65vmax !important;
+        }
+
     .gigEntryContainer form select {
         font-size: 2vmax;
         width: 45vmax !important;
@@ -1501,7 +1542,7 @@ input {
     letter-spacing: 1px;
     padding-bottom: 1vmax;
     flex-wrap: wrap;
-    margin-top:-1.5vmax;
+    margin-top: -1vmax;
 }
 
 .gigEntries a {
@@ -1695,13 +1736,13 @@ div:focus {
 }
 
 .mapInfoCard {
-    padding:0.5vmax;
+    padding: 0.5vmax;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     user-select: none;
-     width: 20vmax !important;
+    width: 20vmax !important;
     height: fit-content !important;
 }
 
@@ -2706,7 +2747,6 @@ font-family: 'Ultra', serif; */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! GIGLIST ANIMATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
-
 .google-map-editor {
     height: 38vh;
     width: 40vw;
@@ -2714,9 +2754,9 @@ font-family: 'Ultra', serif; */
     margin-top: 1vmax;
 }
 
-.locationEditor{
-    width:6vmax;
-    padding:1vmax;
+.locationEditor {
+    width: 6vmax;
+    padding: 1vmax;
 }
 
 .gm-style .gm-style-iw-c {
@@ -2734,11 +2774,10 @@ font-family: 'Ultra', serif; */
     background-image: url("rocket2.gif");
     background-size: cover;
     background-repeat: no-repeat;
-    width:4vmax;
-    height:4vmax;
-    margin:0 -4vmax 1vmax 0;
-    border-radius:50%;
-
+    width: 4vmax;
+    height: 4vmax;
+    margin: 0 -4vmax 1vmax 0;
+    border-radius: 50%;
 }
 
 .gigEntryContainer form {
