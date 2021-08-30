@@ -22,8 +22,6 @@ const io = require("socket.io")(server, {
     //     ),
 });
 
-
-
 const multer = require("multer");
 const uidSafe = require("uid-safe");
 const s3 = require("./s3");
@@ -554,28 +552,22 @@ io.on("connection", function (socket) {
 
     onlineUsers[socket.id] = userId;
 
-    // console.log("ONLINE USERS", onlineUsers);
-
     const userIds = Object.values(onlineUsers);
-    // console.log("USER IDS", userIds);
 
     var count = 0;
+
     userIds.forEach((item) => {
         if (item == userId) {
             count++;
         }
     });
-
-    // console.log("COUNT", count);
+    socket.emit("browserCount", count);
 
     let filteredUsers = userIds.filter(
         (id, user) => userIds.indexOf(id) === user
     );
 
-    // console.log("filtered users", filteredUsers);
-
     db.getOnlineUsers(filteredUsers).then(({ rows }) => {
-        // console.log(`filtered users`, rows);
         io.emit("users online", rows);
     });
 
@@ -600,18 +592,6 @@ io.on("connection", function (socket) {
             socket.emit("chatMessages", clearRows);
         })
         .catch((err) => console.log(err));
-
-    if (count < 2) {
-        db.addChatMsg(userId, "--##--entered--##--")
-            .then(() => {
-                db.getChatMsgs()
-                    .then(({ rows }) => {
-                        io.emit("chatMessage", rows[0]);
-                    })
-                    .catch((err) => console.log(err));
-            })
-            .catch((err) => console.log(err));
-    }
 
     socket.on("A CHAT MSG", (msg) => {
         db.addChatMsg(userId, msg)
@@ -669,10 +649,10 @@ io.on("connection", function (socket) {
         io.emit("privateMessage", message);
     });
 
-    // console.log("socket userId", userId);
     // console.log(`socket ${socket.id} connected`);
 
     socket.on("disconnect", () => {
+        socket.emit("browserCount", count--);
         var userIdDisconnected = onlineUsers[socket.id];
         var userStillOnline = false;
         delete onlineUsers[socket.id];
@@ -682,19 +662,19 @@ io.on("connection", function (socket) {
                 userStillOnline = true;
             }
         }
-        // console.log("userStillOnline:", userStillOnline);
         if (!userStillOnline) {
-            // console.log(`userId: ${userIdDisconnected} disconnected!`);
             io.emit("userLeft", userIdDisconnected);
-            db.addChatMsg(userId, "--##--left--##--")
-                .then(() => {
-                    db.getChatMsgs()
-                        .then(({ rows }) => {
-                            io.emit("chatMessage", rows[0]);
-                        })
-                        .catch((err) => console.log(err));
-                })
-                .catch((err) => console.log(err));
+            if (count < 2 && count !=1) {
+                db.addChatMsg(userId, "--##--left--##--")
+                    .then(() => {
+                        db.getChatMsgs()
+                            .then(({ rows }) => {
+                                io.emit("chatMessage", rows[0]);
+                            })
+                            .catch((err) => console.log(err));
+                    })
+                    .catch((err) => console.log(err));
+            }
         }
 
         // console.log(`socket ${socket.id} disconnected`);

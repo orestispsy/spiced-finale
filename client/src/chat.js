@@ -39,6 +39,8 @@ export default function Chat({
 
     const chatMessages = useSelector((state) => state && state.chatMessages);
 
+    const browserCount = useSelector((state) => state && state.count);
+
     useEffect(() => {
         if (chatMessages) {
             if (scrollTop < 1) {
@@ -49,6 +51,12 @@ export default function Chat({
             }
         }
     }, [scrollTop]);
+
+    useEffect(() => {
+        if (browserCount == 1) {
+            socket.emit("A CHAT MSG", "--##--entered--##--");
+        }
+    }, [browserCount]);
 
     useEffect(() => {
         if (elemRef.current) {
@@ -97,6 +105,7 @@ export default function Chat({
                     }
                 }, msgLink);
                 socket.emit("A CHAT MSG", e.target.value);
+                console.log(e.target.value);
                 e.target.value = "";
             }
             e.preventDefault();
@@ -204,11 +213,23 @@ export default function Chat({
                 {!privateMode && (
                     <div className="chatContainer">
                         <div className="chatHeadline">
-                       
-                                <Link to="/" className="buttonBack">
-                                    X
-                                </Link>
-                        
+                            <Link
+                                to="/"
+                                className="buttonBack"
+                                onClick={() => {
+                                    {
+                                        if (browserCount == 1) {
+                                            socket.emit(
+                                                "A CHAT MSG",
+                                                "--##--left--##--"
+                                            );
+                                        }
+                                    }
+                                }}
+                            >
+                                X
+                            </Link>
+
                             <div id="chatTitle">Chat Room</div>
                         </div>
                         <div className="chatScreenBack">
@@ -316,7 +337,8 @@ export default function Chat({
                                                         ></img>
                                                         <h1>{msg.nickname}</h1>
                                                     </div>
-                                                    {admin && !super_admin &&
+                                                    {admin &&
+                                                        !super_admin &&
                                                         chat_myUserId ==
                                                             msg.msg_sender_id && (
                                                             <div
@@ -426,7 +448,6 @@ export default function Chat({
                 />
             </div>
 
-   
             <div
                 className="tickerButton"
                 onClick={() => {
