@@ -206,7 +206,7 @@ a:hover {
     background-repeat: no-repeat;
     position: fixed;
     left: 0.5vmax;
-    bottom: 1.5vmax;
+    bottom: 0.5vmax;
     z-index: 1;
     cursor: pointer;
 }
@@ -279,11 +279,20 @@ a:hover {
     padding: 0 1.5vmax 1vmax 1vmax;
 }
 
+.sortedGigRange {
+    color: #00ffbf;
+    font-size: 0.7vmax;
+    cursor: pointer;
+    font-family: "Press Start 2P", cursive;
+}
+
 .sortedGigReset {
     color: #00ffbf;
     font-size: 0.7vmax;
     cursor: pointer;
     font-family: "Press Start 2P", cursive;
+    margin-top: -1vmax;
+    padding-bottom: 2vmax;
 }
 
 .gigListContainer input {
@@ -298,7 +307,8 @@ a:hover {
     font-size: 4vmax;
     font-family: "Black Ops One", cursive;
     letter-spacing: 2px;
-    text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black, -0 -0 5px black;
+    text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
+        -0 -0 5px black;
 }
 
 .gigEntriesCounter {
@@ -335,6 +345,7 @@ input[type="range"]::-webkit-slider-runnable-track {
     border-radius: 14px;
     border: 0px solid #000000;
 }
+
 input[type="range"]::-webkit-slider-thumb {
     box-shadow: 0px 0px 0px #000000;
     border: 0px solid #000000;
@@ -346,6 +357,7 @@ input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     margin-top: -3px;
 }
+
 input[type="range"]:focus::-webkit-slider-runnable-track {
     background: #50555c;
 }
@@ -667,7 +679,8 @@ input {
     user-select: none;
 }
 
-.mainMenuLink:hover {
+.mainMenuLink:hover,
+.buttonBack:hover {
     box-shadow: -0 0 10px rgba(255, 208, 0, 0.205),
         0 -0 10px rgba(255, 208, 0, 0.205), -0 -0 10px rgba(255, 208, 0, 0.212),
         -0 -0 10px rgba(255, 208, 0, 0.178);
@@ -679,7 +692,8 @@ input {
     transition: 1s;
 }
 
-.mainMenuLink:hover:active {
+.mainMenuLink:hover:active,
+.buttonBack:active {
     box-shadow: -0 0 15px rgba(255, 208, 0, 0.205),
         0 -0 15px rgba(255, 208, 0, 0.205), -0 -0 15px rgba(255, 208, 0, 0.205),
         -0 -0 15px rgba(255, 208, 0, 0.205);
@@ -783,6 +797,12 @@ input {
         height: 35vmax !important;
     }
 
+    .logo2 {
+        width: 25vmax !important;
+        height: 8vmax !important;
+        margin: 0 0 0 -5vmax !important;
+    }
+
     #logoIntro {
         margin: 0 0 1.5vh 0 !important;
         font-size: 9vmax !important;
@@ -819,6 +839,7 @@ input {
         width: fit-content !important;
         padding: 1vmax !important;
     }
+
     .chatScreen {
         height: 29vh !important;
         width: 80vw !important;
@@ -848,7 +869,7 @@ input {
         font-size: 4vmax !important;
     }
     .onlineUsers {
-        margin-right: 2vmax !important;
+        margin-right: 0.5vmax !important;
         justify-content: center !important;
         border-radius: 2vh !important;
         min-width: 34vmax !important;
@@ -1095,6 +1116,11 @@ input {
     }
 
     .sortedGigReset {
+        margin-top: 0vmax !important;
+        font-size: 1.5vmax;
+    }
+
+    .sortedGigRange {
         font-size: 1.5vmax;
     }
 
@@ -1210,7 +1236,7 @@ input {
         width: 5vmax !important;
         height: 5vmax !important;
         left: 1.5vmax !important;
-        bottom: 3vmax !important;
+        bottom: 2vmax !important;
     }
 
     .gigEntryContainer form {
@@ -1231,6 +1257,38 @@ input {
         width: 5vmax !important;
         height: 5vmax !important;
         margin-left: 1vmax !important;
+    }
+
+    .chatHeadline {
+        width: 88vw !important;
+       
+    }
+
+    .buttonBack {
+        font-size: 1.5vmax !important;
+        padding: 0.5vmax 1vmax!important;
+    }
+
+    #chatTitle{
+    margin-top:-4vmax !important;
+}
+
+    .deleteChatMsg {
+        margin-top: -3vmax !important;
+          width: 1.2vmax !important;
+    height: 1.2vmax !important;
+    padding:0.1vmax !important;
+
+    }
+
+    .post img{
+   width: 4vmax !important;
+    height: 4vmax !important;
+    }
+
+    
+    .userChatDetails h1 {
+        font-size: 3vmax !important;
     }
 }
 
@@ -1274,6 +1332,15 @@ input {
         width: 65vw !important;
     }
 
+    .chatHeadline {
+        width: 64vw !important;
+    }
+
+        .buttonBack {
+        font-size: 1.5vmax !important;
+        padding: 0.5vmax 1vmax!important;
+    }
+
     .loginContainer,
     .registerContainer {
         min-height: fit-content !important;
@@ -1285,6 +1352,11 @@ input {
         height: 40vh !important;
         width: 60vw !important;
         border-radius: 3vh !important;
+    }
+
+    .post img {
+        width:3vmax !important;
+        height: 3vmax !important
     }
 
     .chatNextControls {
@@ -1342,7 +1414,7 @@ input {
 
     .emoticons {
         width: 20vmax !important;
-        height: 16vmax !important;
+        height: 12vmax !important;
     }
 
     .chatBar {
@@ -1389,7 +1461,8 @@ input {
         justify-content: unset !important;
     }
 
-    .sortedGigReset {
+    .sortedGigReset,
+    .sortedGigRange {
         font-size: 1.5vmax;
     }
 
@@ -1476,6 +1549,17 @@ input {
         margin: 0 !important;
     }
 
+    .userChatDetails h1 {
+        font-size: 2vmax !important;
+    }
+
+    .deleteChatMsg {
+        margin-top: -2vmax !important;
+          width: 1.2vmax !important;
+    height: 1.2vmax !important;
+    padding:0.1vmax !important;
+    }
+
     .onlineUsersBack {
         align-self: center !important;
         padding-top: 2vmax !important;
@@ -1486,7 +1570,7 @@ input {
         width: 5vmax !important;
         height: 5vmax !important;
         left: 1.5vmax !important;
-        bottom: 4vmax !important;
+        bottom: 2vmax !important;
     }
 
     .fileUploaderChat h1 {
@@ -1521,9 +1605,10 @@ input {
     background-image: url("logo2.png");
     background-repeat: no-repeat;
     background-size: cover;
-    width: 250px;
-    height: 70px;
-    margin-bottom: 20px;
+    width: 18vmax;
+    height: 5vmax;
+    margin-top: -1vmax;
+    margin-left: -3vmax;
 }
 
 .gigListMonths {
@@ -1558,7 +1643,7 @@ input {
     width: 70vw;
     overflow: hidden;
     scrollbar-width: 20px;
-    scrollbar-color: rgba(255, 255, 0, 0.39) rgba(172, 255, 104, 0.041) ;
+    scrollbar-color: rgba(255, 255, 0, 0.39) rgba(172, 255, 104, 0.041);
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -1568,8 +1653,8 @@ input {
     margin-top: -1vmax;
 }
 
-.gigEntries:hover{
-    margin-right:-20px;
+.gigEntries:hover {
+    margin-right: -20px;
 }
 
 .gigEntries a {
@@ -1610,33 +1695,36 @@ input {
     width: 0;
 }
 
-.chatScreen::-webkit-scrollbar, .gigEntries::-webkit-scrollbar, .superAdminContainer::-webkit-scrollbar {
+.chatScreen::-webkit-scrollbar,
+.gigEntries::-webkit-scrollbar,
+.superAdminContainer::-webkit-scrollbar {
     width: 20px;
 }
 
-.chatScreen::-webkit-scrollbar-track{
+.chatScreen::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px rgb(136, 135, 135);
     border-radius: 10px;
 }
 
-.gigEntries::-webkit-scrollbar-track, .superAdminContainer::-webkit-scrollbar-track {
+.gigEntries::-webkit-scrollbar-track,
+.superAdminContainer::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.075);
     border-radius: 10px;
 }
 
-.chatScreen::-webkit-scrollbar-thumb, .gigEntries::-webkit-scrollbar-thumb{
+.chatScreen::-webkit-scrollbar-thumb,
+.gigEntries::-webkit-scrollbar-thumb {
     background: #96ff592a;
     border-radius: 10px;
-   
 }
 
 .superAdminContainer::-webkit-scrollbar-thumb {
-    background: #2bff000e; 
+    background: #2bff000e;
     border-radius: 10px;
-   
 }
 
-.chatScreen::-webkit-scrollbar-thumb:hover, .gigEntries::-webkit-scrollbar-thumb:hover {
+.chatScreen::-webkit-scrollbar-thumb:hover,
+.gigEntries::-webkit-scrollbar-thumb:hover {
     background: #ffc4015b;
 }
 
@@ -1711,6 +1799,12 @@ input {
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
     text-align: center;
+}
+
+.gm-style a {
+    visibility: hidden !important;
+
+    height: 0 !important;
 }
 
 .gm-style-cc {
@@ -1812,6 +1906,7 @@ div:focus {
     border: 1px solid black;
     border-radius: 1vh;
     margin: 0 0 0.5vmax 0;
+    visibility: visible !important;
 }
 
 .preFileUploader {
@@ -1892,20 +1987,53 @@ font-family: 'Ultra', serif; */
     margin-bottom: -2vmax;
 }
 
+.chatHeadline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 45vw;
+}
+
+#chatTitle{
+    font-size: 4vmax;
+    color: rgb(255, 0, 0);
+    text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
+        -1px -1px 0 white;
+    font-family: "Black Ops One", cursive;
+    user-select: none;
+    margin-top:-2.5vmax;
+
+}
+
+.buttonBack {
+    margin: 0.5vmax;
+    align-self: flex-end;
+    background: linear-gradient(
+        112.72013189013455deg,
+        rgba(7, 240, 170, 0.13) 4.927083333333334%,
+        rgba(75, 189, 30, 0.123) 97.84374999999999%
+    );
+    color: yellow;
+    font-size: 1vmax;
+    font-family: "Black Ops One", cursive;
+    padding: 0.2vmax 0.5vmax;
+    border-radius: 10vh;
+    box-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
+        -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
+    border: 1px solid rgba(255, 230, 0, 0.37);
+    border-style: double;
+    transition: 1s;
+    user-select: none;
+}
+
 .mobileChat {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-#chatContainer h1 {
-    color: rgb(8, 255, 202);
-    text-shadow: -2px 2px 10px rgba(0, 0, 0, 0.308),
-        2px -2px 10px rgba(0, 0, 0, 0.308), -2px -2px 10px rgba(0, 0, 0, 0.308),
-        -2px -2px 10px rgba(0, 0, 0, 0.308);
-    border-radius: 1vh;
-    letter-spacing: 2px;
-}
+
 
 #chatContainer {
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
@@ -1939,15 +2067,7 @@ font-family: 'Ultra', serif; */
     margin-bottom: auto;
 }
 
-.chatContainer h1 {
-    font-size: 4vmax;
-    color: rgb(255, 0, 0);
-    text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
-        -1px -1px 0 white;
-    margin: 0;
-    font-family: "Black Ops One", cursive;
-    user-select: none;
-}
+
 
 .chatScreen {
     display: flex;
@@ -1958,7 +2078,7 @@ font-family: 'Ultra', serif; */
     height: 60vh;
     background-color: rgba(255, 255, 255, 0.11);
     overflow-y: auto;
-       scrollbar-color: rgba(255, 255, 0, 0.39) rgba(172, 255, 104, 0.075) ;
+    scrollbar-color: rgba(255, 255, 0, 0.39) rgba(172, 255, 104, 0.075);
     color: yellowgreen;
     box-shadow: inset 0 0 0 100vh rgba(30, 255, 0, 0.164),
         -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
@@ -2101,13 +2221,15 @@ font-family: 'Ultra', serif; */
 }
 
 .deleteChatMsg {
+    filter:contrast(150%);
     background-image: url("delete.png");
     background-size: cover;
     width: 0.8vmax;
     height: 0.8vmax;
-    margin-top: -0.8vmax;
+    margin-top: -2.2vmax;
     mix-blend-mode: hard-light;
     cursor: pointer;
+    margin-left: -0.2vmax;
 }
 
 .post img {
@@ -2240,10 +2362,15 @@ font-family: 'Ultra', serif; */
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
     border-radius: 0.5vmax;
+    padding-top: 0.7vmax;
 }
 
 .usersBack div {
     cursor: pointer;
+}
+
+.usersBack:nth-child(1) {
+    margin-top: 2vmax !important;
 }
 
 .mobileOnlineUsers {
@@ -2286,6 +2413,9 @@ font-family: 'Ultra', serif; */
     justify-content: flex-start;
     align-items: center;
     align-self: center;
+    padding: 0.5vmax 0;
+    border-radius: 0.8vh;
+    margin: 0 0.3vmax;
 }
 
 .onlineListImg {
@@ -2294,7 +2424,6 @@ font-family: 'Ultra', serif; */
     background-position: center;
     background-size: contain;
     border-radius: 50%;
-    margin-top: 1vmax;
     margin-left: 0.5vmax;
     margin-right: 0.3vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
@@ -2303,12 +2432,15 @@ font-family: 'Ultra', serif; */
 
 .onlineList span {
     margin-left: 0.3vmax;
-    margin-bottom: -1vmax;
     color: rgb(0, 255, 0);
     font-family: "Black Ops One", cursive;
     font-size: 1.5vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
+}
+
+.onlineList:hover {
+    background-color: #00ffbf13;
 }
 
 .chatMenuOptions {
@@ -2317,6 +2449,7 @@ font-family: 'Ultra', serif; */
     align-self: center;
     align-items: center;
     width: 15vmax;
+    margin-bottom: 0.5vmax;
 }
 
 .toggleChatUploader {
@@ -2950,8 +3083,8 @@ font-family: 'Ultra', serif; */
 .superAdminContainer {
     overflow-y: scroll;
     justify-content: flex-start;
-     scrollbar-width: 20px;
-    scrollbar-color: rgba(255, 255, 0, 0.39) rgba(172, 255, 104, 0.041) ;
+    scrollbar-width: 20px;
+    scrollbar-color: rgba(255, 255, 0, 0.39) rgba(172, 255, 104, 0.041);
 
     height: 100vh;
     user-select: none;
@@ -3358,7 +3491,8 @@ font-family: 'Ultra', serif; */
     width: 9vmax;
     height: 9vmax;
     border-radius: 50%;
-    padding: 0.5vmax 0 0 0;
+    padding: 0;
+    margin-top:-1vmax;
 }
 
 #privateMsgUserNick {

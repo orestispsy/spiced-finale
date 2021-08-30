@@ -88,3 +88,10 @@ export function privateMessageAct(arg) {
         message: arg,
     };
 }
+
+export function browserCountAct(arg) {
+    return {
+        type: "BROWSER_COUNT",
+        count: arg,
+    };
+}

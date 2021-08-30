@@ -49,6 +49,7 @@ export default function GigList({ gigsList, listSet }) {
     };
 
     const gigsReset = (e) => {
+        
         setYear(false);
         setSortedGigs(false);
     };
@@ -58,6 +59,7 @@ export default function GigList({ gigsList, listSet }) {
             <div className="gigEntriesBox">
                 <h1>Gig Entries</h1>
                 <div className="gigListControls">
+                    <div className="sortedGigRange">2006</div>
                     <input
                         title="Set Year"
                         type="range"
@@ -70,6 +72,9 @@ export default function GigList({ gigsList, listSet }) {
                             setYear(e.target.value);
                         }}
                     ></input>
+                    <div className="sortedGigRange">2021</div>
+                </div>
+                {year && (
                     <div
                         title="Reset"
                         className="sortedGigReset"
@@ -79,7 +84,7 @@ export default function GigList({ gigsList, listSet }) {
                     >
                         reset
                     </div>
-                </div>
+                )}
                 <div className="year"> {year && year} </div>
             </div>
             <div className="gigEntriesCounter">

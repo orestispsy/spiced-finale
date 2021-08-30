@@ -185,7 +185,7 @@ export default class App extends Component {
                                         </Link>
                                     )}
                                     <div className="barProfile">
-                                        {this.state.nickname}
+                                        {!this.state.maps && this.state.nickname}
                                     </div>
                                 </div>
                                 {this.state.maps && (

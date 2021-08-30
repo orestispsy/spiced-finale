@@ -91,6 +91,12 @@ export default function (state = {}, action) {
             messages: state.messages.concat(action.message),
         };
     }
+        if (action.type == "BROWSER_COUNT") {
+            nextState = {
+                ...state,
+                count: action.count,
+            };
+        }
 
     // console.log("NEXT State", nextState);
     return nextState;
