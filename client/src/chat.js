@@ -39,9 +39,6 @@ export default function Chat({
 
     const chatMessages = useSelector((state) => state && state.chatMessages);
 
-    
-    const browserCount = useSelector((state) => state && state.count);
-
     useEffect(() => {
         if (chatMessages) {
             if (scrollTop < 1) {
@@ -52,22 +49,6 @@ export default function Chat({
             }
         }
     }, [scrollTop]);
-
-
-  
-    useEffect(() => {
-        console.log("start", browserCount)
-        if (browserCount==1) {
-            socket.emit("A CHAT MSG", "--##--entered--##--");   
-        }
-    }, []);
-
-        useEffect(() => {
-            console.log("refreshed", browserCount)
-            if (browserCount ==0) {
-                socket.emit("A CHAT MSG", "--##--entered--##--");
-            }
-        }, [browserCount]);
 
     useEffect(() => {
         if (elemRef.current) {
@@ -116,7 +97,6 @@ export default function Chat({
                     }
                 }, msgLink);
                 socket.emit("A CHAT MSG", e.target.value);
-                console.log(e.target.value)
                 e.target.value = "";
             }
             e.preventDefault();
@@ -225,12 +205,7 @@ export default function Chat({
                     <div className="chatContainer">
                         <div className="chatHeadline">
                        
-                                <Link to="/" className="buttonBack"
-                                onClick={()=>{socket.emit(
-                                    "A CHAT MSG",
-                                    "--##--left--##--"
-                                );
-                                }}>
+                                <Link to="/" className="buttonBack">
                                     X
                                 </Link>
                         
