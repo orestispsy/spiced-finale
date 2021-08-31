@@ -41,6 +41,10 @@ export default function Chat({
 
     const browserCount = useSelector((state) => state && state.count);
 
+    useEffect(()=>{
+        testing(true)
+    }, []);
+
     useEffect(() => {
         if (chatMessages) {
             if (scrollTop < 1) {
@@ -53,7 +57,7 @@ export default function Chat({
     }, [scrollTop]);
 
     useEffect(() => {
-        if (browserCount == 1) {
+        if (browserCount <2) {
             socket.emit("A CHAT MSG", "--##--entered--##--");
         }
     }, [browserCount]);
@@ -83,6 +87,15 @@ export default function Chat({
             elemRef.current.scrollTop = scrollTop;
         }
     };
+
+        const testing = (e) => {
+             axios
+                 .post("/chat", { test: e })
+                 .then(({ data }) => {})
+                 .catch((err) => {
+                     console.log("error", err);
+                 });
+        };
 
     const keyCheck = (e) => {
         if (e.key === "Enter") {
@@ -216,7 +229,8 @@ export default function Chat({
                             <Link
                                 to="/"
                                 className="buttonBack"
-                                onClick={() => {
+                                onClick={(e) => {
+                                    testing(false)
                                     {
                                         if (browserCount == 1) {
                                             socket.emit(

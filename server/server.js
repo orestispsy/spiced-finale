@@ -13,6 +13,7 @@ const io = require("socket.io")(server, {
         origin: "https://thousandgigs.herokuapp.com",
         methods: ["GET", "POST"],
     },
+
     // allowRequest: (req, callback) =>
     //     callback(
     //         null,
@@ -515,6 +516,11 @@ app.get("/get-network-users", (req, res) => {
         .catch((err) => console.log(err));
 });
 
+app.post("/chat", function (req, res) {
+console.log(req.body.test)
+test=req.body.test
+});
+
 app.get("*", function (req, res) {
     if (!req.session.userId) {
         res.redirect("/welcome");
@@ -541,6 +547,8 @@ server.listen(process.env.PORT || 3001, () =>
         `🟢 Listening Port ${server.address().port} ... ~ 100mods Gig Guide ~`
     )
 );
+
+var test=false
 
 let onlineUsers = {};
 io.on("connection", function (socket) {
@@ -664,7 +672,7 @@ io.on("connection", function (socket) {
         }
         if (!userStillOnline) {
             io.emit("userLeft", userIdDisconnected);
-            if (count < 2 && count !=1) {
+            if (count == 0 && test) {
                 db.addChatMsg(userId, "--##--left--##--")
                     .then(() => {
                         db.getChatMsgs()

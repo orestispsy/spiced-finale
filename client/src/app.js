@@ -32,6 +32,13 @@ export default class App extends Component {
     }
 
     componentDidMount() {
+
+        axios
+            .post("/chat", { test: false })
+            .then(({ data }) => {})
+            .catch((err) => {
+                console.log("error", err);
+            });
         axios
             .get("/user-details")
             .then(({ data }) => {
