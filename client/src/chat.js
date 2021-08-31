@@ -92,7 +92,9 @@ export default function Chat({
         const serverSignal = (e) => {
              axios
                  .post("/chat", { goOffline: e })
-                 .then(({ data }) => {})
+                 .then(({ data }) => {
+                     console.log(data)
+                 })
                  .catch((err) => {
                      console.log("error", err);
                  });

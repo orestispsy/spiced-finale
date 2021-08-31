@@ -518,6 +518,7 @@ app.get("/get-network-users", (req, res) => {
 
 app.post("/chat", function (req, res) {
     goOffline = req.body.goOffline;
+        res.json({ done: true });
 });
 
 app.get("*", function (req, res) {
