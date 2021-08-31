@@ -1803,8 +1803,6 @@ input {
 
 .gm-style a {
     visibility: hidden !important;
-
-    height: 0 !important;
 }
 
 .gm-style-cc {

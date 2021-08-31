@@ -41,9 +41,6 @@ export default function Chat({
 
     const browserCount = useSelector((state) => state && state.count);
 
-    useEffect(()=>{
-        testing(true)
-    }, []);
 
     useEffect(() => {
         if (chatMessages) {
@@ -57,6 +54,10 @@ export default function Chat({
     }, [scrollTop]);
 
     useEffect(() => {
+        if (browserCount==1){
+                  serverSignal(true);
+        }
+
         if (browserCount <2) {
             socket.emit("A CHAT MSG", "--##--entered--##--");
         }
@@ -88,9 +89,9 @@ export default function Chat({
         }
     };
 
-        const testing = (e) => {
+        const serverSignal = (e) => {
              axios
-                 .post("/chat", { test: e })
+                 .post("/chat", { goOffline: e })
                  .then(({ data }) => {})
                  .catch((err) => {
                      console.log("error", err);
@@ -230,7 +231,7 @@ export default function Chat({
                                 to="/"
                                 className="buttonBack"
                                 onClick={(e) => {
-                                    testing(false)
+                                    serverSignal(false)
                                     {
                                         if (browserCount == 1) {
                                             socket.emit(

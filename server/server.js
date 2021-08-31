@@ -517,8 +517,7 @@ app.get("/get-network-users", (req, res) => {
 });
 
 app.post("/chat", function (req, res) {
-console.log(req.body.test)
-test=req.body.test
+    goOffline = req.body.goOffline;
 });
 
 app.get("*", function (req, res) {
@@ -548,7 +547,7 @@ server.listen(process.env.PORT || 3001, () =>
     )
 );
 
-var test=false
+var goOffline = false;
 
 let onlineUsers = {};
 io.on("connection", function (socket) {
@@ -672,7 +671,7 @@ io.on("connection", function (socket) {
         }
         if (!userStillOnline) {
             io.emit("userLeft", userIdDisconnected);
-            if (count == 0 && test) {
+            if (count == 0 && goOffline) {
                 db.addChatMsg(userId, "--##--left--##--")
                     .then(() => {
                         db.getChatMsgs()
