@@ -65,7 +65,12 @@ export default function OnlineUsers({
                     console.log("error", err);
                 });
         }
+               
     }, []);
+
+        useEffect(() => {
+           setTest(true)
+        }, [testUsers]);
 
     useEffect(() => {
         axios
@@ -81,7 +86,6 @@ export default function OnlineUsers({
     useEffect(() => {
         if (onlineUsers) {
             if (test) {
-
                 setTestUsers(onlineUsers);
 
                 let users = onlineUsers;
