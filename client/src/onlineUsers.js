@@ -107,8 +107,9 @@ export default function OnlineUsers({
                     }
                 });
                  setTestUsers(users);
+              
             }
-
+   console.log("test users", testUsers);
         }
         setTest(false);
     }, [onlineUsers]);
