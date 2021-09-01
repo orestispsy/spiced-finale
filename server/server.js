@@ -656,7 +656,10 @@ io.on("connection", function (socket) {
         let boolean=false
          db.setUserStatus(boolean, userId)
              .then(({ rows }) => {
-                 res.json({ rows });
+                  db.getOnlineUsers(filteredUsers).then(({ rows }) => {
+                      console.log(rows)
+                      io.emit("usersOnline", rows);
+                  });
              })
              .catch((err) => {
                  res.json({ error: true });
