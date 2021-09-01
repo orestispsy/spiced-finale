@@ -656,8 +656,12 @@ io.on("connection", function (socket) {
         let boolean=false
          db.setUserStatus(boolean, userId)
              .then(({ rows }) => {
-                  db.getOnlineUsers(filteredUsers).then(({ rows }) => {
-                      console.log(rows)
+                  db.getOnlineUsers(
+                      filteredUsers.filter(
+                          (user) => user.id != req.session.myUserId
+                      )
+                  ).then(({ rows }) => {
+                      console.log(rows);
                       io.emit("usersOnline", rows);
                   });
              })
