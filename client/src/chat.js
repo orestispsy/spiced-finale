@@ -63,7 +63,6 @@ export default function Chat({
 
         if (browserCount < 2) {
             socket.emit("A CHAT MSG", "--##--entered--##--");
-            
         }
     }, [browserCount]);
 
@@ -87,6 +86,7 @@ export default function Chat({
         setPostScroll(false);
     }, [chatMessages]);
 
+
     const setScrollBarBottom = () => {
         if (elemRef.current) {
             elemRef.current.scrollTop = scrollTop;
@@ -94,6 +94,7 @@ export default function Chat({
     };
 
     const run = (e) => {
+        if (onlineUsers){
            let users = onlineUsers;
         users.forEach(element => {
          
@@ -101,7 +102,7 @@ export default function Chat({
                 element.online = false
                 console.log("users", users);
                  axios
-                     .post("/set-user-status", { online: e || false })
+                     .post("/set-user-status", { online: e })
                      .then(({ data }) => {
                       socket.emit("ONLINE USERS", users);
                      })
@@ -112,6 +113,7 @@ export default function Chat({
            console.log("users", users)
                
         });
+    }
         
     }
 
@@ -264,7 +266,7 @@ export default function Chat({
                                                 "A CHAT MSG",
                                                 "--##--left--##--"
                                             );
-                                            run()
+                                            run(false)
                                         }
                                     }
                                 }}

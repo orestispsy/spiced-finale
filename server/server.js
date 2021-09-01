@@ -654,21 +654,7 @@ io.on("connection", function (socket) {
     // console.log(`socket ${socket.id} connected`);
 
     socket.on("disconnect", () => {
-        let boolean=false
-         db.setUserStatus(boolean, userId)
-             .then(({ rows }) => {
-                  db.getOnlineUsers(
-                      filteredUsers.filter(
-                          (user) => user.id != req.session.myUserId
-                      )
-                  ).then(({ rows }) => {
-                      io.emit("usersOnline", rows);
-                  });
-             })
-             .catch((err) => {
-                 res.json({ error: true });
-                 console.log(err);
-             });
+       
         
         socket.emit("browserCount", count--);
         var userIdDisconnected = onlineUsers[socket.id];
@@ -693,6 +679,27 @@ io.on("connection", function (socket) {
                     })
                     .catch((err) => console.log(err));
             }
+             let boolean = false;
+             db.setUserStatus(boolean, userId)
+                 .then(({ rows }) => {
+                     db.getOnlineUsers(
+                         filteredUsers.filter(
+                             (user) => user.id != req.session.myUserId
+                         )
+                     )
+                         .then(({ rows }) => {
+                             io.emit("usersOnline", rows);
+                             console.log("rowsss", rows);
+                         })
+                         .catch((err) => {
+                       
+                             console.log(err);
+                         });
+                 })
+                 .catch((err) => {
+                 
+                     console.log(err);
+                 });
         }
     });
 });
