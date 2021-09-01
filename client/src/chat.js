@@ -57,11 +57,13 @@ export default function Chat({
 
     useEffect(() => {
         if (browserCount == 1) {
-            serverSignal(true);            
+            serverSignal(true);
+                     
         }
 
         if (browserCount < 2) {
             socket.emit("A CHAT MSG", "--##--entered--##--");
+            
         }
     }, [browserCount]);
 
@@ -91,7 +93,7 @@ export default function Chat({
         }
     };
 
-    const run = () => {
+    const run = (e) => {
            let users = onlineUsers;
         users.forEach(element => {
          
@@ -99,7 +101,7 @@ export default function Chat({
                 element.online = false
                 console.log("users", users);
                  axios
-                     .post("/set-user-status", { online: false })
+                     .post("/set-user-status", { online: e || false })
                      .then(({ data }) => {
                       socket.emit("ONLINE USERS", users);
                      })
