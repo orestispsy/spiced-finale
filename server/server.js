@@ -272,7 +272,6 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
 
     db.addImage(data.id, s3Url + filename)
         .then(({ rows }) => {
-
             res.json({ success: true });
         })
         .catch((err) => {
@@ -566,7 +565,7 @@ io.on("connection", function (socket) {
 
     db.getOnlineUsers(filteredUsers).then(({ rows }) => {
         io.emit("usersOnline", rows);
-        console.log("enter rows", rows)
+        console.log("enter rows", rows);
     });
 
     db.getUser(userId)
@@ -647,15 +646,13 @@ io.on("connection", function (socket) {
         io.emit("privateMessage", message);
     });
 
-      socket.on("ONLINE USERS", (users) => {
-          io.emit("usersOnline", users);
-      });
+    socket.on("ONLINE USERS", (users) => {
+        io.emit("usersOnline", users);
+    });
 
     // console.log(`socket ${socket.id} connected`);
 
     socket.on("disconnect", () => {
-       
-        
         socket.emit("browserCount", count--);
         var userIdDisconnected = onlineUsers[socket.id];
         var userStillOnline = false;
@@ -679,27 +676,25 @@ io.on("connection", function (socket) {
                     })
                     .catch((err) => console.log(err));
             }
-             let boolean = false;
-             db.setUserStatus(boolean, userId)
-                 .then(({ rows }) => {
-                     db.getOnlineUsers(
-                         filteredUsers.filter(
-                             (user) => user.id != req.session.myUserId
-                         )
-                     )
-                         .then(({ rows }) => {
-                             io.emit("usersOnline", rows);
-                             console.log("rowsss", rows);
-                         })
-                         .catch((err) => {
-                       
-                             console.log(err);
-                         });
-                 })
-                 .catch((err) => {
-                 
-                     console.log(err);
-                 });
+            let boolean = false;
+            db.setUserStatus(boolean, userId)
+                .then(({ rows }) => {
+                    db.getOnlineUsers(
+                        filteredUsers.filter(
+                            (user) => user.id != req.session.myUserId
+                        )
+                    )
+                        .then(({ rows }) => {
+                            io.emit("usersOnline", rows);
+                            console.log("rowsss", rows);
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        });
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         }
     });
 });

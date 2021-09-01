@@ -6,7 +6,6 @@ import axios from "./tools/axios";
 
 let emoji = require("./tools/customEmoj.json");
 
-
 export default function OnlineUsers({
     chat_img,
     chat_myUserId,
@@ -65,13 +64,12 @@ export default function OnlineUsers({
                     console.log("error", err);
                 });
         }
-               
     }, []);
 
-        useEffect(() => {
-           setTest(true)
-           console.log("test", testUsers)
-        }, [testUsers]);
+    useEffect(() => {
+        setTest(true);
+        console.log("test", testUsers);
+    }, [testUsers]);
 
     useEffect(() => {
         axios
@@ -86,14 +84,12 @@ export default function OnlineUsers({
 
     useEffect(() => {
         if (onlineUsers) {
-          
             if (test) {
                 setTestUsers(onlineUsers);
 
                 let users = onlineUsers;
 
                 users.forEach((element) => {
-
                     if (element.id == chat_myUserId) {
                         element.online = true;
                         axios
@@ -106,10 +102,9 @@ export default function OnlineUsers({
                             });
                     }
                 });
-                 setTestUsers(users);
-              
+                setTestUsers(users);
             }
-   console.log("testusers", testUsers);
+            console.log("testusers", testUsers);
         }
         setTest(false);
     }, [onlineUsers]);
@@ -313,7 +308,10 @@ export default function OnlineUsers({
                                     onlineUsers.map((user) => (
                                         <div key={user.id}>
                                             <div
-                                               id={user.online && "online" || ""}
+                                                id={
+                                                    (user.online && "online") ||
+                                                    ""
+                                                }
                                                 className="onlineList"
                                                 onClick={(e) => {
                                                     if (
@@ -345,7 +343,6 @@ export default function OnlineUsers({
                                                 ></img>
 
                                                 <span
-                                                 
                                                     style={{
                                                         color:
                                                             (chat_myUserId ==
@@ -356,7 +353,6 @@ export default function OnlineUsers({
                                                     }}
                                                 >
                                                     {user.nickname}{" "}
-                                                 
                                                 </span>
                                                 {privateMessages &&
                                                     privateMessages.map(

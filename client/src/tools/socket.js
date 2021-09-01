@@ -12,8 +12,7 @@ import {
     deleteImageAct,
     privateMessagesAct,
     privateMessageAct,
-    browserCountAct
-
+    browserCountAct,
 } from "./../tools/actions";
 import { io } from "socket.io-client";
 
@@ -74,10 +73,8 @@ export const init = (store) => {
             store.dispatch(privateMessageAct(data));
         });
 
-          socket.on("browserCount", (data) => {
-              store.dispatch(browserCountAct(data));
-          });
-
-
+        socket.on("browserCount", (data) => {
+            store.dispatch(browserCountAct(data));
+        });
     }
 };

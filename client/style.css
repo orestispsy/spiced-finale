@@ -677,7 +677,7 @@ input {
     border-style: double;
     transition: 1s;
     user-select: none;
-        text-shadow: -0 0 5px rgba(0, 0, 0, 0.7), 0 -0 5px rgba(0, 0, 0, 0.7),
+    text-shadow: -0 0 5px rgba(0, 0, 0, 0.7), 0 -0 5px rgba(0, 0, 0, 0.7),
         -0 -0 5px rgba(0, 0, 0, 0.7), -0 -0 5px rgba(0, 0, 0, 0.7);
 }
 
@@ -691,7 +691,7 @@ input {
         rgba(224, 247, 135, 1) 4.927083333333334%,
         rgba(78, 227, 250, 1) 97.84374999999999%
     );
- 
+
     transition: 1s;
 }
 
@@ -1137,11 +1137,11 @@ input {
 
     .communityContainer {
         margin-left: 0 !important;
-         min-height: 37vmax !important;
+        min-height: 37vmax !important;
     }
 
     #buttonBack {
-        margin-bottom:-2.5vmax !important;
+        margin-bottom: -2.5vmax !important;
     }
 
     .communityPhotos {
@@ -1269,32 +1269,29 @@ input {
 
     .chatHeadline {
         width: 88vw !important;
-       
     }
 
     .buttonBack {
         font-size: 1.5vmax !important;
-        padding: 0.5vmax 1vmax!important;
+        padding: 0.5vmax 1vmax !important;
     }
 
-    #chatTitle{
-    margin-top:-4vmax !important;
-}
+    #chatTitle {
+        margin-top: -4vmax !important;
+    }
 
     .deleteChatMsg {
         margin-top: -3vmax !important;
-          width: 1.2vmax !important;
-    height: 1.2vmax !important;
-    padding:0.1vmax !important;
-
+        width: 1.2vmax !important;
+        height: 1.2vmax !important;
+        padding: 0.1vmax !important;
     }
 
-    .post img{
-   width: 4vmax !important;
-    height: 4vmax !important;
+    .post img {
+        width: 4vmax !important;
+        height: 4vmax !important;
     }
 
-    
     .userChatDetails h1 {
         font-size: 3vmax !important;
     }
@@ -1344,9 +1341,9 @@ input {
         width: 64vw !important;
     }
 
-        .buttonBack {
+    .buttonBack {
         font-size: 1.5vmax !important;
-        padding: 0.5vmax 1vmax!important;
+        padding: 0.5vmax 1vmax !important;
     }
 
     .loginContainer,
@@ -1363,8 +1360,8 @@ input {
     }
 
     .post img {
-        width:3vmax !important;
-        height: 3vmax !important
+        width: 3vmax !important;
+        height: 3vmax !important;
     }
 
     .chatNextControls {
@@ -1560,9 +1557,9 @@ input {
 
     .deleteChatMsg {
         margin-top: -2vmax !important;
-          width: 1.2vmax !important;
-    height: 1.2vmax !important;
-    padding:0.1vmax !important;
+        width: 1.2vmax !important;
+        height: 1.2vmax !important;
+        padding: 0.1vmax !important;
     }
 
     .onlineUsersBack {
@@ -1997,15 +1994,14 @@ font-family: 'Ultra', serif; */
     width: 45vw;
 }
 
-#chatTitle{
+#chatTitle {
     font-size: 4vmax;
     color: rgb(255, 0, 0);
     text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
         -1px -1px 0 white;
     font-family: "Black Ops One", cursive;
     user-select: none;
-    margin-top:-2.5vmax;
-
+    margin-top: -2.5vmax;
 }
 
 .buttonBack {
@@ -2028,11 +2024,9 @@ font-family: 'Ultra', serif; */
     transition: 1s;
     user-select: none;
     cursor: pointer;
-        text-shadow: -0 0 5px rgba(0, 0, 0, 0.7), 0 -0 5px rgba(0, 0, 0, 0.7),
+    text-shadow: -0 0 5px rgba(0, 0, 0, 0.7), 0 -0 5px rgba(0, 0, 0, 0.7),
         -0 -0 5px rgba(0, 0, 0, 0.7), -0 -0 5px rgba(0, 0, 0, 0.7);
 }
-
-
 
 .mobileChat {
     display: flex;
@@ -2040,7 +2034,6 @@ font-family: 'Ultra', serif; */
     justify-content: center;
     align-items: center;
 }
-
 
 #chatContainer {
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
@@ -2073,8 +2066,6 @@ font-family: 'Ultra', serif; */
     align-self: center;
     margin-bottom: auto;
 }
-
-
 
 .chatScreen {
     display: flex;
@@ -2228,7 +2219,7 @@ font-family: 'Ultra', serif; */
 }
 
 .deleteChatMsg {
-    filter:contrast(150%);
+    filter: contrast(150%);
     background-image: url("delete.png");
     background-size: cover;
     width: 0.8vmax;
@@ -2423,9 +2414,9 @@ font-family: 'Ultra', serif; */
     padding: 0.5vmax 0.2vmax;
     border-radius: 0.8vh;
     margin: 0 0.3vmax;
-      margin-bottom:0.2vmax;
-    border-radius:2vh;
-        background-color:rgba(255, 0, 0, 0.103) !important;
+    margin-bottom: 0.2vmax;
+    border-radius: 2vh;
+    background-color: rgba(255, 0, 0, 0.103) !important;
 }
 
 .onlineListImg {
@@ -3491,7 +3482,7 @@ font-family: 'Ultra', serif; */
     height: 9vmax;
     border-radius: 50%;
     padding: 1vmax;
-    margin-top:-1vmax;
+    margin-top: -1vmax;
 }
 
 #privateMsgUserNick {
@@ -3546,6 +3537,6 @@ font-family: 'Ultra', serif; */
     font-size: 4vmax;
 }
 
-#online{
-    background-color:rgba(51, 255, 0, 0.103) !important;
+#online {
+    background-color: rgba(51, 255, 0, 0.103) !important;
 }

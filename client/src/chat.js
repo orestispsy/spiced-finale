@@ -43,7 +43,6 @@ export default function Chat({
 
     const onlineUsers = useSelector((state) => state && state.onlineUsers);
 
-
     useEffect(() => {
         if (chatMessages) {
             if (scrollTop < 1) {
@@ -58,7 +57,6 @@ export default function Chat({
     useEffect(() => {
         if (browserCount == 1) {
             serverSignal(true);
-                     
         }
 
         if (browserCount < 2) {
@@ -86,7 +84,6 @@ export default function Chat({
         setPostScroll(false);
     }, [chatMessages]);
 
-
     const setScrollBarBottom = () => {
         if (elemRef.current) {
             elemRef.current.scrollTop = scrollTop;
@@ -94,28 +91,25 @@ export default function Chat({
     };
 
     const run = (e) => {
-        if (onlineUsers){
-           let users = onlineUsers;
-        users.forEach(element => {
-         
-            if (element.id == chat_myUserId){
-                element.online = false
+        if (onlineUsers) {
+            let users = onlineUsers;
+            users.forEach((element) => {
+                if (element.id == chat_myUserId) {
+                    element.online = false;
+                    console.log("users", users);
+                    axios
+                        .post("/set-user-status", { online: e })
+                        .then(({ data }) => {
+                            socket.emit("ONLINE USERS", users);
+                        })
+                        .catch((err) => {
+                            console.log("error", err);
+                        });
+                }
                 console.log("users", users);
-                 axios
-                     .post("/set-user-status", { online: e })
-                     .then(({ data }) => {
-                      socket.emit("ONLINE USERS", users);
-                     })
-                     .catch((err) => {
-                         console.log("error", err);
-                     });
-            }
-           console.log("users", users)
-               
-        });
-    }
-        
-    }
+            });
+        }
+    };
 
     const serverSignal = (e) => {
         axios
@@ -266,7 +260,7 @@ export default function Chat({
                                                 "A CHAT MSG",
                                                 "--##--left--##--"
                                             );
-                                            run(false)
+                                            run(false);
                                         }
                                     }
                                 }}
