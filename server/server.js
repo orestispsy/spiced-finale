@@ -566,6 +566,7 @@ io.on("connection", function (socket) {
 
     db.getOnlineUsers(filteredUsers).then(({ rows }) => {
         io.emit("usersOnline", rows);
+        console.log("enter rows", rows)
     });
 
     db.getUser(userId)
