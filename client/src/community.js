@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "./tools/axios";
-
+import { Link } from "react-router-dom";
 import { socket } from "./tools/socket";
 import { useSelector } from "react-redux";
 
@@ -94,6 +94,16 @@ export default function Community({
 
     return (
         <div className="communityContainer">
+            <Link
+                to="/gig-list"
+                className="buttonBack"
+                id="buttonBack"
+                style={{
+                    marginBottom: `-2.5vmax`,
+                }}
+            >
+                X
+            </Link>
             <div className="gallery">Gallery</div>
             <div className="communityPhotos" ref={elemRef}>
                 {images && images.length == 0 && <h1>Nothing here yet .</h1>}
@@ -171,19 +181,19 @@ export default function Community({
                         )}
                         {upload && <div className="uploading"></div>}
                     </div>
-                </div>
-            )}
-            {contribute && (
-                <div className="communityConfig">
-                    <div
-                        className="onlineUsersRedDot"
-                        id="commentsBack"
-                        title="Back"
-                        onClick={() => {
-                            setContribute(false);
-                            setError(false);
-                        }}
-                    ></div>
+                    {contribute && (
+                        <div className="communityConfig">
+                            <div
+                                className="onlineUsersRedDot"
+                                id="commentsBack"
+                                title="Back"
+                                onClick={() => {
+                                    setContribute(false);
+                                    setError(false);
+                                }}
+                            ></div>
+                        </div>
+                    )}
                 </div>
             )}
 

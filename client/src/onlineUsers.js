@@ -6,6 +6,7 @@ import axios from "./tools/axios";
 import useSound from "use-sound";
 
 import chatSfx from "./../public/chat.mp3";
+import { DeviceFarm } from "aws-sdk";
 
 let emoji = require("./tools/customEmoj.json");
 
@@ -74,7 +75,6 @@ export default function OnlineUsers({
 
     useEffect(() => {
         axios
-
             .get("/filtered-private")
             .then(({ data }) => {
                 setPrivateMessages(data.data);
@@ -159,7 +159,23 @@ export default function OnlineUsers({
         -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308)`,
                     }}
                 >
-                    {!userPicBar && (
+                    {privateMode && (
+                        <div
+                            className="buttonBack"
+                            style={{
+                                marginBottom: `-1vmax`,
+                                color: `white`,
+                                zIndex: `325423`,
+                            }}
+                            onClick={(e) => {
+                                setPrivateMode(false);
+                                toggleEmojibar(false);
+                            }}
+                        >
+                            X
+                        </div>
+                    )}
+                    {!userPicBar && !privateMode && (
                         <div
                             className="onlineUsersRedDot"
                             title={
@@ -170,11 +186,8 @@ export default function OnlineUsers({
                                     : ""
                             }
                             onClick={(e) => {
-                                setPrivateMode(false);
                                 toggleEmojibar(false);
-                                if (!privateMode) {
-                                    setNetworkList(false);
-                                }
+                                setNetworkList(false);
                             }}
                         ></div>
                     )}
@@ -354,9 +367,7 @@ export default function OnlineUsers({
                                                 privatePic || "./../avatar.png"
                                             }
                                             id="privateUserImage"
-                                            onClick={() => {
-                                                setPrivateMode(false);
-                                            }}
+                                     
                                         ></img>
                                     </div>
                                 )}

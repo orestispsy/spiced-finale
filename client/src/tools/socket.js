@@ -35,11 +35,11 @@ export const init = (store) => {
             store.dispatch(chatMessage(msg));
         });
 
-        socket.on("users online", (data) => {
+        socket.on("usersOnline", (data) => {
             store.dispatch(onlineUsers(data));
         });
-        socket.on("adding connected user", (data) => {
-            store.dispatch(userJoinedAct(data));
+        socket.on("userEnters", (data) => {
+            store.dispatch(usseerJoinedAct(data));
         });
 
         socket.on("userLeft", (data) => {

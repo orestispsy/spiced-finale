@@ -32,13 +32,13 @@ export default class App extends Component {
     }
 
     componentDidMount() {
-
         axios
             .post("/chat", { test: false })
             .then(({ data }) => {})
             .catch((err) => {
                 console.log("error", err);
             });
+            
         axios
             .get("/user-details")
             .then(({ data }) => {
@@ -91,9 +91,8 @@ export default class App extends Component {
 
     setGigEntry(e) {
         this.setState({
-            selectedGigEntry: e
+            selectedGigEntry: e,
         });
-        console.log(e)
     }
 
     setProfileImage(e) {
@@ -192,7 +191,8 @@ export default class App extends Component {
                                         </Link>
                                     )}
                                     <div className="barProfile">
-                                        {!this.state.maps && this.state.nickname}
+                                        {!this.state.maps &&
+                                            this.state.nickname}
                                     </div>
                                 </div>
                                 {this.state.maps && (

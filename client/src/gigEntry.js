@@ -149,9 +149,6 @@ export default class GigEntry extends Component {
                         />
                     )}
                 </div>
-                <Link to="/gig-list/" className="backLink">
-                    Back
-                </Link>
             </div>
         );
     }

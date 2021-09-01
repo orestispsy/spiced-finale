@@ -13,14 +13,6 @@ const io = require("socket.io")(server, {
         origin: "https://thousandgigs.herokuapp.com",
         methods: ["GET", "POST"],
     },
-
-    // allowRequest: (req, callback) =>
-    //     callback(
-    //         null,
-    //         req.headers.referer.startsWith(
-    //             "https://thousandgigs.herokuapp.com"
-    //         ) || req.headers.referer.startsWith("http://localhost:3000")
-    //     ),
 });
 
 const multer = require("multer");
@@ -270,9 +262,7 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
         .then(({ rows }) => {
             if (rows[0].poster) {
                 const file2delete = rows[0].poster.replace(s3Url, "");
-                // console.log("file2delete", file2delete);
                 s3.delete(file2delete);
-                // console.log("pic delete done");
             }
         })
         .catch((err) => {
@@ -282,7 +272,7 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
 
     db.addImage(data.id, s3Url + filename)
         .then(({ rows }) => {
-            // console.log(rows, "THIS POSTER WAS CREATED", rows[0].poster);
+
             res.json({ success: true });
         })
         .catch((err) => {
@@ -518,7 +508,7 @@ app.get("/get-network-users", (req, res) => {
 
 app.post("/chat", function (req, res) {
     goOffline = req.body.goOffline;
-        res.json({ done: true });
+    res.json({ done: true });
 });
 
 app.get("*", function (req, res) {
@@ -529,19 +519,6 @@ app.get("*", function (req, res) {
     }
 });
 
-// let tables = [];
-// db.check()
-//     .then(({ rows }) => {
-//         console.log("Check", rows);
-
-//         for (var i = 0; i < rows.length; i++) {
-//             tables =  tables.concat(rows[i].tablename, );
-//         }
-//         console.log("tables", tables);
-//     })
-
-//     .catch((err) => console.log(err));
-
 server.listen(process.env.PORT || 3001, () =>
     console.log(
         `🟢 Listening Port ${server.address().port} ... ~ 100mods Gig Guide ~`
@@ -551,6 +528,7 @@ server.listen(process.env.PORT || 3001, () =>
 var goOffline = false;
 
 let onlineUsers = {};
+
 io.on("connection", function (socket) {
     if (!socket.request.session.userId) {
         return socket.disconnect(true);
@@ -576,12 +554,13 @@ io.on("connection", function (socket) {
     );
 
     db.getOnlineUsers(filteredUsers).then(({ rows }) => {
-        io.emit("users online", rows);
+        io.emit("usersOnline", rows);
     });
 
     db.getUser(userId)
         .then(({ rows }) => {
             socket.broadcast.emit("userJoined", rows);
+            console.log(rows)
         })
         .catch((err) => console.log(err));
 
@@ -684,15 +663,5 @@ io.on("connection", function (socket) {
                     .catch((err) => console.log(err));
             }
         }
-
-        // console.log(`socket ${socket.id} disconnected`);
     });
-
-    // io.emit("trying to talk to everyone", {
-    //     userId,
-    // });
-
-    // socket.emit("welcome", {
-    //     message: "Welcome. It is nice to see you",
-    // });
 });

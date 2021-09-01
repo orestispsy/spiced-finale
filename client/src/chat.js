@@ -31,6 +31,7 @@ export default function Chat({
     const [privatePic, setPrivatePic] = useState(false);
     const [privateNick, setPrivateNick] = useState(false);
     const [privateMessages, setPrivateMessages] = useState(false);
+    const [online, setOnline] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.75 });
     const [playTicker, { stop }] = useSound(tickerSfx, { volume: 0.75 });
@@ -40,7 +41,6 @@ export default function Chat({
     const chatMessages = useSelector((state) => state && state.chatMessages);
 
     const browserCount = useSelector((state) => state && state.count);
-
 
     useEffect(() => {
         if (chatMessages) {
@@ -54,11 +54,12 @@ export default function Chat({
     }, [scrollTop]);
 
     useEffect(() => {
-        if (browserCount==1){
-                  serverSignal(true);
+        if (browserCount == 1) {
+            serverSignal(true);
+            setOnline(true);
         }
 
-        if (browserCount <2) {
+        if (browserCount < 2) {
             socket.emit("A CHAT MSG", "--##--entered--##--");
         }
     }, [browserCount]);
@@ -89,16 +90,14 @@ export default function Chat({
         }
     };
 
-        const serverSignal = (e) => {
-             axios
-                 .post("/chat", { goOffline: e })
-                 .then(({ data }) => {
-                     console.log(data)
-                 })
-                 .catch((err) => {
-                     console.log("error", err);
-                 });
-        };
+    const serverSignal = (e) => {
+        axios
+            .post("/chat", { goOffline: e })
+            .then(({ data }) => {})
+            .catch((err) => {
+                console.log("error", err);
+            });
+    };
 
     const keyCheck = (e) => {
         if (e.key === "Enter") {
@@ -233,7 +232,7 @@ export default function Chat({
                                 to="/"
                                 className="buttonBack"
                                 onClick={(e) => {
-                                    serverSignal(false)
+                                    serverSignal(false);
                                     {
                                         if (browserCount == 1) {
                                             socket.emit(

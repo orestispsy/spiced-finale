@@ -84,6 +84,16 @@ export default function Comments({
 
     return (
         <div className="commentsContainer">
+            <div
+                className="buttonBack"
+                id="buttonBack"
+                style={{
+                    marginBottom: `-2vmax`,
+                }}
+                onClick={() => toggleComments()}
+            >
+                X
+            </div>
             <div className="commentHead">Comments</div>
 
             <div className="commentBox" ref={elemRef}>
@@ -119,14 +129,6 @@ export default function Comments({
                 onClick={(e) => addComment(e)}
             >
                 Send
-            </div>
-            <div className="communityConfig">
-                <div
-                    className="onlineUsersRedDot"
-                    id="commentsBack"
-                    title="Back"
-                    onClick={() => toggleComments()}
-                ></div>
             </div>
         </div>
     );
