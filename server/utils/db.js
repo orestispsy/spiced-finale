@@ -182,6 +182,17 @@ module.exports.addChatPic = (pic, id) => {
     return db.query(q, params);
 };
 
+module.exports.setUserStatus = (online, id) => {
+    const q = `
+        UPDATE community
+        SET online = $1
+        WHERE id = $2
+        RETURNING *
+         `;
+    const params = [online, id];
+    return db.query(q, params);
+};
+
 module.exports.addChatColor = (id, color) => {
     const q = `
         UPDATE community

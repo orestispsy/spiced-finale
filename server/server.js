@@ -511,6 +511,17 @@ app.post("/chat", function (req, res) {
     res.json({ done: true });
 });
 
+app.post("/set-user-status", (req, res) => {
+    db.setUserStatus(req.body.online, req.session.userId)
+        .then(({ rows }) => {
+            res.json({ rows });
+        })
+        .catch((err) => {
+            res.json({ error: true });
+            console.log(err);
+        });
+});
+
 app.get("*", function (req, res) {
     if (!req.session.userId) {
         res.redirect("/welcome");
@@ -560,7 +571,6 @@ io.on("connection", function (socket) {
     db.getUser(userId)
         .then(({ rows }) => {
             socket.broadcast.emit("userJoined", rows);
-            console.log(rows)
         })
         .catch((err) => console.log(err));
 
@@ -636,9 +646,23 @@ io.on("connection", function (socket) {
         io.emit("privateMessage", message);
     });
 
+      socket.on("ONLINE USERS", (users) => {
+          io.emit("usersOnline", users);
+      });
+
     // console.log(`socket ${socket.id} connected`);
 
     socket.on("disconnect", () => {
+        let boolean=false
+         db.setUserStatus(boolean, userId)
+             .then(({ rows }) => {
+                 res.json({ rows });
+             })
+             .catch((err) => {
+                 res.json({ error: true });
+                 console.log(err);
+             });
+        
         socket.emit("browserCount", count--);
         var userIdDisconnected = onlineUsers[socket.id];
         var userStillOnline = false;

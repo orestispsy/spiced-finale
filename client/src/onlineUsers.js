@@ -3,16 +3,11 @@ import { socket } from "./tools/socket";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "./tools/axios";
-import useSound from "use-sound";
-
-import chatSfx from "./../public/chat.mp3";
-import { DeviceFarm } from "aws-sdk";
 
 let emoji = require("./tools/customEmoj.json");
 
-var count = 0;
+
 export default function OnlineUsers({
-    mute,
     chat_img,
     chat_myUserId,
     emojiBar,
@@ -39,17 +34,16 @@ export default function OnlineUsers({
     const [networkList, setNetworkList] = useState(false);
     const [networkUsers, setNetworkUsers] = useState(false);
     const [errorMsg, setErrorMsg] = useState(false);
-
-    const [play] = useSound(chatSfx, { volume: 0.25 });
+    const [test, setTest] = useState(true);
+    const [testUsers, setTestUsers] = useState(
+        useSelector((state) => state && state.onlineUsers)
+    );
 
     const onlineUsers = useSelector((state) => state && state.onlineUsers);
 
     const statePrivateMsgs = useSelector((state) => state && state.messages);
 
     useEffect(() => {
-        if (onlineUsers) {
-            count = onlineUsers.length;
-        }
         axios
             .get("/get-network-users")
             .then(({ data }) => {
@@ -86,15 +80,34 @@ export default function OnlineUsers({
 
     useEffect(() => {
         if (onlineUsers) {
-            if (onlineUsers.length >= count) {
-                if (!mute) {
-                    play();
-                }
-                count++;
-            } else {
-                count--;
+            if (test) {
+
+                setTestUsers(onlineUsers);
+
+                let users = onlineUsers;
+
+                users.forEach((element) => {
+
+                    if (element.id == chat_myUserId) {
+                        element.online = true;
+                        axios
+                            .post("/set-user-status", { online: true })
+                            .then(({ data }) => {
+                                socket.emit("ONLINE USERS", users);
+                            })
+                            .catch((err) => {
+                                console.log("error", err);
+                            });
+                    }
+
+                    setTestUsers(users);
+                    socket.emit("ONLINE USERS", testUsers);
+                });
             }
+
+      
         }
+        setTest(false);
     }, [onlineUsers]);
 
     const handleUploaderChange = (e) => {
@@ -296,6 +309,7 @@ export default function OnlineUsers({
                                     onlineUsers.map((user) => (
                                         <div key={user.id}>
                                             <div
+                                               id={user.online && "online" || ""}
                                                 className="onlineList"
                                                 onClick={(e) => {
                                                     if (
@@ -327,6 +341,7 @@ export default function OnlineUsers({
                                                 ></img>
 
                                                 <span
+                                                 
                                                     style={{
                                                         color:
                                                             (chat_myUserId ==
@@ -336,7 +351,8 @@ export default function OnlineUsers({
                                                             `lime`,
                                                     }}
                                                 >
-                                                    {user.nickname}
+                                                    {user.nickname}{" "}
+                                                 
                                                 </span>
                                                 {privateMessages &&
                                                     privateMessages.map(
@@ -367,7 +383,6 @@ export default function OnlineUsers({
                                                 privatePic || "./../avatar.png"
                                             }
                                             id="privateUserImage"
-                                     
                                         ></img>
                                     </div>
                                 )}

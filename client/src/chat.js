@@ -31,7 +31,6 @@ export default function Chat({
     const [privatePic, setPrivatePic] = useState(false);
     const [privateNick, setPrivateNick] = useState(false);
     const [privateMessages, setPrivateMessages] = useState(false);
-    const [online, setOnline] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.75 });
     const [playTicker, { stop }] = useSound(tickerSfx, { volume: 0.75 });
@@ -41,6 +40,9 @@ export default function Chat({
     const chatMessages = useSelector((state) => state && state.chatMessages);
 
     const browserCount = useSelector((state) => state && state.count);
+
+    const onlineUsers = useSelector((state) => state && state.onlineUsers);
+
 
     useEffect(() => {
         if (chatMessages) {
@@ -55,8 +57,7 @@ export default function Chat({
 
     useEffect(() => {
         if (browserCount == 1) {
-            serverSignal(true);
-            setOnline(true);
+            serverSignal(true);            
         }
 
         if (browserCount < 2) {
@@ -89,6 +90,28 @@ export default function Chat({
             elemRef.current.scrollTop = scrollTop;
         }
     };
+
+    const run = () => {
+           let users = onlineUsers;
+        users.forEach(element => {
+         
+            if (element.id == chat_myUserId){
+                element.online = false
+                console.log("users", users);
+                 axios
+                     .post("/set-user-status", { online: false })
+                     .then(({ data }) => {
+                      socket.emit("ONLINE USERS", users);
+                     })
+                     .catch((err) => {
+                         console.log("error", err);
+                     });
+            }
+           console.log("users", users)
+               
+        });
+        
+    }
 
     const serverSignal = (e) => {
         axios
@@ -239,6 +262,7 @@ export default function Chat({
                                                 "A CHAT MSG",
                                                 "--##--left--##--"
                                             );
+                                            run()
                                         }
                                     }
                                 }}
