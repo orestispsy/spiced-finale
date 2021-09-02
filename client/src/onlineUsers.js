@@ -35,7 +35,7 @@ export default function OnlineUsers({
     const [errorMsg, setErrorMsg] = useState(false);
     const [test, setTest] = useState(true);
     const [testUsers, setTestUsers] = useState(
-        useSelector((state) => state && state.onlineUsers)
+        false
     );
 
     const onlineUsers = useSelector((state) => state && state.onlineUsers);
@@ -68,7 +68,7 @@ export default function OnlineUsers({
 
     useEffect(() => {
         setTest(true);
-        console.log("test", testUsers);
+         
     }, [testUsers]);
 
     useEffect(() => {
@@ -83,9 +83,10 @@ export default function OnlineUsers({
     }, [statePrivateMsgs]);
 
     useEffect(() => {
+
         if (onlineUsers) {
             if (test) {
-                setTestUsers(onlineUsers);
+                setTestUsers(false);
 
                 let users = onlineUsers;
 
@@ -95,16 +96,15 @@ export default function OnlineUsers({
                         axios
                             .post("/set-user-status", { online: true })
                             .then(({ data }) => {
-                                socket.emit("ONLINE USERS", testUsers);
+                                socket.emit("ONLINE USERS", users);
                             })
                             .catch((err) => {
                                 console.log("error", err);
                             });
                     }
                 });
-                setTestUsers(users);
+               setTestUsers(true)
             }
-            console.log("testusers", testUsers);
         }
         setTest(false);
     }, [onlineUsers]);
