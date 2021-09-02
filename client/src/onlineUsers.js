@@ -63,7 +63,6 @@ export default function OnlineUsers({
         }
     }, []);
 
-
     useEffect(() => {
         axios
             .get("/filtered-private")
@@ -76,7 +75,6 @@ export default function OnlineUsers({
     }, [statePrivateMsgs]);
 
     useEffect(() => {
-
         if (onlineUsers) {
             if (test) {
                 setTest(false);
@@ -90,16 +88,13 @@ export default function OnlineUsers({
                             .post("/set-user-status", { online: true })
                             .then(({ data }) => {
                                 socket.emit("ONLINE USERS", users);
-                                
                             })
                             .catch((err) => {
                                 console.log("error", err);
                             });
                     }
                 });
-               
             }
-  
         }
     }, [onlineUsers]);
 

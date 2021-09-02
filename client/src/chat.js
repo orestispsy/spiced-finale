@@ -53,7 +53,6 @@ export default function Chat({
             }
         }
     }, [scrollTop]);
-    
 
     useEffect(() => {
         if (browserCount == 1) {
@@ -94,7 +93,7 @@ export default function Chat({
     const run = (e) => {
         if (onlineUsers) {
             let users = onlineUsers;
-            console.log("before",users)
+            console.log("before", users);
             users.forEach((element) => {
                 if (element.id == chat_myUserId) {
                     element.online = false;

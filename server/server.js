@@ -679,11 +679,11 @@ io.on("connection", function (socket) {
             let boolean = false;
             db.setUserStatus(boolean, userId)
                 .then(({ rows }) => {
-                    console.log("before", filteredUsers)
+                    console.log("before", filteredUsers);
                     filteredUsers = filteredUsers.filter(
                         (user) => user != userId
                     );
-                      console.log("after", filteredUsers);
+                    console.log("after", filteredUsers);
                     db.getOnlineUsers(filteredUsers)
                         .then(({ rows }) => {
                             io.emit("usersOnline", rows);
