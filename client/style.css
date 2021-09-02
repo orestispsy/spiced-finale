@@ -1586,7 +1586,8 @@ input {
 
     .notification {
         margin-left: 0.5vmax !important;
-        padding: 0 1vmax 1vmax 0 !important;
+    width: 2.5vmax !important;
+    height: 2.5vmax !important;
     }
 
     .gm-style-iw-d {
@@ -3537,7 +3538,6 @@ font-family: 'Ultra', serif; */
     background-repeat: no-repeat;
     width: 2.3vmax;
     height: 2.3vmax;
-    margin: 0.5vmax 0 0 0.3vmax;
 }
 
 #logoIntro {
