@@ -76,9 +76,8 @@ export default function OnlineUsers({
 
     useEffect(() => {
         if (onlineUsers) {
-            if (test) {
-                setTest(false);
-
+         
+      
                 let users = onlineUsers;
 
                 users.forEach((element) => {
@@ -94,9 +93,9 @@ export default function OnlineUsers({
                             });
                     }
                 });
-            }
+            
         }
-    }, [onlineUsers]);
+    }, []);
 
     const handleUploaderChange = (e) => {
         setFile(e.target.files[0]);
