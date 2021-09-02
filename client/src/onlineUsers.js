@@ -33,7 +33,9 @@ export default function OnlineUsers({
     const [networkList, setNetworkList] = useState(false);
     const [networkUsers, setNetworkUsers] = useState(false);
     const [errorMsg, setErrorMsg] = useState(false);
-    const [test, setTest] = useState(true);
+    const [testUsers, setTestUsers] = useState(
+        useSelector((state) => state && state.messages)
+    );
 
     const onlineUsers = useSelector((state) => state && state.onlineUsers);
 
@@ -76,24 +78,21 @@ export default function OnlineUsers({
 
     useEffect(() => {
         if (onlineUsers) {
-         
-      
-                let users = onlineUsers;
+            let users = onlineUsers;
 
-                users.forEach((element) => {
-                    if (element.id == chat_myUserId) {
-                        element.online = true;
-                        axios
-                            .post("/set-user-status", { online: true })
-                            .then(({ data }) => {
-                                socket.emit("ONLINE USERS", users);
-                            })
-                            .catch((err) => {
-                                console.log("error", err);
-                            });
-                    }
-                });
-            
+            users.forEach((element) => {
+                if (element.id == chat_myUserId) {
+                    element.online = true;
+                    console.log("teeeeest", users)
+                    socket.emit("ONLINE USERS", users);
+                    axios
+                        .post("/set-user-status", { online: true })
+                        .then(({ data }) => {})
+                        .catch((err) => {
+                            console.log("error", err);
+                        });
+                }
+            });
         }
     }, []);
 
