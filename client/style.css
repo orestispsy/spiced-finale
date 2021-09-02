@@ -2416,7 +2416,14 @@ font-family: 'Ultra', serif; */
     margin: 0 0.3vmax;
     margin-bottom: 0.2vmax;
     border-radius: 2vh;
-    background-color: rgba(255, 0, 0, 0.103) !important;
+}
+
+#online {
+    background-color: rgba(51, 255, 0, 0.103);
+}
+
+#offline {
+    background-color: rgba(255, 0, 0, 0.103);
 }
 
 .onlineListImg {
@@ -2441,7 +2448,7 @@ font-family: 'Ultra', serif; */
 }
 
 .onlineList:hover {
-    background-color: #00ffbf13;
+    background-color: #00ffbf13 !important;
 }
 
 .chatMenuOptions {
@@ -3535,8 +3542,4 @@ font-family: 'Ultra', serif; */
 
 #logoIntro {
     font-size: 4vmax;
-}
-
-#online {
-    background-color: rgba(51, 255, 0, 0.103) !important;
 }

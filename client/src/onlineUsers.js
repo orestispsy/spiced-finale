@@ -293,7 +293,7 @@ export default function OnlineUsers({
                                             <div
                                                 id={
                                                     (user.online && "online") ||
-                                                    ""
+                                                    (!user.online && "offline")
                                                 }
                                                 className="onlineList"
                                                 onClick={(e) => {

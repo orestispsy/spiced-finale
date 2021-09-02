@@ -8,7 +8,8 @@ CREATE TABLE community (
     chat_color VARCHAR,
     admin BOOLEAN DEFAULT false,
     super_admin BOOLEAN DEFAULT false,
-    created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    online BOOLEAN DEFAULT false
 );
 
 CREATE TABLE gigs (
