@@ -93,6 +93,7 @@ export default function Chat({
     const run = (e) => {
         if (onlineUsers) {
             let users = onlineUsers;
+            console.log("before",users)
             users.forEach((element) => {
                 if (element.id == chat_myUserId) {
                     element.online = false;
@@ -106,7 +107,7 @@ export default function Chat({
                             console.log("error", err);
                         });
                 }
-                console.log("users", users);
+                console.log("after", users);
             });
         }
     };
