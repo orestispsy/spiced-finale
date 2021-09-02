@@ -53,6 +53,7 @@ export default function Chat({
             }
         }
     }, [scrollTop]);
+    
 
     useEffect(() => {
         if (browserCount == 1) {

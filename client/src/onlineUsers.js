@@ -34,9 +34,6 @@ export default function OnlineUsers({
     const [networkUsers, setNetworkUsers] = useState(false);
     const [errorMsg, setErrorMsg] = useState(false);
     const [test, setTest] = useState(true);
-    const [testUsers, setTestUsers] = useState(
-        false
-    );
 
     const onlineUsers = useSelector((state) => state && state.onlineUsers);
 
@@ -66,10 +63,6 @@ export default function OnlineUsers({
         }
     }, []);
 
-    useEffect(() => {
-        setTest(true);
-         
-    }, [testUsers]);
 
     useEffect(() => {
         axios
@@ -86,7 +79,7 @@ export default function OnlineUsers({
 
         if (onlineUsers) {
             if (test) {
-                setTestUsers(false);
+                setTest(false);
 
                 let users = onlineUsers;
 
@@ -97,16 +90,17 @@ export default function OnlineUsers({
                             .post("/set-user-status", { online: true })
                             .then(({ data }) => {
                                 socket.emit("ONLINE USERS", users);
+                                
                             })
                             .catch((err) => {
                                 console.log("error", err);
                             });
                     }
                 });
-               setTestUsers(true)
+               
             }
+  
         }
-        setTest(false);
     }, [onlineUsers]);
 
     const handleUploaderChange = (e) => {
