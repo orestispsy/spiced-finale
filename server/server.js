@@ -565,7 +565,6 @@ io.on("connection", function (socket) {
 
     db.getOnlineUsers(filteredUsers).then(({ rows }) => {
         io.emit("usersOnline", rows);
-        console.log("enter rows", rows);
     });
 
     db.getUser(userId)
@@ -679,19 +678,9 @@ io.on("connection", function (socket) {
             let boolean = false;
             db.setUserStatus(boolean, userId)
                 .then(({ rows }) => {
-                    console.log("before", filteredUsers);
                     filteredUsers = filteredUsers.filter(
                         (user) => user != userId
                     );
-                    console.log("after", filteredUsers);
-                    db.getOnlineUsers(filteredUsers)
-                        .then(({ rows }) => {
-                            io.emit("usersOnline", rows);
-                            console.log("rowsss", rows);
-                        })
-                        .catch((err) => {
-                            console.log(err);
-                        });
                 })
                 .catch((err) => {
                     console.log(err);

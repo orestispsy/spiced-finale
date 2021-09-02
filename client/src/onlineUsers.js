@@ -33,9 +33,6 @@ export default function OnlineUsers({
     const [networkList, setNetworkList] = useState(false);
     const [networkUsers, setNetworkUsers] = useState(false);
     const [errorMsg, setErrorMsg] = useState(false);
-    const [testUsers, setTestUsers] = useState(
-        useSelector((state) => state && state.messages)
-    );
 
     const onlineUsers = useSelector((state) => state && state.onlineUsers);
 
@@ -83,7 +80,6 @@ export default function OnlineUsers({
             users.forEach((element) => {
                 if (element.id == chat_myUserId) {
                     element.online = true;
-                    console.log("teeeeest", users)
                     socket.emit("ONLINE USERS", users);
                     axios
                         .post("/set-user-status", { online: true })

@@ -93,11 +93,9 @@ export default function Chat({
     const run = (e) => {
         if (onlineUsers) {
             let users = onlineUsers;
-            console.log("before", users);
             users.forEach((element) => {
                 if (element.id == chat_myUserId) {
                     element.online = false;
-                    console.log("users", users);
                     axios
                         .post("/set-user-status", { online: e })
                         .then(({ data }) => {
@@ -107,7 +105,6 @@ export default function Chat({
                             console.log("error", err);
                         });
                 }
-                console.log("after", users);
             });
         }
     };
