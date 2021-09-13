@@ -16,18 +16,10 @@ export default function GigList({ gigsList, listSet }) {
               
         listSet(true);
     }, []);
-    // console.log("GIGSLIST IN GIGSLIST", gigsList);
+    
     useEffect(function () {
         play();
     }, [go]);
-
-    // const textMouseEffect = (e) => {
-    //     e.target.offSetY = 0;
-    //     console.log("elem2", elem);
-    //     console.log(e.target.style);
-    //     e.target.style.width = `150vw`;
-    //     e.target.style.marginLeft = `-50vw`;
-    // };
 
     if (gigsList) {
         for (var i = 0; i < gigsList.length; i++) {
@@ -39,30 +31,6 @@ export default function GigList({ gigsList, listSet }) {
     }
 
     return (
-        // <div className="pre-wrapper">
-        //     <div className="wrapper">
-        //         <div className="scroll-text">
-        //             <h1>YOLO</h1>
-        //             <h2>YUHUUUUUUUUU</h2>
-        //             <p>
-        //                 thrrtwthwthwthwetvwhh whvwhvwhwvthvwth
-        //                 whvwthwthvwthvwhwrt wehtvwtehvwthvwhvwthvwthvwthw
-        //             </p>
-        //             <p>
-        //                 thrrtwthwthwthwetvwhh whvwhvwhwvthvwth
-        //                 whvwthwthvwthvwhwrt wehtvwtehvwthvwhvwthvwthvwthw
-        //             </p>
-        //             <p>
-        //                 thrrtwthwthwthwetvwhh whvwhvwhwvthvwth
-        //                 whvwthwthvwthvwhwrt wehtvwtehvwthvwhvwthvwthvwthw
-        //             </p>
-        //             <p>
-        //                 thrrtwthwthwthwetvwhh whvwhvwhwvthvwth
-        //                 whvwthwthvwthvwhwrt wehtvwtehvwthvwhvwthvwthvwthw
-        //             </p>
-        //         </div>
-        //     </div>
-        // </div>
         <div className="pre-wrapper">
             {!go && (
                 <div className="go" onClick={() => setGo(true)}>

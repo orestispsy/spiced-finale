@@ -81,7 +81,7 @@ a:hover {
 }
 
 .registerContainer a,
-.loginContainer a {
+.loginContainer a{
     color: cyan;
     font-size: 23px;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
@@ -90,7 +90,21 @@ a:hover {
 
 .registerContainer a:hover,
 .loginContainer a:hover {
-    color: rgb(0, 132, 255);
+    color: rgb(0, 132, 255)
+}
+
+.guest {
+    color: rgba(0, 255, 255, 0.884);
+    font-size: 2vmax;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+        cursor:pointer;
+
+        
+}
+
+ .guest:hover {
+    color: rgb(0, 132, 255) !important
 }
 
 .registerContainer h1,
@@ -559,6 +573,7 @@ input {
     color: white;
     border-color: transparent;
 }
+
 
 .delete {
     color: red;
@@ -1295,6 +1310,8 @@ input {
     .userChatDetails h1 {
         font-size: 3vmax !important;
     }
+
+    .guest{font-size:3vmax !important;}
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {

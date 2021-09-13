@@ -10,23 +10,42 @@ export default class Login extends React.Component {
         };
     }
 
-    handleClick() {
-        axios
-            .post("/login", this.state)
-            .then(({ data }) => {
-                // console.log("DATA", data.data);
-                if (data.data) {
-                    location.replace("/");
-                } else {
-                    // console.log("data fail");
-                    this.setState({
-                        error: true,
-                    });
-                }
-            })
-            .catch((err) => {
-                console.log("err in axios POST /login: ", err);
-            });
+    handleClick(e) {
+        if (e){
+           axios
+               .post("/register", {
+                   nickname: "Guest" + Math.floor(Math.random() * 4000),
+                   password: "1kggguest",
+               })
+               .then(({ data }) => {
+                   if (data.data) {
+                       location.replace("/");
+                   } else {
+                       this.setState({
+                           error: true,
+                       });
+                   }
+               })
+               .catch((err) => {
+                   console.log("err in axios POST /login: ", err);
+               });
+        }
+        else {
+            axios
+                .post("/login", this.state)
+                .then(({ data }) => {
+                    if (data.data) {
+                        location.replace("/");
+                    } else {
+                        this.setState({
+                            error: true,
+                        });
+                    }
+                })
+                .catch((err) => {
+                    console.log("err in axios POST /login: ", err);
+                });
+        }
     }
 
     handleChange(e) {
@@ -83,6 +102,10 @@ export default class Login extends React.Component {
                 <Link to="/register" className="links">
                     Register
                 </Link>
+                <div>or</div>
+                <div onClick={(e) => this.handleClick(true)} className="guest">
+                    Join As Guest
+                </div>
                 {this.state.error && (
                     <p className="error">
                         {" "}

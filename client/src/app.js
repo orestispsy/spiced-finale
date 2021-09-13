@@ -28,6 +28,7 @@ export default class App extends Component {
             move: false,
             sliderHidden: false,
             selectedGigEntry: false,
+            guest:false,
         };
     }
 
@@ -44,6 +45,18 @@ export default class App extends Component {
             .then(({ data }) => {
                 if (!data.data) {
                     location.replace("/");
+                }
+                
+                if (data.data.nickname){
+
+                   console.log(data.data.nickname)
+
+                   if (data.data.nickname.includes("Guest"))
+                       this.setState({
+                           guest: true,
+                       });
+                    
+                console.log("yes")
                 }
                 // console.log("Current User's data in APP", data);
 
@@ -227,6 +240,7 @@ export default class App extends Component {
                                         admin={this.state.admin}
                                         listSet={(e) => this.listSet(e)}
                                         visitors={this.state.visitors}
+                                        guest={this.state.guest}
                                     />
                                 )}
                             />
