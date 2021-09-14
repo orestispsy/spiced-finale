@@ -137,6 +137,7 @@ export default class GigEntry extends Component {
                             super_admin={this.props.super_admin}
                             nickname={this.props.nickname}
                             toggleComments={() => this.toggleComments()}
+                            guest={this.props.guest}
                         />
                     )}
                     {this.state.toggleComments && (

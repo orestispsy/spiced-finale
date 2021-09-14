@@ -11,26 +11,25 @@ export default class Login extends React.Component {
     }
 
     handleClick(e) {
-        if (e){
-           axios
-               .post("/register", {
-                   nickname: "Guest" + Math.floor(Math.random() * 4000),
-                   password: "1kggguest",
-               })
-               .then(({ data }) => {
-                   if (data.data) {
-                       location.replace("/");
-                   } else {
-                       this.setState({
-                           error: true,
-                       });
-                   }
-               })
-               .catch((err) => {
-                   console.log("err in axios POST /login: ", err);
-               });
-        }
-        else {
+        if (e) {
+            axios
+                .post("/register", {
+                    nickname: "Guest" + Math.floor(Math.random() * 1000),
+                    password: "1kggguest",
+                })
+                .then(({ data }) => {
+                    if (data.data) {
+                        location.replace("/");
+                    } else {
+                        this.setState({
+                            error: true,
+                        });
+                    }
+                })
+                .catch((err) => {
+                    console.log("err in axios POST /login: ", err);
+                });
+        } else {
             axios
                 .post("/login", this.state)
                 .then(({ data }) => {
@@ -104,7 +103,7 @@ export default class Login extends React.Component {
                 </Link>
                 <div>or</div>
                 <div onClick={(e) => this.handleClick(true)} className="guest">
-                    Join As Guest
+                    Join as Guest
                 </div>
                 {this.state.error && (
                     <p className="error">

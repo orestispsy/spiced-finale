@@ -127,8 +127,6 @@ app.post("/login", (req, res) => {
     }
 });
 
-letRandomNumber = "false";
-var userNickname = false;
 app.post("/register", (req, res) => {
     if (req.body.nickname && req.body.password) {
         let { nickname, password } = req.body;
@@ -329,7 +327,6 @@ app.post("/delete-community-image", (req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-    
     req.session = null;
     res.redirect("/");
 });
@@ -688,32 +685,6 @@ io.on("connection", function (socket) {
                 .catch((err) => {
                     console.log(err);
                 });
-            if (userNickname) {
-                db.deleteAllUserPosts(userId)
-                    .then(({ rows }) => {
-                        db.deletePrivateMessages(userId)
-                            .then(({ rows }) => {
-                                db.deleteComments(userId)
-                                    .then(({ rows }) => {
-                                        db.deleteUser(userId)
-                                            .then(({ rows }) => {
-                                                if (rows[0].chat_img) {
-                                                    const file2delete =
-                                                        rows[0].chat_img.replace(
-                                                            s3Url,
-                                                            ""
-                                                        );
-                                                    s3.delete(file2delete);
-                                                }
-                                            })
-                                            .catch((err) => console.log(err));
-                                    })
-                                    .catch((err) => console.log(err));
-                            })
-                            .catch((err) => console.log(err));
-                    })
-                    .catch((err) => console.log(err));
-            }
         }
     });
 });

@@ -62,10 +62,11 @@ a:hover {
 .loginContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     align-self: center;
     font-family: "Black Ops One", cursive;
+    height: 60vh;
 }
 
 .loginContainer input,
@@ -81,30 +82,38 @@ a:hover {
 }
 
 .registerContainer a,
-.loginContainer a{
+.loginContainer a {
     color: cyan;
-    font-size: 23px;
+    font-size: 1.8vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
 }
 
 .registerContainer a:hover,
 .loginContainer a:hover {
-    color: rgb(0, 132, 255)
+    color: rgb(0, 132, 255);
 }
 
 .guest {
-    color: rgba(0, 255, 255, 0.884);
-    font-size: 2vmax;
-    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
-        -1px -1px 0 black;
-        cursor:pointer;
+    color: rgb(42, 204, 204);
+    font-size: 1.8vmax;
 
-        
+    cursor: pointer;
+    text-align: center;
+    align-self: center;
 }
 
- .guest:hover {
-    color: rgb(0, 132, 255) !important
+.guest:hover {
+    color: rgba(255, 255, 255, 0.699);
+    font-size: 1.8vmax;
+    text-shadow: -1px 1px 10px rgba(255, 166, 0, 0.438),
+        1px -1px 10px rgba(255, 166, 0, 0.438),
+        -1px -1px rgba(255, 166, 0, 0.438),
+        -1px -1px 10px rgba(255, 166, 0, 0.438);
+    color: rgb(125, 255, 227);
+    text-shadow: none;
+    font-size: 2vmax;
+    transition: 2s;
 }
 
 .registerContainer h1,
@@ -573,7 +582,6 @@ input {
     color: white;
     border-color: transparent;
 }
-
 
 .delete {
     color: red;
@@ -1311,7 +1319,10 @@ input {
         font-size: 3vmax !important;
     }
 
-    .guest{font-size:3vmax !important;}
+    .guest {
+        font-size: 3vmax !important;
+        color: cyan !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1603,12 +1614,17 @@ input {
 
     .notification {
         margin-left: 0.5vmax !important;
-    width: 2.5vmax !important;
-    height: 2.5vmax !important;
+        width: 2.5vmax !important;
+        height: 2.5vmax !important;
     }
 
     .gm-style-iw-d {
         max-height: fit-content !important;
+    }
+
+    .guest {
+        font-size: 2.2vmax !important;
+        color: cyan !important;
     }
 }
 
@@ -1974,16 +1990,13 @@ div:focus {
 }
 
 .fileUploader input {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 3px;
+    padding-top: 0.1vmax;
     background-color: rgba(0, 0, 0, 0.185);
     border: 1px solid black;
     border-radius: 1px;
     box-shadow: none;
-    margin: auto;
-    height: 1.5vmax;
-    width: 12vmax;
+    height: 1.7vmax;
+    width: 16vmax;
 }
 
 /*
@@ -2363,8 +2376,8 @@ font-family: 'Ultra', serif; */
 }
 
 .usersBack {
-    min-width: 15vmax;
-    max-width: 15vmax;
+    min-width: 18vmax;
+    max-width: 18vmax;
     height: fit-content;
     height: 10vmax;
     min-height: 12vh;
@@ -2471,7 +2484,7 @@ font-family: 'Ultra', serif; */
 
 .chatMenuOptions {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-self: center;
     align-items: center;
     width: 15vmax;
@@ -3555,7 +3568,7 @@ font-family: 'Ultra', serif; */
     background-repeat: no-repeat;
     width: 2.3vmax;
     height: 2.3vmax;
-    margin-left:0.3vmax
+    margin-left: 0.3vmax;
 }
 
 #logoIntro {

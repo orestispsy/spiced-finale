@@ -28,7 +28,7 @@ export default class App extends Component {
             move: false,
             sliderHidden: false,
             selectedGigEntry: false,
-            guest:false,
+            guest: false,
         };
     }
 
@@ -39,24 +39,19 @@ export default class App extends Component {
             .catch((err) => {
                 console.log("error", err);
             });
-            
+
         axios
             .get("/user-details")
             .then(({ data }) => {
                 if (!data.data) {
                     location.replace("/");
                 }
-                
-                if (data.data.nickname){
 
-                   console.log(data.data.nickname)
-
-                   if (data.data.nickname.includes("Guest"))
-                       this.setState({
-                           guest: true,
-                       });
-                    
-                console.log("yes")
+                if (data.data.nickname) {
+                    if (data.data.nickname.includes("Guest"))
+                        this.setState({
+                            guest: true,
+                        });
                 }
                 // console.log("Current User's data in APP", data);
 
@@ -188,7 +183,8 @@ export default class App extends Component {
                                 <div className="barLeftSection">
                                     <img
                                         src={
-                                            this.state.chat_img || "avatar.png"
+                                            this.state.chat_img ||
+                                            "./../avatar.png"
                                         }
                                         className="barProfileImage"
                                     ></img>
@@ -272,6 +268,7 @@ export default class App extends Component {
                                             this.state.selectedGigEntry
                                         }
                                         setGigEntry={(e) => this.setGigEntry(e)}
+                                        guest={this.state.guest}
                                     />
                                 )}
                             />
@@ -301,6 +298,7 @@ export default class App extends Component {
                                         selectedGigEntry={
                                             this.state.selectedGigEntry
                                         }
+                                        guest={this.state.guest}
                                     />
                                 )}
                             />
@@ -329,6 +327,7 @@ export default class App extends Component {
                                             this.setProfileImage(e)
                                         }
                                         nickname={this.state.nickname}
+                                        guest={this.state.guest}
                                     />
                                 )}
                             />

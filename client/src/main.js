@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import axios from "./tools/axios";
 
 export default function Main({ super_admin, admin, listSet, visitors, guest }) {
-    console.log(guest)
     useEffect(function () {
         listSet(false);
     }, []);

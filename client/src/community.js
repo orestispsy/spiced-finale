@@ -10,6 +10,7 @@ export default function Community({
     super_admin,
     nickname,
     toggleComments,
+    guest
 }) {
     const [contribute, setContribute] = useState(false);
     const [file, setFile] = useState("");
@@ -150,13 +151,15 @@ export default function Community({
                     >
                         Contribute!
                     </div>
-                    <div
-                        id="commentsButton"
-                        className="mainMenuLink"
-                        onClick={() => toggleComments()}
-                    >
-                        Comments
-                    </div>
+                    {!guest && (
+                        <div
+                            id="commentsButton"
+                            className="mainMenuLink"
+                            onClick={() => toggleComments()}
+                        >
+                            Comments
+                        </div>
+                    )}
                 </div>
             )}
 

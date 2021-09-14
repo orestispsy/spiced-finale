@@ -20,6 +20,7 @@ export default function Chat({
     super_admin,
     setProfileImage,
     nickname,
+    guest,
 }) {
     const [emojiBar, setEmojiBar] = useState(false);
     const [tickerBar, setTickerBar] = useState(false);
@@ -481,6 +482,7 @@ export default function Chat({
                     privatePic={privatePic}
                     privateMessages={privateMessages}
                     setPrivateMessages={(e) => setPrivateMessages(e)}
+                    guest={guest}
                 />
             </div>
 

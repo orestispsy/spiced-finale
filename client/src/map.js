@@ -28,7 +28,7 @@ const WithGoogleMapComponent = compose(
     withScriptjs,
     withGoogleMap
 )((props) => {
-    // console.log("take some props", props);
+    console.log("take some props", props);
 
     if (props.selectedGig) {
         let propsDate = props.selectedGig.date.split("-");
@@ -138,6 +138,7 @@ const WithGoogleMapComponent = compose(
                                 {props.selectedGig.tour_name}
                             </div>
                         )}
+                        {!props.guest &&
                         <div
                             id="mapLink"
                             className="mainMenuLink"
@@ -149,6 +150,7 @@ const WithGoogleMapComponent = compose(
                         >
                             Community
                         </div>
+                         }
                     </div>
                 </InfoWindow>
             )}
@@ -161,7 +163,7 @@ const WithGoogleMapComponent = compose(
     );
 });
 
-const MyMap = ({ gigsList, mapVisible, selectedGigEntry, setGigEntry }) => {
+const MyMap = ({ gigsList, mapVisible, selectedGigEntry, setGigEntry, guest }) => {
     const [selectedGig, setSelectedGig] = useState(null);
     const [style, setStyle] = useState(mapStyles.styles[0]);
     const [switcher, setSwitcher] = useState(0);
@@ -189,6 +191,7 @@ const MyMap = ({ gigsList, mapVisible, selectedGigEntry, setGigEntry }) => {
                 setSwitcher={setSwitcher}
                 selectedGigEntry={selectedGigEntry}
                 setGigEntry={setGigEntry}
+                guest={guest}
             />
         </div>
     );

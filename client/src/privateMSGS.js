@@ -38,7 +38,9 @@ export default function PrivateMSGS({
                 })
                 .then(({ data }) => {
                     socket.emit("PRIVATE MESSAGES", data.data);
-                    setFirstMsgId(data.data[0].id);
+                    if (data.data[0]) {
+                        setFirstMsgId(data.data[0].id);
+                    }
                 })
                 .catch((err) => {
                     console.log("error", err);
