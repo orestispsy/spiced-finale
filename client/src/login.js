@@ -98,12 +98,17 @@ export default class Login extends React.Component {
                     Submit
                 </div>
                 <span className="regSpan">Not a Member?</span>
-                <Link to="/register" className="links">
-                    Register
-                </Link>
-                <div>or</div>
-                <div onClick={(e) => this.handleClick(true)} className="guest">
-                    Join as Guest
+                <div className="mainMenuBottom">
+                    <Link to="/register" className="links">
+                        Register
+                    </Link>
+           
+                    <div
+                        onClick={(e) => this.handleClick(true)}
+                        className="guest"
+                    >
+                        Join as Guest
+                    </div>
                 </div>
                 {this.state.error && (
                     <p className="error">

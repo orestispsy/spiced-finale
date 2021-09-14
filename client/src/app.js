@@ -47,12 +47,7 @@ export default class App extends Component {
                     location.replace("/");
                 }
 
-                if (data.data.nickname) {
-                    if (data.data.nickname.includes("Guest"))
-                        this.setState({
-                            guest: true,
-                        });
-                }
+       
                 // console.log("Current User's data in APP", data);
 
                 this.setState({
@@ -63,6 +58,13 @@ export default class App extends Component {
                     chat_img: data.data.chat_img,
                     chat_color: data.data.chat_color,
                 });
+                         if (data.data.nickname) {
+                             if (data.data.nickname.includes("Guest"))
+                                 this.setState({
+                                     guest: true,
+                                     admin: false,
+                                 });
+                         }
             })
             .catch((err) => {
                 console.log("err in axios App User POST Request : ", err);
