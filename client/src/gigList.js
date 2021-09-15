@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
-import React, {useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, Fragment, useRef } from "react";
 
-export default function GigList({ gigsList, listSet }) {
+export default function GigList({
+    gigsList,
+    listSet,
+    listScroller,
+    setListScroller,
+}) {
     const [sortedGigs, setSortedGigs] = useState(false);
     const [year, setYear] = useState(false);
     const [sortedMonths, setSortedMonths] = useState([]);
@@ -20,19 +25,24 @@ export default function GigList({ gigsList, listSet }) {
         { id: "12", month: "December" },
     ]);
 
+    const elemRef = useRef();
+
     useEffect(function () {
         listSet(true);
+        elemRef.current.scrollTop = listScroller;
     }, []);
 
-    var test = [];
+    var sortedGigsHelper = [];
     useEffect(
         function () {
             if (sortedGigs) {
                 sortedGigs.map((gig) => {
                     var dateSplit = gig.date.split("-");
-                    if (!test.includes(dateSplit[1])) {
-                        test = test.concat(dateSplit[1]);
-                        setSortedMonths(test);
+                    if (!sortedGigsHelper.includes(dateSplit[1])) {
+                        sortedGigsHelper = sortedGigsHelper.concat(
+                            dateSplit[1]
+                        );
+                        setSortedMonths(sortedGigsHelper);
                     } else {
                         return;
                     }
@@ -42,14 +52,12 @@ export default function GigList({ gigsList, listSet }) {
         [sortedGigs]
     );
 
-
     const gigListFiltering = (e) => {
         setSortedGigs(gigsList.filter((gig) => gig.date.includes(e)));
         setSortedMonths([]);
     };
 
     const gigsReset = (e) => {
-        
         setYear(false);
         setSortedGigs(false);
     };
@@ -61,6 +69,8 @@ export default function GigList({ gigsList, listSet }) {
                 <div className="gigListControls">
                     <div className="sortedGigRange">2006</div>
                     <input
+                        defaultValue={false}
+                        value={year}
                         title="Set Year"
                         type="range"
                         min="2006"
@@ -91,7 +101,13 @@ export default function GigList({ gigsList, listSet }) {
                 {gigsList && !sortedGigs && gigsList.length}
                 {sortedGigs && sortedGigs.length}
             </div>
-            <div className="gigEntries">
+            <div
+                className="gigEntries"
+                ref={elemRef}
+                onMouseDown={() => {
+                    setListScroller(elemRef.current.scrollTop);
+                }}
+            >
                 {sortedGigs && (
                     <div className="gigListMonths">
                         {months &&

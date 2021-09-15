@@ -16,7 +16,6 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
             .get("/get-all-users")
             .then(({ data }) => {
                 setUserList(data.data);
-           
             })
             .catch((err) => {
                 console.log("err in axios get-all-users ", err);
@@ -25,7 +24,6 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
             .get("/get-guests")
             .then(({ data }) => {
                 setGuestList(data.data);
-           
             })
             .catch((err) => {
                 console.log("err in axios get-all-users ", err);
@@ -36,12 +34,12 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
         axios
             .get("/delete-guests")
             .then(({ data }) => {
-                console.log("done")
+                console.log("done");
             })
             .catch((err) => {
                 console.log("err in axios get-all-users ", err);
             });
-    }
+    };
 
     const deleteUser = (e) => {
         axios
@@ -88,11 +86,17 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
 
     return (
         <div className="superAdminContainer">
-            {guestList.length>0 && (
+            {guestList.length > 0 && (
                 <div className="superAdminGuestList">
                     Guests: {guestList.length}
-                    <span onClick={(e)=>{deleteGuests()
-                    setGuestList(false)}}>delete</span>
+                    <span
+                        onClick={(e) => {
+                            deleteGuests();
+                            setGuestList(false);
+                        }}
+                    >
+                        delete
+                    </span>
                 </div>
             )}
             {super_admin && (

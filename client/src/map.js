@@ -28,7 +28,7 @@ const WithGoogleMapComponent = compose(
     withScriptjs,
     withGoogleMap
 )((props) => {
-    console.log("take some props", props);
+    // console.log("take some props", props);
 
     if (props.selectedGig) {
         let propsDate = props.selectedGig.date.split("-");

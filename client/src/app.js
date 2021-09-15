@@ -29,6 +29,7 @@ export default class App extends Component {
             sliderHidden: false,
             selectedGigEntry: false,
             guest: false,
+            listScroller: false,
         };
     }
 
@@ -47,7 +48,6 @@ export default class App extends Component {
                     location.replace("/");
                 }
 
-       
                 // console.log("Current User's data in APP", data);
 
                 this.setState({
@@ -58,13 +58,13 @@ export default class App extends Component {
                     chat_img: data.data.chat_img,
                     chat_color: data.data.chat_color,
                 });
-                         if (data.data.nickname) {
-                             if (data.data.nickname.includes("Guest"))
-                                 this.setState({
-                                     guest: true,
-                                     admin: false,
-                                 });
-                         }
+                if (data.data.nickname) {
+                    if (data.data.nickname.includes("Guest"))
+                        this.setState({
+                            guest: true,
+                            admin: false,
+                        });
+                }
             })
             .catch((err) => {
                 console.log("err in axios App User POST Request : ", err);
@@ -114,6 +114,12 @@ export default class App extends Component {
     listSet(e) {
         this.setState({
             list: e,
+        });
+    }
+
+    setListScroller(e) {
+        this.setState({
+            listScroller: e,
         });
     }
 
@@ -281,6 +287,10 @@ export default class App extends Component {
                                     <GigList
                                         gigsList={this.state.gigsList}
                                         listSet={(e) => this.listSet(e)}
+                                        setListScroller={(e) =>
+                                            this.setListScroller(e)
+                                        }
+                                        listScroller={this.state.listScroller}
                                     />
                                 )}
                             />
