@@ -238,31 +238,31 @@ export default class GigEditor extends React.Component {
                             <Link to="/" className="buttonBack">
                                 X
                             </Link>
-                            <select
-                                name="selectedGig"
-                                className="selectGig"
-                                onChange={(e) => this.gigSelector(e)}
-                                onClick={() => this.inputsReset()}
-                                onClick={(e) => {
-                                    this.handleErrorMsg();
-                                    this.deleteWarn(false);
-                                }}
-                            >
-                                <option
-                                    className="chooseGig"
-                                    value=""
-                                    onClick={() => this.inputsReset()}
-                                >
-                                    Select Gig
-                                </option>
-                                {this.props.gigsList &&
-                                    this.props.gigsList.map((gig) => (
-                                        <option value={gig.date} key={gig.id}>
-                                            {gig.date} {gig.venue}
-                                        </option>
-                                    ))}
-                            </select>{" "}
                         </div>
+                        <select
+                            name="selectedGig"
+                            className="selectGig"
+                            onChange={(e) => this.gigSelector(e)}
+                            onClick={() => this.inputsReset()}
+                            onClick={(e) => {
+                                this.handleErrorMsg();
+                                this.deleteWarn(false);
+                            }}
+                        >
+                            <option
+                                className="chooseGig"
+                                value=""
+                                onClick={() => this.inputsReset()}
+                            >
+                                Select Gig
+                            </option>
+                            {this.props.gigsList &&
+                                this.props.gigsList.map((gig) => (
+                                    <option value={gig.date} key={gig.id}>
+                                        {gig.date} {gig.venue}
+                                    </option>
+                                ))}
+                        </select>{" "}
                         {this.state.posterSection && (
                             <Posters
                                 posterSelector={(e) => this.posterSelector(e)}
@@ -486,7 +486,6 @@ export default class GigEditor extends React.Component {
                                     )}
                             </div>
                         )}
-
                         {this.state.map &&
                             this.state.selectedGig.date &&
                             !this.state.deleteSuccess && (
@@ -495,9 +494,6 @@ export default class GigEditor extends React.Component {
                                     selectedGig={this.state.selectedGig}
                                 />
                             )}
-                        {this.state.deleteSuccess && (
-                            <div className="deleteSuccess"></div>
-                        )}
                         {this.state.error && (
                             <p className="error" id="errorEdit">
                                 {!this.state.selectedGig &&
@@ -546,6 +542,9 @@ export default class GigEditor extends React.Component {
                             </div>
                         )}
                     </form>
+                    {this.state.deleteSuccess && (
+                        <div className="deleteSuccess"></div>
+                    )}
                 </div>
             </div>
         );
