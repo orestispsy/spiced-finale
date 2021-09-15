@@ -12,6 +12,7 @@ export default class GigEditor extends React.Component {
         super(props);
         this.state = {
             error: false,
+            error2: false,
             delete: false,
             selectedGig: "",
             success: false,
@@ -224,6 +225,7 @@ export default class GigEditor extends React.Component {
     handleErrorMsg(e) {
         this.setState({
             error: false,
+            error2: false,
         });
     }
 
@@ -497,7 +499,7 @@ export default class GigEditor extends React.Component {
                             <div className="deleteSuccess"></div>
                         )}
                         {this.state.error && (
-                            <p className="error">
+                            <p className="error" id="errorEdit">
                                 {!this.state.selectedGig &&
                                     "Select A Gig From The List"}{" "}
                                 {this.state.selectedGig &&
@@ -505,7 +507,7 @@ export default class GigEditor extends React.Component {
                             </p>
                         )}
                         {this.state.error2 && (
-                            <p className="error">
+                            <p className="error" id="errorEdit">
                                 Select an Image [Max Size: 2MB]
                             </p>
                         )}

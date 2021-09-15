@@ -602,14 +602,15 @@ input {
 }
 
 .delete {
-    color: red;
+      color: rgb(255, 0, 0);
+    border-radius: 100px;
+    border: 2px solid rgb(253, 68, 0);
+    font-family: "Poller One", cursive;
+    outline: transparent;
+    cursor: pointer;
     background-color: white;
-    font-size: 1.5vmax;
-    cursor: default;
-
-    border-radius: 2vmax;
-    border: 2px solid orangered;
     padding: 0.5vmax;
+    margin-top: 0.5vmax;
 }
 
 .deleteSuccess {
@@ -1927,15 +1928,19 @@ input {
     text-align: center;
 }
 
+#errorEdit {
+    margin:0 !important;
+}
+
 .error {
     font-family: "Black Ops One", cursive;
     font-size: 1vmax;
     color: tomato;
-    width: 30vmax;
+
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
     text-align: center;
-    margin:0 0 0.5vmax 0;
+    margin:1vmax 0 0 0;
 }
 
 .gm-style a {
@@ -3197,7 +3202,7 @@ font-family: 'Ultra', serif; */
     align-items: center;
     justify-content: center;
     width: 100vw;
-    margin-top: 1vmax;
+
 }
 
 .posterSectionToggler {

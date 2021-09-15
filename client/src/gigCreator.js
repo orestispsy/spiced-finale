@@ -86,6 +86,7 @@ export default class GigCreator extends React.Component {
                             <div className="inputBack">
                                 <span>Date*</span>
                                 <input
+                                    value={this.state.date || ""}
                                     autoComplete="none"
                                     name="date"
                                     placeholder="date"
@@ -99,6 +100,7 @@ export default class GigCreator extends React.Component {
                             <div className="inputBack">
                                 <span>City</span>
                                 <input
+                                    value={this.state.city || ""}
                                     autoComplete="none"
                                     name="city"
                                     placeholder="City"
@@ -111,6 +113,7 @@ export default class GigCreator extends React.Component {
                             <div className="inputBack">
                                 <span>Tour</span>
                                 <input
+                                    value={this.state.tour_name || ""}
                                     autoComplete="none"
                                     name="tour_name"
                                     placeholder="Tour Name"
@@ -123,6 +126,7 @@ export default class GigCreator extends React.Component {
                             <div className="inputBack">
                                 <span>Venue</span>
                                 <input
+                                    value={this.state.venue || ""}
                                     autoComplete="none"
                                     name="venue"
                                     placeholder="Venue"
@@ -181,9 +185,11 @@ export default class GigCreator extends React.Component {
                                 <div className="uploadSuccess"></div>
                             )}
                         </div>
-                        {!this.state.success && !this.state.map && (
-                            <p className="required">*required</p>
-                        )}
+                        {!this.state.success &&
+                            !this.state.error &&
+                            !this.state.map && (
+                                <p className="required">*required</p>
+                            )}
                         {this.state.error && (
                             <p className="error">
                                 {
