@@ -6,6 +6,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
     const [userList, setUserList] = useState(null);
     const [confirm, setConfirm] = useState(false);
     const [guestList, setGuestList] = useState(false);
+    const [selectedUser, setSelectedUser] = useState(0);
 
     useEffect(function () {
         if (!super_admin) {
@@ -86,53 +87,78 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
 
     return (
         <div className="superAdminContainer">
-            {guestList.length > 0 && (
-                <div className="superAdminGuestList">
-                    Guests: {guestList.length}
-                    <span
-                        onClick={(e) => {
-                            deleteGuests();
-                            setGuestList(false);
-                        }}
-                    >
-                        delete
-                    </span>
+            <select
+                name="selectedGig"
+                className="selectSuperUserMode"
+                onChange={(e) => setSelectedUser(parseInt(e.target.value))}
+            >
+                <option className="chooseSuperUserMode" value="">
+                    Select User
+                </option>
+                {userList &&
+                    userList.map(
+                        (user) =>
+                            chat_myUserId != user.id && (
+                                <option
+                                    value={user.id}
+                                    key={user.id}
+                                    className="chooseSuperUserMode"
+                                >
+                                    {user.nickname}
+                                </option>
+                            )
+                    )}
+            </select>{" "}
+            {!selectedUser && (
+                <div className="superList">
+                    <div className="superListItemBack">
+                        <div className="superListItem">
+                            <img src={"avatar.png"}></img>
+                            <div className="superAdminGuestList">Guests</div>
+                        </div>
+                        <div className="superListItem" id="superListItem">
+                            <div className="superAdminGuestList">
+                                {guestList.length > 0 && guestList.length}
+                                {!guestList.length && "Nothing here."}
+                                <span
+                                    onClick={(e) => {
+                                        deleteGuests();
+                                        setGuestList(false);
+                                    }}
+                                >
+                                    {guestList.length > 0 && "delete all"}{" "}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             )}
-            {super_admin && (
-                <div className="superList">
-                    {userList &&
-                        userList.map((user) => {
-                            var diff = new Date().getTimezoneOffset() / -60;
-                            if (user.created_at) {
-                                let msgDate = user.created_at
-                                    .slice(0, 10)
-                                    .split("-");
-                                var fixedDate =
-                                    msgDate[2] +
-                                    "-" +
-                                    msgDate[1] +
-                                    "-" +
-                                    msgDate[0];
+            {userList &&
+                userList.map((user) => {
+                    var diff = new Date().getTimezoneOffset() / -60;
+                    if (user.created_at) {
+                        let msgDate = user.created_at.slice(0, 10).split("-");
+                        var fixedDate =
+                            msgDate[2] + "-" + msgDate[1] + "-" + msgDate[0];
 
-                                let msgTime = user.created_at
-                                    .slice(11, 19)
-                                    .split(":");
+                        let msgTime = user.created_at.slice(11, 19).split(":");
 
-                                if (msgTime[0].startsWith("0")) {
-                                    msgTime[0] = msgTime[0].slice(1, 2);
-                                }
-                                var fixedTime =
-                                    JSON.parse(msgTime[0]) +
-                                    diff +
-                                    ":" +
-                                    msgTime[1] +
-                                    ":" +
-                                    msgTime[2];
-                            }
-                            return (
-                                <React.Fragment key={user.id}>
-                                    {chat_myUserId != user.id && (
+                        if (msgTime[0].startsWith("0")) {
+                            msgTime[0] = msgTime[0].slice(1, 2);
+                        }
+                        var fixedTime =
+                            JSON.parse(msgTime[0]) +
+                            diff +
+                            ":" +
+                            msgTime[1] +
+                            ":" +
+                            msgTime[2];
+                    }
+                    return (
+                        <React.Fragment key={user.id}>
+                            {chat_myUserId != user.id &&
+                                user.id == selectedUser && (
+                                    <div className="superList">
                                         <div className="superListItemBack">
                                             <div className="superListItem">
                                                 <img
@@ -151,6 +177,12 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                     {user.created_at &&
                                                         fixedTime}
                                                 </span>
+                                            </div>
+                                            <div
+                                                className="superListItem"
+                                                id="superListItem"
+                                            >
+                                                {" "}
                                                 {user.admin && (
                                                     <div
                                                         id={user.id}
@@ -235,12 +267,11 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                 )}
                                             </div>
                                         </div>
-                                    )}
-                                </React.Fragment>
-                            );
-                        })}
-                </div>
-            )}
+                                    </div>
+                                )}
+                        </React.Fragment>
+                    );
+                })}
             <Link
                 to="/"
                 className="superAdminExit"

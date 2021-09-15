@@ -66,10 +66,9 @@ a:hover {
     align-items: center;
     align-self: center;
     font-family: "Black Ops One", cursive;
-    height:80vh;
-    margin-top:20vh;
+    height: 80vh;
+    margin-top: 20vh;
     user-select: none;
-
 }
 
 .loginContainer input,
@@ -83,7 +82,7 @@ a:hover {
 .loginContainer span {
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
-        font-size:1.5vmax
+    font-size: 1.5vmax;
 }
 
 .registerContainer a,
@@ -92,22 +91,18 @@ a:hover {
     font-size: 2vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
-           transition: 0.5s;
-    
+    transition: 0.5s;
 }
 
 .registerContainer a:hover,
 .loginContainer a:hover {
-        text-shadow: -0 0 2px cyan,
-        0 -0 2px cyan,
-        -0 -0 2px cyan,
-        -0 -0 2px cyan;
+    text-shadow: -0 0 2px cyan, 0 -0 2px cyan, -0 -0 2px cyan, -0 -0 2px cyan;
     color: rgba(229, 255, 0, 0.438);
     transition: 0.5s;
 }
 
 .regSpan {
-    margin-top:1.5vmax;
+    margin-top: 1.5vmax;
 }
 
 .guest {
@@ -116,36 +111,31 @@ a:hover {
     cursor: pointer;
     text-align: center;
     align-self: center;
-       transition: 0.5s;
-              margin:0.5vmax;
+    transition: 0.5s;
+    margin: 0.5vmax;
 }
 
 .guest:hover {
-    text-shadow: -0 0 2px cyan,
-        0 -0 2px cyan,
-        -0 -0 2px cyan,
-        -0 -0 2px cyan;
-    color: rgba(229, 255, 0, 0.836)  !important;
+    text-shadow: -0 0 2px cyan, 0 -0 2px cyan, -0 -0 2px cyan, -0 -0 2px cyan;
+    color: rgba(229, 255, 0, 0.836) !important;
     transition: 0.5s;
-
-
 }
 
 .registerContainer h1,
 .loginContainer h1 {
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
-        font-size: 2.5vmax;
+    font-size: 2.5vmax;
 }
 
 #button {
     font-size: 1.5vmax;
-    padding:0.3vmax;
+    padding: 0.3vmax;
     width: 7vmax;
     text-align: center;
-    height:2vmax;
-    margin:0.5vmax 1vmax 1vmax 1vmax;
-    cursor:pointer;
+    height: 2vmax;
+    margin: 0.5vmax 1vmax 1vmax 1vmax;
+    cursor: pointer;
 }
 
 .gigCreatorContainer h1 {
@@ -159,7 +149,6 @@ a:hover {
 }
 
 .gigCreatorContainerInner {
-  
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
     background-color: rgba(255, 211, 66, 0.137);
@@ -282,7 +271,7 @@ a:hover {
 }
 
 .gigEditorContainerInner {
-  display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -312,7 +301,7 @@ a:hover {
     border-radius: 2vh;
     padding: 0 0 1vmax 0;
     background-color: rgba(255, 104, 104, 0.075);
-    width:40vw;
+    width: 40vw;
 }
 
 .gigListControls {
@@ -490,9 +479,8 @@ form {
     color: orangered;
     max-height: 90vh;
     width: 50vw;
-    margin-bottom:1vmax;
+    margin-bottom: 1vmax;
 }
-
 
 form span {
     font-size: 2.5vmax;
@@ -605,7 +593,7 @@ input {
 }
 
 .delete {
-      color: rgb(255, 0, 0);
+    color: rgb(255, 0, 0);
     border-radius: 100px;
     border: 2px solid rgb(253, 68, 0);
     font-family: "Poller One", cursive;
@@ -623,8 +611,8 @@ input {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    padding:0.7vmax;
-    margin-bottom:1vmax;
+    padding: 0.7vmax;
+    margin-bottom: 1vmax;
 }
 
 .deleteWarn {
@@ -677,7 +665,7 @@ input {
     box-shadow: -0 0 15px black, 0 -0 15px black, -0 -0 15px black,
         -0 -0 15px black;
     transition: 0.5s;
-    user-select:none;
+    user-select: none;
 }
 
 .easterEgg img:hover {
@@ -709,10 +697,9 @@ input {
 }
 
 .mainMenuBottom {
-    display:flex;
+    display: flex;
     flex-direction: column-reverse;
-    align-items:center;
-
+    align-items: center;
 }
 
 .mainMenuLink {
@@ -831,12 +818,13 @@ input {
     .registerContainer input {
         width: 40vw !important;
         height: 5vh !important;
-        padding:2vmax !important;
+        padding: 2vmax !important;
         font-size: 2vmax;
     }
 
-    .loginContainer, .registerContainer{
-        margin-top:10vh !important;
+    .loginContainer,
+    .registerContainer {
+        margin-top: 10vh !important;
     }
 
     .loginContainer .button,
@@ -846,14 +834,13 @@ input {
         padding: 1vmax 1vmax 3vmax 1vmax;
     }
 
-
-    .mainMenuBottom{
-        font-size:3vmax !important;
+    .mainMenuBottom {
+        font-size: 3vmax !important;
     }
 
-    .regSpan{
+    .regSpan {
         font-size: 3vmax !important;
-        margin:0 0 1vmax 0!important;
+        margin: 0 0 1vmax 0 !important;
     }
 
     .tickerButton {
@@ -1244,22 +1231,21 @@ input {
         margin: 1vmax !important;
     }
 
-    #creatorCloseTab{
-        width:80vw !important;
+    #creatorCloseTab {
+        width: 80vw !important;
     }
 
-    #editorCloseTab{
-        width:80vw !important;
+    #editorCloseTab {
+        width: 80vw !important;
     }
 
     .gigCreatorContainer h1 {
-        width:60vw !important;
+        width: 60vw !important;
     }
 
     .gigEditorContainerInner form {
         width: 80vw !important;
     }
-    
 
     .gigEditorContainerInner select {
         width: 50vw !important;
@@ -1378,29 +1364,33 @@ input {
         font-size: 3vmax !important;
     }
 
-        .mainMenuBottom a {
-          font-size: 3vmax !important;
-          margin:1vmax !important;
+    .mainMenuBottom a {
+        font-size: 3vmax !important;
+        margin: 1vmax !important;
     }
 
     .links {
-        font-size:3vmax !important;
+        font-size: 3vmax !important;
     }
 
     #button {
-        height:4.3vmax !important;
-        width:17vmax !important;
+        height: 4.3vmax !important;
+        width: 17vmax !important;
         font-size: 3.5vmax !important;
-        margin:2vmax !important;
-        padding:0.5vmax !important;
+        margin: 2vmax !important;
+        padding: 0.5vmax !important;
     }
 
     .gigEntriesBox {
-        width:70vw !important;
+        width: 70vw !important;
     }
 
     #gigListCloseTab {
-        width:70vw !important;
+        width: 70vw !important;
+    }
+
+    .formOptions {
+        width: 60vw !important;
     }
 }
 
@@ -1424,8 +1414,9 @@ input {
         padding: 1vmax 2vmax 3vmax 2vmax !important;
     }
 
-    .loginContainer, .registerContainer {
-        margin-top:0 !important;
+    .loginContainer,
+    .registerContainer {
+        margin-top: 0 !important;
     }
 
     .mainMenu {
@@ -1463,24 +1454,26 @@ input {
         height: fit-content !important;
     }
 
-        .loginContainer input,
+    .loginContainer input,
     .registerContainer input {
         width: 20vw !important;
-        padding:2vmax !important;
+        padding: 2vmax !important;
         font-size: 2vmax;
     }
 
-    .regSpan{
+    .regSpan {
         margin-top: 0 !important;
     }
 
-    .loginContainer span, .registerContainer span {
-        font-size: 3vmax !important
+    .loginContainer span,
+    .registerContainer span {
+        font-size: 3vmax !important;
     }
 
-    .loginContainer h1, .registerContainer h1 {
-       font-size:4vmax !important;
-       margin:0 !important;
+    .loginContainer h1,
+    .registerContainer h1 {
+        font-size: 4vmax !important;
+        margin: 0 !important;
     }
 
     .chatScreen {
@@ -1727,24 +1720,23 @@ input {
 
     .guest {
         font-size: 2.2vmax !important;
-
     }
 
     .mainMenuBottom a {
-          font-size: 2.1vmax !important;
-        width:13vmax !important;
+        font-size: 2.1vmax !important;
+        width: 13vmax !important;
     }
 
     .mainMenuBottom {
         flex-direction: row !important;
     }
 
-        #button {
-        height:4vmax !important;
-        width:17vmax !important;
+    #button {
+        height: 4vmax !important;
+        width: 17vmax !important;
         font-size: 3vmax !important;
-        margin:1vmax !important;
-        padding:0.5vmax !important;
+        margin: 1vmax !important;
+        padding: 0.5vmax !important;
     }
 }
 
@@ -1897,7 +1889,7 @@ input {
     font-size: 1vmax;
     padding: 0.5vmax;
     width: 40vw;
-    margin-bottom:0.5vmax;
+    margin-bottom: 0.5vmax;
 }
 
 .selectGigEntry {
@@ -1949,7 +1941,7 @@ input {
 }
 
 #errorEdit {
-    margin:0 !important;
+    margin: 0 !important;
 }
 
 .error {
@@ -1960,7 +1952,7 @@ input {
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
     text-align: center;
-    margin:1vmax 0 0 0;
+    margin: 1vmax 0 0 0;
 }
 
 .gm-style a {
@@ -2123,7 +2115,7 @@ div:focus {
     box-shadow: none;
     height: 1.7vmax;
     width: 16vmax;
-    margin:0;
+    margin: 0;
 }
 
 /*
@@ -2638,7 +2630,7 @@ font-family: 'Ultra', serif; */
     background-color: rgba(0, 0, 0, 0.377);
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
         -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
-        user-select:none;
+    user-select: none;
 }
 
 .fileUploaderChat {
@@ -3222,7 +3214,6 @@ font-family: 'Ultra', serif; */
     align-items: center;
     justify-content: center;
     width: 100vw;
-
 }
 
 .posterSectionToggler {
@@ -3252,24 +3243,23 @@ font-family: 'Ultra', serif; */
     justify-content: flex-start;
     scrollbar-width: 20px;
     scrollbar-color: rgba(255, 255, 0, 0.39) rgba(172, 255, 104, 0.041);
-
-    height: 100vh;
+    height: 92vh;
     user-select: none;
 }
 
 .superAdminGuestList {
-        font-family: "Black Ops One", cursive !important;
-        font-size: 2vmax;
+    font-family: "Black Ops One", cursive !important;
+    font-size: 2vmax;
 }
 
 .superAdminGuestList span {
-    margin-left:1vmax;
-    color:red;
-    cursor:pointer;
+    margin-left: 1vmax;
+    color: red !important;
+    cursor: pointer;
 }
 
 .superAdminGuestList span:hover {
-  color:yellow;
+    color: white !important;
 }
 
 .superList {
@@ -3277,9 +3267,9 @@ font-family: 'Ultra', serif; */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 68vw;
+
     background-color: rgba(113, 255, 212, 0.021);
-    padding: 1vmax 2vmax;
+    padding: 1vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
     border-radius: 1vh;
@@ -3289,42 +3279,37 @@ font-family: 'Ultra', serif; */
     background-color: rgba(0, 0, 0, 0.205);
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
-    margin: 1.5vmax 3vmax;
+    margin: 1.5vmax;
     border-radius: 1vh;
     padding: 1vmax;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .superListItem {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     text-align: left;
-    margin: 2vmax;
     border-radius: 1vh;
     overflow-x: hidden;
     width: 23vmax;
     max-width: 23vmax;
     min-height: fit-content;
-    background-color: rgba(255, 255, 255, 0.068);
-
-    box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
-        -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
 }
 
 .superListItem h1 {
+    color: rgba(170, 255, 0, 0.897);
     text-align: center;
     overflow-x: hidden;
     width: 23vmax;
     max-width: 23vmax;
-}
-
-.superListItemBack:nth-child(odd) {
-    margin-right: 0.5vmax;
-}
-
-.superListItem:hover {
-    background-color: rgba(0, 255, 242, 0.068);
+    margin: 0;
+    text-shadow: -0 0 5px orange, 0 -0 5px orange, -0 -0 5px orange,
+        -0 -0 5px orange;
+    font-size: 3vmax;
 }
 
 .superListItem img {
@@ -3388,7 +3373,6 @@ font-family: 'Ultra', serif; */
     padding: 1vh !important;
     border-radius: 3vh;
     border: 1px solid white;
-    margin-top: 2vmax !important;
     cursor: pointer;
     color: rgb(255, 47, 47) !important;
     font-size: 1.5vmax !important;
@@ -3718,26 +3702,43 @@ font-family: 'Ultra', serif; */
     font-size: 4vmax;
 }
 
-#creatorCloseTab{
-    display:flex;
+#creatorCloseTab {
+    display: flex;
     text-align: center;
     justify-content: flex-end;
-    width:50vw;
+    width: 50vw;
 }
 
-#editorCloseTab{
-    display:flex;
+#editorCloseTab {
+    display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    width:50vw;
+    width: 50vw;
 }
 
-#gigListCloseTab{
-    display:flex;
+#gigListCloseTab {
+    display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: flex-end;
 
-    width:40vw;
+    width: 40vw;
+}
+
+.selectSuperUserMode {
+    color: white;
+    padding: 0.5vmax;
+    width: 20vw;
+    margin-top: 1vmax;
+    background-color: rgba(0, 255, 255, 0.171);
+    font-family: "Black Ops One", cursive;
+    font-size: 2vmax;
+    border: none;
+}
+
+.chooseSuperUserMode {
+    background-color: black;
+    width: 20vw;
+    text-align: center;
 }
