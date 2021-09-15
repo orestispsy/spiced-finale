@@ -74,6 +74,11 @@ export default class GigCreator extends React.Component {
         return (
             <div className="gigCreatorContainer">
                 <div className="gigCreatorContainerInner">
+                    <div id="creatorCloseTab">
+                        <Link to="/" className="buttonBack">
+                            X
+                        </Link>
+                    </div>
                     <form>
                         <h1>Add Gig</h1>
 
@@ -162,7 +167,8 @@ export default class GigCreator extends React.Component {
                         )}
                         <div className="formOptions">
                             {!this.state.success && !this.state.map && (
-                                <div className="button"
+                                <div
+                                    className="button"
                                     onClick={() => {
                                         this.handleClick();
                                     }}
@@ -179,25 +185,13 @@ export default class GigCreator extends React.Component {
                             <p className="required">*required</p>
                         )}
                         {this.state.error && (
-                            <p className="error">{"Date, Latitude & Longitude Fields Are Required"}</p>
+                            <p className="error">
+                                {
+                                    "Date, Latitude & Longitude Fields Are Required"
+                                }
+                            </p>
                         )}
                     </form>
-
-                    {!this.state.map && (
-                        <Link to="/" className="backLink">
-                            Back
-                        </Link>
-                    )}
-                    {this.state.map && (
-                        <a
-                            className="backLink"
-                            onClick={() => {
-                                this.mapToggler();
-                            }}
-                        >
-                            Back{" "}
-                        </a>
-                    )}
                 </div>
             </div>
         );

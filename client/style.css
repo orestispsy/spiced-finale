@@ -149,17 +149,17 @@ a:hover {
 }
 
 .gigCreatorContainer h1 {
-    width: 50vw;
+    width: 42vw;
     text-align: center;
     font-size: 3vmax;
     color: rgb(255, 255, 255);
-    margin: 2vmax 0 1.5vmax 0;
+    margin: 0 0 1.5vmax 0;
     border-bottom: 2px solid tomato;
     padding: 1vmax;
 }
 
 .gigCreatorContainerInner {
-    padding: 0vmax 2vmax 2vmax 2vmax;
+  
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
     background-color: rgba(255, 211, 66, 0.137);
@@ -282,7 +282,7 @@ a:hover {
 }
 
 .gigEditorContainerInner {
-    padding: 2vmax 2vmax 1vmax 2vmax;
+  
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
     background-color: rgba(255, 211, 66, 0.137);
@@ -307,8 +307,9 @@ a:hover {
     align-items: center;
     justify-self: center;
     border-radius: 2vh;
-    padding: 1vmax 1vmax 1vmax 1.5vmax;
+    padding: 0 0 1vmax 0;
     background-color: rgba(255, 104, 104, 0.075);
+    width:40vw;
 }
 
 .gigListControls {
@@ -484,9 +485,11 @@ form {
     align-self: center;
     font-size: 25px;
     color: orangered;
-    max-height: 85vh;
+    max-height: 90vh;
     width: 50vw;
+    margin-bottom:1vmax;
 }
+
 
 form span {
     font-size: 2.5vmax;
@@ -546,7 +549,7 @@ form input {
 
 .required {
     letter-spacing: 0.5px;
-    color: red;
+    color: orangered;
     font-size: 1vmax;
     margin: 1vh;
     width: 20vw;
@@ -1371,6 +1374,14 @@ input {
         margin:2vmax !important;
         padding:0.5vmax !important;
     }
+
+    .gigEntriesBox {
+        width:70vw !important;
+    }
+
+    #gigListCloseTab {
+        width:70vw !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1864,7 +1875,6 @@ input {
     font-family: "Poller One", cursive;
     color: white;
     font-size: 1vmax;
-    margin-bottom: 1vh;
     padding: 0.5vmax;
     width: 40vw;
 }
@@ -1914,16 +1924,18 @@ input {
 
 #error {
     width: 20vmax;
+    text-align: center;
 }
 
 .error {
     font-family: "Black Ops One", cursive;
     font-size: 1vmax;
     color: tomato;
-    width: 40vmax;
+    width: 30vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
     text-align: center;
+    margin:0 0 0.5vmax 0;
 }
 
 .gm-style a {
@@ -3679,4 +3691,32 @@ font-family: 'Ultra', serif; */
 
 #logoIntro {
     font-size: 4vmax;
+}
+
+#creatorCloseTab{
+    display:flex;
+    text-align: center;
+    justify-content: flex-end;
+    align-items:center;
+    width:50vw;
+}
+
+#editorCloseTab{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items:center;
+    width:50vw;
+    margin: 0 0 0.5vmax 0;
+}
+
+#gigListCloseTab{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: flex-end;
+    align-items:center;
+    width:40vw;
+    margin: 0 0 0.5vmax 0;
 }

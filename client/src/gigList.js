@@ -65,6 +65,10 @@ export default function GigList({
     return (
         <div className="gigListContainer">
             <div className="gigEntriesBox">
+                 <div id="gigListCloseTab">
+                            <Link to="/" className="buttonBack">
+                                X
+                            </Link></div>
                 <h1>Gig Entries</h1>
                 <div className="gigListControls">
                     <div className="sortedGigRange">2006</div>
@@ -205,9 +209,6 @@ export default function GigList({
                         </Link>
                     ))}
             </div>
-            <Link to="/" className="backLink">
-                Back
-            </Link>
             <Link to="/gig-list-animation" className="gigAnimationLink">
                 Animate
             </Link>
