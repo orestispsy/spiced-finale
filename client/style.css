@@ -2084,6 +2084,7 @@ div:focus {
     box-shadow: none;
     height: 1.7vmax;
     width: 16vmax;
+    margin:0;
 }
 
 /*
@@ -2463,8 +2464,8 @@ font-family: 'Ultra', serif; */
 }
 
 .usersBack {
-    min-width: 18vmax;
-    max-width: 18vmax;
+    min-width: 17vmax;
+    max-width: 17vmax;
     height: fit-content;
     height: 10vmax;
     min-height: 12vh;
@@ -2717,8 +2718,8 @@ font-family: 'Ultra', serif; */
     flex-wrap: wrap;
     align-self: center;
     min-width: 16vmax;
-    width: 16vmax;
-    height: 30vh;
+    width: 20vmax;
+    height: 28vh;
     overflow-y: scroll;
     scrollbar-width: none;
     border-radius: 1vmax;
