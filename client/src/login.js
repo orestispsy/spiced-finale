@@ -94,7 +94,7 @@ export default class Login extends React.Component {
                     onClick={() => this.handleErrorMsg()}
                 />
 
-                <div className="button" onClick={() => this.handleClick()}>
+                <div id="button" className="mainMenuLink" onClick={() => this.handleClick()}>
                     Submit
                 </div>
                 <span className="regSpan">Not a Member?</span>

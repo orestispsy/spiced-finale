@@ -66,19 +66,23 @@ a:hover {
     align-items: center;
     align-self: center;
     font-family: "Black Ops One", cursive;
+    height:80vh;
+    margin-top:20vh;
 
 }
 
 .loginContainer input,
 .registerContainer input {
     width: 10vmax;
-    height: 25px;
+    height: 2vmax;
+    margin-bottom: 0.5vmax !important;
 }
 
 .registerContainer span,
 .loginContainer span {
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
+        font-size:1.5vmax
 }
 
 .registerContainer a,
@@ -88,6 +92,7 @@ a:hover {
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
            transition: 0.5s;
+    
 }
 
 .registerContainer a:hover,
@@ -96,18 +101,22 @@ a:hover {
         0 -0 2px cyan,
         -0 -0 2px cyan,
         -0 -0 2px cyan;
-    color: rgba(229, 255, 0, 0.438)  !important;
+    color: rgba(229, 255, 0, 0.438);
     transition: 0.5s;
+}
+
+.regSpan {
+    margin-top:1.5vmax;
 }
 
 .guest {
     color: rgb(188, 204, 42);
     font-size: 2.2vmax;
-    height:2vmax;
     cursor: pointer;
     text-align: center;
     align-self: center;
        transition: 0.5s;
+              margin:0.5vmax;
 }
 
 .guest:hover {
@@ -125,13 +134,17 @@ a:hover {
 .loginContainer h1 {
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
+        font-size: 2.5vmax;
 }
 
-.registerContainer .button,
-.loginContainer .button {
-    height: 30px;
-    margin: 0.5vmax;
-    margin-bottom: 1vmax;
+#button {
+    font-size: 1.5vmax;
+    padding:0.3vmax;
+    width: 7vmax;
+    text-align: center;
+    height:2vmax;
+    margin:0.5vmax 1vmax 1vmax 1vmax;
+    cursor:pointer;
 }
 
 .gigCreatorContainer h1 {
@@ -142,10 +155,6 @@ a:hover {
     margin: 2vmax 0 1.5vmax 0;
     border-bottom: 2px solid tomato;
     padding: 1vmax;
-}
-
-.gigCreatorContainerInner form .formOptions .button {
-    margin-top: 1vmax;
 }
 
 .gigCreatorContainerInner {
@@ -690,10 +699,8 @@ input {
 
 .mainMenuBottom {
     display:flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items:center;
-    justify-content: space-evenly;
-    height:13vh;
 
 }
 
@@ -811,17 +818,21 @@ input {
 
     .loginContainer input,
     .registerContainer input {
-        width: 35vw !important;
+        width: 40vw !important;
         height: 5vh !important;
-        padding:3vmax !important;
+        padding:2vmax !important;
         font-size: 2vmax;
+    }
+
+    .loginContainer, .registerContainer{
+        margin-top:10vh !important;
     }
 
     .loginContainer .button,
     .registerContainer .button {
         font-size: 3vmax;
         margin: 2vmax;
-        padding: 2vmax 2vmax 4vmax 2vmax;
+        padding: 1vmax 1vmax 3vmax 1vmax;
     }
 
     .mainMenuBottom{
@@ -830,6 +841,7 @@ input {
 
     .regSpan{
         font-size: 3vmax !important;
+        margin:0 0 1vmax 0!important;
     }
 
     .tickerButton {
@@ -1349,6 +1361,14 @@ input {
     .links {
         font-size:3vmax !important;
     }
+
+    #button {
+        height:4.3vmax !important;
+        width:17vmax !important;
+        font-size: 3.5vmax !important;
+        margin:2vmax !important;
+        padding:0.5vmax !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1369,6 +1389,10 @@ input {
     .mainMenuLink {
         font-size: 4vmax !important;
         padding: 1vmax 2vmax 3vmax 2vmax !important;
+    }
+
+    .loginContainer, .registerContainer {
+        margin-top:0 !important;
     }
 
     .mainMenu {
@@ -1404,6 +1428,26 @@ input {
     .registerContainer {
         min-height: fit-content !important;
         height: fit-content !important;
+    }
+
+        .loginContainer input,
+    .registerContainer input {
+        width: 20vw !important;
+        padding:2vmax !important;
+        font-size: 2vmax;
+    }
+
+    .regSpan{
+        margin-top: 0 !important;
+    }
+
+    .loginContainer span, .registerContainer span {
+        font-size: 3vmax !important
+    }
+
+    .loginContainer h1, .registerContainer h1 {
+       font-size:4vmax !important;
+       margin:0 !important;
     }
 
     .chatScreen {
@@ -1660,7 +1704,14 @@ input {
 
     .mainMenuBottom {
         flex-direction: row !important;
-        height:unset !important;
+    }
+
+        #button {
+        height:4vmax !important;
+        width:17vmax !important;
+        font-size: 3vmax !important;
+        margin:1vmax !important;
+        padding:0.5vmax !important;
     }
 }
 

@@ -80,7 +80,11 @@ export default class Registration extends React.Component {
                     onClick={() => this.handleErrorMsg()}
                 />
 
-                <div className="button" onClick={() => this.handleClick()}>
+                <div
+                    id="button"
+                    className="mainMenuLink"
+                    onClick={() => this.handleClick()}
+                >
                     Submit
                 </div>
                 <span className="regSpan">Joined Already?</span>
