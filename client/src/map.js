@@ -61,6 +61,10 @@ const WithGoogleMapComponent = compose(
                         dot = "redBall.gif";
                         var scaleParam = 15;
                     }
+                        if (gig.tour_name === "Upcoming") {
+                            dot = "yellowdot.gif";
+                            var scaleParam = 15;
+                        }
 
                     return (
                         <Marker

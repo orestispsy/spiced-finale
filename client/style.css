@@ -84,9 +84,10 @@ a:hover {
 .registerContainer a,
 .loginContainer a {
     color: cyan;
-    font-size: 1.8vmax;
+    font-size: 2vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
+           transition: 0.5s;
 }
 
 .registerContainer a:hover,
@@ -101,11 +102,12 @@ a:hover {
 
 .guest {
     color: rgb(188, 204, 42);
-    font-size: 1.8vmax;
+    font-size: 2.2vmax;
     height:2vmax;
     cursor: pointer;
     text-align: center;
     align-self: center;
+       transition: 0.5s;
 }
 
 .guest:hover {
@@ -113,7 +115,7 @@ a:hover {
         0 -0 2px cyan,
         -0 -0 2px cyan,
         -0 -0 2px cyan;
-    color: rgba(229, 255, 0, 0.438)  !important;
+    color: rgba(229, 255, 0, 0.836)  !important;
     transition: 0.5s;
 
 
@@ -688,9 +690,10 @@ input {
 
 .mainMenuBottom {
     display:flex;
+    flex-direction: column;
     align-items:center;
-    width:30vmax;
     justify-content: space-evenly;
+    height:13vh;
 
 }
 
@@ -822,7 +825,6 @@ input {
     }
 
     .mainMenuBottom{
-        flex-direction: column;
         font-size:3vmax !important;
     }
 
@@ -1654,6 +1656,11 @@ input {
     .mainMenuBottom a {
           font-size: 2.1vmax !important;
         width:13vmax !important;
+    }
+
+    .mainMenuBottom {
+        flex-direction: row !important;
+        height:unset !important;
     }
 }
 
