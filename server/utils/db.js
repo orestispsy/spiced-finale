@@ -444,3 +444,19 @@ module.exports.getNetworkUsers = () => {
 
     return db.query(q);
 };
+
+module.exports.getGuests= () => {
+    const q = `
+       SELECT * FROM community WHERE nickname ILIKE 'GUEST%';
+    `;
+
+    return db.query(q);
+};
+
+module.exports.deleteGuests = () => {
+    const q = `
+       DELETE FROM community WHERE nickname ILIKE 'GUEST%';
+    `;
+
+    return db.query(q);
+};

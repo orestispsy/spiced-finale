@@ -136,7 +136,7 @@ export default function Community({
                                     <a href={img.img_url} target="_blank">
                                         <img src={img.img_url}></img>
                                     </a>
-                                    Uploaded by: <div>{img.nickname}</div>
+                                    Uploaded by: <div>{img.nickname.includes("Guest") && "Anonymous" || img.nickname}</div>
                                 </div>
                             )}
                         </div>

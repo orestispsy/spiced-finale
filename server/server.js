@@ -505,6 +505,23 @@ app.get("/get-network-users", (req, res) => {
         .catch((err) => console.log(err));
 });
 
+
+app.get("/get-guests", (req, res) => {
+    db.getGuests()
+        .then(({ rows }) => {
+            res.json({ data: rows });
+        })
+        .catch((err) => console.log(err));
+});
+
+app.get("/delete-guests", (req, res) => {
+    db.deleteGuests()
+        .then(({ rows }) => {
+            res.json({ data: rows });
+        })
+        .catch((err) => console.log(err));
+});
+
 app.post("/chat", function (req, res) {
     goOffline = req.body.goOffline;
     res.json({ done: true });

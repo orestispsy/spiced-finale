@@ -5,6 +5,7 @@ import axios from "./tools/axios";
 export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
     const [userList, setUserList] = useState(null);
     const [confirm, setConfirm] = useState(false);
+    const [guestList, setGuestList] = useState(false);
 
     useEffect(function () {
         if (!super_admin) {
@@ -15,11 +16,32 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
             .get("/get-all-users")
             .then(({ data }) => {
                 setUserList(data.data);
+           
+            })
+            .catch((err) => {
+                console.log("err in axios get-all-users ", err);
+            });
+        axios
+            .get("/get-guests")
+            .then(({ data }) => {
+                setGuestList(data.data);
+           
             })
             .catch((err) => {
                 console.log("err in axios get-all-users ", err);
             });
     }, []);
+
+    const deleteGuests = () => {
+        axios
+            .get("/delete-guests")
+            .then(({ data }) => {
+                console.log("done")
+            })
+            .catch((err) => {
+                console.log("err in axios get-all-users ", err);
+            });
+    }
 
     const deleteUser = (e) => {
         axios
@@ -66,36 +88,44 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
 
     return (
         <div className="superAdminContainer">
+            {guestList.length>0 && (
+                <div className="superAdminGuestList">
+                    Guests: {guestList.length}
+                    <span onClick={(e)=>{deleteGuests()
+                    setGuestList(false)}}>delete</span>
+                </div>
+            )}
             {super_admin && (
                 <div className="superList">
                     {userList &&
                         userList.map((user) => {
                             var diff = new Date().getTimezoneOffset() / -60;
+                            if (user.created_at) {
+                                let msgDate = user.created_at
+                                    .slice(0, 10)
+                                    .split("-");
+                                var fixedDate =
+                                    msgDate[2] +
+                                    "-" +
+                                    msgDate[1] +
+                                    "-" +
+                                    msgDate[0];
 
-                            let msgDate = user.created_at
-                                .slice(0, 10)
-                                .split("-");
-                            var fixedDate =
-                                msgDate[2] +
-                                "-" +
-                                msgDate[1] +
-                                "-" +
-                                msgDate[0];
+                                let msgTime = user.created_at
+                                    .slice(11, 19)
+                                    .split(":");
 
-                            let msgTime = user.created_at
-                                .slice(11, 19)
-                                .split(":");
-
-                            if (msgTime[0].startsWith("0")) {
-                                msgTime[0] = msgTime[0].slice(1, 2);
+                                if (msgTime[0].startsWith("0")) {
+                                    msgTime[0] = msgTime[0].slice(1, 2);
+                                }
+                                var fixedTime =
+                                    JSON.parse(msgTime[0]) +
+                                    diff +
+                                    ":" +
+                                    msgTime[1] +
+                                    ":" +
+                                    msgTime[2];
                             }
-                            var fixedTime =
-                                JSON.parse(msgTime[0]) +
-                                diff +
-                                ":" +
-                                msgTime[1] +
-                                ":" +
-                                msgTime[2];
                             return (
                                 <React.Fragment key={user.id}>
                                     {chat_myUserId != user.id && (
@@ -109,8 +139,14 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                 ></img>
                                                 <h1>{user.nickname}</h1>
                                                 <div>Last Online</div>
-                                                <span>{fixedDate}</span>
-                                                <span>{fixedTime}</span>
+                                                <span>
+                                                    {user.created_at &&
+                                                        fixedDate}
+                                                </span>
+                                                <span>
+                                                    {user.created_at &&
+                                                        fixedTime}
+                                                </span>
                                                 {user.admin && (
                                                     <div
                                                         id={user.id}

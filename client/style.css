@@ -3217,6 +3217,21 @@ font-family: 'Ultra', serif; */
     user-select: none;
 }
 
+.superAdminGuestList {
+        font-family: "Black Ops One", cursive !important;
+        font-size: 2vmax;
+}
+
+.superAdminGuestList span {
+    margin-left:1vmax;
+    color:red;
+    cursor:pointer;
+}
+
+.superAdminGuestList span:hover {
+  color:yellow;
+}
+
 .superList {
     margin-top: 2vmax;
     display: flex;
