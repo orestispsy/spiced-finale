@@ -25,6 +25,8 @@ export default function OnlineUsers({
     setPrivateMessages,
     privateMessages,
     guest,
+    nickname,
+    setNickname,
 }) {
     const [userPicBar, setUserPicBar] = useState(false);
     const [onlineUserPic, setOnlineUserPic] = useState("");
@@ -34,7 +36,9 @@ export default function OnlineUsers({
     const [networkList, setNetworkList] = useState(false);
     const [networkUsers, setNetworkUsers] = useState(false);
     const [errorMsg, setErrorMsg] = useState(false);
-
+    const [userConfig, setUserConfig] = useState(false);
+    const [newNickname, setNewNickname] = useState(false);
+    const [password, setPassword] = useState(false);
     const onlineUsers = useSelector((state) => state && state.onlineUsers);
 
     const statePrivateMsgs = useSelector((state) => state && state.messages);
@@ -61,6 +65,7 @@ export default function OnlineUsers({
                     console.log("error", err);
                 });
         }
+        setNewNickname(nickname);
     }, []);
 
     useEffect(() => {
@@ -134,6 +139,39 @@ export default function OnlineUsers({
         setUserPicBar(!userPicBar);
         setcloseTag(!closeTag);
         toggleEmojibar(false);
+        setUserConfig(!userConfig);
+    };
+
+    const changeInfo = (ev1, ev2) => {
+        axios
+            .post("/change-nickname", { nickname: ev1 })
+            .then(({ data }) => {
+                if (data) {
+                    setUserConfig(false);
+                } else {
+                    setErrorMsg(true);
+                }
+            })
+            .catch((err) => {
+                console.log("error", err);
+                setErrorMsg(true);
+            });
+
+        if (ev2) {
+            axios
+                .post("/change-password", { password: ev2 })
+                .then(({ data }) => {
+                    if (data) {
+                        setUserConfig(false);
+                    } else {
+                        setErrorMsg(true);
+                    }
+                })
+                .catch((err) => {
+                    console.log("error", err);
+                    setErrorMsg(true);
+                });
+        }
     };
 
     return (
@@ -187,7 +225,7 @@ export default function OnlineUsers({
                             }}
                         ></div>
                     )}
-                    {!userPicBar && (
+                    {!userPicBar && !userConfig && (
                         <div className="mobileOnlineUsers">
                             {!privateMode && (
                                 <div className="chatUserHeadline">
@@ -351,7 +389,10 @@ export default function OnlineUsers({
                                                             `lime`,
                                                     }}
                                                 >
-                                                    {user.nickname}{" "}
+                                                    {(user.id ==
+                                                        chat_myUserId &&
+                                                        nickname) ||
+                                                        user.nickname}
                                                 </span>
                                                 {privateMessages &&
                                                     privateMessages.map(
@@ -389,6 +430,35 @@ export default function OnlineUsers({
                             {privateMode && (
                                 <div id="privateMsgUserNick">{privateNick}</div>
                             )}
+                        </div>
+                    )}
+
+                    {userConfig && (
+                        <div className="changeNickBox">
+                            <div className="changeNickInstructions">
+                                INFO EDIT
+                            </div>
+                            <div className="changeNickBoxThread">Nickname</div>
+                            <input
+                                type="text"
+                                defaultValue={nickname}
+                                onChange={(e) => setNewNickname(e.target.value)}
+                            ></input>
+                            <div className="changeNickBoxThread">Password</div>
+                            <input
+                                type="password"
+                                placeholder="password"
+                                onChange={(e) => setPassword(e.target.value)}
+                            ></input>
+                            <div
+                                className="changeNickButton"
+                                onClick={(e) => {
+                                    changeInfo(newNickname, password);
+                                    setNickname(newNickname);
+                                }}
+                            >
+                                Confirm
+                            </div>
                         </div>
                     )}
 
@@ -433,7 +503,17 @@ export default function OnlineUsers({
                     )}
                     {!closeTag && !privateMode && (
                         <div className="chatMenuOptions">
-                            {!guest && (
+                            <div
+                                className="chatMenuConfigButton"
+                                title={
+                                    (!userConfig && "Edit Account") || "Close"
+                                }
+                                onClick={(e) => {
+                                    setUserConfig(!userConfig);
+                                    toggleEmojibar(false);
+                                }}
+                            ></div>
+                            {!guest && !userConfig && (
                                 <div
                                     title="User Network"
                                     className="networkList"
@@ -441,17 +521,21 @@ export default function OnlineUsers({
                                 ></div>
                             )}
 
-                            <img
-                                className="uploaderTogglerImg"
-                                onClick={() => toggleUploader()}
-                            ></img>
-                            <input
-                                className="colorSelector"
-                                title="Change Chat Color"
-                                type="color"
-                                defaultValue={chat_color || `#00f01c`}
-                                onChange={(e) => handleColorChange(e)}
-                            ></input>
+                            {userConfig && (
+                                <img
+                                    className="uploaderTogglerImg"
+                                    onClick={() => toggleUploader()}
+                                ></img>
+                            )}
+                            {!userConfig && (
+                                <input
+                                    className="colorSelector"
+                                    title="Change Chat Color"
+                                    type="color"
+                                    defaultValue={chat_color || `#00f01c`}
+                                    onChange={(e) => handleColorChange(e)}
+                                ></input>
+                            )}
                         </div>
                     )}
                 </div>

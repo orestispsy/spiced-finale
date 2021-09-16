@@ -326,6 +326,34 @@ app.post("/delete-community-image", (req, res) => {
         });
 });
 
+app.post("/change-nickname", (req, res) => {
+    db.changeNickname(req.body.nickname, req.session.userId)
+        .then(({ rows }) => {
+            res.json({ data: rows });
+        })
+        .catch((err) => {
+            res.json({ error: true });
+            console.log(err);
+        });
+});
+
+app.post("/change-password", (req, res) => {
+    hash(req.body.password)
+        .then((password_hash) => {
+            db.changePassword(password_hash, req.session.userId)
+                .then(({ rows }) => {
+                    res.json({ data: rows });
+                })
+                .catch((err) => {
+                    res.json({ error: true });
+                    console.log(err);
+                });
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
+
 app.get("/logout", (req, res) => {
     req.session = null;
     res.redirect("/");
@@ -413,7 +441,6 @@ app.post("/delete-user", (req, res) => {
                         .then(({ rows }) => {
                             db.deleteUser(req.body.id)
                                 .then(({ rows }) => {
-                               
                                     if (rows[0].chat_img) {
                                         const file2delete =
                                             rows[0].chat_img.replace(s3Url, "");
@@ -505,7 +532,6 @@ app.get("/get-network-users", (req, res) => {
         })
         .catch((err) => console.log(err));
 });
-
 
 app.get("/get-guests", (req, res) => {
     db.getGuests()

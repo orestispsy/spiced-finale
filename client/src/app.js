@@ -123,6 +123,12 @@ export default class App extends Component {
         });
     }
 
+    setNickname(e) {
+        this.setState({
+            nickname: e,
+        });
+    }
+
     // sliderAction(e) {
     //     e.preventDefault();
     //     this.setState({
@@ -340,6 +346,7 @@ export default class App extends Component {
                                         }
                                         nickname={this.state.nickname}
                                         guest={this.state.guest}
+                                        setNickname={(e) => this.setNickname(e)}
                                     />
                                 )}
                             />

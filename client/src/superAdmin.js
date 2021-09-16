@@ -134,16 +134,14 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                         key={user.id}
                                         className="chooseSuperUserMode"
                                     >
-                                        {" ○ "}
                                         {user.nickname}
                                         {" ○ "}
                                         {msgDate[2] + "-" + msgDate[1]}
-                                        {" ‣ "}
+                                        {" || "}
                                         {JSON.parse(msgTime[0]) +
                                             diff +
                                             ":" +
                                             msgTime[1]}
-                                        {" ○ "}
                                     </option>
                                 )
                             );
@@ -153,6 +151,13 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                     <div className="superList">
                         <div className="superListItemBack">
                             <div className="superListItem">
+                                <Link
+                                    to="/"
+                                    className="buttonBack"
+                                    id="superCloseTab"
+                                >
+                                    X
+                                </Link>
                                 <img src={"avatar.png"}></img>
                                 <div
                                     className="superAdminGuestList"
@@ -193,20 +198,18 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                             key={guest.id}
                                                             className="chooseGuestSuperMode"
                                                         >
-                                                            {" ○ "}
                                                             {guest.nickname}
                                                             {" ○ "}
                                                             {msgDate[2] +
                                                                 "-" +
                                                                 msgDate[1]}
-                                                            {" ‣ "}
+                                                            {" || "}
                                                             {JSON.parse(
                                                                 msgTime[0]
                                                             ) +
                                                                 diff +
                                                                 ":" +
                                                                 msgTime[1]}
-                                                            {" ○ "}
                                                         </option>
                                                     );
                                                 })}
@@ -386,16 +389,35 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                             <div
                                                                 className="deleteUserConfirm"
                                                                 id={user.id}
-                                                                onClick={(e) =>
+                                                                onClick={(e) =>{
+                                                                    setConfirm(false)
+                                                                    setGuestList(
+                                                                        guestList.filter(
+                                                                            (
+                                                                                user
+                                                                            ) =>
+                                                                                user.id !=
+                                                                                selectedUser
+                                                                        )
+                                                                    );
                                                                     deleteUser(
                                                                         e.target
                                                                             .id
-                                                                    )
+                                                                    )}
                                                                 }
                                                             >
                                                                 CONFIRM
                                                             </div>
                                                         ))}
+                                                </div>
+                                                <div
+                                                    className="buttonBack"
+                                                    id="superCloseTabUser"
+                                                    onClick={(e) => {
+                                                        setSelectedUser(false);
+                                                    }}
+                                                >
+                                                    X
                                                 </div>
                                             </div>
                                         </div>

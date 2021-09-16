@@ -460,3 +460,25 @@ module.exports.deleteGuests = () => {
 
     return db.query(q);
 };
+
+module.exports.changeNickname = (nickname, id) => {
+    const q = `
+        UPDATE community
+        SET nickname = $1
+        WHERE id = $2
+        RETURNING *
+         `;
+    const params = [nickname, id];
+    return db.query(q, params);
+};
+
+module.exports.changePassword = (password, id) => {
+    const q = `
+        UPDATE community
+        SET password_hash = $1
+        WHERE id = $2
+        RETURNING *
+         `;
+    const params = [password, id];
+    return db.query(q, params);
+};

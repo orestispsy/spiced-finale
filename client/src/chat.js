@@ -21,6 +21,7 @@ export default function Chat({
     setProfileImage,
     nickname,
     guest,
+    setNickname,
 }) {
     const [emojiBar, setEmojiBar] = useState(false);
     const [tickerBar, setTickerBar] = useState(false);
@@ -481,6 +482,8 @@ export default function Chat({
                     privateMessages={privateMessages}
                     setPrivateMessages={(e) => setPrivateMessages(e)}
                     guest={guest}
+                    nickname={nickname}
+                    setNickname={(e) => setNickname(e)}
                 />
             </div>
 

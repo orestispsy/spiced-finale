@@ -654,12 +654,10 @@ input {
     margin: 0 2vmax 0 -1vmax;
     border-radius: 50%;
     cursor: pointer;
-        box-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
-        -0 -0 5px black;
+    box-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black, -0 -0 5px black;
 }
 
 .imgPreview:hover {
-     
     box-shadow: -0 0 15px black, 0 -0 15px black, -0 -0 15px black,
         -0 -0 15px black;
 }
@@ -1148,13 +1146,12 @@ input {
         margin: 0 1vmax 0 -1.7vmax !important;
     }
     .superAdminContainer {
-       margin-top:3vh !important;
+        margin-top: 3vh !important;
     }
 
     .superListItemBack {
         flex-direction: column;
     }
-
 
     #contribute,
     #commentButton,
@@ -1230,7 +1227,6 @@ input {
     .commentsContainer {
         margin-left: 0 !important;
     }
-
 
     .superListItem {
         margin: 1vmax !important;
@@ -1637,7 +1633,7 @@ input {
 
     .fileUploader input {
         width: 13vmax !important;
-        height:2.5vmax !important;
+        height: 2.5vmax !important;
     }
 
     .superListItem h1 {
@@ -1854,7 +1850,7 @@ input {
 }
 
 .chatScreen::-webkit-scrollbar,
-.gigEntries::-webkit-scrollbar{
+.gigEntries::-webkit-scrollbar {
     width: 20px;
 }
 
@@ -1863,7 +1859,7 @@ input {
     border-radius: 10px;
 }
 
-.gigEntries::-webkit-scrollbar-track{
+.gigEntries::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.075);
     border-radius: 10px;
 }
@@ -1873,7 +1869,6 @@ input {
     background: #96ff592a;
     border-radius: 10px;
 }
-
 
 .chatScreen::-webkit-scrollbar-thumb:hover,
 .gigEntries::-webkit-scrollbar-thumb:hover {
@@ -2606,7 +2601,7 @@ font-family: 'Ultra', serif; */
     justify-content: space-evenly;
     align-self: center;
     align-items: center;
-    width: 15vmax;
+    width: 15vw;
     margin-bottom: 0.5vmax;
 }
 
@@ -2633,6 +2628,73 @@ font-family: 'Ultra', serif; */
     user-select: none;
 }
 
+.uploaderTogglerImg:hover {
+    transform: rotate(0.5turn);
+}
+
+.chatMenuConfigButton {
+    background-image: url("./superAdmin.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 4.5vmax;
+    height: 4.5vmax;
+    cursor: pointer;
+    transform: rotate(0.15turn);
+    transition: 1s;
+}
+
+.chatMenuConfigButton:hover {
+    transform: rotate(0.1turn);
+    transition: 1s;
+}
+
+.changeNickBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1vmax;
+    user-select: none;
+}
+
+.changeNickInstructions {
+    color: rgba(255, 255, 255, 0.418);
+    width: 15vw;
+    text-align: center;
+    font-size: 2vmax;
+    margin: 0 0 1vmax 0;
+
+    border-bottom: 1px solid black;
+}
+
+.changeNickBoxThread {
+    font-size: 1.2vmax;
+    color: yellow;
+}
+
+.changeNickBox input {
+    margin: 0 0 1vmax 0;
+    background-color: rgba(51, 255, 0, 0.103);
+    border-radius: unset;
+    box-shadow: -0 0 3px rgba(0, 0, 0, 0.054), 0 -0 3px rgba(0, 0, 0, 0.054),
+        -0 -0 3px rgba(0, 0, 0, 0.054), -0 -0 3px rgba(0, 0, 0, 0.054);
+}
+
+.changeNickButton {
+    font-family: "Black Ops One", cursive;
+    color: white;
+    text-shadow: -0 0 3px rgba(0, 0, 0, 0.154), 0 -0 3px rgba(0, 0, 0, 0.154),
+        -0 -0 3px rgba(0, 0, 0, 0.154), -0 -0 3px rgba(0, 0, 0, 0.154);
+    background-color: #00ffbf;
+    cursor: pointer;
+    padding: 0.3vmax;
+}
+
+.changeNickButton:hover {
+    color: yellow;
+}
+
 .fileUploaderChat {
     display: flex;
     flex-direction: column;
@@ -2640,6 +2702,7 @@ font-family: 'Ultra', serif; */
     align-items: center;
     align-self: center;
     border-radius: 1vh;
+    padding: 2vmax;
 }
 
 .fileUploaderChat h1 {
@@ -2702,7 +2765,7 @@ font-family: 'Ultra', serif; */
     padding: 1.5vmax;
     cursor: pointer;
     box-shadow: none;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .mute {
@@ -3212,9 +3275,8 @@ font-family: 'Ultra', serif; */
 .posterEditBox {
     display: flex;
     align-items: center;
-    width:inherit;
+    width: inherit;
     justify-content: center;
-
 }
 
 .posterSectionToggler {
@@ -3250,22 +3312,22 @@ font-family: 'Ultra', serif; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-          background: radial-gradient(
+    background: radial-gradient(
         closest-side,
         rgba(59, 255, 255, 0.055),
         rgba(59, 255, 255, 0.055),
         rgba(59, 255, 255, 0.055),
         transparent
     );
-        padding:5vmax 8vmax;
+    padding: 3vmax 5vmax;
 }
 
-#superAdminGuestsHead{
-    font-size:4vmax;
+#superAdminGuestsHead {
+    font-size: 4vmax;
 }
 
-#superAdminGuestList{
-    color:white;
+#superAdminGuestList {
+    color: white;
 }
 
 .superAdminGuestList {
@@ -3275,18 +3337,25 @@ font-family: 'Ultra', serif; */
 
 .superAdminGuestList span {
     margin-left: 1vmax;
-
 }
 
+#superCloseTab {
+    align-self: flex-end;
+}
+
+#superCloseTabUser {
+    align-self: flex-start;
+}
 
 .superList {
     margin-top: 2vmax;
     display: flex;
+    align-items: center;
+    flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap;
-
     background-color: rgba(113, 255, 212, 0.021);
-    padding: 1vmax;
+    padding: 1vmax 2vmax 1vmax 2vmax;
+
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
     border-radius: 1vh;
@@ -3304,9 +3373,8 @@ font-family: 'Ultra', serif; */
     justify-content: center;
 }
 
-#superListItem div{
-    margin-top:2vmax;
-
+#superListItem div {
+    margin-top: 2vmax;
 }
 
 .superListItem {
@@ -3402,22 +3470,25 @@ font-family: 'Ultra', serif; */
 }
 
 #deleteUser {
-    margin-top:2vmax;
-    cursor:pointer;
+    margin-top: 2vmax;
+    cursor: pointer;
 }
 
 #deleteAllGuests {
-
-    color:red;
+    color: red;
 }
 
 #deleteAllGuests:hover {
-    color:yellow
+    color: yellow;
 }
 
 .deleteUser:hover {
     background-color: rgba(255, 46, 46, 0.24);
     color: rgb(255, 255, 255) !important;
+}
+
+#deleteUserConfirm {
+    align-self: flex-start;
 }
 
 .deleteUserConfirm {
@@ -3763,39 +3834,37 @@ font-family: 'Ultra', serif; */
 }
 
 .selectSuperUserMode {
-        text-align: center;
-     color:#00ff88;
+    text-align: center;
+    color: #00ff88;
     padding: 0.5vmax;
     width: fit-content;
     background-color: rgba(0, 255, 255, 0.171);
     font-family: "Black Ops One", cursive;
     font-size: 2vmax;
     border: none;
-         text-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+    text-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
 }
 
 .chooseSuperUserMode {
     background-color: black;
-     color:#00ff88;
- 
+    color: #00ff88;
 }
 
 .selectGuestSuperMode {
-        text-align: center;
-     color:#00ff88;
+    text-align: center;
+    color: #00ff88;
     padding: 0.5vmax;
     width: inherit;
     background-color: rgb(0, 0, 0);
     font-family: "Black Ops One", cursive;
     font-size: 2vmax;
     border: none;
-         text-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+    text-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
 }
 
 .chooseGuestSuperMode {
     background-color: black;
-     color:#00ff88;
- 
+    color: #00ff88;
 }
