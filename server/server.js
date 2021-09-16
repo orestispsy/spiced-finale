@@ -413,6 +413,7 @@ app.post("/delete-user", (req, res) => {
                         .then(({ rows }) => {
                             db.deleteUser(req.body.id)
                                 .then(({ rows }) => {
+                               
                                     if (rows[0].chat_img) {
                                         const file2delete =
                                             rows[0].chat_img.replace(s3Url, "");

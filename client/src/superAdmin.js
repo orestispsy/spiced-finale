@@ -7,6 +7,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
     const [confirm, setConfirm] = useState(false);
     const [guestList, setGuestList] = useState(false);
     const [selectedUser, setSelectedUser] = useState(0);
+    const [guestUser, setGuestUser] = useState(0);
 
     useEffect(function () {
         if (!super_admin) {
@@ -43,10 +44,12 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
     };
 
     const deleteUser = (e) => {
+        console.log(e);
         axios
             .post("/delete-user", { id: e })
             .then(({ data }) => {
                 setUserList(userList.filter((user) => user.id != e));
+                setSelectedUser(false);
             })
             .catch((err) => {
                 console.log("err in axios get-all-users ", err);
@@ -71,15 +74,15 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
 
     let fixedTime;
     let fixedDate;
-     let msgDate;
-     let msgTime;
+    let msgDate;
+    let msgTime;
     let diff = new Date().getTimezoneOffset() / -60;
     const handleTime = (e) => {
         if (e.created_at) {
             msgDate = e.created_at.slice(0, 10).split("-");
             fixedDate = msgDate[2] + "-" + msgDate[1] + "-" + msgDate[0];
 
-         msgTime = e.created_at.slice(11, 19).split(":");
+            msgTime = e.created_at.slice(11, 19).split(":");
 
             if (msgTime[0].startsWith("0")) {
                 msgTime[0] = msgTime[0].slice(1, 2);
@@ -131,6 +134,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                         key={user.id}
                                         className="chooseSuperUserMode"
                                     >
+                                        {" ○ "}
                                         {user.nickname}
                                         {" ○ "}
                                         {msgDate[2] + "-" + msgDate[1]}
@@ -139,31 +143,123 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                             diff +
                                             ":" +
                                             msgTime[1]}
+                                        {" ○ "}
                                     </option>
                                 )
                             );
                         })}
-                </select>{" "}
+                </select>
                 {!selectedUser && (
                     <div className="superList">
                         <div className="superListItemBack">
                             <div className="superListItem">
                                 <img src={"avatar.png"}></img>
-                                <div className="superAdminGuestList">
+                                <div
+                                    className="superAdminGuestList"
+                                    id="superAdminGuestsHead"
+                                >
                                     Guests
-                                </div>
-                                <div className="superAdminGuestList">
-                                    {guestList.length > 0 && guestList.length}
-                                    {!guestList.length && "Nothing here"}
                                     <span
-                                        onClick={(e) => {
-                                            deleteGuests();
-                                            setGuestList(false);
-                                        }}
+                                        className="superAdminGuestList"
+                                        id="superAdminGuestList"
                                     >
-                                        {guestList.length > 0 && "delete all"}{" "}
+                                        {guestList.length > 0 &&
+                                            guestList.length}
                                     </span>
                                 </div>
+                                {guestList[0] && (
+                                    <>
+                                        <select
+                                            name="selectedGig"
+                                            className="selectGuestSuperMode"
+                                            onChange={(e) =>
+                                                setGuestUser(
+                                                    parseInt(e.target.value)
+                                                )
+                                            }
+                                        >
+                                            <option
+                                                className="chooseGuestSuperMode"
+                                                value=""
+                                            >
+                                                Select
+                                            </option>
+                                            {guestList &&
+                                                guestList.map((guest) => {
+                                                    handleTime(guest);
+                                                    return (
+                                                        <option
+                                                            value={guest.id}
+                                                            key={guest.id}
+                                                            className="chooseGuestSuperMode"
+                                                        >
+                                                            {" ○ "}
+                                                            {guest.nickname}
+                                                            {" ○ "}
+                                                            {msgDate[2] +
+                                                                "-" +
+                                                                msgDate[1]}
+                                                            {" ‣ "}
+                                                            {JSON.parse(
+                                                                msgTime[0]
+                                                            ) +
+                                                                diff +
+                                                                ":" +
+                                                                msgTime[1]}
+                                                            {" ○ "}
+                                                        </option>
+                                                    );
+                                                })}
+                                        </select>
+
+                                        {!confirm && guestUser > 0 && (
+                                            <div
+                                                className="deleteUser"
+                                                id="deleteUser"
+                                                onClick={(e) => {
+                                                    setConfirm(!confirm);
+                                                }}
+                                            >
+                                                DELETE
+                                            </div>
+                                        )}
+                                        {confirm && (
+                                            <div
+                                                className="deleteUserConfirm"
+                                                id="deleteUser"
+                                                onClick={(e) => {
+                                                    deleteUser(guestUser);
+                                                    setGuestList(
+                                                        guestList.filter(
+                                                            (guest) =>
+                                                                guest.id !=
+                                                                guestUser
+                                                        )
+                                                    );
+                                                    setConfirm(!confirm);
+                                                }}
+                                            >
+                                                Confirm
+                                            </div>
+                                        )}
+                                    </>
+                                )}
+
+                                <span
+                                    className="superAdminGuestList"
+                                    id="superAdminGuestList"
+                                >
+                                    {!guestList[0] && "Nothing here"}
+                                </span>
+                                <span
+                                    id="deleteAllGuests"
+                                    onClick={(e) => {
+                                        deleteGuests();
+                                        setGuestList(false);
+                                    }}
+                                >
+                                    {guestList[0] && "delete all"}{" "}
+                                </span>
                             </div>
                         </div>
                     </div>

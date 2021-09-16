@@ -3250,6 +3250,14 @@ font-family: 'Ultra', serif; */
         padding:5vmax 8vmax;
 }
 
+#superAdminGuestsHead{
+    font-size:4vmax;
+}
+
+#superAdminGuestList{
+    color:white;
+}
+
 .superAdminGuestList {
     font-family: "Black Ops One", cursive !important;
     font-size: 2vmax;
@@ -3257,13 +3265,9 @@ font-family: 'Ultra', serif; */
 
 .superAdminGuestList span {
     margin-left: 1vmax;
-    color: red !important;
-    cursor: pointer;
+
 }
 
-.superAdminGuestList span:hover {
-    color: white !important;
-}
 
 .superList {
     margin-top: 2vmax;
@@ -3329,8 +3333,8 @@ font-family: 'Ultra', serif; */
 
 .superListItem span {
     font-size: 1.5vmax;
-    margin-bottom: 1vh;
-    color: rgb(255, 255, 255);
+    margin-top: 1vh;
+    color: white;
 }
 
 .superListItem div {
@@ -3385,6 +3389,20 @@ font-family: 'Ultra', serif; */
     color: rgb(255, 47, 47) !important;
     font-size: 1.5vmax !important;
     font-weight: lighter;
+}
+
+#deleteUser {
+    margin-top:2vmax;
+    cursor:pointer;
+}
+
+#deleteAllGuests {
+
+    color:red;
+}
+
+#deleteAllGuests:hover {
+    color:yellow
 }
 
 .deleteUser:hover {
@@ -3750,5 +3768,24 @@ font-family: 'Ultra', serif; */
 .chooseSuperUserMode {
     background-color: black;
      color:#00ff88;
-    width: 20vw;
+ 
+}
+
+.selectGuestSuperMode {
+        text-align: center;
+     color:#00ff88;
+    padding: 0.5vmax;
+    width: inherit;
+    background-color: rgb(0, 0, 0);
+    font-family: "Black Ops One", cursive;
+    font-size: 2vmax;
+    border: none;
+         text-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+        -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
+}
+
+.chooseGuestSuperMode {
+    background-color: black;
+     color:#00ff88;
+ 
 }
