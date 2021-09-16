@@ -140,7 +140,6 @@ export default function Chat({
                     }
                 }, msgLink);
                 socket.emit("A CHAT MSG", e.target.value);
-                console.log(e.target.value);
                 e.target.value = "";
             }
             e.preventDefault();
@@ -197,6 +196,31 @@ export default function Chat({
 
     const togglePrivateMSGS = () => {
         setPrivateMode(!privateMode);
+    };
+
+    let fixedTime;
+    let fixedDate;
+    let msgDate;
+    let msgTime;
+    let diff = new Date().getTimezoneOffset() / -60;
+    const handleTime = (e) => {
+        if (e.created_at) {
+            msgDate = e.created_at.slice(0, 10).split("-");
+            fixedDate = msgDate[2] + "-" + msgDate[1] + "-" + msgDate[0];
+
+            msgTime = e.created_at.slice(11, 19).split(":");
+
+            if (msgTime[0].startsWith("0")) {
+                msgTime[0] = msgTime[0].slice(1, 2);
+            }
+            fixedTime =
+                JSON.parse(msgTime[0]) +
+                diff +
+                ":" +
+                msgTime[1] +
+                ":" +
+                msgTime[2];
+        }
     };
 
     const handleChatPostDelete = (e) => {
@@ -301,33 +325,7 @@ export default function Chat({
                                     </div>
                                 </div>
                                 {chatMessages.map((msg) => {
-                                    var diff =
-                                        new Date().getTimezoneOffset() / -60;
-
-                                    let msgDate = msg.created_at
-                                        .slice(0, 10)
-                                        .split("-");
-                                    var fixedDate =
-                                        msgDate[2] +
-                                        "-" +
-                                        msgDate[1] +
-                                        "-" +
-                                        msgDate[0];
-
-                                    let msgTime = msg.created_at
-                                        .slice(11, 19)
-                                        .split(":");
-
-                                    if (msgTime[0].startsWith("0")) {
-                                        msgTime[0] = msgTime[0].slice(1, 2);
-                                    }
-                                    var fixedTime =
-                                        JSON.parse(msgTime[0]) +
-                                        diff +
-                                        ":" +
-                                        msgTime[1] +
-                                        ":" +
-                                        msgTime[2];
+                                    handleTime(msg);
 
                                     if (msg.chat_msg === "--##--left--##--") {
                                         // console.log("msgDate", msgDate[2]);

@@ -87,6 +87,31 @@ export default function PrivateMSGS({
             });
     };
 
+        let fixedTime;
+        let fixedDate;
+        let msgDate;
+        let msgTime;
+        let diff = new Date().getTimezoneOffset() / -60;
+        const handleTime = (e) => {
+            if (e.created_at) {
+                msgDate = e.created_at.slice(0, 10).split("-");
+                fixedDate = msgDate[2] + "-" + msgDate[1] + "-" + msgDate[0];
+
+                msgTime = e.created_at.slice(11, 19).split(":");
+
+                if (msgTime[0].startsWith("0")) {
+                    msgTime[0] = msgTime[0].slice(1, 2);
+                }
+                fixedTime =
+                    JSON.parse(msgTime[0]) +
+                    diff +
+                    ":" +
+                    msgTime[1] +
+                    ":" +
+                    msgTime[2];
+            }
+        };
+
     const elem = document.querySelectorAll(".chatTypeLine");
     var chatMSG = false;
     const chat = (e) => {
@@ -128,32 +153,7 @@ export default function PrivateMSGS({
                     <div className="chatScreen" id="chatScreen" ref={elemRef}>
                         {messages &&
                             messages.map((msg) => {
-                                var diff = new Date().getTimezoneOffset() / -60;
-
-                                let msgDate = msg.created_at
-                                    .slice(0, 10)
-                                    .split("-");
-                                var fixedDate =
-                                    msgDate[2] +
-                                    "-" +
-                                    msgDate[1] +
-                                    "-" +
-                                    msgDate[0];
-
-                                let msgTime = msg.created_at
-                                    .slice(11, 19)
-                                    .split(":");
-
-                                if (msgTime[0].startsWith("0")) {
-                                    msgTime[0] = msgTime[0].slice(1, 2);
-                                }
-                                var fixedTime =
-                                    JSON.parse(msgTime[0]) +
-                                    diff +
-                                    ":" +
-                                    msgTime[1] +
-                                    ":" +
-                                    msgTime[2];
+                                handleTime(msg)
                                 return (
                                     <div key={msg.id}>
                                         {(msg.msg_receiver_id == userPrivate ||
