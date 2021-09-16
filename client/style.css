@@ -1139,9 +1139,14 @@ input {
     .imgPreview {
         margin: 0 1vmax 0 -1.7vmax !important;
     }
-    .superListItem {
-        height: 50vmax !important;
+    .superAdminContainer {
+       margin-top:3vh !important;
     }
+
+    .superListItemBack {
+        flex-direction: column;
+    }
+
 
     #contribute,
     #commentButton,
@@ -1218,10 +1223,6 @@ input {
         margin-left: 0 !important;
     }
 
-    .superList {
-        width: 58vmax !important;
-        padding: 1vmax 1vmax !important;
-    }
 
     .superListItem {
         margin: 1vmax !important;
@@ -1844,8 +1845,7 @@ input {
 }
 
 .chatScreen::-webkit-scrollbar,
-.gigEntries::-webkit-scrollbar,
-.superAdminContainer::-webkit-scrollbar {
+.gigEntries::-webkit-scrollbar{
     width: 20px;
 }
 
@@ -1854,8 +1854,7 @@ input {
     border-radius: 10px;
 }
 
-.gigEntries::-webkit-scrollbar-track,
-.superAdminContainer::-webkit-scrollbar-track {
+.gigEntries::-webkit-scrollbar-track{
     box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.075);
     border-radius: 10px;
 }
@@ -1866,18 +1865,10 @@ input {
     border-radius: 10px;
 }
 
-.superAdminContainer::-webkit-scrollbar-thumb {
-    background: #2bff000e;
-    border-radius: 10px;
-}
 
 .chatScreen::-webkit-scrollbar-thumb:hover,
 .gigEntries::-webkit-scrollbar-thumb:hover {
     background: #ffc4015b;
-}
-
-.superAdminContainer::-webkit-scrollbar-thumb:hover {
-    background: #ffd000b0;
 }
 
 .selectGig {
@@ -3241,10 +3232,22 @@ font-family: 'Ultra', serif; */
 .superAdminContainer {
     overflow-y: scroll;
     justify-content: flex-start;
-    scrollbar-width: 20px;
-    scrollbar-color: rgba(255, 255, 0, 0.39) rgba(172, 255, 104, 0.041);
     height: 92vh;
     user-select: none;
+}
+.superAdminContainerInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+          background: radial-gradient(
+        closest-side,
+        rgba(59, 255, 255, 0.055),
+        rgba(59, 255, 255, 0.055),
+        rgba(59, 255, 255, 0.055),
+        transparent
+    );
+        padding:5vmax 8vmax;
 }
 
 .superAdminGuestList {
@@ -3285,6 +3288,11 @@ font-family: 'Ultra', serif; */
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#superListItem div{
+    margin-top:2vmax;
+
 }
 
 .superListItem {
@@ -3727,18 +3735,20 @@ font-family: 'Ultra', serif; */
 }
 
 .selectSuperUserMode {
-    color: white;
+        text-align: center;
+     color:#00ff88;
     padding: 0.5vmax;
-    width: 20vw;
-    margin-top: 1vmax;
+    width: fit-content;
     background-color: rgba(0, 255, 255, 0.171);
     font-family: "Black Ops One", cursive;
     font-size: 2vmax;
     border: none;
+         text-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
+        -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
 }
 
 .chooseSuperUserMode {
     background-color: black;
+     color:#00ff88;
     width: 20vw;
-    text-align: center;
 }
