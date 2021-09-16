@@ -649,11 +649,19 @@ input {
 }
 
 .imgPreview {
-    width: 100px;
-    height: 100px;
-    margin: 0 1vmax 0 -2vmax;
+    width: 5vmax;
+    height: 5vmax;
+    margin: 0 2vmax 0 -1vmax;
     border-radius: 50%;
     cursor: pointer;
+        box-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
+        -0 -0 5px black;
+}
+
+.imgPreview:hover {
+     
+    box-shadow: -0 0 15px black, 0 -0 15px black, -0 -0 15px black,
+        -0 -0 15px black;
 }
 
 .easterEgg img {
@@ -1629,6 +1637,7 @@ input {
 
     .fileUploader input {
         width: 13vmax !important;
+        height:2.5vmax !important;
     }
 
     .superListItem h1 {
@@ -3203,8 +3212,9 @@ font-family: 'Ultra', serif; */
 .posterEditBox {
     display: flex;
     align-items: center;
+    width:inherit;
     justify-content: center;
-    width: 100vw;
+
 }
 
 .posterSectionToggler {

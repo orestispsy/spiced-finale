@@ -212,7 +212,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                 })}
                                         </select>
 
-                                        {!confirm && guestUser > 0 && (
+                                        {(!confirm && guestUser > 0 && (
                                             <div
                                                 className="deleteUser"
                                                 id="deleteUser"
@@ -222,26 +222,26 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                             >
                                                 DELETE
                                             </div>
-                                        )}
-                                        {confirm && (
-                                            <div
-                                                className="deleteUserConfirm"
-                                                id="deleteUser"
-                                                onClick={(e) => {
-                                                    deleteUser(guestUser);
-                                                    setGuestList(
-                                                        guestList.filter(
-                                                            (guest) =>
-                                                                guest.id !=
-                                                                guestUser
-                                                        )
-                                                    );
-                                                    setConfirm(!confirm);
-                                                }}
-                                            >
-                                                Confirm
-                                            </div>
-                                        )}
+                                        )) ||
+                                            (confirm && (
+                                                <div
+                                                    className="deleteUserConfirm"
+                                                    id="deleteUser"
+                                                    onClick={(e) => {
+                                                        deleteUser(guestUser);
+                                                        setGuestList(
+                                                            guestList.filter(
+                                                                (guest) =>
+                                                                    guest.id !=
+                                                                    guestUser
+                                                            )
+                                                        );
+                                                        setConfirm(!confirm);
+                                                    }}
+                                                >
+                                                    Confirm
+                                                </div>
+                                            ))}
                                     </>
                                 )}
 
@@ -299,7 +299,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                     id="superListItem"
                                                 >
                                                     {" "}
-                                                    {user.admin && (
+                                                    {(user.admin && (
                                                         <div
                                                             id={user.id}
                                                             className="adminYes"
@@ -315,25 +315,26 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                         >
                                                             ADMIN
                                                         </div>
-                                                    )}
-                                                    {!user.admin && (
-                                                        <div
-                                                            id={user.id}
-                                                            className="adminNo"
-                                                            onClick={(
-                                                                e,
-                                                                boolean
-                                                            ) =>
-                                                                setAdmin(
-                                                                    e.target.id,
-                                                                    user.admin
-                                                                )
-                                                            }
-                                                        >
-                                                            ADMIN
-                                                        </div>
-                                                    )}
-                                                    {user.super_admin && (
+                                                    )) ||
+                                                        (!user.admin && (
+                                                            <div
+                                                                id={user.id}
+                                                                className="adminNo"
+                                                                onClick={(
+                                                                    e,
+                                                                    boolean
+                                                                ) =>
+                                                                    setAdmin(
+                                                                        e.target
+                                                                            .id,
+                                                                        user.admin
+                                                                    )
+                                                                }
+                                                            >
+                                                                ADMIN
+                                                            </div>
+                                                        ))}
+                                                    {(user.super_admin && (
                                                         <div
                                                             id={user.id}
                                                             className="superAdminYes"
@@ -349,25 +350,26 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                         >
                                                             SUPER ADMIN
                                                         </div>
-                                                    )}
-                                                    {!user.super_admin && (
-                                                        <div
-                                                            id={user.id}
-                                                            className="superAdminNo"
-                                                            onClick={(
-                                                                e,
-                                                                boolean
-                                                            ) =>
-                                                                setSuperAdmin(
-                                                                    e.target.id,
-                                                                    user.super_admin
-                                                                )
-                                                            }
-                                                        >
-                                                            SUPER ADMIN
-                                                        </div>
-                                                    )}
-                                                    {confirm != user.id && (
+                                                    )) ||
+                                                        (!user.super_admin && (
+                                                            <div
+                                                                id={user.id}
+                                                                className="superAdminNo"
+                                                                onClick={(
+                                                                    e,
+                                                                    boolean
+                                                                ) =>
+                                                                    setSuperAdmin(
+                                                                        e.target
+                                                                            .id,
+                                                                        user.super_admin
+                                                                    )
+                                                                }
+                                                            >
+                                                                SUPER ADMIN
+                                                            </div>
+                                                        ))}
+                                                    {(confirm != user.id && (
                                                         <div
                                                             id={user.id}
                                                             className="deleteUser"
@@ -379,20 +381,21 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                         >
                                                             DELETE
                                                         </div>
-                                                    )}
-                                                    {confirm == user.id && (
-                                                        <div
-                                                            className="deleteUserConfirm"
-                                                            id={user.id}
-                                                            onClick={(e) =>
-                                                                deleteUser(
-                                                                    e.target.id
-                                                                )
-                                                            }
-                                                        >
-                                                            CONFIRM
-                                                        </div>
-                                                    )}
+                                                    )) ||
+                                                        (confirm == user.id && (
+                                                            <div
+                                                                className="deleteUserConfirm"
+                                                                id={user.id}
+                                                                onClick={(e) =>
+                                                                    deleteUser(
+                                                                        e.target
+                                                                            .id
+                                                                    )
+                                                                }
+                                                            >
+                                                                CONFIRM
+                                                            </div>
+                                                        ))}
                                                 </div>
                                             </div>
                                         </div>
