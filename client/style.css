@@ -34,6 +34,11 @@ body {
     color: white;
 }
 
+select{
+             border: none;
+    outline: none;
+}
+
 a,
 h1 {
     color: rgb(212, 255, 58);
@@ -3511,7 +3516,6 @@ font-family: 'Ultra', serif; */
 }
 
 #deleteUser {
-    margin-top: 2vmax;
     cursor: pointer;
 }
 
@@ -3878,11 +3882,10 @@ font-family: 'Ultra', serif; */
     text-align: center;
     color: #00ff88;
     padding: 0.5vmax;
-    width: fit-content;
+    width: 30vmax;
     background-color: rgba(0, 255, 255, 0.171);
     font-family: "Black Ops One", cursive;
     font-size: 2vmax;
-    border: none;
     text-shadow: -0 0 5px rgba(0, 0, 0, 0.432), 0 -0 5px rgba(0, 0, 0, 0.432),
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
 }
@@ -3908,4 +3911,12 @@ font-family: 'Ultra', serif; */
 .chooseGuestSuperMode {
     background-color: black;
     color: #00ff88;
+}
+
+.superUserReset{
+    margin-top:1vmax;
+      color: #00ffbf !important;
+    font-size: 0.7vmax !important;
+    cursor: pointer;
+    font-family: "Press Start 2P", cursive;
 }

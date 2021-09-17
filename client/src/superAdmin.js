@@ -117,6 +117,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
         <div className="superAdminContainer">
             <div className="superAdminContainerInner">
                 <select
+                    value={selectedUser}
                     name="selectedGig"
                     className="selectSuperUserMode"
                     onChange={(e) => setSelectedUser(parseInt(e.target.value))}
@@ -124,6 +125,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                     <option className="chooseSuperUserMode" value="">
                         Select User
                     </option>
+
                     {userList &&
                         userList.map((user) => {
                             handleTime(user);
@@ -147,6 +149,17 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                             );
                         })}
                 </select>
+                {selectedUser > 0 && (
+                    <div
+                        title="Reset"
+                        className="superUserReset"
+                        onClick={(e) => {
+                            setSelectedUser(0);
+                        }}
+                    >
+                        reset
+                    </div>
+                )}
                 {!selectedUser && (
                     <div className="superList">
                         <div className="superListItemBack">
@@ -175,6 +188,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                 {guestList[0] && (
                                     <>
                                         <select
+                                            value={guestUser}
                                             name="selectedGig"
                                             className="selectGuestSuperMode"
                                             onChange={(e) =>
@@ -214,7 +228,17 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                     );
                                                 })}
                                         </select>
-
+                                        {guestUser > 0 && (
+                                            <div
+                                                title="Reset"
+                                                className="superUserReset"
+                                                onClick={(e) => {
+                                                    setGuestUser(0);
+                                                }}
+                                            >
+                                                reset
+                                            </div>
+                                        )}
                                         {(!confirm && guestUser > 0 && (
                                             <div
                                                 className="deleteUser"
@@ -389,8 +413,12 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                             <div
                                                                 className="deleteUserConfirm"
                                                                 id={user.id}
-                                                                onClick={(e) =>{
-                                                                    setConfirm(false)
+                                                                onClick={(
+                                                                    e
+                                                                ) => {
+                                                                    setConfirm(
+                                                                        false
+                                                                    );
                                                                     setGuestList(
                                                                         guestList.filter(
                                                                             (
@@ -403,8 +431,8 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                                     deleteUser(
                                                                         e.target
                                                                             .id
-                                                                    )}
-                                                                }
+                                                                    );
+                                                                }}
                                                             >
                                                                 CONFIRM
                                                             </div>
