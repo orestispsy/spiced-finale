@@ -438,16 +438,8 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                             </div>
                                                         ))}
                                                 </div>
-                                                <div
-                                                    className="buttonBack"
-                                                    id="superCloseTabUser"
-                                                    onClick={(e) => {
-                                                        setSelectedUser(false);
-                                                    }}
-                                                >
-                                                    X
-                                                </div>
                                             </div>
+                                            
                                         </div>
                                     )}
                             </React.Fragment>
