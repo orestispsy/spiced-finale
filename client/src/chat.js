@@ -28,7 +28,7 @@ export default function Chat({
     const [tickerBar, setTickerBar] = useState(false);
     const [mute, setMute] = useState(false);
     const [postScroll, setPostScroll] = useState(false);
-    const [scrollTop, setScrollTop] = useState(true);
+    const [scrollTop, setScrollTop] = useState(2);
     const [privateMode, setPrivateMode] = useState(false);
     const [userPrivate, setUserPrivate] = useState(false);
     const [privatePic, setPrivatePic] = useState(false);
@@ -76,7 +76,7 @@ export default function Chat({
 
     useEffect(() => {
         if (
-            chatMessages &&
+            chatMessages && chatMessages.length>0 &&
             chatMessages[chatMessages.length - 1].chat_msg ==
                 "--##--entered--##--" &&
             chatMessages[chatMessages.length - 1].msg_sender_id !=
@@ -84,7 +84,6 @@ export default function Chat({
             !mute
         ) {
             playIntro();
-            console.log(chatMessages);
         }
         if (!postScroll) {
             if (elemRef.current) {

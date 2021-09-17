@@ -2674,9 +2674,6 @@ font-family: 'Ultra', serif; */
     user-select: none;
 }
 
-.uploaderTogglerImg:hover {
-     transform: scaleX(-1);
-}
 
 .chatMenuConfigButton {
     background-image: url("./superAdmin.png");
