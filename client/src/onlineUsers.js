@@ -436,7 +436,7 @@ export default function OnlineUsers({
                     {userConfig && (
                         <div className="changeNickBox">
                             <div className="changeNickInstructions">
-                                INFO EDIT
+                            Edit User
                             </div>
                             <div className="changeNickBoxThread">Nickname</div>
                             <input

@@ -1397,6 +1397,33 @@ input {
     .formOptions {
         width: 60vw !important;
     }
+
+
+        .chatMenuConfigButton{
+        width:7vmax !important;
+        height:7vmax !important;
+    }
+
+    .changeNickInstructions {
+        font-size: 3vmax !important;
+        margin-bottom: 2vmax !important;
+    }
+
+    .changeNickBoxThread{
+                font-size:2vmax !important;
+    }
+
+    .changeNickBox input {
+        height:4vmax !important;
+        width:20vmax !important;
+        font-size:2vmax !important;
+        margin-bottom:2vmax !important;
+    }
+
+    .changeNickButton {
+        font-size:2vmax !important;
+          padding:0.5vmax !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1743,6 +1770,25 @@ input {
         font-size: 3vmax !important;
         margin: 1vmax !important;
         padding: 0.5vmax !important;
+    }
+
+    .chatMenuConfigButton{
+        width:6.5vmax !important;
+        height:6.5vmax !important;
+    }
+
+    .changeNickBoxThread {
+           font-size: 1.5vmax !important;
+    }
+
+    .changeNickBox input {
+        height:3vmax !important;
+        width:18vmax !important;
+        font-size:1.5vmax !important;
+    }
+
+    .changeNickButton {
+        margin:1vmax !important;
     }
 }
 
@@ -2629,7 +2675,7 @@ font-family: 'Ultra', serif; */
 }
 
 .uploaderTogglerImg:hover {
-    transform: rotate(0.5turn);
+     transform: scaleX(-1);
 }
 
 .chatMenuConfigButton {
@@ -2637,8 +2683,8 @@ font-family: 'Ultra', serif; */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: 4.5vmax;
-    height: 4.5vmax;
+    width: 4vmax;
+    height: 4vmax;
     cursor: pointer;
     transform: rotate(0.15turn);
     transition: 1s;
@@ -2654,18 +2700,16 @@ font-family: 'Ultra', serif; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1vmax;
+    padding: 0 1vmax 1vmax 1vmax;
     user-select: none;
 }
 
 .changeNickInstructions {
     color: rgba(255, 255, 255, 0.418);
-    width: 15vw;
     text-align: center;
     font-size: 2vmax;
     margin: 0 0 1vmax 0;
 
-    border-bottom: 1px solid black;
 }
 
 .changeNickBoxThread {
