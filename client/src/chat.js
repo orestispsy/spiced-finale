@@ -10,6 +10,7 @@ import PrivateMSGS from "./privateMSGS";
 import useSound from "use-sound";
 
 import chatSfx from "./../public/msg.mp3";
+import chatEnterSfx from "./../public/chatEnter.mp3";
 import tickerSfx from "./../public/ticker.mp3";
 
 export default function Chat({
@@ -27,7 +28,7 @@ export default function Chat({
     const [tickerBar, setTickerBar] = useState(false);
     const [mute, setMute] = useState(false);
     const [postScroll, setPostScroll] = useState(false);
-    const [scrollTop, setScrollTop] = useState(false);
+    const [scrollTop, setScrollTop] = useState(true);
     const [privateMode, setPrivateMode] = useState(false);
     const [userPrivate, setUserPrivate] = useState(false);
     const [privatePic, setPrivatePic] = useState(false);
@@ -35,6 +36,7 @@ export default function Chat({
     const [privateMessages, setPrivateMessages] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.75 });
+    const [playIntro] = useSound(chatEnterSfx, { volume: 0.5 });
     const [playTicker, { stop }] = useSound(tickerSfx, { volume: 0.75 });
 
     const elemRef = useRef();
@@ -73,6 +75,17 @@ export default function Chat({
     }, [privateMode]);
 
     useEffect(() => {
+        if (
+            chatMessages &&
+            chatMessages[chatMessages.length - 1].chat_msg ==
+                "--##--entered--##--" &&
+            chatMessages[chatMessages.length - 1].msg_sender_id !=
+                chat_myUserId &&
+            !mute
+        ) {
+            playIntro();
+            console.log(chatMessages);
+        }
         if (!postScroll) {
             if (elemRef.current) {
                 const newScrollTop =
