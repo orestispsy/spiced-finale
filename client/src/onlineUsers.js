@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { socket } from "./tools/socket";
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "./tools/axios";
 
@@ -27,6 +26,8 @@ export default function OnlineUsers({
     guest,
     nickname,
     setNickname,
+    setAdmin,
+    onlineUsers,
 }) {
     const [userPicBar, setUserPicBar] = useState(false);
     const [onlineUserPic, setOnlineUserPic] = useState("");
@@ -36,10 +37,11 @@ export default function OnlineUsers({
     const [networkList, setNetworkList] = useState(false);
     const [networkUsers, setNetworkUsers] = useState(false);
     const [errorMsg, setErrorMsg] = useState(false);
+    const [errorMsgInfo, setErrorMsgInfo] = useState(false);
     const [userConfig, setUserConfig] = useState(false);
     const [newNickname, setNewNickname] = useState(false);
     const [password, setPassword] = useState(false);
-    const onlineUsers = useSelector((state) => state && state.onlineUsers);
+    const [pwdReveal, setPwdReveal] = useState(false);
 
     const statePrivateMsgs = useSelector((state) => state && state.messages);
 
@@ -114,6 +116,13 @@ export default function OnlineUsers({
                     setcloseTag(!closeTag);
                     setProfileImage(data.data[0].chat_img);
                     setFile(null);
+                    let updatedUsers = onlineUsers;
+                    updatedUsers.forEach((user) => {
+                        if (user.id == chat_myUserId) {
+                            user.chat_img = data.data[0].chat_img;
+                        }
+                    });
+                    socket.emit("ONLINE USERS", updatedUsers);
                 } else {
                     setErrorMsg(true);
                 }
@@ -129,6 +138,13 @@ export default function OnlineUsers({
             .post("/changeColor", e.target.value)
             .then(({ data }) => {
                 setChatColor(data.data.chat_color);
+                let updatedColorUsers = onlineUsers;
+                updatedColorUsers.forEach((user) => {
+                    if (user.id == chat_myUserId) {
+                        user.chat_color = data.data.chat_color;
+                    }
+                    socket.emit("ONLINE USERS", updatedColorUsers);
+                });
             })
             .catch((err) => {
                 console.log("error", err);
@@ -243,7 +259,9 @@ export default function OnlineUsers({
                             )}
                             {!privateMode && (
                                 <span className="onlineUserCounter">
-                                    {!networkList && onlineUsers.length}
+                                    {!networkList &&
+                                        onlineUsers &&
+                                        onlineUsers.length}
                                     {networkList &&
                                         networkUsers.filter(
                                             (user) =>
@@ -436,29 +454,66 @@ export default function OnlineUsers({
                     {userConfig && (
                         <div className="changeNickBox">
                             <div className="changeNickInstructions">
-                            Edit User
+                                Edit User
                             </div>
                             <div className="changeNickBoxThread">Nickname</div>
                             <input
                                 type="text"
+                                placeholder="nickname"
                                 defaultValue={nickname}
                                 onChange={(e) => setNewNickname(e.target.value)}
+                                onClick={(e) => {
+                                    setErrorMsgInfo(false);
+                                }}
                             ></input>
                             <div className="changeNickBoxThread">Password</div>
-                            <input
-                                type="password"
-                                placeholder="password"
-                                onChange={(e) => setPassword(e.target.value)}
-                            ></input>
+                            <div className="userConfigPwdBack">
+                                <input
+                                    type={(pwdReveal && "password") || "text"}
+                                    placeholder="password"
+                                    onChange={(e) =>
+                                        setPassword(e.target.value)
+                                    }
+                                ></input>
+                                <div
+                                    className="pwdVisibility"
+                                    onClick={(e) => {
+                                        setPwdReveal(!pwdReveal);
+                                    }}
+                                ></div>
+                            </div>
                             <div
                                 className="changeNickButton"
                                 onClick={(e) => {
-                                    changeInfo(newNickname, password);
-                                    setNickname(newNickname);
+                                    if (!newNickname.includes("Guest")) {
+                                        setAdmin(true);
+                                    }
+                                    if (newNickname != "") {
+                                        changeInfo(newNickname, password);
+                                        setNickname(newNickname);
+                                    } else {
+                                        setErrorMsgInfo(true);
+                                    }
+                                    let updatedNickUsers = onlineUsers;
+                                    updatedNickUsers.forEach((user) => {
+                                        if (user.id == chat_myUserId) {
+                                            user.nickname = newNickname;
+                                        }
+                                    });
+
+                                    socket.emit(
+                                        "ONLINE USERS",
+                                        updatedNickUsers
+                                    );
                                 }}
                             >
                                 Confirm
                             </div>
+                            {errorMsgInfo && (
+                                <p className="error" id="error">
+                                    Please Enter A Proper Nickname
+                                </p>
+                            )}
                         </div>
                     )}
 
@@ -511,6 +566,7 @@ export default function OnlineUsers({
                                 onClick={(e) => {
                                     setUserConfig(!userConfig);
                                     toggleEmojibar(false);
+                                    setErrorMsgInfo(false);
                                 }}
                             ></div>
                             {!guest && !userConfig && (
@@ -524,7 +580,10 @@ export default function OnlineUsers({
                             {userConfig && (
                                 <img
                                     className="uploaderTogglerImg"
-                                    onClick={() => toggleUploader()}
+                                    onClick={() => {
+                                        toggleUploader();
+                                        setErrorMsgInfo(false);
+                                    }}
                                 ></img>
                             )}
                             {!userConfig && (
@@ -533,7 +592,9 @@ export default function OnlineUsers({
                                     title="Change Chat Color"
                                     type="color"
                                     defaultValue={chat_color || `#00f01c`}
-                                    onChange={(e) => handleColorChange(e)}
+                                    onChange={(e) => {
+                                        handleColorChange(e);
+                                    }}
                                 ></input>
                             )}
                         </div>

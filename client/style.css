@@ -34,8 +34,8 @@ body {
     color: white;
 }
 
-select{
-             border: none;
+select {
+    border: none;
     outline: none;
 }
 
@@ -1403,10 +1403,9 @@ input {
         width: 60vw !important;
     }
 
-
-        .chatMenuConfigButton{
-        width:7vmax !important;
-        height:7vmax !important;
+    .chatMenuConfigButton {
+        width: 7vmax !important;
+        height: 7vmax !important;
     }
 
     .changeNickInstructions {
@@ -1414,22 +1413,32 @@ input {
         margin-bottom: 2vmax !important;
     }
 
-    .changeNickBoxThread{
-                font-size:2vmax !important;
+    .changeNickBoxThread {
+        font-size: 2vmax !important;
     }
 
     .changeNickBox input {
-        height:4vmax !important;
-        width:20vmax !important;
-        font-size:2vmax !important;
-        margin-bottom:2vmax !important;
+        height: 4vmax !important;
+        width: 20vmax !important;
+        font-size: 2vmax !important;
+        margin-bottom: 2vmax !important;
     }
 
     .changeNickButton {
-        font-size:2vmax !important;
-          padding:0.5vmax !important;
+        font-size: 2vmax !important;
+        padding: 0.5vmax !important;
     }
-    
+
+    .userConfigPwdBack input {
+        width: 13vmax !important;
+    }
+
+    .pwdVisibility {
+        width: 4vmax !important;
+        height: 2.5vmax !important;
+        margin: 1vmax 0 0 1vmax !important;
+        filter: invert(0%) !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1778,23 +1787,37 @@ input {
         padding: 0.5vmax !important;
     }
 
-    .chatMenuConfigButton{
-        width:6.5vmax !important;
-        height:6.5vmax !important;
+    .chatMenuConfigButton {
+        width: 6.5vmax !important;
+        height: 6.5vmax !important;
     }
 
     .changeNickBoxThread {
-           font-size: 1.5vmax !important;
+        font-size: 1.5vmax !important;
     }
 
     .changeNickBox input {
-        height:3vmax !important;
-        width:18vmax !important;
-        font-size:1.5vmax !important;
+        height: 3vmax !important;
+        width: 18vmax !important;
+        font-size: 1.5vmax !important;
+    }
+
+    .userConfigPwdBack input {
+        width: 13vmax !important;
+    }
+
+    .pwdVisibility {
+        width: 2.5vmax !important;
+        height: 1.5vmax !important;
+        margin: 1vmax 0 0 1vmax !important;
+    }
+
+    .pwdVisibility:hover {
+        filter: invert(100%) !important;
     }
 
     .changeNickButton {
-        margin:1vmax !important;
+        margin: 1vmax !important;
     }
 }
 
@@ -2680,7 +2703,6 @@ font-family: 'Ultra', serif; */
     user-select: none;
 }
 
-
 .chatMenuConfigButton {
     background-image: url("./superAdmin.png");
     background-size: contain;
@@ -2712,12 +2734,37 @@ font-family: 'Ultra', serif; */
     text-align: center;
     font-size: 2vmax;
     margin: 0 0 1vmax 0;
-
 }
 
 .changeNickBoxThread {
     font-size: 1.2vmax;
     color: yellow;
+}
+
+.userConfigPwdBack {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userConfigPwdBack input {
+    width: 75%;
+}
+
+.pwdVisibility {
+    width: 1.8vmax;
+    height: 1.1vmax;
+    background-image: url("passToggler.png");
+    background-size: cover;
+    align-self: flex-start;
+    margin-left: 0.5vmax;
+    margin-top: 0.2vmax;
+    filter: invert(100%);
+    cursor: pointer;
+}
+
+.pwdVisibility:hover {
+    filter: invert(0%);
 }
 
 .changeNickBox input {
@@ -3914,9 +3961,9 @@ font-family: 'Ultra', serif; */
     color: #00ff88;
 }
 
-.superUserReset{
-    margin-top:1vmax;
-      color: #00ffbf !important;
+.superUserReset {
+    margin-top: 1vmax;
+    color: #00ffbf !important;
     font-size: 0.7vmax !important;
     cursor: pointer;
     font-family: "Press Start 2P", cursive;

@@ -18,6 +18,7 @@ export default function Chat({
     chat_img,
     chat_myUserId,
     admin,
+    setAdmin,
     super_admin,
     setProfileImage,
     nickname,
@@ -496,6 +497,8 @@ export default function Chat({
                     guest={guest}
                     nickname={nickname}
                     setNickname={(e) => setNickname(e)}
+                        setAdmin={(e) => setAdmin(e)}
+                        onlineUsers={onlineUsers}
                 />
             </div>
 

@@ -129,6 +129,12 @@ export default class App extends Component {
         });
     }
 
+    setAdmin(e) {
+        this.setState({
+            admin: e,
+        });
+    }
+
     // sliderAction(e) {
     //     e.preventDefault();
     //     this.setState({
@@ -340,6 +346,7 @@ export default class App extends Component {
                                         chat_myUserId={this.state.id}
                                         chat_color={this.state.chat_color}
                                         admin={this.state.admin}
+                                        setAdmin={(e) => this.setAdmin(e)}
                                         super_admin={this.state.super_admin}
                                         setProfileImage={(e) =>
                                             this.setProfileImage(e)
