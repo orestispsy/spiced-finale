@@ -1,6 +1,7 @@
 body {
     box-sizing: border-box;
-    min-height: 100vh;
+    height: 100vh;
+     height: calc(var(--vh, 1vh) * 100);
     margin: 0;
     background-color: black;
     font-family: "Poller One", cursive;

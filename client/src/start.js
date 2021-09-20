@@ -18,6 +18,11 @@ import { init } from "./tools/socket";
 
 let elem;
 
+window.addEventListener("resize", () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+});
+
 if (location.pathname === "/welcome") {
     elem = <Welcome />;
 } else {
