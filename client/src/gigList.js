@@ -73,7 +73,7 @@ export default function GigList({
                 <div className="gigListControls">
                     <div className="sortedGigRange">2006</div>
                     <input
-                        defaultValue={false}
+                     
                         value={year}
                         title="Set Year"
                         type="range"

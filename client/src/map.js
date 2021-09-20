@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useHistory } from "react-router-dom";
 import { compose, withProps } from "recompose";
 import {
     withScriptjs,
@@ -61,10 +61,10 @@ const WithGoogleMapComponent = compose(
                         dot = "redBall.gif";
                         var scaleParam = 15;
                     }
-                        if (gig.tour_name === "Upcoming") {
-                            dot = "yellowdot.gif";
-                            var scaleParam = 15;
-                        }
+                    if (gig.tour_name === "Upcoming") {
+                        dot = "yellowdot.gif";
+                        var scaleParam = 15;
+                    }
 
                     return (
                         <Marker
@@ -142,19 +142,18 @@ const WithGoogleMapComponent = compose(
                                 {props.selectedGig.tour_name}
                             </div>
                         )}
-                        {!props.guest &&
-                        <div
-                            id="mapLink"
-                            className="mainMenuLink"
-                            onClick={() =>
-                                location.replace(
-                                    `/api/gig/${props.selectedGig.id}`
-                                )
-                            }
-                        >
-                            Community
-                        </div>
-                         }
+                        {props.selectedGig.id && (
+                            <div
+                                id="mapLink"
+                                className="mainMenuLink"
+                                onClick={(e) =>{
+                                    props.historyCheck(props.selectedGig.id)
+                                props.mapVisible(false)}
+                                }
+                            >
+                                Community
+                            </div>
+                        )}
                     </div>
                 </InfoWindow>
             )}
@@ -167,7 +166,7 @@ const WithGoogleMapComponent = compose(
     );
 });
 
-const MyMap = ({ gigsList, mapVisible, selectedGigEntry, setGigEntry, guest }) => {
+const MyMap = ({ gigsList, mapVisible, selectedGigEntry, setGigEntry, guest, communityLink }) => {
     const [selectedGig, setSelectedGig] = useState(null);
     const [style, setStyle] = useState(mapStyles.styles[0]);
     const [switcher, setSwitcher] = useState(0);
@@ -177,9 +176,15 @@ const MyMap = ({ gigsList, mapVisible, selectedGigEntry, setGigEntry, guest }) =
         lng: -40.71445657001389,
     });
 
+ const history = useHistory();
+
     useEffect(function () {
-        mapVisible();
+        mapVisible(true);
     }, []);
+
+    const historyCheck = (e) => {
+        history.push(`/api/gig/${e}`);
+    }
 
     return (
         <div className="google-map">
@@ -196,6 +201,10 @@ const MyMap = ({ gigsList, mapVisible, selectedGigEntry, setGigEntry, guest }) =
                 selectedGigEntry={selectedGigEntry}
                 setGigEntry={setGigEntry}
                 guest={guest}
+                communityLink={(e) => communityLink(e)}
+                history={history}
+                historyCheck={(e) => historyCheck(e)}
+                mapVisible={(e) => mapVisible(e)}
             />
         </div>
     );

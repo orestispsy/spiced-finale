@@ -34,6 +34,7 @@ export default class App extends Component {
     }
 
     componentDidMount() {
+        this.mapVisible(false)
         axios
             .post("/chat", { test: false })
             .then(({ data }) => {})
@@ -93,9 +94,9 @@ export default class App extends Component {
             });
     }
 
-    mapVisible() {
+    mapVisible(e) {
         this.setState({
-            maps: !this.state.maps,
+            maps: e
         });
     }
 
@@ -240,9 +241,9 @@ export default class App extends Component {
                                         to="/"
                                         className="barMainLink"
                                         title="Back"
-                                        onClick={() => {
+                                        onClick={(e) => {
                                             this.setGigEntry(false);
-                                            this.mapVisible();
+                                            this.mapVisible(false);
                                         }}
                                     ></Link>
                                 )}
@@ -283,7 +284,7 @@ export default class App extends Component {
                                 render={(props) => (
                                     <MyMap
                                         gigsList={this.state.gigsList}
-                                        mapVisible={() => this.mapVisible()}
+                                        mapVisible={(e) => this.mapVisible(e)}
                                         selectedGigEntry={
                                             this.state.selectedGigEntry
                                         }
