@@ -8,6 +8,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
     const [guestList, setGuestList] = useState(false);
     const [selectedUser, setSelectedUser] = useState(0);
     const [guestUser, setGuestUser] = useState(0);
+    const [guestDeleteConfirm, setGuestDeleteConfirm] = useState(false);
 
     useEffect(function () {
         if (!super_admin) {
@@ -35,9 +36,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
     const deleteGuests = () => {
         axios
             .get("/delete-guests")
-            .then(({ data }) => {
-                console.log("done");
-            })
+            .then(({ data }) => {})
             .catch((err) => {
                 console.log("err in axios get-all-users ", err);
             });
@@ -130,7 +129,8 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                         userList.map((user) => {
                             handleTime(user);
                             return (
-                                chat_myUserId != user.id && (
+                                chat_myUserId != user.id &&
+                                !user.nickname.includes("Guest") && (
                                     <option
                                         value={user.id}
                                         key={user.id}
@@ -278,15 +278,27 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                 >
                                     {!guestList[0] && "Nothing here"}
                                 </span>
-                                <span
-                                    id="deleteAllGuests"
-                                    onClick={(e) => {
-                                        deleteGuests();
-                                        setGuestList(false);
-                                    }}
-                                >
-                                    {guestList[0] && "delete all"}{" "}
-                                </span>
+                                {!guestDeleteConfirm && (
+                                    <span
+                                        id="deleteAllGuests"
+                                        onClick={(e) => {
+                                            setGuestDeleteConfirm(true);
+                                        }}
+                                    >
+                                        {guestList[0] && "delete all"}
+                                    </span>
+                                )}
+                                {guestDeleteConfirm && (
+                                    <span
+                                        id="deleteAllGuestsConfirm"
+                                        onClick={(e) => {
+                                            deleteGuests();
+                                            setGuestList(false);
+                                        }}
+                                    >
+                                        {guestList[0] && "confirm"}
+                                    </span>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -439,7 +451,6 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                         ))}
                                                 </div>
                                             </div>
-                                            
                                         </div>
                                     )}
                             </React.Fragment>

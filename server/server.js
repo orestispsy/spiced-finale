@@ -542,8 +542,34 @@ app.get("/get-guests", (req, res) => {
 });
 
 app.get("/delete-guests", (req, res) => {
-    db.deleteGuests()
+    db.getGuests()
         .then(({ rows }) => {
+            rows.forEach((row) => {
+                db.deleteAllUserPosts(row.id)
+                    .then(({ rows }) => {
+                        db.deletePrivateMessages(row.id)
+                            .then(({ rows }) => {
+                                db.deleteComments(row.id)
+                                    .then(({ rows }) => {
+                                        db.deleteUser(row.id)
+                                            .then(({ rows }) => {
+                                                if (rows[0].chat_img) {
+                                                    const file2delete =
+                                                        rows[0].chat_img.replace(
+                                                            s3Url,
+                                                            ""
+                                                        );
+                                                    s3.delete(file2delete);
+                                                }
+                                            })
+                                            .catch((err) => console.log(err));
+                                    })
+                                    .catch((err) => console.log(err));
+                            })
+                            .catch((err) => console.log(err));
+                    })
+                    .catch((err) => console.log(err));
+            });
             res.json({ data: rows });
         })
         .catch((err) => console.log(err));

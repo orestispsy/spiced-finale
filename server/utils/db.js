@@ -453,14 +453,6 @@ module.exports.getGuests= () => {
     return db.query(q);
 };
 
-module.exports.deleteGuests = () => {
-    const q = `
-       DELETE FROM community WHERE nickname ILIKE 'GUEST%';
-    `;
-
-    return db.query(q);
-};
-
 module.exports.changeNickname = (nickname, id) => {
     const q = `
         UPDATE community

@@ -3569,6 +3569,16 @@ font-family: 'Ultra', serif; */
 
 #deleteAllGuests {
     color: red;
+       cursor: pointer;
+}
+
+#deleteAllGuestsConfirm {
+    color: red;
+       cursor: pointer;
+}
+
+#deleteAllGuestsConfirm:hover {
+    color: #00ff88
 }
 
 #deleteAllGuests:hover {
