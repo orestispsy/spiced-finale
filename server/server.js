@@ -655,7 +655,8 @@ io.on("connection", function (socket) {
                 }
             }
             clearRows.splice(10, rows.length - 1);
-            socket.emit("chatMessages", clearRows);
+            if (userId){
+            socket.emit("chatMessages", clearRows);}
         })
         .catch((err) => console.log(err));
 

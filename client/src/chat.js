@@ -60,13 +60,15 @@ export default function Chat({
     }, [scrollTop]);
 
     useEffect(() => {
+
+        if (chat_myUserId){
         if (browserCount == 1) {
             serverSignal(true);
         }
 
         if (browserCount < 2) {
             socket.emit("A CHAT MSG", "--##--entered--##--");
-        }
+        }}
     }, [browserCount]);
 
     useEffect(() => {
