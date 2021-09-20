@@ -733,7 +733,7 @@ io.on("connection", function (socket) {
                 userStillOnline = true;
             }
         }
-        if (!userStillOnline) {
+        if (!userStillOnline && userId) {
             io.emit("userLeft", userIdDisconnected);
             if (count == 0 && goOffline) {
                 db.addChatMsg(userId, "--##--left--##--")
