@@ -428,6 +428,7 @@ app.get("/get-all-users", (req, res) => {
     db.getAllUsers()
         .then(({ rows }) => {
             res.json({ data: rows });
+            console.log(rows)
         })
         .catch((err) => console.log(err));
 });

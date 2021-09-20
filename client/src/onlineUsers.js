@@ -469,7 +469,7 @@ export default function OnlineUsers({
                             <div className="changeNickBoxThread">Password</div>
                             <div className="userConfigPwdBack">
                                 <input
-                                    type={(pwdReveal && "password") || "text"}
+                                    type={(!pwdReveal && "password") || pwdReveal && "text"}
                                     placeholder="password"
                                     onChange={(e) =>
                                         setPassword(e.target.value)
