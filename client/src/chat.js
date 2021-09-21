@@ -288,6 +288,7 @@ export default function Chat({
                     privateNick={privateNick}
                     setChecker={(e) => setChecker(e)}
                     setPrivateMessages={(e) => setPrivateMessages(e)}
+                    list={list}
                 />
             )}
 
@@ -386,6 +387,7 @@ export default function Chat({
                                         return (
                                             <div
                                                 className="chatPost"
+                                            
                                                 key={msg.id}
                                             >
                                                 <div className="post">

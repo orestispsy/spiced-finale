@@ -232,7 +232,7 @@ export default function OnlineUsers({
                         <div
                             className="onlineUsersRedDot"
                             title={
-                                privateMode
+                                userConfig
                                     ? "Back"
                                     : "" || networkList
                                     ? "Online List"
@@ -241,6 +241,7 @@ export default function OnlineUsers({
                             onClick={(e) => {
                                 toggleEmojibar(false);
                                 setNetworkList(false);
+                                setUserConfig(false)
                             }}
                         ></div>
                     )}

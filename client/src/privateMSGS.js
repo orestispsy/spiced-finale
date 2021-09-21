@@ -13,6 +13,7 @@ export default function PrivateMSGS({
     nickname,
     privateNick,
     setPrivateMessages,
+    list
 }) {
     const [firstMsgId, setFirstMsgId] = useState(null);
 
@@ -147,10 +148,10 @@ export default function PrivateMSGS({
 
     return (
         <>
-            <div className="chatContainer" id="chatContainer">
+            <div className="chatContainer" id={list &&"chatContainerDark"}>
                 <h1>Private Chat</h1>
                 <div className="chatScreenBack">
-                    <div className="chatScreen" id="chatScreen" ref={elemRef}>
+                    <div className="chatScreen" id="chatScreenDark" ref={elemRef}>
                         {messages &&
                             messages.map((msg) => {
                                 handleTime(msg)
