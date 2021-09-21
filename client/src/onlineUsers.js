@@ -28,8 +28,7 @@ export default function OnlineUsers({
     setNickname,
     setAdmin,
     onlineUsers,
-    list
-
+    list,
 }) {
     const [userPicBar, setUserPicBar] = useState(false);
     const [onlineUserPic, setOnlineUserPic] = useState("");
@@ -241,7 +240,7 @@ export default function OnlineUsers({
                             onClick={(e) => {
                                 toggleEmojibar(false);
                                 setNetworkList(false);
-                                setUserConfig(false)
+                                setUserConfig(false);
                             }}
                         ></div>
                     )}
@@ -474,7 +473,10 @@ export default function OnlineUsers({
                             <div className="changeNickBoxThread">Password</div>
                             <div className="userConfigPwdBack">
                                 <input
-                                    type={(!pwdReveal && "password") || pwdReveal && "text"}
+                                    type={
+                                        (!pwdReveal && "password") ||
+                                        (pwdReveal && "text")
+                                    }
                                     placeholder="password"
                                     onChange={(e) =>
                                         setPassword(e.target.value)
@@ -606,8 +608,7 @@ export default function OnlineUsers({
                     )}
                 </div>
                 {emojiBar && (
-                    <div className="emoticons"
-                    id={list&& "emoticons"}>
+                    <div className="emoticons" id={list && "emoticonsDark"}>
                         {emoji &&
                             emoji.map((emoj) => (
                                 <div key={emoj.id}>

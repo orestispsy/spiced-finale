@@ -171,6 +171,16 @@ a:hover {
     box-shadow: inset 0 0 0 100vh rgba(0, 0, 0, 0.747);
 }
 
+.appContainerDark {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    height: 100vh;
+    box-shadow: inset 0 0 0 100vh rgba(0, 0, 0, 0.836);
+}
+
 .appContainer {
     display: flex;
     flex-direction: column;
@@ -286,6 +296,7 @@ a:hover {
     border-radius: 1vh;
     height: fit-content;
     overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .gigEditorContainerInner select {
@@ -690,6 +701,16 @@ input {
         -0 -0 15px black;
 }
 
+#mainMenuDark {
+    background: radial-gradient(
+        closest-side,
+        rgba(59, 255, 255, 0.055),
+        rgba(59, 255, 255, 0.055),
+        rgba(59, 255, 255, 0.055),
+        transparent
+    );
+}
+
 .mainMenu {
     display: flex;
     flex-direction: column;
@@ -810,6 +831,10 @@ input {
     user-select: none;
 }
 
+#logoDarkP {
+    margin: -17vh 0 5vh 0;
+}
+
 @media only screen and (min-device-width: 100px) and (max-device-width: 480px) and (orientation: portrait) {
     .barMainLink {
         width: 4vmax !important;
@@ -858,6 +883,11 @@ input {
         font-size: 1vmax !important;
         right: 4vmax !important;
     }
+
+    #logoDark {
+        width: 42vmax !important;
+        height: 55vmax !important;
+    }
     .logo {
         width: 75vmax !important;
         height: 35vmax !important;
@@ -872,6 +902,10 @@ input {
     #logoIntro {
         margin: 0 0 1.5vh 0 !important;
         font-size: 9vmax !important;
+    }
+
+    #logoDarkP {
+        margin: -10vh 0 3vh 0 !important;
     }
 
     .logoBack p {
@@ -944,8 +978,8 @@ input {
         background-color: rgba(116, 7, 7, 0.158) !important;
     }
     #onlineUsersDark {
-                background-color: rgba(113, 255, 212, 0.021) !important;
-            }
+        background-color: rgba(113, 255, 212, 0.021) !important;
+    }
 
     #privateUserImage {
         width: 15vmax !important;
@@ -1344,7 +1378,8 @@ input {
         margin-left: 1vmax !important;
     }
 
-    .chatHeadline, #chatHeadline {
+    .chatHeadline,
+    #chatHeadline {
         width: 88vw !important;
     }
 
@@ -1449,6 +1484,15 @@ input {
         width: 50vmax !important;
         height: 22vmax !important;
     }
+    #logoDark {
+        width: 20vmax !important;
+        height: 27vmax !important;
+    }
+
+    #logoDarkP {
+        padding: 0 !important;
+        margin: -14vh 0 0 0 !important;
+    }
 
     #logoIntro {
         margin: 0 0 1vh 0 !important;
@@ -1489,7 +1533,8 @@ input {
         width: 65vw !important;
     }
 
-    .chatHeadline, #chatHeadline {
+    .chatHeadline,
+    #chatHeadline {
         width: 64vw !important;
     }
 
@@ -1824,6 +1869,17 @@ input {
     }
 }
 
+#logoDark {
+    background-image: url("stickyLogo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 29vmax;
+    width: 22vmax;
+    margin: 1vmax;
+    margin-top: -1vmax;
+}
+
 .logo {
     background-image: url("logo.png");
     background-repeat: no-repeat;
@@ -1928,28 +1984,32 @@ input {
 }
 
 .chatScreen::-webkit-scrollbar,
-.gigEntries::-webkit-scrollbar, .emoticons::-webkit-scrollbar {
+.gigEntries::-webkit-scrollbar,
+.emoticons::-webkit-scrollbar {
     width: 20px;
 }
 
-.chatScreen::-webkit-scrollbar-track, .emoticons::-webkit-scrollbar-track  {
+.chatScreen::-webkit-scrollbar-track,
+.emoticons::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px rgba(136, 135, 135, 0.253);
     border-radius: 10px;
 }
 
-.gigEntries::-webkit-scrollbar-track  {
+.gigEntries::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.075);
     border-radius: 10px;
 }
 
 .chatScreen::-webkit-scrollbar-thumb,
-.gigEntries::-webkit-scrollbar-thumb, .emoticons::-webkit-scrollbar-thumb {
+.gigEntries::-webkit-scrollbar-thumb,
+.emoticons::-webkit-scrollbar-thumb {
     background: #96ff592a;
     border-radius: 10px;
 }
 
 .chatScreen::-webkit-scrollbar-thumb:hover,
-.gigEntries::-webkit-scrollbar-thumb:hover, .emoticons::-webkit-scrollbar-thumb:hover {
+.gigEntries::-webkit-scrollbar-thumb:hover,
+.emoticons::-webkit-scrollbar-thumb:hover {
     background: #ffc4015b;
 }
 
@@ -2210,8 +2270,13 @@ font-family: 'Ultra', serif; */
 }
 
 #chatHeadlineDark {
-        background: radial-gradient( closest-side, rgba(59, 255, 255, 0.055), rgba(59, 255, 255, 0.055), rgba(59, 255, 255, 0.055), transparent );
-    
+    background: radial-gradient(
+        closest-side,
+        rgba(59, 255, 255, 0.055),
+        rgba(59, 255, 255, 0.055),
+        rgba(59, 255, 255, 0.055),
+        transparent
+    );
 }
 
 .chatHeadline {
@@ -2263,7 +2328,6 @@ font-family: 'Ultra', serif; */
     align-items: center;
 }
 
-
 .chatContainer {
     display: flex;
     flex-direction: column;
@@ -2285,7 +2349,7 @@ font-family: 'Ultra', serif; */
 
 #chatContainerDark {
     background: none;
-    border: 1px solid rgba(255, 255, 255, 0.075)
+    border: 1px solid rgba(255, 255, 255, 0.075);
 }
 
 .chatContainerBack {
@@ -2293,7 +2357,6 @@ font-family: 'Ultra', serif; */
     flex-direction: row;
     align-self: center;
     margin-bottom: auto;
- 
 }
 
 .chatScreen {
@@ -2315,12 +2378,10 @@ font-family: 'Ultra', serif; */
 }
 
 #chatScreenDark {
-  
-   background-color: rgba(113, 255, 212, 0.021);
-box-shadow:none;
-border:1px
+    background-color: rgba(113, 255, 212, 0.021);
+    box-shadow: none;
+    border: 1px;
 }
-
 
 .chatNextControls {
     display: flex;
@@ -2514,7 +2575,6 @@ border:1px
     margin-right: auto;
 }
 
-
 .chatPost {
     margin: 0 20px 10px 20px;
     background-color: rgba(255, 255, 255, 0.027);
@@ -2562,9 +2622,9 @@ border:1px
     align-self: stretch;
 }
 
-#onlineUsersDark{
-            background-color: rgba(113, 255, 212, 0.021);
-            border: 1px solid rgba(255, 255, 255, 0.062)
+#onlineUsersDark {
+    background-color: rgba(113, 255, 212, 0.021);
+    border: 1px solid rgba(255, 255, 255, 0.062);
 }
 
 .onlineUsers {
@@ -2576,8 +2636,8 @@ border:1px
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
         -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
     margin-left: 1vmax;
- 
-        background-color: rgba(255, 0, 0, 0.158);
+
+    background-color: rgba(255, 0, 0, 0.158);
     border-radius: 10px;
     padding: 0.5vmax;
     z-index: 10;
@@ -2589,8 +2649,8 @@ border:1px
 }
 
 #usersBackDark {
-        background-color: rgba(255, 255, 255, 0.027);
-        border-color:rgba(255, 255, 255, 0.055)
+    background-color: rgba(255, 255, 255, 0.027);
+    border-color: rgba(255, 255, 255, 0.055);
 }
 
 .usersBack {
@@ -2926,8 +2986,6 @@ border:1px
     margin-right: 0.5vmax;
 }
 
-
-
 .emoticons {
     margin-top: 1vmax;
     margin-left: 1vmax;
@@ -2949,12 +3007,10 @@ border:1px
     border-radius: 10px;
 }
 
-#emoticons {
- 
-        background-color: rgba(113, 255, 212, 0.021);
-
+#emoticonsDark {
+    background-color: rgba(113, 255, 212, 0.021);
+    scrollbar-color: rgba(255, 255, 0, 0.39) rgba(172, 255, 104, 0.075);
 }
-
 
 .emoticons img {
     width: 3vmax;
@@ -3607,16 +3663,16 @@ border:1px
 
 #deleteAllGuests {
     color: red;
-       cursor: pointer;
+    cursor: pointer;
 }
 
 #deleteAllGuestsConfirm {
     color: red;
-       cursor: pointer;
+    cursor: pointer;
 }
 
 #deleteAllGuestsConfirm:hover {
-    color: #00ff88
+    color: #00ff88;
 }
 
 #deleteAllGuests:hover {
@@ -4015,26 +4071,25 @@ border:1px
 
 .darkMode {
     background-image: url("lightMode.png");
-    width:3vmax;
-    height:3vmax;
+    width: 3vmax;
+    height: 3vmax;
     background-size: cover;
-    position:fixed;
-    left:1vmax;
-    bottom:0;
-    cursor:pointer;
-    transition:0.5s
+    position: fixed;
+    left: 1vmax;
+    bottom: 0;
+    cursor: pointer;
+    transition: 0.5s;
 }
 
 .lightMode {
     background-image: url("darkMode.jpg");
-    border-radius:50%;
-    width:3vmax;
-    height:3vmax;
+    border-radius: 50%;
+    width: 3vmax;
+    height: 3vmax;
     background-size: cover;
-    position:fixed;
-    left:1vmax;
-    bottom:0.5vmax;
-    cursor:pointer;
-    transition:0.5s;
+    position: fixed;
+    left: 1vmax;
+    bottom: 0.5vmax;
+    cursor: pointer;
+    transition: 0.5s;
 }
-

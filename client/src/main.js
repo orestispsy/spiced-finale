@@ -2,7 +2,14 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "./tools/axios";
 
-export default function Main({ super_admin, admin, listSet, visitors, guest }) {
+export default function Main({
+    super_admin,
+    admin,
+    listSet,
+    visitors,
+    darkMode,
+    setDarkMode,
+}) {
     useEffect(function () {
         listSet(false);
     }, []);
@@ -24,11 +31,11 @@ export default function Main({ super_admin, admin, listSet, visitors, guest }) {
     return (
         <div className="mainContainer">
             <div className="logoBack">
-                <div className="logo"></div>
-                <p>GIG GUIDE</p>
+                <div className="logo" id={darkMode && "logoDark"}></div>
+                <p id={darkMode && "logoDarkP"}>GIG GUIDE</p>
             </div>
 
-            <div className="mainMenu">
+            <div className="mainMenu" id={darkMode && "mainMenuDark"}>
                 {!admin && (
                     <div className="easterEgg" title="Map">
                         <Link to="/map">
@@ -66,6 +73,15 @@ export default function Main({ super_admin, admin, listSet, visitors, guest }) {
                     </div>
                 )}
             </div>
+
+            <div
+                className={
+                    (darkMode && "DarkMode") || (!darkMode && "lightMode")
+                }
+                onClick={() => {
+                    setDarkMode(!darkMode);
+                }}
+            ></div>
             {super_admin && (
                 <Link to="/super-admin">
                     <div className="superAdminButton">

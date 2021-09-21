@@ -13,7 +13,7 @@ export default function PrivateMSGS({
     nickname,
     privateNick,
     setPrivateMessages,
-    list
+    list,
 }) {
     const [firstMsgId, setFirstMsgId] = useState(null);
 
@@ -88,30 +88,30 @@ export default function PrivateMSGS({
             });
     };
 
-        let fixedTime;
-        let fixedDate;
-        let msgDate;
-        let msgTime;
-        let diff = new Date().getTimezoneOffset() / -60;
-        const handleTime = (e) => {
-            if (e.created_at) {
-                msgDate = e.created_at.slice(0, 10).split("-");
-                fixedDate = msgDate[2] + "-" + msgDate[1] + "-" + msgDate[0];
+    let fixedTime;
+    let fixedDate;
+    let msgDate;
+    let msgTime;
+    let diff = new Date().getTimezoneOffset() / -60;
+    const handleTime = (e) => {
+        if (e.created_at) {
+            msgDate = e.created_at.slice(0, 10).split("-");
+            fixedDate = msgDate[2] + "-" + msgDate[1] + "-" + msgDate[0];
 
-                msgTime = e.created_at.slice(11, 19).split(":");
+            msgTime = e.created_at.slice(11, 19).split(":");
 
-                if (msgTime[0].startsWith("0")) {
-                    msgTime[0] = msgTime[0].slice(1, 2);
-                }
-                fixedTime =
-                    JSON.parse(msgTime[0]) +
-                    diff +
-                    ":" +
-                    msgTime[1] +
-                    ":" +
-                    msgTime[2];
+            if (msgTime[0].startsWith("0")) {
+                msgTime[0] = msgTime[0].slice(1, 2);
             }
-        };
+            fixedTime =
+                JSON.parse(msgTime[0]) +
+                diff +
+                ":" +
+                msgTime[1] +
+                ":" +
+                msgTime[2];
+        }
+    };
 
     const elem = document.querySelectorAll(".chatTypeLine");
     var chatMSG = false;
@@ -148,13 +148,17 @@ export default function PrivateMSGS({
 
     return (
         <>
-            <div className="chatContainer" id={list &&"chatContainerDark"}>
+            <div className="chatContainer" id={list && "chatContainerDark"}>
                 <h1>Private Chat</h1>
                 <div className="chatScreenBack">
-                    <div className="chatScreen" id="chatScreenDark" ref={elemRef}>
+                    <div
+                        className="chatScreen"
+                        id="chatScreenDark"
+                        ref={elemRef}
+                    >
                         {messages &&
                             messages.map((msg) => {
-                                handleTime(msg)
+                                handleTime(msg);
                                 return (
                                     <div key={msg.id}>
                                         {(msg.msg_receiver_id == userPrivate ||

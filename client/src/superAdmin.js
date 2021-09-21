@@ -120,9 +120,9 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                     name="selectedGig"
                     className="selectSuperUserMode"
                     onChange={(e) => {
-                        setConfirm(false)
-                        setSelectedUser(parseInt(e.target.value))}}
-                    
+                        setConfirm(false);
+                        setSelectedUser(parseInt(e.target.value));
+                    }}
                 >
                     <option className="chooseSuperUserMode" value="">
                         Select User
@@ -194,13 +194,12 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                             value={guestUser}
                                             name="selectedGig"
                                             className="selectGuestSuperMode"
-                                            onChange={(e) =>{
+                                            onChange={(e) => {
                                                 setGuestUser(
                                                     parseInt(e.target.value)
-                                                )
-                                             setConfirm(false);}
-                                            }
-                                      
+                                                );
+                                                setConfirm(false);
+                                            }}
                                         >
                                             <option
                                                 className="chooseGuestSuperMode"

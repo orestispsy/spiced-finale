@@ -12,6 +12,7 @@ import useSound from "use-sound";
 import chatSfx from "./../public/msg.mp3";
 import chatEnterSfx from "./../public/chatEnter.mp3";
 import tickerSfx from "./../public/ticker.mp3";
+import { setMaxListeners } from "process";
 
 export default function Chat({
     chat_color,
@@ -25,7 +26,9 @@ export default function Chat({
     guest,
     setNickname,
     listSet,
-    list
+    list,
+    darkMode,
+    setDarkMode,
 }) {
     const [emojiBar, setEmojiBar] = useState(false);
     const [tickerBar, setTickerBar] = useState(false);
@@ -50,9 +53,9 @@ export default function Chat({
 
     const onlineUsers = useSelector((state) => state && state.onlineUsers);
 
-    
     useEffect(() => {
-        listSet(true)
+        listSet(true);
+        setDarkMode(true);
     }, []);
 
     useEffect(() => {
@@ -67,15 +70,15 @@ export default function Chat({
     }, [scrollTop]);
 
     useEffect(() => {
+        if (chat_myUserId) {
+            if (browserCount == 1) {
+                serverSignal(true);
+            }
 
-        if (chat_myUserId){
-        if (browserCount == 1) {
-            serverSignal(true);
+            if (browserCount < 2) {
+                socket.emit("A CHAT MSG", "--##--entered--##--");
+            }
         }
-
-        if (browserCount < 2) {
-            socket.emit("A CHAT MSG", "--##--entered--##--");
-        }}
     }, [browserCount]);
 
     useEffect(() => {
@@ -86,7 +89,8 @@ export default function Chat({
 
     useEffect(() => {
         if (
-            chatMessages && chatMessages.length>0 &&
+            chatMessages &&
+            chatMessages.length > 0 &&
             chatMessages[chatMessages.length - 1].chat_msg ==
                 "--##--entered--##--" &&
             chatMessages[chatMessages.length - 1].msg_sender_id !=
@@ -294,10 +298,14 @@ export default function Chat({
 
             <div className="mobileChat">
                 {!privateMode && (
-                    <div className="chatContainer"
-                    id={list && "chatContainerDark"}>
-                        <div className="chatHeadline"
-                        id={list && "chatHeadlineDark"}>
+                    <div
+                        className="chatContainer"
+                        id={list && "chatContainerDark"}
+                    >
+                        <div
+                            className="chatHeadline"
+                            id={list && "chatHeadlineDark"}
+                        >
                             <Link
                                 to="/"
                                 className="buttonBack"
@@ -387,7 +395,6 @@ export default function Chat({
                                         return (
                                             <div
                                                 className="chatPost"
-                                            
                                                 key={msg.id}
                                             >
                                                 <div className="post">
@@ -531,10 +538,10 @@ export default function Chat({
                 {tickerBar && `Stop Ticker`} {!tickerBar && `Start Ticker`}
             </div>
             <div
-                className={list && "DarkMode" || !list && "lightMode"}
-                onClick={() => {
+                className={(list && "DarkMode") || (!list && "lightMode")}
+                onClick={(e) => {
                     listSet(!list);
-                    
+                    setDarkMode(false);
                 }}
             ></div>
         </div>

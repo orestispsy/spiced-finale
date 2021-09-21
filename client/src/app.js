@@ -30,12 +30,12 @@ export default class App extends Component {
             selectedGigEntry: false,
             guest: false,
             listScroller: false,
+            darkMode: false,
         };
     }
 
     componentDidMount() {
-
-        this.mapVisible(false)
+        this.mapVisible(false);
 
         axios
             .get("/user-details")
@@ -88,7 +88,7 @@ export default class App extends Component {
 
     mapVisible(e) {
         this.setState({
-            maps: e
+            maps: e,
         });
     }
 
@@ -125,6 +125,12 @@ export default class App extends Component {
     setAdmin(e) {
         this.setState({
             admin: e,
+        });
+    }
+
+    setDarkMode(e) {
+        this.setState({
+            darkMode: e,
         });
     }
 
@@ -187,9 +193,10 @@ export default class App extends Component {
                     <div className="introPreCover">
                         <div
                             className={
+                                (this.state.maps && "appContainerMap") ||
                                 (this.state.list && "appContainerList") ||
-                                (!this.state.maps && "appContainer") ||
-                                (this.state.maps && "appContainerMap")
+                                (this.state.darkMode && "appContainerDark") ||
+                                (!this.state.list && "appContainer")
                             }
                         >
                             <div className="appBar">
@@ -206,9 +213,6 @@ export default class App extends Component {
                                             <div
                                                 title="Chat Room"
                                                 className="chatBar"
-                                                onClick={(e) =>
-                                                    this.listSet(false)
-                                                }
                                             ></div>
                                         </Link>
                                     )}
@@ -250,6 +254,10 @@ export default class App extends Component {
                                         listSet={(e) => this.listSet(e)}
                                         visitors={this.state.visitors}
                                         guest={this.state.guest}
+                                        darkMode={this.state.darkMode}
+                                        listSet={(e) => this.listSet(e)}
+                                        list={this.state.list}
+                                        setDarkMode={(e) => this.setDarkMode(e)}
                                     />
                                 )}
                             />
@@ -347,8 +355,10 @@ export default class App extends Component {
                                         nickname={this.state.nickname}
                                         guest={this.state.guest}
                                         setNickname={(e) => this.setNickname(e)}
+                                        darkMode={this.state.darkMode}
                                         listSet={(e) => this.listSet(e)}
                                         list={this.state.list}
+                                        setDarkMode={(e) => this.setDarkMode(e)}
                                     />
                                 )}
                             />
