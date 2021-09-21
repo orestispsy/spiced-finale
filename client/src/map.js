@@ -33,7 +33,6 @@ const WithGoogleMapComponent = compose(
     if (props.selectedGig) {
         let propsDate = props.selectedGig.date.split("-");
         var fixedDate = propsDate[2] + "-" + propsDate[1] + "-" + propsDate[0];
-        // console.log("FIXED DATE", fixedDate);
     }
 
     function switcherHelper(e) {

@@ -24,6 +24,8 @@ export default function Chat({
     nickname,
     guest,
     setNickname,
+    listSet,
+    list
 }) {
     const [emojiBar, setEmojiBar] = useState(false);
     const [tickerBar, setTickerBar] = useState(false);
@@ -47,6 +49,11 @@ export default function Chat({
     const browserCount = useSelector((state) => state && state.count);
 
     const onlineUsers = useSelector((state) => state && state.onlineUsers);
+
+    
+    useEffect(() => {
+        listSet(true)
+    }, []);
 
     useEffect(() => {
         if (chatMessages) {
@@ -286,8 +293,10 @@ export default function Chat({
 
             <div className="mobileChat">
                 {!privateMode && (
-                    <div className="chatContainer">
-                        <div className="chatHeadline">
+                    <div className="chatContainer"
+                    id={list && "chatContainerDark"}>
+                        <div className="chatHeadline"
+                        id={list && "chatHeadlineDark"}>
                             <Link
                                 to="/"
                                 className="buttonBack"
@@ -312,6 +321,7 @@ export default function Chat({
                         <div className="chatScreenBack">
                             <div
                                 className="chatScreen"
+                                id={list && "chatScreenDark"}
                                 ref={elemRef}
                                 onScrollCapture={() =>
                                     setScrollTop(elemRef.current.scrollTop)
@@ -499,8 +509,9 @@ export default function Chat({
                     guest={guest}
                     nickname={nickname}
                     setNickname={(e) => setNickname(e)}
-                        setAdmin={(e) => setAdmin(e)}
-                        onlineUsers={onlineUsers}
+                    setAdmin={(e) => setAdmin(e)}
+                    onlineUsers={onlineUsers}
+                    list={list}
                 />
             </div>
 
@@ -517,6 +528,13 @@ export default function Chat({
             >
                 {tickerBar && `Stop Ticker`} {!tickerBar && `Start Ticker`}
             </div>
+            <div
+                className={list && "DarkMode" || !list && "lightMode"}
+                onClick={() => {
+                    listSet(!list);
+                    
+                }}
+            ></div>
         </div>
     );
 }

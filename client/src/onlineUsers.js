@@ -28,6 +28,8 @@ export default function OnlineUsers({
     setNickname,
     setAdmin,
     onlineUsers,
+    list
+
 }) {
     const [userPicBar, setUserPicBar] = useState(false);
     const [onlineUserPic, setOnlineUserPic] = useState("");
@@ -202,6 +204,7 @@ export default function OnlineUsers({
             >
                 <div
                     className="onlineUsers"
+                    id={list && "onlineUsersDark"}
                     style={{
                         boxShadow:
                             privateMode &&
@@ -271,6 +274,7 @@ export default function OnlineUsers({
                             )}
                             <div
                                 className="usersBack"
+                                id={list && "usersBackDark"}
                                 style={{
                                     marginTop: privateMode && `-0.2vmax`,
                                     boxShadow: privateMode && `none`,
@@ -601,7 +605,8 @@ export default function OnlineUsers({
                     )}
                 </div>
                 {emojiBar && (
-                    <div className="emoticons">
+                    <div className="emoticons"
+                    id={list&& "emoticons"}>
                         {emoji &&
                             emoji.map((emoj) => (
                                 <div key={emoj.id}>

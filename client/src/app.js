@@ -34,13 +34,8 @@ export default class App extends Component {
     }
 
     componentDidMount() {
+
         this.mapVisible(false)
-        axios
-            .post("/chat", { test: false })
-            .then(({ data }) => {})
-            .catch((err) => {
-                console.log("error", err);
-            });
 
         axios
             .get("/user-details")
@@ -48,9 +43,6 @@ export default class App extends Component {
                 if (!data.data) {
                     location.replace("/");
                 }
-
-                // console.log("Current User's data in APP", data);
-
                 this.setState({
                     id: data.data.id,
                     nickname: data.data.nickname,
@@ -70,24 +62,24 @@ export default class App extends Component {
             .catch((err) => {
                 console.log("err in axios App User POST Request : ", err);
             });
+
         axios
             .get("/get-gigs")
             .then(({ data }) => {
                 this.setState({
                     gigsList: data.data,
                 });
-                // console.log("APP GIGS List", this.state.gigsList);
             })
             .catch((err) => {
                 console.log("err in axios App User POST Request : ", err);
             });
+
         axios
             .get("/counter")
             .then(({ data }) => {
                 this.setState({
                     visitors: data.data,
                 });
-                // console.log("APP GIGS List", this.state.gigsList);
             })
             .catch((err) => {
                 console.log("err in axios App User POST Request : ", err);
@@ -355,6 +347,8 @@ export default class App extends Component {
                                         nickname={this.state.nickname}
                                         guest={this.state.guest}
                                         setNickname={(e) => this.setNickname(e)}
+                                        listSet={(e) => this.listSet(e)}
+                                        list={this.state.list}
                                     />
                                 )}
                             />

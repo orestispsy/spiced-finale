@@ -14,11 +14,9 @@ export default class Registration extends React.Component {
         axios
             .post("/register", this.state)
             .then(({ data }) => {
-                // console.log("DATA", data.data);
                 if (data.data) {
                     location.replace("/");
                 } else {
-                    // console.log("data fail");
                     this.setState({
                         error: true,
                     });
