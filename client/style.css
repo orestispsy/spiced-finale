@@ -3702,8 +3702,8 @@ font-family: 'Ultra', serif; */
 
 .superAdminButton {
     position: fixed;
-    left: 1vmax;
-    bottom: 0.5vmax;
+    right: 9vmax;
+    bottom: 1vmax;
 }
 
 .superAdminButton img {
