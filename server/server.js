@@ -650,7 +650,8 @@ io.on("connection", function (socket) {
             for (x = 0; x < rows.length - 1; x++) {
                 if (
                     !rows[x].chat_msg.includes("--##--entered--##--") &&
-                    !rows[x].chat_msg.includes("--##--left--##--")
+                    !rows[x].chat_msg.includes("--##--left--##--") &&
+                    !rows[x].chat_msg.includes("--##--left-the-network--##--")
                 ) {
                     clearRows.push(rows[x]);
                 }
@@ -737,7 +738,7 @@ io.on("connection", function (socket) {
         if (!userStillOnline && userId ) {
             io.emit("userLeft", userIdDisconnected);
             if (count == 0 && goOffline) {
-                db.addChatMsg(userId, "--##--left the community--##--")
+                db.addChatMsg(userId, "--##--left-the-network--##--")
                     .then(() => {
                         db.getChatMsgs()
                             .then(({ rows }) => {

@@ -393,7 +393,7 @@ export default function Chat({
                                         );
                                     } else if (
                                         msg.chat_msg ===
-                                        "--##--left the community--##--"
+                                        "--##--left-the-network--##--"
                                     ) {
                                         return (
                                             <p
@@ -401,18 +401,6 @@ export default function Chat({
                                                 key={msg.id}
                                             >
                                                 {msg.nickname} left The Network
-                                            </p>
-                                        );
-                                    } else if (
-                                        msg.chat_msg ===
-                                        "--##--entered the community--##--"
-                                    ) {
-                                        return (
-                                            <p
-                                                className="userLeavesNetwork"
-                                                key={msg.id}
-                                            >
-                                                {msg.nickname} entered The Network
                                             </p>
                                         );
                                     } else {
