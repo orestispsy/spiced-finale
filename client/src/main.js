@@ -30,50 +30,50 @@ export default function Main({
 
     return (
         <div className="mainContainer">
-            <div className="logoBack">
-                <div className="logo" id={darkMode && "logoDark"}></div>
-                <p id={darkMode && "logoDarkP"}>GIG GUIDE</p>
-            </div>
+            <div id={darkMode && "logoBoxDark"}>
+                <div className="logoBack">
+                    {!darkMode && (
+                        <div className="logo" id={darkMode && "logoDark"}></div>
+                    )}
+                    <p id={darkMode && "logoDarkP"}>GIG GUIDE</p>
+                </div>
 
-            <div className="mainMenu" id={darkMode && "mainMenuDark"}>
-                {!admin && (
-                    <div className="easterEgg" title="Map">
-                        <Link to="/map">
-                            <img src="globe.gif"></img>
-                        </Link>
-                    </div>
-                )}
-                {admin && (
-                    <div className="mainMenuEditOptions">
-                        <Link to="/gig-creator" className="mainMenuLink">
-                            {" "}
-                            Add
-                        </Link>
+                <div className="mainMenu" id={darkMode && "mainMenuDark"}>
+                    {!admin && (
                         <div className="easterEgg" title="Map">
                             <Link to="/map">
-                                <img src="globe.gif"></img>
+                                <img
+                                    id={darkMode && "globeDark"}
+                                    src="globe.gif"
+                                ></img>
                             </Link>
                         </div>
-                        <Link to="/gig-editor" className="mainMenuLink">
-                            {" "}
-                            Edit
-                        </Link>
-                    </div>
-                )}
-                <Link to="/gig-list" className="mainMenuLink">
-                    Gig List
-                </Link>
-
-                {visitors && (
-                    <div className="visitors">
-                        Visitors<div>{visitors}</div>
-                        <div className="logout" onClick={() => logOut()}>
-                            LogOut
+                    )}
+                    {admin && (
+                        <div className="mainMenuEditOptions">
+                            <Link to="/gig-creator" className="mainMenuLink">
+                                {" "}
+                                Add
+                            </Link>
+                            <div className="easterEgg" title="Map">
+                                <Link to="/map">
+                                    <img
+                                        id={darkMode && "globeDark"}
+                                        src="globe.gif"
+                                    ></img>
+                                </Link>
+                            </div>
+                            <Link to="/gig-editor" className="mainMenuLink">
+                                {" "}
+                                Edit
+                            </Link>
                         </div>
-                    </div>
-                )}
+                    )}
+                    <Link to="/gig-list" className="mainMenuLink">
+                        Entries
+                    </Link>
+                </div>
             </div>
-
             <div
                 className={
                     (darkMode && "DarkMode") || (!darkMode && "lightMode")
@@ -88,6 +88,14 @@ export default function Main({
                         <img src="superAdmin.png"></img>
                     </div>
                 </Link>
+            )}
+            {visitors && (
+                <div className="visitors">
+                    Visitors<div>{visitors}</div>
+                    <div className="logout" onClick={() => logOut()}>
+                        LogOut
+                    </div>
+                </div>
             )}
         </div>
     );

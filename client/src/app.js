@@ -30,7 +30,7 @@ export default class App extends Component {
             selectedGigEntry: false,
             guest: false,
             listScroller: false,
-            darkMode: false,
+            darkMode: true,
         };
     }
 

@@ -178,7 +178,7 @@ a:hover {
     align-items: center;
     align-self: center;
     height: 100vh;
-    box-shadow: inset 0 0 0 100vh rgba(0, 0, 0, 0.836);
+    box-shadow: inset 0 0 0 100vh rgba(0, 0, 0, 0.65);
 }
 
 .appContainer {
@@ -709,6 +709,12 @@ input {
         rgba(59, 255, 255, 0.055),
         transparent
     );
+    margin: 0 0 -23vmax 0;
+    flex-direction: column-reverse;
+}
+
+#globeDark {
+    margin: 2vmax;
 }
 
 .mainMenu {
@@ -832,7 +838,7 @@ input {
 }
 
 #logoDarkP {
-    margin: -17vh 0 5vh 0;
+    margin: -2vmax 0 2vmax 0;
 }
 
 @media only screen and (min-device-width: 100px) and (max-device-width: 480px) and (orientation: portrait) {
@@ -905,7 +911,18 @@ input {
     }
 
     #logoDarkP {
-        margin: -10vh 0 3vh 0 !important;
+        margin: 0 !important;
+    }
+
+    #logoBoxDark {
+        margin-top: -5vmax !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
+
+    #mainMenuDark {
+        margin: 5vmax 0 0vmax 0 !important;
     }
 
     .logoBack p {
@@ -1491,7 +1508,30 @@ input {
 
     #logoDarkP {
         padding: 0 !important;
-        margin: -14vh 0 0 0 !important;
+        margin: 30vmax 0 0 0 !important;
+    }
+
+    #mainMenuDark {
+        margin: 2vmax 0 0 0 !important;
+    }
+
+    .logoBack {
+        align-items: center !important;
+    }
+
+    #globeDark {
+        margin-top: 2vmax !important;
+    }
+
+    #logoBoxDark {
+        border: none !important;
+        box-shadow: none !important;
+
+        background-position-y: 35% !important;
+
+        height: 75vh !important;
+        width: 40vw !important;
+        padding: 0 2vmax 10vmax 2vmax !important;
     }
 
     #logoIntro {
@@ -1869,15 +1909,36 @@ input {
     }
 }
 
-#logoDark {
+#logoBoxDark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-position-x: 50%;
+    background-position-y: 25%;
     background-image: url("stickyLogo.png");
     background-repeat: no-repeat;
     background-size: cover;
+    height: 90vh;
+    width: fit-content;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.616);
+    padding: 0vmax 4vmax 0 4vmax;
+}
+
+#logoDark {
+    /* background-image: url("stickyLogo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     background-position: center;
-    height: 29vmax;
-    width: 22vmax;
-    margin: 1vmax;
-    margin-top: -1vmax;
+ */
+    margin: -2vmax 0 0 0;
+
+    background-image: none;
+    height: 0;
+    width: 0;
 }
 
 .logo {
