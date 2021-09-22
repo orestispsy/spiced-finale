@@ -915,10 +915,11 @@ input {
     }
 
     #logoBoxDark {
-        margin-top: -5vmax !important;
+       
         border: none !important;
         box-shadow: none !important;
         border-radius: 0 !important;
+    
     }
 
     #mainMenuDark {
@@ -1524,10 +1525,11 @@ input {
     }
 
     #logoBoxDark {
+        margin-top:-10vmax !important;
         border: none !important;
         box-shadow: none !important;
-        background-position-y: 35% !important;
-        height: 75vh !important;
+        background-position-y: 15% !important;
+        height: 90vh !important;
         width: 40vw !important;
         padding: 0 2vmax 10vmax 2vmax !important;
     }
