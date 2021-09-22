@@ -2331,7 +2331,12 @@ font-family: 'Ultra', serif; */
     margin-bottom: -2vmax;
 }
 
-#chatHeadlineDark {
+#chatHeadlineDark #chatTitle{
+
+    color:rgb(0, 0, 0) !important;
+}
+
+#chatHeadlineDark{
     background: radial-gradient(
         closest-side,
         rgba(59, 255, 255, 0.055),
@@ -2339,6 +2344,7 @@ font-family: 'Ultra', serif; */
         rgba(59, 255, 255, 0.055),
         transparent
     );
+
 }
 
 .chatHeadline {
@@ -2411,7 +2417,15 @@ font-family: 'Ultra', serif; */
 
 #chatContainerDark {
     background: none;
-    border: 1px solid rgba(255, 255, 255, 0.075);
+    border: 1px solid rgba(255, 255, 255, 0.171);
+}
+
+#chatContainerDark #chatTitlePriv {
+       font-family: "Black Ops One", cursive;
+       font-size:4vmax;
+       color:white;
+       margin:0 !important;
+
 }
 
 .chatContainerBack {
@@ -2440,9 +2454,9 @@ font-family: 'Ultra', serif; */
 }
 
 #chatScreenDark {
-    background-color: rgba(113, 255, 212, 0.021);
+       background: radial-gradient( closest-side, rgba(59, 255, 255, 0.055), rgba(59, 255, 255, 0.055), rgba(59, 255, 255, 0.055), transparent );
     box-shadow: none;
-    border: 1px;
+      border: 1px solid rgba(255, 255, 255, 0.171);
 }
 
 .chatNextControls {
@@ -2686,7 +2700,7 @@ font-family: 'Ultra', serif; */
 
 #onlineUsersDark {
     background-color: rgba(113, 255, 212, 0.021);
-    border: 1px solid rgba(255, 255, 255, 0.062);
+    border: 1px solid rgba(255, 255, 255, 0.13);
 }
 
 .onlineUsers {
@@ -2712,7 +2726,8 @@ font-family: 'Ultra', serif; */
 
 #usersBackDark {
     background-color: rgba(255, 255, 255, 0.027);
-    border-color: rgba(255, 255, 255, 0.055);
+    
+    border-color: rgba(255, 255, 255, 0.13);
 }
 
 .usersBack {

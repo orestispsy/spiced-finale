@@ -149,7 +149,7 @@ export default function PrivateMSGS({
     return (
         <>
             <div className="chatContainer" id={list && "chatContainerDark"}>
-                <h1>Private Chat</h1>
+                <h1 id="chatTitlePriv">Private Chat</h1>
                 <div className="chatScreenBack">
                     <div
                         className="chatScreen"
