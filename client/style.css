@@ -1525,11 +1525,12 @@ input {
     }
 
     #logoBoxDark {
-        margin-top:-10vmax !important;
+        margin-top:-2vmax !important;
         border: none !important;
         box-shadow: none !important;
-        background-position-y: 15% !important;
-        height: 90vh !important;
+        border-radius: 0 !important;
+        background-position-y: 30% !important;
+        height: 78vh !important;
         width: 40vw !important;
         padding: 0 2vmax 10vmax 2vmax !important;
     }
