@@ -894,6 +894,7 @@ input {
         width: 42vmax !important;
         height: 55vmax !important;
     }
+
     .logo {
         width: 75vmax !important;
         height: 35vmax !important;
@@ -910,16 +911,30 @@ input {
         font-size: 9vmax !important;
     }
 
+    #chatContainerDark {
+        border: 2px solid rgba(255, 255, 255, 0.479) !important;
+    }
+
+    #chatScreenDark {
+        border: 2px solid rgba(255, 255, 255, 0.479) !important;
+    }
+
+    #usersBackDark {
+        border: 2px solid rgba(255, 255, 255, 0.281) !important;
+    }
+
+    #onlineUsersDark {
+        border: 2px solid rgba(255, 255, 255, 0.281) !important;
+    }
+
     #logoDarkP {
         margin: 0 !important;
     }
 
     #logoBoxDark {
-       
         border: none !important;
         box-shadow: none !important;
         border-radius: 0 !important;
-    
     }
 
     #mainMenuDark {
@@ -1498,6 +1513,22 @@ input {
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
+    #chatContainerDark {
+        border: 2px solid rgba(255, 255, 255, 0.178) !important;
+    }
+
+    #chatScreenDark {
+        border: 2px solid rgba(255, 255, 255, 0.178) !important;
+    }
+
+    #usersBackDark {
+        border: 2px solid rgba(255, 255, 255, 0.178) !important;
+    }
+
+    #onlineUsersDark {
+        border: 2px solid rgba(255, 255, 255, 0.178) !important;
+    }
+
     .logo {
         width: 50vmax !important;
         height: 22vmax !important;
@@ -1525,7 +1556,7 @@ input {
     }
 
     #logoBoxDark {
-        margin-top:-2vmax !important;
+        margin-top: -2vmax !important;
         border: none !important;
         box-shadow: none !important;
         border-radius: 0 !important;
@@ -2331,12 +2362,11 @@ font-family: 'Ultra', serif; */
     margin-bottom: -2vmax;
 }
 
-#chatHeadlineDark #chatTitle{
-
-    color:rgb(0, 0, 0) !important;
+#chatHeadlineDark #chatTitle {
+    color: rgb(0, 0, 0) !important;
 }
 
-#chatHeadlineDark{
+#chatHeadlineDark {
     background: radial-gradient(
         closest-side,
         rgba(59, 255, 255, 0.055),
@@ -2344,7 +2374,6 @@ font-family: 'Ultra', serif; */
         rgba(59, 255, 255, 0.055),
         transparent
     );
-
 }
 
 .chatHeadline {
@@ -2421,11 +2450,10 @@ font-family: 'Ultra', serif; */
 }
 
 #chatContainerDark #chatTitlePriv {
-       font-family: "Black Ops One", cursive;
-       font-size:4vmax;
-       color:white;
-       margin:0 !important;
-
+    font-family: "Black Ops One", cursive;
+    font-size: 4vmax;
+    color: white;
+    margin: 0 !important;
 }
 
 .chatContainerBack {
@@ -2454,9 +2482,15 @@ font-family: 'Ultra', serif; */
 }
 
 #chatScreenDark {
-       background: radial-gradient( closest-side, rgba(59, 255, 255, 0.055), rgba(59, 255, 255, 0.055), rgba(59, 255, 255, 0.055), transparent );
+    background: radial-gradient(
+        closest-side,
+        rgba(59, 255, 255, 0.055),
+        rgba(59, 255, 255, 0.055),
+        rgba(59, 255, 255, 0.055),
+        transparent
+    );
     box-shadow: none;
-      border: 1px solid rgba(255, 255, 255, 0.171);
+    border: 1px solid rgba(255, 255, 255, 0.171);
 }
 
 .chatNextControls {
@@ -2726,7 +2760,7 @@ font-family: 'Ultra', serif; */
 
 #usersBackDark {
     background-color: rgba(255, 255, 255, 0.027);
-    
+
     border-color: rgba(255, 255, 255, 0.13);
 }
 
