@@ -733,7 +733,7 @@ io.on("connection", function (socket) {
                 userStillOnline = true;
             }
         }
-        if (!userStillOnline && userId) {
+        if (!userStillOnline && userId ) {
             io.emit("userLeft", userIdDisconnected);
             if (count == 0 && goOffline) {
                 db.addChatMsg(userId, "--##--left--##--")
@@ -756,6 +756,6 @@ io.on("connection", function (socket) {
                 .catch((err) => {
                     console.log(err);
                 });
-        }
+        } else {}
     });
 });

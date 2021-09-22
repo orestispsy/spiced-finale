@@ -912,19 +912,19 @@ input {
     }
 
     #chatContainerDark {
-        border: 2px solid rgba(255, 255, 255, 0.479) !important;
+         border: 1px solid rgba(255, 255, 255, 0.479) !important;
     }
 
     #chatScreenDark {
-        border: 2px solid rgba(255, 255, 255, 0.479) !important;
+        border: 1px solid rgba(255, 255, 255, 0.479) !important;
     }
 
     #usersBackDark {
-        border: 2px solid rgba(255, 255, 255, 0.281) !important;
+        border: 1px solid rgba(255, 255, 255, 0.281) !important;
     }
 
     #onlineUsersDark {
-        border: 2px solid rgba(255, 255, 255, 0.281) !important;
+        border: 1px solid rgba(255, 255, 255, 0.281) !important;
     }
 
     #logoDarkP {
