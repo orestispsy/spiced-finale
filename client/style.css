@@ -2702,6 +2702,19 @@ font-family: 'Ultra', serif; */
     user-select: none;
 }
 
+.userLeavesNetwork{
+      font-size: 1vmax !important;
+    color: rgba(0, 132, 255, 0.671) !important;
+    margin: 5px !important;
+    text-align: center !important;
+    background-color: rgba(255, 0, 0, 0);
+    padding: 0.5vmax;
+    height: 1.5vmax;
+    align-self: center;
+    border-radius: 2vh;
+    user-select: none;
+}
+
 .userLeaves {
     font-size: 1vmax !important;
     color: rgba(255, 251, 0, 0.671) !important;

@@ -632,6 +632,7 @@ io.on("connection", function (socket) {
     let filteredUsers = userIds.filter(
         (id, user) => userIds.indexOf(id) === user
     );
+    
 
     db.getOnlineUsers(filteredUsers).then(({ rows }) => {
         io.emit("usersOnline", rows);
@@ -736,7 +737,7 @@ io.on("connection", function (socket) {
         if (!userStillOnline && userId ) {
             io.emit("userLeft", userIdDisconnected);
             if (count == 0 && goOffline) {
-                db.addChatMsg(userId, "--##--left--##--")
+                db.addChatMsg(userId, "--##--left the community--##--")
                     .then(() => {
                         db.getChatMsgs()
                             .then(({ rows }) => {

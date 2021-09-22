@@ -391,6 +391,30 @@ export default function Chat({
                                                 {msg.nickname} joined the chat !
                                             </p>
                                         );
+                                    } else if (
+                                        msg.chat_msg ===
+                                        "--##--left the community--##--"
+                                    ) {
+                                        return (
+                                            <p
+                                                className="userLeavesNetwork"
+                                                key={msg.id}
+                                            >
+                                                {msg.nickname} left The Network
+                                            </p>
+                                        );
+                                    } else if (
+                                        msg.chat_msg ===
+                                        "--##--entered the community--##--"
+                                    ) {
+                                        return (
+                                            <p
+                                                className="userLeavesNetwork"
+                                                key={msg.id}
+                                            >
+                                                {msg.nickname} entered The Network
+                                            </p>
+                                        );
                                     } else {
                                         return (
                                             <div
