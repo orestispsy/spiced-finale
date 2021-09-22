@@ -1526,9 +1526,7 @@ input {
     #logoBoxDark {
         border: none !important;
         box-shadow: none !important;
-
         background-position-y: 35% !important;
-
         height: 75vh !important;
         width: 40vw !important;
         padding: 0 2vmax 10vmax 2vmax !important;
