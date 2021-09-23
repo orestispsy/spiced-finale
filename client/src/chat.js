@@ -71,10 +71,6 @@ export default function Chat({
 
     useEffect(() => {
         if (chat_myUserId) {
-            if (browserCount == 1) {
-                serverSignal(true);
-            }
-
             if (browserCount < 2) {
                 socket.emit("A CHAT MSG", "--##--entered--##--");
             }
@@ -135,15 +131,6 @@ export default function Chat({
                 }
             });
         }
-    };
-
-    const serverSignal = (e) => {
-        axios
-            .post("/chat", { goOffline: e })
-            .then(({ data }) => {})
-            .catch((err) => {
-                console.log("error", err);
-            });
     };
 
     const keyCheck = (e) => {
@@ -310,7 +297,6 @@ export default function Chat({
                                 to="/"
                                 className="buttonBack"
                                 onClick={(e) => {
-                                    serverSignal(false);
                                     {
                                         if (browserCount == 1) {
                                             socket.emit(

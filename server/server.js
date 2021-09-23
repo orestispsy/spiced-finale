@@ -575,11 +575,6 @@ app.get("/delete-guests", (req, res) => {
         .catch((err) => console.log(err));
 });
 
-app.post("/chat", function (req, res) {
-    goOffline = req.body.goOffline;
-    res.json({ done: true });
-});
-
 app.post("/set-user-status", (req, res) => {
     db.setUserStatus(req.body.online, req.session.userId)
         .then(({ rows }) => {
@@ -604,8 +599,6 @@ server.listen(process.env.PORT || 3001, () =>
         `🟢 Listening Port ${server.address().port} ... ~ 100mods Gig Guide ~`
     )
 );
-
-var goOffline = false;
 
 let onlineUsers = {};
 
@@ -632,7 +625,6 @@ io.on("connection", function (socket) {
     let filteredUsers = userIds.filter(
         (id, user) => userIds.indexOf(id) === user
     );
-    
 
     db.getOnlineUsers(filteredUsers).then(({ rows }) => {
         io.emit("usersOnline", rows);
@@ -657,8 +649,9 @@ io.on("connection", function (socket) {
                 }
             }
             clearRows.splice(10, rows.length - 1);
-            if (userId){
-            socket.emit("chatMessages", clearRows);}
+            if (userId) {
+                socket.emit("chatMessages", clearRows);
+            }
         })
         .catch((err) => console.log(err));
 
@@ -735,19 +728,29 @@ io.on("connection", function (socket) {
                 userStillOnline = true;
             }
         }
-        if (!userStillOnline && userId ) {
+        if (!userStillOnline && userId) {
+            db.getUser(userId)
+                .then(({ rows }) => {
+                    if (rows[0]) {
+                        if (count == 0 && rows[0].online) {
+                            db.addChatMsg(
+                                userId,
+                                "--##--left-the-network--##--"
+                            )
+                                .then(() => {
+                                    db.getChatMsgs()
+                                        .then(({ rows }) => {
+                                            io.emit("chatMessage", rows[0]);
+                                        })
+                                        .catch((err) => console.log(err));
+                                })
+                                .catch((err) => console.log(err));
+                        }
+                    }
+                })
+                .catch((err) => console.log(err));
             io.emit("userLeft", userIdDisconnected);
-            if (count == 0 && goOffline) {
-                db.addChatMsg(userId, "--##--left-the-network--##--")
-                    .then(() => {
-                        db.getChatMsgs()
-                            .then(({ rows }) => {
-                                io.emit("chatMessage", rows[0]);
-                            })
-                            .catch((err) => console.log(err));
-                    })
-                    .catch((err) => console.log(err));
-            }
+
             let boolean = false;
             db.setUserStatus(boolean, userId)
                 .then(({ rows }) => {
@@ -758,6 +761,6 @@ io.on("connection", function (socket) {
                 .catch((err) => {
                     console.log(err);
                 });
-        } else {}
+        }
     });
 });

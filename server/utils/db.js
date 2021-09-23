@@ -213,6 +213,7 @@ module.exports.getNextMsgs = (id) => {
         WHERE chatroom.id < $1
         AND chatroom.chat_msg NOT LIKE '%--##--entered--##--%'
         AND chatroom.chat_msg NOT LIKE '%--##--left--##--%'
+           AND chatroom.chat_msg NOT LIKE '%--##--left-the-network--##--%'
         ORDER BY id DESC
         LIMIT 20;
     `;

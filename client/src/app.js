@@ -36,7 +36,12 @@ export default class App extends Component {
 
     componentDidMount() {
         this.mapVisible(false);
-
+ axios
+     .post("/chat", { goOffline: false })
+     .then(({ data }) => {})
+     .catch((err) => {
+         console.log("error", err);
+     });
         axios
             .get("/user-details")
             .then(({ data }) => {
