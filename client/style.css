@@ -838,7 +838,7 @@ input {
 }
 
 #logoDarkP {
-    margin: -2vmax 0 2vmax 0;
+    margin: -4vmax 0 5vmax 0;
 }
 
 @media only screen and (min-device-width: 100px) and (max-device-width: 480px) and (orientation: portrait) {
@@ -890,10 +890,6 @@ input {
         right: 4vmax !important;
     }
 
-    #logoDark {
-        width: 42vmax !important;
-        height: 55vmax !important;
-    }
 
     .logo {
         width: 75vmax !important;
@@ -1533,10 +1529,7 @@ input {
         width: 50vmax !important;
         height: 22vmax !important;
     }
-    #logoDark {
-        width: 20vmax !important;
-        height: 27vmax !important;
-    }
+
 
     #logoDarkP {
         padding: 0 !important;
@@ -1952,26 +1945,18 @@ input {
     background-image: url("stickyLogo.png");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 90vh;
+    height: 92vh;
     width: fit-content;
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.11);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.616);
-    padding: 0vmax 4vmax 0 4vmax;
+    padding: 0vmax 5vmax 0 5vmax;
 }
 
-#logoDark {
-    /* background-image: url("stickyLogo.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
- */
-    margin: -2vmax 0 0 0;
-
-    background-image: none;
-    height: 0;
-    width: 0;
+#logoBoxDark:hover {
+          box-shadow: inset 0 0 5px rgba(136, 135, 135, 0.253);
 }
+
 
 .logo {
     background-image: url("logo.png");

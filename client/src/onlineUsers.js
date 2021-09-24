@@ -376,6 +376,9 @@ export default function OnlineUsers({
                                                     if (
                                                         user.id != chat_myUserId
                                                     ) {
+                                                        socket.emit(
+                                                            "forceDisconnect", user.id
+                                                        );
                                                         toggleEmojibar(false);
                                                         togglePrivateMSGS();
                                                         openPrivate(user.id);

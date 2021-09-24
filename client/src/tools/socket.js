@@ -76,5 +76,8 @@ export const init = (store) => {
         socket.on("browserCount", (data) => {
             store.dispatch(browserCountAct(data));
         });
+         socket.on("message", (data) => {
+            console.log(data)
+         });
     }
 };
