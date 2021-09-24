@@ -931,6 +931,7 @@ input {
         border: none !important;
         box-shadow: none !important;
         border-radius: 0 !important;
+        margin-top:-6vmax !important;
     }
 
     #mainMenuDark {
@@ -1951,12 +1952,8 @@ input {
     border: 1px solid rgba(255, 255, 255, 0.11);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.616);
     padding: 0vmax 5vmax 0 5vmax;
+    margin-bottom:1vmax;
 }
-
-#logoBoxDark:hover {
-          box-shadow: inset 0 0 5px rgba(136, 135, 135, 0.253);
-}
-
 
 .logo {
     background-image: url("logo.png");
