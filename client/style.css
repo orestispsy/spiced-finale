@@ -4190,7 +4190,7 @@ font-family: 'Ultra', serif; */
     background-size: cover;
     position: fixed;
     left: 1vmax;
-    bottom: 0;
+    bottom: 0.5vmax;
     cursor: pointer;
     transition: 0.5s;
 }
