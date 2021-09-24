@@ -200,13 +200,15 @@ export default class App extends Component {
                         >
                             <div className="appBar">
                                 <div className="barLeftSection">
-                                    <img
-                                        src={
-                                            this.state.chat_img ||
-                                            "./../avatar.png"
-                                        }
-                                        className="barProfileImage"
-                                    ></img>
+                                    <Link to="/chat">
+                                        <img
+                                            src={
+                                                this.state.chat_img ||
+                                                "./../avatar.png"
+                                            }
+                                            className="barProfileImage"
+                                        ></img>
+                                    </Link>
                                     {!this.state.maps && (
                                         <Link to="/chat">
                                             <div
