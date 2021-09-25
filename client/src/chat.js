@@ -207,7 +207,7 @@ export default function Chat({
         
                   
             
- return <span id="time">{timer>300 && timer}</span>;
+ return <span id="time"></span>;
            
             
     };
