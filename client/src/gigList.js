@@ -65,15 +65,15 @@ export default function GigList({
     return (
         <div className="gigListContainer">
             <div className="gigEntriesBox">
-                 <div id="gigListCloseTab">
-                            <Link to="/" className="buttonBack">
-                                X
-                            </Link></div>
+                <div id="gigListCloseTab">
+                    <Link to="/" className="buttonBack">
+                        X
+                    </Link>
+                </div>
                 <h1>Gig Entries</h1>
                 <div className="gigListControls">
                     <div className="sortedGigRange">2006</div>
                     <input
-                     
                         value={year}
                         title="Set Year"
                         type="range"
@@ -99,115 +99,127 @@ export default function GigList({
                         reset
                     </div>
                 )}
-                <div className="year"> {year && year} </div>
+                <div className="year">
+                    {" "}
+                    {year && year} {!year && "Total"}
+                </div>
             </div>
             <div className="gigEntriesCounter">
                 {gigsList && !sortedGigs && gigsList.length}
                 {sortedGigs && sortedGigs.length}
             </div>
-            <div
-                className="gigEntries"
-                ref={elemRef}
-                onMouseDown={() => {
-                    setListScroller(elemRef.current.scrollTop);
-                }}
-            >
-                {sortedGigs && (
-                    <div className="gigListMonths">
-                        {months &&
-                            months.map((month) => (
-                                <React.Fragment key={month.id}>
-                                    {sortedMonths.includes(month.id) && (
-                                        <div className="exactMonth">
-                                            {month.month}
+            <div className="gigEntriesBack">
+                {!year && <div className="latestEntries">Latest</div>}
+                <div
+                    className="gigEntries"
+                    ref={elemRef}
+                    onMouseDown={() => {
+                        setListScroller(elemRef.current.scrollTop);
+                    }}
+                >
+                    {sortedGigs && (
+                        <div className="gigListMonths">
+                            {months &&
+                                months.map((month) => (
+                                    <React.Fragment key={month.id}>
+                                        {sortedMonths.includes(month.id) && (
+                                            <div className="exactMonth">
+                                                {month.month}
 
-                                            <div className="monthInnerBox">
-                                                {sortedGigs &&
-                                                    sortedGigs.map((gig) => {
-                                                        var splitDate =
-                                                            gig.date.split("-");
+                                                <div className="monthInnerBox">
+                                                    {sortedGigs &&
+                                                        sortedGigs.map(
+                                                            (gig) => {
+                                                                var splitDate =
+                                                                    gig.date.split(
+                                                                        "-"
+                                                                    );
 
-                                                        return (
-                                                            <React.Fragment
-                                                                key={gig.id}
-                                                            >
-                                                                {splitDate[1] ==
-                                                                    month.id && (
-                                                                    <Link
-                                                                        to={`/api/gig/${gig.id}`}
+                                                                return (
+                                                                    <React.Fragment
+                                                                        key={
+                                                                            gig.id
+                                                                        }
                                                                     >
-                                                                        <div className="gigBox">
-                                                                            <div
-                                                                                style={{
-                                                                                    color: `yellow`,
-                                                                                    textDecoration: `underline`,
-                                                                                }}
+                                                                        {splitDate[1] ==
+                                                                            month.id && (
+                                                                            <Link
+                                                                                to={`/api/gig/${gig.id}`}
                                                                             >
-                                                                                {
-                                                                                    gig.date
-                                                                                }
-                                                                            </div>
-                                                                            <div
-                                                                                style={{
-                                                                                    color: `lime`,
-                                                                                }}
-                                                                            >
-                                                                                {
-                                                                                    gig.venue
-                                                                                }
-                                                                            </div>
-                                                                            <div
-                                                                                style={{
-                                                                                    color: `white`,
-                                                                                }}
-                                                                            >
-                                                                                {
-                                                                                    gig.city
-                                                                                }
-                                                                            </div>
-                                                                        </div>
-                                                                    </Link>
-                                                                )}
-                                                            </React.Fragment>
-                                                        );
-                                                    })}
+                                                                                <div className="gigBox">
+                                                                                    <div
+                                                                                        style={{
+                                                                                            color: `yellow`,
+                                                                                            textDecoration: `underline`,
+                                                                                        }}
+                                                                                    >
+                                                                                        {
+                                                                                            gig.date
+                                                                                        }
+                                                                                    </div>
+                                                                                    <div
+                                                                                        style={{
+                                                                                            color: `lime`,
+                                                                                        }}
+                                                                                    >
+                                                                                        {
+                                                                                            gig.venue
+                                                                                        }
+                                                                                    </div>
+                                                                                    <div
+                                                                                        style={{
+                                                                                            color: `white`,
+                                                                                        }}
+                                                                                    >
+                                                                                        {
+                                                                                            gig.city
+                                                                                        }
+                                                                                    </div>
+                                                                                </div>
+                                                                            </Link>
+                                                                        )}
+                                                                    </React.Fragment>
+                                                                );
+                                                            }
+                                                        )}
+                                                </div>
                                             </div>
-                                        </div>
-                                    )}
-                                </React.Fragment>
-                            ))}{" "}
-                    </div>
-                )}
-                {gigsList &&
-                    !sortedGigs &&
-                    gigsList.map((gig) => (
-                        <Link to={`/api/gig/${gig.id}`} key={gig.id}>
-                            <div className="gigBox">
-                                <div
-                                    style={{
-                                        color: `yellow`,
-                                        textDecoration: `underline`,
-                                    }}
-                                >
-                                    {gig.date}
+                                        )}
+                                    </React.Fragment>
+                                ))}{" "}
+                        </div>
+                    )}
+                    {gigsList &&
+                        !sortedGigs &&
+                        gigsList.slice(0, 7).map((gig) => (
+                            <Link to={`/api/gig/${gig.id}`} key={gig.id}>
+                                <div className="gigBox">
+                                    <div
+                                        style={{
+                                            color: `yellow`,
+                                            textDecoration: `underline`,
+                                        }}
+                                    >
+                                        {gig.date}
+                                    </div>
+                                    <div
+                                        style={{
+                                            color: `lime`,
+                                        }}
+                                    >
+                                        {gig.venue}
+                                    </div>
+                                    <div
+                                        style={{
+                                            color: `white`,
+                                        }}
+                                    >
+                                        {gig.city}
+                                    </div>
                                 </div>
-                                <div
-                                    style={{
-                                        color: `lime`,
-                                    }}
-                                >
-                                    {gig.venue}
-                                </div>
-                                <div
-                                    style={{
-                                        color: `white`,
-                                    }}
-                                >
-                                    {gig.city}
-                                </div>
-                            </div>
-                        </Link>
-                    ))}
+                            </Link>
+                        ))}
+                </div>
             </div>
             <Link to="/gig-list-animation" className="gigAnimationLink">
                 Animate
