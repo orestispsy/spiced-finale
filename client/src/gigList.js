@@ -6,9 +6,10 @@ export default function GigList({
     listSet,
     listScroller,
     setListScroller,
+    year,
+    setYear,
 }) {
     const [sortedGigs, setSortedGigs] = useState(false);
-    const [year, setYear] = useState(false);
     const [sortedMonths, setSortedMonths] = useState([]);
     const [months, setMonths] = useState([
         { id: "01", month: "January" },
@@ -29,7 +30,10 @@ export default function GigList({
 
     useEffect(function () {
         listSet(true);
-        elemRef.current.scrollTop = listScroller;
+   
+        if (year) {
+            gigListFiltering(year);
+        }
     }, []);
 
     var sortedGigsHelper = [];
@@ -116,11 +120,11 @@ export default function GigList({
                         height: year && `54vh`,
                     }}
                     ref={elemRef}
-                    onMouseDown={() => {
+                    onScrollCapture={(e) => {
                         setListScroller(elemRef.current.scrollTop);
                     }}
                 >
-                    {sortedGigs && (
+                    {sortedGigs && year && (
                         <div className="gigListMonths">
                             {months &&
                                 months.map((month) => (
@@ -149,6 +153,13 @@ export default function GigList({
                                                                         {splitDate[1] ==
                                                                             month.id && (
                                                                             <Link
+                                                                                onClick={(
+                                                                                    e
+                                                                                ) => {
+                                                                                    setYear(
+                                                                                        year
+                                                                                    );
+                                                                                }}
                                                                                 to={`/api/gig/${gig.id}`}
                                                                             >
                                                                                 <div className="gigBox">
@@ -195,6 +206,7 @@ export default function GigList({
                         </div>
                     )}
                     {gigsList &&
+                        !year &&
                         !sortedGigs &&
                         gigsList.slice(0, 7).map((gig) => (
                             <Link to={`/api/gig/${gig.id}`} key={gig.id}>

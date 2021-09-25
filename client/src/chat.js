@@ -54,8 +54,8 @@ export default function Chat({
     const onlineUsers = useSelector((state) => state && state.onlineUsers);
 
     useEffect(() => {
-        listSet(true);
-        setDarkMode(true);
+        listSet(darkMode);
+        setDarkMode(darkMode);
     }, []);
 
     useEffect(() => {

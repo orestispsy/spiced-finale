@@ -31,6 +31,7 @@ export default class App extends Component {
             guest: false,
             listScroller: false,
             darkMode: true,
+            year: false,
         };
     }
 
@@ -130,6 +131,12 @@ export default class App extends Component {
     setDarkMode(e) {
         this.setState({
             darkMode: e,
+        });
+    }
+
+    setYear(e) {
+        this.setState({
+            year: e,
         });
     }
 
@@ -305,6 +312,8 @@ export default class App extends Component {
                                             this.setListScroller(e)
                                         }
                                         listScroller={this.state.listScroller}
+                                        year={this.state.year}
+                                        setYear={(e) => this.setYear(e)}
                                     />
                                 )}
                             />
