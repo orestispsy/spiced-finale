@@ -375,17 +375,8 @@ export default function OnlineUsers({
                                                 }
                                                 className="onlineList"
                                             >
-                                                <img
-                                                    className="onlineListImg"
-                                                    alt={user.nickname}
-                                                    src={
-                                                        (chat_myUserId ==
-                                                            user.id &&
-                                                            onlineUserPic) ||
-                                                        (user.chat_img &&
-                                                            user.chat_img) ||
-                                                        "./../avatar.png"
-                                                    }
+                                                <div
+                                                    className="onlineListDetails"
                                                     onClick={(e) => {
                                                         if (
                                                             user.id !=
@@ -406,56 +397,71 @@ export default function OnlineUsers({
                                                             );
                                                         }
                                                     }}
-                                                ></img>
-                                                <span
-                                                    style={{
-                                                        color:
+                                                >
+                                                    <img
+                                                        className="onlineListImg"
+                                                        alt={user.nickname}
+                                                        src={
                                                             (chat_myUserId ==
                                                                 user.id &&
-                                                                chatColor) ||
-                                                            user.chat_color ||
-                                                            `lime`,
-                                                    }}
-                                                >
-                                                    {(user.id ==
-                                                        chat_myUserId &&
-                                                        nickname) ||
-                                                        user.nickname}
-                                                </span>
-                                                {user.id != chat_myUserId && super_admin &&(
-                                                    <div
-                                                        className="kickOut"
-                                                        onClick={(e) => {
-                                                            if (
-                                                                user.id !=
-                                                                chat_myUserId
-                                                            ) {
-                                                                socket.emit(
-                                                                    "forceDisconnect",
-                                                                    user.id
-                                                                );
-                                                            }
-                                                        }}
-                                                    ></div>
-                                                )}
-                                                {privateMessages &&
-                                                    privateMessages.map(
-                                                        (msg) => {
-                                                            if (
-                                                                !msg.receiver_seen &&
-                                                                msg.msg_sender_id ==
-                                                                    user.id
-                                                            ) {
-                                                                return (
-                                                                    <div
-                                                                        className="notification"
-                                                                        key={
-                                                                            msg.id
-                                                                        }
-                                                                    ></div>
-                                                                );
-                                                            }
+                                                                onlineUserPic) ||
+                                                            (user.chat_img &&
+                                                                user.chat_img) ||
+                                                            "./../avatar.png"
                                                         }
+                                                    ></img>
+                                                    <span
+                                                        style={{
+                                                            color:
+                                                                (chat_myUserId ==
+                                                                    user.id &&
+                                                                    chatColor) ||
+                                                                user.chat_color ||
+                                                                `lime`,
+                                                        }}
+                                                    >
+                                                        {(user.id ==
+                                                            chat_myUserId &&
+                                                            nickname) ||
+                                                            user.nickname}
+                                                    </span>
+
+                                                    {privateMessages &&
+                                                        privateMessages.map(
+                                                            (msg) => {
+                                                                if (
+                                                                    !msg.receiver_seen &&
+                                                                    msg.msg_sender_id ==
+                                                                        user.id
+                                                                ) {
+                                                                    return (
+                                                                        <div
+                                                                            className="notification"
+                                                                            key={
+                                                                                msg.id
+                                                                            }
+                                                                        ></div>
+                                                                    );
+                                                                }
+                                                            }
+                                                        )}
+                                                </div>
+                                                {user.id != chat_myUserId &&
+                                                    super_admin && (
+                                                        <div
+                                                            className="kickOut"
+                                                            onClick={(e) => {
+                                                                if (
+                                                                    user.id !=
+                                                                    chat_myUserId
+                                                                ) {
+                                                                    socket.emit(
+                                                                        "forceDisconnect",
+                                                                        user.id
+                                                                    );
+                                                                }
+                                                            }}
+                                                        ></div>
                                                     )}
                                             </div>
                                         </div>

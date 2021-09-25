@@ -64,7 +64,7 @@ export default function Chat({
         if (chatBan) {
             const timer = setTimeout(() => {
                 location.replace("/");
-            }, 35000);
+            }, 65000);
 
             return () => clearTimeout(timer);
         }
@@ -187,29 +187,24 @@ export default function Chat({
     };
 
     const countDown = (duration, display) => {
-             var timer = duration,
-                 minutes,
-                 seconds;
-             setInterval(function () {
-                 minutes = parseInt(timer / 60, 10);
-                 seconds = parseInt(timer % 60, 10);
+        var timer = duration,
+            minutes,
+            seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
 
-                 minutes = minutes < 10 ? "0" + minutes : minutes;
-                 seconds = seconds < 10 ? "0" + seconds : seconds;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
 
-                 display.textContent = minutes + ":" + seconds;
+            display.textContent = minutes + ":" + seconds;
+            timer--;
+            if (timer < 0) {
+                timer = false;
+            }
+        }, 2000);
 
-                 if (--timer < 0) {
-                     timer = false
-                 }
-                   
-             }, 1000);
-        
-                  
-            
- return <span id="time"></span>;
-           
-            
+        return <span id="time"></span>;
     };
     const next20ChatMsgs = () => {
         if (elemRef.current.scrollTop == 0) {
@@ -388,7 +383,7 @@ export default function Chat({
                                         <span>Take a Deep Breath</span>{" "}
                                         {chatBan &&
                                             countDown(
-                                                30 * 1,
+                                                15 * 1,
                                                 document.querySelector("#time")
                                             )}
                                         <span>

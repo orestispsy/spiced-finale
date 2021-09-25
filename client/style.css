@@ -215,6 +215,7 @@ a:hover {
     font-size: 20px;
     height: 8vh;
     width: 100vw;
+    margin-bottom: auto;;
 }
 
 .barProfile {
@@ -2888,6 +2889,12 @@ font-family: 'Ultra', serif; */
     border-radius: 2vh;
 }
 
+.onlineListDetails{
+    display:flex;
+    align-items:center;
+    justify-content: flex-start;
+}
+
 #online {
     background-color: rgba(51, 255, 0, 0.103);
 }
@@ -2938,11 +2945,20 @@ font-family: 'Ultra', serif; */
 }
 
 .kickOut {
-    width: 1vmax;
-    height: 1vmax;
-    background-color: red;
-    border-radius: 50%;
+    background-image: url("kick.jpg");
+    background-size: cover;;
+    width:1.5vmax;
+    height:1.5vmax;
+ border-radius:50%;
     margin-left: 1vmax;
+         cursor: pointer;
+             transform: rotate(0.15turn);
+             border:1px solid white;
+}
+
+.kickOut:hover {
+
+    transform: rotate(0);
 }
 
 .onlineList span {
@@ -3685,6 +3701,7 @@ font-family: 'Ultra', serif; */
     width: 5vmax;
     height: 5vmax;
     background-size: cover;
+    margin-bottom:auto;
 }
 
 .superAdminContainer {
