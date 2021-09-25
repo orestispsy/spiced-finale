@@ -95,3 +95,10 @@ export function browserCountAct(arg) {
         count: arg,
     };
 }
+
+export function chatBanAct(arg) {
+    return {
+        type: "CHAT_BAN",
+        chat_ban: arg,
+    };
+}

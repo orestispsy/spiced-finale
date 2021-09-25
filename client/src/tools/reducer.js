@@ -98,6 +98,13 @@ export default function (state = {}, action) {
             };
         }
 
+         if (action.type == "CHAT_BAN") {
+             nextState = {
+                 ...state,
+                 chat_ban: action.chat_ban,
+             };
+         }
+
     // console.log("NEXT State", nextState);
     return nextState;
 }

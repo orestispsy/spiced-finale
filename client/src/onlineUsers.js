@@ -29,6 +29,7 @@ export default function OnlineUsers({
     setAdmin,
     onlineUsers,
     list,
+    super_admin
 }) {
     const [userPicBar, setUserPicBar] = useState(false);
     const [onlineUserPic, setOnlineUserPic] = useState("");
@@ -336,6 +337,7 @@ export default function OnlineUsers({
                                                         >
                                                             {user.nickname}
                                                         </span>
+
                                                         {privateMessages &&
                                                             privateMessages.map(
                                                                 (msg) => {
@@ -372,24 +374,6 @@ export default function OnlineUsers({
                                                     (!user.online && "offline")
                                                 }
                                                 className="onlineList"
-                                                onClick={(e) => {
-                                                    if (
-                                                        user.id != chat_myUserId
-                                                    ) {
-                                                        socket.emit(
-                                                            "forceDisconnect", user.id
-                                                        );
-                                                        toggleEmojibar(false);
-                                                        togglePrivateMSGS();
-                                                        openPrivate(user.id);
-                                                        setPrivatePic(
-                                                            user.chat_img
-                                                        );
-                                                        setPrivateNick(
-                                                            user.nickname
-                                                        );
-                                                    }
-                                                }}
                                             >
                                                 <img
                                                     className="onlineListImg"
@@ -402,8 +386,27 @@ export default function OnlineUsers({
                                                             user.chat_img) ||
                                                         "./../avatar.png"
                                                     }
+                                                    onClick={(e) => {
+                                                        if (
+                                                            user.id !=
+                                                            chat_myUserId
+                                                        ) {
+                                                            toggleEmojibar(
+                                                                false
+                                                            );
+                                                            togglePrivateMSGS();
+                                                            openPrivate(
+                                                                user.id
+                                                            );
+                                                            setPrivatePic(
+                                                                user.chat_img
+                                                            );
+                                                            setPrivateNick(
+                                                                user.nickname
+                                                            );
+                                                        }
+                                                    }}
                                                 ></img>
-
                                                 <span
                                                     style={{
                                                         color:
@@ -419,6 +422,22 @@ export default function OnlineUsers({
                                                         nickname) ||
                                                         user.nickname}
                                                 </span>
+                                                {user.id != chat_myUserId && super_admin &&(
+                                                    <div
+                                                        className="kickOut"
+                                                        onClick={(e) => {
+                                                            if (
+                                                                user.id !=
+                                                                chat_myUserId
+                                                            ) {
+                                                                socket.emit(
+                                                                    "forceDisconnect",
+                                                                    user.id
+                                                                );
+                                                            }
+                                                        }}
+                                                    ></div>
+                                                )}
                                                 {privateMessages &&
                                                     privateMessages.map(
                                                         (msg) => {

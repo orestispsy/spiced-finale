@@ -53,10 +53,16 @@ export default function Chat({
 
     const onlineUsers = useSelector((state) => state && state.onlineUsers);
 
+    const chatBan = useSelector((state) => state && state.chat_ban);
+
     useEffect(() => {
         listSet(darkMode);
         setDarkMode(darkMode);
     }, []);
+
+    useEffect(() => {
+        console.log(chatBan);
+    }, [chatBan]);
 
     useEffect(() => {
         if (chatMessages) {
@@ -345,70 +351,102 @@ export default function Chat({
                                         ⦿
                                     </div>
                                 </div>
-                                {chatMessages.map((msg) => {
-                                    handleTime(msg);
+                                {chatBan && (
+                                    <div className="chatBanCover">
+                                        YOU'VE BEEN BANNED !
+                                        <span>
+                                            Take a Deep Breath and{" "}
+                                            <a href="https://thousandgigs.herokuapp.com">
+                                                try again
+                                            </a>
+                                        </span>
+                                    </div>
+                                )}
+                                {!chatBan &&
+                                    chatMessages.map((msg) => {
+                                        handleTime(msg);
 
-                                    if (msg.chat_msg === "--##--left--##--") {
-                                        // console.log("msgDate", msgDate[2]);
-                                        // const date1 = new Date();
-                                        // console.log(date1.getDay());
-                                        // if (date1.getDate() > msgDate[2]) {
-                                        //     return;
-                                        // } else
-                                        {
+                                        if (
+                                            msg.chat_msg === "--##--left--##--"
+                                        ) {
+                                            // console.log("msgDate", msgDate[2]);
+                                            // const date1 = new Date();
+                                            // console.log(date1.getDay());
+                                            // if (date1.getDate() > msgDate[2]) {
+                                            //     return;
+                                            // } else
+                                            {
+                                                return (
+                                                    <p
+                                                        className="userLeaves"
+                                                        key={msg.id}
+                                                    >
+                                                        {msg.nickname} has left
+                                                        the chat
+                                                    </p>
+                                                );
+                                            }
+                                        } else if (
+                                            msg.chat_msg ===
+                                            "--##--entered--##--"
+                                        ) {
                                             return (
                                                 <p
-                                                    className="userLeaves"
+                                                    className="userEnters"
                                                     key={msg.id}
                                                 >
-                                                    {msg.nickname} has left the
-                                                    chat
+                                                    {msg.nickname} joined the
+                                                    chat !
                                                 </p>
                                             );
-                                        }
-                                    } else if (
-                                        msg.chat_msg === "--##--entered--##--"
-                                    ) {
-                                        return (
-                                            <p
-                                                className="userEnters"
-                                                key={msg.id}
-                                            >
-                                                {msg.nickname} joined the chat !
-                                            </p>
-                                        );
-                                    } else if (
-                                        msg.chat_msg ===
-                                        "--##--left-the-network--##--"
-                                    ) {
-                                        return (
-                                            <p
-                                                className="userLeavesNetwork"
-                                                key={msg.id}
-                                            >
-                                                {msg.nickname} left The Network
-                                            </p>
-                                        );
-                                    } else {
-                                        return (
-                                            <div
-                                                className="chatPost"
-                                                key={msg.id}
-                                            >
-                                                <div className="post">
-                                                    <div className="userChatDetails">
-                                                        <img
-                                                            src={
-                                                                msg.chat_img ||
-                                                                "./../na.jpg"
-                                                            }
-                                                        ></img>
-                                                        <h1>{msg.nickname}</h1>
-                                                    </div>
-                                                    {admin &&
-                                                        !super_admin &&
-                                                        chat_myUserId ==
-                                                            msg.msg_sender_id && (
+                                        } else if (
+                                            msg.chat_msg ===
+                                            "--##--left-the-network--##--"
+                                        ) {
+                                            return (
+                                                <p
+                                                    className="userLeavesNetwork"
+                                                    key={msg.id}
+                                                >
+                                                    {msg.nickname} left The
+                                                    Network
+                                                </p>
+                                            );
+                                        } else {
+                                            return (
+                                                <div
+                                                    className="chatPost"
+                                                    key={msg.id}
+                                                >
+                                                    <div className="post">
+                                                        <div className="userChatDetails">
+                                                            <img
+                                                                src={
+                                                                    msg.chat_img ||
+                                                                    "./../na.jpg"
+                                                                }
+                                                            ></img>
+                                                            <h1>
+                                                                {msg.nickname}
+                                                            </h1>
+                                                        </div>
+                                                        {admin &&
+                                                            !super_admin &&
+                                                            chat_myUserId ==
+                                                                msg.msg_sender_id && (
+                                                                <div
+                                                                    title="Delete"
+                                                                    className="deleteChatMsg"
+                                                                    onClick={(
+                                                                        e
+                                                                    ) =>
+                                                                        handleChatPostDelete(
+                                                                            msg.id
+                                                                        )
+                                                                    }
+                                                                ></div>
+                                                            )}
+                                                        {super_admin && (
                                                             <div
                                                                 title="Delete"
                                                                 className="deleteChatMsg"
@@ -419,40 +457,29 @@ export default function Chat({
                                                                 }
                                                             ></div>
                                                         )}
-                                                    {super_admin && (
                                                         <div
-                                                            title="Delete"
-                                                            className="deleteChatMsg"
-                                                            onClick={(e) =>
-                                                                handleChatPostDelete(
-                                                                    msg.id
-                                                                )
-                                                            }
+                                                            className="finalMessage"
+                                                            style={{
+                                                                color:
+                                                                    msg.chat_color ||
+                                                                    `yellow`,
+                                                            }}
+                                                            dangerouslySetInnerHTML={{
+                                                                __html: msg.chat_msg,
+                                                            }}
                                                         ></div>
-                                                    )}
-                                                    <div
-                                                        className="finalMessage"
-                                                        style={{
-                                                            color:
-                                                                msg.chat_color ||
-                                                                `yellow`,
-                                                        }}
-                                                        dangerouslySetInnerHTML={{
-                                                            __html: msg.chat_msg,
-                                                        }}
-                                                    ></div>
-                                                </div>
+                                                    </div>
 
-                                                <div className="date">
-                                                    {fixedDate}
+                                                    <div className="date">
+                                                        {fixedDate}
+                                                    </div>
+                                                    <div className="time">
+                                                        {fixedTime}
+                                                    </div>
                                                 </div>
-                                                <div className="time">
-                                                    {fixedTime}
-                                                </div>
-                                            </div>
-                                        );
-                                    }
-                                })}
+                                            );
+                                        }
+                                    })}
                             </div>
                         </div>
                         <div className="typeLine">
@@ -519,6 +546,7 @@ export default function Chat({
                     setAdmin={(e) => setAdmin(e)}
                     onlineUsers={onlineUsers}
                     list={list}
+                    super_admin={super_admin}
                 />
             </div>
 

@@ -609,11 +609,6 @@ io.on("connection", function (socket) {
 
     const userId = socket.request.session.userId;
 
-    for (const [key, value] of Object.entries(onlineUsers)) {
-        console.log(`${key}: ${value}`);
-        socket.broadcast.to(key).emit("message", "for your eyes only");
-    }
-
     onlineUsers[socket.id] = userId;
 
     const userIds = Object.values(onlineUsers);
@@ -722,11 +717,9 @@ io.on("connection", function (socket) {
 
     socket.on("forceDisconnect", (data) => {
         for (var [key, value] of Object.entries(onlineUsers)) {
-            console.log(`${key}: ${value}`);
             if (value == data) {
-              for (const [key1, value1] of io.sockets.sockets.entries()) {
-                 console.log(value1)
-              }
+                socket.broadcast.to(key).emit("chatBan", { chat_ban: true });
+                socket.broadcast.to(key).emit("disc");
             }
         }
     });

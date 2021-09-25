@@ -2017,7 +2017,7 @@ input {
 }
 
 .exactMonth {
-    margin-bottom: 5vmax;
+    margin-bottom: 6vmax;
     display: flex;
     flex-direction: column;
 }
@@ -2815,8 +2815,8 @@ font-family: 'Ultra', serif; */
 }
 
 .usersBack {
-    min-width: 17vmax;
-    max-width: 17vmax;
+    min-width: 19vmax;
+    max-width: 19vmax;
     height: fit-content;
     height: 10vmax;
     min-height: 12vh;
@@ -2906,6 +2906,36 @@ font-family: 'Ultra', serif; */
     margin-right: 0.3vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
+}
+
+.chatBanCover {
+    background-color: rgba(0, 0, 0, 0.705);
+    color: yellow;
+    font-family: "Black Ops One";
+    font-size: 3vmax;
+    text-align: center;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatBanCover span {
+    font-size: 2vmax;
+    color: cyan;
+}
+
+.chatBanCover span a {
+    font-size: 2vmax;
+}
+
+.kickOut {
+    width: 1vmax;
+    height: 1vmax;
+    background-color: red;
+    border-radius: 50%;
+    margin-left: 1vmax;
 }
 
 .onlineList span {

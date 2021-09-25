@@ -30,7 +30,7 @@ export default function GigList({
 
     useEffect(function () {
         listSet(true);
-   
+
         if (year) {
             gigListFiltering(year);
         }
