@@ -61,7 +61,13 @@ export default function Chat({
     }, []);
 
     useEffect(() => {
-        console.log(chatBan);
+        if (chatBan) {
+            const timer = setTimeout(() => {
+                location.replace("/");
+            }, 35000);
+
+            return () => clearTimeout(timer);
+        }
     }, [chatBan]);
 
     useEffect(() => {
@@ -180,6 +186,31 @@ export default function Chat({
         }
     };
 
+    const countDown = (duration, display) => {
+             var timer = duration,
+                 minutes,
+                 seconds;
+             setInterval(function () {
+                 minutes = parseInt(timer / 60, 10);
+                 seconds = parseInt(timer % 60, 10);
+
+                 minutes = minutes < 10 ? "0" + minutes : minutes;
+                 seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                 display.textContent = minutes + ":" + seconds;
+
+                 if (--timer < 0) {
+                     timer = false
+                 }
+                   
+             }, 1000);
+        
+                  
+            
+ return <span id="time">{timer>300 && timer}</span>;
+           
+            
+    };
     const next20ChatMsgs = () => {
         if (elemRef.current.scrollTop == 0) {
             elemRef.current.scrollTop = elemRef.current.scrollTop + 1;
@@ -354,14 +385,26 @@ export default function Chat({
                                 {chatBan && (
                                     <div className="chatBanCover">
                                         YOU'VE BEEN BANNED !
+                                        <span>Take a Deep Breath</span>{" "}
+                                        {chatBan &&
+                                            countDown(
+                                                30 * 1,
+                                                document.querySelector("#time")
+                                            )}
                                         <span>
-                                            Take a Deep Breath and{" "}
+                                            {" "}
+                                            or chill your @ss and{" "}
                                             <a href="https://thousandgigs.herokuapp.com">
                                                 try again
                                             </a>
                                         </span>
                                     </div>
                                 )}
+                                {chatBan &&
+                                    countDown(
+                                        30 * 1,
+                                        document.querySelector("#time")
+                                    )}
                                 {!chatBan &&
                                     chatMessages.map((msg) => {
                                         handleTime(msg);

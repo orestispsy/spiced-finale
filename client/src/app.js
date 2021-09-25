@@ -1,7 +1,7 @@
 import { Component } from "react";
 import axios from "./tools/axios";
 import { BrowserRouter, Route, Link } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 import Main from "./main";
 import MyMap from "./map";
 import GigCreator from "./gigCreator";

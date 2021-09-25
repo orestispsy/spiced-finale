@@ -2930,6 +2930,13 @@ font-family: 'Ultra', serif; */
     font-size: 2vmax;
 }
 
+#time {
+      font-family: "Black Ops One", cursive !important;
+    margin:0.2vmax;
+    color:white;
+    font-size:2vmax !important;
+}
+
 .kickOut {
     width: 1vmax;
     height: 1vmax;
