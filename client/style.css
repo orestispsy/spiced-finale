@@ -2018,16 +2018,23 @@ input {
     justify-content: center;
 }
 
-.exactMonth {
+.exactMonth:last-child{
+    margin-bottom: 1.5vmax !important;
+}
 
-    margin-bottom:2vmax;
+.exactMonth {
+    margin-bottom:5vmax;
+    display: flex;
+    flex-direction: column;
+}
+
+.exactMonthTitle {
     font-size: 3vmax;
     font-family: "Black Ops One", cursive;
     text-shadow: -0 0 5px red, 0 -0 5px red, -0 -0 5px red, -0 -0 5px red;
     color: yellow;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+      text-align: center;
+      margin-left:2vmax;
 }
 
 .monthInnerBox {

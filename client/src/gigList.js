@@ -113,7 +113,7 @@ export default function GigList({
                 <div
                     className="gigEntries"
                     style={{
-                        height: year && `54vh`
+                        height: year && `54vh`,
                     }}
                     ref={elemRef}
                     onMouseDown={() => {
@@ -127,7 +127,9 @@ export default function GigList({
                                     <React.Fragment key={month.id}>
                                         {sortedMonths.includes(month.id) && (
                                             <div className="exactMonth">
-                                                {month.month}
+                                                <div className="exactMonthTitle">
+                                                    {month.month}
+                                                </div>
 
                                                 <div className="monthInnerBox">
                                                     {sortedGigs &&
