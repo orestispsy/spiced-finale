@@ -112,6 +112,9 @@ export default function GigList({
                 {!year && <div className="latestEntries">Latest</div>}
                 <div
                     className="gigEntries"
+                    style={{
+                        height: year && `54vh`
+                    }}
                     ref={elemRef}
                     onMouseDown={() => {
                         setListScroller(elemRef.current.scrollTop);

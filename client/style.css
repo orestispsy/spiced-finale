@@ -2019,7 +2019,7 @@ input {
 }
 
 .exactMonth {
-    margin-top: 1vmax;
+
     margin-bottom:2vmax;
     font-size: 3vmax;
     font-family: "Black Ops One", cursive;
@@ -2040,7 +2040,7 @@ input {
     max-width:96vw;
     margin-left:2vmax;
         color: yellow;
-   
+
 }
 
 .latestEntries{
@@ -2060,7 +2060,6 @@ input {
 
 .gigEntries {
     height: 50vh;
-    max-height: 50vh;
     width: 100vw;
     overflow: hidden;
     scrollbar-width: 20px;
