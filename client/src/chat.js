@@ -327,58 +327,66 @@ export default function Chat({
                             className="chatHeadline"
                             id={list && "chatHeadlineDark"}
                         >
-                            <Link
-                                to="/"
-                                className="buttonBack"
-                                onClick={(e) => {
-                                    {
-                                        if (browserCount == 1) {
-                                            socket.emit(
-                                                "A CHAT MSG",
-                                                "--##--left--##--"
-                                            );
-                                            run(false);
+                            {!chatBan && (
+                                <Link
+                                    to="/"
+                                    className="buttonBack"
+                                    onClick={(e) => {
+                                        {
+                                            if (browserCount == 1) {
+                                                socket.emit(
+                                                    "A CHAT MSG",
+                                                    "--##--left--##--"
+                                                );
+                                                run(false);
+                                            }
                                         }
-                                    }
-                                }}
-                            >
-                                X
-                            </Link>
+                                    }}
+                                >
+                                    X
+                                </Link>
+                            )}
 
-                            <div id="chatTitle">Chat Room</div>
+                            {!chatBan && <div id="chatTitle">Chat Room</div>}
                         </div>
                         <div className="chatScreenBack">
                             <div
                                 className="chatScreen"
+                                style={{
+                                    marginBottom: chatBan && `2vmax`,
+                                    marginTop: chatBan && `2vmax`,
+                                }}
                                 id={list && "chatScreenDark"}
                                 ref={elemRef}
                                 onScrollCapture={() =>
                                     setScrollTop(elemRef.current.scrollTop)
                                 }
                             >
-                                <div className="chatNextControls">
-                                    <div
-                                        title="Chat Top"
-                                        className="up"
-                                        onClick={() => getBack2Top()}
-                                    >
-                                        ▲
+                                {!chatBan && (
+                                    <div className="chatNextControls">
+                                        <div
+                                            title="Chat Top"
+                                            className="up"
+                                            onClick={() => getBack2Top()}
+                                        >
+                                            ▲
+                                        </div>
+                                        <div
+                                            title="Chat Bottom"
+                                            className="down"
+                                            onClick={() => getBack2Bottom()}
+                                        >
+                                            ▼
+                                        </div>
+                                        <div
+                                            title="Load Μore Chat Messages"
+                                            className="next"
+                                            onClick={() => next20ChatMsgs()}
+                                        >
+                                            ⦿
+                                        </div>
                                     </div>
-                                    <div
-                                        title="Chat Bottom"
-                                        className="down"
-                                        onClick={() => getBack2Bottom()}
-                                    >
-                                        ▼
-                                    </div>
-                                    <div
-                                        title="Load Μore Chat Messages"
-                                        className="next"
-                                        onClick={() => next20ChatMsgs()}
-                                    >
-                                        ⦿
-                                    </div>
-                                </div>
+                                )}
                                 {chatBan && (
                                     <div className="chatBanCover">
                                         YOU'VE BEEN BANNED !
@@ -515,42 +523,44 @@ export default function Chat({
                                     })}
                             </div>
                         </div>
-                        <div className="typeLine">
-                            <textarea
-                                rows="1"
-                                className="chatTypeLine"
-                                onKeyDown={(e) => keyCheck(e)}
-                                onChange={(e) => {
-                                    chat(e);
-                                }}
-                            ></textarea>
-                            <div
-                                title="Send Message"
-                                className="sendChatMsg"
-                                onClick={() => sendChatMsgButton()}
-                            ></div>
-                            <div className="chatControls">
-                                {!mute && (
-                                    <div
-                                        title="Mute"
-                                        className="mute"
-                                        onClick={() => setMute(!mute)}
-                                    ></div>
-                                )}
-                                {mute && (
-                                    <div
-                                        title="Play"
-                                        className="play"
-                                        onClick={() => setMute(!mute)}
-                                    ></div>
-                                )}
+                        {!chatBan && (
+                            <div className="typeLine">
+                                <textarea
+                                    rows="1"
+                                    className="chatTypeLine"
+                                    onKeyDown={(e) => keyCheck(e)}
+                                    onChange={(e) => {
+                                        chat(e);
+                                    }}
+                                ></textarea>
+                                <div
+                                    title="Send Message"
+                                    className="sendChatMsg"
+                                    onClick={() => sendChatMsgButton()}
+                                ></div>
+                                <div className="chatControls">
+                                    {!mute && (
+                                        <div
+                                            title="Mute"
+                                            className="mute"
+                                            onClick={() => setMute(!mute)}
+                                        ></div>
+                                    )}
+                                    {mute && (
+                                        <div
+                                            title="Play"
+                                            className="play"
+                                            onClick={() => setMute(!mute)}
+                                        ></div>
+                                    )}
+                                </div>
+                                <div
+                                    title="Emojis!"
+                                    className="emojiBarToggler"
+                                    onClick={(e) => toggleEmojibar(!emojiBar)}
+                                ></div>
                             </div>
-                            <div
-                                title="Emojis!"
-                                className="emojiBarToggler"
-                                onClick={(e) => toggleEmojibar(!emojiBar)}
-                            ></div>
-                        </div>
+                        )}
                     </div>
                 )}
                 <OnlineUsers
@@ -582,6 +592,7 @@ export default function Chat({
                     super_admin={super_admin}
                     configTimer={configTimer}
                     setConfigTimer={(e) => setConfigTimer(e)}
+                    chatBan={chatBan}
                 />
             </div>
 

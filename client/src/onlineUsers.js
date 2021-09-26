@@ -32,6 +32,7 @@ export default function OnlineUsers({
     super_admin,
     configTimer,
     setConfigTimer,
+    chatBan
 }) {
     const [userPicBar, setUserPicBar] = useState(false);
     const [onlineUserPic, setOnlineUserPic] = useState("");
@@ -197,104 +198,196 @@ export default function OnlineUsers({
 
     return (
         <>
-            <div
-                className="onlineUsersBack"
-                style={{
-                    marginBottom:
-                        (emojiBar && `-5vmax`) || (privateMode && `-2vmax`),
-                    marginLeft: privateMode && `1vmax`,
-                }}
-            >
+            {!chatBan && (
                 <div
-                    className="onlineUsers"
-                    id={list && "onlineUsersDark"}
+                    className="onlineUsersBack"
                     style={{
-                        boxShadow:
-                            privateMode &&
-                            `-0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
-        -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308)`,
+                        marginBottom:
+                            (emojiBar && `-5vmax`) || (privateMode && `-2vmax`),
+                        marginLeft: privateMode && `1vmax`,
                     }}
                 >
-                    {privateMode && (
-                        <div
-                            className="buttonBack"
-                            style={{
-                                marginBottom: `-1vmax`,
-                                color: `white`,
-                                zIndex: `325423`,
-                            }}
-                            onClick={(e) => {
-                                setPrivateMode(false);
-                                toggleEmojibar(false);
-                            }}
-                        >
-                            X
-                        </div>
-                    )}
-                    {!userPicBar && !privateMode && (
-                        <div
-                            className="onlineUsersRedDot"
-                            title={
-                                userConfig
-                                    ? "Back"
-                                    : "" || networkList
-                                    ? "Online List"
-                                    : ""
-                            }
-                            onClick={(e) => {
-                                toggleEmojibar(false);
-                                setNetworkList(false);
-                                setUserConfig(false);
-                            }}
-                        ></div>
-                    )}
-                    {!userPicBar && !userConfig && (
-                        <div className="mobileOnlineUsers">
-                            {!privateMode && (
-                                <div className="chatUserHeadline">
-                                    {!networkList && "Online"}
-                                </div>
-                            )}
-
-                            {!privateMode && networkList && (
-                                <div
-                                    className="chatUserHeadline"
-                                    id="chatUserHeadline"
-                                >
-                                    Network
-                                </div>
-                            )}
-                            {!privateMode && (
-                                <span className="onlineUserCounter">
-                                    {!networkList &&
-                                        onlineUsers &&
-                                        onlineUsers.length}
-                                    {networkList &&
-                                        networkUsers.filter(
-                                            (user) =>
-                                                !user.nickname.includes("Guest")
-                                        ).length}
-                                </span>
-                            )}
+                    <div
+                        className="onlineUsers"
+                        id={list && "onlineUsersDark"}
+                        style={{
+                            boxShadow:
+                                privateMode &&
+                                `-0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
+        -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308)`,
+                        }}
+                    >
+                        {privateMode && (
                             <div
-                                className="usersBack"
-                                id={list && "usersBackDark"}
+                                className="buttonBack"
                                 style={{
-                                    marginTop: privateMode && `-0.2vmax`,
-                                    boxShadow: privateMode && `none`,
-                                    border: privateMode && `none`,
+                                    marginBottom: `-1vmax`,
+                                    color: `white`,
+                                    zIndex: `325423`,
+                                }}
+                                onClick={(e) => {
+                                    setPrivateMode(false);
+                                    toggleEmojibar(false);
                                 }}
                             >
-                                {!privateMode &&
-                                    networkList &&
-                                    networkUsers.map((user) => (
-                                        <div key={user.id}>
-                                            {!user.nickname.includes(
-                                                "Guest"
-                                            ) && (
-                                                <div>
+                                X
+                            </div>
+                        )}
+                        {!userPicBar && !privateMode && (
+                            <div
+                                className="onlineUsersRedDot"
+                                title={
+                                    userConfig
+                                        ? "Back"
+                                        : "" || networkList
+                                        ? "Online List"
+                                        : ""
+                                }
+                                onClick={(e) => {
+                                    toggleEmojibar(false);
+                                    setNetworkList(false);
+                                    setUserConfig(false);
+                                }}
+                            ></div>
+                        )}
+                        {!userPicBar && !userConfig && (
+                            <div className="mobileOnlineUsers">
+                                {!privateMode && (
+                                    <div className="chatUserHeadline">
+                                        {!networkList && "Online"}
+                                    </div>
+                                )}
+
+                                {!privateMode && networkList && (
+                                    <div
+                                        className="chatUserHeadline"
+                                        id="chatUserHeadline"
+                                    >
+                                        Network
+                                    </div>
+                                )}
+                                {!privateMode && (
+                                    <span className="onlineUserCounter">
+                                        {!networkList &&
+                                            onlineUsers &&
+                                            onlineUsers.length}
+                                        {networkList &&
+                                            networkUsers.filter(
+                                                (user) =>
+                                                    !user.nickname.includes(
+                                                        "Guest"
+                                                    )
+                                            ).length}
+                                    </span>
+                                )}
+                                <div
+                                    className="usersBack"
+                                    id={list && "usersBackDark"}
+                                    style={{
+                                        marginTop: privateMode && `-0.2vmax`,
+                                        boxShadow: privateMode && `none`,
+                                        border: privateMode && `none`,
+                                    }}
+                                >
+                                    {!privateMode &&
+                                        networkList &&
+                                        networkUsers.map((user) => (
+                                            <div key={user.id}>
+                                                {!user.nickname.includes(
+                                                    "Guest"
+                                                ) && (
+                                                    <div>
+                                                        <div
+                                                            className="onlineList"
+                                                            onClick={(e) => {
+                                                                if (
+                                                                    user.id !=
+                                                                    chat_myUserId
+                                                                ) {
+                                                                    toggleEmojibar(
+                                                                        false
+                                                                    );
+                                                                    togglePrivateMSGS();
+                                                                    openPrivate(
+                                                                        user.id
+                                                                    );
+                                                                    setPrivatePic(
+                                                                        user.chat_img
+                                                                    );
+                                                                    setPrivateNick(
+                                                                        user.nickname
+                                                                    );
+                                                                }
+                                                            }}
+                                                        >
+                                                            <img
+                                                                className="onlineListImg"
+                                                                alt={
+                                                                    user.nickname
+                                                                }
+                                                                src={
+                                                                    (chat_myUserId ==
+                                                                        user.id &&
+                                                                        onlineUserPic) ||
+                                                                    (user.chat_img &&
+                                                                        user.chat_img) ||
+                                                                    "./../avatar.png"
+                                                                }
+                                                            ></img>
+                                                            <span
+                                                                style={{
+                                                                    color:
+                                                                        (chat_myUserId ==
+                                                                            user.id &&
+                                                                            chatColor) ||
+                                                                        user.chat_color ||
+                                                                        `yellow`,
+                                                                }}
+                                                            >
+                                                                {user.nickname}
+                                                            </span>
+
+                                                            {privateMessages &&
+                                                                privateMessages.map(
+                                                                    (msg) => {
+                                                                        if (
+                                                                            !msg.receiver_seen &&
+                                                                            msg.msg_sender_id ==
+                                                                                user.id
+                                                                        ) {
+                                                                            return (
+                                                                                <div
+                                                                                    className="notification"
+                                                                                    key={
+                                                                                        msg.id
+                                                                                    }
+                                                                                ></div>
+                                                                            );
+                                                                        }
+                                                                    }
+                                                                )}
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        ))}
+
+                                    {onlineUsers &&
+                                        !networkList &&
+                                        !privateMode &&
+                                        onlineUsers.map((user) => (
+                                            <div key={user.id}>
+                                                <div
+                                                    id={
+                                                        (user.online &&
+                                                            "online") ||
+                                                        (!user.online &&
+                                                            "offline")
+                                                    }
+                                                    className="onlineList"
+                                                >
                                                     <div
-                                                        className="onlineList"
+                                                        className="onlineListDetails"
                                                         onClick={(e) => {
                                                             if (
                                                                 user.id !=
@@ -335,10 +428,13 @@ export default function OnlineUsers({
                                                                         user.id &&
                                                                         chatColor) ||
                                                                     user.chat_color ||
-                                                                    `yellow`,
+                                                                    `lime`,
                                                             }}
                                                         >
-                                                            {user.nickname}
+                                                            {(user.id ==
+                                                                chat_myUserId &&
+                                                                nickname) ||
+                                                                user.nickname}
                                                         </span>
 
                                                         {privateMessages &&
@@ -361,332 +457,262 @@ export default function OnlineUsers({
                                                                 }
                                                             )}
                                                     </div>
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
+                                                    {configTimer &&
+                                                        selectUserToKick ==
+                                                            user.id && (
+                                                            <div className="timerConfig">
+                                                                <input
+                                                                    type="number"
+                                                                    onChange={(
+                                                                        e
+                                                                    ) =>
+                                                                        socket.emit(
+                                                                            "BAN TIMER",
+                                                                            e
+                                                                                .target
+                                                                                .value
+                                                                        )
+                                                                    }
+                                                                ></input>
 
-                                {onlineUsers &&
-                                    !networkList &&
-                                    !privateMode &&
-                                    onlineUsers.map((user) => (
-                                        <div key={user.id}>
-                                            <div
-                                                id={
-                                                    (user.online && "online") ||
-                                                    (!user.online && "offline")
-                                                }
-                                                className="onlineList"
-                                            >
-                                                <div
-                                                    className="onlineListDetails"
-                                                    onClick={(e) => {
-                                                        if (
-                                                            user.id !=
-                                                            chat_myUserId
-                                                        ) {
-                                                            toggleEmojibar(
-                                                                false
-                                                            );
-                                                            togglePrivateMSGS();
-                                                            openPrivate(
-                                                                user.id
-                                                            );
-                                                            setPrivatePic(
-                                                                user.chat_img
-                                                            );
-                                                            setPrivateNick(
-                                                                user.nickname
-                                                            );
-                                                        }
-                                                    }}
-                                                >
-                                                    <img
-                                                        className="onlineListImg"
-                                                        alt={user.nickname}
-                                                        src={
-                                                            (chat_myUserId ==
-                                                                user.id &&
-                                                                onlineUserPic) ||
-                                                            (user.chat_img &&
-                                                                user.chat_img) ||
-                                                            "./../avatar.png"
-                                                        }
-                                                    ></img>
-                                                    <span
-                                                        style={{
-                                                            color:
-                                                                (chat_myUserId ==
-                                                                    user.id &&
-                                                                    chatColor) ||
-                                                                user.chat_color ||
-                                                                `lime`,
-                                                        }}
-                                                    >
-                                                        {(user.id ==
-                                                            chat_myUserId &&
-                                                            nickname) ||
-                                                            user.nickname}
-                                                    </span>
-
-                                                    {privateMessages &&
-                                                        privateMessages.map(
-                                                            (msg) => {
-                                                                if (
-                                                                    !msg.receiver_seen &&
-                                                                    msg.msg_sender_id ==
-                                                                        user.id
-                                                                ) {
-                                                                    return (
-                                                                        <div
-                                                                            className="notification"
-                                                                            key={
-                                                                                msg.id
-                                                                            }
-                                                                        ></div>
-                                                                    );
-                                                                }
-                                                            }
+                                                                <div
+                                                                    className="kickOut"
+                                                                    onClick={(
+                                                                        e
+                                                                    ) => {
+                                                                        setConfigTimer(
+                                                                            false
+                                                                        );
+                                                                        if (
+                                                                            user.id !=
+                                                                            chat_myUserId
+                                                                        ) {
+                                                                            socket.emit(
+                                                                                "forceDisconnect",
+                                                                                user.id
+                                                                            );
+                                                                        }
+                                                                    }}
+                                                                ></div>
+                                                            </div>
                                                         )}
-                                                </div>
-                                                {configTimer &&
-                                                    selectUserToKick ==
-                                                        user.id && (
-                                                        <div className="timerConfig">
-                                                            <input
-                                                                type="number"
-                                                                onChange={(e) =>
-                                                                    socket.emit(
-                                                                        "BAN TIMER",
-                                                                        e.target
-                                                                            .value
-                                                                    )
-                                                                }
-                                                            ></input>
-
+                                                    {user.id != chat_myUserId &&
+                                                        !configTimer &&
+                                                        super_admin && (
                                                             <div
                                                                 className="kickOut"
                                                                 onClick={(
                                                                     e
                                                                 ) => {
                                                                     setConfigTimer(
-                                                                        false
+                                                                        true
                                                                     );
-                                                                    if (
-                                                                        user.id !=
-                                                                        chat_myUserId
-                                                                    ) {
-                                                                        socket.emit(
-                                                                            "forceDisconnect",
-                                                                            user.id
-                                                                        );
-                                                                    }
+                                                                    setSelectUserToKick(
+                                                                        user.id
+                                                                    );
                                                                 }}
                                                             ></div>
-                                                        </div>
-                                                    )}
-                                                {user.id != chat_myUserId &&
-                                                    !configTimer &&
-                                                    super_admin && (
-                                                        <div
-                                                            className="kickOut"
-                                                            onClick={(e) => {
-                                                                setConfigTimer(
-                                                                    true
-                                                                );
-                                                                setSelectUserToKick(
-                                                                    user.id
-                                                                );
-                                                            }}
-                                                        ></div>
-                                                    )}
+                                                        )}
+                                                </div>
                                             </div>
-                                        </div>
-                                    ))}
+                                        ))}
 
+                                    {privateMode && (
+                                        <div>
+                                            <img
+                                                src={
+                                                    privatePic ||
+                                                    "./../avatar.png"
+                                                }
+                                                id="privateUserImage"
+                                            ></img>
+                                        </div>
+                                    )}
+                                </div>
                                 {privateMode && (
-                                    <div>
-                                        <img
-                                            src={
-                                                privatePic || "./../avatar.png"
-                                            }
-                                            id="privateUserImage"
-                                        ></img>
+                                    <div id="privateMsgUserNick">
+                                        {privateNick}
                                     </div>
                                 )}
                             </div>
-                            {privateMode && (
-                                <div id="privateMsgUserNick">{privateNick}</div>
-                            )}
-                        </div>
-                    )}
+                        )}
 
-                    {userConfig && (
-                        <div className="changeNickBox">
-                            <div className="changeNickInstructions">
-                                Edit User
-                            </div>
-                            <div className="changeNickBoxThread">Nickname</div>
-                            <input
-                                type="text"
-                                placeholder="nickname"
-                                defaultValue={nickname}
-                                onChange={(e) => setNewNickname(e.target.value)}
-                                onClick={(e) => {
-                                    setErrorMsgInfo(false);
-                                }}
-                            ></input>
-                            <div className="changeNickBoxThread">Password</div>
-                            <div className="userConfigPwdBack">
+                        {userConfig && (
+                            <div className="changeNickBox">
+                                <div className="changeNickInstructions">
+                                    Edit User
+                                </div>
+                                <div className="changeNickBoxThread">
+                                    Nickname
+                                </div>
                                 <input
-                                    type={
-                                        (!pwdReveal && "password") ||
-                                        (pwdReveal && "text")
-                                    }
-                                    placeholder="password"
+                                    type="text"
+                                    placeholder="nickname"
+                                    defaultValue={nickname}
                                     onChange={(e) =>
-                                        setPassword(e.target.value)
+                                        setNewNickname(e.target.value)
                                     }
-                                ></input>
-                                <div
-                                    className="pwdVisibility"
                                     onClick={(e) => {
-                                        setPwdReveal(!pwdReveal);
-                                    }}
-                                ></div>
-                            </div>
-                            <div
-                                className="changeNickButton"
-                                onClick={(e) => {
-                                    if (!newNickname.includes("Guest")) {
-                                        setAdmin(true);
-                                    }
-                                    if (newNickname != "") {
-                                        changeInfo(newNickname, password);
-                                        setNickname(newNickname);
-                                    } else {
-                                        setErrorMsgInfo(true);
-                                    }
-                                    let updatedNickUsers = onlineUsers;
-                                    updatedNickUsers.forEach((user) => {
-                                        if (user.id == chat_myUserId) {
-                                            user.nickname = newNickname;
-                                        }
-                                    });
-
-                                    socket.emit(
-                                        "ONLINE USERS",
-                                        updatedNickUsers
-                                    );
-                                }}
-                            >
-                                Confirm
-                            </div>
-                            {errorMsgInfo && (
-                                <p className="error" id="error">
-                                    Please Enter A Proper Nickname
-                                </p>
-                            )}
-                        </div>
-                    )}
-
-                    {userPicBar && (
-                        <div className="fileUploaderChat">
-                            <img
-                                src={chat_img || "./../avatar.png"}
-                                id="privateUserImage"
-                            ></img>
-                            <h1>Chat Image</h1>
-
-                            <input
-                                type="file"
-                                name="file"
-                                accept="image/*"
-                                onChange={(e) => handleUploaderChange(e)}
-                                onClick={(e) => setErrorMsg(false)}
-                            />
-
-                            <div className="uploadChat">
-                                <h1 onClick={() => handleUploaderClick()}>
-                                    UPDATE
-                                </h1>
-                                {closeTag && (
-                                    <h1
-                                        className="toggleChatUploader"
-                                        onClick={() => {
-                                            setErrorMsg(false);
-                                            toggleUploader();
-                                        }}
-                                    >
-                                        CLOSE
-                                    </h1>
-                                )}
-                            </div>
-                            {errorMsg && (
-                                <p className="error" id="error">
-                                    Select an Image [Max Size: 2MB]
-                                </p>
-                            )}
-                        </div>
-                    )}
-                    {!closeTag && !privateMode && (
-                        <div className="chatMenuOptions">
-                            <div
-                                className="chatMenuConfigButton"
-                                title={
-                                    (!userConfig && "Edit Account") || "Close"
-                                }
-                                onClick={(e) => {
-                                    setUserConfig(!userConfig);
-                                    toggleEmojibar(false);
-                                    setErrorMsgInfo(false);
-                                }}
-                            ></div>
-                            {!guest && !userConfig && (
-                                <div
-                                    title="User Network"
-                                    className="networkList"
-                                    onClick={() => setNetworkList(!networkList)}
-                                ></div>
-                            )}
-
-                            {userConfig && (
-                                <img
-                                    className="uploaderTogglerImg"
-                                    onClick={() => {
-                                        toggleUploader();
                                         setErrorMsgInfo(false);
                                     }}
-                                ></img>
-                            )}
-                            {!userConfig && (
-                                <input
-                                    className="colorSelector"
-                                    title="Change Chat Color"
-                                    type="color"
-                                    defaultValue={chat_color || `#00f01c`}
-                                    onChange={(e) => {
-                                        handleColorChange(e);
-                                    }}
                                 ></input>
-                            )}
+                                <div className="changeNickBoxThread">
+                                    Password
+                                </div>
+                                <div className="userConfigPwdBack">
+                                    <input
+                                        type={
+                                            (!pwdReveal && "password") ||
+                                            (pwdReveal && "text")
+                                        }
+                                        placeholder="password"
+                                        onChange={(e) =>
+                                            setPassword(e.target.value)
+                                        }
+                                    ></input>
+                                    <div
+                                        className="pwdVisibility"
+                                        onClick={(e) => {
+                                            setPwdReveal(!pwdReveal);
+                                        }}
+                                    ></div>
+                                </div>
+                                <div
+                                    className="changeNickButton"
+                                    onClick={(e) => {
+                                        if (!newNickname.includes("Guest")) {
+                                            setAdmin(true);
+                                        }
+                                        if (newNickname != "") {
+                                            changeInfo(newNickname, password);
+                                            setNickname(newNickname);
+                                        } else {
+                                            setErrorMsgInfo(true);
+                                        }
+                                        let updatedNickUsers = onlineUsers;
+                                        updatedNickUsers.forEach((user) => {
+                                            if (user.id == chat_myUserId) {
+                                                user.nickname = newNickname;
+                                            }
+                                        });
+
+                                        socket.emit(
+                                            "ONLINE USERS",
+                                            updatedNickUsers
+                                        );
+                                    }}
+                                >
+                                    Confirm
+                                </div>
+                                {errorMsgInfo && (
+                                    <p className="error" id="error">
+                                        Please Enter A Proper Nickname
+                                    </p>
+                                )}
+                            </div>
+                        )}
+
+                        {userPicBar && (
+                            <div className="fileUploaderChat">
+                                <img
+                                    src={chat_img || "./../avatar.png"}
+                                    id="privateUserImage"
+                                ></img>
+                                <h1>Chat Image</h1>
+
+                                <input
+                                    type="file"
+                                    name="file"
+                                    accept="image/*"
+                                    onChange={(e) => handleUploaderChange(e)}
+                                    onClick={(e) => setErrorMsg(false)}
+                                />
+
+                                <div className="uploadChat">
+                                    <h1 onClick={() => handleUploaderClick()}>
+                                        UPDATE
+                                    </h1>
+                                    {closeTag && (
+                                        <h1
+                                            className="toggleChatUploader"
+                                            onClick={() => {
+                                                setErrorMsg(false);
+                                                toggleUploader();
+                                            }}
+                                        >
+                                            CLOSE
+                                        </h1>
+                                    )}
+                                </div>
+                                {errorMsg && (
+                                    <p className="error" id="error">
+                                        Select an Image [Max Size: 2MB]
+                                    </p>
+                                )}
+                            </div>
+                        )}
+                        {!closeTag && !privateMode && (
+                            <div className="chatMenuOptions">
+                                <div
+                                    className="chatMenuConfigButton"
+                                    title={
+                                        (!userConfig && "Edit Account") ||
+                                        "Close"
+                                    }
+                                    onClick={(e) => {
+                                        setUserConfig(!userConfig);
+                                        toggleEmojibar(false);
+                                        setErrorMsgInfo(false);
+                                    }}
+                                ></div>
+                                {!guest && !userConfig && (
+                                    <div
+                                        title="User Network"
+                                        className="networkList"
+                                        onClick={() =>
+                                            setNetworkList(!networkList)
+                                        }
+                                    ></div>
+                                )}
+
+                                {userConfig && (
+                                    <img
+                                        className="uploaderTogglerImg"
+                                        onClick={() => {
+                                            toggleUploader();
+                                            setErrorMsgInfo(false);
+                                        }}
+                                    ></img>
+                                )}
+                                {!userConfig && (
+                                    <input
+                                        className="colorSelector"
+                                        title="Change Chat Color"
+                                        type="color"
+                                        defaultValue={chat_color || `#00f01c`}
+                                        onChange={(e) => {
+                                            handleColorChange(e);
+                                        }}
+                                    ></input>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                    {emojiBar && (
+                        <div className="emoticons" id={list && "emoticonsDark"}>
+                            {emoji &&
+                                emoji.map((emoj) => (
+                                    <div key={emoj.id}>
+                                        <img
+                                            src={emoj.url}
+                                            onClick={(e) => sendEmoji(e)}
+                                        ></img>
+                                    </div>
+                                ))}
                         </div>
                     )}
                 </div>
-                {emojiBar && (
-                    <div className="emoticons" id={list && "emoticonsDark"}>
-                        {emoji &&
-                            emoji.map((emoj) => (
-                                <div key={emoj.id}>
-                                    <img
-                                        src={emoj.url}
-                                        onClick={(e) => sendEmoji(e)}
-                                    ></img>
-                                </div>
-                            ))}
-                    </div>
-                )}
-            </div>
+            )}
         </>
     );
 }
