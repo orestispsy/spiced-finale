@@ -320,7 +320,11 @@ export default function Chat({
             <div className="mobileChat">
                 {!privateMode && (
                     <div
-                        className="chatContainer"
+                        className={
+                            (!chatBan && "chatContainer") ||
+                            (chatBan && "chatContainerBan")
+                        }
+                    
                         id={list && "chatContainerDark"}
                     >
                         <div
@@ -354,7 +358,6 @@ export default function Chat({
                                 className="chatScreen"
                                 style={{
                                     margin: chatBan && `4vmax`,
-                                    
                                 }}
                                 id={list && "chatScreenDark"}
                                 ref={elemRef}
