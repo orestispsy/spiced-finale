@@ -353,8 +353,8 @@ export default function Chat({
                             <div
                                 className="chatScreen"
                                 style={{
-                                    marginBottom: chatBan && `2vmax`,
-                                    marginTop: chatBan && `2vmax`,
+                                    margin: chatBan && `4vmax`,
+                                    
                                 }}
                                 id={list && "chatScreenDark"}
                                 ref={elemRef}
