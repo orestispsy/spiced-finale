@@ -1072,6 +1072,11 @@ input {
         padding: 1vmax !important;
     }
 
+    #online,
+    #offline {
+        min-width: 24vmax !important;
+    }
+
     .onlineUsersBack {
         flex-direction: row !important;
     }
@@ -2111,12 +2116,17 @@ input {
     width: 20px;
 }
 
+.usersBack::-webkit-scrollbar {
+    width: 15px;
+}
+
 .chatScreen::-webkit-scrollbar,
 .gigEntries::-webkit-scrollbar,
 .emoticons::-webkit-scrollbar {
     width: 20px;
 }
 
+.usersBack::-webkit-scrollbar-track,
 .chatScreen::-webkit-scrollbar-track,
 .emoticons::-webkit-scrollbar-track .monthInnerBox::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px rgba(136, 135, 135, 0.253);
@@ -2128,6 +2138,7 @@ input {
     border-radius: 10px;
 }
 
+.usersBack::-webkit-scrollbar-thumb,
 .chatScreen::-webkit-scrollbar-thumb,
 .gigEntries::-webkit-scrollbar-thumb,
 .emoticons::-webkit-scrollbar-thumb,
@@ -2136,6 +2147,7 @@ input {
     border-radius: 10px;
 }
 
+.usersBack::-webkit-scrollbar-thumb:hover,
 .chatScreen::-webkit-scrollbar-thumb:hover,
 .gigEntries::-webkit-scrollbar-thumb:hover,
 .emoticons::-webkit-scrollbar-thumb:hover,
@@ -2815,17 +2827,16 @@ font-family: 'Ultra', serif; */
 }
 
 .usersBack {
-    min-width: 19vmax;
-    max-width: 19vmax;
+    width: 19vmax;
     height: fit-content;
     height: 10vmax;
     min-height: 12vh;
     border: 1px double rgba(243, 45, 227, 0.164);
     margin: 1vmax;
     transform: 1s;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: none;
+    overflow: auto;
+    scrollbar-width: 20px;
+    scrollbar-color: rgba(255, 255, 0, 0.39) rgba(172, 255, 104, 0.041);
     text-align: center;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
@@ -2844,7 +2855,8 @@ font-family: 'Ultra', serif; */
 .mobileOnlineUsers {
     display: flex;
     flex-direction: column;
-    align-items: center;
+
+    overflow: hidden;
 }
 
 .onlineUserCounter {
@@ -2896,10 +2908,14 @@ font-family: 'Ultra', serif; */
 
 #online {
     background-color: rgba(51, 255, 0, 0.103);
+    min-width: 17vmax;
+    width: max-content !important;
 }
 
 #offline {
     background-color: rgba(255, 0, 0, 0.103);
+    min-width: 17vmax;
+    width: max-content !important;
 }
 
 .onlineListImg {
@@ -2972,7 +2988,7 @@ input[type="number"] {
     width: 1.5vmax;
     height: 1.5vmax;
     border-radius: 50%;
-    margin-left: 1vmax;
+    margin: 0 0.5vmax 0 1vmax;
     cursor: pointer;
     transform: rotate(0.15turn);
     border: 1px solid white;
