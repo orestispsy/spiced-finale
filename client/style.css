@@ -975,6 +975,11 @@ input {
         padding: 1vmax !important;
     }
 
+        .chatContainerBan {
+     height:42vh !important;
+        margin-top:15vh !important;
+    }
+
     .chatScreen {
         height: 29vh !important;
         width: 80vw !important;
@@ -2474,7 +2479,7 @@ font-family: 'Ultra', serif; */
     align-items: center;
 }
 
-.chatContainer {
+.chatContainer, .chatContainerBan {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2495,22 +2500,6 @@ font-family: 'Ultra', serif; */
 
 .chatContainerBan {
     height:70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
-        -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
-    border-radius: 1vh;
-    margin-top: 3vmax;
-    background: radial-gradient(
-        closest-side,
-        #05303380,
-        #e08216c2,
-        #ff6767,
-        #b1151542
-    );
 }
 
 #chatContainerDark {
