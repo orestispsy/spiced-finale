@@ -12,7 +12,7 @@ import useSound from "use-sound";
 import chatSfx from "./../public/msg.mp3";
 import chatEnterSfx from "./../public/chatEnter.mp3";
 import tickerSfx from "./../public/ticker.mp3";
-import { setMaxListeners } from "process";
+import kickedOut from "./../public/kickedOut.mp3";
 
 export default function Chat({
     chat_color,
@@ -45,6 +45,7 @@ export default function Chat({
     const [play] = useSound(chatSfx, { volume: 0.75 });
     const [playIntro] = useSound(chatEnterSfx, { volume: 0.5 });
     const [playTicker, { stop }] = useSound(tickerSfx, { volume: 0.75 });
+        const [playKickedOut] = useSound(kickedOut, { volume: 0.75 });
 
     const elemRef = useRef();
 
@@ -95,10 +96,6 @@ export default function Chat({
             setScrollBarBottom();
         }
     }, [privateMode]);
-
-    useEffect(() => {
-        console.log(banTimer);
-    }, [banTimer]);
 
     useEffect(() => {
         if (
@@ -192,6 +189,7 @@ export default function Chat({
     };
 
     const countDown = () => {
+        playKickedOut()
         let counter = banTimer;
 
         const interval = setInterval(() => {
@@ -384,16 +382,16 @@ export default function Chat({
                                 {chatBan && (
                                     <div className="chatBanCover">
                                         YOU'VE BEEN BANNED !
-                                        <span>Take a Deep Breath</span>{" "}
+                                        <span>Take a Deep Breath,</span>{" "}
+                                        <span>or Chill Your Ass and.. </span>
+                                        <a href="https://thousandgigs.herokuapp.com">
+                                            Try Again
+                                        </a>
                                         {chatBan && (
                                             <div id="timer" ref={timerRef}>
                                                 {banTimer && banTimer}
                                             </div>
                                         )}
-                                        <span> or chill your @ss and </span>
-                                        <a href="https://thousandgigs.herokuapp.com">
-                                            Try Again
-                                        </a>
                                     </div>
                                 )}
 

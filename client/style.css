@@ -1072,9 +1072,8 @@ input {
         padding: 1vmax !important;
     }
 
-    #online,
-    #offline {
-        min-width: 24vmax !important;
+    #online, #offline {
+         min-width: 24vmax !important;
     }
 
     .onlineUsersBack {
@@ -2116,9 +2115,10 @@ input {
     width: 20px;
 }
 
-.usersBack::-webkit-scrollbar {
-    width: 15px;
+.usersBack::-webkit-scrollbar{
+   width: 15px;
 }
+
 
 .chatScreen::-webkit-scrollbar,
 .gigEntries::-webkit-scrollbar,
@@ -2827,15 +2827,15 @@ font-family: 'Ultra', serif; */
 }
 
 .usersBack {
-    width: 19vmax;
+    width:19vmax;
     height: fit-content;
     height: 10vmax;
     min-height: 12vh;
     border: 1px double rgba(243, 45, 227, 0.164);
     margin: 1vmax;
     transform: 1s;
-    overflow: auto;
-    scrollbar-width: 20px;
+    overflow:auto;
+   scrollbar-width: 20px;
     scrollbar-color: rgba(255, 255, 0, 0.39) rgba(172, 255, 104, 0.041);
     text-align: center;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
@@ -2856,7 +2856,7 @@ font-family: 'Ultra', serif; */
     display: flex;
     flex-direction: column;
 
-    overflow: hidden;
+    overflow:hidden;
 }
 
 .onlineUserCounter {
@@ -2885,6 +2885,7 @@ font-family: 'Ultra', serif; */
     margin: 1vmax;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.041);
+
 }
 
 .onlineList {
@@ -2908,14 +2909,14 @@ font-family: 'Ultra', serif; */
 
 #online {
     background-color: rgba(51, 255, 0, 0.103);
-    min-width: 17vmax;
-    width: max-content !important;
+    min-width:17vmax;
+    width:max-content !important;
 }
 
 #offline {
     background-color: rgba(255, 0, 0, 0.103);
-    min-width: 17vmax;
-    width: max-content !important;
+        min-width:17vmax;
+    width:max-content !important;
 }
 
 .onlineListImg {
@@ -2946,17 +2947,25 @@ font-family: 'Ultra', serif; */
 .chatBanCover span {
     font-size: 2vmax;
     color: cyan;
+    font-family: "Poller One", cursive;
+    width:75%;
+    margin:0.2vmax 0;
 }
 
 .chatBanCover a {
-    font-size: 2vmax;
+      color: yellow;
+    margin-top:1vmax;
+    font-size: 3vmax;
+}
+
+.chatBanCover a:hover {
+    color:white !important;
 }
 
 #timer {
     font-family: "Black Ops One", cursive !important;
-    margin: 0.2vmax;
-    color: white;
-    font-size: 2vmax !important;
+    color: cyan;
+    font-size: 4vmax !important;
 }
 
 .timerConfig {
@@ -2964,6 +2973,7 @@ font-family: 'Ultra', serif; */
     align-items: center;
     justify-content: center;
 }
+
 
 .timerConfig input {
     background-color: #ffe60049;
