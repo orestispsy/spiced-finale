@@ -215,7 +215,6 @@ a:hover {
     font-size: 20px;
     height: 8vh;
     width: 100vw;
-    margin-bottom: auto;;
 }
 
 .barProfile {
@@ -2889,9 +2888,9 @@ font-family: 'Ultra', serif; */
     border-radius: 2vh;
 }
 
-.onlineListDetails{
-    display:flex;
-    align-items:center;
+.onlineListDetails {
+    display: flex;
+    align-items: center;
     justify-content: flex-start;
 }
 
@@ -2933,32 +2932,54 @@ font-family: 'Ultra', serif; */
     color: cyan;
 }
 
-.chatBanCover span a {
+.chatBanCover a {
     font-size: 2vmax;
 }
 
-#time {
-      font-family: "Black Ops One", cursive !important;
-    margin:0.2vmax;
-    color:white;
-    font-size:2vmax !important;
+#timer {
+    font-family: "Black Ops One", cursive !important;
+    margin: 0.2vmax;
+    color: white;
+    font-size: 2vmax !important;
+}
+
+.timerConfig {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timerConfig input {
+    background-color: #ffe60049;
+    border: none;
+    width: 3vmax;
+    box-shadow: none;
+    margin: 0 0 0 1vmax;
+}
+
+.timerConfig input::-webkit-outer-spin-button,
+.timerConfig input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 .kickOut {
     background-image: url("kick.jpg");
-    background-size: cover;;
-    width:1.5vmax;
-    height:1.5vmax;
- border-radius:50%;
+    background-size: cover;
+    width: 1.5vmax;
+    height: 1.5vmax;
+    border-radius: 50%;
     margin-left: 1vmax;
-         cursor: pointer;
-             transform: rotate(0.15turn);
-             border:1px solid white;
+    cursor: pointer;
+    transform: rotate(0.15turn);
+    border: 1px solid white;
 }
 
 .kickOut:hover {
-
-    transform: rotate(0);
+    transform: rotate(0turn);
 }
 
 .onlineList span {
@@ -3701,7 +3722,7 @@ font-family: 'Ultra', serif; */
     width: 5vmax;
     height: 5vmax;
     background-size: cover;
-    margin-bottom:auto;
+    margin-bottom: auto;
 }
 
 .superAdminContainer {

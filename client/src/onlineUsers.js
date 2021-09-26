@@ -29,7 +29,9 @@ export default function OnlineUsers({
     setAdmin,
     onlineUsers,
     list,
-    super_admin
+    super_admin,
+    configTimer,
+    setConfigTimer,
 }) {
     const [userPicBar, setUserPicBar] = useState(false);
     const [onlineUserPic, setOnlineUserPic] = useState("");
@@ -44,6 +46,7 @@ export default function OnlineUsers({
     const [newNickname, setNewNickname] = useState(false);
     const [password, setPassword] = useState(false);
     const [pwdReveal, setPwdReveal] = useState(false);
+    const [selectUserToKick, setSelectUserToKick] = useState(false);
 
     const statePrivateMsgs = useSelector((state) => state && state.messages);
 
@@ -446,26 +449,61 @@ export default function OnlineUsers({
                                                             }
                                                         )}
                                                 </div>
+                                                {configTimer &&
+                                                    selectUserToKick ==
+                                                        user.id && (
+                                                        <div className="timerConfig">
+                                                            <input
+                                                                type="number"
+                                                                onChange={(e) =>
+                                                                    socket.emit(
+                                                                        "BAN TIMER",
+                                                                        e.target
+                                                                            .value
+                                                                    )
+                                                                }
+                                                            ></input>
+
+                                                            <div
+                                                                className="kickOut"
+                                                                onClick={(
+                                                                    e
+                                                                ) => {
+                                                                    setConfigTimer(
+                                                                        false
+                                                                    );
+                                                                    if (
+                                                                        user.id !=
+                                                                        chat_myUserId
+                                                                    ) {
+                                                                        socket.emit(
+                                                                            "forceDisconnect",
+                                                                            user.id
+                                                                        );
+                                                                    }
+                                                                }}
+                                                            ></div>
+                                                        </div>
+                                                    )}
                                                 {user.id != chat_myUserId &&
+                                                    !configTimer &&
                                                     super_admin && (
                                                         <div
                                                             className="kickOut"
                                                             onClick={(e) => {
-                                                                if (
-                                                                    user.id !=
-                                                                    chat_myUserId
-                                                                ) {
-                                                                    socket.emit(
-                                                                        "forceDisconnect",
-                                                                        user.id
-                                                                    );
-                                                                }
+                                                                setConfigTimer(
+                                                                    true
+                                                                );
+                                                                setSelectUserToKick(
+                                                                    user.id
+                                                                );
                                                             }}
                                                         ></div>
                                                     )}
                                             </div>
                                         </div>
                                     ))}
+
                                 {privateMode && (
                                     <div>
                                         <img

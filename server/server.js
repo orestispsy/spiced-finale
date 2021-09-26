@@ -724,6 +724,10 @@ io.on("connection", function (socket) {
         }
     });
 
+    socket.on("BAN TIMER", (time) => {
+        io.emit("banTimer", time);
+    });
+
     // console.log(`socket ${socket.id} connected`);
 
     socket.on("disconnect", () => {

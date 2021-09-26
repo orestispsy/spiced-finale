@@ -14,6 +14,8 @@ import {
     privateMessageAct,
     browserCountAct,
     chatBanAct,
+    banTimerAct,
+    
 } from "./../tools/actions";
 import { io } from "socket.io-client";
 
@@ -77,11 +79,14 @@ export const init = (store) => {
         socket.on("browserCount", (data) => {
             store.dispatch(browserCountAct(data));
         });
-         socket.on("disc", (data) => {
-            socket.disconnect()
-         });
-             socket.on("chatBan", (data) => {
-                store.dispatch(chatBanAct(data));
-             });
+        socket.on("disc", (data) => {
+            socket.disconnect();
+        });
+        socket.on("chatBan", (data) => {
+            store.dispatch(chatBanAct(data));
+        });
+        socket.on("banTimer", (data) => {
+            store.dispatch(banTimerAct(data));
+        });
     }
 };

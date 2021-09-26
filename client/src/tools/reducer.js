@@ -91,19 +91,25 @@ export default function (state = {}, action) {
             messages: state.messages.concat(action.message),
         };
     }
-        if (action.type == "BROWSER_COUNT") {
-            nextState = {
-                ...state,
-                count: action.count,
-            };
-        }
+    if (action.type == "BROWSER_COUNT") {
+        nextState = {
+            ...state,
+            count: action.count,
+        };
+    }
 
-         if (action.type == "CHAT_BAN") {
-             nextState = {
-                 ...state,
-                 chat_ban: action.chat_ban,
-             };
-         }
+    if (action.type == "CHAT_BAN") {
+        nextState = {
+            ...state,
+            chat_ban: action.chat_ban,
+        };
+    }
+    if (action.type == "BAN_TIMER") {
+        nextState = {
+            ...state,
+            ban_timer: action.ban_timer,
+        };
+    }
 
     // console.log("NEXT State", nextState);
     return nextState;

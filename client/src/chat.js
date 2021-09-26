@@ -40,12 +40,15 @@ export default function Chat({
     const [privatePic, setPrivatePic] = useState(false);
     const [privateNick, setPrivateNick] = useState(false);
     const [privateMessages, setPrivateMessages] = useState(false);
+    const [configTimer, setConfigTimer] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.75 });
     const [playIntro] = useSound(chatEnterSfx, { volume: 0.5 });
     const [playTicker, { stop }] = useSound(tickerSfx, { volume: 0.75 });
 
     const elemRef = useRef();
+
+    const timerRef = useRef();
 
     const chatMessages = useSelector((state) => state && state.chatMessages);
 
@@ -55,6 +58,8 @@ export default function Chat({
 
     const chatBan = useSelector((state) => state && state.chat_ban);
 
+    const banTimer = useSelector((state) => state && state.ban_timer);
+
     useEffect(() => {
         listSet(darkMode);
         setDarkMode(darkMode);
@@ -62,11 +67,7 @@ export default function Chat({
 
     useEffect(() => {
         if (chatBan) {
-            const timer = setTimeout(() => {
-                location.replace("/");
-            }, 65000);
-
-            return () => clearTimeout(timer);
+            countDown();
         }
     }, [chatBan]);
 
@@ -94,6 +95,10 @@ export default function Chat({
             setScrollBarBottom();
         }
     }, [privateMode]);
+
+    useEffect(() => {
+        console.log(banTimer);
+    }, [banTimer]);
 
     useEffect(() => {
         if (
@@ -186,26 +191,25 @@ export default function Chat({
         }
     };
 
-    const countDown = (duration, display) => {
-        var timer = duration,
-            minutes,
-            seconds;
-        setInterval(function () {
-            minutes = parseInt(timer / 60, 10);
-            seconds = parseInt(timer % 60, 10);
+    const countDown = () => {
+        let counter = banTimer;
 
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            display.textContent = minutes + ":" + seconds;
-            timer--;
-            if (timer < 0) {
-                timer = false;
+        const interval = setInterval(() => {
+            console.log(counter);
+            counter--;
+            timerRef.current.innerHTML = counter;
+            if (counter < 0) {
+                timerRef.current.innerHTML = "B O O M !";
             }
-        }, 2000);
+        }, 1000);
 
-        return <span id="time"></span>;
+        const clientReset = setTimeout(() => {
+            location.replace("/");
+        }, banTimer * 1000 + 2000);
+
+        return () => clearTimeout(clientReset);
     };
+
     const next20ChatMsgs = () => {
         if (elemRef.current.scrollTop == 0) {
             elemRef.current.scrollTop = elemRef.current.scrollTop + 1;
@@ -381,25 +385,18 @@ export default function Chat({
                                     <div className="chatBanCover">
                                         YOU'VE BEEN BANNED !
                                         <span>Take a Deep Breath</span>{" "}
-                                        {chatBan &&
-                                            countDown(
-                                                15 * 1,
-                                                document.querySelector("#time")
-                                            )}
-                                        <span>
-                                            {" "}
-                                            or chill your @ss and{" "}
-                                            <a href="https://thousandgigs.herokuapp.com">
-                                                try again
-                                            </a>
-                                        </span>
+                                        {chatBan && (
+                                            <div id="timer" ref={timerRef}>
+                                                {banTimer && banTimer}
+                                            </div>
+                                        )}
+                                        <span> or chill your @ss and </span>
+                                        <a href="https://thousandgigs.herokuapp.com">
+                                            Try Again
+                                        </a>
                                     </div>
                                 )}
-                                {chatBan &&
-                                    countDown(
-                                        30 * 1,
-                                        document.querySelector("#time")
-                                    )}
+
                                 {!chatBan &&
                                     chatMessages.map((msg) => {
                                         handleTime(msg);
@@ -585,6 +582,8 @@ export default function Chat({
                     onlineUsers={onlineUsers}
                     list={list}
                     super_admin={super_admin}
+                    configTimer={configTimer}
+                    setConfigTimer={(e) => setConfigTimer(e)}
                 />
             </div>
 

@@ -102,3 +102,10 @@ export function chatBanAct(arg) {
         chat_ban: arg,
     };
 }
+
+export function banTimerAct(arg) {
+    return {
+        type: "BAN_TIMER",
+        ban_timer: arg,
+    };
+}
