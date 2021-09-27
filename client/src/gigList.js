@@ -164,14 +164,12 @@ export default function GigList({
                                                                             >
                                                                                 <div className="gigBox">
                                                                                     <div
-                                                                                        style={{
-                                                                                            color: `yellow`,
-                                                                                            textDecoration: `underline`,
-                                                                                        }}
+                                                                                    id="gigBoxDateSorted"
+                                                                                       
                                                                                     >
-                                                                                        {
-                                                                                            gig.date
-                                                                                        }
+                                                                                        {gig.date.split(
+                                                                                            "-"
+                                                                                        )[2]}
                                                                                     </div>
                                                                                     <div
                                                                                         style={{
