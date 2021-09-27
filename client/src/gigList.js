@@ -118,6 +118,8 @@ export default function GigList({
                     className="gigEntries"
                     style={{
                         height: year && `54vh`,
+                        flexDirection: !year && `row-reverse`,
+                        marginTop: !year && `1vmax`
                     }}
                     ref={elemRef}
                     onScrollCapture={(e) => {
@@ -206,7 +208,7 @@ export default function GigList({
                     {gigsList &&
                         !year &&
                         !sortedGigs &&
-                        gigsList.slice(0, 7).map((gig) => (
+                        gigsList.slice(gigsList.length-4, gigsList.length).map((gig) => (
                             <Link to={`/api/gig/${gig.id}`} key={gig.id}>
                                 <div className="gigBox">
                                     <div

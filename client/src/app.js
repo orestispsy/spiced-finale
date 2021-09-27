@@ -67,7 +67,7 @@ export default class App extends Component {
             .get("/get-gigs")
             .then(({ data }) => {
                 this.setState({
-                    gigsList: data.data,
+                    gigsList: data.data.reverse(),
                 });
             })
             .catch((err) => {
