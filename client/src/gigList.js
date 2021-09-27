@@ -115,6 +115,7 @@ export default function GigList({
             <div className="gigEntriesBack">
                 {!year && <div className="latestEntries">Latest</div>}
                 <div
+                id={!year && "gigEntries"}
                     className="gigEntries"
                     style={{
                         height: year && `54vh`,

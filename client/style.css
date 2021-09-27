@@ -1536,6 +1536,12 @@ input {
         height: 65vh !important;
         max-height: 65vh !important;
     }
+    
+   #gigEntries{
+       height:35vh !important;
+       margin-bottom:30vh !important
+   }
+
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
