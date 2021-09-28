@@ -1087,6 +1087,10 @@ input {
         height: 17vmax !important;
     }
 
+    #onlineListImg {
+
+margin-top:-2vmax !important;}
+
     .onlineList span {
         font-size: 3vmax !important;
     }
@@ -1697,6 +1701,11 @@ width: 3vmax !important;
     .onlineList span {
         font-size: 2vmax !important;
     }
+
+    
+    #onlineListImg {
+  
+margin-top:-2vmax !important;}
 
     .typeLine {
         width: 60vw !important;
@@ -2943,17 +2952,29 @@ font-family: 'Ultra', serif; */
 }
 
 #online {
-    background-color: rgba(51, 255, 0, 0.103);
+    display:flex;
+    flex-direction:column;
+    background: radial-gradient( closest-side, rgba(51, 255, 0, 0.171), rgba(51, 255, 0, 0.171), rgba(51, 255, 0, 0.171), transparent );
     border-radius: 50%;
     padding:0.5vmax;
+        box-shadow: -0 0 2px rgba(0, 0, 0, 0.308), 0 -0 2px rgba(0, 0, 0, 0.308),
+        -0 -0 2px rgba(0, 0, 0, 0.308), -0 -0 2px rgba(0, 0, 0, 0.308);
 }
 
 #offline {
-    background-color: rgba(255, 0, 0, 0.219);
+    background-color: rgba(255, 0, 0, 0.103);
   border-radius: 50%;
     padding:0.5vmax;
 }
 
+#onlineListImg {
+    width:2vmax;
+    height:2vmax;
+    background-image: url("crown.png");
+    background-size: cover;
+margin-top:-2vmax;
+align-self: flex-end;
+z-index: 91443397898934;}
 
 
 .onlineListImg {

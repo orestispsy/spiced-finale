@@ -412,6 +412,7 @@ export default function OnlineUsers({
                                                                     "offline")
                                                             }
                                                         >
+                                                            {user.super_admin &&<div id="OnlineListImg"></div>}
                                                             <img
                                                                 className="onlineListImg"
                                                                 alt={
