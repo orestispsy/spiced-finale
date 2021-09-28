@@ -32,7 +32,7 @@ export default function OnlineUsers({
     super_admin,
     configTimer,
     setConfigTimer,
-    chatBan
+    chatBan,
 }) {
     const [userPicBar, setUserPicBar] = useState(false);
     const [onlineUserPic, setOnlineUserPic] = useState("");
@@ -247,7 +247,7 @@ export default function OnlineUsers({
                                     toggleEmojibar(false);
                                     setNetworkList(false);
                                     setUserConfig(false);
-                                     setConfigTimer(false);
+                                    setConfigTimer(false);
                                 }}
                             ></div>
                         )}
@@ -318,8 +318,6 @@ export default function OnlineUsers({
                                                                     setPrivateNick(
                                                                         user.nickname
                                                                     );
-                                                                  
-                                                                       
                                                                 }
                                                             }}
                                                         >
@@ -412,7 +410,6 @@ export default function OnlineUsers({
                                                                     "offline")
                                                             }
                                                         >
-                                                            {user.super_admin &&<div id="OnlineListImg"></div>}
                                                             <img
                                                                 className="onlineListImg"
                                                                 alt={
@@ -427,6 +424,16 @@ export default function OnlineUsers({
                                                                     "./../avatar.png"
                                                                 }
                                                             ></img>
+                                                            {user.super_admin && (
+                                                                <div id="OnlineListImg">
+                                                                    {user.nickname ==
+                                                                        "OzRiC" &&
+                                                                        "Admin "}{" "}
+                                                                    {user.nickname !=
+                                                                        "OzRiC" &&
+                                                                        "Crew"}
+                                                                </div>
+                                                            )}
                                                         </div>
                                                         <span
                                                             style={{
@@ -469,20 +476,22 @@ export default function OnlineUsers({
                                                             user.id && (
                                                             <div className="timerConfig">
                                                                 <div id="timerConfigBox">
-                                                                    <div>BAN TIME</div>
-                                                                <input
-                                                                    type="number"
-                                                                    onChange={(
-                                                                        e
-                                                                    ) =>
-                                                                        socket.emit(
-                                                                            "BAN TIMER",
+                                                                    <div>
+                                                                        BAN TIME
+                                                                    </div>
+                                                                    <input
+                                                                        type="number"
+                                                                        onChange={(
                                                                             e
-                                                                                .target
-                                                                                .value
-                                                                        )
-                                                                    }
-                                                                ></input>
+                                                                        ) =>
+                                                                            socket.emit(
+                                                                                "BAN TIMER",
+                                                                                e
+                                                                                    .target
+                                                                                    .value
+                                                                            )
+                                                                        }
+                                                                    ></input>
                                                                 </div>
 
                                                                 <div
@@ -673,18 +682,16 @@ export default function OnlineUsers({
                                         setUserConfig(!userConfig);
                                         toggleEmojibar(false);
                                         setErrorMsgInfo(false);
-                                         setConfigTimer(false);
+                                        setConfigTimer(false);
                                     }}
                                 ></div>
                                 {!guest && !userConfig && (
                                     <div
                                         title="User Network"
                                         className="networkList"
-                                        onClick={() =>{
-                                            setNetworkList(!networkList)
-                                             setConfigTimer(
-                                                                            false
-                                                                        )
+                                        onClick={() => {
+                                            setNetworkList(!networkList);
+                                            setConfigTimer(false);
                                         }}
                                     ></div>
                                 )}
@@ -695,7 +702,7 @@ export default function OnlineUsers({
                                         onClick={() => {
                                             toggleUploader();
                                             setErrorMsgInfo(false);
-                                             setConfigTimer(false);
+                                            setConfigTimer(false);
                                         }}
                                     ></img>
                                 )}
@@ -707,7 +714,6 @@ export default function OnlineUsers({
                                         defaultValue={chat_color || `#00f01c`}
                                         onChange={(e) => {
                                             handleColorChange(e);
-                                           
                                         }}
                                     ></input>
                                 )}

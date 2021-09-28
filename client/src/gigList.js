@@ -115,12 +115,12 @@ export default function GigList({
             <div className="gigEntriesBack">
                 {!year && <div className="latestEntries">Latest</div>}
                 <div
-                id={!year && "gigEntries"}
+                    id={!year && "gigEntries"}
                     className="gigEntries"
                     style={{
                         height: year && `54vh`,
                         flexDirection: !year && `row-reverse`,
-                        marginTop: !year && `1vmax`
+                        marginTop: !year && `1vmax`,
                     }}
                     ref={elemRef}
                     onScrollCapture={(e) => {
@@ -166,13 +166,12 @@ export default function GigList({
                                                                                 to={`/api/gig/${gig.id}`}
                                                                             >
                                                                                 <div className="gigBox">
-                                                                                    <div
-                                                                                    id="gigBoxDateSorted"
-                                                                                       
-                                                                                    >
-                                                                                        {gig.date.split(
-                                                                                            "-"
-                                                                                        )[2]}
+                                                                                    <div id="gigBoxDateSorted">
+                                                                                        {
+                                                                                            gig.date.split(
+                                                                                                "-"
+                                                                                            )[2]
+                                                                                        }
                                                                                     </div>
                                                                                     <div
                                                                                         style={{
@@ -209,34 +208,36 @@ export default function GigList({
                     {gigsList &&
                         !year &&
                         !sortedGigs &&
-                        gigsList.slice(gigsList.length-4, gigsList.length).map((gig) => (
-                            <Link to={`/api/gig/${gig.id}`} key={gig.id}>
-                                <div className="gigBox">
-                                    <div
-                                        style={{
-                                            color: `yellow`,
-                                            textDecoration: `underline`,
-                                        }}
-                                    >
-                                        {gig.date}
+                        gigsList
+                            .slice(gigsList.length - 4, gigsList.length)
+                            .map((gig) => (
+                                <Link to={`/api/gig/${gig.id}`} key={gig.id}>
+                                    <div className="gigBox">
+                                        <div
+                                            style={{
+                                                color: `yellow`,
+                                                textDecoration: `underline`,
+                                            }}
+                                        >
+                                            {gig.date}
+                                        </div>
+                                        <div
+                                            style={{
+                                                color: `lime`,
+                                            }}
+                                        >
+                                            {gig.venue}
+                                        </div>
+                                        <div
+                                            style={{
+                                                color: `white`,
+                                            }}
+                                        >
+                                            {gig.city}
+                                        </div>
                                     </div>
-                                    <div
-                                        style={{
-                                            color: `lime`,
-                                        }}
-                                    >
-                                        {gig.venue}
-                                    </div>
-                                    <div
-                                        style={{
-                                            color: `white`,
-                                        }}
-                                    >
-                                        {gig.city}
-                                    </div>
-                                </div>
-                            </Link>
-                        ))}
+                                </Link>
+                            ))}
                 </div>
             </div>
             <Link to="/gig-list-animation" className="gigAnimationLink">

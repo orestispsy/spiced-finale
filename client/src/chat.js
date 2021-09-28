@@ -45,7 +45,7 @@ export default function Chat({
     const [play] = useSound(chatSfx, { volume: 0.75 });
     const [playIntro] = useSound(chatEnterSfx, { volume: 0.5 });
     const [playTicker, { stop }] = useSound(tickerSfx, { volume: 0.75 });
-        const [playKickedOut] = useSound(kickedOut, { volume: 0.75 });
+    const [playKickedOut] = useSound(kickedOut, { volume: 0.75 });
 
     const elemRef = useRef();
 
@@ -189,7 +189,7 @@ export default function Chat({
     };
 
     const countDown = () => {
-        playKickedOut()
+        playKickedOut();
         let counter = banTimer;
 
         const interval = setInterval(() => {
@@ -324,7 +324,6 @@ export default function Chat({
                             (!chatBan && "chatContainer") ||
                             (chatBan && "chatContainerBan")
                         }
-                    
                         id={list && "chatContainerDark"}
                     >
                         <div

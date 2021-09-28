@@ -975,9 +975,9 @@ input {
         padding: 1vmax !important;
     }
 
-        .chatContainerBan {
-     height:42vh !important;
-        margin-top:15vh !important;
+    .chatContainerBan {
+        height: 42vh !important;
+        margin-top: 15vh !important;
     }
 
     .chatScreen {
@@ -1077,7 +1077,6 @@ input {
         padding: 1vmax !important;
     }
 
-
     .onlineUsersBack {
         flex-direction: row !important;
     }
@@ -1088,8 +1087,9 @@ input {
     }
 
     #onlineListImg {
-
-margin-top:-2vmax !important;}
+        margin-top: -1vmax !important;
+        font-size: 1vmax !important;
+    }
 
     .onlineList span {
         font-size: 3vmax !important;
@@ -1428,9 +1428,9 @@ margin-top:-2vmax !important;}
     }
 
     .kickOut {
-width: 3vmax !important;
+        width: 3vmax !important;
         height: 3vmax !important;
-        margin:0 1vmax !important;
+        margin: 0 1vmax !important;
     }
 
     .notification {
@@ -1543,12 +1543,11 @@ width: 3vmax !important;
         height: 65vh !important;
         max-height: 65vh !important;
     }
-    
-   #gigEntries{
-       height:35vh !important;
-       margin-bottom:30vh !important
-   }
 
+    #gigEntries {
+        height: 35vh !important;
+        margin-bottom: 30vh !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1702,10 +1701,7 @@ width: 3vmax !important;
         font-size: 2vmax !important;
     }
 
-    
-    #onlineListImg {
   
-margin-top:-2vmax !important;}
 
     .typeLine {
         width: 60vw !important;
@@ -1778,8 +1774,6 @@ margin-top:-2vmax !important;}
     .chatMenuOptions {
         width: 22vmax !important;
     }
-
-
 
     .gigEntryDetails {
         align-items: unset !important;
@@ -2103,17 +2097,17 @@ margin-top:-2vmax !important;}
     margin: 1vmax;
 }
 
-
 #gigBoxDateSorted {
     width: max-content;
     text-align: center;
     border-radius: 50%;
-    padding:0.3vmax;
-    color:yellow;
-    margin-bottom:0.5vmax;
-    box-shadow: -0 0 2px rgba(255,255,255, 0.40), 0 -0 2px rgba(255,255,255, 0.40),
-        -0 -0 2px rgba(255,255,255, 0.40), -0 -0 2px rgba(255,255,255, 0.40);
-        font-family: "Black Ops One", cursive;
+    padding: 0.3vmax;
+    color: yellow;
+    margin-bottom: 0.5vmax;
+    box-shadow: -0 0 2px rgba(255, 255, 255, 0.4),
+        0 -0 2px rgba(255, 255, 255, 0.4), -0 -0 2px rgba(255, 255, 255, 0.4),
+        -0 -0 2px rgba(255, 255, 255, 0.4);
+    font-family: "Black Ops One", cursive;
 }
 
 .gigBox {
@@ -2149,10 +2143,9 @@ margin-top:-2vmax !important;}
     width: 20px;
 }
 
-.usersBack::-webkit-scrollbar{
-   width: 15px;
+.usersBack::-webkit-scrollbar {
+    width: 15px;
 }
-
 
 .chatScreen::-webkit-scrollbar,
 .gigEntries::-webkit-scrollbar,
@@ -2508,7 +2501,8 @@ font-family: 'Ultra', serif; */
     align-items: center;
 }
 
-.chatContainer, .chatContainerBan {
+.chatContainer,
+.chatContainerBan {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2528,7 +2522,7 @@ font-family: 'Ultra', serif; */
 }
 
 .chatContainerBan {
-    height:70vh;
+    height: 70vh;
 }
 
 #chatContainerDark {
@@ -2865,15 +2859,15 @@ font-family: 'Ultra', serif; */
 }
 
 .usersBack {
-    width:19vmax;
+    width: 19vmax;
     height: fit-content;
     height: 10vmax;
     min-height: 12vh;
     border: 1px double rgba(243, 45, 227, 0.164);
     margin: 1vmax;
     transform: 1s;
-    overflow:auto;
-   scrollbar-width: 20px;
+    overflow: auto;
+    scrollbar-width: 20px;
     scrollbar-color: rgba(255, 255, 0, 0.39) rgba(172, 255, 104, 0.041);
     text-align: center;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
@@ -2894,7 +2888,7 @@ font-family: 'Ultra', serif; */
     display: flex;
     flex-direction: column;
 
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .onlineUserCounter {
@@ -2923,7 +2917,6 @@ font-family: 'Ultra', serif; */
     margin: 1vmax;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.041);
-
 }
 
 .onlineList {
@@ -2937,8 +2930,8 @@ font-family: 'Ultra', serif; */
     margin: 0 0.3vmax;
     margin-bottom: 0.2vmax;
     border-radius: 2vh;
-    min-width:fit-content;
-    padding-right:0.5vmax
+    min-width: fit-content;
+    padding-right: 0.5vmax;
 }
 
 .onlineList:hover {
@@ -2952,30 +2945,35 @@ font-family: 'Ultra', serif; */
 }
 
 #online {
-    display:flex;
-    flex-direction:column;
-    background: radial-gradient( closest-side, rgba(51, 255, 0, 0.171), rgba(51, 255, 0, 0.171), rgba(51, 255, 0, 0.171), transparent );
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(
+        closest-side,
+        rgba(51, 255, 0, 0.171),
+        rgba(51, 255, 0, 0.171),
+        rgba(51, 255, 0, 0.171),
+        transparent
+    );
     border-radius: 50%;
-    padding:0.5vmax;
-        box-shadow: -0 0 2px rgba(0, 0, 0, 0.308), 0 -0 2px rgba(0, 0, 0, 0.308),
+    padding: 0.5vmax;
+    box-shadow: -0 0 2px rgba(0, 0, 0, 0.308), 0 -0 2px rgba(0, 0, 0, 0.308),
         -0 -0 2px rgba(0, 0, 0, 0.308), -0 -0 2px rgba(0, 0, 0, 0.308);
 }
 
 #offline {
     background-color: rgba(255, 0, 0, 0.103);
-  border-radius: 50%;
-    padding:0.5vmax;
+    border-radius: 50%;
+    padding: 0.5vmax;
 }
 
 #onlineListImg {
-    width:2vmax;
-    height:2vmax;
-    background-image: url("crown.png");
-    background-size: cover;
-margin-top:-2vmax;
-align-self: flex-end;
-z-index: 91443397898934;}
-
+color:white;
+ font-size:0.5vmax;
+    margin-top: -0.5vmax;
+  text-shadow: -0 0 5px rgba(0,0,0, 0.800), 0 -0 5px rgba(0,0,0, 0.800),
+        -0 -0 5px rgba(0,0,0, 0.800), -0 -0 5px rgba(0,0,0, 0.800);
+    z-index: 91443397898934;
+}
 
 .onlineListImg {
     height: 2.5vmax;
@@ -3005,18 +3003,18 @@ z-index: 91443397898934;}
     font-size: 2vmax;
     color: cyan;
     font-family: "Poller One", cursive;
-    width:75%;
-    margin:0.2vmax 0;
+    width: 75%;
+    margin: 0.2vmax 0;
 }
 
 .chatBanCover a {
-      color: yellow;
-    margin-top:1vmax;
+    color: yellow;
+    margin-top: 1vmax;
     font-size: 3vmax;
 }
 
 .chatBanCover a:hover {
-    color:white !important;
+    color: white !important;
 }
 
 #timer {
@@ -3034,26 +3032,23 @@ z-index: 91443397898934;}
 
 #timerConfigBox {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin:0 0.5vmax ;
+    margin: 0 0.5vmax;
 }
 
-#timerConfigBox  div {
+#timerConfigBox div {
     font-family: "Black Ops One", cursive !important;
     color: rgb(252, 88, 88);
-        font-size: 1vmax !important;
-    
+    font-size: 1vmax !important;
 }
-
 
 .timerConfig input {
     background-color: #ffe60049;
     border: none;
     width: 3vmax;
     box-shadow: none;
-
 }
 
 .timerConfig input::-webkit-outer-spin-button,
@@ -3071,7 +3066,7 @@ input[type="number"] {
     width: 1.5vmax;
     height: 1.5vmax;
     border-radius: 50%;
- 
+
     cursor: pointer;
     transform: rotate(0.15turn);
     border: 1px solid white;
@@ -3089,8 +3084,6 @@ input[type="number"] {
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
 }
-
-
 
 .chatMenuOptions {
     display: flex;
@@ -4328,7 +4321,7 @@ input[type="number"] {
     background-repeat: no-repeat;
     width: 2.3vmax;
     height: 2.3vmax;
-    margin:0 0.5vmax 0 0;
+    margin: 0 0.5vmax 0 0;
 }
 
 #logoIntro {
