@@ -1077,9 +1077,6 @@ input {
         padding: 1vmax !important;
     }
 
-    #online, #offline {
-         min-width: 24vmax !important;
-    }
 
     .onlineUsersBack {
         flex-direction: row !important;
@@ -1426,6 +1423,12 @@ input {
         margin-left: -2vmax !important;
     }
 
+    .kickOut {
+width: 3vmax !important;
+        height: 3vmax !important;
+        margin:0 1vmax !important;
+    }
+
     .notification {
         width: 5vmax !important;
         height: 5vmax !important;
@@ -1767,10 +1770,7 @@ input {
         width: 22vmax !important;
     }
 
-    .usersBack {
-        max-width: 17vw !important;
-        width: 17vw !important;
-    }
+
 
     .gigEntryDetails {
         align-items: unset !important;
@@ -2928,6 +2928,12 @@ font-family: 'Ultra', serif; */
     margin: 0 0.3vmax;
     margin-bottom: 0.2vmax;
     border-radius: 2vh;
+    min-width:fit-content;
+    padding-right:0.5vmax
+}
+
+.onlineList:hover {
+    background-color: #00ffbf13 !important;
 }
 
 .onlineListDetails {
@@ -2938,15 +2944,17 @@ font-family: 'Ultra', serif; */
 
 #online {
     background-color: rgba(51, 255, 0, 0.103);
-    min-width:17vmax;
-    width:max-content !important;
+    border-radius: 50%;
+    padding:0.5vmax;
 }
 
 #offline {
-    background-color: rgba(255, 0, 0, 0.103);
-        min-width:17vmax;
-    width:max-content !important;
+    background-color: rgba(255, 0, 0, 0.219);
+  border-radius: 50%;
+    padding:0.5vmax;
 }
+
+
 
 .onlineListImg {
     height: 2.5vmax;
@@ -2954,8 +2962,7 @@ font-family: 'Ultra', serif; */
     background-position: center;
     background-size: contain;
     border-radius: 50%;
-    margin-left: 0.5vmax;
-    margin-right: 0.3vmax;
+
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
 }
@@ -3001,6 +3008,22 @@ font-family: 'Ultra', serif; */
     display: flex;
     align-items: center;
     justify-content: center;
+    width: max-content;
+}
+
+#timerConfigBox {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    margin:0 0.5vmax ;
+}
+
+#timerConfigBox  div {
+    font-family: "Black Ops One", cursive !important;
+    color: rgb(252, 88, 88);
+        font-size: 1vmax !important;
+    
 }
 
 
@@ -3009,7 +3032,7 @@ font-family: 'Ultra', serif; */
     border: none;
     width: 3vmax;
     box-shadow: none;
-    margin: 0 0 0 1vmax;
+
 }
 
 .timerConfig input::-webkit-outer-spin-button,
@@ -3027,7 +3050,7 @@ input[type="number"] {
     width: 1.5vmax;
     height: 1.5vmax;
     border-radius: 50%;
-    margin: 0 0.5vmax 0 1vmax;
+ 
     cursor: pointer;
     transform: rotate(0.15turn);
     border: 1px solid white;
@@ -3038,7 +3061,7 @@ input[type="number"] {
 }
 
 .onlineList span {
-    margin-left: 0.3vmax;
+    margin: 0 0.5vmax 0 0.3vmax;
     color: rgb(0, 255, 0);
     font-family: "Black Ops One", cursive;
     font-size: 1.5vmax;
@@ -3046,9 +3069,7 @@ input[type="number"] {
         -1px -1px 0 black;
 }
 
-.onlineList:hover {
-    background-color: #00ffbf13 !important;
-}
+
 
 .chatMenuOptions {
     display: flex;
@@ -4286,7 +4307,7 @@ input[type="number"] {
     background-repeat: no-repeat;
     width: 2.3vmax;
     height: 2.3vmax;
-    margin-left: 0.3vmax;
+    margin:0 0.5vmax 0 0;
 }
 
 #logoIntro {

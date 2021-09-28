@@ -247,6 +247,7 @@ export default function OnlineUsers({
                                     toggleEmojibar(false);
                                     setNetworkList(false);
                                     setUserConfig(false);
+                                     setConfigTimer(false);
                                 }}
                             ></div>
                         )}
@@ -317,6 +318,8 @@ export default function OnlineUsers({
                                                                     setPrivateNick(
                                                                         user.nickname
                                                                     );
+                                                                  
+                                                                       
                                                                 }
                                                             }}
                                                         >
@@ -377,15 +380,7 @@ export default function OnlineUsers({
                                         !privateMode &&
                                         onlineUsers.map((user) => (
                                             <div key={user.id}>
-                                                <div
-                                                    id={
-                                                        (user.online &&
-                                                            "online") ||
-                                                        (!user.online &&
-                                                            "offline")
-                                                    }
-                                                    className="onlineList"
-                                                >
+                                                <div className="onlineList">
                                                     <div
                                                         className="onlineListDetails"
                                                         onClick={(e) => {
@@ -409,18 +404,29 @@ export default function OnlineUsers({
                                                             }
                                                         }}
                                                     >
-                                                        <img
-                                                            className="onlineListImg"
-                                                            alt={user.nickname}
-                                                            src={
-                                                                (chat_myUserId ==
-                                                                    user.id &&
-                                                                    onlineUserPic) ||
-                                                                (user.chat_img &&
-                                                                    user.chat_img) ||
-                                                                "./../avatar.png"
+                                                        <div
+                                                            id={
+                                                                (user.online &&
+                                                                    "online") ||
+                                                                (!user.online &&
+                                                                    "offline")
                                                             }
-                                                        ></img>
+                                                        >
+                                                            <img
+                                                                className="onlineListImg"
+                                                                alt={
+                                                                    user.nickname
+                                                                }
+                                                                src={
+                                                                    (chat_myUserId ==
+                                                                        user.id &&
+                                                                        onlineUserPic) ||
+                                                                    (user.chat_img &&
+                                                                        user.chat_img) ||
+                                                                    "./../avatar.png"
+                                                                }
+                                                            ></img>
+                                                        </div>
                                                         <span
                                                             style={{
                                                                 color:
@@ -461,6 +467,8 @@ export default function OnlineUsers({
                                                         selectUserToKick ==
                                                             user.id && (
                                                             <div className="timerConfig">
+                                                                <div id="timerConfigBox">
+                                                                    <div>BAN TIME</div>
                                                                 <input
                                                                     type="number"
                                                                     onChange={(
@@ -474,6 +482,7 @@ export default function OnlineUsers({
                                                                         )
                                                                     }
                                                                 ></input>
+                                                                </div>
 
                                                                 <div
                                                                     className="kickOut"
@@ -663,15 +672,19 @@ export default function OnlineUsers({
                                         setUserConfig(!userConfig);
                                         toggleEmojibar(false);
                                         setErrorMsgInfo(false);
+                                         setConfigTimer(false);
                                     }}
                                 ></div>
                                 {!guest && !userConfig && (
                                     <div
                                         title="User Network"
                                         className="networkList"
-                                        onClick={() =>
+                                        onClick={() =>{
                                             setNetworkList(!networkList)
-                                        }
+                                             setConfigTimer(
+                                                                            false
+                                                                        )
+                                        }}
                                     ></div>
                                 )}
 
@@ -681,6 +694,7 @@ export default function OnlineUsers({
                                         onClick={() => {
                                             toggleUploader();
                                             setErrorMsgInfo(false);
+                                             setConfigTimer(false);
                                         }}
                                     ></img>
                                 )}
@@ -692,6 +706,7 @@ export default function OnlineUsers({
                                         defaultValue={chat_color || `#00f01c`}
                                         onChange={(e) => {
                                             handleColorChange(e);
+                                           
                                         }}
                                     ></input>
                                 )}
