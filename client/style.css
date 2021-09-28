@@ -2967,12 +2967,14 @@ font-family: 'Ultra', serif; */
 }
 
 #onlineListImg {
-color:white;
+color:yellow;
  font-size:0.5vmax;
     margin-top: -0.5vmax;
-  text-shadow: -0 0 5px rgba(0,0,0, 0.800), 0 -0 5px rgba(0,0,0, 0.800),
-        -0 -0 5px rgba(0,0,0, 0.800), -0 -0 5px rgba(0,0,0, 0.800);
+    letter-spacing: 1px;
+ text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
     z-index: 91443397898934;
+        font-family: "Black Ops One", cursive !important;
 }
 
 .onlineListImg {

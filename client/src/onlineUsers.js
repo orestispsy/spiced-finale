@@ -428,10 +428,10 @@ export default function OnlineUsers({
                                                                 <div id="OnlineListImg">
                                                                     {user.nickname ==
                                                                         "OzRiC" &&
-                                                                        "Admin "}{" "}
+                                                                        "ADMIN "}{" "}
                                                                     {user.nickname !=
                                                                         "OzRiC" &&
-                                                                        "Crew"}
+                                                                        "CREW"}
                                                                 </div>
                                                             )}
                                                         </div>
