@@ -424,17 +424,10 @@ export default function OnlineUsers({
                                                                     "./../avatar.png"
                                                                 }
                                                             ></img>
-                                                            {user.super_admin && (
-                                                                <div id="OnlineListImg">
-                                                                    {user.nickname ==
-                                                                        "OzRiC" &&
-                                                                        "ADMIN "}{" "}
-                                                                    {user.nickname !=
-                                                                        "OzRiC" &&
-                                                                        "CREW"}
-                                                                </div>
-                                                            )}
                                                         </div>
+                                                        {user.super_admin && (
+                                                            <div id="OnlineListImg"></div>
+                                                        )}
                                                         <span
                                                             style={{
                                                                 color:
@@ -590,6 +583,10 @@ export default function OnlineUsers({
                                         }
                                     ></input>
                                     <div
+                                        className={
+                                            (!pwdReveal && "pwdVisibility") ||
+                                            (pwdReveal && "pwdNOTvisible")
+                                        }
                                         className="pwdVisibility"
                                         onClick={(e) => {
                                             setPwdReveal(!pwdReveal);

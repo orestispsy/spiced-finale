@@ -1087,8 +1087,7 @@ input {
     }
 
     #onlineListImg {
-        margin-top: -1vmax !important;
-        font-size: 1vmax !important;
+        margin-top: -2vmax !important;
     }
 
     .onlineList span {
@@ -1701,7 +1700,9 @@ input {
         font-size: 2vmax !important;
     }
 
-  
+    #onlineListImg {
+        margin-top: -2vmax !important;
+    }
 
     .typeLine {
         width: 60vw !important;
@@ -2967,14 +2968,15 @@ font-family: 'Ultra', serif; */
 }
 
 #onlineListImg {
-color:yellow;
- font-size:0.5vmax;
-    margin-top: -0.5vmax;
-    letter-spacing: 1px;
- text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
-        -1px -1px 0 black;
+    width: 2.5vmax;
+    height: 2.5vmax;
+  
+    background-image: url("crown.png");
+    background-size: cover;
+    margin-left:-2.4vmax;
+    margin-top:-3vmax;
+
     z-index: 91443397898934;
-        font-family: "Black Ops One", cursive !important;
 }
 
 .onlineListImg {
