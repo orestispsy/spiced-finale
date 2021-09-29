@@ -1534,9 +1534,14 @@ input {
     .pwdVisibility {
         width: 4vmax !important;
         height: 2.5vmax !important;
-        margin: 1vmax 0 0 1vmax !important;
-        filter: invert(0%) !important;
+        margin: 1vmax 0 0 2vmax !important;
     }
+
+    .pwdNOTvisible {
+        width: 4vmax !important;
+        height: 4vmax !important;
+        margin: -1vmax 0 0 1vmax !important;
+}
 
     .gigEntries {
         height: 65vh !important;
@@ -1545,7 +1550,7 @@ input {
 
     #gigEntries {
         height: 35vh !important;
-        margin-bottom: 30vh !important;
+        margin-bottom: 29vh !important;
     }
 }
 
@@ -1573,7 +1578,7 @@ input {
 
     #logoDarkP {
         padding: 0 !important;
-        margin: 30vmax 0 0 0 !important;
+        margin: 20vmax 0 0 0 !important;
     }
 
     #mainMenuDark {
@@ -1589,14 +1594,11 @@ input {
     }
 
     #logoBoxDark {
-        margin-top: -2vmax !important;
+ 
         border: none !important;
         box-shadow: none !important;
         border-radius: 0 !important;
-        background-position-y: 30% !important;
-        height: 78vh !important;
-        width: 40vw !important;
-        padding: 0 2vmax 10vmax 2vmax !important;
+        background-size:contain !important;
     }
 
     #logoIntro {
@@ -1964,9 +1966,11 @@ input {
         margin: 1vmax 0 0 1vmax !important;
     }
 
-    .pwdVisibility:hover {
-        filter: invert(100%) !important;
-    }
+        .pwdNOTvisible {
+        width: 2.5vmax!important;
+        height: 2.5vmax !important;
+        margin: 0 0 0 1vmax !important;
+}
 
     .changeNickButton {
         margin: 1vmax !important;
@@ -3169,20 +3173,29 @@ input[type="number"] {
     width: 75%;
 }
 
+.pwdNOTvisible {
+     width: 1.7vmax;
+    height: 1.7vmax;
+    background-image: url("passTogglerNOT.png");
+    background-size: cover;
+    padding: 0.1vmax 0.2vmax;
+    margin-left: 0.5vmax;
+    margin-top: -1.1vmax;
+    filter: invert(100%);
+    cursor: pointer;
+}
+
 .pwdVisibility {
-    width: 1.8vmax;
+    width: 1.7vmax;
     height: 1.1vmax;
     background-image: url("passToggler.png");
     background-size: cover;
     align-self: flex-start;
     margin-left: 0.5vmax;
     margin-top: 0.2vmax;
+    padding: 0.1vmax 0.2vmax;
     filter: invert(100%);
     cursor: pointer;
-}
-
-.pwdVisibility:hover {
-    filter: invert(0%);
 }
 
 .changeNickBox input {
@@ -3598,6 +3611,7 @@ input[type="number"] {
     border-radius: 10vh;
     font-size: 1.5vmax !important;
     background-color: rgba(255, 255, 255, 0.158);
+    z-index: 3;
 }
 
 .gigAnimationLink:hover {

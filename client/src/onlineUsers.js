@@ -583,11 +583,8 @@ export default function OnlineUsers({
                                         }
                                     ></input>
                                     <div
-                                        className={
-                                            (!pwdReveal && "pwdVisibility") ||
-                                            (pwdReveal && "pwdNOTvisible")
-                                        }
-                                        className="pwdVisibility"
+                                        className={pwdReveal && "pwdNOTvisible" || !pwdReveal && "pwdVisibility"}
+                                   
                                         onClick={(e) => {
                                             setPwdReveal(!pwdReveal);
                                         }}
