@@ -1087,7 +1087,9 @@ input {
     }
 
     #onlineListImg {
-        margin-top: -2vmax !important;
+        width:3vmax !important;
+        height:3vmax !important;
+        margin: -5vmax 0.5vmax 0 -3vmax !important
     }
 
     .onlineList span {
@@ -1703,7 +1705,8 @@ input {
     }
 
     #onlineListImg {
-        margin-top: -2vmax !important;
+        margin-top: -3vmax !important;
+                margin: -3vmax 0 0 -2vmax !important
     }
 
     .typeLine {
