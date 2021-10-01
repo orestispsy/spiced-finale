@@ -336,11 +336,11 @@ export default function Chat({
                             (!chatBan && "chatContainer") ||
                             (chatBan && "chatContainerBan")
                         }
-                        id={list && "chatContainerDark"}
+                        id={list && "chatContainerDark" || ""}
                     >
                         <div
                             className="chatHeadline"
-                            id={list && "chatHeadlineDark"}
+                            id={list && "chatHeadlineDark" || ""}
                         >
                             {!chatBan && (
                                 <Link
@@ -370,7 +370,7 @@ export default function Chat({
                                 style={{
                                     margin: chatBan && `4vmax`,
                                 }}
-                                id={list && "chatScreenDark"}
+                                id={list && "chatScreenDark" || ""}
                                 ref={elemRef}
                                 onScrollCapture={() =>
                                     setScrollTop(elemRef.current.scrollTop)
@@ -607,6 +607,7 @@ export default function Chat({
                     configTimer={configTimer}
                     setConfigTimer={(e) => setConfigTimer(e)}
                     chatBan={chatBan}
+                    horn={horn}
                 />
             </div>
 

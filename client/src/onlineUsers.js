@@ -33,6 +33,7 @@ export default function OnlineUsers({
     configTimer,
     setConfigTimer,
     chatBan,
+    horn,
 }) {
     const [userPicBar, setUserPicBar] = useState(false);
     const [onlineUserPic, setOnlineUserPic] = useState("");
@@ -48,6 +49,7 @@ export default function OnlineUsers({
     const [password, setPassword] = useState(false);
     const [pwdReveal, setPwdReveal] = useState(false);
     const [selectUserToKick, setSelectUserToKick] = useState(false);
+    const [shakeUser, setShakeUser] = useState(false);
 
     const statePrivateMsgs = useSelector((state) => state && state.messages);
 
@@ -75,6 +77,22 @@ export default function OnlineUsers({
         }
         setNewNickname(nickname);
     }, []);
+
+    useEffect(() => {
+        if (horn) {
+            setShakeUser(true);
+            setSelectUserToKick(chat_myUserId);
+        }
+    }, [horn]);
+
+    useEffect(() => {
+        if (shakeUser) {
+            const timer = setTimeout(() => {
+                setShakeUser(false);
+            }, 1000);
+            return () => clearTimeout(timer);
+        }
+    }, [shakeUser]);
 
     useEffect(() => {
         axios
@@ -209,7 +227,7 @@ export default function OnlineUsers({
                 >
                     <div
                         className="onlineUsers"
-                        id={list && "onlineUsersDark"}
+                        id={list && "onlineUsersDark " || ""}
                         style={{
                             boxShadow:
                                 privateMode &&
@@ -283,7 +301,7 @@ export default function OnlineUsers({
                                 )}
                                 <div
                                     className="usersBack"
-                                    id={list && "usersBackDark"}
+                                    id={list && "usersBackDark" || ""}
                                     style={{
                                         marginTop: privateMode && `-0.2vmax`,
                                         boxShadow: privateMode && `none`,
@@ -364,7 +382,15 @@ export default function OnlineUsers({
                                         !privateMode &&
                                         onlineUsers.map((user) => (
                                             <div key={user.id}>
-                                                <div className="onlineList">
+                                                <div
+                                                    className="onlineList"
+                                                    id={
+                                                        shakeUser &&
+                                                        user.id ==
+                                                            selectUserToKick &&
+                                                        "hornShake" || ""
+                                                    }
+                                                >
                                                     <div
                                                         className="onlineListDetails"
                                                         onClick={(e) => {
@@ -511,22 +537,29 @@ export default function OnlineUsers({
                                                                 }}
                                                             ></div>
                                                         )}
-                                                    {user.id !=
-                                                        chat_myUserId &&
+                                                    {user.id != chat_myUserId &&
                                                         super_admin && (
-                                                        <div
-                                                            className="horn"
-                                                            onClick={(e) =>
-                                                                socket.emit(
-                                                                    "HORN",
-                                                                    {
-                                                                        user: user.id,
-                                                                        horn: true,
-                                                                    }
-                                                                )
-                                                            }
-                                                        ></div>
-                                                    )}
+                                                            <div
+                                                                className="horn"
+                                                                onClick={(
+                                                                    e
+                                                                ) => {
+                                                                    setSelectUserToKick(
+                                                                        user.id
+                                                                    );
+                                                                    setShakeUser(
+                                                                        true
+                                                                    );
+                                                                    socket.emit(
+                                                                        "HORN",
+                                                                        {
+                                                                            user: user.id,
+                                                                            horn: true,
+                                                                        }
+                                                                    );
+                                                                }}
+                                                            ></div>
+                                                        )}
                                                 </div>
                                             </div>
                                         ))}
