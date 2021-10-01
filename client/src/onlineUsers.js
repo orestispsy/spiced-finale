@@ -227,7 +227,7 @@ export default function OnlineUsers({
                 >
                     <div
                         className="onlineUsers"
-                        id={list && "onlineUsersDark " || ""}
+                        id={list && "onlineUsersDark" || ""}
                         style={{
                             boxShadow:
                                 privateMode &&

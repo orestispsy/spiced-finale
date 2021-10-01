@@ -3011,8 +3011,11 @@ font-family: 'Ultra', serif; */
   border-radius: 50%;
     background-image: url("horn.jpg");
     background-size: cover;
+}
 
-
+.horn:hover {
+       width: 2vmax;
+    height: 2vmax;
 }
 
 #onlineListImg {
