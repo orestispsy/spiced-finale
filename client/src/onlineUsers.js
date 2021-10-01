@@ -34,6 +34,7 @@ export default function OnlineUsers({
     setConfigTimer,
     chatBan,
     horn,
+    playNotification,
 }) {
     const [userPicBar, setUserPicBar] = useState(false);
     const [onlineUserPic, setOnlineUserPic] = useState("");
@@ -103,6 +104,15 @@ export default function OnlineUsers({
             .catch((err) => {
                 console.log("error", err);
             });
+
+            if ( statePrivateMsgs &&
+                statePrivateMsgs.length-1>=0 &&
+                !statePrivateMsgs[statePrivateMsgs.length-1].receiver_seen &&
+                statePrivateMsgs[statePrivateMsgs.length-1].msg_receiver_id ==
+                    chat_myUserId
+            ) {
+                playNotification();
+            }
     }, [statePrivateMsgs]);
 
     useEffect(() => {
@@ -227,7 +237,7 @@ export default function OnlineUsers({
                 >
                     <div
                         className="onlineUsers"
-                        id={list && "onlineUsersDark" || ""}
+                        id={(list && "onlineUsersDark") || ""}
                         style={{
                             boxShadow:
                                 privateMode &&
@@ -301,7 +311,7 @@ export default function OnlineUsers({
                                 )}
                                 <div
                                     className="usersBack"
-                                    id={list && "usersBackDark" || ""}
+                                    id={(list && "usersBackDark") || ""}
                                     style={{
                                         marginTop: privateMode && `-0.2vmax`,
                                         boxShadow: privateMode && `none`,
@@ -385,10 +395,11 @@ export default function OnlineUsers({
                                                 <div
                                                     className="onlineList"
                                                     id={
-                                                        shakeUser &&
-                                                        user.id ==
-                                                            selectUserToKick &&
-                                                        "hornShake" || ""
+                                                        (shakeUser &&
+                                                            user.id ==
+                                                                selectUserToKick &&
+                                                            "hornShake") ||
+                                                        ""
                                                     }
                                                 >
                                                     <div
@@ -455,6 +466,7 @@ export default function OnlineUsers({
                                                                 nickname) ||
                                                                 user.nickname}
                                                         </span>
+
 
                                                         {privateMessages &&
                                                             privateMessages.map(

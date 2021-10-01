@@ -14,6 +14,7 @@ import chatEnterSfx from "./../public/chatEnter.mp3";
 import tickerSfx from "./../public/ticker.mp3";
 import kickedOut from "./../public/kickedOut.mp3";
 import hornSfx from "./../public/horn.mp3";
+import privateMSGSfx from "./../public/privateMSG.mp3";
 
 export default function Chat({
     chat_color,
@@ -48,6 +49,7 @@ export default function Chat({
     const [playTicker, { stop }] = useSound(tickerSfx, { volume: 0.75 });
     const [playKickedOut] = useSound(kickedOut, { volume: 0.75 });
         const [playHorn] = useSound(hornSfx, { volume: 0.75 });
+                const [playPrivateMsg] = useSound(privateMSGSfx, { volume: 0.75 });
 
     const elemRef = useRef();
 
@@ -103,7 +105,7 @@ export default function Chat({
     }, [privateMode]);
 
         useEffect(() => {
-            if (horn) {
+            if (horn && !mute) {
                 playHorn();
             }
         }, [horn]);
@@ -133,6 +135,12 @@ export default function Chat({
         }
         setPostScroll(false);
     }, [chatMessages]);
+
+    
+    const playNotification= (e) => {
+if (!mute){
+     playPrivateMsg()}
+    };
 
     const setScrollBarBottom = () => {
         if (elemRef.current) {
@@ -608,6 +616,7 @@ export default function Chat({
                     setConfigTimer={(e) => setConfigTimer(e)}
                     chatBan={chatBan}
                     horn={horn}
+                      playNotification={(e) => playNotification(e)}
                 />
             </div>
 
