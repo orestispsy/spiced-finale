@@ -15,7 +15,7 @@ import {
     browserCountAct,
     chatBanAct,
     banTimerAct,
-    
+    hornAct,
 } from "./../tools/actions";
 import { io } from "socket.io-client";
 
@@ -87,6 +87,9 @@ export const init = (store) => {
         });
         socket.on("banTimer", (data) => {
             store.dispatch(banTimerAct(data));
+        });
+        socket.on("horn", (data) => {
+            store.dispatch(hornAct(data));
         });
     }
 };

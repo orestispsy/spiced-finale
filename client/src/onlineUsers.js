@@ -321,20 +321,7 @@ export default function OnlineUsers({
                                                                 }
                                                             }}
                                                         >
-                                                            <img
-                                                                className="onlineListImg"
-                                                                alt={
-                                                                    user.nickname
-                                                                }
-                                                                src={
-                                                                    (chat_myUserId ==
-                                                                        user.id &&
-                                                                        onlineUserPic) ||
-                                                                    (user.chat_img &&
-                                                                        user.chat_img) ||
-                                                                    "./../avatar.png"
-                                                                }
-                                                            ></img>
+                                                            se
                                                             <span
                                                                 style={{
                                                                     color:
@@ -347,7 +334,6 @@ export default function OnlineUsers({
                                                             >
                                                                 {user.nickname}
                                                             </span>
-
                                                             {privateMessages &&
                                                                 privateMessages.map(
                                                                     (msg) => {
@@ -525,6 +511,22 @@ export default function OnlineUsers({
                                                                 }}
                                                             ></div>
                                                         )}
+                                                    {user.id !=
+                                                        chat_myUserId &&
+                                                        super_admin && (
+                                                        <div
+                                                            className="horn"
+                                                            onClick={(e) =>
+                                                                socket.emit(
+                                                                    "HORN",
+                                                                    {
+                                                                        user: user.id,
+                                                                        horn: true,
+                                                                    }
+                                                                )
+                                                            }
+                                                        ></div>
+                                                    )}
                                                 </div>
                                             </div>
                                         ))}
@@ -583,8 +585,10 @@ export default function OnlineUsers({
                                         }
                                     ></input>
                                     <div
-                                        className={pwdReveal && "pwdNOTvisible" || !pwdReveal && "pwdVisibility"}
-                                   
+                                        className={
+                                            (pwdReveal && "pwdNOTvisible") ||
+                                            (!pwdReveal && "pwdVisibility")
+                                        }
                                         onClick={(e) => {
                                             setPwdReveal(!pwdReveal);
                                         }}

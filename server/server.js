@@ -728,6 +728,14 @@ io.on("connection", function (socket) {
         io.emit("banTimer", time);
     });
 
+    socket.on("HORN", (data) => {
+        for (var [keyH, valueH] of Object.entries(onlineUsers)) {
+            if (valueH == data.user) {
+                socket.broadcast.to(keyH).emit("horn", { horn: true });
+            }
+        }
+    });
+
     // console.log(`socket ${socket.id} connected`);
 
     socket.on("disconnect", () => {

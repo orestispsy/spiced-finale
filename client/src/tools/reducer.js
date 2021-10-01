@@ -110,6 +110,12 @@ export default function (state = {}, action) {
             ban_timer: action.ban_timer,
         };
     }
+    if (action.type == "HORN") {
+        nextState = {
+            ...state,
+            horn: action.horn,
+        };
+    }
 
     // console.log("NEXT State", nextState);
     return nextState;

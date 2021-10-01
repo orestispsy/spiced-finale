@@ -1434,6 +1434,12 @@ input {
         margin: 0 1vmax !important;
     }
 
+       .horn {
+        width: 3vmax !important;
+        height: 3vmax !important;
+        margin: 0 1vmax !important;
+    }
+
     .notification {
         width: 5vmax !important;
         height: 5vmax !important;
@@ -1917,6 +1923,12 @@ input {
         margin-left: 0.5vmax !important;
         width: 2.5vmax !important;
         height: 2.5vmax !important;
+    }
+
+           .horn {
+        width: 2vmax !important;
+        height: 2vmax !important;
+        margin: 0 1vmax !important;
     }
 
     .gm-style-iw-d {
@@ -2974,6 +2986,17 @@ font-family: 'Ultra', serif; */
     padding: 0.5vmax;
 }
 
+.horn {
+    margin-left:0.5vmax;
+      width: 1.5vmax;
+    height: 1.5vmax;
+  border-radius: 50%;
+    background-image: url("horn.jpg");
+    background-size: cover;
+
+
+}
+
 #onlineListImg {
     width: 2.5vmax;
     height: 2.5vmax;
@@ -3091,7 +3114,7 @@ input[type="number"] {
     margin: 0 0.5vmax 0 0.3vmax;
     color: rgb(0, 255, 0);
     font-family: "Black Ops One", cursive;
-    font-size: 1.5vmax;
+    font-size: 2vmax;
     text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
 }

@@ -13,6 +13,7 @@ import chatSfx from "./../public/msg.mp3";
 import chatEnterSfx from "./../public/chatEnter.mp3";
 import tickerSfx from "./../public/ticker.mp3";
 import kickedOut from "./../public/kickedOut.mp3";
+import hornSfx from "./../public/horn.mp3";
 
 export default function Chat({
     chat_color,
@@ -46,6 +47,7 @@ export default function Chat({
     const [playIntro] = useSound(chatEnterSfx, { volume: 0.5 });
     const [playTicker, { stop }] = useSound(tickerSfx, { volume: 0.75 });
     const [playKickedOut] = useSound(kickedOut, { volume: 0.75 });
+        const [playHorn] = useSound(hornSfx, { volume: 0.75 });
 
     const elemRef = useRef();
 
@@ -60,6 +62,9 @@ export default function Chat({
     const chatBan = useSelector((state) => state && state.chat_ban);
 
     const banTimer = useSelector((state) => state && state.ban_timer);
+
+    const horn = useSelector((state) => state && state.horn);
+
 
     useEffect(() => {
         listSet(darkMode);
@@ -96,6 +101,13 @@ export default function Chat({
             setScrollBarBottom();
         }
     }, [privateMode]);
+
+        useEffect(() => {
+            if (horn) {
+                playHorn();
+            }
+        }, [horn]);
+
 
     useEffect(() => {
         if (

@@ -109,3 +109,10 @@ export function banTimerAct(arg) {
         ban_timer: arg,
     };
 }
+
+export function hornAct(arg) {
+    return {
+        type: "HORN",
+        horn: arg,
+    };
+}
