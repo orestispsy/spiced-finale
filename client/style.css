@@ -4126,7 +4126,6 @@ input[type="number"] {
     flex-wrap: wrap;
     width: 32vmax;
     height: 23vmax;
-
     border-radius: 0.5vh;
     overflow-y: scroll;
     padding: 1vmax;
