@@ -75,6 +75,7 @@ export default function Chat({
 
     useEffect(() => {
         if (chatBan) {
+            setPrivateMode(false)
             countDown();
         }
     }, [chatBan]);

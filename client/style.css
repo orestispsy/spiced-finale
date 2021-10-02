@@ -2531,7 +2531,7 @@ font-family: 'Ultra', serif; */
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
         -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
     border-radius: 1vh;
-    margin-top: 3vmax;
+      margin-top: 3vmax;
     background: radial-gradient(
         closest-side,
         #05303380,
@@ -2548,9 +2548,10 @@ font-family: 'Ultra', serif; */
 #chatContainerDark {
     background: none;
     border: 1px solid rgba(255, 255, 255, 0.171);
+        margin-top: 3vmax;
 }
 
-#chatContainerDark #chatTitlePriv {
+ #chatTitlePriv {
     font-family: "Black Ops One", cursive;
     font-size: 4vmax;
     color: white;
@@ -2978,12 +2979,14 @@ font-family: 'Ultra', serif; */
     padding: 0.5vmax;
     box-shadow: -0 0 2px rgba(0, 0, 0, 0.308), 0 -0 2px rgba(0, 0, 0, 0.308),
         -0 -0 2px rgba(0, 0, 0, 0.308), -0 -0 2px rgba(0, 0, 0, 0.308);
+        margin-right:0.2vmax;
 }
 
 #offline {
     background-color: rgba(255, 0, 0, 0.103);
     border-radius: 50%;
     padding: 0.5vmax;
+       margin-right:0.2vmax;
 }
 
 @keyframes shake {

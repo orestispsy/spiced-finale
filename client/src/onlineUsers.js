@@ -349,7 +349,29 @@ export default function OnlineUsers({
                                                                 }
                                                             }}
                                                         >
-                                                            se
+                                                            <div
+                                                                id={
+                                                                    (user.online &&
+                                                                        "online") ||
+                                                                    (!user.online &&
+                                                                        "offline")
+                                                                }
+                                                            >
+                                                                <img
+                                                                    className="onlineListImg"
+                                                                    alt={
+                                                                        user.nickname
+                                                                    }
+                                                                    src={
+                                                                        (chat_myUserId ==
+                                                                            user.id &&
+                                                                            onlineUserPic) ||
+                                                                        (user.chat_img &&
+                                                                            user.chat_img) ||
+                                                                        "./../avatar.png"
+                                                                    }
+                                                                ></img>
+                                                            </div>
                                                             <span
                                                                 style={{
                                                                     color:
@@ -466,7 +488,6 @@ export default function OnlineUsers({
                                                                 nickname) ||
                                                                 user.nickname}
                                                         </span>
-
 
                                                         {privateMessages &&
                                                             privateMessages.map(
