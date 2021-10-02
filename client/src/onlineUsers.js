@@ -35,6 +35,8 @@ export default function OnlineUsers({
     chatBan,
     horn,
     playNotification,
+    shakeUser,
+    setShakeUser,
 }) {
     const [userPicBar, setUserPicBar] = useState(false);
     const [onlineUserPic, setOnlineUserPic] = useState("");
@@ -50,7 +52,6 @@ export default function OnlineUsers({
     const [password, setPassword] = useState(false);
     const [pwdReveal, setPwdReveal] = useState(false);
     const [selectUserToKick, setSelectUserToKick] = useState(false);
-    const [shakeUser, setShakeUser] = useState(false);
 
     const statePrivateMsgs = useSelector((state) => state && state.messages);
 
@@ -90,7 +91,7 @@ export default function OnlineUsers({
         if (shakeUser) {
             const timer = setTimeout(() => {
                 setShakeUser(false);
-            }, 1000);
+            }, 500);
             return () => clearTimeout(timer);
         }
     }, [shakeUser]);
@@ -105,14 +106,15 @@ export default function OnlineUsers({
                 console.log("error", err);
             });
 
-            if ( statePrivateMsgs &&
-                statePrivateMsgs.length-1>=0 &&
-                !statePrivateMsgs[statePrivateMsgs.length-1].receiver_seen &&
-                statePrivateMsgs[statePrivateMsgs.length-1].msg_receiver_id ==
-                    chat_myUserId
-            ) {
-                playNotification();
-            }
+        if (
+            statePrivateMsgs &&
+            statePrivateMsgs.length - 1 >= 0 &&
+            !statePrivateMsgs[statePrivateMsgs.length - 1].receiver_seen &&
+            statePrivateMsgs[statePrivateMsgs.length - 1].msg_receiver_id ==
+                chat_myUserId
+        ) {
+            playNotification();
+        }
     }, [statePrivateMsgs]);
 
     useEffect(() => {
@@ -415,6 +417,13 @@ export default function OnlineUsers({
                                         onlineUsers.map((user) => (
                                             <div key={user.id}>
                                                 <div
+                                                    style={{
+                                                        backgroundColor:
+                                                            horn &&
+                                                            horn.admin_shaked ==
+                                                                user.id &&
+                                                            `#fbff0413`,
+                                                    }}
                                                     className="onlineList"
                                                     id={
                                                         (shakeUser &&
@@ -588,6 +597,8 @@ export default function OnlineUsers({
                                                                         {
                                                                             user: user.id,
                                                                             horn: true,
+                                                                            admin_shaked:
+                                                                                chat_myUserId,
                                                                         }
                                                                     );
                                                                 }}

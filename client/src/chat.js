@@ -43,13 +43,14 @@ export default function Chat({
     const [privateNick, setPrivateNick] = useState(false);
     const [privateMessages, setPrivateMessages] = useState(false);
     const [configTimer, setConfigTimer] = useState(false);
+    const [shakeUser, setShakeUser] = useState(false);
 
     const [play] = useSound(chatSfx, { volume: 0.75 });
     const [playIntro] = useSound(chatEnterSfx, { volume: 0.5 });
     const [playTicker, { stop }] = useSound(tickerSfx, { volume: 0.75 });
     const [playKickedOut] = useSound(kickedOut, { volume: 0.75 });
-        const [playHorn] = useSound(hornSfx, { volume: 0.75 });
-                const [playPrivateMsg] = useSound(privateMSGSfx, { volume: 0.75 });
+    const [playHorn] = useSound(hornSfx, { volume: 0.75 });
+    const [playPrivateMsg] = useSound(privateMSGSfx, { volume: 0.75 });
 
     const elemRef = useRef();
 
@@ -67,7 +68,6 @@ export default function Chat({
 
     const horn = useSelector((state) => state && state.horn);
 
-
     useEffect(() => {
         listSet(darkMode);
         setDarkMode(darkMode);
@@ -75,7 +75,7 @@ export default function Chat({
 
     useEffect(() => {
         if (chatBan) {
-            setPrivateMode(false)
+            setPrivateMode(false);
             countDown();
         }
     }, [chatBan]);
@@ -105,12 +105,13 @@ export default function Chat({
         }
     }, [privateMode]);
 
-        useEffect(() => {
-            if (horn && !mute) {
-                playHorn();
-            }
-        }, [horn]);
+    useEffect(() => {
+        if (horn && horn.horn && !mute) {
+            playHorn();
 
+            horn.admin_shaked = false;
+        }
+    }, [horn]);
 
     useEffect(() => {
         if (
@@ -137,10 +138,10 @@ export default function Chat({
         setPostScroll(false);
     }, [chatMessages]);
 
-    
-    const playNotification= (e) => {
-if (!mute){
-     playPrivateMsg()}
+    const playNotification = (e) => {
+        if (!mute) {
+            playPrivateMsg();
+        }
     };
 
     const setScrollBarBottom = () => {
@@ -345,11 +346,11 @@ if (!mute){
                             (!chatBan && "chatContainer") ||
                             (chatBan && "chatContainerBan")
                         }
-                        id={list && "chatContainerDark" || ""}
+                        id={(list && "chatContainerDark") || ""}
                     >
                         <div
                             className="chatHeadline"
-                            id={list && "chatHeadlineDark" || ""}
+                            id={(list && "chatHeadlineDark") || ""}
                         >
                             {!chatBan && (
                                 <Link
@@ -373,13 +374,16 @@ if (!mute){
 
                             {!chatBan && <div id="chatTitle">Chat Room</div>}
                         </div>
-                        <div className="chatScreenBack">
+                        <div
+                            className="chatScreenBack"
+                            id={(shakeUser && "hornShake") || ""}
+                        >
                             <div
                                 className="chatScreen"
                                 style={{
                                     margin: chatBan && `4vmax`,
                                 }}
-                                id={list && "chatScreenDark" || ""}
+                                id={(list && "chatScreenDark") || ""}
                                 ref={elemRef}
                                 onScrollCapture={() =>
                                     setScrollTop(elemRef.current.scrollTop)
@@ -617,7 +621,9 @@ if (!mute){
                     setConfigTimer={(e) => setConfigTimer(e)}
                     chatBan={chatBan}
                     horn={horn}
-                      playNotification={(e) => playNotification(e)}
+                    playNotification={(e) => playNotification(e)}
+                    shakeUser={shakeUser}
+                    setShakeUser={(e) => setShakeUser(e)}
                 />
             </div>
 

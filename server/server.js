@@ -731,7 +731,7 @@ io.on("connection", function (socket) {
     socket.on("HORN", (data) => {
         for (var [keyH, valueH] of Object.entries(onlineUsers)) {
             if (valueH == data.user) {
-                socket.broadcast.to(keyH).emit("horn", { horn: data.horn });
+                socket.broadcast.to(keyH).emit("horn", { horn: data.horn, admin_shaked: data.admin_shaked });
             }
         }
     });
