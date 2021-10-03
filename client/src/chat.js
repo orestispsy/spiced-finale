@@ -376,7 +376,7 @@ export default function Chat({
                         </div>
                         <div
                             className="chatScreenBack"
-                            id={(shakeUser && "hornShake") || ""}
+                            id={(shakeUser && horn && "hornShake") || ""}
                         >
                             <div
                                 className="chatScreen"

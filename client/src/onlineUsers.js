@@ -136,6 +136,17 @@ export default function OnlineUsers({
         }
     }, []);
 
+    const keyCheck = (e, id) => {
+        if (e.key === "Enter") {
+            if (e.target.value !== "") {
+                e.preventDefault();
+                setConfigTimer(false);
+                socket.emit("forceDisconnect",id);
+            }
+         
+        }
+    };
+
     const handleUploaderChange = (e) => {
         setFile(e.target.files[0]);
     };
@@ -528,6 +539,12 @@ export default function OnlineUsers({
                                                                     </div>
                                                                     <input
                                                                         type="number"
+                                                                        onKeyDown={(
+                                                                            e
+                                                                        ) =>
+                                                                            keyCheck(e, user.id)
+                                                                            
+                                                                        }
                                                                         onChange={(
                                                                             e
                                                                         ) =>
