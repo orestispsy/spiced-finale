@@ -273,7 +273,10 @@ export default class App extends Component {
                                 exact
                                 path="/gig-creator"
                                 render={(props) => (
-                                    <GigCreator admin={this.state.admin} />
+                                    <GigCreator
+                                        admin={this.state.admin}
+                                        darkMode={this.state.darkMode}
+                                    />
                                 )}
                             />
                             <Route
@@ -283,6 +286,7 @@ export default class App extends Component {
                                     <GigEditor
                                         gigsList={this.state.gigsList}
                                         admin={this.state.admin}
+                                        darkMode={this.state.darkMode}
                                     />
                                 )}
                             />

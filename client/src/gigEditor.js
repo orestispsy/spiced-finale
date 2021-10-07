@@ -232,7 +232,7 @@ export default class GigEditor extends React.Component {
     render() {
         return (
             <div className="gigEditorContainer">
-                <div className="gigEditorContainerInner">
+                <div className="gigEditorContainerInner" id={this.props.darkMode && "logoBoxDarkEdit"}>
                     <form>
                         <div id="editorCloseTab">
                             <Link to="/" className="buttonBack">

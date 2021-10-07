@@ -73,7 +73,10 @@ export default class GigCreator extends React.Component {
     render() {
         return (
             <div className="gigCreatorContainer">
-                <div className="gigCreatorContainerInner">
+                <div
+                    className="gigCreatorContainerInner"
+                    id={this.props.darkMode && "logoBoxDarkEdit"}
+                >
                     <div id="creatorCloseTab">
                         <Link to="/" className="buttonBack">
                             X

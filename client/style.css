@@ -1542,7 +1542,7 @@ input {
     .pwdVisibility {
         width: 4vmax !important;
         height: 2.5vmax !important;
-        margin: 1vmax 0 0 2vmax !important;
+        margin: 1vmax 0 0 1vmax !important;
     }
 
     .pwdNOTvisible {
@@ -2002,6 +2002,20 @@ input {
     .exactMonth {
         margin-bottom: 5vmax !important;
     }
+}
+
+#logoBoxDarkEdit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-position-x: 50%;
+    background-position-y: 35%;
+    background-image: url("stickyLogo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.616);
 }
 
 #logoBoxDark {
@@ -2875,7 +2889,6 @@ font-family: 'Ultra', serif; */
 
 #usersBackDark {
     background-color: rgba(255, 255, 255, 0.027);
-
     border-color: rgba(255, 255, 255, 0.13);
 }
 
@@ -2985,6 +2998,10 @@ background: linear-gradient(
     border-radius: 50%;
     padding: 0.5vmax;
        margin-right:0.2vmax;
+}
+
+#networkUser{
+        margin-right:0.2vmax;
 }
 
 @keyframes shake {
@@ -4348,8 +4365,8 @@ input[type="number"] {
     padding: 0 1vmax 1vmax 1vmax;
     font-size: 2.5vmax;
     color: rgb(8, 255, 202);
-    text-shadow: -0 0 20px rgba(0, 0, 0, 0.432), 0 -0 20px rgba(0, 0, 0, 0.432),
-        -0 -0 20px rgba(0, 0, 0, 0.432), -0 -0 20px rgba(0, 0, 0, 0.432);
+    text-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
+        -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
 }
 
 .networkList {

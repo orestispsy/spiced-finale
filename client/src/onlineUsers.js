@@ -363,12 +363,7 @@ export default function OnlineUsers({
                                                             }}
                                                         >
                                                             <div
-                                                                id={
-                                                                    (user.online &&
-                                                                        "online") ||
-                                                                    (!user.online &&
-                                                                        "offline")
-                                                                }
+                                                                id="networkUser"
                                                             >
                                                                 <img
                                                                     className="onlineListImg"
