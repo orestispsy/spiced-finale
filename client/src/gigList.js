@@ -67,7 +67,12 @@ export default function GigList({
     };
 
     return (
-        <div className="gigListContainer">
+        <div
+            className="gigListContainer"
+            style={{
+                marginTop: year && `4vmax`,
+            }}
+        >
             <div className="gigEntriesBox">
                 <div id="gigListCloseTab">
                     <Link to="/" className="buttonBack">
@@ -118,7 +123,7 @@ export default function GigList({
                     id={!year && "gigEntries"}
                     className="gigEntries"
                     style={{
-                        height: year && `54vh`,
+                        height: year && `48vh`,
                         flexDirection: !year && `row-reverse`,
                         marginTop: !year && `1vmax`,
                     }}

@@ -1,56 +1,57 @@
 import { useEffect } from "react";
 import React from "react";
 
-export default function Ticker({tickerBar}) {
-    useEffect(function () {
-                var headlines = document.querySelectorAll("#headlines");
-                // console.log(headlines)
-                var body = document.querySelectorAll("body");
+export default function Ticker({ tickerBar }) {
+    useEffect(
+        function () {
+            var headlines = document.querySelectorAll("#headlines");
+            // console.log(headlines)
+            var body = document.querySelectorAll("body");
 
-                var links = document.querySelectorAll(".tickerLink");
+            var links = document.querySelectorAll(".tickerLink");
 
-                var left = headlines[0].offsetLeft;
+            var left = headlines[0].offsetLeft;
 
-                var requestid;
+            var requestid;
 
-                if (left) {
-                    const moveHeadlines = () => {
-                        left = left - 2;
-                        if (left < -headlines[0].offsetWidth) {
-                            left = body[0].offsetWidth;
-                        }
-                        headlines[0].style.left = left + "px";
-                        requestid = requestAnimationFrame(moveHeadlines);
-                    };
+            if (left) {
+                const moveHeadlines = () => {
+                    left = left - 2;
+                    if (left < -headlines[0].offsetWidth) {
+                        left = body[0].offsetWidth;
+                    }
+                    headlines[0].style.left = left + "px";
+                    requestid = requestAnimationFrame(moveHeadlines);
+                };
 
-                    const stopHeadlines = () => {
-                        for (var i = 0; i < links.length; i++) {
-                            links[i].addEventListener(
-                                "mouseenter",
-                                function (event) {
-                                    event.target.style.color = "white";
-                                    cancelAnimationFrame(requestid);
-                                }
-                            );
+                const stopHeadlines = () => {
+                    for (var i = 0; i < links.length; i++) {
+                        links[i].addEventListener(
+                            "mouseenter",
+                            function (event) {
+                                event.target.style.color = "white";
+                                cancelAnimationFrame(requestid);
+                            }
+                        );
 
-                            links[i].addEventListener(
-                                "mouseleave",
-                                function (event) {
-                                    moveHeadlines();
-                                    event.target.style.color = "lime";
-                                    event.target.style.textDecoration = "none";
-                                }
-                            );
-                        }
-                    };
+                        links[i].addEventListener(
+                            "mouseleave",
+                            function (event) {
+                                moveHeadlines();
+                                event.target.style.color = "lime";
+                                event.target.style.textDecoration = "none";
+                            }
+                        );
+                    }
+                };
 
-                    moveHeadlines();
-                    stopHeadlines();
-                }
-            
-    }, [tickerBar]);
+                moveHeadlines();
+                stopHeadlines();
+            }
+        },
+        [tickerBar]
+    );
 
-   
     return (
         <div id="headlines">
             <a className="tickerBlankLink" target="_blank">
@@ -68,10 +69,7 @@ export default function Ticker({tickerBar}) {
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-du-beast-special-vol-i-sitting-at-the-bar-with-john/"
                 target="_blank"
             >
-                <span
-                >
-                    ➤
-                </span>
+                <span>➤</span>
                 Du Beast Special Vol. I : "Sitting at the Bar with John"
             </a>
 
@@ -80,10 +78,7 @@ export default function Ticker({tickerBar}) {
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-09042020/"
                 target="_blank"
             >
-                <span
-                >
-                    ➤
-                </span>
+                <span>➤</span>
                 Night Flight 09.04.2020
             </a>
             <a
@@ -91,10 +86,7 @@ export default function Ticker({tickerBar}) {
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-12112020/"
                 target="_blank"
             >
-                <span
-                >
-                    ➤
-                </span>
+                <span>➤</span>
                 Night Flight 12.11.2020
             </a>
             <a
@@ -102,10 +94,7 @@ export default function Ticker({tickerBar}) {
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-du-beast-special-vol-ii/"
                 target="_blank"
             >
-                <span
-                >
-                    ➤
-                </span>
+                <span>➤</span>
                 Du Beast Special Vol. II
             </a>
             <a
@@ -113,21 +102,24 @@ export default function Ticker({tickerBar}) {
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-30052019/"
                 target="_blank"
             >
-                <span
-                >
-                    ➤
-                </span>
+                <span>➤</span>
                 Night Flight 30.05.2019
             </a>
             <a
                 className="tickerLink"
-                href=" https://www.mixcloud.com/WeirdFishesRadio/night-flight-08042021/"
+                href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-08042021/"
                 target="_blank"
-            ><span
-                >
-                    ➤
-                </span>
+            >
+                <span>➤</span>
                 Night Flight 08.04.2021
+            </a>
+            <a
+                className="tickerLink"
+                href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-07102021/"
+                target="_blank"
+            >
+                <span>➤</span>
+                Night Flight 07.10.2021
             </a>
         </div>
     );

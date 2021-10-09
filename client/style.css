@@ -304,10 +304,14 @@ a:hover {
 }
 
 .gigListContainer {
-    height: 92vh;
+    height: 75vh;
     width: 80vw;
     user-select: none;
-    margin-top: -1vmax;
+    margin-top:3vmax;
+}
+
+.gigEntriesBack{
+    margin-top:-1vmax;
 }
 
 .gigEntriesBox {
@@ -340,7 +344,7 @@ a:hover {
     cursor: pointer;
     font-family: "Press Start 2P", cursive;
     margin-top: -1vmax;
-    padding-bottom: 2vmax;
+    padding-bottom: 1vmax;
 }
 
 .gigListContainer input {
@@ -352,7 +356,7 @@ a:hover {
 .year {
     color: #00ff88;
     margin: -1vmax 0 1vmax 0;
-    font-size: 4vmax;
+    font-size: 3vmax;
     font-family: "Black Ops One", cursive;
     letter-spacing: 2px;
     text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
@@ -935,7 +939,8 @@ input {
         box-shadow: none !important;
         border-radius: 0 !important;
         margin-top: -6vmax !important;
-        height: 100vmax !important;
+        height: 92vmax !important;
+        width: 88vw !important;
         padding: 0 9vmax 0 9vmax !important;
     }
 
@@ -1087,9 +1092,9 @@ input {
     }
 
     #onlineListImg {
-        width:3vmax !important;
-        height:3vmax !important;
-        margin: -5vmax 0.5vmax 0 -3vmax !important
+        width: 3vmax !important;
+        height: 3vmax !important;
+        margin: -5vmax 0.5vmax 0 -3vmax !important;
     }
 
     .onlineList span {
@@ -1434,7 +1439,7 @@ input {
         margin: 0 1vmax !important;
     }
 
-       .horn {
+    .horn {
         width: 3vmax !important;
         height: 3vmax !important;
         margin: 0 1vmax !important;
@@ -1497,6 +1502,10 @@ input {
         padding: 0.5vmax !important;
     }
 
+    .gigListContainer {
+        margin-top:10vmax !important;
+    }
+
     .gigEntriesBox {
         width: 70vw !important;
     }
@@ -1549,7 +1558,7 @@ input {
         width: 4vmax !important;
         height: 4vmax !important;
         margin: -1vmax 0 0 1vmax !important;
-}
+    }
 
     .gigEntries {
         height: 65vh !important;
@@ -1560,6 +1569,13 @@ input {
         height: 35vh !important;
         margin-bottom: 29vh !important;
     }
+
+.broadcastScroller {
+margin-top:1vmax !important;
+    align-items: flex-start !important;
+
+width:20vw !important;
+}
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1602,11 +1618,10 @@ input {
     }
 
     #logoBoxDark {
- 
         border: none !important;
         box-shadow: none !important;
         border-radius: 0 !important;
-        background-size:contain !important;
+        background-size: contain !important;
     }
 
     #logoIntro {
@@ -1712,7 +1727,7 @@ input {
 
     #onlineListImg {
         margin-top: -3vmax !important;
-                margin: -3vmax 0 0 -2vmax !important
+        margin: -3vmax 0 0 -2vmax !important;
     }
 
     .typeLine {
@@ -1925,7 +1940,7 @@ input {
         height: 2.5vmax !important;
     }
 
-           .horn {
+    .horn {
         width: 2vmax !important;
         height: 2vmax !important;
         margin: 0 1vmax !important;
@@ -1981,11 +1996,11 @@ input {
         margin: 1vmax 0 0 1vmax !important;
     }
 
-        .pwdNOTvisible {
-        width: 2.5vmax!important;
+    .pwdNOTvisible {
+        width: 2.5vmax !important;
         height: 2.5vmax !important;
         margin: 0 0 0 1vmax !important;
-}
+    }
 
     .changeNickButton {
         margin: 1vmax !important;
@@ -2065,7 +2080,7 @@ input {
 }
 
 .exactMonth:last-child {
-    margin-bottom: 1.5vmax !important;
+    margin-bottom: 0vmax !important;
 }
 
 .exactMonth {
@@ -2090,7 +2105,7 @@ input {
     justify-content: flex-start;
     align-items: center;
     overflow-x: scroll;
-    max-width: 65vw;
+    max-width: 80vw;
     margin-left: 2vmax;
     color: yellow;
 }
@@ -2099,17 +2114,16 @@ input {
     text-align: center;
     font-family: "Black Ops One", cursive;
     align-self: center;
-    margin-bottom: 10px;
     color: rgb(255, 251, 0);
     text-shadow: 0 0 5px red, 0 0 5px red, 0 0 5px red, 0 0 5px red;
     font-family: "Black Ops One", cursive;
     font-size: 3vmax;
-
+    margin-top:1vmax;
     margin-bottom: -0.2vmax;
 }
 
 .gigEntries {
-    height: 50vh;
+
     width: 100vw;
     overflow: hidden;
     scrollbar-width: 20px;
@@ -2120,7 +2134,6 @@ input {
     letter-spacing: 1px;
     padding-bottom: 1vmax;
     flex-wrap: wrap;
-
     margin-left: -2vmax;
     overflow-y: auto;
 }
@@ -2151,8 +2164,8 @@ input {
         -1px -1px 0 black;
     margin-top: 0.5vmax;
     align-self: center;
-    width: 20vmax;
-    height: 16vmax;
+    width: 18vmax;
+    height: 14vmax;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2545,7 +2558,7 @@ font-family: 'Ultra', serif; */
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.308), 0 -0 10px rgba(0, 0, 0, 0.308),
         -0 -0 10px rgba(0, 0, 0, 0.308), -0 -0 10px rgba(0, 0, 0, 0.308);
     border-radius: 1vh;
-      margin-top: 3vmax;
+    margin-top: 3vmax;
     background: radial-gradient(
         closest-side,
         #05303380,
@@ -2562,10 +2575,10 @@ font-family: 'Ultra', serif; */
 #chatContainerDark {
     background: none;
     border: 1px solid rgba(255, 255, 255, 0.171);
-        margin-top: 3vmax;
+    margin-top: 3vmax;
 }
 
- #chatTitlePriv {
+#chatTitlePriv {
     font-family: "Black Ops One", cursive;
     font-size: 4vmax;
     color: white;
@@ -2981,69 +2994,92 @@ font-family: 'Ultra', serif; */
 #online {
     display: flex;
     flex-direction: column;
-background: linear-gradient(
+    background: linear-gradient(
         112.72013189013455deg,
         rgba(224, 247, 135, 1) 4.927083333333334%,
         rgb(155, 250, 78) 97.84374999999999%
     );
     border-radius: 50%;
     padding: 0.4vmax;
-   box-shadow: -0 0 2px rgba(255,255,255, 0.300), 0 -0 2px rgba(255,255,255, 0.300),
-        -0 -0 2px rgba(255,255,255, 0.300), -0 -0 2px rgba(255,255,255, 0.300);
-        margin-right:0.2vmax;
+    box-shadow: -0 0 2px rgba(255, 255, 255, 0.3),
+        0 -0 2px rgba(255, 255, 255, 0.3), -0 -0 2px rgba(255, 255, 255, 0.3),
+        -0 -0 2px rgba(255, 255, 255, 0.3);
+    margin-right: 0.2vmax;
 }
 
 #offline {
     background-color: rgba(255, 0, 0, 0.103);
     border-radius: 50%;
     padding: 0.5vmax;
-       margin-right:0.2vmax;
+    margin-right: 0.2vmax;
 }
 
-#networkUser{
-        margin-right:0.2vmax;
+#networkUser {
+    margin-right: 0.2vmax;
 }
 
 @keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
 }
 
 #hornShake {
-       animation: shake 1s;
+    animation: shake 1s;
 }
 
 .horn {
-    margin-left:0.5vmax;
-      width: 1.5vmax;
+    margin-left: 0.5vmax;
+    width: 1.5vmax;
     height: 1.5vmax;
-  border-radius: 50%;
+    border-radius: 50%;
     background-image: url("horn.jpg");
     background-size: cover;
 }
 
 .horn:hover {
-       width: 2vmax;
+    width: 2vmax;
     height: 2vmax;
 }
 
 #onlineListImg {
     width: 2.5vmax;
     height: 2.5vmax;
-  
+
     background-image: url("crown.png");
     background-size: cover;
-    margin-left:-2.4vmax;
-    margin-top:-3vmax;
+    margin-left: -2.4vmax;
+    margin-top: -3vmax;
 
     z-index: 91443397898934;
 }
@@ -3239,7 +3275,7 @@ input[type="number"] {
 }
 
 .pwdNOTvisible {
-     width: 1.7vmax;
+    width: 1.7vmax;
     height: 1.7vmax;
     background-image: url("passTogglerNOT.png");
     background-size: cover;
@@ -3676,7 +3712,7 @@ input[type="number"] {
     border-radius: 10vh;
     font-size: 1.5vmax !important;
     background-color: rgba(255, 255, 255, 0.158);
-    z-index: 3;
+      z-index: 5976234958732641;
 }
 
 .gigAnimationLink:hover {
@@ -4500,4 +4536,40 @@ input[type="number"] {
     bottom: 0.5vmax;
     cursor: pointer;
     transition: 0.5s;
+}
+
+
+
+.mixCloudPlayerControls {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    position: fixed;
+    top: 0%;
+    right: 12vmax;
+height:8vh!important;
+    z-index: 597623495873264;
+}
+
+.mixCloudPlayerControls div {
+       color: rgb(0, 255, 191);
+    cursor:pointer;
+    text-align: center;
+      font-family: "Black Ops One", cursive;
+      font-size:0.8vmax;
+}
+
+.mixCloudPlayerControls div:hover {
+    color:white;
+}
+
+.mixCloudPlayerControls div:nth-child(3){
+    margin-top:0.2vmax;
+}
+
+.broadcastScroller {
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+width:10vw;
 }

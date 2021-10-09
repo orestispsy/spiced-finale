@@ -11,6 +11,11 @@ import Chat from "./chat";
 import GigListAnimation from "./gigListAnimation";
 import GigEntry from "./gigEntry";
 import SuperAdmin from "./superAdmin";
+import ReactPlayer from "react-player";
+
+import radioBroadcasts from "./tools/radioBroadcasts";
+
+console.log(radioBroadcasts);
 
 var body = document.querySelectorAll("body");
 
@@ -32,6 +37,7 @@ export default class App extends Component {
             listScroller: false,
             darkMode: true,
             year: false,
+            nightFlightProg: false,
         };
     }
 
@@ -137,6 +143,12 @@ export default class App extends Component {
     setYear(e) {
         this.setState({
             year: e,
+        });
+    }
+
+    setRadioBroadcast(e) {
+        this.setState({
+            nightFlightProg: e,
         });
     }
 
@@ -250,6 +262,85 @@ export default class App extends Component {
                                             this.mapVisible(false);
                                         }}
                                     ></Link>
+                                )}
+                                {this.state.nightFlightProg && (
+                                    <div className="mixCloudPlayerControls">
+                                        <div className="broadcastScroller">
+                                            <div
+                                                onClick={(e) => {
+                                                    if (
+                                                        this.state
+                                                            .nightFlightProg
+                                                            .id <= 0
+                                                    ) {
+                                                        return;
+                                                    } else {
+                                                        this.setRadioBroadcast(
+                                                            radioBroadcasts
+                                                                .radioBroadcasts[
+                                                                this.state
+                                                                    .nightFlightProg
+                                                                    .id - 1
+                                                            ]
+                                                        );
+                                                    }
+                                                }}
+                                            >
+                                                🡄<div>prv</div>
+                                            </div>
+                                            <div
+                                                onClick={(e) => {
+                                                    if (
+                                                        this.state
+                                                            .nightFlightProg
+                                                            .id >=
+                                                        radioBroadcasts
+                                                            .radioBroadcasts
+                                                            .length -
+                                                            1
+                                                    ) {
+                                                        return;
+                                                    } else {
+                                                        this.setRadioBroadcast(
+                                                            radioBroadcasts
+                                                                .radioBroadcasts[
+                                                                this.state
+                                                                    .nightFlightProg
+                                                                    .id + 1
+                                                            ]
+                                                        );
+                                                    }
+                                                }}
+                                            >
+                                                🡆<div>nxt</div>
+                                            </div>
+                                            <div
+                                                onClick={(e) => {
+                                                    this.setRadioBroadcast(
+                                                        false
+                                                    );
+                                                }}
+                                            >
+                                                x<div>close</div>
+                                            </div>
+                                        </div>
+                                        <ReactPlayer
+                                            url={
+                                                this.state.nightFlightProg.href
+                                            }
+                                            controls
+                                            config={{
+                                                mixcloud: {
+                                                    options: {
+                                                        mini: true,
+                                                    },
+                                                },
+                                            }}
+                                            id="mixCloudPlayer"
+                                            width="100%"
+                                            height="100%"
+                                        />
+                                    </div>
                                 )}
                             </div>
                             <Route
@@ -373,6 +464,13 @@ export default class App extends Component {
                                         listSet={(e) => this.listSet(e)}
                                         list={this.state.list}
                                         setDarkMode={(e) => this.setDarkMode(e)}
+                                        setRadioBroadcast={(e) =>
+                                            this.setRadioBroadcast(e)
+                                        }
+                                        radioBroadcasts={radioBroadcasts}
+                                        nightFlightProg={
+                                            this.state.nightFlightProg
+                                        }
                                     />
                                 )}
                             />

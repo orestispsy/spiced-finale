@@ -31,6 +31,9 @@ export default function Chat({
     list,
     darkMode,
     setDarkMode,
+    setRadioBroadcast,
+    radioBroadcasts,
+    nightFlightProg,
 }) {
     const [emojiBar, setEmojiBar] = useState(false);
     const [tickerBar, setTickerBar] = useState(false);
@@ -570,7 +573,10 @@ export default function Chat({
                                         <div
                                             title="Mute"
                                             className="mute"
-                                            onClick={() => setMute(!mute)}
+                                            onClick={() => {
+                                                setMute(!mute);
+                                                stop();
+                                            }}
                                         ></div>
                                     )}
                                     {mute && (
@@ -630,8 +636,16 @@ export default function Chat({
             <div
                 className="tickerButton"
                 onClick={() => {
+                    if (!nightFlightProg && !tickerBar) {
+                        setRadioBroadcast(
+                            radioBroadcasts.radioBroadcasts[
+                                radioBroadcasts.radioBroadcasts.length - 1
+                            ]
+                        );
+                    }
+
                     toggleTicker(!tickerBar);
-                    if (!tickerBar) {
+                    if (!tickerBar && !mute) {
                         playTicker();
                     } else {
                         stop();
