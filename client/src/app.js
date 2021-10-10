@@ -280,7 +280,7 @@ export default class App extends Component {
                                                     e.screenX * (10 / 100),
                                             });
                                         }}
-                                        onTouchStartCapture={(e) => {
+                                        onTouchMove={(e) => {
                                             this.setState({
                                                 top: e.pageY,
                                                 left:
@@ -296,7 +296,7 @@ export default class App extends Component {
                                                     e.screenX * (10 / 100),
                                             });
                                         }}
-                                        onTouchEndCapture={(e) => {
+                                        onTouchEnd={(e) => {
                                             this.setState({
                                                 top: e.pageY,
                                                 left:
