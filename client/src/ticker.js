@@ -61,9 +61,8 @@ export default function Ticker({ tickerBar }) {
                 Nice to see you here, enjoy your stay !
             </a>
             <a className="tickerBlankLink" target="_blank">
-                Check out this selected music I've got here for you
+                Use the Player above to listen to some of my web-radio broadcasts or click on the following links
             </a>
-
             <a
                 className="tickerLink"
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-du-beast-special-vol-i-sitting-at-the-bar-with-john/"

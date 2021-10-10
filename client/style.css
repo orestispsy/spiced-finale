@@ -307,11 +307,11 @@ a:hover {
     height: 75vh;
     width: 80vw;
     user-select: none;
-    margin-top:3vmax;
+    margin-top: 3vmax;
 }
 
-.gigEntriesBack{
-    margin-top:-1vmax;
+.gigEntriesBack {
+    margin-top: -1vmax;
 }
 
 .gigEntriesBox {
@@ -1503,7 +1503,7 @@ input {
     }
 
     .gigListContainer {
-        margin-top:10vmax !important;
+        margin-top: 10vmax !important;
     }
 
     .gigEntriesBox {
@@ -1570,18 +1570,17 @@ input {
         margin-bottom: 29vh !important;
     }
 
-.broadcastScroller {
-margin-top:1vmax !important;
-    align-items: flex-start !important;
+    .broadcastScroller {
+        margin-top: 1vmax !important;
+        align-items: flex-start !important;
 
-width:20vw !important;
-}
+        width: 20vw !important;
+    }
 
-.mixCloudPlayerControls  {
-
-    height:5vh !important
-
-}
+    .mixCloudPlayerControls {
+        height: 5vh !important;
+        width:60vw !important
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -2023,6 +2022,16 @@ width:20vw !important;
     .exactMonth {
         margin-bottom: 5vmax !important;
     }
+
+        .mixCloudPlayerControls {
+        height:14vh !important;
+        width:60vw !important
+    }
+
+    .dragPlayer{
+        height:3vmax !important;
+        width:4vmax !important
+    }
 }
 
 #logoBoxDarkEdit {
@@ -2124,12 +2133,11 @@ width:20vw !important;
     text-shadow: 0 0 5px red, 0 0 5px red, 0 0 5px red, 0 0 5px red;
     font-family: "Black Ops One", cursive;
     font-size: 3vmax;
-    margin-top:1vmax;
+    margin-top: 1vmax;
     margin-bottom: -0.2vmax;
 }
 
 .gigEntries {
-
     width: 100vw;
     overflow: hidden;
     scrollbar-width: 20px;
@@ -3718,7 +3726,6 @@ input[type="number"] {
     border-radius: 10vh;
     font-size: 1.5vmax !important;
     background-color: rgba(255, 255, 255, 0.158);
-      z-index: 5976234958732641;
 }
 
 .gigAnimationLink:hover {
@@ -4544,40 +4551,66 @@ input[type="number"] {
     transition: 0.5s;
 }
 
-
+#mixCloudPlayer {
+    margin-right: 1vmax;
+}
 
 .mixCloudPlayerControls {
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
     position: fixed;
-    cursor:move;
-    height:8vh;
+    height: 8vh;
+    width: 37vw;
     z-index: 597623495873264;
-    background-color:rgba(0, 255, 170, 0.178);
-    padding:1vh 0 0 1vh;
-    border-radius:0.5vh;
+    background-color: black;
+    padding: 1vh 2vh 0 0vh;
+    border-radius: 0.5vh;
+    border: 1px solid rgb(0, 255, 170);
+    z-index: 925678;
 }
 
 .mixCloudPlayerControls div {
-       color: rgb(0, 255, 191);
-    cursor:pointer;
+    color: rgb(0, 255, 191);
     text-align: center;
-      font-family: "Black Ops One", cursive;
-      font-size:0.8vmax;
+    font-family: "Black Ops One", cursive;
+    font-size: 0.8vmax;
 }
 
-.mixCloudPlayerControls div:hover {
-    color:white;
+.radioControls {
+    color: white !important;
 }
 
-.mixCloudPlayerControls div:nth-child(3){
-    margin-top:0.2vmax;
+.radioControlsSymbol {
+    cursor: pointer;
+}
+
+.radioControlsSymbol:hover {
+    color: white;
+}
+
+.mixCloudPlayerControls div:nth-child(3) {
+    margin-top: 0.1vmax;
 }
 
 .broadcastScroller {
     display: flex;
     align-items: center;
-    justify-content:space-around;
-width:10vw;
+    justify-content: space-around;
+    width: 12vw;
+}
+
+.dragPlayer {
+    background-image: url("drag.png");
+    width: 3.2vmax;
+    height: 2.1vmax;
+    background-size: cover;
+    margin: 0 1vmax;
+    cursor: move;
+    align-self: center;
+    filter: invert(100%);
+}
+
+.dragPlayer:hover {
+    filter: invert(90%);
 }

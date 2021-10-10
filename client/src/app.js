@@ -37,7 +37,7 @@ export default class App extends Component {
             darkMode: true,
             year: false,
             nightFlightProg: false,
-            top: 0,
+            top: '-2%',
             left: `25%`,
         };
     }
@@ -266,48 +266,15 @@ export default class App extends Component {
                                 )}
                                 {this.state.nightFlightProg && (
                                     <div
-                                        draggable
                                         className="mixCloudPlayerControls"
                                         style={{
                                             top: this.state.top,
                                             left: this.state.left,
                                         }}
-                                        onDragCapture={(e) => {
-                                            this.setState({
-                                                top: e.pageY,
-                                                left:
-                                                    e.screenX -
-                                                    e.screenX * (10 / 100),
-                                            });
-                                        }}
-                                        onTouchStart={(e) => {
-                                            this.setState({
-                                                top: e.changedTouches[0].pageY,
-                                                left:
-                                                    e.changedTouches[0]
-                                                        .screenX -
-                                                    e.changedTouches[0]
-                                                        .screenX *
-                                                        (10 / 100),
-                                            });
-                                        }}
-                                        onDragEndCapture={(e) => {
-                                            this.setState({
-                                                top: e.pageY,
-                                                left:
-                                                    e.screenX -
-                                                    e.screenX * (10 / 100),
-                                            });
-                                        }}
-                                        onTouchMoveCapture={(e) => {
-                                            this.setState({
-                                                top: e.changedTouches[0].pageY,
-                                                left: e.changedTouches[0].pageX,
-                                            });
-                                        }}
                                     >
                                         <div className="broadcastScroller">
                                             <div
+                                                className="radioControlsSymbol"
                                                 onClick={(e) => {
                                                     if (
                                                         this.state
@@ -327,9 +294,13 @@ export default class App extends Component {
                                                     }
                                                 }}
                                             >
-                                                🡄<div>prv</div>
+                                                🡄
+                                                <div className="radioControls">
+                                                    prev
+                                                </div>
                                             </div>
                                             <div
+                                                className="radioControlsSymbol"
                                                 onClick={(e) => {
                                                     if (
                                                         this.state
@@ -353,27 +324,29 @@ export default class App extends Component {
                                                     }
                                                 }}
                                             >
-                                                🡆<div>nxt</div>
+                                                🡆
+                                                <div className="radioControls">
+                                                    next
+                                                </div>
                                             </div>
                                             <div
+                                                className="radioControlsSymbol"
                                                 onClick={(e) => {
                                                     this.setRadioBroadcast(
                                                         false
                                                     );
                                                 }}
                                             >
-                                                x<div>close</div>
+                                                x
+                                                <div className="radioControls">
+                                                    close
+                                                </div>
                                             </div>
                                         </div>
                                         <ReactPlayer
                                             url={
-                                                this.state.nightFlightProg
-                                                    .href ||
-                                                radioBroadcasts
-                                                    .radioBroadcasts[0].href
+                                                this.state.nightFlightProg.href
                                             }
-                                            stopOnUnmount={false}
-                                            pip={false}
                                             controls
                                             config={{
                                                 mixcloud: {
@@ -383,7 +356,51 @@ export default class App extends Component {
                                                 },
                                             }}
                                             id="mixCloudPlayer"
+                                            width="100%"
+                                            height="100%"
                                         />
+                                        <div
+                                            className="dragPlayer"
+                                            draggable
+                                            onDragCapture={(e) => {
+                                                this.setState({
+                                                    top: e.pageY - 50,
+                                                    left:
+                                                        e.screenX -
+                                                        50 -
+                                                        e.screenX * 0.1,
+                                                });
+                                            }}
+                                            onTouchStart={(e) => {
+                                                this.setState({
+                                                    top: e.changedTouches[0]
+                                                        .pageY,
+                                                    left:
+                                                        e.changedTouches[0]
+                                                            .screenX -
+                                                        e.changedTouches[0]
+                                                            .screenX *
+                                                            0.1,
+                                                });
+                                            }}
+                                            onDragEndCapture={(e) => {
+                                                this.setState({
+                                                    top: e.pageY - 50,
+                                                    left:
+                                                        e.screenX -
+                                                        50 -
+                                                        e.screenX * 0.1,
+                                                });
+                                            }}
+                                            onTouchMoveCapture={(e) => {
+                                                this.setState({
+                                                    top: e.changedTouches[0]
+                                                        .pageY,
+                                                    left: e.changedTouches[0]
+                                                        .pageX,
+                                                });
+                                            }}
+                                        ></div>
                                     </div>
                                 )}
                             </div>

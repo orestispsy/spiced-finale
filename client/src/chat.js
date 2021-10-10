@@ -11,7 +11,6 @@ import useSound from "use-sound";
 
 import chatSfx from "./../public/msg.mp3";
 import chatEnterSfx from "./../public/chatEnter.mp3";
-import tickerSfx from "./../public/ticker.mp3";
 import kickedOut from "./../public/kickedOut.mp3";
 import hornSfx from "./../public/horn.mp3";
 import privateMSGSfx from "./../public/privateMSG.mp3";
@@ -50,7 +49,7 @@ export default function Chat({
 
     const [play] = useSound(chatSfx, { volume: 0.75 });
     const [playIntro] = useSound(chatEnterSfx, { volume: 0.5 });
-    const [playTicker, { stop }] = useSound(tickerSfx, { volume: 0.75 });
+
     const [playKickedOut] = useSound(kickedOut, { volume: 0.75 });
     const [playHorn] = useSound(hornSfx, { volume: 0.75 });
     const [playPrivateMsg] = useSound(privateMSGSfx, { volume: 0.75 });
@@ -575,7 +574,6 @@ export default function Chat({
                                             className="mute"
                                             onClick={() => {
                                                 setMute(!mute);
-                                                stop();
                                             }}
                                         ></div>
                                     )}
@@ -645,11 +643,6 @@ export default function Chat({
                     }
 
                     toggleTicker(!tickerBar);
-                    if (!tickerBar && !mute) {
-                        playTicker();
-                    } else {
-                        stop();
-                    }
                 }}
             >
                 {tickerBar && `Stop Ticker`} {!tickerBar && `Start Ticker`}
