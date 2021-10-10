@@ -270,16 +270,23 @@ export default class App extends Component {
                                         className="mixCloudPlayerControls"
                                         style={{
                                             top: this.state.top,
-                                            left: this.state.left
+                                            left: this.state.left,
                                         }}
                                         onDragCapture={(e) => {
                                             this.setState({
                                                 top: e.pageY,
                                                 left:
-                                                    e.screenX-(e.screenX*(10/100))
+                                                    e.screenX -
+                                                    e.screenX * (10 / 100),
                                             });
-                                    
-                                    
+                                        }}
+                                        onTouchStartCapture={(e) => {
+                                            this.setState({
+                                                top: e.pageY,
+                                                left:
+                                                    e.screenX -
+                                                    e.screenX * (10 / 100),
+                                            });
                                         }}
                                         onDragEndCapture={(e) => {
                                             this.setState({
@@ -288,7 +295,14 @@ export default class App extends Component {
                                                     e.screenX -
                                                     e.screenX * (10 / 100),
                                             });
-                                   
+                                        }}
+                                        onTouchEndCapture={(e) => {
+                                            this.setState({
+                                                top: e.pageY,
+                                                left:
+                                                    e.screenX -
+                                                    e.screenX * (10 / 100),
+                                            });
                                         }}
                                     >
                                         <div className="broadcastScroller">
