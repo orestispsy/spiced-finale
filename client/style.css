@@ -4545,10 +4545,12 @@ input[type="number"] {
     flex-direction: row-reverse;
     justify-content: center;
     position: fixed;
-    top: 0%;
-    right: 12vmax;
+    cursor:move;
 height:8vh!important;
     z-index: 597623495873264;
+    background-color:rgba(0, 255, 170, 0.178);
+    padding:1vh 0 0 1vh;
+    border-radius:0.5vh;
 }
 
 .mixCloudPlayerControls div {

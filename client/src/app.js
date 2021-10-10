@@ -1,7 +1,7 @@
 import { Component } from "react";
+import ReactDOM from "react-dom";
 import axios from "./tools/axios";
 import { BrowserRouter, Route, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import Main from "./main";
 import MyMap from "./map";
 import GigCreator from "./gigCreator";
@@ -15,13 +15,12 @@ import ReactPlayer from "react-player";
 
 import radioBroadcasts from "./tools/radioBroadcasts";
 
-console.log(radioBroadcasts);
-
 var body = document.querySelectorAll("body");
 
 export default class App extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             maps: false,
             list: false,
@@ -38,6 +37,8 @@ export default class App extends Component {
             darkMode: true,
             year: false,
             nightFlightProg: false,
+            top:0,
+            left: `60%`
         };
     }
 
@@ -264,7 +265,32 @@ export default class App extends Component {
                                     ></Link>
                                 )}
                                 {this.state.nightFlightProg && (
-                                    <div className="mixCloudPlayerControls">
+                                    <div
+                                        draggable
+                                        className="mixCloudPlayerControls"
+                                        style={{
+                                            top: this.state.top,
+                                            left: this.state.left
+                                        }}
+                                        onDragCapture={(e) => {
+                                            this.setState({
+                                                top: e.pageY,
+                                                left:
+                                                    e.screenX-(e.screenX*(10/100))
+                                            });
+                                    
+                                    
+                                        }}
+                                        onDragEndCapture={(e) => {
+                                            this.setState({
+                                                top: e.pageY,
+                                                left:
+                                                    e.screenX -
+                                                    e.screenX * (10 / 100),
+                                            });
+                                   
+                                        }}
+                                    >
                                         <div className="broadcastScroller">
                                             <div
                                                 onClick={(e) => {
@@ -326,8 +352,13 @@ export default class App extends Component {
                                         </div>
                                         <ReactPlayer
                                             url={
-                                                this.state.nightFlightProg.href
+                                                this.state.nightFlightProg
+                                                    .href ||
+                                                radioBroadcasts
+                                                    .radioBroadcasts[0].href
                                             }
+                                            stopOnUnmount={false}
+                                            pip={false}
                                             controls
                                             config={{
                                                 mixcloud: {
