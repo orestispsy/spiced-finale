@@ -37,8 +37,8 @@ export default class App extends Component {
             darkMode: true,
             year: false,
             nightFlightProg: false,
-            top:0,
-            left: `60%`
+            top: 0,
+            left: `25%`,
         };
     }
 
@@ -280,12 +280,15 @@ export default class App extends Component {
                                                     e.screenX * (10 / 100),
                                             });
                                         }}
-                                        onTouchMove={(e) => {
+                                        onTouchStart={(e) => {
                                             this.setState({
-                                                top: e.pageY,
+                                                top: e.changedTouches[0].pageY,
                                                 left:
-                                                    e.screenX -
-                                                    e.screenX * (10 / 100),
+                                                    e.changedTouches[0]
+                                                        .screenX -
+                                                    e.changedTouches[0]
+                                                        .screenX *
+                                                        (10 / 100),
                                             });
                                         }}
                                         onDragEndCapture={(e) => {
@@ -296,12 +299,10 @@ export default class App extends Component {
                                                     e.screenX * (10 / 100),
                                             });
                                         }}
-                                        onTouchEnd={(e) => {
+                                        onTouchMoveCapture={(e) => {
                                             this.setState({
-                                                top: e.pageY,
-                                                left:
-                                                    e.screenX -
-                                                    e.screenX * (10 / 100),
+                                                top: e.changedTouches[0].pageY,
+                                                left: e.changedTouches[0].pageX,
                                             });
                                         }}
                                     >
@@ -382,8 +383,6 @@ export default class App extends Component {
                                                 },
                                             }}
                                             id="mixCloudPlayer"
-                                            width="100%"
-                                            height="100%"
                                         />
                                     </div>
                                 )}

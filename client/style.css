@@ -1576,6 +1576,12 @@ margin-top:1vmax !important;
 
 width:20vw !important;
 }
+
+.mixCloudPlayerControls  {
+
+    height:5vh !important
+
+}
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -4546,7 +4552,7 @@ input[type="number"] {
     justify-content: center;
     position: fixed;
     cursor:move;
-height:8vh!important;
+    height:8vh;
     z-index: 597623495873264;
     background-color:rgba(0, 255, 170, 0.178);
     padding:1vh 0 0 1vh;
