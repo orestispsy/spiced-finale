@@ -1571,15 +1571,14 @@ input {
     }
 
     .broadcastScroller {
-        margin-top: 1vmax !important;
+        margin-top: 2vmax !important;
         align-items: flex-start !important;
-
-        width: 20vw !important;
+        width: 22vw !important;
     }
 
     .mixCloudPlayerControls {
-        height: 5vh !important;
-        width:60vw !important
+        height: 6vh !important;
+        width: 60vw !important;
     }
 }
 
@@ -2023,14 +2022,14 @@ input {
         margin-bottom: 5vmax !important;
     }
 
-        .mixCloudPlayerControls {
-        height:14vh !important;
-        width:60vw !important
+    .mixCloudPlayerControls {
+        height: 14vh !important;
+        width: 60vw !important;
     }
 
-    .dragPlayer{
-        height:3vmax !important;
-        width:4vmax !important
+    .dragPlayer {
+        height: 3vmax !important;
+        width: 4vmax !important;
     }
 }
 
@@ -4583,14 +4582,18 @@ input[type="number"] {
 
 .radioControlsSymbol {
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mixCloudPlayerControls div:nth-child(3) {
+    margin-top: -0.4vmax;
 }
 
 .radioControlsSymbol:hover {
     color: white;
-}
-
-.mixCloudPlayerControls div:nth-child(3) {
-    margin-top: 0.1vmax;
 }
 
 .broadcastScroller {
@@ -4602,15 +4605,47 @@ input[type="number"] {
 
 .dragPlayer {
     background-image: url("drag.png");
-    width: 3.2vmax;
+    width: 3.3vmax;
     height: 2.1vmax;
     background-size: cover;
     margin: 0 1vmax;
-    cursor: move;
+    cursor: grabbing;
     align-self: center;
     filter: invert(100%);
 }
 
 .dragPlayer:hover {
     filter: invert(90%);
+}
+
+#broadLeft {
+    background-image: url("left.png");
+    width: 1.2vmax;
+    height: 0.8vmax;
+    background-size: cover;
+    margin-bottom: 0.1vmax;
+}
+
+#broadRight {
+    background-image: url("right.png");
+    width: 1.2vmax;
+    height: 0.8vmax;
+    background-size: cover;
+    margin-bottom: 0.1vmax;
+}
+
+#broadLeft:hover,
+#broadRight:hover {
+    filter: invert(50%);
+}
+
+#broadClose {
+    font-size: 1.2vmax;
+    color: rgb(100, 210, 253);
+    margin-bottom: -0.2vmax;
+    margin-top: 0.1vmax;
+}
+
+#broadClose:hover {
+    color: rgb(255, 65, 65);
 }

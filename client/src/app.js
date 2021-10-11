@@ -37,7 +37,7 @@ export default class App extends Component {
             darkMode: true,
             year: false,
             nightFlightProg: false,
-            top: '-2%',
+            top: "-2%",
             left: `25%`,
         };
     }
@@ -273,58 +273,59 @@ export default class App extends Component {
                                         }}
                                     >
                                         <div className="broadcastScroller">
-                                            <div
-                                                className="radioControlsSymbol"
-                                                onClick={(e) => {
-                                                    if (
-                                                        this.state
-                                                            .nightFlightProg
-                                                            .id <= 0
-                                                    ) {
-                                                        return;
-                                                    } else {
-                                                        this.setRadioBroadcast(
-                                                            radioBroadcasts
-                                                                .radioBroadcasts[
-                                                                this.state
-                                                                    .nightFlightProg
-                                                                    .id - 1
-                                                            ]
-                                                        );
-                                                    }
-                                                }}
-                                            >
-                                                🡄
+                                            <div className="radioControlsSymbol">
+                                                <div
+                                                    id="broadLeft"
+                                                    onClick={(e) => {
+                                                        if (
+                                                            this.state
+                                                                .nightFlightProg
+                                                                .id <= 0
+                                                        ) {
+                                                            return;
+                                                        } else {
+                                                            this.setRadioBroadcast(
+                                                                radioBroadcasts
+                                                                    .radioBroadcasts[
+                                                                    this.state
+                                                                        .nightFlightProg
+                                                                        .id - 1
+                                                                ]
+                                                            );
+                                                        }
+                                                    }}
+                                                ></div>
                                                 <div className="radioControls">
                                                     prev
                                                 </div>
                                             </div>
-                                            <div
-                                                className="radioControlsSymbol"
-                                                onClick={(e) => {
-                                                    if (
-                                                        this.state
-                                                            .nightFlightProg
-                                                            .id >=
-                                                        radioBroadcasts
-                                                            .radioBroadcasts
-                                                            .length -
-                                                            1
-                                                    ) {
-                                                        return;
-                                                    } else {
-                                                        this.setRadioBroadcast(
+                                            <div className="radioControlsSymbol">
+                                                <div
+                                                    id="broadRight"
+                                                    onClick={(e) => {
+                                                        if (
+                                                            this.state
+                                                                .nightFlightProg
+                                                                .id >=
                                                             radioBroadcasts
-                                                                .radioBroadcasts[
-                                                                this.state
-                                                                    .nightFlightProg
-                                                                    .id + 1
-                                                            ]
-                                                        );
-                                                    }
-                                                }}
-                                            >
-                                                🡆
+                                                                .radioBroadcasts
+                                                                .length -
+                                                                1
+                                                        ) {
+                                                            return;
+                                                        } else {
+                                                            this.setRadioBroadcast(
+                                                                radioBroadcasts
+                                                                    .radioBroadcasts[
+                                                                    this.state
+                                                                        .nightFlightProg
+                                                                        .id + 1
+                                                                ]
+                                                            );
+                                                        }
+                                                    }}
+                                                ></div>
+
                                                 <div className="radioControls">
                                                     next
                                                 </div>
@@ -337,7 +338,8 @@ export default class App extends Component {
                                                     );
                                                 }}
                                             >
-                                                x
+                                                <div id="broadClose">x</div>
+
                                                 <div className="radioControls">
                                                     close
                                                 </div>
@@ -364,10 +366,9 @@ export default class App extends Component {
                                             draggable
                                             onDragCapture={(e) => {
                                                 this.setState({
-                                                    top: e.pageY - 50,
+                                                    top: e.pageY,
                                                     left:
                                                         e.screenX -
-                                                        50 -
                                                         e.screenX * 0.1,
                                                 });
                                             }}
@@ -385,10 +386,9 @@ export default class App extends Component {
                                             }}
                                             onDragEndCapture={(e) => {
                                                 this.setState({
-                                                    top: e.pageY - 50,
+                                                    top: e.pageY,
                                                     left:
                                                         e.screenX -
-                                                        50 -
                                                         e.screenX * 0.1,
                                                 });
                                             }}
