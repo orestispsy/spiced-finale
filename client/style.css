@@ -1580,6 +1580,12 @@ input {
         height: 6vh !important;
         width: 60vw !important;
     }
+
+    .jukeBox{
+        height:4vmax !important;
+        width:5vmax !important;
+        bottom: 3.5vmax !important
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -4648,4 +4654,19 @@ input[type="number"] {
 
 #broadClose:hover {
     color: rgb(255, 65, 65);
+}
+
+.jukeBox {
+    position:fixed;
+    bottom:2.3vmax;
+    right:1.7vmax;
+    width:3vmax;
+    height:2.5vmax;
+        background-size: cover;
+        background-image: url("jukebox.png");
+        cursor:pointer;
+}
+
+.jukeBox:hover {
+     background-image: url("jukebox2.png");
 }

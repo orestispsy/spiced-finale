@@ -630,18 +630,22 @@ export default function Chat({
                     setShakeUser={(e) => setShakeUser(e)}
                 />
             </div>
-
-            <div
-                className="tickerButton"
-                onClick={() => {
-                    if (!nightFlightProg && !tickerBar) {
+          {!nightFlightProg &&  <div
+                className="jukeBox"
+                onClick={(e) => {
+                    if (!nightFlightProg) {
                         setRadioBroadcast(
                             radioBroadcasts.radioBroadcasts[
                                 radioBroadcasts.radioBroadcasts.length - 1
                             ]
                         );
                     }
-
+                }}
+            ></div>}
+            <div
+                className="tickerButton"
+                onClick={(e) => {
+            
                     toggleTicker(!tickerBar);
                 }}
             >
