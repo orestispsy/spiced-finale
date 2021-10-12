@@ -4611,17 +4611,18 @@ input[type="number"] {
 
 .dragPlayer {
     background-image: url("drag.png");
-    width: 3.3vmax;
-    height: 2.1vmax;
+          width: 2.6vmax;
+    height: 1.7vmax;
+ 
     background-size: cover;
     margin: 0 1vmax;
     cursor: grabbing;
     align-self: center;
-    filter: invert(100%);
+       filter: invert(60%);
 }
 
 .dragPlayer:hover {
-    filter: invert(90%);
+ filter: invert(100%);
 }
 
 #broadLeft {

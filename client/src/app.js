@@ -37,8 +37,8 @@ export default class App extends Component {
             darkMode: true,
             year: false,
             nightFlightProg: false,
-            top: "-2%",
-            left: `25%`,
+            top: "1%",
+            left: `35%`,
         };
     }
 
