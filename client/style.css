@@ -1576,6 +1576,10 @@ input {
         width: 22vw !important;
     }
 
+    #mixCloudPlayer {
+        margin-top: 0.7vmax !important
+    }
+
     .mixCloudPlayerControls {
         height: 6vh !important;
         width: 60vw !important;
@@ -1586,6 +1590,7 @@ input {
         width:5vmax !important;
         bottom: 3.5vmax !important
     }
+
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {

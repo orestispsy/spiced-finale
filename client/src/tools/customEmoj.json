@@ -177,18 +177,36 @@
     },
     {
         "id": "45",
-        "url": "./../chat/flag.gif"
+        "url": "./../chat/fishing.gif"
     },
     {
         "id": "46",
+        "url": "./../chat/flag.gif"
+    },
+
+    {
+        "id": "47",
         "url": "./../chat/sun2.gif"
     },
     {
-        "id": "47",
+        "id": "48",
         "url": "./../chat/phoenix.gif"
     },
     {
-        "id": "48",
+        "id": "49",
         "url": "./../chat/waves.gif"
+    },
+
+    {
+        "id": "50",
+        "url": "./../chat/arcade.gif"
+    },
+    {
+        "id": "51",
+        "url": "./../chat/headphones.gif"
+    },
+    {
+        "id": "52",
+        "url": "./../chat/lightspeed.gif"
     }
 ]
