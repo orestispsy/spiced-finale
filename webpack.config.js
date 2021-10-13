@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
 
 module.exports = () => ({
+
     entry: [
         "@babel/polyfill",
         path.join(__dirname, "client", "style.css"),
@@ -66,5 +67,6 @@ module.exports = () => ({
             "process.env": JSON.stringify(process.env),
             "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
         }),
+
     ],
 });

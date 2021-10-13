@@ -58,7 +58,6 @@ module.exports.getGigToEdit = (date) => {
     const q = `
         SELECT *
         FROM gigs WHERE gigs.date = $1
-
         `;
     const params = [date];
     return db.query(q, params);
@@ -261,7 +260,7 @@ module.exports.deleteAllUserPosts = (id) => {
 
 module.exports.getAllUsers = () => {
     const q = `
-        SELECT DISTINCT ON (msg_sender_id) community.id, community.nickname, chat_msg, chat_img, admin, super_admin, chatroom.created_at
+        SELECT DISTINCT ON (msg_sender_id) community.id, community.nickname, chat_msg, chat_img, admin, super_admin,  last_online, chatroom.created_at
         FROM chatroom
         JOIN community
         ON (community.id = msg_sender_id)
@@ -277,6 +276,15 @@ module.exports.setUserAdmin = (id, boolean) => {
         WHERE community.id = $1
      `;
     const params = [id, boolean];
+    return db.query(q, params);
+};
+
+module.exports.setLastOnline = (id) => {
+    const q = `
+        UPDATE community SET last_online = NOW()
+        WHERE community.id = $1
+     `;
+    const params = [id];
     return db.query(q, params);
 };
 
@@ -446,7 +454,7 @@ module.exports.getNetworkUsers = () => {
     return db.query(q);
 };
 
-module.exports.getGuests= () => {
+module.exports.getGuests = () => {
     const q = `
        SELECT * FROM community WHERE nickname ILIKE 'GUEST%';
     `;

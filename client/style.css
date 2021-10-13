@@ -2295,7 +2295,6 @@ input {
 
 .logout {
     font-size: 1.1vmax;
-
     color: rgb(0, 102, 255);
     cursor: pointer;
     font-family: "Black Ops One", cursive;
@@ -4509,6 +4508,12 @@ input[type="number"] {
     background-color: black;
     color: #00ff88;
 }
+
+.chooseSuperUserModeOld {
+    background-color: black;
+    color: #ff6600;
+}
+
 
 .selectGuestSuperMode {
     text-align: center;

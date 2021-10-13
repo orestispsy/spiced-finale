@@ -731,7 +731,12 @@ io.on("connection", function (socket) {
     socket.on("HORN", (data) => {
         for (var [keyH, valueH] of Object.entries(onlineUsers)) {
             if (valueH == data.user) {
-                socket.broadcast.to(keyH).emit("horn", { horn: data.horn, admin_shaked: data.admin_shaked });
+                socket.broadcast
+                    .to(keyH)
+                    .emit("horn", {
+                        horn: data.horn,
+                        admin_shaked: data.admin_shaked,
+                    });
             }
         }
     });
@@ -739,6 +744,9 @@ io.on("connection", function (socket) {
     // console.log(`socket ${socket.id} connected`);
 
     socket.on("disconnect", () => {
+          db.setLastOnline(userId)
+              .then(({ rows }) => {})
+              .catch((err) => console.log(err));
         socket.emit("browserCount", count--);
         var userIdDisconnected = onlineUsers[socket.id];
         var userStillOnline = false;

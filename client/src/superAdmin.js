@@ -9,6 +9,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
     const [selectedUser, setSelectedUser] = useState(0);
     const [guestUser, setGuestUser] = useState(0);
     const [guestDeleteConfirm, setGuestDeleteConfirm] = useState(false);
+    const [networkUsers, setNetworkUsers] = useState(false);
 
     useEffect(function () {
         if (!super_admin) {
@@ -24,12 +25,20 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                 console.log("err in axios get-all-users ", err);
             });
         axios
+            .get("/get-network-users")
+            .then(({ data }) => {
+                setNetworkUsers(data.data);
+            })
+            .catch((err) => {
+                console.log("err in axios get-network-users", err);
+            });
+        axios
             .get("/get-guests")
             .then(({ data }) => {
                 setGuestList(data.data);
             })
             .catch((err) => {
-                console.log("err in axios get-all-users ", err);
+                console.log("err in axios get-guests", err);
             });
     }, []);
 
@@ -38,12 +47,11 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
             .get("/delete-guests")
             .then(({ data }) => {})
             .catch((err) => {
-                console.log("err in axios get-all-users ", err);
+                console.log("err in axios delete-guests", err);
             });
     };
 
     const deleteUser = (e) => {
-        console.log(e);
         axios
             .post("/delete-user", { id: e })
             .then(({ data }) => {
@@ -51,14 +59,14 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                 setSelectedUser(false);
             })
             .catch((err) => {
-                console.log("err in axios get-all-users ", err);
+                console.log("err in axios delete-user ", err);
             });
     };
 
     const setAdmin = (e, boolean) => {
-        for (var x = 0; x < userList.length; x++) {
-            if (userList[x].id == e) {
-                let newList = [...userList];
+        for (var x = 0; x < networkUsers.length; x++) {
+            if (networkUsers[x].id == e) {
+                let newList = [...networkUsers];
                 newList[x].admin = !boolean;
                 setUserList(newList);
             }
@@ -67,7 +75,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
             .post("/set-admin", { id: e, boolean: !boolean })
             .then(({ data }) => {})
             .catch((err) => {
-                console.log("err in axios get-all-users ", err);
+                console.log("err in axios set-admin", err);
             });
     };
 
@@ -77,11 +85,11 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
     let msgTime;
     let diff = new Date().getTimezoneOffset() / -60;
     const handleTime = (e) => {
-        if (e.created_at) {
-            msgDate = e.created_at.slice(0, 10).split("-");
+        if (e) {
+            msgDate = e.slice(0, 10).split("-");
             fixedDate = msgDate[2] + "-" + msgDate[1] + "-" + msgDate[0];
 
-            msgTime = e.created_at.slice(11, 19).split(":");
+            msgTime = e.slice(11, 19).split(":");
 
             if (msgTime[0].startsWith("0")) {
                 msgTime[0] = msgTime[0].slice(1, 2);
@@ -97,9 +105,9 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
     };
 
     const setSuperAdmin = (e, boolean) => {
-        for (var x = 0; x < userList.length; x++) {
-            if (userList[x].id == e) {
-                let newList = [...userList];
+        for (var x = 0; x < networkUsers.length; x++) {
+            if (networkUsers[x].id == e) {
+                let newList = [...networkUsers];
                 newList[x].super_admin = !boolean;
                 setUserList(newList);
             }
@@ -130,7 +138,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
 
                     {userList &&
                         userList.map((user) => {
-                            handleTime(user);
+                            handleTime(user.created_at);
                             return (
                                 chat_myUserId != user.id &&
                                 !user.nickname.includes("Guest") && (
@@ -151,6 +159,32 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                 )
                             );
                         })}
+                    {networkUsers &&
+                        networkUsers
+                            .filter((user) => !user.last_online)
+                            .map((user) => {
+                                handleTime(user.created_at);
+
+                                return (
+                                    chat_myUserId != user.id &&
+                                    !user.nickname.includes("Guest") && (
+                                        <option
+                                            value={user.id}
+                                            key={user.id}
+                                            className="chooseSuperUserModeOld"
+                                        >
+                                            {user.nickname}
+                                            {" ○ "}
+                                            {msgDate[2] + "-" + msgDate[1]}
+                                            {" || "}
+                                            {JSON.parse(msgTime[0]) +
+                                                diff +
+                                                ":" +
+                                                msgTime[1]}
+                                        </option>
+                                    )
+                                );
+                            })}
                 </select>
                 {selectedUser > 0 && (
                     <div
@@ -209,7 +243,9 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                             </option>
                                             {guestList &&
                                                 guestList.map((guest) => {
-                                                    handleTime(guest);
+                                                    handleTime(
+                                                        guest.created_at
+                                                    );
                                                     return (
                                                         <option
                                                             value={guest.id}
@@ -307,11 +343,11 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                         </div>
                     </div>
                 )}
-                {userList &&
-                    userList.map((user) => {
+                {networkUsers &&
+                    networkUsers.map((user) => {
                         var diff = new Date().getTimezoneOffset() / -60;
                         if (user.created_at) {
-                            handleTime(user);
+                            handleTime(user.created_at);
                         }
                         return (
                             <React.Fragment key={user.id}>
