@@ -4514,6 +4514,11 @@ input[type="number"] {
     color: #ff6600;
 }
 
+.chooseSuperUserModeOldLight {
+   color:rgb(217, 255, 0);
+     background-color: black;
+}
+
 
 .selectGuestSuperMode {
     text-align: center;

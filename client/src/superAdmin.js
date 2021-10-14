@@ -56,6 +56,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
             .post("/delete-user", { id: e })
             .then(({ data }) => {
                 setUserList(userList.filter((user) => user.id != e));
+                setNetworkUsers(networkUsers.filter((user) => user.id != e));
                 setSelectedUser(false);
             })
             .catch((err) => {
@@ -163,7 +164,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                     {networkUsers &&
                         userList &&
                         networkUsers.map((user) => {
-                            handleTime(user.created_at);
+                            handleTime(user.last_online || user.created_at);
                             function userExists(id) {
                                 return userList.some(function (user) {
                                     return user.id === id;
@@ -177,8 +178,14 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                     <option
                                         value={user.id}
                                         key={user.id}
-                                        className="chooseSuperUserModeOld"
+                                        className={
+                                            (!user.last_online &&
+                                                "chooseSuperUserModeOld") ||
+                                            (user.last_online &&
+                                                "chooseSuperUserModeOldLight")
+                                        }
                                     >
+                                        {user.last_online && " ⌛ "}
                                         {user.nickname}
                                         {" ○ "}
                                         {msgDate[2] + "-" + msgDate[1]}
