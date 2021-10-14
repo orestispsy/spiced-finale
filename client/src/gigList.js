@@ -25,6 +25,7 @@ export default function GigList({
         { id: "11", month: "November" },
         { id: "12", month: "December" },
     ]);
+    const [shownGigs, setShownGigs] = useState(11);
 
     const elemRef = useRef();
 
@@ -124,11 +125,22 @@ export default function GigList({
                     className="gigEntries"
                     style={{
                         height: year && `48vh`,
-                        flexDirection: !year && `row-reverse`,
                         marginTop: !year && `1vmax`,
                     }}
                     ref={elemRef}
                     onScrollCapture={(e) => {
+                        if (
+                            elemRef.current.scrollTop +
+                                elemRef.current.clientHeight +
+                                1 >=
+                            elemRef.current.scrollHeight
+                        ) {
+                            if (shownGigs >= gigsList.length - 1) {
+                                setShownGigs(gigsList.length);
+                            } else {
+                                setShownGigs(shownGigs + 4);
+                            }
+                        }
                         setListScroller(elemRef.current.scrollTop);
                     }}
                 >
@@ -214,7 +226,8 @@ export default function GigList({
                         !year &&
                         !sortedGigs &&
                         gigsList
-                            .slice(gigsList.length - 4, gigsList.length)
+                            .slice(gigsList.length - shownGigs, gigsList.length)
+                            .reverse()
                             .map((gig) => (
                                 <Link to={`/api/gig/${gig.id}`} key={gig.id}>
                                     <div className="gigBox">
