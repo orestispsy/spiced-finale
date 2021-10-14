@@ -149,6 +149,8 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                         key={user.id}
                                         className="chooseSuperUserMode"
                                     >
+                                      
+                                        {" ❂ "}
                                         {user.nickname}
                                         {" ○ "}
                                         {msgDate[2] + "-" + msgDate[1]}
@@ -185,7 +187,8 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                 "chooseSuperUserModeOldLight")
                                         }
                                     >
-                                        {user.last_online && " ⌛ "}
+                                        {user.last_online && " ◍ "}
+                                        {!user.last_online && " ◎ "}
                                         {user.nickname}
                                         {" ○ "}
                                         {msgDate[2] + "-" + msgDate[1]}
@@ -265,6 +268,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                             key={guest.id}
                                                             className="chooseGuestSuperMode"
                                                         >
+                                                            
                                                             {guest.nickname}
                                                             {" ○ "}
                                                             {msgDate[2] +
