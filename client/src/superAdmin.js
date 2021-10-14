@@ -359,9 +359,9 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                 {networkUsers &&
                     networkUsers.map((user) => {
                         var diff = new Date().getTimezoneOffset() / -60;
-                        if (user.created_at) {
-                            handleTime(user.created_at);
-                        }
+
+                        handleTime(user.last_online || user.created_at);
+
                         return (
                             <React.Fragment key={user.id}>
                                 {chat_myUserId != user.id &&
@@ -377,14 +377,8 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                     ></img>
                                                     <h1>{user.nickname}</h1>
                                                     <div>Last Online</div>
-                                                    <span>
-                                                        {user.created_at &&
-                                                            fixedDate}
-                                                    </span>
-                                                    <span>
-                                                        {user.created_at &&
-                                                            fixedTime}
-                                                    </span>
+                                                    <span>{fixedDate}</span>
+                                                    <span>{fixedTime}</span>
                                                 </div>
                                                 <div
                                                     className="superListItem"
