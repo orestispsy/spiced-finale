@@ -491,6 +491,7 @@ export default function Chat({
                                                     <div className="post">
                                                         <div className="userChatDetails">
                                                             <img
+                                                            className="postImg"
                                                                 src={
                                                                     msg.chat_img ||
                                                                     "./../na.jpg"

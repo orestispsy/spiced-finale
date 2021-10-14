@@ -1472,7 +1472,7 @@ input {
         padding: 0.1vmax !important;
     }
 
-    .post img {
+    .postImg {
         width: 4vmax !important;
         height: 4vmax !important;
     }
@@ -1576,7 +1576,7 @@ input {
     }
 
     #mixCloudPlayer {
-        margin-top: 0.7vmax !important
+        margin-top: 0.7vmax !important;
     }
 
     .mixCloudPlayerControls {
@@ -1584,12 +1584,15 @@ input {
         width: 60vw !important;
     }
 
-    .jukeBox{
-        height:4vmax !important;
-        width:5vmax !important;
-        bottom: 3.5vmax !important
+    .jukeBox {
+        height: 4vmax !important;
+        width: 5vmax !important;
+        bottom: 3.5vmax !important;
     }
 
+    .emojis {
+        max-height: 12vmax !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1722,7 +1725,7 @@ input {
         border-radius: 3vh !important;
     }
 
-    .post img {
+    .postImg {
         width: 3vmax !important;
         height: 3vmax !important;
     }
@@ -2146,10 +2149,9 @@ input {
     margin-bottom: -0.2vmax;
 }
 
-#gigEntries{
+#gigEntries {
     width: 90vw;
-    height:34vh;
-
+    height: 34vh;
 }
 
 .gigEntries {
@@ -2162,7 +2164,7 @@ input {
     justify-content: center;
     letter-spacing: 1px;
     margin-left: -2vmax;
-    padding-bottom:1vmax;
+    padding-bottom: 1vmax;
     overflow-y: auto;
     flex-wrap: wrap;
 }
@@ -2795,7 +2797,7 @@ font-family: 'Ultra', serif; */
     margin-left: -0.2vmax;
 }
 
-.post img {
+.postImg {
     width: 2.2vmax;
     height: 2.2vmax;
     border-radius: 0.5vmax;
@@ -2834,9 +2836,9 @@ font-family: 'Ultra', serif; */
 
 .emojis {
     position: relative;
-    left: 45%;
-    height: 6vmax !important;
-    width: 6vmax !important;
+    left: 40%;
+    max-height: 10vmax;
+    max-width: 8vmax;
     margin: 1vmax;
     margin-left: auto;
     margin-right: auto;
@@ -4521,10 +4523,9 @@ input[type="number"] {
 }
 
 .chooseSuperUserModeOldLight {
-   color:rgb(217, 255, 0);
-     background-color: black;
+    color: rgb(217, 255, 0);
+    background-color: black;
 }
-
 
 .selectGuestSuperMode {
     text-align: center;
@@ -4632,18 +4633,18 @@ input[type="number"] {
 
 .dragPlayer {
     background-image: url("drag.png");
-          width: 2.6vmax;
+    width: 2.6vmax;
     height: 1.7vmax;
- 
+
     background-size: cover;
     margin: 0 1vmax;
     cursor: grabbing;
     align-self: center;
-       filter: invert(60%);
+    filter: invert(60%);
 }
 
 .dragPlayer:hover {
- filter: invert(100%);
+    filter: invert(100%);
 }
 
 #broadLeft {
@@ -4679,16 +4680,16 @@ input[type="number"] {
 }
 
 .jukeBox {
-    position:fixed;
-    bottom:2.3vmax;
-    right:1.7vmax;
-    width:3vmax;
-    height:2.5vmax;
-        background-size: cover;
-        background-image: url("jukebox.png");
-        cursor:pointer;
+    position: fixed;
+    bottom: 2.3vmax;
+    right: 1.7vmax;
+    width: 3vmax;
+    height: 2.5vmax;
+    background-size: cover;
+    background-image: url("jukebox.png");
+    cursor: pointer;
 }
 
 .jukeBox:hover {
-     background-image: url("jukebox2.png");
+    background-image: url("jukebox2.png");
 }

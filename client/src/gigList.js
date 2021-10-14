@@ -140,7 +140,7 @@ export default function GigList({
                             } else {
                                  const timer = setTimeout(() => {
                                        setShownGigs(shownGigs + 4);
-                                 }, 300);
+                                 }, 200);
                                  return () => clearTimeout(timer);
                               
                             }

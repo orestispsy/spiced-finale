@@ -149,7 +149,6 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                         key={user.id}
                                         className="chooseSuperUserMode"
                                     >
-                                      
                                         {" ❂ "}
                                         {user.nickname}
                                         {" ○ "}
@@ -268,7 +267,6 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                                             key={guest.id}
                                                             className="chooseGuestSuperMode"
                                                         >
-                                                            
                                                             {guest.nickname}
                                                             {" ○ "}
                                                             {msgDate[2] +
