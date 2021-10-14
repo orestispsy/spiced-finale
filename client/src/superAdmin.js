@@ -188,7 +188,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                                         }
                                     >
                                         {user.last_online && " ◍ "}
-                                        {!user.last_online && " ◎ "}
+                                        {!user.last_online && " ◉ "}
                                         {user.nickname}
                                         {" ○ "}
                                         {msgDate[2] + "-" + msgDate[1]}

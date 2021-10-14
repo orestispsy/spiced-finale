@@ -1566,7 +1566,8 @@ input {
     }
 
     #gigEntries {
-        height: 62vh !important;
+        height: 59vh !important;
+        margin-bottom:3vh !important;
     }
 
     .broadcastScroller {
