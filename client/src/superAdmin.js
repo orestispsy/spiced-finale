@@ -139,7 +139,7 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
 
                     {userList &&
                         userList.map((user) => {
-                            handleTime(user.created_at);
+                            handleTime(user.last_online || user.created_at);
 
                             return (
                                 chat_myUserId != user.id &&
