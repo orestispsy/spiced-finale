@@ -137,7 +137,6 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                     </option>
 
                     {userList &&
-                        networkUsers &&
                         userList.map((user) => {
                             handleTime(user.created_at);
 
@@ -163,31 +162,35 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                         })}
                     {networkUsers &&
                         userList &&
-                        networkUsers
-                            .filter((user) => !user.last_online)
-                            .map((user) => {
-                                handleTime(user.created_at);
-                                return (
-                                    chat_myUserId != user.id &&
-                                    userList.indexOf(user) < 0 &&
-                                    !user.nickname.includes("Guest") && (
-                                        <option
-                                            value={user.id}
-                                            key={user.id}
-                                            className="chooseSuperUserModeOld"
-                                        >
-                                            {user.nickname}
-                                            {" ○ "}
-                                            {msgDate[2] + "-" + msgDate[1]}
-                                            {" || "}
-                                            {JSON.parse(msgTime[0]) +
-                                                diff +
-                                                ":" +
-                                                msgTime[1]}
-                                        </option>
-                                    )
-                                );
-                            })}
+                        networkUsers.map((user) => {
+                            handleTime(user.created_at);
+                            function userExists(id) {
+                                return userList.some(function (user) {
+                                    return user.id === id;
+                                });
+                            }
+
+                            return (
+                                chat_myUserId != user.id &&
+                                !user.nickname.includes("Guest") &&
+                                !userExists(user.id) && (
+                                    <option
+                                        value={user.id}
+                                        key={user.id}
+                                        className="chooseSuperUserModeOld"
+                                    >
+                                        {user.nickname}
+                                        {" ○ "}
+                                        {msgDate[2] + "-" + msgDate[1]}
+                                        {" || "}
+                                        {JSON.parse(msgTime[0]) +
+                                            diff +
+                                            ":" +
+                                            msgTime[1]}
+                                    </option>
+                                )
+                            );
+                        })}
                 </select>
                 {selectedUser > 0 && (
                     <div
