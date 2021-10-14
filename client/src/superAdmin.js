@@ -137,8 +137,10 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                     </option>
 
                     {userList &&
+                        networkUsers &&
                         userList.map((user) => {
                             handleTime(user.created_at);
+
                             return (
                                 chat_myUserId != user.id &&
                                 !user.nickname.includes("Guest") && (
@@ -160,13 +162,14 @@ export default function SuperAdmin({ listSet, chat_myUserId, super_admin }) {
                             );
                         })}
                     {networkUsers &&
+                        userList &&
                         networkUsers
                             .filter((user) => !user.last_online)
                             .map((user) => {
                                 handleTime(user.created_at);
-
                                 return (
                                     chat_myUserId != user.id &&
+                                    userList.indexOf(user) < 0 &&
                                     !user.nickname.includes("Guest") && (
                                         <option
                                             value={user.id}
