@@ -138,7 +138,11 @@ export default function GigList({
                             if (shownGigs >= gigsList.length - 1) {
                                 setShownGigs(gigsList.length);
                             } else {
-                                setShownGigs(shownGigs + 4);
+                                 const timer = setTimeout(() => {
+                                       setShownGigs(shownGigs + 4);
+                                 }, 300);
+                                 return () => clearTimeout(timer);
+                              
                             }
                         }
                         setListScroller(elemRef.current.scrollTop);
