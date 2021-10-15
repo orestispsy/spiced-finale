@@ -285,6 +285,10 @@ a:hover {
     width: 100vw;
 }
 
+.gigCreatorContainer, .gigEditorContainer{
+    height:92vh;
+}
+
 .gigEditorContainerInner {
     display: flex;
     flex-direction: column;
@@ -525,6 +529,13 @@ form option {
     flex-direction: row;
     width:min-content
 }
+
+  .coordinatesMenuFlipper {
+        display:flex;
+    
+        align-items: center;
+        justify-content: center;
+    }
 
 .coordinatesMenu {
     display: flex;
@@ -1465,7 +1476,7 @@ input {
     }
 
     .google-map-editor {
-        width: 70vmax !important;
+        width: 55vmax !important;
         height: 50vh !important;
     }
 
@@ -1681,6 +1692,33 @@ input {
         max-height: 12vmax !important;
     }
 
+    .gigMainDetails{
+    flex-wrap: unset !important;
+    flex-direction: column !important;
+    }
+
+    .coordinatesEditorBox {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    form {
+        flex-wrap: unset !important;
+        flex-direction: column !important;
+    }
+
+    .coordinatesMenuFlipper {
+        display:flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .coordinatesMenu{
+        margin-top:-2vmax !important;
+        margin-bottom:2vmax !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {

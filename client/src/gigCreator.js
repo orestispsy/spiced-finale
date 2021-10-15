@@ -179,10 +179,11 @@ export default class GigCreator extends React.Component {
                                     onClick={() => this.handleErrorMsg()}
                                 />
                             </div>
-                            {!this.state.map && (
+                            <div className="coordinatesMenuFlipper">
                                 <div className="coordinatesMenu">
                                     <div className="lngLtdMenu">
-                                        Get ltd/lng
+                                        {!this.state.map && "Get ltd/lng"}{" "}
+                                        {this.state.map && "Close"}
                                     </div>
 
                                     <div
@@ -191,22 +192,21 @@ export default class GigCreator extends React.Component {
                                         onClick={() => this.mapToggler()}
                                     ></div>
                                 </div>
-                            )}
-                            <div className="inputBack">
-                                <span>Longitude*</span>
-                                <input
-                                    value={this.state.lng || ""}
-                                    autoComplete="none"
-                                    name="lng"
-                                    placeholder="Longitude"
-                                    onChange={(e) => this.handleChange(e)}
-                                    onClick={() => this.handleErrorMsg()}
-                                />
+
+                                <div className="inputBack">
+                                    <span>Longitude*</span>
+                                    <input
+                                        value={this.state.lng || ""}
+                                        autoComplete="none"
+                                        name="lng"
+                                        placeholder="Longitude"
+                                        onChange={(e) => this.handleChange(e)}
+                                        onClick={() => this.handleErrorMsg()}
+                                    />
+                                </div>
                             </div>
                         </div>
-                        {this.state.map && (
-                            <EditMap coordinator={(e) => this.coordinator(e)} />
-                        )}
+
                         <div className="formOptions">
                             {!this.state.success &&
                                 !this.state.map &&
@@ -234,6 +234,9 @@ export default class GigCreator extends React.Component {
                             </p>
                         )}
                     </form>
+                    {this.state.map && (
+                        <EditMap coordinator={(e) => this.coordinator(e)} />
+                    )}
                     {this.state.success && !this.state.addDone && (
                         <div
                             className="uploadSuccess"

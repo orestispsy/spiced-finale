@@ -422,44 +422,48 @@ export default class GigEditor extends React.Component {
                                         }}
                                     />
                                 </div>
+                                <div className="coordinatesMenuFlipper">
+                                    {this.state.selectedGig &&
+                                        !this.state.deleteSuccess && (
+                                            <div className="coordinatesMenu">
+                                                <div className="lngLtdMenu">
+                                                    {!this.state.map &&
+                                                        "Get ltd/lng"}{" "}
+                                                    {this.state.map && "Close"}
+                                                </div>
 
-                                {this.state.selectedGig &&
-                                    !this.state.deleteSuccess &&
-                                    !this.state.map && (
-                                        <div className="coordinatesMenu">
-                                            <div className="lngLtdMenu">
-                                                Get ltd/lng
+                                                <div
+                                                    title="Open Map"
+                                                    className="editMapTogglerGlobe"
+                                                    onClick={() =>
+                                                        this.mapToggler()
+                                                    }
+                                                ></div>
                                             </div>
-
-                                            <div
-                                                title="Open Map"
-                                                className="editMapTogglerGlobe"
-                                                onClick={() =>
-                                                    this.mapToggler()
-                                                }
-                                            ></div>
-                                        </div>
-                                    )}
-                                <div className="inputBack">
-                                    <span>Longitude</span>
-                                    <input
-                                        value={
-                                            this.state.selectedGig.lng ||
-                                            this.state.new_lng ||
-                                            this.state.lng ||
-                                            ""
-                                        }
-                                        autoComplete="none"
-                                        name="lng"
-                                        placeholder="Longitude"
-                                        onChange={(e) => this.handleChange(e)}
-                                        onChange={(e) => this.inputReset(e)}
-                                        onClick={(e) => {
-                                            this.handleErrorMsg();
-                                            this.deleteWarn(false);
-                                            this.setDoneUpdate(false);
-                                        }}
-                                    />
+                                        )}
+                                    <div className="inputBack">
+                                        <span>Longitude</span>
+                                        <input
+                                            value={
+                                                this.state.selectedGig.lng ||
+                                                this.state.new_lng ||
+                                                this.state.lng ||
+                                                ""
+                                            }
+                                            autoComplete="none"
+                                            name="lng"
+                                            placeholder="Longitude"
+                                            onChange={(e) =>
+                                                this.handleChange(e)
+                                            }
+                                            onChange={(e) => this.inputReset(e)}
+                                            onClick={(e) => {
+                                                this.handleErrorMsg();
+                                                this.deleteWarn(false);
+                                                this.setDoneUpdate(false);
+                                            }}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         )}
@@ -490,10 +494,7 @@ export default class GigEditor extends React.Component {
                                     />
                                 </div>
                                 {this.state.selectedGig.id && (
-                                    <div
-                                        className="editorGallery"
-                                       
-                                    >
+                                    <div className="editorGallery">
                                         <img
                                             title={
                                                 (!this.state.posterSection &&
