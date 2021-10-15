@@ -1719,6 +1719,10 @@ input {
         margin-top:-2vmax !important;
         margin-bottom:2vmax !important;
     }
+
+    .gigCreatorContainer, .gigEditorContainer{
+    height:unset !important;
+}
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {

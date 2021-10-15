@@ -27,9 +27,9 @@ export default class GigEditor extends React.Component {
     }
 
     componentDidMount() {
-        // if (!this.props.admin) {
-        //     location.replace("/");
-        // }
+        if (!this.props.admin) {
+            location.replace("/");
+        }
     }
 
     handleClick() {
@@ -470,7 +470,7 @@ export default class GigEditor extends React.Component {
                         {!this.state.map && !this.state.deleteSuccess && (
                             <div className="posterEditBox">
                                 <div className="inputBack">
-                                    <span>⛓ Poster ⛓</span>
+                                    <span>Poster</span>
                                     <input
                                         value={
                                             this.state.selectedGig.poster ||
