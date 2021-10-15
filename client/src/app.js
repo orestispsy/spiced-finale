@@ -153,6 +153,12 @@ export default class App extends Component {
         });
     }
 
+    setGigsList(e) {
+        this.setState({
+            gigsList: e,
+        });
+    }
+
     // sliderAction(e) {
     //     e.preventDefault();
     //     this.setState({
@@ -428,6 +434,7 @@ export default class App extends Component {
                                     <GigCreator
                                         admin={this.state.admin}
                                         darkMode={this.state.darkMode}
+                                        setGigsList={(e) => this.setGigsList(e)}
                                     />
                                 )}
                             />
@@ -439,6 +446,7 @@ export default class App extends Component {
                                         gigsList={this.state.gigsList}
                                         admin={this.state.admin}
                                         darkMode={this.state.darkMode}
+                                        setGigsList={(e) => this.setGigsList(e)}
                                     />
                                 )}
                             />

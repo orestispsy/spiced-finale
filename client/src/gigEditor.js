@@ -21,6 +21,8 @@ export default class GigEditor extends React.Component {
             map: false,
             selectedPoster: "",
             posterSection: false,
+            doneUpdate: false,
+            updatedPoster: false,
         };
     }
 
@@ -34,11 +36,10 @@ export default class GigEditor extends React.Component {
         axios
             .post("/gig-update", this.state)
             .then(({ data }) => {
-                // console.log("DATA", data.data);
                 if (data.data) {
-                    location.reload();
+                    this.updateDatabase();
+                    this.setDoneUpdate(true);
                 } else {
-                    // console.log("data fail");
                     this.setState({
                         error: true,
                         file: null,
@@ -46,11 +47,12 @@ export default class GigEditor extends React.Component {
                 }
             })
             .catch((err) => {
-                // console.log("err in axios POST /gig-creator: ", err);
+                console.log("err in axios POST /gig-editor: ", err);
             });
     }
 
     handleUploaderClick() {
+        this.handleUploaderSuccess(true);
         const formData = new FormData();
         formData.append("file", this.state.file);
         formData.append("data", JSON.stringify(this.state.selectedGig));
@@ -59,13 +61,16 @@ export default class GigEditor extends React.Component {
             .then(({ data }) => {
                 if (data.success) {
                     this.setState({
-                        success: true,
+                        selectedPoster: data.data[0].poster,
+                        selectedGig: {
+                            ...this.state.selectedGig,
+                            poster: data.data[0].poster,
+                        },
                     });
-                    setTimeout(function () {
-                        location.reload();
-                    }, 2000);
+                    this.updateDatabase();
+                    this.setDoneUpdate(true);
+                    this.handleUploaderSuccess(false);
                 } else {
-                    // console.log("data fail");
                     this.setState({
                         error2: true,
                     });
@@ -74,61 +79,43 @@ export default class GigEditor extends React.Component {
             .catch((err) => {
                 this.setState({
                     error2: true,
+                    success: false,
                 });
-                // console.log("err in axios in Image Uploader ", err);
             });
     }
 
     handleChange(e) {
-        this.setState(
-            {
-                [e.target.name]: e.target.value,
-            }
-            // () => console.log("State after setState: ", this.state)
-        );
+        this.setState({
+            [e.target.name]: e.target.value,
+        });
     }
 
     handleUploaderChange(e) {
-        this.setState(
-            {
-                file: e.target.files[0],
-            }
-            // () =>
-            //     console.log(
-            //         "this.state after setState: ",
-            //         this.state,
-            //         "ok",
-            //         this.state.file
-            //     )
-        );
+        this.setState({
+            file: e.target.files[0],
+        });
     }
 
     inputsReset() {
-        this.setState(
-            {
-                date: "",
-                venue: "",
-                lat: "",
-                lng: "",
-                tour_name: "",
-                city: "",
-                poster: "",
-                selectedPoster: "",
-            }
-            // () => console.log("State after setState: ", this.state)
-        );
+        this.setState({
+            date: "",
+            venue: "",
+            lat: "",
+            lng: "",
+            tour_name: "",
+            city: "",
+            poster: "",
+            selectedPoster: "",
+        });
     }
 
     inputReset(e) {
-        this.setState(
-            {
-                selectedGig: {
-                    ...this.state.selectedGig,
-                    [e.target.name]: e.target.value,
-                },
-            }
-            // () => console.log("STEEEEEIT: ", this.state)
-        );
+        this.setState({
+            selectedGig: {
+                ...this.state.selectedGig,
+                [e.target.name]: e.target.value,
+            },
+        });
     }
 
     gigSelector(e) {
@@ -137,7 +124,6 @@ export default class GigEditor extends React.Component {
                 [e.target.name]: e.target.value,
             },
             () => {
-                // console.log("State after setState: ", this.state);
                 axios
                     .post("/get-gig-to-edit", this.state)
                     .then(({ data }) => {
@@ -145,7 +131,6 @@ export default class GigEditor extends React.Component {
                             this.setState({
                                 selectedGig: data.data,
                             });
-                            // console.log("selected Gig", this.state.selectedGig);
                         }
                     })
                     .catch((err) => {
@@ -167,19 +152,32 @@ export default class GigEditor extends React.Component {
         });
     }
 
+    setDoneUpdate(e) {
+        this.setState({
+            doneUpdate: e,
+        });
+    }
+
     gigDelete() {
+        this.setState({
+            deleteSuccess: true,
+            delete: false,
+        });
         axios
             .post("/gig-delete", this.state)
             .then(({ data }) => {
-                // console.log("got it", data);
                 if (data.deleteSuccess) {
+                    this.updateDatabase();
                     this.setState({
-                        deleteSuccess: true,
-                        delete: false,
+                        selectedGig: false,
                     });
-                    setTimeout(function () {
-                        location.replace("/");
+
+                    const timer = setTimeout(() => {
+                        this.setState({
+                            deleteSuccess: false,
+                        });
                     }, 2000);
+                    return () => clearTimeout(timer);
                 }
             })
             .catch((err) => {
@@ -229,16 +227,48 @@ export default class GigEditor extends React.Component {
         });
     }
 
+    handleUploaderSuccess(e) {
+        this.setState({
+            success: e,
+        });
+    }
+
+    updateDatabase() {
+        axios
+            .get("/get-gigs")
+            .then(({ data }) => {
+                this.props.setGigsList(data.data.reverse());
+            })
+            .catch((err) => {
+                console.log("err in axios App User POST Request : ", err);
+            });
+    }
+
     render() {
         return (
             <div className="gigEditorContainer">
-                <div className="gigEditorContainerInner" id={this.props.darkMode && "logoBoxDarkEdit"}>
+                <div
+                    className="gigEditorContainerInner"
+                    id={this.props.darkMode && "logoBoxDarkEdit"}
+                >
                     <form>
-                        <div id="editorCloseTab">
-                            <Link to="/" className="buttonBack">
-                                X
-                            </Link>
-                        </div>
+                        {!this.state.posterSection && (
+                            <div id="editorCloseTab">
+                                <Link to="/" className="buttonBack">
+                                    X
+                                </Link>
+                            </div>
+                        )}
+                        {this.state.posterSection && (
+                            <div
+                                id="editorCloseTab"
+                                onClick={(e) => {
+                                    this.setPosterSection(false);
+                                }}
+                            >
+                                <div className="buttonBack">X</div>
+                            </div>
+                        )}
                         <select
                             name="selectedGig"
                             className="selectGig"
@@ -247,6 +277,7 @@ export default class GigEditor extends React.Component {
                             onClick={(e) => {
                                 this.handleErrorMsg();
                                 this.deleteWarn(false);
+                                this.setDoneUpdate(false);
                             }}
                         >
                             <option
@@ -286,6 +317,7 @@ export default class GigEditor extends React.Component {
                                     onClick={(e) => {
                                         this.handleErrorMsg();
                                         this.deleteWarn(false);
+                                        this.setDoneUpdate(false);
                                     }}
                                 />
                             </div>
@@ -307,6 +339,7 @@ export default class GigEditor extends React.Component {
                                     onClick={(e) => {
                                         this.handleErrorMsg();
                                         this.deleteWarn(false);
+                                        this.setDoneUpdate(false);
                                     }}
                                 />
                             </div>
@@ -328,6 +361,7 @@ export default class GigEditor extends React.Component {
                                     onClick={(e) => {
                                         this.handleErrorMsg();
                                         this.deleteWarn(false);
+                                        this.setDoneUpdate(false);
                                     }}
                                 />
                             </div>
@@ -349,6 +383,7 @@ export default class GigEditor extends React.Component {
                                     onClick={(e) => {
                                         this.handleErrorMsg();
                                         this.deleteWarn(false);
+                                        this.setDoneUpdate(false);
                                     }}
                                 />
                             </div>
@@ -371,10 +406,37 @@ export default class GigEditor extends React.Component {
                                     onClick={(e) => {
                                         this.handleErrorMsg();
                                         this.deleteWarn(false);
+                                        this.setDoneUpdate(false);
                                     }}
                                 />
                             </div>
                         )}
+                        {this.state.selectedGig &&
+                            !this.state.deleteSuccess &&
+                            !this.state.posterSection && (
+                                <div className="coordinatesMenu">
+                                    {!this.state.map && (
+                                        <div className="lngLtdMenu">
+                                            Get ltd/lng
+                                        </div>
+                                    )}
+                                    <div
+                                        title={
+                                            (!this.state.map &&
+                                                "Find Coordinates On Map") ||
+                                            (this.state.map && "Close")
+                                        }
+                                        className={
+                                            (!this.state.map &&
+                                                "editMapTogglerGlobe") ||
+                                            (this.state.map && "editMapToggler")
+                                        }
+                                        onClick={() => this.mapToggler()}
+                                    >
+                                        {this.state.map && "Close Map"}
+                                    </div>
+                                </div>
+                            )}
                         {!this.state.posterSection && (
                             <div className="inputBack">
                                 <span>Longitude</span>
@@ -393,21 +455,11 @@ export default class GigEditor extends React.Component {
                                     onClick={(e) => {
                                         this.handleErrorMsg();
                                         this.deleteWarn(false);
+                                        this.setDoneUpdate(false);
                                     }}
                                 />
                             </div>
                         )}
-                        {this.state.selectedGig &&
-                            !this.state.deleteSuccess &&
-                            !this.state.posterSection && (
-                                <div
-                                    className="editMapToggler"
-                                    onClick={() => this.mapToggler()}
-                                >
-                                    {!this.state.map && "Get Coordinates"}
-                                    {this.state.map && "Close Map"}
-                                </div>
-                            )}
                         {!this.state.map && !this.state.deleteSuccess && (
                             <div className="posterEditBox">
                                 <div className="inputBack">
@@ -427,6 +479,7 @@ export default class GigEditor extends React.Component {
                                         onClick={(e) => {
                                             this.handleErrorMsg();
                                             this.deleteWarn(false);
+                                            this.setDoneUpdate(false);
                                         }}
                                         onChange={(e) =>
                                             this.posterSelector(e.target.value)
@@ -434,30 +487,39 @@ export default class GigEditor extends React.Component {
                                     />
                                 </div>
                                 {this.state.selectedGig.id && (
-                                    <img
-                                        title={
-                                            (!this.state.posterSection &&
-                                                "Poster Gallery") ||
-                                            (this.state.posterSection &&
-                                                "Close Gallery")
-                                        }
-                                        className="imgPreview"
-                                        src={
-                                            this.state.selectedPoster ||
-                                            this.state.selectedGig.poster ||
-                                            "na.jpg"
-                                        }
-                                        onClick={(e) => {
-                                            this.setPosterSection();
-                                            this.handleErrorMsg();
-                                            this.deleteWarn(false);
-                                        }}
-                                    ></img>
+                                    <div className="editorGallery">
+                                        <img
+                                            title={
+                                                (!this.state.posterSection &&
+                                                    "Poster Gallery") ||
+                                                (this.state.posterSection &&
+                                                    "Close Gallery")
+                                            }
+                                            className="imgPreview"
+                                            src={
+                                                this.state.selectedPoster ||
+                                                this.state.selectedGig.poster ||
+                                                "na.jpg"
+                                            }
+                                            onClick={(e) => {
+                                                this.setPosterSection();
+                                                this.handleErrorMsg();
+                                                this.deleteWarn(false);
+                                                this.setDoneUpdate(false);
+                                            }}
+                                        ></img>
+                                        {!this.state.posterSection && (
+                                            <div>Gallery</div>
+                                        )}
+                                    </div>
                                 )}
                                 {this.state.selectedGig.id &&
                                     !this.state.deleteSuccess &&
                                     !this.state.posterSection && (
-                                        <div className="fileUploader">
+                                        <div
+                                            className="fileUploader"
+                                            id="fileUploaderEdit"
+                                        >
                                             <input
                                                 type="file"
                                                 name="file"
@@ -468,17 +530,21 @@ export default class GigEditor extends React.Component {
                                                 onClick={(e) => {
                                                     this.handleErrorMsg();
                                                     this.deleteWarn(false);
+                                                    this.setDoneUpdate(false);
                                                 }}
                                             />
-                                            {!this.state.success && (
-                                                <div
-                                                    title="Upload Poster"
-                                                    className="upload"
-                                                    onClick={() =>
-                                                        this.handleUploaderClick()
-                                                    }
-                                                ></div>
-                                            )}
+                                            {!this.state.success &&
+                                                !this.state.doneUpdate && (
+                                                    <div
+                                                        title="Upload Poster"
+                                                        id="upload"
+                                                        onClick={() =>
+                                                            this.handleUploaderClick()
+                                                        }
+                                                    >
+                                                        Upload
+                                                    </div>
+                                                )}
                                             {this.state.success && (
                                                 <div className="uploadSuccess"></div>
                                             )}
@@ -509,14 +575,27 @@ export default class GigEditor extends React.Component {
                         )}
                         {!this.state.deleteSuccess && !this.state.map && (
                             <div className="formOptions">
-                                <div
-                                    className="button"
-                                    onClick={() => this.handleClick()}
-                                >
-                                    Update
-                                </div>
+                                {!this.state.doneUpdate && (
+                                    <div
+                                        className="button"
+                                        onClick={() => {
+                                            if (!this.state.doneUpdate) {
+                                                this.handleClick();
+                                            } else {
+                                                this.handleUploaderSuccess(
+                                                    false
+                                                );
+                                                this.setDoneUpdate(false);
+                                            }
+                                        }}
+                                    >
+                                        {!this.state.doneUpdate && "Update"}
+                                        {this.state.doneUpdate && "Done"}
+                                    </div>
+                                )}
 
                                 {this.state.selectedGig.date &&
+                                    !this.state.doneUpdate &&
                                     !this.state.map &&
                                     !this.state.posterSection && (
                                         <div
@@ -544,6 +623,16 @@ export default class GigEditor extends React.Component {
                     </form>
                     {this.state.deleteSuccess && (
                         <div className="deleteSuccess"></div>
+                    )}
+                    {this.state.doneUpdate && (
+                        <div
+                            className={this.state.doneUpdate && "doneUpdate"}
+                            onClick={() => {
+                                this.setDoneUpdate(false);
+                            }}
+                        >
+                            Done
+                        </div>
                     )}
                 </div>
             </div>

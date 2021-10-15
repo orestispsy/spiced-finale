@@ -11,6 +11,7 @@ export default class GigCreator extends React.Component {
             error: false,
             success: false,
             map: false,
+            addDone: false,
         };
     }
 
@@ -26,10 +27,16 @@ export default class GigCreator extends React.Component {
             .then(({ data }) => {
                 // console.log("DATA", data.data);
                 if (data.success) {
+                    this.updateDatabase();
                     this.setState({
                         success: true,
                     });
-                    location.replace("/");
+                    const timer = setTimeout(() => {
+                        this.setState({
+                            addDone: true,
+                        });
+                    }, 2000);
+                    return () => clearTimeout(timer);
                 } else {
                     // console.log("data fail");
                     this.setState({
@@ -68,6 +75,17 @@ export default class GigCreator extends React.Component {
         this.setState({
             map: !this.state.map,
         });
+    }
+
+    updateDatabase() {
+        axios
+            .get("/get-gigs")
+            .then(({ data }) => {
+                this.props.setGigsList(data.data.reverse());
+            })
+            .catch((err) => {
+                console.log("err in axios App User POST Request : ", err);
+            });
     }
 
     render() {
@@ -162,31 +180,31 @@ export default class GigCreator extends React.Component {
                             />
                         </div>
 
-                        <div
-                            className="editMapToggler"
-                            onClick={() => this.mapToggler()}
-                        >
-                            {!this.state.map && "Get Coordinates"}
-                            {this.state.map && "Close Map"}
-                        </div>
+                        {!this.state.addDone && !this.state.success && (
+                            <div
+                                className="editMapToggler"
+                                onClick={() => this.mapToggler()}
+                            >
+                                {!this.state.map && "Get Coordinates"}
+                                {this.state.map && "Close Map"}
+                            </div>
+                        )}
                         {this.state.map && (
                             <EditMap coordinator={(e) => this.coordinator(e)} />
                         )}
                         <div className="formOptions">
-                            {!this.state.success && !this.state.map && (
-                                <div
-                                    className="button"
-                                    onClick={() => {
-                                        this.handleClick();
-                                    }}
-                                >
-                                    Submit
-                                </div>
-                            )}
-
-                            {this.state.success && (
-                                <div className="uploadSuccess"></div>
-                            )}
+                            {!this.state.success &&
+                                !this.state.map &&
+                                !this.state.addDone && (
+                                    <div
+                                        className="button"
+                                        onClick={() => {
+                                            this.handleClick();
+                                        }}
+                                    >
+                                        Submit
+                                    </div>
+                                )}
                         </div>
                         {!this.state.success &&
                             !this.state.error &&
@@ -201,6 +219,32 @@ export default class GigCreator extends React.Component {
                             </p>
                         )}
                     </form>
+                    {this.state.success && !this.state.addDone && (
+                        <div
+                            className="uploadSuccess"
+                            style={{
+                                marginBottom: `1vmax`,
+                            }}
+                        ></div>
+                    )}
+                    {this.state.addDone && (
+                        <div
+                            className="doneUpdate"
+                            onClick={(e) => {
+                                this.setState({
+                                    addDone: false,
+                                    success: false,
+                                    date: "",
+                                    city: false,
+                                    tour_name: false,
+                                    lng: "",
+                                    lat: "",
+                                });
+                            }}
+                        >
+                            Done
+                        </div>
+                    )}
                 </div>
             </div>
         );

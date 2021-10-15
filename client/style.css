@@ -513,6 +513,43 @@ form option {
     color: red;
 }
 
+.coordinatesMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 4vmax;
+}
+
+.lngLtdMenu {
+    color: rgb(255, 68, 0);
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+    text-align: center;
+    font-size: 1vmax;
+}
+
+.editMapTogglerGlobe {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 122, 14, 0.582);
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    background-image: url("globe.png");
+    width: 3vmax;
+    height: 3vmax;
+    background-size: cover;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 50%;
+}
+
+.editMapTogglerGlobe:hover {
+    box-shadow: -0 0 15px rgba(0, 0, 0, 0.356), 0 -0 15px rgba(0, 0, 0, 0.356),
+        -0 -0 15px rgba(0, 0, 0, 0.356), -0 -0 15px black;
+}
+
 .editMapToggler {
     font-size: 1.5vmax;
     color: rgb(59, 253, 146);
@@ -520,7 +557,6 @@ form option {
     text-shadow: -0 0 10px black, 0 -0 10px black, -0 -0 10px black,
         -0 -0 10px black;
     user-select: none;
-    width: 50vw;
     text-align: center;
 }
 
@@ -590,6 +626,20 @@ input {
     box-shadow: -0 0 4px black, 0 -0 4px black, -0 -0 4px black, -0 -0 4px black;
 }
 
+.doneUpdate {
+    color: rgb(30, 255, 0);
+    border-radius: 100px;
+    font-family: "Poller One", cursive;
+    outline: transparent;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.103);
+    padding: 0.5vmax;
+}
+
+.doneUpdate:hover {
+    color: white;
+}
+
 .button {
     color: orangered;
     border-radius: 100px;
@@ -624,6 +674,15 @@ input {
     margin-top: 0.5vmax;
 }
 
+.doneUpdate {
+    width: 20vmax;
+    text-align: center;
+    color: #00ff88;
+    font-family: "Poller One", cursive;
+    font-size: 2vmax;
+    margin: -1vmax 0 1vmax 0;
+}
+
 .deleteSuccess {
     background-color: transparent;
     background-image: url("redBall.gif");
@@ -650,6 +709,19 @@ input {
     color: lime;
 }
 
+#upload {
+    cursor: pointer;
+    background-color: rgba(0, 255, 255, 0.151);
+
+    font-size: 1vmax;
+    padding: 0.3vmax 0.5vmax;
+    margin-top: 0.5vmax;
+}
+
+#upload:hover {
+    color: white;
+}
+
 .upload {
     cursor: pointer;
     background-image: url("upload.png");
@@ -669,12 +741,12 @@ input {
 }
 
 .imgPreview {
-    width: 5vmax;
-    height: 5vmax;
-    margin: 0 2vmax 0 -1vmax;
+    width: 4vmax;
+    height: 4vmax;
+
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black, -0 -0 5px black;
+    box-shadow: -0 0 15px rgb(255, 255, 255, 0.100), 0 -0 15px rgb(255, 255, 255, 0.100), -0 -0 15px rgb(255, 255, 255, 0.100), -0 -0 15px rgb(255, 255, 255, 0.100);
 }
 
 .imgPreview:hover {
@@ -1063,7 +1135,7 @@ input {
     }
 
     .fileUploader input {
-        margin-left: 2vmax !important;
+        width: 14vmax !important;
     }
 
     .uploadChat h1 {
@@ -1235,9 +1307,6 @@ input {
         font-size: 2vmax !important;
     }
 
-    .imgPreview {
-        margin: 0 1vmax 0 -1.7vmax !important;
-    }
     .superAdminContainer {
         margin-top: 3vh !important;
     }
@@ -1593,6 +1662,10 @@ input {
     .emojis {
         max-height: 12vmax !important;
     }
+
+    .editorGallery {
+        margin: 0 1vmax 0 -2vmax !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -1863,13 +1936,12 @@ input {
     }
 
     .imgPreview {
-        margin: 0 0.5vmax 1vmax -2vmax !important;
         width: 6vmax !important;
         height: 6vmax !important;
     }
 
     .fileUploader input {
-        width: 13vmax !important;
+        width: 17vmax !important;
         height: 2.5vmax !important;
     }
 
@@ -2453,6 +2525,10 @@ div:focus {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+#fileUploaderEdit {
+    flex-direction: column;
 }
 
 .fileUploader {
@@ -3931,6 +4007,20 @@ input[type="number"] {
         -0 -0 5px rgba(0, 0, 0, 0.432), -0 -0 5px rgba(0, 0, 0, 0.432);
     border-radius: 1vh;
     background-color: rgba(0, 0, 0, 0.164);
+}
+
+.editorGallery {
+    margin: 0 2vmax 0 -1.5vmax;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.editorGallery div {
+      text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+        -1px -1px 0 black;
+    margin-top: 0.2vmax;
 }
 
 .posterEditBox {
