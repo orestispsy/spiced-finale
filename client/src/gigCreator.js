@@ -95,100 +95,115 @@ export default class GigCreator extends React.Component {
                     className="gigCreatorContainerInner"
                     id={this.props.darkMode && "logoBoxDarkEdit"}
                 >
-                    <div id="creatorCloseTab">
-                        <Link to="/" className="buttonBack">
-                            X
-                        </Link>
-                    </div>
+                    {!this.state.map && (
+                        <div id="creatorCloseTab">
+                            <Link to="/" className="buttonBack">
+                                X
+                            </Link>
+                        </div>
+                    )}
+                    {this.state.map && (
+                        <div
+                            title="Back"
+                            id="editorCloseTab"
+                            onClick={(e) => {
+                                this.mapToggler();
+                            }}
+                        >
+                            <div className="buttonBack">X</div>
+                        </div>
+                    )}
                     <form>
                         <h1>Add Gig</h1>
+                        {!this.state.map && (
+                            <div className="gigMainDetails">
+                                <div className="inputBack">
+                                    <span>Date*</span>
+                                    <input
+                                        value={this.state.date || ""}
+                                        autoComplete="none"
+                                        name="date"
+                                        placeholder="date"
+                                        type="date"
+                                        onChange={(e) => this.handleChange(e)}
+                                        onClick={() => this.handleErrorMsg()}
+                                    />
+                                </div>
 
-                        {!this.state.map && (
+                                <div className="inputBack">
+                                    <span>City</span>
+                                    <input
+                                        value={this.state.city || ""}
+                                        autoComplete="none"
+                                        name="city"
+                                        placeholder="City"
+                                        onChange={(e) => this.handleChange(e)}
+                                        onClick={() => this.handleErrorMsg()}
+                                    />
+                                </div>
+
+                                <div className="inputBack">
+                                    <span>Tour</span>
+                                    <input
+                                        value={this.state.tour_name || ""}
+                                        autoComplete="none"
+                                        name="tour_name"
+                                        placeholder="Tour Name"
+                                        onChange={(e) => this.handleChange(e)}
+                                        onClick={() => this.handleErrorMsg()}
+                                    />
+                                </div>
+
+                                <div className="inputBack">
+                                    <span>Venue</span>
+                                    <input
+                                        value={this.state.venue || ""}
+                                        autoComplete="none"
+                                        name="venue"
+                                        placeholder="Venue"
+                                        onChange={(e) => this.handleChange(e)}
+                                        onClick={() => this.handleErrorMsg()}
+                                    />
+                                </div>
+                            </div>
+                        )}
+                        <div className="coordinatesEditorBox">
                             <div className="inputBack">
-                                <span>Date*</span>
+                                <span>Latitude*</span>
                                 <input
-                                    value={this.state.date || ""}
+                                    value={this.state.lat || ""}
                                     autoComplete="none"
-                                    name="date"
-                                    placeholder="date"
-                                    type="date"
+                                    name="lat"
+                                    placeholder="Latitude"
                                     onChange={(e) => this.handleChange(e)}
                                     onClick={() => this.handleErrorMsg()}
                                 />
                             </div>
-                        )}
-                        {!this.state.map && (
+                            {!this.state.map && (
+                                <div className="coordinatesMenu">
+                                    <div className="lngLtdMenu">
+                                        Get ltd/lng
+                                    </div>
+
+                                    <div
+                                        title="Open Map"
+                                        className="editMapTogglerGlobe"
+                                        onClick={() => this.mapToggler()}
+                                    ></div>
+                                </div>
+                            )}
                             <div className="inputBack">
-                                <span>City</span>
+                                <span>Longitude*</span>
                                 <input
-                                    value={this.state.city || ""}
+                                    value={this.state.lng || ""}
                                     autoComplete="none"
-                                    name="city"
-                                    placeholder="City"
+                                    name="lng"
+                                    placeholder="Longitude"
                                     onChange={(e) => this.handleChange(e)}
                                     onClick={() => this.handleErrorMsg()}
                                 />
                             </div>
-                        )}
-                        {!this.state.map && (
-                            <div className="inputBack">
-                                <span>Tour</span>
-                                <input
-                                    value={this.state.tour_name || ""}
-                                    autoComplete="none"
-                                    name="tour_name"
-                                    placeholder="Tour Name"
-                                    onChange={(e) => this.handleChange(e)}
-                                    onClick={() => this.handleErrorMsg()}
-                                />
-                            </div>
-                        )}
-                        {!this.state.map && (
-                            <div className="inputBack">
-                                <span>Venue</span>
-                                <input
-                                    value={this.state.venue || ""}
-                                    autoComplete="none"
-                                    name="venue"
-                                    placeholder="Venue"
-                                    onChange={(e) => this.handleChange(e)}
-                                    onClick={() => this.handleErrorMsg()}
-                                />
-                            </div>
-                        )}
-                        <div className="inputBack">
-                            <span>Latitude*</span>
-                            <input
-                                value={this.state.lat || ""}
-                                autoComplete="none"
-                                name="lat"
-                                placeholder="Latitude"
-                                onChange={(e) => this.handleChange(e)}
-                                onClick={() => this.handleErrorMsg()}
-                            />
                         </div>
-
-                        <div className="inputBack">
-                            <span>Longitude*</span>
-                            <input
-                                value={this.state.lng || ""}
-                                autoComplete="none"
-                                name="lng"
-                                placeholder="Longitude"
-                                onChange={(e) => this.handleChange(e)}
-                                onClick={() => this.handleErrorMsg()}
-                            />
-                        </div>
-
-                        {!this.state.addDone && !this.state.success && (
-                            <div
-                                className="editMapToggler"
-                                onClick={() => this.mapToggler()}
-                            >
-                                {!this.state.map && "Get Coordinates"}
-                                {this.state.map && "Close Map"}
-                            </div>
-                        )}
                         {this.state.map && (
                             <EditMap coordinator={(e) => this.coordinator(e)} />
                         )}

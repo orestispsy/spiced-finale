@@ -490,7 +490,10 @@ export default class GigEditor extends React.Component {
                                     />
                                 </div>
                                 {this.state.selectedGig.id && (
-                                    <div className="editorGallery">
+                                    <div
+                                        className="editorGallery"
+                                       
+                                    >
                                         <img
                                             title={
                                                 (!this.state.posterSection &&

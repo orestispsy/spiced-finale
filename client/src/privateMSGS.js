@@ -171,6 +171,7 @@ export default function PrivateMSGS({
                                                     <div className="post">
                                                         <div className="userChatDetails">
                                                             <img
+                                                                className="postImg"
                                                                 src={
                                                                     (msg.msg_sender_id ==
                                                                         chat_myUserId &&

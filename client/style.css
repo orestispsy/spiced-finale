@@ -546,7 +546,7 @@ form option {
 .editMapTogglerGlobe {
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 239, 14);
+    background-color: rgb(14, 255, 243);
     justify-content: center;
     align-items: center;
     border: 2px solid black;
@@ -557,12 +557,15 @@ form option {
     cursor: pointer;
     z-index: 2;
     border-radius: 50%;
-    filter:invert(20%)
+    filter:invert(70%)
 }
 
 .editMapTogglerGlobe:hover {
     box-shadow: -0 0 7px rgba(0, 0, 0, 0.250), 0 -0 7px rgba(0, 0, 0, 0.250),
         -0 -0 7px rgba(0, 0, 0, 0.250), -0 -0 7px rgba(0, 0, 0, 0.250);
+            width: 3.5vmax;
+    height: 3.5vmax;
+    transition:0.5s
 }
 
 .editMapToggler {
@@ -728,7 +731,7 @@ input {
     cursor: pointer;
     background-color: rgba(0, 255, 255, 0.151);
 
-    font-size: 1vmax;
+    font-size: 0.8vmax;
     padding: 0.3vmax 0.5vmax;
     margin-top: 0.5vmax;
 }
@@ -766,8 +769,7 @@ input {
 }
 
 .imgPreview:hover {
-      box-shadow: -0 0 15px rgb(255, 255, 255, 0.100), 0 -0 15px rgb(255, 255, 255, 0.100), -0 -0 15px rgb(255, 255, 255, 0.100), -0 -0 15px rgb(255, 255, 255, 0.100);
-    
+      box-shadow: -0 0 15px rgb(0, 0, 0, 0.200), 0 -0 15px rgb(0, 0, 0, 0.200), -0 -0 15px rgb(0, 0, 0, 0.200), -0 -0 15px rgb(0, 0, 0, 0.200);
 }
 
 .easterEgg img {
@@ -4044,7 +4046,7 @@ width:5vw;
     display: flex;
     align-items: center;
     width: inherit;
-    justify-content: space-evenly;
+    justify-content: center;
     width:46vmax;
 }
 
