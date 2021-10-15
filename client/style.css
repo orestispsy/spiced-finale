@@ -1476,8 +1476,9 @@ input {
     }
 
     .google-map-editor {
-        width: 55vmax !important;
+        width: 75vw !important;
         height: 50vh !important;
+        margin-bottom:1vmax !important;
     }
 
     .required {
