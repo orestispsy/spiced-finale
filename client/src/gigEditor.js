@@ -27,9 +27,9 @@ export default class GigEditor extends React.Component {
     }
 
     componentDidMount() {
-        if (!this.props.admin) {
-            location.replace("/");
-        }
+        // if (!this.props.admin) {
+        //     location.replace("/");
+        // }
     }
 
     handleClick() {
@@ -252,7 +252,7 @@ export default class GigEditor extends React.Component {
                     id={this.props.darkMode && "logoBoxDarkEdit"}
                 >
                     <form>
-                        {!this.state.posterSection && (
+                        {!this.state.posterSection && !this.state.map && (
                             <div id="editorCloseTab">
                                 <Link to="/" className="buttonBack">
                                     X
@@ -261,9 +261,21 @@ export default class GigEditor extends React.Component {
                         )}
                         {this.state.posterSection && (
                             <div
+                                title="Back"
                                 id="editorCloseTab"
                                 onClick={(e) => {
                                     this.setPosterSection(false);
+                                }}
+                            >
+                                <div className="buttonBack">X</div>
+                            </div>
+                        )}
+                        {!this.state.posterSection && this.state.map && (
+                            <div
+                                title="Back"
+                                id="editorCloseTab"
+                                onClick={(e) => {
+                                    this.mapToggler();
                                 }}
                             >
                                 <div className="buttonBack">X</div>
@@ -300,170 +312,161 @@ export default class GigEditor extends React.Component {
                             />
                         )}
                         {!this.state.map && !this.state.posterSection && (
-                            <div className="inputBack">
-                                <span>Date</span>
-                                <input
-                                    value={
-                                        this.state.date ||
-                                        this.state.selectedGig.date ||
-                                        ""
-                                    }
-                                    autoComplete="none"
-                                    name="date"
-                                    placeholder="Date"
-                                    type="date"
-                                    onChange={(e) => this.handleChange(e)}
-                                    onChange={(e) => this.inputReset(e)}
-                                    onClick={(e) => {
-                                        this.handleErrorMsg();
-                                        this.deleteWarn(false);
-                                        this.setDoneUpdate(false);
-                                    }}
-                                />
-                            </div>
-                        )}
-                        {!this.state.map && !this.state.posterSection && (
-                            <div className="inputBack">
-                                <span>City</span>
-                                <input
-                                    value={
-                                        this.state.city ||
-                                        this.state.selectedGig.city ||
-                                        ""
-                                    }
-                                    autoComplete="none"
-                                    name="city"
-                                    placeholder="City"
-                                    onChange={(e) => this.handleChange(e)}
-                                    onChange={(e) => this.inputReset(e)}
-                                    onClick={(e) => {
-                                        this.handleErrorMsg();
-                                        this.deleteWarn(false);
-                                        this.setDoneUpdate(false);
-                                    }}
-                                />
-                            </div>
-                        )}
-                        {!this.state.map && !this.state.posterSection && (
-                            <div className="inputBack">
-                                <span>Tour</span>
-                                <input
-                                    value={
-                                        this.state.tour_name ||
-                                        this.state.selectedGig.tour_name ||
-                                        ""
-                                    }
-                                    autoComplete="none"
-                                    name="tour_name"
-                                    placeholder="Tour Name"
-                                    onChange={(e) => this.handleChange(e)}
-                                    onChange={(e) => this.inputReset(e)}
-                                    onClick={(e) => {
-                                        this.handleErrorMsg();
-                                        this.deleteWarn(false);
-                                        this.setDoneUpdate(false);
-                                    }}
-                                />
-                            </div>
-                        )}
-                        {!this.state.map && !this.state.posterSection && (
-                            <div className="inputBack">
-                                <span>Venue</span>
-                                <input
-                                    value={
-                                        this.state.venue ||
-                                        this.state.selectedGig.venue ||
-                                        ""
-                                    }
-                                    autoComplete="none"
-                                    name="venue"
-                                    placeholder="Venue"
-                                    onChange={(e) => this.handleChange(e)}
-                                    onChange={(e) => this.inputReset(e)}
-                                    onClick={(e) => {
-                                        this.handleErrorMsg();
-                                        this.deleteWarn(false);
-                                        this.setDoneUpdate(false);
-                                    }}
-                                />
+                            <div className="gigMainDetails">
+                                <div className="inputBack">
+                                    <span>Date</span>
+                                    <input
+                                        value={
+                                            this.state.date ||
+                                            this.state.selectedGig.date ||
+                                            ""
+                                        }
+                                        autoComplete="none"
+                                        name="date"
+                                        placeholder="Date"
+                                        type="date"
+                                        onChange={(e) => this.handleChange(e)}
+                                        onChange={(e) => this.inputReset(e)}
+                                        onClick={(e) => {
+                                            this.handleErrorMsg();
+                                            this.deleteWarn(false);
+                                            this.setDoneUpdate(false);
+                                        }}
+                                    />
+                                </div>
+
+                                <div className="inputBack">
+                                    <span>City</span>
+                                    <input
+                                        value={
+                                            this.state.city ||
+                                            this.state.selectedGig.city ||
+                                            ""
+                                        }
+                                        autoComplete="none"
+                                        name="city"
+                                        placeholder="City"
+                                        onChange={(e) => this.handleChange(e)}
+                                        onChange={(e) => this.inputReset(e)}
+                                        onClick={(e) => {
+                                            this.handleErrorMsg();
+                                            this.deleteWarn(false);
+                                            this.setDoneUpdate(false);
+                                        }}
+                                    />
+                                </div>
+
+                                <div className="inputBack">
+                                    <span>Tour</span>
+                                    <input
+                                        value={
+                                            this.state.tour_name ||
+                                            this.state.selectedGig.tour_name ||
+                                            ""
+                                        }
+                                        autoComplete="none"
+                                        name="tour_name"
+                                        placeholder="Tour Name"
+                                        onChange={(e) => this.handleChange(e)}
+                                        onChange={(e) => this.inputReset(e)}
+                                        onClick={(e) => {
+                                            this.handleErrorMsg();
+                                            this.deleteWarn(false);
+                                            this.setDoneUpdate(false);
+                                        }}
+                                    />
+                                </div>
+
+                                <div className="inputBack">
+                                    <span>Venue</span>
+                                    <input
+                                        value={
+                                            this.state.venue ||
+                                            this.state.selectedGig.venue ||
+                                            ""
+                                        }
+                                        autoComplete="none"
+                                        name="venue"
+                                        placeholder="Venue"
+                                        onChange={(e) => this.handleChange(e)}
+                                        onChange={(e) => this.inputReset(e)}
+                                        onClick={(e) => {
+                                            this.handleErrorMsg();
+                                            this.deleteWarn(false);
+                                            this.setDoneUpdate(false);
+                                        }}
+                                    />
+                                </div>
                             </div>
                         )}
                         {!this.state.posterSection && (
-                            <div className="inputBack">
-                                <span>Latitude</span>
-                                <input
-                                    value={
-                                        this.state.selectedGig.lat ||
-                                        this.state.new_lat ||
-                                        this.state.lat ||
-                                        ""
-                                    }
-                                    autoComplete="none"
-                                    name="lat"
-                                    placeholder="Latitude"
-                                    onChange={(e) => this.handleChange(e)}
-                                    onChange={(e) => this.inputReset(e)}
-                                    onClick={(e) => {
-                                        this.handleErrorMsg();
-                                        this.deleteWarn(false);
-                                        this.setDoneUpdate(false);
-                                    }}
-                                />
-                            </div>
-                        )}
-                        {this.state.selectedGig &&
-                            !this.state.deleteSuccess &&
-                            !this.state.posterSection && (
-                                <div className="coordinatesMenu">
-                                    {!this.state.map && (
-                                        <div className="lngLtdMenu">
-                                            Get ltd/lng
+                            <div className="coordinatesEditorBox">
+                                <div className="inputBack">
+                                    <span>Latitude</span>
+                                    <input
+                                        value={
+                                            this.state.selectedGig.lat ||
+                                            this.state.new_lat ||
+                                            this.state.lat ||
+                                            ""
+                                        }
+                                        autoComplete="none"
+                                        name="lat"
+                                        placeholder="Latitude"
+                                        onChange={(e) => this.handleChange(e)}
+                                        onChange={(e) => this.inputReset(e)}
+                                        onClick={(e) => {
+                                            this.handleErrorMsg();
+                                            this.deleteWarn(false);
+                                            this.setDoneUpdate(false);
+                                        }}
+                                    />
+                                </div>
+
+                                {this.state.selectedGig &&
+                                    !this.state.deleteSuccess &&
+                                    !this.state.map && (
+                                        <div className="coordinatesMenu">
+                                            <div className="lngLtdMenu">
+                                                Get ltd/lng
+                                            </div>
+
+                                            <div
+                                                title="Open Map"
+                                                className="editMapTogglerGlobe"
+                                                onClick={() =>
+                                                    this.mapToggler()
+                                                }
+                                            ></div>
                                         </div>
                                     )}
-                                    <div
-                                        title={
-                                            (!this.state.map &&
-                                                "Find Coordinates On Map") ||
-                                            (this.state.map && "Close")
+                                <div className="inputBack">
+                                    <span>Longitude</span>
+                                    <input
+                                        value={
+                                            this.state.selectedGig.lng ||
+                                            this.state.new_lng ||
+                                            this.state.lng ||
+                                            ""
                                         }
-                                        className={
-                                            (!this.state.map &&
-                                                "editMapTogglerGlobe") ||
-                                            (this.state.map && "editMapToggler")
-                                        }
-                                        onClick={() => this.mapToggler()}
-                                    >
-                                        {this.state.map && "Close Map"}
-                                    </div>
+                                        autoComplete="none"
+                                        name="lng"
+                                        placeholder="Longitude"
+                                        onChange={(e) => this.handleChange(e)}
+                                        onChange={(e) => this.inputReset(e)}
+                                        onClick={(e) => {
+                                            this.handleErrorMsg();
+                                            this.deleteWarn(false);
+                                            this.setDoneUpdate(false);
+                                        }}
+                                    />
                                 </div>
-                            )}
-                        {!this.state.posterSection && (
-                            <div className="inputBack">
-                                <span>Longitude</span>
-                                <input
-                                    value={
-                                        this.state.selectedGig.lng ||
-                                        this.state.new_lng ||
-                                        this.state.lng ||
-                                        ""
-                                    }
-                                    autoComplete="none"
-                                    name="lng"
-                                    placeholder="Longitude"
-                                    onChange={(e) => this.handleChange(e)}
-                                    onChange={(e) => this.inputReset(e)}
-                                    onClick={(e) => {
-                                        this.handleErrorMsg();
-                                        this.deleteWarn(false);
-                                        this.setDoneUpdate(false);
-                                    }}
-                                />
                             </div>
                         )}
                         {!this.state.map && !this.state.deleteSuccess && (
                             <div className="posterEditBox">
                                 <div className="inputBack">
-                                    <span>Poster</span>
+                                    <span>⛓ Poster ⛓</span>
                                     <input
                                         value={
                                             this.state.selectedGig.poster ||
@@ -509,7 +512,7 @@ export default class GigEditor extends React.Component {
                                             }}
                                         ></img>
                                         {!this.state.posterSection && (
-                                            <div>Gallery</div>
+                                            <div>Poster Gallery</div>
                                         )}
                                     </div>
                                 )}

@@ -498,7 +498,7 @@ form {
     font-size: 25px;
     color: orangered;
     max-height: 90vh;
-    width: 50vw;
+    width: 55vw;
     margin-bottom: 1vmax;
 }
 
@@ -513,12 +513,26 @@ form option {
     color: red;
 }
 
+.gigMainDetails{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.coordinatesEditorBox{
+    display:flex;
+    flex-direction: row;
+    width:min-content
+}
+
 .coordinatesMenu {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     width: 4vmax;
+    
 }
 
 .lngLtdMenu {
@@ -532,7 +546,7 @@ form option {
 .editMapTogglerGlobe {
     display: flex;
     flex-direction: column;
-    background-color: rgba(255, 122, 14, 0.582);
+    background-color: rgb(255, 239, 14);
     justify-content: center;
     align-items: center;
     border: 2px solid black;
@@ -543,11 +557,12 @@ form option {
     cursor: pointer;
     z-index: 2;
     border-radius: 50%;
+    filter:invert(20%)
 }
 
 .editMapTogglerGlobe:hover {
-    box-shadow: -0 0 15px rgba(0, 0, 0, 0.356), 0 -0 15px rgba(0, 0, 0, 0.356),
-        -0 -0 15px rgba(0, 0, 0, 0.356), -0 -0 15px black;
+    box-shadow: -0 0 7px rgba(0, 0, 0, 0.250), 0 -0 7px rgba(0, 0, 0, 0.250),
+        -0 -0 7px rgba(0, 0, 0, 0.250), -0 -0 7px rgba(0, 0, 0, 0.250);
 }
 
 .editMapToggler {
@@ -746,12 +761,13 @@ input {
 
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: -0 0 15px rgb(255, 255, 255, 0.100), 0 -0 15px rgb(255, 255, 255, 0.100), -0 -0 15px rgb(255, 255, 255, 0.100), -0 -0 15px rgb(255, 255, 255, 0.100);
+  box-shadow: -0 0 7px rgb(0, 0, 0, 0.100), 0 -0 7px rgb(0, 0, 0, 0.100), -0 -0 7px rgb(0, 0, 0, 0.100),
+        -0 -0 7px rgb(0, 0, 0, 0.100);
 }
 
 .imgPreview:hover {
-    box-shadow: -0 0 15px black, 0 -0 15px black, -0 -0 15px black,
-        -0 -0 15px black;
+      box-shadow: -0 0 15px rgb(255, 255, 255, 0.100), 0 -0 15px rgb(255, 255, 255, 0.100), -0 -0 15px rgb(255, 255, 255, 0.100), -0 -0 15px rgb(255, 255, 255, 0.100);
+    
 }
 
 .easterEgg img {
@@ -1663,9 +1679,6 @@ input {
         max-height: 12vmax !important;
     }
 
-    .editorGallery {
-        margin: 0 1vmax 0 -2vmax !important;
-    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -2529,6 +2542,7 @@ div:focus {
 
 #fileUploaderEdit {
     flex-direction: column;
+    margin-left:3vmax;
 }
 
 .fileUploader {
@@ -2538,7 +2552,6 @@ div:focus {
     align-items: center;
     align-self: center;
     border-radius: 1vh;
-    margin: 3vh 0 0 0vmax;
     background-color: rgba(0, 0, 0, 0.185);
     border: 1px solid black;
     padding: 0.5vmax;
@@ -4010,24 +4023,29 @@ input[type="number"] {
 }
 
 .editorGallery {
-    margin: 0 2vmax 0 -1.5vmax;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
+    
 }
 
 .editorGallery div {
+    color:yellow;
       text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
     margin-top: 0.2vmax;
+width:5vw;
+    font-size:1vmax;
+    text-align: center;
 }
 
 .posterEditBox {
     display: flex;
     align-items: center;
     width: inherit;
-    justify-content: center;
+    justify-content: space-evenly;
+    width:46vmax;
 }
 
 .posterSectionToggler {
