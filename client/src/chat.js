@@ -96,7 +96,11 @@ export default function Chat({
     useEffect(() => {
         if (chat_myUserId) {
             if (browserCount < 2) {
-                socket.emit("A CHAT MSG", "--##--entered--##--");
+                 const timer = setTimeout(() => {
+                   socket.emit("A CHAT MSG", "--##--entered--##--");
+                 }, 1500);
+                 return () => clearTimeout(timer);
+              
             }
         }
     }, [browserCount]);

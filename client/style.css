@@ -2858,7 +2858,7 @@ font-family: 'Ultra', serif; */
     font-size: 0.9vmax;
     border-radius: 10vh;
     padding-left: 0.5vmax;
-    padding-top: 0.3vmax;
+    padding-top: 0.2vmax;
     background-color: transparent !important;
     color: white;
     font-weight: bold;
@@ -3631,8 +3631,7 @@ input[type="number"] {
     cursor: grab;
 }
 
-.emoticons div:hover,
-.emojiBarToggler:hover {
+.emoticons div:hover {
     position: relative;
     top: -0.3vmax;
 }
