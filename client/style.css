@@ -1092,11 +1092,13 @@ input {
 
     .chatNextControls {
         width: 79.5vw !important;
+     margin-left:-2vmax !important;
     }
 
     .down {
-        margin: 0 1vmax !important;
+        margin: 0 0.5vw !important;
     }
+
 
     .typeLine {
         width: 80vw !important;
@@ -1867,10 +1869,12 @@ input {
 
     .chatNextControls {
         width: 59vw !important;
+        margin-left:-7vmax !important
     }
 
+
     .down {
-        margin: 0 1vw !important;
+        margin: 0 0.5vw !important;
     }
 
     .onlineList span {
@@ -2821,7 +2825,7 @@ font-family: 'Ultra', serif; */
         -0 -0 5px black;
     margin-top:-2.5vmax;
     width: 40vmax;
-    margin-left: -1vmax !important;
+    margin-left: -1vmax;
     user-select: none;
 }
 .up {
@@ -3979,8 +3983,7 @@ input[type="number"] {
     height: 38vh;
     width: 40vw;
     border-radius: 1vmax !important;
-    margin-top: 1vmax;
-    margin-bottom:1vmax;
+    margin: 1vmax;
 }
 
 .locationEditor {
@@ -4581,6 +4584,13 @@ input[type="number"] {
 
 #date {
     font-family: "Poller One", cursive;
+    font-size: 0.5vmax;
+    text-shadow: none;
+}
+
+#datePrivDark{
+    color:rgba(255, 255, 0, 0.692);
+     font-family: "Poller One", cursive;
     font-size: 0.5vmax;
     text-shadow: none;
 }

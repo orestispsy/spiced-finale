@@ -341,6 +341,7 @@ export default function Chat({
                     setChecker={(e) => setChecker(e)}
                     setPrivateMessages={(e) => setPrivateMessages(e)}
                     list={list}
+                    darkMode={darkMode}
                 />
             )}
 
