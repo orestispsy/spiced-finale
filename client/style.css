@@ -1092,11 +1092,11 @@ input {
 
     .chatNextControls {
         width: 79.5vw !important;
-        margin-left: -2vmax !important;
+        margin-left: -3vmax !important;
     }
 
     .down {
-        margin: 0 0.5vw !important;
+        margin: 0 0.6vw 0 1vw !important;
     }
 
     .typeLine {
@@ -1868,11 +1868,11 @@ input {
 
     .chatNextControls {
         width: 59vw !important;
-        margin-left: -7vmax !important;
+        margin-left: -9vmax !important;
     }
 
     .down {
-        margin: 0 0.5vw !important;
+        margin: 0 0.7vw 0 1vw !important;
     }
 
     .onlineList span {

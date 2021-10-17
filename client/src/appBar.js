@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ReactPlayer from "react-player";
 import radioBroadcasts from "./tools/radioBroadcasts";
 import { useSelector } from "react-redux";
@@ -55,18 +55,21 @@ export default function appBar({
     return (
         <div className="appBar" id={(maps && "appBar") || ""}>
             <div className="barLeftSection">
-                <Link to="/chat">
+                <Link to={(chatMode && "/") || (!chatMode && "/chat")}>
                     <img
                         src={chat_img || "./../avatar.png"}
                         className="barProfileImage"
                     ></img>
                 </Link>
 
-                <Link to="/chat">
+                <Link to={(chatMode && "/") || (!chatMode && "/chat")}>
                     <div
                         title="Chat Room"
                         className="chatBar"
                         id={(chatNotification && !chatMode && "chatBar") || ""}
+                        onClick={(e) => {
+                            mapVisible(false);
+                        }}
                     ></div>
                 </Link>
 

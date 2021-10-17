@@ -45,6 +45,7 @@ export default class App extends Component {
     }
 
     componentDidMount() {
+       
         this.mapVisible(false);
         axios
             .get("/user-details")
@@ -294,6 +295,7 @@ export default class App extends Component {
                                         setChatNotification={(e) =>
                                             this.setChatNotification(e)
                                         }
+                                        setChatMode={(e)=>this.setChatMode(e)}
                                     />
                                 )}
                             />

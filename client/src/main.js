@@ -10,8 +10,10 @@ export default function Main({
     darkMode,
     setDarkMode,
     setChatNotification,
+    setChatMode
 }) {
     useEffect(function () {
+        setChatMode(false)
         setChatNotification(false);
         listSet(false);
     }, []);
