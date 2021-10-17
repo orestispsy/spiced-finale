@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import axios from "./tools/axios";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import Main from "./main";
+import AppBar from "./appBar";
 import MyMap from "./map";
 import GigCreator from "./gigCreator";
 import GigEditor from "./gigEditor";
@@ -11,9 +12,9 @@ import Chat from "./chat";
 import GigListAnimation from "./gigListAnimation";
 import GigEntry from "./gigEntry";
 import SuperAdmin from "./superAdmin";
-import ReactPlayer from "react-player";
 
 import radioBroadcasts from "./tools/radioBroadcasts";
+
 
 var body = document.querySelectorAll("body");
 
@@ -39,6 +40,8 @@ export default class App extends Component {
             nightFlightProg: false,
             top: "1%",
             left: `35%`,
+            chatNotification: false,
+            chatMode:false
         };
     }
 
@@ -159,6 +162,27 @@ export default class App extends Component {
         });
     }
 
+    setChatNotification(e) {
+        this.setState({
+            chatNotification: e,
+        });
+    }
+
+    setPlayerPosition(x, y){
+        this.setState({
+            top: x,
+            left:y
+        });
+    }
+
+    
+    setChatMode(e){
+        this.setState({
+            chatMode:e
+        });
+    }
+
+
     // sliderAction(e) {
     //     e.preventDefault();
     //     this.setState({
@@ -224,192 +248,42 @@ export default class App extends Component {
                                 (!this.state.list && "appContainer")
                             }
                         >
-                            <div className="appBar">
-                                <div className="barLeftSection">
-                                    <Link to="/chat">
-                                        <img
-                                            src={
-                                                this.state.chat_img ||
-                                                "./../avatar.png"
-                                            }
-                                            className="barProfileImage"
-                                        ></img>
-                                    </Link>
-                                    {!this.state.maps && (
-                                        <Link to="/chat">
-                                            <div
-                                                title="Chat Room"
-                                                className="chatBar"
-                                            ></div>
-                                        </Link>
-                                    )}
-                                    <div className="barProfile">
-                                        {!this.state.maps &&
-                                            this.state.nickname}
-                                    </div>
-                                </div>
-                                {this.state.maps && (
-                                    <a
-                                        target="_blank"
-                                        href="https://www.1000mods.com"
-                                    >
-                                        <div className="logo2Back">
-                                            <div className="logo2"></div>
-                                        </div>
-                                    </a>
+                            <Route
+                                exact
+                                path="*"
+                                render={(props) => (
+                                    <AppBar
+                                        chat_img={this.state.chat_img}
+                                        nickname={this.state.nickname}
+                                        setRadioBroadcast={(e) =>
+                                            this.setRadioBroadcast(e)
+                                        }
+                                        radioBroadcasts={this.radioBroadcasts}
+                                        nightFlightProg={
+                                            this.state.nightFlightProg
+                                        }
+                                        map={this.state.map}
+                                        setGigEntry={(e) =>
+                                            this.state.setGigEntry(e)
+                                        }
+                                        mapVisible={(e) =>
+                                            this.state.mapVisible(e)
+                                        }
+                                        top={this.state.top}
+                                        left={this.state.left}
+                                        setPlayerPosition={(x, y) =>
+                                            this.setPlayerPosition(x, y)
+                                        }
+                                        setChatNotification={(e) =>
+                                            this.setChatNotification(e)
+                                        }
+                                        chatNotification={
+                                            this.state.chatNotification
+                                        }
+                                        chatMode={this.state.chatMode}
+                                    />
                                 )}
-
-                                {this.state.maps && (
-                                    <Link
-                                        to="/"
-                                        className="barMainLink"
-                                        title="Back"
-                                        onClick={(e) => {
-                                            this.setGigEntry(false);
-                                            this.mapVisible(false);
-                                        }}
-                                    ></Link>
-                                )}
-                                {this.state.nightFlightProg && (
-                                    <div
-                                        className="mixCloudPlayerControls"
-                                        style={{
-                                            top: this.state.top,
-                                            left: this.state.left,
-                                        }}
-                                    >
-                                        <div className="broadcastScroller">
-                                            <div className="radioControlsSymbol">
-                                                <div
-                                                    id="broadLeft"
-                                                    onClick={(e) => {
-                                                        if (
-                                                            this.state
-                                                                .nightFlightProg
-                                                                .id <= 0
-                                                        ) {
-                                                            return;
-                                                        } else {
-                                                            this.setRadioBroadcast(
-                                                                radioBroadcasts
-                                                                    .radioBroadcasts[
-                                                                    this.state
-                                                                        .nightFlightProg
-                                                                        .id - 1
-                                                                ]
-                                                            );
-                                                        }
-                                                    }}
-                                                ></div>
-                                                <div className="radioControls">
-                                                    prev
-                                                </div>
-                                            </div>
-                                            <div className="radioControlsSymbol">
-                                                <div
-                                                    id="broadRight"
-                                                    onClick={(e) => {
-                                                        if (
-                                                            this.state
-                                                                .nightFlightProg
-                                                                .id >=
-                                                            radioBroadcasts
-                                                                .radioBroadcasts
-                                                                .length -
-                                                                1
-                                                        ) {
-                                                            return;
-                                                        } else {
-                                                            this.setRadioBroadcast(
-                                                                radioBroadcasts
-                                                                    .radioBroadcasts[
-                                                                    this.state
-                                                                        .nightFlightProg
-                                                                        .id + 1
-                                                                ]
-                                                            );
-                                                        }
-                                                    }}
-                                                ></div>
-
-                                                <div className="radioControls">
-                                                    next
-                                                </div>
-                                            </div>
-                                            <div
-                                                className="radioControlsSymbol"
-                                                onClick={(e) => {
-                                                    this.setRadioBroadcast(
-                                                        false
-                                                    );
-                                                }}
-                                            >
-                                                <div id="broadClose">x</div>
-
-                                                <div className="radioControls">
-                                                    close
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <ReactPlayer
-                                            url={
-                                                this.state.nightFlightProg.href
-                                            }
-                                            controls
-                                            config={{
-                                                mixcloud: {
-                                                    options: {
-                                                        mini: true,
-                                                    },
-                                                },
-                                            }}
-                                            id="mixCloudPlayer"
-                                            width="100%"
-                                            height="100%"
-                                        />
-                                        <div
-                                            className="dragPlayer"
-                                            draggable
-                                            onDragCapture={(e) => {
-                                                this.setState({
-                                                    top: e.pageY,
-                                                    left:
-                                                        e.screenX -
-                                                        e.screenX * 0.1,
-                                                });
-                                            }}
-                                            onTouchStart={(e) => {
-                                                this.setState({
-                                                    top: e.changedTouches[0]
-                                                        .pageY,
-                                                    left:
-                                                        e.changedTouches[0]
-                                                            .screenX -
-                                                        e.changedTouches[0]
-                                                            .screenX *
-                                                            0.1,
-                                                });
-                                            }}
-                                            onDragEndCapture={(e) => {
-                                                this.setState({
-                                                    top: e.pageY,
-                                                    left:
-                                                        e.screenX -
-                                                        e.screenX * 0.1,
-                                                });
-                                            }}
-                                            onTouchMoveCapture={(e) => {
-                                                this.setState({
-                                                    top: e.changedTouches[0]
-                                                        .pageY,
-                                                    left: e.changedTouches[0]
-                                                        .pageX,
-                                                });
-                                            }}
-                                        ></div>
-                                    </div>
-                                )}
-                            </div>
+                            />
                             <Route
                                 exact
                                 path="/"
@@ -424,9 +298,11 @@ export default class App extends Component {
                                         listSet={(e) => this.listSet(e)}
                                         list={this.state.list}
                                         setDarkMode={(e) => this.setDarkMode(e)}
+                                          setChatNotification={(e) => this.setChatNotification(e)}
                                     />
                                 )}
                             />
+
                             <Route
                                 exact
                                 path="/gig-creator"
@@ -539,6 +415,9 @@ export default class App extends Component {
                                         radioBroadcasts={radioBroadcasts}
                                         nightFlightProg={
                                             this.state.nightFlightProg
+                                        }
+                                        setChatMode={(e) =>
+                                            this.setChatMode(e)
                                         }
                                     />
                                 )}

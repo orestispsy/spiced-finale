@@ -281,31 +281,34 @@ export default class GigEditor extends React.Component {
                                 <div className="buttonBack">X</div>
                             </div>
                         )}
-                        <select
-                            name="selectedGig"
-                            className="selectGig"
-                            onChange={(e) => this.gigSelector(e)}
-                            onClick={() => this.inputsReset()}
-                            onClick={(e) => {
-                                this.handleErrorMsg();
-                                this.deleteWarn(false);
-                                this.setDoneUpdate(false);
-                            }}
-                        >
-                            <option
-                                className="chooseGig"
-                                value=""
+            
+                            <select
+                                size="1"
+                                name="selectedGig"
+                                className="selectGig"
+                                onChange={(e) => this.gigSelector(e)}
                                 onClick={() => this.inputsReset()}
+                                onClick={(e) => {
+                                    this.handleErrorMsg();
+                                    this.deleteWarn(false);
+                                    this.setDoneUpdate(false);
+                                }}
                             >
-                                Select Gig
-                            </option>
-                            {this.props.gigsList &&
-                                this.props.gigsList.map((gig) => (
-                                    <option value={gig.date} key={gig.id}>
-                                        {gig.date} {gig.venue}
-                                    </option>
-                                ))}
-                        </select>{" "}
+                                <option
+                                    className="chooseGig"
+                                    value=""
+                                    onClick={() => this.inputsReset()}
+                                >
+                                    Select Gig
+                                </option>
+                                {this.props.gigsList &&
+                                    this.props.gigsList.map((gig) => (
+                                        <option value={gig.date} key={gig.id}>
+                                            {gig.date} {gig.venue}
+                                        </option>
+                                    ))}
+                            </select>{" "}
+                   
                         {this.state.posterSection && (
                             <Posters
                                 posterSelector={(e) => this.posterSelector(e)}

@@ -9,8 +9,10 @@ export default function Main({
     visitors,
     darkMode,
     setDarkMode,
+    setChatNotification,
 }) {
     useEffect(function () {
+        setChatNotification(false);
         listSet(false);
     }, []);
 

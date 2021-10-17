@@ -285,8 +285,9 @@ a:hover {
     width: 100vw;
 }
 
-.gigCreatorContainer, .gigEditorContainer{
-    height:92vh;
+.gigCreatorContainer,
+.gigEditorContainer {
+    height: 92vh;
 }
 
 .gigEditorContainerInner {
@@ -514,28 +515,28 @@ form span {
 
 form option {
     font-size: 1vmax;
-    color: red;
+    color: orangered;
 }
 
-.gigMainDetails{
-    display:flex;
+.gigMainDetails {
+    display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
 
-.coordinatesEditorBox{
-    display:flex;
+.coordinatesEditorBox {
+    display: flex;
     flex-direction: row;
-    width:min-content
+    width: min-content;
 }
 
-  .coordinatesMenuFlipper {
-        display:flex;
-    
-        align-items: center;
-        justify-content: center;
-    }
+.coordinatesMenuFlipper {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
 
 .coordinatesMenu {
     display: flex;
@@ -543,7 +544,6 @@ form option {
     align-items: center;
     justify-content: flex-start;
     width: 4vmax;
-    
 }
 
 .lngLtdMenu {
@@ -568,15 +568,12 @@ form option {
     cursor: pointer;
     z-index: 2;
     border-radius: 50%;
-    filter:invert(70%)
+    filter: invert(70%);
 }
 
 .editMapTogglerGlobe:hover {
-    box-shadow: -0 0 7px rgba(0, 0, 0, 0.250), 0 -0 7px rgba(0, 0, 0, 0.250),
-        -0 -0 7px rgba(0, 0, 0, 0.250), -0 -0 7px rgba(0, 0, 0, 0.250);
-            width: 3.5vmax;
-    height: 3.5vmax;
-    transition:0.5s
+    box-shadow: -0 0 15px rgb(0, 0, 0, 0.2), 0 -0 15px rgb(0, 0, 0, 0.2),
+        -0 -0 15px rgb(0, 0, 0, 0.2), -0 -0 15px rgb(0, 0, 0, 0.2);
 }
 
 .editMapToggler {
@@ -775,12 +772,13 @@ input {
 
     border-radius: 50%;
     cursor: pointer;
-  box-shadow: -0 0 7px rgb(0, 0, 0, 0.100), 0 -0 7px rgb(0, 0, 0, 0.100), -0 -0 7px rgb(0, 0, 0, 0.100),
-        -0 -0 7px rgb(0, 0, 0, 0.100);
+    box-shadow: -0 0 7px rgb(0, 0, 0, 0.1), 0 -0 7px rgb(0, 0, 0, 0.1),
+        -0 -0 7px rgb(0, 0, 0, 0.1), -0 -0 7px rgb(0, 0, 0, 0.1);
 }
 
 .imgPreview:hover {
-      box-shadow: -0 0 15px rgb(0, 0, 0, 0.200), 0 -0 15px rgb(0, 0, 0, 0.200), -0 -0 15px rgb(0, 0, 0, 0.200), -0 -0 15px rgb(0, 0, 0, 0.200);
+    box-shadow: -0 0 15px rgb(0, 0, 0, 0.2), 0 -0 15px rgb(0, 0, 0, 0.2),
+        -0 -0 15px rgb(0, 0, 0, 0.2), -0 -0 15px rgb(0, 0, 0, 0.2);
 }
 
 .easterEgg img {
@@ -1478,7 +1476,7 @@ input {
     .google-map-editor {
         width: 75vw !important;
         height: 50vh !important;
-        margin-bottom:1vmax !important;
+        margin-bottom: 1vmax !important;
     }
 
     .required {
@@ -1693,9 +1691,9 @@ input {
         max-height: 12vmax !important;
     }
 
-    .gigMainDetails{
-    flex-wrap: unset !important;
-    flex-direction: column !important;
+    .gigMainDetails {
+        flex-wrap: unset !important;
+        flex-direction: column !important;
     }
 
     .coordinatesEditorBox {
@@ -1710,26 +1708,29 @@ input {
     }
 
     .coordinatesMenuFlipper {
-        display:flex;
+        display: flex;
         flex-direction: column-reverse;
         align-items: center;
         justify-content: center;
     }
 
-    .coordinatesMenu{
-        margin-top:-2vmax !important;
-        margin-bottom:2vmax !important;
+    .coordinatesMenu {
+        margin-top: -2vmax !important;
+        margin-bottom: 2vmax !important;
     }
 
-    .gigCreatorContainer, .gigEditorContainer{
-    height:unset !important;
-}
+    .gigCreatorContainer,
+    .gigEditorContainer {
+        height: unset !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
-   .gigCreatorContainer, .gigEditorContainer{
-    height:unset !important;}
-   
+    .gigCreatorContainer,
+    .gigEditorContainer {
+        height: unset !important;
+    }
+
     #chatContainerDark {
         border: 2px solid rgba(255, 255, 255, 0.178) !important;
     }
@@ -2358,12 +2359,14 @@ input {
     width: 15px;
 }
 
+select::-webkit-scrollbar,
 .chatScreen::-webkit-scrollbar,
 .gigEntries::-webkit-scrollbar,
 .emoticons::-webkit-scrollbar {
     width: 20px;
 }
 
+select::-webkit-scrollbar-track,
 .usersBack::-webkit-scrollbar-track,
 .chatScreen::-webkit-scrollbar-track,
 .emoticons::-webkit-scrollbar-track .monthInnerBox::-webkit-scrollbar-track {
@@ -2374,6 +2377,12 @@ input {
 .gigEntries::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.075);
     border-radius: 10px;
+}
+
+select::-webkit-scrollbar-thumb {
+    background: #00000059;
+    border-radius: 10px;
+    border: 1px solid black;
 }
 
 .usersBack::-webkit-scrollbar-thumb,
@@ -2410,7 +2419,7 @@ input {
     border-radius: 100px;
     border: 0;
     font-family: "Poller One", cursive;
-    color: tomato;
+    color: orangered;
     font-size: 1vmax;
     margin-bottom: 2vh;
     padding: 0.5vmax;
@@ -2590,7 +2599,7 @@ div:focus {
 
 #fileUploaderEdit {
     flex-direction: column;
-    margin-left:3vmax;
+    margin-left: 3vmax;
 }
 
 .fileUploader {
@@ -2650,6 +2659,19 @@ font-family: 'Ultra', serif; */
     height: 1.5vmax;
     margin-left: -1vmax;
     margin-bottom: -2vmax;
+    border-radius: 50%;
+}
+
+@keyframes blinker2 {
+    50% {
+        box-shadow: 0 0 5px rgba(0, 255, 157, 0.918),
+            0 0 5px rgba(0, 255, 157, 0.918), 0 0 5px rgba(0, 255, 157, 0.918),
+            0 0 5px rgba(0, 255, 157, 0.918);
+    }
+}
+
+#chatBar {
+    animation: blinker2 2s linear infinite;
 }
 
 #chatHeadlineDark #chatTitle {
@@ -4074,16 +4096,15 @@ input[type="number"] {
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
-    
 }
 
 .editorGallery div {
-    color:yellow;
-      text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
+    color: yellow;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
         -1px -1px 0 black;
     margin-top: 0.2vmax;
-width:5vw;
-    font-size:1vmax;
+    width: 5vw;
+    font-size: 1vmax;
     text-align: center;
 }
 
@@ -4092,7 +4113,7 @@ width:5vw;
     align-items: center;
     width: inherit;
     justify-content: center;
-    width:46vmax;
+    width: 46vmax;
 }
 
 .posterSectionToggler {

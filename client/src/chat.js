@@ -33,6 +33,7 @@ export default function Chat({
     setRadioBroadcast,
     radioBroadcasts,
     nightFlightProg,
+    setChatMode,
 }) {
     const [emojiBar, setEmojiBar] = useState(false);
     const [tickerBar, setTickerBar] = useState(false);
@@ -71,6 +72,7 @@ export default function Chat({
     const horn = useSelector((state) => state && state.horn);
 
     useEffect(() => {
+        setChatMode(true);
         listSet(darkMode);
         setDarkMode(darkMode);
     }, []);
@@ -96,11 +98,10 @@ export default function Chat({
     useEffect(() => {
         if (chat_myUserId) {
             if (browserCount < 2) {
-                 const timer = setTimeout(() => {
-                   socket.emit("A CHAT MSG", "--##--entered--##--");
-                 }, 1500);
-                 return () => clearTimeout(timer);
-              
+                const timer = setTimeout(() => {
+                    socket.emit("A CHAT MSG", "--##--entered--##--");
+                }, 1500);
+                return () => clearTimeout(timer);
             }
         }
     }, [browserCount]);
@@ -363,6 +364,7 @@ export default function Chat({
                                     to="/"
                                     className="buttonBack"
                                     onClick={(e) => {
+                                        setChatMode(false);
                                         {
                                             if (browserCount == 1) {
                                                 socket.emit(
@@ -495,7 +497,7 @@ export default function Chat({
                                                     <div className="post">
                                                         <div className="userChatDetails">
                                                             <img
-                                                            className="postImg"
+                                                                className="postImg"
                                                                 src={
                                                                     msg.chat_img ||
                                                                     "./../na.jpg"
@@ -635,7 +637,7 @@ export default function Chat({
                     setShakeUser={(e) => setShakeUser(e)}
                 />
             </div>
-          {!nightFlightProg &&  <div
+            <div
                 className="jukeBox"
                 onClick={(e) => {
                     if (!nightFlightProg) {
@@ -644,13 +646,14 @@ export default function Chat({
                                 radioBroadcasts.radioBroadcasts.length - 1
                             ]
                         );
+                    } else {
+                        setRadioBroadcast(false);
                     }
                 }}
-            ></div>}
+            ></div>
             <div
                 className="tickerButton"
                 onClick={(e) => {
-            
                     toggleTicker(!tickerBar);
                 }}
             >
