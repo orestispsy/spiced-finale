@@ -23,6 +23,7 @@ export default function PrivateMSGS({
     const elemRef = useRef();
 
     useEffect(() => {
+     
         if (elemRef.current) {
             const newScrollTop =
                 elemRef.current.scrollHeight - elemRef.current.clientHeight;

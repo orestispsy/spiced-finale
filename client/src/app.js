@@ -15,7 +15,6 @@ import SuperAdmin from "./superAdmin";
 
 import radioBroadcasts from "./tools/radioBroadcasts";
 
-
 var body = document.querySelectorAll("body");
 
 export default class App extends Component {
@@ -41,7 +40,7 @@ export default class App extends Component {
             top: "1%",
             left: `35%`,
             chatNotification: false,
-            chatMode:false
+            chatMode: false,
         };
     }
 
@@ -168,20 +167,18 @@ export default class App extends Component {
         });
     }
 
-    setPlayerPosition(x, y){
+    setPlayerPosition(x, y) {
         this.setState({
             top: x,
-            left:y
+            left: y,
         });
     }
 
-    
-    setChatMode(e){
+    setChatMode(e) {
         this.setState({
-            chatMode:e
+            chatMode: e,
         });
     }
-
 
     // sliderAction(e) {
     //     e.preventDefault();
@@ -262,13 +259,9 @@ export default class App extends Component {
                                         nightFlightProg={
                                             this.state.nightFlightProg
                                         }
-                                        map={this.state.map}
-                                        setGigEntry={(e) =>
-                                            this.state.setGigEntry(e)
-                                        }
-                                        mapVisible={(e) =>
-                                            this.state.mapVisible(e)
-                                        }
+                                        maps={this.state.maps}
+                                        setGigEntry={(e) => this.setGigEntry(e)}
+                                        mapVisible={(e) => this.mapVisible(e)}
                                         top={this.state.top}
                                         left={this.state.left}
                                         setPlayerPosition={(x, y) =>
@@ -298,7 +291,9 @@ export default class App extends Component {
                                         listSet={(e) => this.listSet(e)}
                                         list={this.state.list}
                                         setDarkMode={(e) => this.setDarkMode(e)}
-                                          setChatNotification={(e) => this.setChatNotification(e)}
+                                        setChatNotification={(e) =>
+                                            this.setChatNotification(e)
+                                        }
                                     />
                                 )}
                             />
@@ -416,9 +411,7 @@ export default class App extends Component {
                                         nightFlightProg={
                                             this.state.nightFlightProg
                                         }
-                                        setChatMode={(e) =>
-                                            this.setChatMode(e)
-                                        }
+                                        setChatMode={(e) => this.setChatMode(e)}
                                     />
                                 )}
                             />

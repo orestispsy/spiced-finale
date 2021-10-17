@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
 import radioBroadcasts from "./tools/radioBroadcasts";
@@ -18,6 +18,8 @@ export default function appBar({
     setChatNotification,
     chatMode,
 }) {
+
+
     const chatMessages = useSelector((state) => state && state.chatMessages);
     useEffect(
         function () {

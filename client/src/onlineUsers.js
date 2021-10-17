@@ -142,9 +142,8 @@ export default function OnlineUsers({
             if (e.target.value !== "") {
                 e.preventDefault();
                 setConfigTimer(false);
-                socket.emit("forceDisconnect",id);
+                socket.emit("forceDisconnect", id);
             }
-         
         }
     };
 

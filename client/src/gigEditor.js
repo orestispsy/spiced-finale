@@ -576,7 +576,6 @@ export default class GigEditor extends React.Component {
                                     "Be Sure That Date, Longitude & Latitude are Filled."}
                             </p>
                         )}
-      
                         {this.state.error2 && (
                             <p className="error" id="errorEdit">
                                 Select an Image [Max Size: 2MB]
