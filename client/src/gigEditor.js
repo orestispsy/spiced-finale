@@ -281,34 +281,32 @@ export default class GigEditor extends React.Component {
                                 <div className="buttonBack">X</div>
                             </div>
                         )}
-            
-                            <select
-                                size="1"
-                                name="selectedGig"
-                                className="selectGig"
-                                onChange={(e) => this.gigSelector(e)}
+                        <select
+                            size="1"
+                            name="selectedGig"
+                            className="selectGig"
+                            onChange={(e) => this.gigSelector(e)}
+                            onClick={() => this.inputsReset()}
+                            onClick={(e) => {
+                                this.handleErrorMsg();
+                                this.deleteWarn(false);
+                                this.setDoneUpdate(false);
+                            }}
+                        >
+                            <option
+                                className="chooseGig"
+                                value=""
                                 onClick={() => this.inputsReset()}
-                                onClick={(e) => {
-                                    this.handleErrorMsg();
-                                    this.deleteWarn(false);
-                                    this.setDoneUpdate(false);
-                                }}
                             >
-                                <option
-                                    className="chooseGig"
-                                    value=""
-                                    onClick={() => this.inputsReset()}
-                                >
-                                    Select Gig
-                                </option>
-                                {this.props.gigsList &&
-                                    this.props.gigsList.map((gig) => (
-                                        <option value={gig.date} key={gig.id}>
-                                            {gig.date} {gig.venue}
-                                        </option>
-                                    ))}
-                            </select>{" "}
-                   
+                                Select Gig
+                            </option>
+                            {this.props.gigsList &&
+                                this.props.gigsList.map((gig) => (
+                                    <option value={gig.date} key={gig.id}>
+                                        {gig.date} {gig.venue}
+                                    </option>
+                                ))}
+                        </select>{" "}
                         {this.state.posterSection && (
                             <Posters
                                 posterSelector={(e) => this.posterSelector(e)}
@@ -578,6 +576,7 @@ export default class GigEditor extends React.Component {
                                     "Be Sure That Date, Longitude & Latitude are Filled."}
                             </p>
                         )}
+      
                         {this.state.error2 && (
                             <p className="error" id="errorEdit">
                                 Select an Image [Max Size: 2MB]
