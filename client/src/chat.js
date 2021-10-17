@@ -87,10 +87,8 @@ export default function Chat({
     useEffect(() => {
         if (chatMessages) {
             if (scrollTop < 1) {
-                const timer = setTimeout(() => {
-                    next20ChatMsgs();
-                }, 1000);
-                return () => clearTimeout(timer);
+                elemRef.current.scrollTop = 100;
+                next20ChatMsgs();
             }
         }
     }, [scrollTop]);
@@ -382,6 +380,32 @@ export default function Chat({
 
                             {!chatBan && <div id="chatTitle">Chat Room</div>}
                         </div>
+
+                        {!chatBan && (
+                            <div className="chatNextControls">
+                                <div
+                                    title="Chat Top"
+                                    className="up"
+                                    onClick={() => getBack2Top()}
+                                >
+                                    ▲
+                                </div>
+                                <div
+                                    title="Chat Bottom"
+                                    className="down"
+                                    onClick={() => getBack2Bottom()}
+                                >
+                                    ▼
+                                </div>
+                                <div
+                                    title="Load Μore Chat Messages"
+                                    className="next"
+                                    onClick={() => next20ChatMsgs()}
+                                >
+                                    ⦿
+                                </div>
+                            </div>
+                        )}
                         <div
                             className="chatScreenBack"
                             id={(shakeUser && horn && "hornShake") || ""}
@@ -397,31 +421,6 @@ export default function Chat({
                                     setScrollTop(elemRef.current.scrollTop)
                                 }
                             >
-                                {!chatBan && (
-                                    <div className="chatNextControls">
-                                        <div
-                                            title="Chat Top"
-                                            className="up"
-                                            onClick={() => getBack2Top()}
-                                        >
-                                            ▲
-                                        </div>
-                                        <div
-                                            title="Chat Bottom"
-                                            className="down"
-                                            onClick={() => getBack2Bottom()}
-                                        >
-                                            ▼
-                                        </div>
-                                        <div
-                                            title="Load Μore Chat Messages"
-                                            className="next"
-                                            onClick={() => next20ChatMsgs()}
-                                        >
-                                            ⦿
-                                        </div>
-                                    </div>
-                                )}
                                 {chatBan && (
                                     <div className="chatBanCover">
                                         YOU'VE BEEN BANNED !
@@ -547,7 +546,14 @@ export default function Chat({
                                                         ></div>
                                                     </div>
 
-                                                    <div className="date">
+                                                    <div
+                                                        className="date"
+                                                        id={
+                                                            (darkMode &&
+                                                                "dateDark") ||
+                                                            ""
+                                                        }
+                                                    >
                                                         {fixedDate}
                                                     </div>
                                                     <div className="time">
@@ -570,7 +576,7 @@ export default function Chat({
                                     }}
                                 ></textarea>
                                 <div
-                                    id={darkMode && "sendChatMsgDark" || ""}
+                                    id={(darkMode && "sendChatMsgDark") || ""}
                                     title="Send Message"
                                     className="sendChatMsg"
                                     onClick={() => sendChatMsgButton()}

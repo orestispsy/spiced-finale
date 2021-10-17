@@ -2819,7 +2819,7 @@ font-family: 'Ultra', serif; */
     justify-content: flex-end;
     text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
         -0 -0 5px black;
-    position: fixed;
+    margin-top:-2.5vmax;
     width: 40vmax;
     margin-left: -1vmax !important;
     user-select: none;
@@ -2966,6 +2966,11 @@ font-family: 'Ultra', serif; */
     width: 2.2vmax;
     height: 2.2vmax;
     border-radius: 0.5vmax;
+}
+
+#dateDark{
+    color:rgba(255, 255, 0, 0.692)
+    
 }
 
 .date {

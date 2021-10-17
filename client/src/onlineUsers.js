@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { socket } from "./tools/socket";
 import { useEffect, useState } from "react";
 import axios from "./tools/axios";
+import { Link } from "react-router-dom";
 
 let emoji = require("./tools/customEmoj.json");
 
@@ -274,19 +275,35 @@ export default function OnlineUsers({
                                 X
                             </div>
                         )}
-                        {!userPicBar && !privateMode && (
+                        {!userPicBar &&
+                            !privateMode &&
+                            !userConfig &&
+                            !networkList && (
+                                <Link to="/">
+                                    {" "}
+                                    <div
+                                        className="onlineUsersRedDot"
+                                        title="Main Page"
+                                    ></div>
+                                </Link>
+                            )}
+                        {!userPicBar && !privateMode && networkList && (
                             <div
                                 className="onlineUsersRedDot"
-                                title={
-                                    userConfig
-                                        ? "Back"
-                                        : "" || networkList
-                                        ? "Online List"
-                                        : ""
-                                }
+                                title="Online List"
                                 onClick={(e) => {
                                     toggleEmojibar(false);
                                     setNetworkList(false);
+                                }}
+                            ></div>
+                        )}
+                        {!userPicBar && !privateMode && userConfig && (
+                            <div
+                                className="onlineUsersRedDot"
+                                title="Back"
+                                onClick={(e) => {
+                                    toggleEmojibar(false);
+
                                     setUserConfig(false);
                                     setConfigTimer(false);
                                 }}
@@ -362,9 +379,7 @@ export default function OnlineUsers({
                                                                 }
                                                             }}
                                                         >
-                                                            <div
-                                                                id="networkUser"
-                                                            >
+                                                            <div id="networkUser">
                                                                 <img
                                                                     className="onlineListImg"
                                                                     alt={
@@ -537,8 +552,10 @@ export default function OnlineUsers({
                                                                         onKeyDown={(
                                                                             e
                                                                         ) =>
-                                                                            keyCheck(e, user.id)
-                                                                            
+                                                                            keyCheck(
+                                                                                e,
+                                                                                user.id
+                                                                            )
                                                                         }
                                                                         onChange={(
                                                                             e
