@@ -14,7 +14,7 @@ export default function PrivateMSGS({
     privateNick,
     setPrivateMessages,
     list,
-    darkMode
+    darkMode,
 }) {
     const [firstMsgId, setFirstMsgId] = useState(null);
 
@@ -23,7 +23,6 @@ export default function PrivateMSGS({
     const elemRef = useRef();
 
     useEffect(() => {
-     
         if (elemRef.current) {
             const newScrollTop =
                 elemRef.current.scrollHeight - elemRef.current.clientHeight;
@@ -150,12 +149,15 @@ export default function PrivateMSGS({
 
     return (
         <>
-            <div className="chatContainer" id={list && "chatContainerDark"|| ""}>
+            <div
+                className="chatContainer"
+                id={(list && "chatContainerDark") || ""}
+            >
                 <h1 id="chatTitlePriv">Private Chat</h1>
                 <div className="chatScreenBack">
                     <div
                         className="chatScreen"
-                        id={darkMode &&"chatScreenDark"|| ""}
+                        id={(darkMode && "chatScreenDark") || ""}
                         ref={elemRef}
                     >
                         {messages &&
@@ -204,7 +206,8 @@ export default function PrivateMSGS({
                                                             id={
                                                                 (darkMode &&
                                                                     "datePrivDark") ||
-                                                                !darkMode && "date"
+                                                                (!darkMode &&
+                                                                    "date")
                                                             }
                                                         >
                                                             {fixedDate}

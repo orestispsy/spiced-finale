@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
 import radioBroadcasts from "./tools/radioBroadcasts";
 import { useSelector } from "react-redux";
+
+import useSound from "use-sound";
+import slidefx from "./../public/slidefx.mp3";
+
 export default function appBar({
     chat_img,
     chatNotification,
@@ -18,7 +22,7 @@ export default function appBar({
     setChatNotification,
     chatMode,
 }) {
-
+    const [playSlideFx] = useSound(slidefx, { volume: 0.75 });
 
     const chatMessages = useSelector((state) => state && state.chatMessages);
     useEffect(
@@ -39,6 +43,7 @@ export default function appBar({
                             return;
                         }
                         setChatNotification(true);
+                        playSlideFx();
                     }
                 }, 1000);
                 return () => clearTimeout(timer);
@@ -48,7 +53,7 @@ export default function appBar({
     );
 
     return (
-        <div className="appBar">
+        <div className="appBar" id={(maps && "appBar") || ""}>
             <div className="barLeftSection">
                 <Link to="/chat">
                     <img
@@ -56,18 +61,15 @@ export default function appBar({
                         className="barProfileImage"
                     ></img>
                 </Link>
-                {!maps && (
-                    <Link to="/chat">
-                        <div
-                            title="Chat Room"
-                            className="chatBar"
-                            id={
-                                (chatNotification && !chatMode && "chatBar") ||
-                                ""
-                            }
-                        ></div>
-                    </Link>
-                )}
+
+                <Link to="/chat">
+                    <div
+                        title="Chat Room"
+                        className="chatBar"
+                        id={(chatNotification && !chatMode && "chatBar") || ""}
+                    ></div>
+                </Link>
+
                 <div className="barProfile">{!maps && nickname}</div>
             </div>
             {maps && (

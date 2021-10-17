@@ -1092,13 +1092,12 @@ input {
 
     .chatNextControls {
         width: 79.5vw !important;
-     margin-left:-2vmax !important;
+        margin-left: -2vmax !important;
     }
 
     .down {
         margin: 0 0.5vw !important;
     }
-
 
     .typeLine {
         width: 80vw !important;
@@ -1869,9 +1868,8 @@ input {
 
     .chatNextControls {
         width: 59vw !important;
-        margin-left:-7vmax !important
+        margin-left: -7vmax !important;
     }
-
 
     .down {
         margin: 0 0.5vw !important;
@@ -1930,6 +1928,10 @@ input {
     .emoticons {
         width: 20vmax !important;
         height: 12vmax !important;
+    }
+
+    #appBar {
+        height: 14vh !important;
     }
 
     .chatBar {
@@ -2669,14 +2671,13 @@ font-family: 'Ultra', serif; */
 
 @keyframes blinker2 {
     50% {
-        box-shadow: 0 0 5px rgba(0, 255, 157, 0.918),
-            0 0 5px rgba(0, 255, 157, 0.918), 0 0 5px rgba(0, 255, 157, 0.918),
-            0 0 5px rgba(0, 255, 157, 0.918);
+        box-shadow: 0 0 5px rgb(255, 251, 0), 0 0 5px rgb(255, 251, 0),
+            0 0 5px rgb(255, 251, 0), 0 0 5px rgb(255, 251, 0);
     }
 }
 
 #chatBar {
-    animation: blinker2 2s linear infinite;
+    animation: blinker2 2s linear infinite, shake 0.5s;
 }
 
 #chatHeadlineDark #chatTitle {
@@ -2823,7 +2824,7 @@ font-family: 'Ultra', serif; */
     justify-content: flex-end;
     text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
         -0 -0 5px black;
-    margin-top:-2.5vmax;
+    margin-top: -2.5vmax;
     width: 40vmax;
     margin-left: -1vmax;
     user-select: none;
@@ -2908,8 +2909,8 @@ font-family: 'Ultra', serif; */
     align-self: center;
 }
 
-#sendChatMsgDark{
-    filter:invert(100%)
+#sendChatMsgDark {
+    filter: invert(100%);
 }
 
 .sendChatMsg {
@@ -2923,7 +2924,7 @@ font-family: 'Ultra', serif; */
     margin-left: 0.5vmax;
     margin-right: 2vmax;
     cursor: pointer;
-        filter:invert(0%)
+    filter: invert(0%);
 }
 
 .userChatDetails {
@@ -2972,9 +2973,8 @@ font-family: 'Ultra', serif; */
     border-radius: 0.5vmax;
 }
 
-#dateDark{
-    color:rgba(255, 255, 0, 0.692)
-    
+#dateDark {
+    color: rgba(255, 255, 0, 0.692);
 }
 
 .date {
@@ -4588,9 +4588,9 @@ input[type="number"] {
     text-shadow: none;
 }
 
-#datePrivDark{
-    color:rgba(255, 255, 0, 0.692);
-     font-family: "Poller One", cursive;
+#datePrivDark {
+    color: rgba(255, 255, 0, 0.692);
+    font-family: "Poller One", cursive;
     font-size: 0.5vmax;
     text-shadow: none;
 }
