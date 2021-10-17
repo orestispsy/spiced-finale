@@ -32,20 +32,20 @@ export default function Main({
 
     return (
         <div className="mainContainer">
-            <div id={darkMode && "logoBoxDark"}>
+            <div id={darkMode && "logoBoxDark" || ""}>
                 <div className="logoBack">
                     {!darkMode && (
-                        <div className="logo" id={darkMode && "logoDark"}></div>
+                        <div className="logo" id={darkMode && "logoDark"|| ""}></div>
                     )}
-                    <p id={darkMode && "logoDarkP"}>GIG GUIDE</p>
+                    <p id={darkMode && "logoDarkP"|| ""}>GIG GUIDE</p>
                 </div>
 
-                <div className="mainMenu" id={darkMode && "mainMenuDark"}>
+                <div className="mainMenu" id={darkMode && "mainMenuDark"|| ""}>
                     {!admin && (
                         <div className="easterEgg" title="Map">
                             <Link to="/map">
                                 <img
-                                    id={darkMode && "globeDark"}
+                                    id={darkMode && "globeDark" || ""}
                                     src="globe.gif"
                                 ></img>
                             </Link>
@@ -60,7 +60,7 @@ export default function Main({
                             <div className="easterEgg" title="Map">
                                 <Link to="/map">
                                     <img
-                                        id={darkMode && "globeDark"}
+                                        id={darkMode && "globeDark" || ""}
                                         src="globe.gif"
                                     ></img>
                                 </Link>
@@ -78,7 +78,7 @@ export default function Main({
             </div>
             <div
                 className={
-                    (darkMode && "DarkMode") || (!darkMode && "lightMode")
+                    (darkMode && "DarkMode") || (!darkMode && "lightMode") || ""
                 }
                 onClick={() => {
                     setDarkMode(!darkMode);

@@ -570,6 +570,7 @@ export default function Chat({
                                     }}
                                 ></textarea>
                                 <div
+                                    id={darkMode && "sendChatMsgDark" || ""}
                                     title="Send Message"
                                     className="sendChatMsg"
                                     onClick={() => sendChatMsgButton()}
@@ -663,7 +664,7 @@ export default function Chat({
                 className={(list && "DarkMode") || (!list && "lightMode")}
                 onClick={(e) => {
                     listSet(!list);
-                    setDarkMode(false);
+                    setDarkMode(!darkMode);
                 }}
             ></div>
         </div>

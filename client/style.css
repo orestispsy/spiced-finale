@@ -2904,6 +2904,10 @@ font-family: 'Ultra', serif; */
     align-self: center;
 }
 
+#sendChatMsgDark{
+    filter:invert(100%)
+}
+
 .sendChatMsg {
     background-image: url("send.png");
     background-size: cover;
@@ -2915,6 +2919,7 @@ font-family: 'Ultra', serif; */
     margin-left: 0.5vmax;
     margin-right: 2vmax;
     cursor: pointer;
+        filter:invert(0%)
 }
 
 .userChatDetails {
