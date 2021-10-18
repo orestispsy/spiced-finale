@@ -181,10 +181,11 @@ export default function OnlineUsers({
     };
 
     const handleColorChange = (e) => {
+          setChatColor(e.target.value);
         axios
             .post("/changeColor", e.target.value)
             .then(({ data }) => {
-                setChatColor(data.data.chat_color);
+      
                 let updatedColorUsers = onlineUsers;
                 updatedColorUsers.forEach((user) => {
                     if (user.id == chat_myUserId) {
@@ -814,7 +815,15 @@ export default function OnlineUsers({
                                         className="colorSelector"
                                         title="Change Chat Color"
                                         type="color"
-                                        defaultValue={chat_color || `#00f01c`}
+                                        defaultValue={
+                                            chatColor || chat_color || `#00f01c`
+                                        }
+                                        style={{
+                                            boxShadow:
+                                                (chatColor &&
+                                                    `-0 0 10px ${chatColor}, 0 -0 10px ${chatColor},
+        -0 -0 10px ${chatColor}, -0 -0 10px ${chatColor}`)
+                                        }}
                                         onChange={(e) => {
                                             handleColorChange(e);
                                         }}
