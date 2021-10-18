@@ -4698,6 +4698,7 @@ input[type="number"] {
     width: 40vw;
 }
 
+
 .selectSuperUserMode {
     text-align: center;
     color: #00ff88;
@@ -4713,6 +4714,7 @@ input[type="number"] {
 .chooseSuperUserMode {
     background-color: black;
     color: #00ff88;
+   
 }
 
 .chooseSuperUserModeOld {
@@ -4726,6 +4728,7 @@ input[type="number"] {
 }
 
 .selectGuestSuperMode {
+   
     text-align: center;
     color: #00ff88;
     padding: 0.5vmax;
@@ -4739,8 +4742,10 @@ input[type="number"] {
 }
 
 .chooseGuestSuperMode {
+    
     background-color: black;
     color: #00ff88;
+    margin-left:-5vmax !important;
 }
 
 .superUserReset {

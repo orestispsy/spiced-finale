@@ -5,7 +5,7 @@ import radioBroadcasts from "./tools/radioBroadcasts";
 import { useSelector } from "react-redux";
 
 import useSound from "use-sound";
-import slidefx from "./../public/slidefx.mp3";
+import hyperfx from "./../public/hyperfx.mp3";
 
 export default function appBar({
     chat_img,
@@ -22,7 +22,7 @@ export default function appBar({
     setChatNotification,
     chatMode,
 }) {
-    const [playSlideFx] = useSound(slidefx, { volume: 0.75 });
+    const [playSlideFx] = useSound(hyperfx, { volume: 0.6 });
 
     const chatMessages = useSelector((state) => state && state.chatMessages);
     useEffect(
