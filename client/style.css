@@ -3616,8 +3616,8 @@ input[type="number"] {
 }
 
 .colorSelector:hover {
-    transition:1s;
-    filter:hue-rotate(-360deg)
+    transition:2s;
+    filter:hue-rotate(-380deg)
 }
 
 .mute {
@@ -3707,7 +3707,7 @@ input[type="number"] {
 }
 
 .emojiBarToggler:hover {
-    animation: shake 0.4s;
+    animation: shake 1s;
 }
 
 .visitors {

@@ -76,10 +76,10 @@ export default function Chat({
         listSet(darkMode);
         setDarkMode(darkMode);
          if (elemRef.current) {
-             const newScrollTop =
-                 elemRef.current.scrollHeight - elemRef.current.clientHeight;
-             elemRef.current.scrollTop = newScrollTop;
-         }
+                const newScrollTop =
+                    elemRef.current.scrollHeight - elemRef.current.clientHeight;
+                elemRef.current.scrollTop = newScrollTop;
+            }
     }, []);
 
     useEffect(() => {
