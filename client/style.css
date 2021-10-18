@@ -1232,9 +1232,9 @@ input {
     }
 
     .emoticons {
-        margin-top: 2vh !important;
+       margin-top: -2vmax !important;
         margin-right: 1vh !important;
-        height: 40vmax !important;
+        height: 33vmax !important;
         width: 20vmax !important;
     }
 
