@@ -1516,7 +1516,7 @@ input {
     .gigEntryContainer form {
         display: flex !important;
         flex-direction: row-reverse !important;
-        margin: 0 !important;
+        margin-left: -3vmax !important;
         align-items: center !important;
         flex-wrap: unset !important;
         width: 30vmax !important;
@@ -2861,7 +2861,7 @@ font-family: 'Ultra', serif; */
     cursor: pointer !important;
     text-shadow: -0 0 3px black, 0 -0 3px black, -0 -0 3px black,
         -0 -0 3px black;
-    margin: 0 0.5vmax;
+    margin: 0 0.4vmax;
 }
 
 .next:active {
@@ -2913,6 +2913,10 @@ font-family: 'Ultra', serif; */
     filter: invert(100%);
 }
 
+#sendChatMsgDark:hover {
+    filter: invert(0%);
+}
+
 .sendChatMsg {
     background-image: url("send.png");
     background-size: cover;
@@ -2925,6 +2929,10 @@ font-family: 'Ultra', serif; */
     margin-right: 2vmax;
     cursor: pointer;
     filter: invert(0%);
+}
+
+.sendChatMsg:hover {
+       filter: invert(100%);
 }
 
 .userChatDetails {
@@ -4008,17 +4016,23 @@ input[type="number"] {
     background-repeat: no-repeat;
     width: 4vmax;
     height: 4vmax;
-    margin: 0 -4vmax 1vmax 0;
     border-radius: 50%;
+    margin-right:1vmax;
 }
 
 .gigEntryContainer form {
-    margin: -1vmax 0 0vmax 0;
+
     max-height: 5vmax !important;
+    display:flex;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: center;
+      width: max-content !important;
 }
 
 .gigEntryContainer form select {
     width: 30vw;
+    margin:0 !important;
 }
 .gigEntryContainer form option {
     color: black;
