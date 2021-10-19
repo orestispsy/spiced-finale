@@ -1,22 +1,22 @@
 <div align=center>
  <h1>Thousand Gigs Guide</h1>
  <div>https://thousandgigs.herokuapp.com/</div>
+
  </div>
  
   <div align=center>
-<h1>💠</h1>
-<h1> Description</h1>
+
+<h1><br>💠</br> Description</h1>
  <div align=center>
-<br>The main idea behind the Gig Guide was to bring some order in the life of a rock n roll band touring the planet, helping them store their own concert agenda. Too many gigs, needing a database and then some Javascript magic to happen !</br><br> This is an overall demonstration of my Front & Backend experience, featuring React.js, Express.js, Redux, Socket.io & PostgreSQL.</br>
-</br>
+<br>Main idea behind the Gig Guide is to bring some order in the life of 1000mods, a Rock N Roll band touring the planet. By helping them store their own Concert Agenda, fans have the chance to experience it , contribute with their own Concert Material and interact through the Network on the same time.</br>
+ <br> This is an overall demonstration of my Front & Backend experience, featuring React.js, Express.js, Redux, Socket.io & PostgreSQL.</br>
  </div>
  <div>
- 
-
 
  <div align=center>
-<h1>💠</h1>
-<h1>Tech</h1>
+
+
+<h1><br>💠</br> Tech</h1>
  <div align=center>
 <br>React.js</br>
 <br>Node.js</br>
@@ -30,8 +30,8 @@
  <div>
  
   <div align=center>
-   <h1>💠</h1>
-   <h1>Features</h1>
+
+   <h1><br>💠</br> Features</h1>
  <div align=center>
   <br>Register/Login</br>
 <brGlobal Gig Map</br>
