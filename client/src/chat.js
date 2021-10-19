@@ -333,7 +333,7 @@ export default function Chat({
 
     return (
         <div className="chatContainerBack">
-            {tickerBar && <Ticker tickerBar={tickerBar} />}
+            {tickerBar && <Ticker tickerBar={tickerBar} darkMode={darkMode}/>}
             {privateMode && (
                 <PrivateMSGS
                     chat_myUserId={chat_myUserId}

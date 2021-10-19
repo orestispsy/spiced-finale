@@ -1495,6 +1495,7 @@ input {
     #headlines {
         margin-top: -2.5vmax !important;
     }
+
     .tickerLink,
     .tickerBlankLink {
         font-size: 2.5vmax !important;
@@ -1726,6 +1727,10 @@ input {
     .gigCreatorContainer,
     .gigEditorContainer {
         height: unset !important;
+    }
+
+      .onlineListDetails {
+        margin-left:unset !important;
     }
 }
 
@@ -2185,6 +2190,10 @@ input {
     .dragPlayer {
         height: 3vmax !important;
         width: 4vmax !important;
+    }
+
+    .onlineListDetails {
+        margin-left:unset !important;
     }
 }
 
@@ -2721,6 +2730,7 @@ font-family: 'Ultra', serif; */
     font-family: "Black Ops One", cursive;
     user-select: none;
     margin-top: -2.5vmax;
+    padding:1vh 0
 }
 
 .buttonBack {
@@ -3131,7 +3141,7 @@ font-family: 'Ultra', serif; */
 }
 
 .usersBack {
-    width: 19vmax;
+    width: 22vmax;
     height: fit-content;
     height: 10vmax;
     min-height: 12vh;
@@ -3214,6 +3224,7 @@ font-family: 'Ultra', serif; */
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-left:0.5vmax;
 }
 
 #online {
@@ -3760,6 +3771,15 @@ input[type="number"] {
     margin-top: -1vmax;
 }
 
+#tickerLinkDark {
+     background-color: transparent;
+      border-radius: 1vmax;
+      border:1px solid rgba(19, 253, 50, 0.267);
+        text-shadow: -1px 1px 0 rgba(19, 253, 50, 0.267),
+        1px -1px 0 rgba(19, 253, 50, 0.267), -1px -1px 0 rgba(19, 253, 50, 0.267),
+        -1px -1px 0 rgba(19, 253, 50, 0.267);
+}
+
 .tickerLink,
 .tickerBlankLink {
     padding: 0.1vmax 0.8vmax 0.1vmax 0.8vmax;
@@ -3778,6 +3798,7 @@ input[type="number"] {
     margin-left: 1vmax;
     background-color: rgba(255, 0, 0, 0.13);
     border-radius: 1vmax;
+    user-select: none;
 }
 
 .tickerBlankLink {

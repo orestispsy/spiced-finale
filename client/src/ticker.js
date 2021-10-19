@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import React from "react";
 
-export default function Ticker({ tickerBar }) {
+export default function Ticker({ tickerBar, darkMode }) {
     useEffect(
         function () {
             var headlines = document.querySelectorAll("#headlines");
@@ -54,16 +54,30 @@ export default function Ticker({ tickerBar }) {
 
     return (
         <div id="headlines">
-            <a className="tickerBlankLink" target="_blank">
+            <a
+                className="tickerBlankLink"
+                id={(darkMode && "tickerLinkDark") || ""}
+                target="_blank"
+            >
                 Welcome My Friends
             </a>
-            <a className="tickerBlankLink" target="_blank">
+            <a
+                className="tickerBlankLink"
+                id={(darkMode && "tickerLinkDark") || ""}
+                target="_blank"
+            >
                 Nice to see you here, enjoy your stay !
             </a>
-            <a className="tickerBlankLink" target="_blank">
-                Use the Player above to listen to some of my web-radio broadcasts or click on the following links
+            <a
+                className="tickerBlankLink"
+                id={(darkMode && "tickerLinkDark") || ""}
+                target="_blank"
+            >
+                Use the Player above to listen to some of my web-radio
+                broadcasts or click on the following links
             </a>
             <a
+                id={(darkMode && "tickerLinkDark") || ""}
                 className="tickerLink"
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-du-beast-special-vol-i-sitting-at-the-bar-with-john/"
                 target="_blank"
@@ -73,6 +87,7 @@ export default function Ticker({ tickerBar }) {
             </a>
 
             <a
+                id={(darkMode && "tickerLinkDark") || ""}
                 className="tickerLink"
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-09042020/"
                 target="_blank"
@@ -81,6 +96,7 @@ export default function Ticker({ tickerBar }) {
                 Night Flight 09.04.2020
             </a>
             <a
+                id={(darkMode && "tickerLinkDark") || ""}
                 className="tickerLink"
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-12112020/"
                 target="_blank"
@@ -89,6 +105,7 @@ export default function Ticker({ tickerBar }) {
                 Night Flight 12.11.2020
             </a>
             <a
+                id={(darkMode && "tickerLinkDark") || ""}
                 className="tickerLink"
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-du-beast-special-vol-ii/"
                 target="_blank"
@@ -97,6 +114,7 @@ export default function Ticker({ tickerBar }) {
                 Du Beast Special Vol. II
             </a>
             <a
+                id={(darkMode && "tickerLinkDark") || ""}
                 className="tickerLink"
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-30052019/"
                 target="_blank"
@@ -105,6 +123,7 @@ export default function Ticker({ tickerBar }) {
                 Night Flight 30.05.2019
             </a>
             <a
+                id={(darkMode && "tickerLinkDark") || ""}
                 className="tickerLink"
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-08042021/"
                 target="_blank"
@@ -113,6 +132,7 @@ export default function Ticker({ tickerBar }) {
                 Night Flight 08.04.2021
             </a>
             <a
+                id={(darkMode && "tickerLinkDark") || ""}
                 className="tickerLink"
                 href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-07102021/"
                 target="_blank"

@@ -608,8 +608,7 @@ export default function OnlineUsers({
                                                                 }}
                                                             ></div>
                                                         )}
-                                                    {user.id != chat_myUserId &&
-                                                        super_admin && (
+                                                    {user.id != chat_myUserId && (
                                                             <div
                                                                 className="horn"
                                                                 onClick={(
