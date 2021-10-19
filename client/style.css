@@ -2706,7 +2706,7 @@ font-family: 'Ultra', serif; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 45vw;
+    width: 60vw;
 }
 
 #chatTitle {
@@ -2752,6 +2752,7 @@ font-family: 'Ultra', serif; */
 
 .chatContainer,
 .chatContainerBan {
+    width:60vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2778,6 +2779,7 @@ font-family: 'Ultra', serif; */
     background: none;
     border: 1px solid rgba(255, 255, 255, 0.171);
     margin-top: 3vmax;
+
 }
 
 #chatTitlePriv {
@@ -2799,7 +2801,7 @@ font-family: 'Ultra', serif; */
     flex-direction: column;
     justify-content: flex-start;
     align-content: center;
-    width: 40vmax;
+    width: 50vmax;
     height: 60vh;
     background-color: rgba(255, 255, 255, 0.11);
     overflow-y: auto;
@@ -2832,7 +2834,7 @@ font-family: 'Ultra', serif; */
     text-shadow: -0 0 5px black, 0 -0 5px black, -0 -0 5px black,
         -0 -0 5px black;
     margin-top: -2.5vmax;
-    width: 40vmax;
+    width: 48vmax;
     margin-left: -1vmax;
     user-select: none;
 }
@@ -3034,7 +3036,7 @@ font-family: 'Ultra', serif; */
 }
 
 .chatPost {
-    margin: 0 20px 10px 20px;
+    margin: 0 10px 10px 10px;
     background-color: rgba(255, 255, 255, 0.027);
 }
 .userEnters {

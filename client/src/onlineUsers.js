@@ -71,6 +71,7 @@ export default function OnlineUsers({
 
                 .get("/filtered-private")
                 .then(({ data }) => {
+                    console.log(data.data);
                     setPrivateMessages(data.data);
                     socket.emit("PRIVATE MESSAGES", data.data);
                 })
@@ -181,11 +182,10 @@ export default function OnlineUsers({
     };
 
     const handleColorChange = (e) => {
-          setChatColor(e.target.value);
+        setChatColor(e.target.value);
         axios
             .post("/changeColor", e.target.value)
             .then(({ data }) => {
-      
                 let updatedColorUsers = onlineUsers;
                 updatedColorUsers.forEach((user) => {
                     if (user.id == chat_myUserId) {
@@ -820,9 +820,9 @@ export default function OnlineUsers({
                                         }
                                         style={{
                                             boxShadow:
-                                                (chatColor &&
-                                                    `-0 0 10px ${chatColor}, 0 -0 10px ${chatColor},
-        -0 -0 10px ${chatColor}, -0 -0 10px ${chatColor}`)
+                                                chatColor &&
+                                                `-0 0 10px ${chatColor}, 0 -0 10px ${chatColor},
+        -0 -0 10px ${chatColor}, -0 -0 10px ${chatColor}`,
                                         }}
                                         onChange={(e) => {
                                             handleColorChange(e);

@@ -648,6 +648,7 @@ export default function Chat({
                     playNotification={(e) => playNotification(e)}
                     shakeUser={shakeUser}
                     setShakeUser={(e) => setShakeUser(e)}
+         
                 />
             </div>
             <div
