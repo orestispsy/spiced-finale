@@ -336,7 +336,7 @@ export default function Chat({
 
     return (
         <div className="chatContainerBack">
-            {tickerBar && <Ticker tickerBar={tickerBar} darkMode={darkMode}/>}
+            {tickerBar && <Ticker tickerBar={tickerBar} darkMode={darkMode} />}
             {privateMode && (
                 <PrivateMSGS
                     chat_myUserId={chat_myUserId}
@@ -347,9 +347,13 @@ export default function Chat({
                     nickname={nickname}
                     privateNick={privateNick}
                     setChecker={(e) => setChecker(e)}
-                    setFilteredPrivateMessages={(e) => setFilteredPrivateMessages(e)}
+                    setFilteredPrivateMessages={(e) =>
+                        setFilteredPrivateMessages(e)
+                    }
                     list={list}
                     darkMode={darkMode}
+                    playNotification={(e) => playNotification(e)}
+                    mute={mute}
                 />
             )}
 
@@ -636,7 +640,9 @@ export default function Chat({
                     privateNick={privateNick}
                     privatePic={privatePic}
                     privateMessages={privateMessages}
-                    setFilteredPrivateMessages={(e) => setFilteredPrivateMessages(e)}
+                    setFilteredPrivateMessages={(e) =>
+                        setFilteredPrivateMessages(e)
+                    }
                     guest={guest}
                     nickname={nickname}
                     setNickname={(e) => setNickname(e)}
@@ -651,7 +657,6 @@ export default function Chat({
                     playNotification={(e) => playNotification(e)}
                     shakeUser={shakeUser}
                     setShakeUser={(e) => setShakeUser(e)}
-         
                 />
             </div>
             <div

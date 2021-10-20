@@ -15,6 +15,8 @@ export default function PrivateMSGS({
     setFilteredPrivateMessages,
     list,
     darkMode,
+    playNotification,
+    mute
 }) {
     const [firstMsgId, setFirstMsgId] = useState(null);
 
@@ -29,6 +31,7 @@ export default function PrivateMSGS({
             elemRef.current.scrollTop = newScrollTop;
         }
         setFirstMsgId(messages[messages.length - 1]);
+
     }, [messages]);
 
     useEffect(() => {
@@ -61,6 +64,10 @@ export default function PrivateMSGS({
 
     useEffect(() => {
         if (firstMsgId) {
+                if (!mute && firstMsgId.msg_seen) {
+                    playNotification();
+                }
+         
             axios
                 .post("/get-private-messages", {
                     chat_myUserId,
@@ -76,7 +83,6 @@ export default function PrivateMSGS({
                             firstMsgId.msg_receiver_id == chat_myUserId &&
                             firstMsgId.id == messages[messages.length - 1]
                         ) {
-                            console.log(userPrivate)
                             setPrivateMsgsIfSeen(firstMsgId.id);
                         }
                     }
@@ -87,7 +93,6 @@ export default function PrivateMSGS({
             if (
                 firstMsgId.msg_sender_id == userPrivate
             ) {
-                console.log(userPrivate)
                 setPrivateMsgsIfSeen(firstMsgId.id);
             }
         }
