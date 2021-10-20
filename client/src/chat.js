@@ -44,7 +44,7 @@ export default function Chat({
     const [userPrivate, setUserPrivate] = useState(false);
     const [privatePic, setPrivatePic] = useState(false);
     const [privateNick, setPrivateNick] = useState(false);
-    const [privateMessages, setPrivateMessages] = useState(false);
+    const [privateMessages, setFilteredPrivateMessages] = useState(false);
     const [configTimer, setConfigTimer] = useState(false);
     const [shakeUser, setShakeUser] = useState(false);
 
@@ -248,6 +248,9 @@ export default function Chat({
         socket.emit("NEXT MSGS", chatMessages[0].id);
     };
 
+    
+
+
     const getBack2Top = () => {
         elemRef.current.scrollTop = -elemRef.current.scrollTop;
     };
@@ -344,7 +347,7 @@ export default function Chat({
                     nickname={nickname}
                     privateNick={privateNick}
                     setChecker={(e) => setChecker(e)}
-                    setPrivateMessages={(e) => setPrivateMessages(e)}
+                    setFilteredPrivateMessages={(e) => setFilteredPrivateMessages(e)}
                     list={list}
                     darkMode={darkMode}
                 />
@@ -633,7 +636,7 @@ export default function Chat({
                     privateNick={privateNick}
                     privatePic={privatePic}
                     privateMessages={privateMessages}
-                    setPrivateMessages={(e) => setPrivateMessages(e)}
+                    setFilteredPrivateMessages={(e) => setFilteredPrivateMessages(e)}
                     guest={guest}
                     nickname={nickname}
                     setNickname={(e) => setNickname(e)}

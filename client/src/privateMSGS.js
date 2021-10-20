@@ -12,7 +12,7 @@ export default function PrivateMSGS({
     privatePic,
     nickname,
     privateNick,
-    setPrivateMessages,
+    setFilteredPrivateMessages,
     list,
     darkMode,
 }) {
@@ -28,6 +28,7 @@ export default function PrivateMSGS({
                 elemRef.current.scrollHeight - elemRef.current.clientHeight;
             elemRef.current.scrollTop = newScrollTop;
         }
+        setFirstMsgId(messages[messages.length - 1]);
     }, [messages]);
 
     useEffect(() => {
@@ -41,7 +42,7 @@ export default function PrivateMSGS({
                 .then(({ data }) => {
                     socket.emit("PRIVATE MESSAGES", data.data);
                     if (data.data[0]) {
-                        setFirstMsgId(data.data[0].id);
+                        setFirstMsgId(data.data[data.data.length - 1]);
                     }
                 })
                 .catch((err) => {
@@ -50,7 +51,7 @@ export default function PrivateMSGS({
             axios
                 .get("/filtered-private")
                 .then(({ data }) => {
-                    setPrivateMessages(data.data);
+                    setFilteredPrivateMessages(data.data);
                 })
                 .catch((err) => {
                     console.log("error", err);
@@ -59,13 +60,45 @@ export default function PrivateMSGS({
     }, []);
 
     useEffect(() => {
+        if (firstMsgId) {
+            axios
+                .post("/get-private-messages", {
+                    chat_myUserId,
+                    userPrivate,
+                    privatePic,
+                })
+                .then(({ data }) => {
+                    if (
+                        data.data[data.data.length - 1].id ==
+                        messages[messages.length - 1]
+                    ) {
+                        if (
+                            firstMsgId.msg_receiver_id == chat_myUserId &&
+                            firstMsgId.id == messages[messages.length - 1]
+                        ) {
+                            setPrivateMsgsIfSeen(firstMsgId.id);
+                        }
+                    }
+                })
+                .catch((err) => {
+                    console.log("error", err);
+                });
+            if (firstMsgId.msg_receiver_id == chat_myUserId) {
+                setPrivateMsgsIfSeen(firstMsgId.id);
+            }
+        }
+    }, [firstMsgId]);
+
+    const setPrivateMsgsIfSeen = (e) => {
         axios
-            .post("/seen-private-messages", { firstMsgId })
+            .post("/seen-private-messages", {
+                firstMsgId: e,
+            })
             .then(({ data }) => {})
             .catch((err) => {
                 console.log("error", err);
             });
-    }, [firstMsgId]);
+    };
 
     const addPrivateMsg = (e) => {
         if (e == "") {
