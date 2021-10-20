@@ -659,7 +659,7 @@ export default function Chat({
                     setShakeUser={(e) => setShakeUser(e)}
                 />
             </div>
-            <div
+            {!chatBan &&  <div
                 className="jukeBox"
                 onClick={(e) => {
                     if (!nightFlightProg) {
@@ -672,8 +672,8 @@ export default function Chat({
                         setRadioBroadcast(false);
                     }
                 }}
-            ></div>
-            <div
+            ></div>}
+         {!chatBan && <div
                 className="tickerButton"
                 onClick={(e) => {
                     toggleTicker(!tickerBar);
@@ -681,13 +681,15 @@ export default function Chat({
             >
                 {tickerBar && `Stop Ticker`} {!tickerBar && `Start Ticker`}
             </div>
+            } 
+             {!chatBan && 
             <div
                 className={(list && "DarkMode") || (!list && "lightMode")}
                 onClick={(e) => {
                     listSet(!list);
                     setDarkMode(!darkMode);
                 }}
-            ></div>
+            ></div>}
         </div>
     );
 }

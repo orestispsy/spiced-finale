@@ -29,7 +29,6 @@ export default function Ticker({ tickerBar, darkMode }) {
                         links[i].addEventListener(
                             "mouseenter",
                             function (event) {
-                                event.target.style.color = "white";
                                 cancelAnimationFrame(requestid);
                             }
                         );
@@ -38,8 +37,6 @@ export default function Ticker({ tickerBar, darkMode }) {
                             "mouseleave",
                             function (event) {
                                 moveHeadlines();
-                                event.target.style.color = "lime";
-                                event.target.style.textDecoration = "none";
                             }
                         );
                     }

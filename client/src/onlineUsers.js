@@ -295,7 +295,7 @@ export default function OnlineUsers({
                                     ></div>
                                 </Link>
                             )}
-                        {!userPicBar && !privateMode && networkList && (
+                        {!userPicBar && !privateMode && networkList && !userConfig && (
                             <div
                                 className="onlineUsersRedDot"
                                 title="Online List"

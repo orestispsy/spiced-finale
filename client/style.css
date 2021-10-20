@@ -3771,12 +3771,18 @@ input[type="number"] {
 }
 
 #tickerLinkDark {
-     background-color: transparent;
+  background-color: rgba(0, 247, 255, 0.1);
       border-radius: 1vmax;
-      border:1px solid rgba(19, 253, 50, 0.267);
-        text-shadow: -1px 1px 0 rgba(19, 253, 50, 0.267),
-        1px -1px 0 rgba(19, 253, 50, 0.267), -1px -1px 0 rgba(19, 253, 50, 0.267),
-        -1px -1px 0 rgba(19, 253, 50, 0.267);
+      border:1px solid rgba(255, 255, 255, 0.318);
+      color: rgb(0, 255, 157);
+}
+
+#tickerLinkDark:hover {
+          color: white;
+}
+
+.tickerLink:hover{
+    color:White;
 }
 
 .tickerLink,
@@ -3801,7 +3807,7 @@ input[type="number"] {
 }
 
 .tickerBlankLink {
-    color: yellow;
+    color: yellow !important;
 }
 
 .tickerLink span {

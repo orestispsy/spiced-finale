@@ -24,6 +24,8 @@ export default function appBar({
 }) {
     const [playSlideFx] = useSound(hyperfx, { volume: 0.6 });
 
+      const chatBan = useSelector((state) => state && state.chat_ban);
+
     const chatMessages = useSelector((state) => state && state.chatMessages);
     useEffect(
         function () {
@@ -54,7 +56,7 @@ export default function appBar({
 
     return (
         <div className="appBar" id={(maps && "appBar") || ""}>
-            <div className="barLeftSection">
+         {!chatBan &&   <div className="barLeftSection">
                 <Link to={(chatMode && "/") || (!chatMode && "/chat")}>
                     <img
                         src={chat_img || "./../avatar.png"}
@@ -74,7 +76,7 @@ export default function appBar({
                 </Link>
 
                 <div className="barProfile">{!maps && nickname}</div>
-            </div>
+            </div>}
             {maps && (
                 <a target="_blank" href="https://www.1000mods.com">
                     <div className="logo2Back">
