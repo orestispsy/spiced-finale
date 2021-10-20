@@ -76,6 +76,7 @@ export default function PrivateMSGS({
                             firstMsgId.msg_receiver_id == chat_myUserId &&
                             firstMsgId.id == messages[messages.length - 1]
                         ) {
+                            console.log(userPrivate)
                             setPrivateMsgsIfSeen(firstMsgId.id);
                         }
                     }
@@ -83,7 +84,10 @@ export default function PrivateMSGS({
                 .catch((err) => {
                     console.log("error", err);
                 });
-            if (firstMsgId.msg_receiver_id == chat_myUserId) {
+            if (
+                firstMsgId.msg_sender_id == userPrivate
+            ) {
+                console.log(userPrivate)
                 setPrivateMsgsIfSeen(firstMsgId.id);
             }
         }
