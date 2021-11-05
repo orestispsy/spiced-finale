@@ -1782,6 +1782,11 @@ input {
     .aboutContainer {
         height: unset !important;
     }
+
+    .aboutButton{
+        height:3.5vmax !important;
+        width:3.5vmax !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -2248,6 +2253,11 @@ input {
 
     .authorText {
         font-size: 3vmax !important;
+    }
+
+       .aboutButton{
+        height:3vmax !important;
+        width:3vmax !important;
     }
 }
 
@@ -4986,13 +4996,14 @@ input[type="number"] {
     height:2vmax;
     background-size: cover;
     filter:invert(100%);
-    z-index:3
+    z-index:3;
+    transition:0.5s;
 }
 
 .aboutButton:hover {
-
- box-shadow: -0 0 10px rgba(0, 0, 0, 0.232), 0 -0 10px rgba(0, 0, 0, 0.232),
-        -0 -0 10px rgba(0, 0, 0, 0.232), -0 -0 10px rgba(0, 0, 0, 0.232);
+transition:0.5s;
+ box-shadow: -0 0 10px rgba(0, 0, 0, 0.150), 0 -0 10px rgba(0, 0, 0, 0.150),
+        -0 -0 10px rgba(0, 0, 0, 0.150), -0 -0 10px rgba(0, 0, 0, 0.150);
     }
 
 .aboutContainer {
@@ -5140,5 +5151,5 @@ input[type="number"] {
 
 #aboutClose:hover {  box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
-    
+    color:rgb(253, 253, 191)
     }
