@@ -10,9 +10,12 @@ export default function Main({
     darkMode,
     setDarkMode,
     setChatNotification,
-    setChatMode
+    setChatMode,
+
+    setAboutMode
 }) {
     useEffect(function () {
+        setAboutMode(false)
         setChatMode(false)
         setChatNotification(false);
         listSet(false);
@@ -92,6 +95,11 @@ export default function Main({
                     setDarkMode(!darkMode);
                 }}
             ></div>
+            <Link to="/about">
+                <div className="aboutButton">
+                   about
+                </div>
+            </Link>
             {super_admin && (
                 <Link to="/super-admin">
                     <div className="superAdminButton">

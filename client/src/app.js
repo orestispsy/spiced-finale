@@ -12,6 +12,7 @@ import Chat from "./chat";
 import GigListAnimation from "./gigListAnimation";
 import GigEntry from "./gigEntry";
 import SuperAdmin from "./superAdmin";
+import About from "./about";
 
 import radioBroadcasts from "./tools/radioBroadcasts";
 
@@ -41,11 +42,11 @@ export default class App extends Component {
             left: `35%`,
             chatNotification: false,
             chatMode: false,
+            aboutMode: false,
         };
     }
 
     componentDidMount() {
-       
         this.mapVisible(false);
         axios
             .get("/user-details")
@@ -181,286 +182,210 @@ export default class App extends Component {
         });
     }
 
-    // sliderAction(e) {
-    //     e.preventDefault();
-    //     this.setState({
-    //         move: true,
-    //         sliderWidth: e.target.clientWidth,
-    //     });
-    // }
-
-    // sliderStop() {
-    //     this.setState({
-    //         move: false,
-    //     });
-    // }
-
-    // hideSlider() {
-    //     this.setState({
-    //         sliderHidden: true,
-    //     });
-    // }
-
-    // handleMouseMove(e) {
-    //     if (
-    //         this.state.move &&
-    //         e.clientX >= body[0].offsetWidth - this.state.sliderWidth / 8
-    //     ) {
-    //         this.setState({
-    //             move: false,
-    //             left: body[0].offsetWidth,
-    //         });
-    //     }
-
-    //     if (e.clientX == 0) {
-    //         this.setState({
-    //             sliderHidden: true,
-    //         });
-    //     } else {
-    //         this.setState({
-    //             sliderHidden: false,
-    //         });
-    //     }
-
-    //     if (this.state.move) {
-    //         this.setState({
-    //             left: e.clientX,
-    //         });
-    //     }
-    // }
+    setAboutMode(e) {
+        this.setState({
+            aboutMode:e
+        });
+    }
 
     render() {
         return (
             <BrowserRouter>
                 <div
-                // onMouseMove={(e) => this.handleMouseMove(e)}
-                // onMouseUp={() => this.sliderStop()}
-                // onTouchEnd={() => this.sliderStop()}
+                    className={
+                        (this.state.aboutMode && "appContainerAbout") ||
+                        (this.state.maps && "appContainerMap") ||
+                        (this.state.list && "appContainerList") ||
+                        (this.state.darkMode && "appContainerDark") ||
+                        (!this.state.list && "appContainer")
+                    }
+                    style={{
+                        backgroundImage:
+                            this.state.aboutMode && `url(/about/about1.jpg)`,
+                    }}
                 >
-                    <div className="introPreCover">
-                        <div
-                            className={
-                                (this.state.maps && "appContainerMap") ||
-                                (this.state.list && "appContainerList") ||
-                                (this.state.darkMode && "appContainerDark") ||
-                                (!this.state.list && "appContainer")
-                            }
-                        >
-                            <Route
-                                exact
-                                path="*"
-                                render={(props) => (
-                                    <AppBar
-                                        chat_img={this.state.chat_img}
-                                        nickname={this.state.nickname}
-                                        setRadioBroadcast={(e) =>
-                                            this.setRadioBroadcast(e)
-                                        }
-                                        radioBroadcasts={this.radioBroadcasts}
-                                        nightFlightProg={
-                                            this.state.nightFlightProg
-                                        }
-                                        maps={this.state.maps}
-                                        setGigEntry={(e) => this.setGigEntry(e)}
-                                        mapVisible={(e) => this.mapVisible(e)}
-                                        top={this.state.top}
-                                        left={this.state.left}
-                                        setPlayerPosition={(x, y) =>
-                                            this.setPlayerPosition(x, y)
-                                        }
-                                        setChatNotification={(e) =>
-                                            this.setChatNotification(e)
-                                        }
-                                        chatNotification={
-                                            this.state.chatNotification
-                                        }
-                                        chatMode={this.state.chatMode}
-                                    />
-                                )}
+                    <Route
+                        exact
+                        path="*"
+                        render={(props) => (
+                            <AppBar
+                                chat_img={this.state.chat_img}
+                                nickname={this.state.nickname}
+                                setRadioBroadcast={(e) =>
+                                    this.setRadioBroadcast(e)
+                                }
+                                radioBroadcasts={this.radioBroadcasts}
+                                nightFlightProg={this.state.nightFlightProg}
+                                maps={this.state.maps}
+                                setGigEntry={(e) => this.setGigEntry(e)}
+                                mapVisible={(e) => this.mapVisible(e)}
+                                top={this.state.top}
+                                left={this.state.left}
+                                setPlayerPosition={(x, y) =>
+                                    this.setPlayerPosition(x, y)
+                                }
+                                setChatNotification={(e) =>
+                                    this.setChatNotification(e)
+                                }
+                                chatNotification={this.state.chatNotification}
+                                chatMode={this.state.chatMode}
+                                aboutMode={this.state.aboutMode}
+                                setAboutMode={(e) => this.setAboutMode(e)}
                             />
-                            <Route
-                                exact
-                                path="/"
-                                render={(props) => (
-                                    <Main
-                                        super_admin={this.state.super_admin}
-                                        admin={this.state.admin}
-                                        listSet={(e) => this.listSet(e)}
-                                        visitors={this.state.visitors}
-                                        guest={this.state.guest}
-                                        darkMode={this.state.darkMode}
-                                        listSet={(e) => this.listSet(e)}
-                                        list={this.state.list}
-                                        setDarkMode={(e) => this.setDarkMode(e)}
-                                        setChatNotification={(e) =>
-                                            this.setChatNotification(e)
-                                        }
-                                        setChatMode={(e)=>this.setChatMode(e)}
-                                    />
-                                )}
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/"
+                        render={(props) => (
+                            <Main
+                                super_admin={this.state.super_admin}
+                                admin={this.state.admin}
+                                listSet={(e) => this.listSet(e)}
+                                visitors={this.state.visitors}
+                                guest={this.state.guest}
+                                darkMode={this.state.darkMode}
+                                listSet={(e) => this.listSet(e)}
+                                list={this.state.list}
+                                setDarkMode={(e) => this.setDarkMode(e)}
+                                setChatNotification={(e) =>
+                                    this.setChatNotification(e)
+                                }
+                                setChatMode={(e) => this.setChatMode(e)}
+                                aboutMode={this.state.aboutMode}
+                                setAboutMode={(e) => this.setAboutMode(e)}
                             />
+                        )}
+                    />
 
-                            <Route
-                                exact
-                                path="/gig-creator"
-                                render={(props) => (
-                                    <GigCreator
-                                        admin={this.state.admin}
-                                        darkMode={this.state.darkMode}
-                                        setGigsList={(e) => this.setGigsList(e)}
-                                    />
-                                )}
+                    <Route
+                        exact
+                        path="/gig-creator"
+                        render={(props) => (
+                            <GigCreator
+                                admin={this.state.admin}
+                                darkMode={this.state.darkMode}
+                                setGigsList={(e) => this.setGigsList(e)}
                             />
-                            <Route
-                                exact
-                                path="/gig-editor"
-                                render={(props) => (
-                                    <GigEditor
-                                        gigsList={this.state.gigsList}
-                                        admin={this.state.admin}
-                                        darkMode={this.state.darkMode}
-                                        setGigsList={(e) => this.setGigsList(e)}
-                                    />
-                                )}
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/gig-editor"
+                        render={(props) => (
+                            <GigEditor
+                                gigsList={this.state.gigsList}
+                                admin={this.state.admin}
+                                darkMode={this.state.darkMode}
+                                setGigsList={(e) => this.setGigsList(e)}
                             />
-                            <Route
-                                exact
-                                path="/map"
-                                render={(props) => (
-                                    <MyMap
-                                        gigsList={this.state.gigsList}
-                                        mapVisible={(e) => this.mapVisible(e)}
-                                        selectedGigEntry={
-                                            this.state.selectedGigEntry
-                                        }
-                                        setGigEntry={(e) => this.setGigEntry(e)}
-                                        guest={this.state.guest}
-                                    />
-                                )}
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/map"
+                        render={(props) => (
+                            <MyMap
+                                gigsList={this.state.gigsList}
+                                mapVisible={(e) => this.mapVisible(e)}
+                                selectedGigEntry={this.state.selectedGigEntry}
+                                setGigEntry={(e) => this.setGigEntry(e)}
+                                guest={this.state.guest}
                             />
-                            <Route
-                                exact
-                                path="/gig-list"
-                                render={(props) => (
-                                    <GigList
-                                        gigsList={this.state.gigsList}
-                                        listSet={(e) => this.listSet(e)}
-                                        setListScroller={(e) =>
-                                            this.setListScroller(e)
-                                        }
-                                        listScroller={this.state.listScroller}
-                                        year={this.state.year}
-                                        setYear={(e) => this.setYear(e)}
-                                    />
-                                )}
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/gig-list"
+                        render={(props) => (
+                            <GigList
+                                gigsList={this.state.gigsList}
+                                listSet={(e) => this.listSet(e)}
+                                setListScroller={(e) => this.setListScroller(e)}
+                                listScroller={this.state.listScroller}
+                                year={this.state.year}
+                                setYear={(e) => this.setYear(e)}
                             />
+                        )}
+                    />
 
-                            <Route
-                                path="/api/gig/:id"
-                                render={(props) => (
-                                    <GigEntry
-                                        match={props.match}
-                                        gigsList={this.state.gigsList}
-                                        myUserId={this.state.id}
-                                        super_admin={this.state.super_admin}
-                                        nickname={this.state.nickname}
-                                        listSet={(e) => this.listSet(e)}
-                                        history={props.history}
-                                        setGigEntry={(e) => this.setGigEntry(e)}
-                                        selectedGigEntry={
-                                            this.state.selectedGigEntry
-                                        }
-                                        guest={this.state.guest}
-                                    />
-                                )}
+                    <Route
+                        path="/api/gig/:id"
+                        render={(props) => (
+                            <GigEntry
+                                match={props.match}
+                                gigsList={this.state.gigsList}
+                                myUserId={this.state.id}
+                                super_admin={this.state.super_admin}
+                                nickname={this.state.nickname}
+                                listSet={(e) => this.listSet(e)}
+                                history={props.history}
+                                setGigEntry={(e) => this.setGigEntry(e)}
+                                selectedGigEntry={this.state.selectedGigEntry}
+                                guest={this.state.guest}
                             />
+                        )}
+                    />
 
-                            <Route
-                                exact
-                                path="/gig-list-animation"
-                                render={(props) => (
-                                    <GigListAnimation
-                                        gigsList={this.state.gigsList}
-                                        listSet={(e) => this.listSet(e)}
-                                    />
-                                )}
+                    <Route
+                        exact
+                        path="/gig-list-animation"
+                        render={(props) => (
+                            <GigListAnimation
+                                gigsList={this.state.gigsList}
+                                listSet={(e) => this.listSet(e)}
                             />
-                            <Route
-                                exact
-                                path="/chat"
-                                render={(props) => (
-                                    <Chat
-                                        chat_img={this.state.chat_img}
-                                        chat_myUserId={this.state.id}
-                                        chat_color={this.state.chat_color}
-                                        admin={this.state.admin}
-                                        setAdmin={(e) => this.setAdmin(e)}
-                                        super_admin={this.state.super_admin}
-                                        setProfileImage={(e) =>
-                                            this.setProfileImage(e)
-                                        }
-                                        nickname={this.state.nickname}
-                                        guest={this.state.guest}
-                                        setNickname={(e) => this.setNickname(e)}
-                                        darkMode={this.state.darkMode}
-                                        listSet={(e) => this.listSet(e)}
-                                        list={this.state.list}
-                                        setDarkMode={(e) => this.setDarkMode(e)}
-                                        setRadioBroadcast={(e) =>
-                                            this.setRadioBroadcast(e)
-                                        }
-                                        radioBroadcasts={radioBroadcasts}
-                                        nightFlightProg={
-                                            this.state.nightFlightProg
-                                        }
-                                        setChatMode={(e) => this.setChatMode(e)}
-                                    />
-                                )}
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/chat"
+                        render={(props) => (
+                            <Chat
+                                chat_img={this.state.chat_img}
+                                chat_myUserId={this.state.id}
+                                chat_color={this.state.chat_color}
+                                admin={this.state.admin}
+                                setAdmin={(e) => this.setAdmin(e)}
+                                super_admin={this.state.super_admin}
+                                setProfileImage={(e) => this.setProfileImage(e)}
+                                nickname={this.state.nickname}
+                                guest={this.state.guest}
+                                setNickname={(e) => this.setNickname(e)}
+                                darkMode={this.state.darkMode}
+                                listSet={(e) => this.listSet(e)}
+                                list={this.state.list}
+                                setDarkMode={(e) => this.setDarkMode(e)}
+                                setRadioBroadcast={(e) =>
+                                    this.setRadioBroadcast(e)
+                                }
+                                radioBroadcasts={radioBroadcasts}
+                                nightFlightProg={this.state.nightFlightProg}
+                                setChatMode={(e) => this.setChatMode(e)}
                             />
-                            <Route
-                                exact
-                                path="/super-admin"
-                                render={(props) => (
-                                    <SuperAdmin
-                                        super_admin={this.state.super_admin}
-                                        chat_myUserId={this.state.id}
-                                        listSet={(e) => this.listSet(e)}
-                                    />
-                                )}
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/super-admin"
+                        render={(props) => (
+                            <SuperAdmin
+                                super_admin={this.state.super_admin}
+                                chat_myUserId={this.state.id}
+                                listSet={(e) => this.listSet(e)}
                             />
-                        </div>
-                    </div>
-                    {/* {!this.state.sliderHidden && (
-                        <div
-                            className="introCover"
-                            style={{
-                                width: this.state.left + "px",
-                            }}
-                        >
-                            <div
-                                className="intro"
-                                style={{
-                                    width: this.state.left + "px",
-                                }}
-                            >
-                                Welcome
-                                <span>
-                                    Hover on the right to find the "slider" and
-                                    then move it horizontally to see behind the
-                                    void.
-                                </span>
-                            </div>
-                        </div>
-                    )}
-                    <div
-                        style={{
-                            left:
-                                this.state.left - this.state.sliderWidth + "px",
-                        }}
-                        className="slider"
-                        onMouseDown={(e) => this.sliderAction(e)}
-                        onTouchMove={(e) => this.sliderAction(e)}
-                    ></div> */}
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/about"
+                        render={(props) => (
+                            <About
+                                aboutMode={this.state.aboutMode}
+                                setAboutMode={(e) => this.setAboutMode(e)}
+                            />
+                        )}
+                    />
                 </div>
             </BrowserRouter>
         );

@@ -11,7 +11,7 @@ export default function Posters({ posterSelector }) {
                 setPosters(data);
             })
             .catch((err) => {
-                // console.log("err in axios POST /gig-creator: ", err);
+                console.log(err);
             });
     }, []);
 

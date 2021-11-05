@@ -159,7 +159,7 @@ a:hover {
     background-color: rgba(255, 211, 66, 0.137);
     border-radius: 1vh;
     height: fit-content;
-        display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -192,6 +192,18 @@ a:hover {
     align-items: center;
     align-self: center;
     background-image: url("road.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.appContainerAbout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
@@ -1236,7 +1248,7 @@ input {
     }
 
     .emoticons {
-       margin-top: -2vmax !important;
+        margin-top: -2vmax !important;
         margin-right: 1vh !important;
         height: 33vmax !important;
         width: 20vmax !important;
@@ -1279,7 +1291,7 @@ input {
     }
 
     .colorSelector {
-     padding:2vmax !important;
+        padding: 2vmax !important;
     }
 
     .sendChatMsg {
@@ -1729,8 +1741,8 @@ input {
         height: unset !important;
     }
 
-      .onlineListDetails {
-        margin-left:unset !important;
+    .onlineListDetails {
+        margin-left: unset !important;
     }
 }
 
@@ -1960,7 +1972,7 @@ input {
     }
 
     .colorSelector {
-  padding: 2vmax !important
+        padding: 2vmax !important;
     }
 
     .chatMenuOptions {
@@ -2193,7 +2205,7 @@ input {
     }
 
     .onlineListDetails {
-        margin-left:unset !important;
+        margin-left: unset !important;
     }
 }
 
@@ -2376,6 +2388,7 @@ input {
     width: 15px;
 }
 
+.aboutBack::-webkit-scrollbar,
 select::-webkit-scrollbar,
 .chatScreen::-webkit-scrollbar,
 .gigEntries::-webkit-scrollbar,
@@ -2391,6 +2404,7 @@ select::-webkit-scrollbar-track,
     border-radius: 10px;
 }
 
+.aboutBack::-webkit-scrollbar-track,
 .gigEntries::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.075);
     border-radius: 10px;
@@ -2400,6 +2414,11 @@ select::-webkit-scrollbar-thumb {
     background: #00000059;
     border-radius: 10px;
     border: 1px solid black;
+}
+
+.aboutBack::-webkit-scrollbar-thumb {
+    background: #0000004d;
+    border-radius: 10px;
 }
 
 .usersBack::-webkit-scrollbar-thumb,
@@ -2417,6 +2436,10 @@ select::-webkit-scrollbar-thumb {
 .emoticons::-webkit-scrollbar-thumb:hover,
 .monthInnerBox::-webkit-scrollbar-thumb:hover {
     background: #ffc4015b;
+}
+
+.aboutBack::-webkit-scrollbar-thumb:hover {
+    background: #3b46014d;
 }
 
 .selectGig {
@@ -2730,7 +2753,7 @@ font-family: 'Ultra', serif; */
     font-family: "Black Ops One", cursive;
     user-select: none;
     margin-top: -2.5vmax;
-    padding:1vh 0
+    padding: 1vh 0;
 }
 
 .buttonBack {
@@ -2766,7 +2789,7 @@ font-family: 'Ultra', serif; */
 
 .chatContainer,
 .chatContainerBan {
-    width:60vw;
+    width: 60vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2793,7 +2816,6 @@ font-family: 'Ultra', serif; */
     background: none;
     border: 1px solid rgba(255, 255, 255, 0.171);
     margin-top: 3vmax;
-
 }
 
 #chatTitlePriv {
@@ -3223,7 +3245,7 @@ font-family: 'Ultra', serif; */
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-left:0.5vmax;
+    margin-left: 0.5vmax;
 }
 
 #online {
@@ -3628,12 +3650,12 @@ input[type="number"] {
     margin: 0 0 0 0.5vmax;
     box-shadow: -0 0 6px rgba(0, 0, 0, 0.5), 0 -0 6px rgba(0, 0, 0, 0.5),
         -0 -0 6px rgba(0, 0, 0, 0.5), -0 -0 6px rgba(0, 0, 0, 0.5);
-        transition:1s;
+    transition: 1s;
 }
 
 .colorSelector:hover {
-    transition:2s;
-    filter:hue-rotate(-380deg)
+    transition: 2s;
+    filter: hue-rotate(-380deg);
 }
 
 .mute {
@@ -3771,18 +3793,18 @@ input[type="number"] {
 }
 
 #tickerLinkDark {
-  background-color: rgba(0, 247, 255, 0.1);
-      border-radius: 1vmax;
-      border:1px solid rgba(255, 255, 255, 0.318);
-      color: rgb(0, 255, 157);
+    background-color: rgba(0, 247, 255, 0.1);
+    border-radius: 1vmax;
+    border: 1px solid rgba(255, 255, 255, 0.318);
+    color: rgb(0, 255, 157);
 }
 
 #tickerLinkDark:hover {
-          color: white;
+    color: white;
 }
 
-.tickerLink:hover{
-    color:White;
+.tickerLink:hover {
+    color: White;
 }
 
 .tickerLink,
@@ -3832,52 +3854,6 @@ input[type="number"] {
 }
 
 /* Ticker !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-
-.introPreCover,
-.introCover {
-    position: fixed;
-}
-
-.introCover {
-    background: black;
-    width: 100vw;
-    height: 100vh;
-    z-index: 10;
-}
-
-.slider {
-    position: absolute;
-    width: 2vw;
-    height: 100vh;
-    background-color: black;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.slider:hover {
-    background-color: rgb(255, 255, 255);
-}
-
-.intro {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-self: center;
-    width: 100vw;
-    height: 100vh;
-    font-size: 10vmax;
-    overflow: hidden;
-    color: white;
-    text-align: center;
-}
-
-.intro span {
-    align-self: center;
-    font-size: 2.5vmax;
-    width: 60vw;
-    text-align: center;
-}
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! GIGLIST ANIMATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
@@ -4954,4 +4930,142 @@ input[type="number"] {
 
 .jukeBox:hover {
     background-image: url("jukebox2.png");
+}
+
+.aboutButton {
+    position: fixed;
+    top: 1vmax;
+    right: 1vmax;
+    font-size: 1.5vmax;
+}
+
+.aboutContainer {
+    color: yellow;
+    width: 100vw;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.aboutCover {
+    position: relative;
+    filter: hue-rotate(15deg) sepia(0.95) brightness(1.3) contrast(2);
+    border-radius: 1vh;
+    width: 96vw;
+    height: 86vh;
+    opacity: 50%;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+
+    box-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
+        -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
+}
+
+.aboutDescription {
+    border-radius: 1vh;
+    height: 82vh;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin: auto;
+    color: #ffffff;
+    z-index: 123;
+    font-size: 2vmax;
+    font-family: "Darker Grotesque", sans-serif;
+    cursor: pointer;
+}
+
+.aboutDescription a {
+    width: 5vmax;
+}
+
+.logo2About {
+    background-image: url("logo2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 18vmax;
+    height: 5vmax;
+}
+
+.logo2AboutDesc {
+    margin: -1vmax 0 0 3.4vmax;
+}
+
+.author {
+    margin-top: 1vmax;
+    text-align: center;
+    align-self: center;
+    font-family: "Poller One", cursive;
+    font-size: 3vmax;
+    color: black;
+    border-bottom: 1px solid black;
+    width: 20vmax;
+}
+
+.authorText a {
+    color: black;
+    text-shadow: none;
+    font-size: 2vmax;
+    font-family: "Bangers", cursive;
+    letter-spacing: 2px;
+}
+
+.authorText a:hover {
+    color: rgb(220, 20, 60);
+    text-shadow: -1px 1px 0 yellow, 1px -1px 0 yellow, -1px -1px 0 yellow,
+        1px 1px 0 yellow;
+}
+
+.authorText {
+    font-weight: bolder;
+    border-radius: 1vh;
+    margin: 0 0 0 2vmax;
+    text-align: justify;
+    color: rgb(0, 0, 0);
+    width: 60vmax;
+    padding: 0 1vmax;
+    text-shadow: -1px 1px 0 rgba(255, 255, 255, 0.116),
+        1px -1px 0 rgba(255, 255, 255, 0.116),
+        -1px -1px 0 rgba(255, 255, 255, 0.116),
+        1px 1px 0 rgba(255, 255, 255, 0.116);
+}
+
+.authorText div {
+    margin-top: 1vmax;
+}
+
+.authPic {
+    border-radius: 50%;
+    background-image: url("/about/auth.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: -10vmax;
+    margin-top: 2vmax;
+    width: 10vmax;
+    height: 10vmax;
+    filter: hue-rotate(15deg) sepia(0.25) brightness(1) contrast(1);
+    opacity: 40%;
+    background-position-y: 50%;
+}
+
+.authWrapper {
+    margin: 0 0 2vmax 3.4vmax;
+    display: flex;
+}
+
+.aboutBack {
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 63vh;
+    background-color: rgba(255, 255, 255, 0.13);
+    overflow-y: auto;
+    border-radius: 1vh;
 }

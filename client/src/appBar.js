@@ -21,6 +21,8 @@ export default function appBar({
     setPlayerPosition,
     setChatNotification,
     chatMode,
+    aboutMode,
+    setAboutMode
 }) {
     const [playSlideFx] = useSound(hyperfx, { volume: 0.6 });
 
@@ -56,33 +58,55 @@ export default function appBar({
 
     return (
         <div className="appBar" id={(maps && "appBar") || ""}>
-         {!chatBan &&   <div className="barLeftSection">
-                <Link to={(chatMode && "/") || (!chatMode && "/chat")}>
-                    <img
-                        src={chat_img || "./../avatar.png"}
-                        className="barProfileImage"
-                    ></img>
-                </Link>
+            {!chatBan && (
+                <div className="barLeftSection">
+                    <Link to={(chatMode && "/") || (!chatMode && "/chat")}>
+                        <img
+                            src={chat_img || "./../avatar.png"}
+                            className="barProfileImage"
+                            onClick={(e) => {
+                                mapVisible(false);
+                                setAboutMode(false);
+                            }}
+                        ></img>
+                    </Link>
 
-                <Link to={(chatMode && "/") || (!chatMode && "/chat")}>
-                    <div
-                        title="Chat Room"
-                        className="chatBar"
-                        id={(chatNotification && !chatMode && "chatBar") || ""}
-                        onClick={(e) => {
-                            mapVisible(false);
-                        }}
-                    ></div>
-                </Link>
+                    <Link to={(chatMode && "/") || (!chatMode && "/chat")}>
+                        <div
+                            title="Chat Room"
+                            className="chatBar"
+                            id={
+                                (chatNotification && !chatMode && "chatBar") ||
+                                ""
+                            }
+                            onClick={(e) => {
+                                mapVisible(false);
+                                setAboutMode(false);
+                            }}
+                        ></div>
+                    </Link>
 
-                <div className="barProfile">{!maps && nickname}</div>
-            </div>}
+                    <div className="barProfile">{!maps && nickname}</div>
+                </div>
+            )}
             {maps && (
                 <a target="_blank" href="https://www.1000mods.com">
                     <div className="logo2Back">
                         <div className="logo2"></div>
                     </div>
                 </a>
+            )}
+
+            {aboutMode && (
+                <Link
+                    to="/"
+                    className="barMainLink"
+                    title="Back"
+                    onClick={(e) => {
+                 
+                        setAboutMode(false);
+                    }}
+                ></Link>
             )}
 
             {maps && (
@@ -93,6 +117,7 @@ export default function appBar({
                     onClick={(e) => {
                         setGigEntry(false);
                         mapVisible(false);
+                        setAboutMode(false);
                     }}
                 ></Link>
             )}
