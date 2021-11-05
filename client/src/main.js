@@ -97,7 +97,7 @@ export default function Main({
             ></div>
             <Link to="/about">
                 <div className="aboutButton">
-                   about
+                  
                 </div>
             </Link>
             {super_admin && (

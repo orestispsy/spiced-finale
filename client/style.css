@@ -4933,11 +4933,24 @@ input[type="number"] {
 }
 
 .aboutButton {
+        border-radius: 50%;
     position: fixed;
     top: 1vmax;
     right: 1vmax;
     font-size: 1.5vmax;
+    color:white;
+    background-image: url("about.png");
+    width:2vmax;
+    height:2vmax;
+    background-size: cover;
+    filter:invert(100%)
 }
+
+.aboutButton:hover {
+
+ box-shadow: -0 0 10px rgba(0, 0, 0, 0.232), 0 -0 10px rgba(0, 0, 0, 0.232),
+        -0 -0 10px rgba(0, 0, 0, 0.232), -0 -0 10px rgba(0, 0, 0, 0.232);
+    }
 
 .aboutContainer {
     color: yellow;
@@ -5023,17 +5036,17 @@ input[type="number"] {
 }
 
 .authorText {
-    font-weight: bolder;
+   
     border-radius: 1vh;
     margin: 0 0 0 2vmax;
     text-align: justify;
-    color: rgb(0, 0, 0);
+    color: rgba(255, 255, 255, 0.842);
     width: 60vmax;
     padding: 0 1vmax;
-    text-shadow: -1px 1px 0 rgba(255, 255, 255, 0.116),
-        1px -1px 0 rgba(255, 255, 255, 0.116),
-        -1px -1px 0 rgba(255, 255, 255, 0.116),
-        1px 1px 0 rgba(255, 255, 255, 0.116);
+    text-shadow: -1px 1px 0 rgba(0, 0, 0, 1),
+        1px -1px 0 rgba(0, 0, 0, 1),
+        -1px -1px 0 rgba(0, 0, 0, 1),
+        1px 1px 0 rgba(0, 0, 0, 1);
 }
 
 .authorText div {
@@ -5065,7 +5078,19 @@ input[type="number"] {
     flex-direction: column;
     align-items: center;
     height: 63vh;
-    background-color: rgba(255, 255, 255, 0.13);
+    background-color: rgba(0, 0, 0, 0.13);
     overflow-y: auto;
     border-radius: 1vh;
 }
+
+#aboutClose {
+    background:transparent;
+    margin: 0 -2vmax -2vmax 0;
+    color:white;
+    width:unset;
+}
+
+#aboutClose:hover {  box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
+        -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
+    
+    }

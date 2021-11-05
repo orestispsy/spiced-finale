@@ -97,18 +97,7 @@ export default function appBar({
                 </a>
             )}
 
-            {aboutMode && (
-                <Link
-                    to="/"
-                    className="barMainLink"
-                    title="Back"
-                    onClick={(e) => {
-                 
-                        setAboutMode(false);
-                    }}
-                ></Link>
-            )}
-
+           
             {maps && (
                 <Link
                     to="/"
