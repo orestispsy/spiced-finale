@@ -1744,6 +1744,44 @@ input {
     .onlineListDetails {
         margin-left: unset !important;
     }
+
+    .authWrapper{
+        margin:0 !important;
+       
+    }
+
+    .aboutBack {
+ align-items: unset !important;
+    }
+
+    .authWrapper{
+        flex-direction: column !important;
+
+    }
+
+    .authorText {
+        text-indent: 1vmax;
+        width:unset !important;
+    }
+
+    .authPic {
+        margin-left:0 !important;
+        align-self: center !important;
+    }
+
+    .author {
+        margin-top:4vmax !important;
+    }
+
+    #aboutClose{
+        margin: -1vmax -1vmax -4vmax 0 !important
+    }
+
+    .aboutBack {height:80vh !important}
+
+    .aboutContainer {
+        height: unset !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -2206,6 +2244,10 @@ input {
 
     .onlineListDetails {
         margin-left: unset !important;
+    }
+
+    .authorText {
+        font-size: 3vmax !important;
     }
 }
 
@@ -4943,7 +4985,8 @@ input[type="number"] {
     width:2vmax;
     height:2vmax;
     background-size: cover;
-    filter:invert(100%)
+    filter:invert(100%);
+    z-index:3
 }
 
 .aboutButton:hover {
@@ -5019,6 +5062,7 @@ input[type="number"] {
     color: black;
     border-bottom: 1px solid black;
     width: 20vmax;
+    
 }
 
 .authorText a {
@@ -5027,6 +5071,10 @@ input[type="number"] {
     font-size: 2vmax;
     font-family: "Bangers", cursive;
     letter-spacing: 2px;
+     text-shadow: -1px 1px 0 rgb(255, 255, 255),
+        1px -1px 0 rgb(255, 255, 255),
+        -1px -1px 0 rgb(255, 255, 255),
+        1px 1px 0 rgb(255, 255, 255);
 }
 
 .authorText a:hover {
@@ -5068,7 +5116,7 @@ input[type="number"] {
 }
 
 .authWrapper {
-    margin: 0 0 2vmax 3.4vmax;
+    margin: 0 0 2vmax 0;
     display: flex;
 }
 
