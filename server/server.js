@@ -272,7 +272,7 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
 
     db.addImage(data.id, s3Url + filename)
         .then(({ rows }) => {
-            res.json({ data:rows,success: true });
+            res.json({ data: rows, success: true });
         })
         .catch((err) => {
             res.json({ error2: true });
@@ -577,6 +577,28 @@ app.get("/delete-guests", (req, res) => {
 
 app.post("/set-user-status", (req, res) => {
     db.setUserStatus(req.body.online, req.session.userId)
+        .then(({ rows }) => {
+            res.json({ rows });
+        })
+        .catch((err) => {
+            res.json({ error: true });
+            console.log(err);
+        });
+});
+
+app.post("/add-about-comment", (req, res) => {
+    db.addAboutComment(req.body.userName, req.body.email, req.body.website, req.body.comment)
+        .then(({ rows }) => {
+            res.json({ rows });
+        })
+        .catch((err) => {
+            res.json({ error: true });
+            console.log(err);
+        });
+});
+
+app.get("/get-about-comments", (req, res) => {
+    db.getAboutComments()
         .then(({ rows }) => {
             res.json({ rows });
         })

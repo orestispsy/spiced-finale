@@ -1745,47 +1745,44 @@ input {
         margin-left: unset !important;
     }
 
-    .authWrapper{
-        margin:0 !important;
-       
+    .authWrapper {
+        margin: 0 !important;
     }
 
     .aboutBack {
- align-items: unset !important;
+        align-items: unset !important;
     }
 
-    .authWrapper{
-        flex-direction: column !important;
-
-    }
 
     .authorText {
         text-indent: 1vmax;
-        width:unset !important;
+        width: unset !important;
     }
 
     .authPic {
-        margin-left:0 !important;
+        margin-left: 0 !important;
         align-self: center !important;
     }
 
     .author {
-        margin-top:4vmax !important;
+        margin-top: 4vmax !important;
     }
 
-    #aboutClose{
-        margin: -1vmax -1vmax -4vmax 0 !important
+    #aboutClose {
+        margin: -1vmax -1vmax -4vmax 0 !important;
     }
 
-    .aboutBack {height:80vh !important}
+    .aboutBack {
+        height: 80vh !important;
+    }
 
     .aboutContainer {
         height: unset !important;
     }
 
-    .aboutButton{
-        height:3.5vmax !important;
-        width:3.5vmax !important;
+    .aboutButton {
+        height: 3.5vmax !important;
+        width: 3.5vmax !important;
     }
 }
 
@@ -2255,9 +2252,9 @@ input {
         font-size: 3vmax !important;
     }
 
-       .aboutButton{
-        height:3vmax !important;
-        width:3vmax !important;
+    .aboutButton {
+        height: 3vmax !important;
+        width: 3vmax !important;
     }
 }
 
@@ -2440,6 +2437,7 @@ input {
     width: 15px;
 }
 
+.saySomethingBack::-webkit-scrollbar,
 .aboutBack::-webkit-scrollbar,
 select::-webkit-scrollbar,
 .chatScreen::-webkit-scrollbar,
@@ -2456,6 +2454,7 @@ select::-webkit-scrollbar-track,
     border-radius: 10px;
 }
 
+.saySomethingBack::-webkit-scrollbar-track,
 .aboutBack::-webkit-scrollbar-track,
 .gigEntries::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.075);
@@ -2468,7 +2467,9 @@ select::-webkit-scrollbar-thumb {
     border: 1px solid black;
 }
 
-.aboutBack::-webkit-scrollbar-thumb {
+.saySomethingBack::-webkit-scrollbar-thumb,
+.aboutBack::-webkit-scrollbar-thumb,
+.saySomethingBack::-webkit-scrollbar-thumb {
     background: #0000004d;
     border-radius: 10px;
 }
@@ -2490,6 +2491,7 @@ select::-webkit-scrollbar-thumb {
     background: #ffc4015b;
 }
 
+.saySomethingBack::-webkit-scrollbar-thumb:hover,
 .aboutBack::-webkit-scrollbar-thumb:hover {
     background: #3b46014d;
 }
@@ -4985,26 +4987,31 @@ input[type="number"] {
 }
 
 .aboutButton {
-        border-radius: 50%;
+    border-radius: 50%;
     position: fixed;
     top: 1vmax;
     right: 1vmax;
     font-size: 1.5vmax;
-    color:white;
+    color: white;
     background-image: url("about.png");
-    width:2vmax;
-    height:2vmax;
+    width: 2vmax;
+    height: 2vmax;
     background-size: cover;
-    filter:invert(100%);
-    z-index:3;
-    transition:0.5s;
+    filter: invert(100%);
+    z-index: 3;
+
+    box-shadow: -0 0 10px rgba(255, 255, 255, 0.15),
+        0 -0 10px rgba(255, 255, 255, 0.15),
+        -0 -0 10px rgba(255, 255, 255, 0.15),
+        -0 -0 10px rgba(255, 255, 255, 0.15);
+
+    opacity: 80%;
 }
 
 .aboutButton:hover {
-transition:0.5s;
- box-shadow: -0 0 10px rgba(0, 0, 0, 0.150), 0 -0 10px rgba(0, 0, 0, 0.150),
-        -0 -0 10px rgba(0, 0, 0, 0.150), -0 -0 10px rgba(0, 0, 0, 0.150);
-    }
+    box-shadow: -0 0 7px rgba(255, 47, 47, 0.4), 0 -0 7px rgba(255, 47, 47, 0.4),
+        -0 -0 7px rgba(255, 47, 47, 0.4), -0 -0 7px rgba(255, 47, 47, 0.4);
+}
 
 .aboutContainer {
     color: yellow;
@@ -5064,52 +5071,51 @@ transition:0.5s;
     margin: -1vmax 0 0 3.4vmax;
 }
 
-.author {
+.author, .about {
     margin-top: 1vmax;
     text-align: center;
-    align-self: center;
     font-family: "Poller One", cursive;
     font-size: 3vmax;
     color: black;
-    border-bottom: 1px solid black;
-    width: 20vmax;
-    
+    border-bottom: 1px solid rgba(0, 0, 0, 0.158);
 }
 
-.authorText a {
+.aboutText a {
     color: black;
     text-shadow: none;
     font-size: 2vmax;
     font-family: "Bangers", cursive;
     letter-spacing: 2px;
-     text-shadow: -1px 1px 0 rgb(255, 255, 255),
-        1px -1px 0 rgb(255, 255, 255),
-        -1px -1px 0 rgb(255, 255, 255),
-        1px 1px 0 rgb(255, 255, 255);
+    text-shadow: -1px 1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255),
+        -1px -1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255);
 }
 
-.authorText a:hover {
+.aboutText a:hover {
     color: rgb(220, 20, 60);
     text-shadow: -1px 1px 0 yellow, 1px -1px 0 yellow, -1px -1px 0 yellow,
         1px 1px 0 yellow;
 }
 
-.authorText {
-   
+.authorText,
+.aboutText {
     border-radius: 1vh;
-    margin: 0 0 0 2vmax;
+    margin: 0 auto;
     text-align: justify;
     color: rgba(255, 255, 255, 0.842);
     width: 60vmax;
     padding: 0 1vmax;
-    text-shadow: -1px 1px 0 rgba(0, 0, 0, 1),
-        1px -1px 0 rgba(0, 0, 0, 1),
-        -1px -1px 0 rgba(0, 0, 0, 1),
-        1px 1px 0 rgba(0, 0, 0, 1);
+    text-shadow: -1px 1px 0 rgba(0, 0, 0, 1), 1px -1px 0 rgba(0, 0, 0, 1),
+        -1px -1px 0 rgba(0, 0, 0, 1), 1px 1px 0 rgba(0, 0, 0, 1);
 }
 
 .authorText div {
     margin-top: 1vmax;
+    text-align: center;
+}
+
+.aboutText div {
+    margin-top: 1vmax;
+    text-indent: 1vmax;
 }
 
 .authPic {
@@ -5117,7 +5123,7 @@ transition:0.5s;
     background-image: url("/about/auth.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: -10vmax;
+
     margin-top: 2vmax;
     width: 10vmax;
     height: 10vmax;
@@ -5129,13 +5135,13 @@ transition:0.5s;
 .authWrapper {
     margin: 0 0 2vmax 0;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .aboutBack {
-    margin-top: 2vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 2vh auto 0 auto;
     height: 63vh;
     background-color: rgba(0, 0, 0, 0.13);
     overflow-y: auto;
@@ -5143,13 +5149,107 @@ transition:0.5s;
 }
 
 #aboutClose {
-    background:transparent;
+    background: transparent;
     margin: 0 -2vmax -2vmax 0;
-    color:white;
-    width:unset;
+    color: white;
+    width: unset;
 }
 
-#aboutClose:hover {  box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
+#aboutClose:hover {
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.308), 0 -0 5px rgba(0, 0, 0, 0.308),
         -0 -0 5px rgba(0, 0, 0, 0.308), -0 -0 5px rgba(0, 0, 0, 0.308);
-    color:rgb(253, 253, 191)
-    }
+    color: black;
+    background-color: rgba(255, 251, 0, 0.082);
+    border-color: rgba(255, 255, 255, 0.562);
+    text-shadow: -1px 1px 0 rgba(255, 255, 255, 0.2),
+        1px -1px 0 rgb(255, 255, 255, 0.2), -1px -1px 0 rgb(255, 255, 255, 0.2),
+        1px 1px 0 rgb(255, 255, 255, 0.2);
+}
+
+.saySomethingBack{
+    height: 40vh;
+    margin: 2vmax 4vmax 2vmax 6vmax;
+    width: 60vw;
+    border-radius: 1vh;
+    background-color: rgba(255, 255, 255, 0.295);
+    border: 1px solid black;
+    overflow-y: visible;
+    resize: none;
+    color: white;
+    text-shadow: -1px 1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5),
+        -1px -1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+    font-size: 1vmax;
+    overflow-y: auto;
+}
+
+.aboutCommentControls {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.aboutCommentControls input {
+    background-color: rgba(0, 0, 0, 0.226);
+    border: 1px solid rgba(255, 255, 255, 0.445);
+}
+
+.aboutCommentControls input::placeholder{
+    color:rgba(255, 208, 0, 0.418);
+}
+
+.sendAboutComment {
+text-align: center;
+cursor:pointer;
+}
+
+.sendAboutCommentClose {
+    text-align: right;
+    margin-right:1vmax;
+    margin-bottom: -1vmax;
+}
+
+.sendAboutCommentToggler  {
+text-align: center;
+cursor:pointer;
+margin-top:-1vmax;
+margin-bottom:1vmax;
+}
+
+
+#sendAboutComment{
+    cursor:not-allowed;
+    color: white;
+
+} 
+
+.sendAboutComment:hover {
+color:black;
+}
+
+#saySomethingBack{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+  
+    padding: 1vmax 0;
+}
+
+.blogEntry{
+       display: flex;
+    flex-direction: column;
+    margin:1vh;
+    width:55vw;
+    border-bottom:1px solid rgba(0, 0, 0, 0.205)
+}
+
+.blogName{
+    text-shadow:none;
+  font-size:1.5vmax;
+}
+
+.blogText{
+    color:black;
+    font-size:2vmax;
+        text-shadow:none;
+}

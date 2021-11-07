@@ -64,3 +64,12 @@ CREATE TABLE comments (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+
+CREATE TABLE about_comments (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR,  
+    email VARCHAR,
+    website VARCHAR,
+    comment TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

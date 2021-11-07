@@ -483,3 +483,23 @@ module.exports.changePassword = (password, id) => {
     const params = [password, id];
     return db.query(q, params);
 };
+
+module.exports.addAboutComment = (userName, email, website, comment) => {
+    const q = `
+        INSERT INTO about_comments (name,
+    email, website, comment)
+        VALUES ($1, $2, $3, $4)
+        RETURNING *
+    `;
+    const params = [userName, email, website,  comment];
+    return db.query(q, params);
+};
+
+
+module.exports.getAboutComments = () => {
+    const q = `
+       SELECT * FROM about_comments;
+    `;
+
+    return db.query(q);
+};

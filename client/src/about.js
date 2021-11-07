@@ -1,13 +1,51 @@
 import { useState, useEffect } from "react";
 import axios from "./tools/axios";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function About({ setAboutMode, aboutMode }) {
     const [imgCount, setImgCount] = useState(2);
+    const [userName, setUserName] = useState(false);
+    const [email, setEmail] = useState(false);
+    const [website, setWebsite] = useState("");
+    const [comment, setComment] = useState(false);
+    const [commentSection, setCommentSection] = useState(true);
+    const [blogComments, setBlogComments] = useState(false);
 
     useEffect(function () {
         setAboutMode(true);
+       getAboutComments()
     }, []);
+
+    const getAboutComments = (e) => {
+         axios
+             .get("/get-about-comments/")
+             .then(({ data }) => {
+                 setBlogComments(data.rows);
+             })
+             .catch((err) => {
+                 console.log("err in Gig Entry GET Request : ", err);
+             });
+
+    }
+
+    const sendComment = (e) => {
+        if (comment && userName && email) {
+            axios
+                .post("/add-about-comment/", {
+                    comment: comment,
+                    userName: userName,
+                    email: email,
+                    website: website,
+                })
+                .then(({ data }) => {
+                   setCommentSection(true)
+                   getAboutComments()
+                })
+                .catch((err) => {
+                    console.log("err in Gig Entry GET Request : ", err);
+                });
+        }
+    };
 
     return (
         <div className="aboutContainer">
@@ -21,19 +59,17 @@ export default function About({ setAboutMode, aboutMode }) {
                     }
                 }}
             >
-            
-                    <Link
-                        to="/"
-                        className="buttonBack"
-                        id="aboutClose"
-                        title="Back"
-                        onClick={(e) => {
-                            setAboutMode(false);
-                        }}
-                    >
-                        X
-                    </Link>
-             
+                <Link
+                    to="/"
+                    className="buttonBack"
+                    id="aboutClose"
+                    title="Back"
+                    onClick={(e) => {
+                        setAboutMode(false);
+                    }}
+                >
+                    X
+                </Link>
 
                 <a target="_blank" href="https://www.1000mods.com">
                     <div className="logo2About"></div>
@@ -42,9 +78,9 @@ export default function About({ setAboutMode, aboutMode }) {
                 <div className="logo2AboutDesc"> The Gig Guide</div>
 
                 <div className="aboutBack">
-                    <div className="author"> About</div>
+                    <div className="about"> About</div>
                     <div className="authWrapper">
-                        <div className="authorText">
+                        <div className="aboutText">
                             <div>
                                 Friend, fan and brother soul of The Almighty{" "}
                                 <a
@@ -96,6 +132,103 @@ export default function About({ setAboutMode, aboutMode }) {
                             </div>
                         </div>
                     </div>
+                    <div className="author">
+                        {(!commentSection && "Say A Word") || "Comments"}
+                    </div>
+                    {!commentSection && (
+                        <div
+                            className="sendAboutCommentClose"
+                            onClick={(e) => {
+                                setCommentSection(!commentSection);
+                            }}
+                        >
+                            X
+                        </div>
+                    )}
+                    {commentSection && (
+                        <div className="saySomethingBack" id="saySomethingBack">
+                            {blogComments &&
+                                blogComments.map((blogEntry) => {
+                                    return (
+                                        <div
+                                            className="blogEntry"
+                                            key={blogEntry.id}
+                                        >
+                                            <div className="blogName">
+                                                {blogEntry.name}
+                                            </div>
+                                            <div className="blogText">
+                                                {blogEntry.comment}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                        </div>
+                    )}
+                    {!commentSection && (
+                        <textarea
+                            className="saySomethingBack"
+                            onChange={(e) => {
+                                setComment(e.target.value);
+                            }}
+                        ></textarea>
+                    )}
+
+                    {commentSection && (
+                        <div
+                            className="sendAboutCommentToggler"
+                            onClick={(e) => {
+                                setCommentSection(!commentSection);
+                            }}
+                        >
+                            Leave A Comment
+                        </div>
+                    )}
+                    {!commentSection && (
+                        <div className="aboutCommentControls">
+                            <input
+                                autoComplete="none"
+                                placeholder="Your Name"
+                                className="aboutInput"
+                                onChange={(e) => {
+                                    setUserName(e.target.value);
+                                }}
+                            ></input>
+                            <input
+                                className="aboutInput"
+                                autoComplete="none"
+                                placeholder="Your Email"
+                                onChange={(e) => {
+                                    setEmail(e.target.value);
+                                }}
+                            ></input>
+                            <input
+                                className="aboutInput"
+                                autoComplete="none"
+                                placeholder="Website"
+                                onChange={(e) => {
+                                    setWebsite(e.target.value);
+                                }}
+                            ></input>
+                        </div>
+                    )}
+                    {!commentSection && (
+                        <div
+                            className="sendAboutComment"
+                            id={
+                                (!comment &&
+                                    !userName &&
+                                    !email &&
+                                    "sendAboutComment") ||
+                                ""
+                            }
+                            onClick={(e) => {
+                                sendComment();
+                            }}
+                        >
+                            Send
+                        </div>
+                    )}
                 </div>
             </div>
             <div

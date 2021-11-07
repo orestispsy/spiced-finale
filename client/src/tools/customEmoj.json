@@ -208,5 +208,22 @@
     {
         "id": "52",
         "url": "./../chat/lightspeed.gif"
+    },
+    {
+        "id": "53",
+        "url": "./../chat/plane.gif"
+    },
+
+    {
+        "id": "54",
+        "url": "./../chat/berlin.png"
+    },
+    {
+        "id": "55",
+        "url": "./../chat/basketball.gif"
+    },
+    {
+        "id": "56",
+        "url": "./../chat/brain&coffee.gif"
     }
 ]
