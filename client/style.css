@@ -1753,7 +1753,8 @@ input {
         align-items: unset !important;
     }
 
-    .authorText {
+    .authorText,
+    .aboutText {
         text-indent: 1vmax;
         width: unset !important;
     }
@@ -1782,6 +1783,18 @@ input {
     .aboutButton {
         height: 3.5vmax !important;
         width: 3.5vmax !important;
+    }
+
+    .saySomethingBack {
+        margin: 0 4vmax 2vmax 8vmax !important;
+    }
+
+    #aboutReplyControls {
+        flex-wrap:wrap !important;
+    }
+
+    .sendAboutCommentClose{
+        width:unset !important
     }
 }
 
@@ -5198,6 +5211,7 @@ input[type="number"] {
 }
 
 .aboutCommentControls input {
+    margin-bottom:1vmax !important;
     background-color: rgba(0, 0, 0, 0.226);
     border: 1px solid rgba(255, 255, 255, 0.445);
 }

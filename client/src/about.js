@@ -25,7 +25,6 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
             .get("/get-about-comments/")
             .then(({ data }) => {
                 setBlogComments(data.rows);
-           console.log(data.rows)
             })
             .catch((err) => {
                 console.log(err);
@@ -53,7 +52,6 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                     userName: userName,
                     email: email,
                     website: website,
-
                     reply: 0,
                 })
                 .then(({ data }) => {
