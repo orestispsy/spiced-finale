@@ -484,22 +484,36 @@ module.exports.changePassword = (password, id) => {
     return db.query(q, params);
 };
 
-module.exports.addAboutComment = (userName, email, website, comment) => {
+module.exports.addAboutComment = (userName, email, website, comment, reply) => {
     const q = `
         INSERT INTO about_comments (name,
-    email, website, comment)
-        VALUES ($1, $2, $3, $4)
+    email, website, comment, reply)
+        VALUES ($1, $2, $3, $4, $5)
         RETURNING *
     `;
-    const params = [userName, email, website,  comment];
+    const params = [userName, email, website,  comment, reply];
     return db.query(q, params);
 };
 
 
 module.exports.getAboutComments = () => {
     const q = `
-       SELECT * FROM about_comments;
+       SELECT * FROM about_comments
+        ORDER BY reply DESC;
     `;
 
     return db.query(q);
+};
+
+
+module.exports.deleteAboutComment = (id) => {
+    const q = `
+        DELETE FROM about_comments
+        WHERE id = $1
+        OR
+        reply= $1
+        RETURNING *
+    `;
+    const params = [id];
+    return db.query(q, params);
 };

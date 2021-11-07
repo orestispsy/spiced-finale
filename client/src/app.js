@@ -383,6 +383,7 @@ export default class App extends Component {
                             <About
                                 aboutMode={this.state.aboutMode}
                                 setAboutMode={(e) => this.setAboutMode(e)}
+                                super_admin={this.state.super_admin}
                             />
                         )}
                     />

@@ -71,5 +71,6 @@ CREATE TABLE about_comments (
     email VARCHAR,
     website VARCHAR,
     comment TEXT,
+    reply integer,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

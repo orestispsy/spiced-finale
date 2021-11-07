@@ -1753,7 +1753,6 @@ input {
         align-items: unset !important;
     }
 
-
     .authorText {
         text-indent: 1vmax;
         width: unset !important;
@@ -5031,11 +5030,9 @@ input[type="number"] {
     width: 96vw;
     height: 86vh;
     opacity: 50%;
-
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
-
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.432), 0 -0 10px rgba(0, 0, 0, 0.432),
         -0 -0 10px rgba(0, 0, 0, 0.432), -0 -0 10px rgba(0, 0, 0, 0.432);
 }
@@ -5071,8 +5068,9 @@ input[type="number"] {
     margin: -1vmax 0 0 3.4vmax;
 }
 
-.author, .about {
-    margin-top: 1vmax;
+.author,
+.about {
+    margin-top: 6vmax;
     text-align: center;
     font-family: "Poller One", cursive;
     font-size: 3vmax;
@@ -5106,11 +5104,15 @@ input[type="number"] {
     padding: 0 1vmax;
     text-shadow: -1px 1px 0 rgba(0, 0, 0, 1), 1px -1px 0 rgba(0, 0, 0, 1),
         -1px -1px 0 rgba(0, 0, 0, 1), 1px 1px 0 rgba(0, 0, 0, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .authorText div {
     margin-top: 1vmax;
     text-align: center;
+    width: 40vw;
 }
 
 .aboutText div {
@@ -5166,9 +5168,10 @@ input[type="number"] {
         1px 1px 0 rgb(255, 255, 255, 0.2);
 }
 
-.saySomethingBack{
+.saySomethingBack {
+    padding: 1vh;
     height: 40vh;
-    margin: 2vmax 4vmax 2vmax 6vmax;
+    margin: 0 4vmax 2vmax 6vmax;
     width: 60vw;
     border-radius: 1vh;
     background-color: rgba(255, 255, 255, 0.295);
@@ -5183,6 +5186,11 @@ input[type="number"] {
     overflow-y: auto;
 }
 
+#aboutReplyControls {
+    padding: 1vmax 0;
+    background-color: rgba(0, 0, 0, 0.144);
+}
+
 .aboutCommentControls {
     display: flex;
     align-items: center;
@@ -5194,62 +5202,100 @@ input[type="number"] {
     border: 1px solid rgba(255, 255, 255, 0.445);
 }
 
-.aboutCommentControls input::placeholder{
-    color:rgba(255, 208, 0, 0.418);
+.aboutCommentControls input::placeholder,
+.replyArea::placeholder {
+    color: rgba(255, 208, 0, 0.418);
 }
 
 .sendAboutComment {
-text-align: center;
-cursor:pointer;
+    text-align: center;
+    cursor: pointer;
 }
 
 .sendAboutCommentClose {
+    width: 69vw;
     text-align: right;
-    margin-right:1vmax;
-    margin-bottom: -1vmax;
+    text-shadow: -0 0 5px rgba(0, 0, 0, 0.5), 0 -0 5px rgba(0, 0, 0, 0.5),
+        -0 -0 5px rgba(0, 0, 0, 0.5), 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-.sendAboutCommentToggler  {
-text-align: center;
-cursor:pointer;
-margin-top:-1vmax;
-margin-bottom:1vmax;
+.sendAboutCommentToggler {
+    text-align: center;
+    cursor: pointer;
+    margin-top: -1vmax;
+    margin-bottom: 2vmax;
 }
 
-
-#sendAboutComment{
-    cursor:not-allowed;
+#sendAboutComment {
+    cursor: not-allowed;
     color: white;
-
-} 
-
-.sendAboutComment:hover {
-color:black;
 }
 
-#saySomethingBack{
+#saySomethingBack {
     display: flex;
     flex-direction: column;
-    align-items:center;
-  
+    align-items: center;
     padding: 1vmax 0;
+    background-color: rgba(255, 255, 255, 0.13);
 }
 
-.blogEntry{
-       display: flex;
+.blogEntry {
+    display: flex;
     flex-direction: column;
-    margin:1vh;
-    width:55vw;
-    border-bottom:1px solid rgba(0, 0, 0, 0.205)
+    margin: 1vh;
+    width: 55vw;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.205);
+    background-color: rgba(0, 0, 0, 0.205);
 }
 
-.blogName{
-    text-shadow:none;
-  font-size:1.5vmax;
+.blogEntryBack {
+    padding-top: 0.5vmax;
 }
 
-.blogText{
-    color:black;
-    font-size:2vmax;
-        text-shadow:none;
+.blogName,
+.blogName a {
+    text-shadow: none;
+    font-size: 1.5vmax;
+    color: white;
+}
+
+.blogText {
+    color: black;
+    font-size: 2vmax;
+    text-shadow: none;
+}
+
+.blogReplyBack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.replyArea {
+    background-color: rgba(0, 0, 0, 0.144);
+    border: 1px solid rgba(0, 0, 0, 0.247);
+    border-radius: 1vh;
+    width: 50vw;
+    resize: none;
+    outline: none;
+    margin-bottom: 1vmax;
+}
+
+#reply {
+    margin-top: 0.2vmax;
+    background-color: rgba(255, 255, 0, 0.082);
+    margin-left: 2vh;
+    width: 52vw;
+}
+
+.blogDelete {
+    color: red;
+    margin-right: 1vmax;
+}
+
+.blogReplyOptions {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 48vw;
 }

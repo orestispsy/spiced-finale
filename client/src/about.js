@@ -1,32 +1,49 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect,  Fragment } from "react";
 import axios from "./tools/axios";
 import { Link } from "react-router-dom";
 
-export default function About({ setAboutMode, aboutMode }) {
-    const [imgCount, setImgCount] = useState(2);
+export default function About({ setAboutMode, aboutMode, super_admin }) {
+    const [imgCount, setImgCount] = useState(Math.floor(((Math.random() * 8) +2 )));
     const [userName, setUserName] = useState(false);
     const [email, setEmail] = useState(false);
     const [website, setWebsite] = useState("");
     const [comment, setComment] = useState(false);
+    const [replyText, setReplyText] = useState(false);
     const [commentSection, setCommentSection] = useState(true);
     const [blogComments, setBlogComments] = useState(false);
+    const [reply, setReply] = useState(false);
+    const [selectedComment, setSelectedComment] = useState(false);
 
     useEffect(function () {
         setAboutMode(true);
-       getAboutComments()
+        getAboutComments();
     }, []);
 
-    const getAboutComments = (e) => {
-         axios
-             .get("/get-about-comments/")
-             .then(({ data }) => {
-                 setBlogComments(data.rows);
-             })
-             .catch((err) => {
-                 console.log("err in Gig Entry GET Request : ", err);
-             });
 
-    }
+    const getAboutComments = (e) => {
+        axios
+            .get("/get-about-comments/")
+            .then(({ data }) => {
+                setBlogComments(data.rows);
+           
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    const deleteAboutComment = (e) => {
+        axios
+            .post("/delete-about-comment/", {
+                id: e,
+            })
+            .then(({ data }) => {
+               getAboutComments();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
 
     const sendComment = (e) => {
         if (comment && userName && email) {
@@ -36,29 +53,48 @@ export default function About({ setAboutMode, aboutMode }) {
                     userName: userName,
                     email: email,
                     website: website,
+
+                    reply: 0,
                 })
                 .then(({ data }) => {
-                   setCommentSection(true)
-                   getAboutComments()
+                    setCommentSection(true);
+                    getAboutComments();
                 })
                 .catch((err) => {
-                    console.log("err in Gig Entry GET Request : ", err);
+                    console.log(err);
+                });
+        }
+        if (replyText && userName && email) {
+            axios
+                .post("/add-about-comment/", {
+                    comment: replyText,
+                    userName: userName,
+                    email: email,
+                    website: website,
+                    reply: selectedComment,
+                })
+                .then(({ data }) => {
+                    setReply(false);
+                    getAboutComments();
+                })
+                .catch((err) => {
+                    console.log(err);
                 });
         }
     };
 
     return (
-        <div className="aboutContainer">
-            <div
-                className="aboutDescription"
-                onClick={(e) => {
-                    if (imgCount < 9) {
-                        setImgCount(imgCount + 1);
-                    } else {
-                        setImgCount(2);
-                    }
-                }}
-            >
+        <div
+            className="aboutContainer"
+            onClick={(e) => {
+                if (imgCount < 9) {
+                    setImgCount(imgCount + 1);
+                } else {
+                    setImgCount(2);
+                }
+            }}
+        >
+            <div className="aboutDescription">
                 <Link
                     to="/"
                     className="buttonBack"
@@ -121,8 +157,9 @@ export default function About({ setAboutMode, aboutMode }) {
                         <div className="authPic"></div>
                         <div className="authorText">
                             <div>
-                                Web Developer, Drummer, Story Teller from Outer
-                                Space.
+                                Full-Stack Web Developer, Electronic Engineer,
+                                Musician, Web-Radio Broadcaster, Story Teller
+                                from Outer Space.
                             </div>
 
                             <div>
@@ -133,7 +170,8 @@ export default function About({ setAboutMode, aboutMode }) {
                         </div>
                     </div>
                     <div className="author">
-                        {(!commentSection && "Say A Word") || "Comments"}
+                        {(!commentSection && "Share Your Thoughts") ||
+                            "Comments"}
                     </div>
                     {!commentSection && (
                         <div
@@ -150,17 +188,205 @@ export default function About({ setAboutMode, aboutMode }) {
                             {blogComments &&
                                 blogComments.map((blogEntry) => {
                                     return (
-                                        <div
-                                            className="blogEntry"
-                                            key={blogEntry.id}
-                                        >
-                                            <div className="blogName">
-                                                {blogEntry.name}
-                                            </div>
-                                            <div className="blogText">
-                                                {blogEntry.comment}
-                                            </div>
-                                        </div>
+                                        <React.Fragment key={blogEntry.id}>
+                                            {blogEntry.reply == 0 && (
+                                                <div className="blogEntryBack">
+                                                    <div className="blogEntry">
+                                                        <div className="blogName">
+                                                            {blogEntry.website !=
+                                                                "" &&
+                                                                super_admin && (
+                                                                    <a
+                                                                        href={
+                                                                            blogEntry.website
+                                                                        }
+                                                                        target={
+                                                                            "_blank"
+                                                                        }
+                                                                    >
+                                                                        {
+                                                                            blogEntry.name
+                                                                        }
+                                                                    </a>
+                                                                )}
+                                                            {blogEntry.website ==
+                                                                "" &&
+                                                                blogEntry.name}
+                                                        </div>
+                                                        <div className="blogText">
+                                                            {blogEntry.comment}
+                                                        </div>
+
+                                                        {blogComments &&
+                                                            blogComments.map(
+                                                                (reply) => {
+                                                                    return (
+                                                                        <React.Fragment
+                                                                            key={
+                                                                                reply.id
+                                                                            }
+                                                                        >
+                                                                            {reply.reply ==
+                                                                                blogEntry.id &&
+                                                                                reply.reply >
+                                                                                    0 && (
+                                                                                    <div
+                                                                                        className="blogEntryBack"
+                                                                                        id="reply"
+                                                                                    >
+                                                                                        <div className="blogName">
+                                                                                            {
+                                                                                                reply.name
+                                                                                            }
+                                                                                        </div>
+                                                                                        <div className="blogText">
+                                                                                            {
+                                                                                                reply.comment
+                                                                                            }
+                                                                                        </div>
+                                                                                    </div>
+                                                                                )}
+                                                                        </React.Fragment>
+                                                                    );
+                                                                }
+                                                            )}
+                                                    </div>
+                                                    <div className="blogReplyBack">
+                                                        <div className="blogReplyOptions">
+                                                            {!reply &&
+                                                                super_admin && (
+                                                                    <div
+                                                                        className="blogDelete"
+                                                                        onClick={(
+                                                                            e
+                                                                        ) => {
+                                                                            setSelectedComment(
+                                                                                blogEntry.id
+                                                                            );
+                                                                            deleteAboutComment(
+                                                                                blogEntry.id
+                                                                            );
+                                                                        }}
+                                                                    >
+                                                                        DELETE
+                                                                    </div>
+                                                                )}
+
+                                                            <div
+                                                                className="blogReply"
+                                                                onClick={(
+                                                                    e
+                                                                ) => {
+                                                                    setReply(
+                                                                        !reply
+                                                                    );
+                                                                    setSelectedComment(
+                                                                        blogEntry.id
+                                                                    );
+                                                                }}
+                                                            >
+                                                                {(!reply &&
+                                                                    "🡬 REPLY") ||
+                                                                    (reply &&
+                                                                        selectedComment ==
+                                                                            blogEntry.id &&
+                                                                        "Close") ||
+                                                                    "REPLY"}
+                                                            </div>
+                                                        </div>
+                                                        {reply &&
+                                                            selectedComment ==
+                                                                blogEntry.id && (
+                                                                <textarea
+                                                                    placeholder="Say Something..."
+                                                                    className="replyArea"
+                                                                    onChange={(
+                                                                        e
+                                                                    ) => {
+                                                                        setReplyText(
+                                                                            e
+                                                                                .target
+                                                                                .value
+                                                                        );
+                                                                    }}
+                                                                ></textarea>
+                                                            )}
+                                                    </div>
+                                                    {reply &&
+                                                        selectedComment ==
+                                                            blogEntry.id && (
+                                                            <div
+                                                                className="aboutCommentControls"
+                                                                id="aboutReplyControls"
+                                                            >
+                                                                <input
+                                                                    autoComplete="none"
+                                                                    placeholder="Your Name"
+                                                                    className="aboutInput"
+                                                                    onChange={(
+                                                                        e
+                                                                    ) => {
+                                                                        setUserName(
+                                                                            e
+                                                                                .target
+                                                                                .value
+                                                                        );
+                                                                    }}
+                                                                ></input>
+                                                                <input
+                                                                    className="aboutInput"
+                                                                    autoComplete="none"
+                                                                    placeholder="Your Email"
+                                                                    onChange={(
+                                                                        e
+                                                                    ) => {
+                                                                        setEmail(
+                                                                            e
+                                                                                .target
+                                                                                .value
+                                                                        );
+                                                                    }}
+                                                                ></input>
+                                                                <input
+                                                                    className="aboutInput"
+                                                                    autoComplete="none"
+                                                                    placeholder="Website"
+                                                                    onChange={(
+                                                                        e
+                                                                    ) => {
+                                                                        setWebsite(
+                                                                            e
+                                                                                .target
+                                                                                .value
+                                                                        );
+                                                                    }}
+                                                                ></input>
+                                                            </div>
+                                                        )}
+                                                    {reply &&
+                                                        selectedComment ==
+                                                            blogEntry.id && (
+                                                            <div
+                                                                className="sendAboutComment"
+                                                                id={
+                                                                    (!comment &&
+                                                                        !userName &&
+                                                                        !email &&
+                                                                        "sendAboutComment") ||
+                                                                    "sendReply"
+                                                                }
+                                                                onClick={(
+                                                                    e
+                                                                ) => {
+                                                                    sendComment();
+                                                                }}
+                                                            >
+                                                                Send
+                                                            </div>
+                                                        )}
+                                                </div>
+                                            )}
+                                        </React.Fragment>
                                     );
                                 })}
                         </div>

@@ -587,7 +587,7 @@ app.post("/set-user-status", (req, res) => {
 });
 
 app.post("/add-about-comment", (req, res) => {
-    db.addAboutComment(req.body.userName, req.body.email, req.body.website, req.body.comment)
+    db.addAboutComment(req.body.userName, req.body.email, req.body.website, req.body.comment, req.body.reply)
         .then(({ rows }) => {
             res.json({ rows });
         })
@@ -599,6 +599,17 @@ app.post("/add-about-comment", (req, res) => {
 
 app.get("/get-about-comments", (req, res) => {
     db.getAboutComments()
+        .then(({ rows }) => {
+            res.json({ rows });
+        })
+        .catch((err) => {
+            res.json({ error: true });
+            console.log(err);
+        });
+});
+
+app.post("/delete-about-comment", (req, res) => {
+    db.deleteAboutComment(req.body.id)
         .then(({ rows }) => {
             res.json({ rows });
         })
