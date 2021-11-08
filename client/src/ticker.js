@@ -137,6 +137,15 @@ export default function Ticker({ tickerBar, darkMode }) {
                 <span>➤</span>
                 Night Flight 07.10.2021
             </a>
+            <a
+                id={(darkMode && "tickerLinkDark") || ""}
+                className="tickerLink"
+                href="https://www.mixcloud.com/WeirdFishesRadio/night-flight-04112021/"
+                target="_blank"
+            >
+                <span>➤</span>
+                Night Flight 04.11.2021
+            </a>
         </div>
     );
 }

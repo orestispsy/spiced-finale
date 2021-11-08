@@ -5345,6 +5345,19 @@ justify-content: space-between;
     padding:0.5vmax;
 }
 
+.commentReplyOption{
+    display: flex;
+}
+
+.commentPointer {
+    background-image: url("blogUp.png");
+    width:0.8vmax;
+    height:0.8vmax;
+    background-size: cover;
+    filter:invert(100%);
+    margin-right:0.5vmax;
+}
+
 .blogDelete {
     color: red;
     margin-right: 1vmax;

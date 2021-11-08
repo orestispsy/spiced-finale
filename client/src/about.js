@@ -174,9 +174,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                             </div>
                         </div>
                     </div>
-                    <div className="author">
-                        {commentSection  && "Thoughts"}
-                    </div>
+                    <div className="author">{commentSection && "Thoughts"}</div>
                     {!commentSection && (
                         <div
                             className="sendAboutCommentClose"
@@ -200,14 +198,19 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                                 <div className="blogEntryBack">
                                                     <div className="blogEntry">
                                                         <div className="blogMsgTitle">
-                                                      #{blogComments.map(
+                                                            #
+                                                            {blogComments.map(
                                                                 (com) => {
                                                                     if (
                                                                         blogEntry.id ==
                                                                         com.id
                                                                     ) {
                                                                         return (
-                                                                            <span key={com.id}>
+                                                                            <span
+                                                                                key={
+                                                                                    com.id
+                                                                                }
+                                                                            >
                                                                                 {expBlogComments.findIndex(
                                                                                     (
                                                                                         x
@@ -221,7 +224,6 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                                                     }
                                                                 }
                                                             )}
-                                                            
                                                         </div>
                                                         <div className="blogName">
                                                             <span>
@@ -346,8 +348,14 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                                                     );
                                                                 }}
                                                             >
-                                                                {(!reply &&
-                                                                    "🡬 REPLY") ||
+                                                                {(!reply && (
+                                                                    <div className="commentReplyOption">
+                                                                        <div className="commentPointer"></div>
+                                                                        <span>
+                                                                            REPLY
+                                                                        </span>
+                                                                    </div>
+                                                                )) ||
                                                                     (reply &&
                                                                         selectedComment ==
                                                                             blogEntry.id &&

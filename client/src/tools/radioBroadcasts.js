@@ -34,6 +34,11 @@ let radioBroadcasts = [
 
         href: "https://www.mixcloud.com/WeirdFishesRadio/night-flight-07102021/",
     },
+    {
+        id: 7,
+
+        href: "https://www.mixcloud.com/WeirdFishesRadio/night-flight-04112021/",
+    },
 ];
 
 export default {
