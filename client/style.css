@@ -1757,7 +1757,12 @@ input {
     .aboutText {
         text-indent: 1vmax;
         width: unset !important;
+        
     }
+
+     .authorText div {
+           width: 60vw !important;
+     }
 
     .authPic {
         margin-left: 0 !important;
@@ -1786,7 +1791,11 @@ input {
     }
 
     .saySomethingBack {
-        margin: 0 4vmax 2vmax 8vmax !important;
+        margin: 0 4vmax 2vmax 4vmax !important;
+        width: 80vw !important;
+    }
+    .blogEntry{
+        width:70vw !important;
     }
 
     #aboutReplyControls {
@@ -2261,7 +2270,7 @@ input {
     }
 
     .authorText {
-        font-size: 3vmax !important;
+        font-size: 2vmax !important;
     }
 
     .aboutButton {
@@ -5083,7 +5092,7 @@ input[type="number"] {
 
 .author,
 .about {
-    margin-top: 6vmax;
+    margin-top: 4vmax;
     text-align: center;
     font-family: "Poller One", cursive;
     font-size: 3vmax;
@@ -5125,7 +5134,7 @@ input[type="number"] {
 .authorText div {
     margin-top: 1vmax;
     text-align: center;
-    width: 40vw;
+    width: 25vw;
 }
 
 .aboutText div {
@@ -5237,7 +5246,7 @@ input[type="number"] {
     text-align: center;
     cursor: pointer;
     margin-top: -1vmax;
-    margin-bottom: 2vmax;
+ 
 }
 
 #sendAboutComment {
@@ -5270,13 +5279,18 @@ input[type="number"] {
 .blogName,
 .blogName a {
     text-shadow: none;
-    font-size: 1.5vmax;
+    font-size: 1.7vmax;
     color: white;
+}
+
+#replyBlogText{
+ font-size: 1.5vmax;
+
 }
 
 .blogText {
     color: black;
-    font-size: 2vmax;
+    font-size: 1.5vmax;
     text-shadow: none;
 }
 
@@ -5288,6 +5302,8 @@ input[type="number"] {
 .blogMsgTitle{
     border-bottom: 1px solid rgba(0, 0, 0, 0.233);
         text-indent:0.3vmax;
+             color:#ffd900a1;
+             font-size:1vmax;
 }
 
 .replyTitle{
@@ -5297,6 +5313,7 @@ input[type="number"] {
          display:flex;
 justify-content: space-between;
          width:50vw;
+           font-size:1vmax;
 }
 
 
@@ -5337,7 +5354,9 @@ justify-content: space-between;
     color: red;
  justify-self: flex-end;
    background-color: transparent !important;
+   font-size:1vmax;
 }
+
 
 .blogReplyOptions {
     display: flex;

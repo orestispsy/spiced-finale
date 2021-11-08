@@ -175,7 +175,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                         </div>
                     </div>
                     <div className="author">
-                        {(!commentSection && "Say Your Thoughts") || "Thoughts"}
+                        {commentSection  && "Thoughts"}
                     </div>
                     {!commentSection && (
                         <div
@@ -191,16 +191,44 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                         <div className="saySomethingBack" id="saySomethingBack">
                             {blogComments &&
                                 blogComments.map((blogEntry) => {
+                                    let expBlogComments = blogComments.filter(
+                                        (comment) => comment.reply == 0
+                                    );
                                     return (
                                         <React.Fragment key={blogEntry.id}>
                                             {blogEntry.reply == 0 && (
                                                 <div className="blogEntryBack">
                                                     <div className="blogEntry">
+                                                        <div className="blogMsgTitle">
+                                                      #{blogComments.map(
+                                                                (com) => {
+                                                                    if (
+                                                                        blogEntry.id ==
+                                                                        com.id
+                                                                    ) {
+                                                                        return (
+                                                                            <span key={com.id}>
+                                                                                {expBlogComments.findIndex(
+                                                                                    (
+                                                                                        x
+                                                                                    ) =>
+                                                                                        x.id ===
+                                                                                        blogEntry.id
+                                                                                ) +
+                                                                                    1}
+                                                                            </span>
+                                                                        );
+                                                                    }
+                                                                }
+                                                            )}
+                                                            
+                                                        </div>
                                                         <div className="blogName">
-                                                            <span>Name</span>{" "}
-                                                            {blogEntry.website ==
-                                                                "" &&
-                                                                blogEntry.name}
+                                                            <span>
+                                                                {blogEntry.website ==
+                                                                    "" &&
+                                                                    blogEntry.name}
+                                                            </span>{" "}
                                                             {blogEntry.website !=
                                                                 "" &&
                                                                 super_admin && (
@@ -220,9 +248,6 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                                         </div>
 
                                                         <div className="blogText">
-                                                            <div className="blogMsgTitle">
-                                                                Original Message
-                                                            </div>
                                                             {blogEntry.comment}
                                                         </div>
 
@@ -246,7 +271,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                                                                         <div className="blogName">
                                                                                             <div className="replyTitle">
                                                                                                 <span>
-                                                                                                    Reply
+                                                                                                    Reply:
                                                                                                 </span>
                                                                                                 {super_admin && (
                                                                                                     <span
@@ -267,13 +292,15 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                                                                                 )}
                                                                                             </div>{" "}
                                                                                             <span>
-                                                                                                Name
+                                                                                                {
+                                                                                                    reply.name
+                                                                                                }
                                                                                             </span>{" "}
-                                                                                            {
-                                                                                                reply.name
-                                                                                            }
                                                                                         </div>
-                                                                                        <div className="blogText">
+                                                                                        <div
+                                                                                            className="blogText"
+                                                                                            id="replyBlogText"
+                                                                                        >
                                                                                             {
                                                                                                 reply.comment
                                                                                             }

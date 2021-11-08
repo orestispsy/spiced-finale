@@ -270,14 +270,16 @@ export default function OnlineUsers({
                                 onClick={(e) => {
                                     setPrivateMode(false);
                                     toggleEmojibar(false);
-                                     axios
-                                         .get("/filtered-private")
-                                         .then(({ data }) => {                                    
-                                             setFilteredPrivateMessages(data.data);
-                                         })
-                                         .catch((err) => {
-                                             console.log("error", err);
-                                         });
+                                    axios
+                                        .get("/filtered-private")
+                                        .then(({ data }) => {
+                                            setFilteredPrivateMessages(
+                                                data.data
+                                            );
+                                        })
+                                        .catch((err) => {
+                                            console.log("error", err);
+                                        });
                                 }}
                             >
                                 X
@@ -295,16 +297,19 @@ export default function OnlineUsers({
                                     ></div>
                                 </Link>
                             )}
-                        {!userPicBar && !privateMode && networkList && !userConfig && (
-                            <div
-                                className="onlineUsersRedDot"
-                                title="Online List"
-                                onClick={(e) => {
-                                    toggleEmojibar(false);
-                                    setNetworkList(false);
-                                }}
-                            ></div>
-                        )}
+                        {!userPicBar &&
+                            !privateMode &&
+                            networkList &&
+                            !userConfig && (
+                                <div
+                                    className="onlineUsersRedDot"
+                                    title="Online List"
+                                    onClick={(e) => {
+                                        toggleEmojibar(false);
+                                        setNetworkList(false);
+                                    }}
+                                ></div>
+                            )}
                         {!userPicBar && !privateMode && userConfig && (
                             <div
                                 className="onlineUsersRedDot"
@@ -354,8 +359,9 @@ export default function OnlineUsers({
                                         marginTop: privateMode && `-0.2vmax`,
                                         boxShadow: privateMode && `none`,
                                         border: privateMode && `none`,
-                                         backgroundColor: !privateMode && `rgba(255, 255, 255, 0.027)`
-                           
+                                        backgroundColor:
+                                            !privateMode &&
+                                            `rgba(255, 255, 255, 0.027)`,
                                     }}
                                 >
                                     {!privateMode &&
@@ -406,6 +412,11 @@ export default function OnlineUsers({
                                                                 ></img>
                                                             </div>
                                                             <span
+                                                                title={
+                                                                    user.id !=
+                                                                        chat_myUserId &&
+                                                                    "Send Private Message"
+                                                                }
                                                                 style={{
                                                                     color:
                                                                         (chat_myUserId ==
@@ -514,6 +525,11 @@ export default function OnlineUsers({
                                                             <div id="OnlineListImg"></div>
                                                         )}
                                                         <span
+                                                            title={
+                                                                user.id !=
+                                                                    chat_myUserId &&
+                                                                "Send Private Message"
+                                                            }
                                                             style={{
                                                                 color:
                                                                     (chat_myUserId ==
