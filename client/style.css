@@ -5260,6 +5260,7 @@ input[type="number"] {
     width: 55vw;
     border-bottom: 1px solid rgba(0, 0, 0, 0.205);
     background-color: rgba(0, 0, 0, 0.205);
+    padding:0.5vmax;
 }
 
 .blogEntryBack {
@@ -5279,6 +5280,29 @@ input[type="number"] {
     text-shadow: none;
 }
 
+.blogName span {
+    background-color: rgba(184, 22, 22, 0.151);
+
+}
+
+.blogMsgTitle{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.233);
+        text-indent:0.3vmax;
+}
+
+.replyTitle{
+     border-bottom: 1px solid rgba(0, 0, 0, 0.233);
+         color:#ffd900a1;
+         text-indent:0.3vmax;
+         display:flex;
+justify-content: space-between;
+         width:50vw;
+}
+
+
+.replyTitle span{
+    background-color: transparent;}
+
 .blogReplyBack {
     display: flex;
     flex-direction: column;
@@ -5293,6 +5317,7 @@ input[type="number"] {
     resize: none;
     outline: none;
     margin-bottom: 1vmax;
+    color:white
 }
 
 #reply {
@@ -5300,11 +5325,18 @@ input[type="number"] {
     background-color: rgba(255, 255, 0, 0.082);
     margin-left: 2vh;
     width: 52vw;
+    padding:0.5vmax;
 }
 
 .blogDelete {
     color: red;
     margin-right: 1vmax;
+}
+
+.replyDelete{
+    color: red;
+ justify-self: flex-end;
+   background-color: transparent !important;
 }
 
 .blogReplyOptions {
@@ -5313,3 +5345,4 @@ input[type="number"] {
     justify-content: flex-end;
     width: 48vw;
 }
+

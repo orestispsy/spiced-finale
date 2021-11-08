@@ -1,9 +1,9 @@
-import React, { useState, useEffect,  Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import axios from "./tools/axios";
 import { Link } from "react-router-dom";
 
 export default function About({ setAboutMode, aboutMode, super_admin }) {
-    const [imgCount, setImgCount] = useState(Math.floor(((Math.random() * 8) +2 )));
+    const [imgCount, setImgCount] = useState(Math.floor(Math.random() * 9 + 2));
     const [userName, setUserName] = useState(false);
     const [email, setEmail] = useState(false);
     const [website, setWebsite] = useState("");
@@ -18,7 +18,6 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
         setAboutMode(true);
         getAboutComments();
     }, []);
-
 
     const getAboutComments = (e) => {
         axios
@@ -37,7 +36,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                 id: e,
             })
             .then(({ data }) => {
-               getAboutComments();
+                getAboutComments();
             })
             .catch((err) => {
                 console.log(err);
@@ -57,10 +56,10 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                 .then(({ data }) => {
                     setCommentSection(true);
                     getAboutComments();
-                    setComment(false)
-                    setUserName(false)
-                    setEmail(false)
-                    setWebsite("")
+                    setComment(false);
+                    setUserName(false);
+                    setEmail(false);
+                    setWebsite("");
                 })
                 .catch((err) => {
                     console.log(err);
@@ -78,10 +77,10 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                 .then(({ data }) => {
                     setReply(false);
                     getAboutComments();
-                     setReplyText(false);
-                     setUserName(false);
-                     setEmail(false);
-                     setWebsite("");
+                    setReplyText(false);
+                    setUserName(false);
+                    setEmail(false);
+                    setWebsite("");
                 })
                 .catch((err) => {
                     console.log(err);
@@ -93,7 +92,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
         <div
             className="aboutContainer"
             onClick={(e) => {
-                if (imgCount < 9) {
+                if (imgCount < 10) {
                     setImgCount(imgCount + 1);
                 } else {
                     setImgCount(2);
@@ -176,8 +175,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                         </div>
                     </div>
                     <div className="author">
-                        {(!commentSection && "Share Your Thoughts") ||
-                            "Comments"}
+                        {(!commentSection && "Say Your Thoughts") || "Thoughts"}
                     </div>
                     {!commentSection && (
                         <div
@@ -199,6 +197,10 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                                 <div className="blogEntryBack">
                                                     <div className="blogEntry">
                                                         <div className="blogName">
+                                                            <span>Name</span>{" "}
+                                                            {blogEntry.website ==
+                                                                "" &&
+                                                                blogEntry.name}
                                                             {blogEntry.website !=
                                                                 "" &&
                                                                 super_admin && (
@@ -215,11 +217,12 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                                                         }
                                                                     </a>
                                                                 )}
-                                                            {blogEntry.website ==
-                                                                "" &&
-                                                                blogEntry.name}
                                                         </div>
+
                                                         <div className="blogText">
+                                                            <div className="blogMsgTitle">
+                                                                Original Message
+                                                            </div>
                                                             {blogEntry.comment}
                                                         </div>
 
@@ -241,6 +244,31 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                                                                         id="reply"
                                                                                     >
                                                                                         <div className="blogName">
+                                                                                            <div className="replyTitle">
+                                                                                                <span>
+                                                                                                    Reply
+                                                                                                </span>
+                                                                                                {super_admin && (
+                                                                                                    <span
+                                                                                                        className="replyDelete"
+                                                                                                        onClick={(
+                                                                                                            e
+                                                                                                        ) => {
+                                                                                                            setSelectedComment(
+                                                                                                                reply.id
+                                                                                                            );
+                                                                                                            deleteAboutComment(
+                                                                                                                reply.id
+                                                                                                            );
+                                                                                                        }}
+                                                                                                    >
+                                                                                                        DELETE
+                                                                                                    </span>
+                                                                                                )}
+                                                                                            </div>{" "}
+                                                                                            <span>
+                                                                                                Name
+                                                                                            </span>{" "}
                                                                                             {
                                                                                                 reply.name
                                                                                             }
@@ -304,7 +332,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                                             selectedComment ==
                                                                 blogEntry.id && (
                                                                 <textarea
-                                                                    placeholder="Say Something..."
+                                                                    placeholder="Write Something..."
                                                                     className="replyArea"
                                                                     onChange={(
                                                                         e
@@ -399,6 +427,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                     )}
                     {!commentSection && (
                         <textarea
+                            placeholder="Write Something..."
                             className="saySomethingBack"
                             onChange={(e) => {
                                 setComment(e.target.value);
@@ -413,7 +442,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                 setCommentSection(!commentSection);
                             }}
                         >
-                            Leave A Comment
+                            Say Your Thoughts
                         </div>
                     )}
                     {!commentSection && (
