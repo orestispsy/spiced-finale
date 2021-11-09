@@ -1802,7 +1802,7 @@ input {
     }
 
     .sendAboutCommentClose {
-        width: unset !important;
+        width: 85vw !important;
     }
 }
 
@@ -5029,8 +5029,9 @@ input[type="number"] {
 }
 
 .aboutButton:hover {
-    box-shadow: -0 0 7px rgba(255, 47, 47, 0.4), 0 -0 7px rgba(255, 47, 47, 0.4),
-        -0 -0 7px rgba(255, 47, 47, 0.4), -0 -0 7px rgba(255, 47, 47, 0.4);
+    box-shadow: -0 0 7px rgba(128, 20, 20, 0.4), 0 -0 7px rgba(128, 20, 20, 0.4),
+        -0 -0 7px rgba(128, 20, 20, 0.4), -0 -0 7px rgba(128, 20, 20, 0.4);
+        background-color:rgba(128, 20, 20, 0.2)
 }
 
 .aboutContainer {
@@ -5247,10 +5248,12 @@ input[type="number"] {
 }
 
 .sendAboutCommentClose {
-    width: 69vw;
-    text-align: right;
+ display:flex;
+ justify-content: flex-end;
+width:65vw;
     text-shadow: -0 0 5px rgba(0, 0, 0, 0.5), 0 -0 5px rgba(0, 0, 0, 0.5),
         -0 -0 5px rgba(0, 0, 0, 0.5), 0 0 5px rgba(0, 0, 0, 0.5);
+        font-size:2vmax;
 }
 
 .sendAboutCommentToggler {

@@ -112,10 +112,12 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                     X
                 </Link>
 
-                <Link to="/" >
+                <Link to="/">
                     <div className="logo2About"></div>
                 </Link>
-                <Link to="/"><div className="logo2AboutDesc"> The Gig Guide</div></Link>
+                <Link to="/">
+                    <div className="logo2AboutDesc"> The Gig Guide</div>
+                </Link>
 
                 <div className="aboutBack">
                     <div className="about"> About</div>
@@ -175,13 +177,14 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                     </div>
                     <div className="author">{commentSection && "Thoughts"}</div>
                     {!commentSection && (
-                        <div
-                            className="sendAboutCommentClose"
-                            onClick={(e) => {
-                                setCommentSection(!commentSection);
-                            }}
-                        >
-                            X
+                        <div className="sendAboutCommentClose">
+                            <div
+                                onClick={(e) => {
+                                    setCommentSection(!commentSection);
+                                }}
+                            >
+                                Close
+                            </div>
                         </div>
                     )}
                     {commentSection && (
