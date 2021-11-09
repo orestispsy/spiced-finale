@@ -581,54 +581,50 @@ export default class GigEditor extends React.Component {
                                 Select an Image [Max Size: 2MB]
                             </p>
                         )}
-                        {!this.state.deleteSuccess && !this.state.map && (
-                            <div className="formOptions">
-                                {!this.state.doneUpdate && (
+                    </form>
+                    {!this.state.deleteSuccess && !this.state.map && (
+                        <div className="formOptions">
+                            {!this.state.doneUpdate && (
+                                <div
+                                    className="button"
+                                    onClick={() => {
+                                        if (!this.state.doneUpdate) {
+                                            this.handleClick();
+                                        } else {
+                                            this.handleUploaderSuccess(false);
+                                            this.setDoneUpdate(false);
+                                        }
+                                    }}
+                                >
+                                    {!this.state.doneUpdate && "Update"}
+                                    {this.state.doneUpdate && "Done"}
+                                </div>
+                            )}
+
+                            {this.state.selectedGig.date &&
+                                !this.state.doneUpdate &&
+                                !this.state.map &&
+                                !this.state.posterSection && (
                                     <div
-                                        className="button"
-                                        onClick={() => {
-                                            if (!this.state.doneUpdate) {
-                                                this.handleClick();
-                                            } else {
-                                                this.handleUploaderSuccess(
-                                                    false
-                                                );
-                                                this.setDoneUpdate(false);
-                                            }
-                                        }}
+                                        className="delete"
+                                        onClick={(e) => this.deleteWarn(true)}
                                     >
-                                        {!this.state.doneUpdate && "Update"}
-                                        {this.state.doneUpdate && "Done"}
+                                        Delete
                                     </div>
                                 )}
 
-                                {this.state.selectedGig.date &&
-                                    !this.state.doneUpdate &&
-                                    !this.state.map &&
-                                    !this.state.posterSection && (
-                                        <div
-                                            className="delete"
-                                            onClick={(e) =>
-                                                this.deleteWarn(true)
-                                            }
-                                        >
-                                            Delete
-                                        </div>
-                                    )}
-
-                                {this.state.delete &&
-                                    this.state.selectedGig.date &&
-                                    !this.state.deleteSuccess && (
-                                        <div
-                                            className="deleteWarn"
-                                            onClick={() => this.gigDelete()}
-                                        >
-                                            Confirm
-                                        </div>
-                                    )}
-                            </div>
-                        )}
-                    </form>
+                            {this.state.delete &&
+                                this.state.selectedGig.date &&
+                                !this.state.deleteSuccess && (
+                                    <div
+                                        className="deleteWarn"
+                                        onClick={() => this.gigDelete()}
+                                    >
+                                        Confirm
+                                    </div>
+                                )}
+                        </div>
+                    )}
                     {this.state.deleteSuccess && (
                         <div className="deleteSuccess"></div>
                     )}

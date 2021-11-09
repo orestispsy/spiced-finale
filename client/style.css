@@ -112,7 +112,7 @@ a:hover {
     border: 1px solid rgba(0, 255, 170, 0.032);
     border-radius: 1vh;
     padding: 0 1vmax 1vmax 1vmax;
-    border-bottom: 1px solid rgba(0, 255, 170, 0.052);;
+    border-bottom: 1px solid rgba(0, 255, 170, 0.052);
     background-color: rgba(147, 156, 23, 0.022);
 }
 
@@ -1422,16 +1422,16 @@ input {
         font-size: 2vmax !important;
     }
 
-    .posterEditBox input {
-        margin-right:2vmax !important
+    #fileUploaderEdit {
+        margin-right: 2vmax !important;
     }
 
     .editorGallery div {
-        margin:0 1vmax 0 -1vmax !important;
+        margin: 0 1vmax 0 -1vmax !important;
     }
 
     .editorGallery img {
-        margin:0  0 0 -1vmax !important
+        margin: 0 0 0 -1vmax !important;
     }
 
     .superAdminContainer {
@@ -1686,7 +1686,6 @@ input {
     .mainMenuBottom a {
         font-size: 3vmax !important;
         margin: 1vmax !important;
-  
     }
 
     .links {
@@ -1892,14 +1891,13 @@ input {
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
-
     .gigCreatorContainer,
     .gigEditorContainer {
         height: unset !important;
     }
 
-    .gigEditorContainerInner{
-        width:60vw !important;
+    .gigEditorContainerInner {
+        width: 60vw !important;
     }
 
     #chatContainerDark {
@@ -2172,29 +2170,27 @@ input {
         height: 20vmax !important;
     }
 
-     #editorCloseTab {
-         width:60vw !important;
-     }
-
-.posterEditBox input{
-    margin-right: -1vmax !important;
-}
+    #editorCloseTab {
+        width: 60vw !important;
+    }
 
     .editorGallery div {
-        margin-left:0.7vmax !important;
+        margin-left: 0.7vmax !important;
     }
 
     .imgPreview {
         width: 6vmax !important;
         height: 6vmax !important;
-        margin: 0 -3vmax 0 -2vmax!important;
+        margin: 0 -3vmax 0 -2vmax !important;
     }
 
-
+    .gigEditorContainerInner .button,  .gigEditorContainerInner .delete {
+        margin: 0 0 0.5vmax 0 !important;
+    }
 
     #fileUploaderEdit {
-        padding:1vmax 2vmax 1vmax 1vmax !important;
-        margin-right:-3vmax !important
+        padding: 1vmax 2vmax 1vmax 1vmax !important;
+        margin-right: -4vmax !important;
     }
 
     .fileUploader input {
@@ -2300,14 +2296,13 @@ input {
         font-size: 2.2vmax !important;
     }
 
-.mainMenuBottom{
-          flex-direction: row !important;
-}
+    .mainMenuBottom {
+        flex-direction: row !important;
+    }
 
     .mainMenuBottom a {
         font-size: 2.1vmax !important;
         width: 13vmax !important;
-         
     }
 
     #button {
