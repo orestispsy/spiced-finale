@@ -1675,6 +1675,7 @@ input {
     .mainMenuBottom a {
         font-size: 3vmax !important;
         margin: 1vmax !important;
+  
     }
 
     .links {
@@ -2263,9 +2264,14 @@ input {
         font-size: 2.2vmax !important;
     }
 
+.mainMenuBottom{
+          flex-direction: row !important;
+}
+
     .mainMenuBottom a {
         font-size: 2.1vmax !important;
         width: 13vmax !important;
+         
     }
 
     #button {
