@@ -69,53 +69,66 @@ export default class Login extends React.Component {
 
     render() {
         return (
-            <div
-                className="loginContainer"
-                onKeyDown={(e) => this.submitEnter(e)}
-            >
-                <div className="logoBack">
-                    <p id="logoIntro">WELCOME</p>
-                </div>
-                <h1>Login</h1>
-                <span>Nickname</span>
-                <input
-                    autoComplete="none"
-                    name="nickname"
-                    placeholder="Nickname"
-                    onChange={(e) => this.handleChange(e)}
-                    onClick={() => this.handleErrorMsg()}
-                />
-                <span>Password</span>
-                <input
-                    name="password"
-                    placeholder="Password"
-                    type="password"
-                    onChange={(e) => this.handleChange(e)}
-                    onClick={() => this.handleErrorMsg()}
-                />
+            <div className="loginContainerBack">
+                <div className="logoBackLogin">
+                    <div className="logo2Login"></div>
 
-                <div id="button" className="mainMenuLink" onClick={() => this.handleClick()}>
-                    Submit
+                    <div className="logo2LoginDesc"> The Gig Guide</div>
                 </div>
-                <span className="regSpan">Not a Member?</span>
-                <div className="mainMenuBottom">
-                    <Link to="/register" className="links">
-                        Register
-                    </Link>
-           
-                    <div
-                        onClick={(e) => this.handleClick(true)}
-                        className="guest"
-                    >
-                        Join as Guest
+
+                <div
+                    className="loginContainer"
+                    onKeyDown={(e) => this.submitEnter(e)}
+                >
+                    <div className="loginContainerLeft">
+                        <h1>Login</h1>
+                        <span>Nickname</span>
+                        <input
+                            autoComplete="none"
+                            name="nickname"
+                            placeholder="Nickname"
+                            onChange={(e) => this.handleChange(e)}
+                            onClick={() => this.handleErrorMsg()}
+                        />
+                        <span>Password</span>
+                        <input
+                            name="password"
+                            placeholder="Password"
+                            type="password"
+                            onChange={(e) => this.handleChange(e)}
+                            onClick={() => this.handleErrorMsg()}
+                        />
+
+                        <div
+                            id="button"
+                            className="mainMenuLink"
+                            onClick={() => this.handleClick()}
+                        >
+                            Submit
+                        </div>
                     </div>
+                    <div className="loginContainerRight">
+                        <span className="regSpan">Not a Member?</span>
+                        <div className="mainMenuBottom">
+                            <Link to="/register" className="links">
+                                Register
+                            </Link>
+
+                            <div
+                                onClick={(e) => this.handleClick(true)}
+                                className="guest"
+                            >
+                                Join as Guest
+                            </div>
+                        </div>
+                    </div>
+                    {this.state.error && (
+                        <p className="error">
+                            {" "}
+                            {"Oups ! Your Nickname or Password is Wrong"}
+                        </p>
+                    )}
                 </div>
-                {this.state.error && (
-                    <p className="error">
-                        {" "}
-                        {"Oups ! Your Nickname or Password is Wrong"}
-                    </p>
-                )}
             </div>
         );
     }

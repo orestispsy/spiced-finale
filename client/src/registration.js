@@ -57,8 +57,10 @@ export default class Registration extends React.Component {
                 className="registerContainer"
                 onKeyDown={(e) => this.submitEnter(e)}
             >
-                <div className="logoBack">
-                    <p id="logoIntro">WELCOME</p>
+                <div className="logoBackLogin">
+                    <div className="logo2Login"></div>
+
+                    <div className="logo2LoginDesc"> The Gig Guide</div>
                 </div>
                 <h1>Register</h1>
                 <span>Nickname</span>
@@ -85,10 +87,12 @@ export default class Registration extends React.Component {
                 >
                     Submit
                 </div>
-                <span className="regSpan">Joined Already?</span>
-                <Link to="/" className="links">
-                    Login
-                </Link>
+                <div className="loginContainerRight">
+                    <span className="regSpan">Joined Already?</span>
+                    <Link to="/" className="links">
+                        Login
+                    </Link>
+                </div>
                 {this.state.error && (
                     <p className="error">
                         {"Insert A Nickname And A Password to Proceed"}

@@ -225,7 +225,7 @@ export default function Chat({
         let counter = banTimer;
 
         const interval = setInterval(() => {
-            console.log(counter);
+         
             counter--;
             timerRef.current.innerHTML = counter;
             if (counter < 0) {

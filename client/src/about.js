@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, Fragment} from "react";
 import axios from "./tools/axios";
 import { Link } from "react-router-dom";
 
@@ -14,10 +14,12 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
     const [reply, setReply] = useState(false);
     const [selectedComment, setSelectedComment] = useState(false);
 
+      
     useEffect(function () {
         setAboutMode(true);
         getAboutComments();
     }, []);
+
 
     const getAboutComments = (e) => {
         axios
@@ -119,7 +121,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                     <div className="logo2AboutDesc"> The Gig Guide</div>
                 </Link>
 
-                <div className="aboutBack">
+                <div className="aboutBack" >
                     <div className="about"> About</div>
                     <div className="authWrapper">
                         <div className="aboutText">
@@ -136,11 +138,11 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                 together.
                             </div>
                             <div>
-                                Some years ago I asked them if there is a
-                                concert archive for all these years on stage.
-                                The answer was: " Yes, the first 500 are stored
-                                in documents or hand-written in lists. As for
-                                the rest, nowadays they can be found ! ".
+                                Some time ago I asked them if there is a concert
+                                archive for all these years on stage. The answer
+                                was: " Yes, the first 500 concerts are stored in
+                                documents or hand-written in lists. As for the
+                                rest, nowadays they can be found ! ".
                             </div>
                             <div>
                                 Lately, after summoning some super-tech-powers
@@ -151,9 +153,9 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                             <div>
                                 The "Thousand Gigs Guide" is a tool for the band
                                 to create, manage and maintain their own concert
-                                history. On the same time, it is an online band
-                                concert agenda for fans , to get the past &
-                                future band's Touring Info, contribute in it and
+                                history. On the same time, it is an online
+                                concert agenda for fans to get the past & future
+                                band's Touring Info, contribute in it and
                                 interact with each other.
                             </div>
                         </div>

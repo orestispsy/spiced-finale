@@ -63,8 +63,7 @@ a:hover {
     cursor: pointer;
 }
 
-.registerContainer,
-.loginContainer {
+.registerContainer {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -72,8 +71,68 @@ a:hover {
     align-self: center;
     font-family: "Black Ops One", cursive;
     height: 80vh;
-    margin-top: 20vh;
+
     user-select: none;
+}
+
+.logoBackLogIn {
+    align-items: center !important;
+}
+
+.logo2Login {
+    background-image: url("logo2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 22vmax;
+    height: 6vmax;
+}
+
+.logo2LoginDesc {
+    margin-top: -1.5vmax;
+    width: max-content !important;
+    color: white;
+    font-size: 2vmax;
+    font-family: "Darker Grotesque", sans-serif;
+}
+
+.loginContainerLeft,
+.loginContainerRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginContainerLeft span {
+    color: yellow;
+}
+
+.loginContainerRight {
+    margin-top: 1vmax;
+    border: 1px solid rgba(0, 255, 170, 0.032);
+    border-radius: 1vh;
+    padding: 0 1vmax 1vmax 1vmax;
+    background-color: rgba(147, 156, 23, 0.022);
+}
+
+.loginContainerBack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    font-family: "Black Ops One", cursive;
+    height: 80vh;
+
+    user-select: none;
+}
+
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .loginContainer input,
@@ -128,9 +187,8 @@ a:hover {
 
 .registerContainer h1,
 .loginContainer h1 {
-    text-shadow: -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
-        -1px -1px 0 black;
-    font-size: 2.5vmax;
+    color: yellow;
+    font-size: 2.2vmax;
 }
 
 #button {
@@ -911,7 +969,8 @@ input {
     display: flex;
 }
 
-.logoBack {
+.logoBack,
+.logoBackLogIn {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -969,6 +1028,22 @@ input {
         width: 4vmax !important;
         height: 4vmax !important;
     }
+
+    .loginContainerRight {
+        border: none !important;
+        background-color: transparent !important;
+    }
+
+    .logo2Login {
+        width: 60vw !important;
+        height: 10vh !important;
+    }
+
+    .logo2LoginDesc {
+        font-size: 4vmax !important;
+        margin: -1.5vmax 0 0 0 !important;
+    }
+
     .loginContainer h1,
     .registerContainer h1 {
         font-size: 6vmax !important;
@@ -989,7 +1064,9 @@ input {
 
     .loginContainer,
     .registerContainer {
-        margin-top: 10vh !important;
+        width: unset !important;
+
+        flex-direction: column !important;
     }
 
     .loginContainer .button,
@@ -1001,6 +1078,7 @@ input {
 
     .mainMenuBottom {
         font-size: 3vmax !important;
+        flex-direction: row !important;
     }
 
     .regSpan {
@@ -1022,11 +1100,6 @@ input {
         width: 25vmax !important;
         height: 8vmax !important;
         margin: 0 0 0 -5vmax !important;
-    }
-
-    #logoIntro {
-        margin: 0 0 1.5vh 0 !important;
-        font-size: 9vmax !important;
     }
 
     #chatContainerDark {
@@ -1857,11 +1930,6 @@ input {
         background-size: contain !important;
     }
 
-    #logoIntro {
-        margin: 0 0 1vh 0 !important;
-        font-size: 7vmax !important;
-    }
-
     .logoBack p {
         font-size: 3.5vmax !important;
         margin: -6vh 0 4vh 0 !important;
@@ -1871,9 +1939,14 @@ input {
         padding: 1vmax 2vmax 3vmax 2vmax !important;
     }
 
+    .loginContainerBack {
+        margin-top: 0 !important;
+    }
+
     .loginContainer,
     .registerContainer {
         margin-top: 0 !important;
+        width: 70vw !important;
     }
 
     .mainMenu {
@@ -2193,10 +2266,6 @@ input {
     .mainMenuBottom a {
         font-size: 2.1vmax !important;
         width: 13vmax !important;
-    }
-
-    .mainMenuBottom {
-        flex-direction: row !important;
     }
 
     #button {
@@ -4783,10 +4852,6 @@ input[type="number"] {
     margin: 0 0.5vmax 0 0;
 }
 
-#logoIntro {
-    font-size: 4vmax;
-}
-
 #creatorCloseTab {
     display: flex;
     text-align: center;
@@ -5031,7 +5096,7 @@ input[type="number"] {
 .aboutButton:hover {
     box-shadow: -0 0 7px rgba(128, 20, 20, 0.4), 0 -0 7px rgba(128, 20, 20, 0.4),
         -0 -0 7px rgba(128, 20, 20, 0.4), -0 -0 7px rgba(128, 20, 20, 0.4);
-        background-color:rgba(128, 20, 20, 0.2)
+    background-color: rgba(128, 20, 20, 0.2);
 }
 
 .aboutContainer {
@@ -5088,9 +5153,10 @@ input[type="number"] {
 
 .logo2AboutDesc {
     margin: -1.3vmax 0 0 3.4vmax !important;
-    width:max-content !important;
-    color:white;
+    width: max-content !important;
+    color: white;
     font-size: 2vmax;
+    font-family: "Darker Grotesque", sans-serif;
 }
 
 .author,
@@ -5141,7 +5207,6 @@ input[type="number"] {
 }
 
 .authorText div:nth-child(2) {
-
     width: 45vw;
 }
 
@@ -5243,17 +5308,17 @@ input[type="number"] {
     cursor: pointer;
 }
 
-.sendAboutComment:hover{
-        color: #ffd900a1;
+.sendAboutComment:hover {
+    color: #ffd900a1;
 }
 
 .sendAboutCommentClose {
- display:flex;
- justify-content: flex-end;
-width:65vw;
+    display: flex;
+    justify-content: flex-end;
+    width: 65vw;
     text-shadow: -0 0 5px rgba(0, 0, 0, 0.5), 0 -0 5px rgba(0, 0, 0, 0.5),
         -0 -0 5px rgba(0, 0, 0, 0.5), 0 0 5px rgba(0, 0, 0, 0.5);
-        font-size:2vmax;
+    font-size: 2vmax;
 }
 
 .sendAboutCommentToggler {
@@ -5263,7 +5328,7 @@ width:65vw;
 }
 
 .sendAboutCommentToggler:hover {
-        color: #ffd900a1;
+    color: #ffd900a1;
 }
 
 #sendAboutComment {
