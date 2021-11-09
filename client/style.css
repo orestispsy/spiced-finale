@@ -1757,12 +1757,11 @@ input {
     .aboutText {
         text-indent: 1vmax;
         width: unset !important;
-        
     }
 
-     .authorText div {
-           width: 60vw !important;
-     }
+    .authorText div {
+        width: 60vw !important;
+    }
 
     .authPic {
         margin-left: 0 !important;
@@ -1794,16 +1793,16 @@ input {
         margin: 0 4vmax 2vmax 4vmax !important;
         width: 80vw !important;
     }
-    .blogEntry{
-        width:70vw !important;
+    .blogEntry {
+        width: 70vw !important;
     }
 
     #aboutReplyControls {
-        flex-wrap:wrap !important;
+        flex-wrap: wrap !important;
     }
 
-    .sendAboutCommentClose{
-        width:unset !important
+    .sendAboutCommentClose {
+        width: unset !important;
     }
 }
 
@@ -5087,7 +5086,10 @@ input[type="number"] {
 }
 
 .logo2AboutDesc {
-    margin: -1vmax 0 0 3.4vmax;
+    margin: -1.3vmax 0 0 3.4vmax !important;
+    width:max-content !important;
+    color:white;
+    font-size: 2vmax;
 }
 
 .author,
@@ -5134,7 +5136,12 @@ input[type="number"] {
 .authorText div {
     margin-top: 1vmax;
     text-align: center;
-    width: 25vw;
+    width: 20vw;
+}
+
+.authorText div:nth-child(2) {
+
+    width: 45vw;
 }
 
 .aboutText div {
@@ -5220,7 +5227,7 @@ input[type="number"] {
 }
 
 .aboutCommentControls input {
-    margin-bottom:1vmax !important;
+    margin-bottom: 1vmax !important;
     background-color: rgba(0, 0, 0, 0.226);
     border: 1px solid rgba(255, 255, 255, 0.445);
 }
@@ -5235,6 +5242,10 @@ input[type="number"] {
     cursor: pointer;
 }
 
+.sendAboutComment:hover{
+        color: #ffd900a1;
+}
+
 .sendAboutCommentClose {
     width: 69vw;
     text-align: right;
@@ -5246,7 +5257,10 @@ input[type="number"] {
     text-align: center;
     cursor: pointer;
     margin-top: -1vmax;
- 
+}
+
+.sendAboutCommentToggler:hover {
+        color: #ffd900a1;
 }
 
 #sendAboutComment {
@@ -5269,7 +5283,7 @@ input[type="number"] {
     width: 55vw;
     border-bottom: 1px solid rgba(0, 0, 0, 0.205);
     background-color: rgba(0, 0, 0, 0.205);
-    padding:0.5vmax;
+    padding: 0.5vmax;
 }
 
 .blogEntryBack {
@@ -5283,9 +5297,8 @@ input[type="number"] {
     color: white;
 }
 
-#replyBlogText{
- font-size: 1.5vmax;
-
+#replyBlogText {
+    font-size: 1.5vmax;
 }
 
 .blogText {
@@ -5296,29 +5309,28 @@ input[type="number"] {
 
 .blogName span {
     background-color: rgba(184, 22, 22, 0.151);
-
 }
 
-.blogMsgTitle{
+.blogMsgTitle {
     border-bottom: 1px solid rgba(0, 0, 0, 0.233);
-        text-indent:0.3vmax;
-             color:#ffd900a1;
-             font-size:1vmax;
+    text-indent: 0.3vmax;
+    color: #ffd900a1;
+    font-size: 1vmax;
 }
 
-.replyTitle{
-     border-bottom: 1px solid rgba(0, 0, 0, 0.233);
-         color:#ffd900a1;
-         text-indent:0.3vmax;
-         display:flex;
-justify-content: space-between;
-         width:50vw;
-           font-size:1vmax;
+.replyTitle {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.233);
+    color: #ffd900a1;
+    text-indent: 0.3vmax;
+    display: flex;
+    justify-content: space-between;
+    width: 50vw;
+    font-size: 1vmax;
 }
 
-
-.replyTitle span{
-    background-color: transparent;}
+.replyTitle span {
+    background-color: transparent;
+}
 
 .blogReplyBack {
     display: flex;
@@ -5334,7 +5346,7 @@ justify-content: space-between;
     resize: none;
     outline: none;
     margin-bottom: 1vmax;
-    color:white
+    color: white;
 }
 
 #reply {
@@ -5342,20 +5354,20 @@ justify-content: space-between;
     background-color: rgba(255, 255, 0, 0.082);
     margin-left: 2vh;
     width: 52vw;
-    padding:0.5vmax;
+    padding: 0.5vmax;
 }
 
-.commentReplyOption{
+.commentReplyOption {
     display: flex;
 }
 
 .commentPointer {
     background-image: url("blogUp.png");
-    width:0.8vmax;
-    height:0.8vmax;
+    width: 0.8vmax;
+    height: 0.8vmax;
     background-size: cover;
-    filter:invert(100%);
-    margin-right:0.5vmax;
+    filter: invert(100%);
+    margin-right: 0.5vmax;
 }
 
 .blogDelete {
@@ -5363,13 +5375,12 @@ justify-content: space-between;
     margin-right: 1vmax;
 }
 
-.replyDelete{
+.replyDelete {
     color: red;
- justify-self: flex-end;
-   background-color: transparent !important;
-   font-size:1vmax;
+    justify-self: flex-end;
+    background-color: transparent !important;
+    font-size: 1vmax;
 }
-
 
 .blogReplyOptions {
     display: flex;
@@ -5377,4 +5388,3 @@ justify-content: space-between;
     justify-content: flex-end;
     width: 48vw;
 }
-

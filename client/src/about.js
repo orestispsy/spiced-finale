@@ -112,11 +112,10 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                     X
                 </Link>
 
-                <a target="_blank" href="https://www.1000mods.com">
+                <Link to="/" >
                     <div className="logo2About"></div>
-                </a>
-
-                <div className="logo2AboutDesc"> The Gig Guide</div>
+                </Link>
+                <Link to="/"><div className="logo2AboutDesc"> The Gig Guide</div></Link>
 
                 <div className="aboutBack">
                     <div className="about"> About</div>
@@ -450,7 +449,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                                                     sendComment();
                                                                 }}
                                                             >
-                                                                Send
+                                                                Send Reply
                                                             </div>
                                                         )}
                                                 </div>
@@ -477,7 +476,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                 setCommentSection(!commentSection);
                             }}
                         >
-                            Say Your Thoughts
+                            Leave A Message
                         </div>
                     )}
                     {!commentSection && (

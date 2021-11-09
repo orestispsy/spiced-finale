@@ -38,7 +38,6 @@ export default function OnlineUsers({
     playNotification,
     shakeUser,
     setShakeUser,
-
 }) {
     const [userPicBar, setUserPicBar] = useState(false);
     const [onlineUserPic, setOnlineUserPic] = useState("");
