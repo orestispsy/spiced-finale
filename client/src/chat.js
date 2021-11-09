@@ -75,11 +75,11 @@ export default function Chat({
         setChatMode(true);
         listSet(darkMode);
         setDarkMode(darkMode);
-         if (elemRef.current) {
-                const newScrollTop =
-                    elemRef.current.scrollHeight - elemRef.current.clientHeight;
-                elemRef.current.scrollTop = newScrollTop;
-            }
+        if (elemRef.current) {
+            const newScrollTop =
+                elemRef.current.scrollHeight - elemRef.current.clientHeight;
+            elemRef.current.scrollTop = newScrollTop;
+        }
     }, []);
 
     useEffect(() => {
@@ -99,13 +99,11 @@ export default function Chat({
     }, [scrollTop]);
 
     useEffect(() => {
-        if (chat_myUserId) {
-            if (browserCount < 2) {
-                const timer = setTimeout(() => {
-                    socket.emit("A CHAT MSG", "--##--entered--##--");
-                }, 1500);
-                return () => clearTimeout(timer);
-            }
+        if (browserCount < 2) {
+            const timer = setTimeout(() => {
+                socket.emit("A CHAT MSG", "--##--entered--##--");
+            }, 1500);
+            return () => clearTimeout(timer);
         }
     }, [browserCount]);
 
@@ -225,7 +223,6 @@ export default function Chat({
         let counter = banTimer;
 
         const interval = setInterval(() => {
-         
             counter--;
             timerRef.current.innerHTML = counter;
             if (counter < 0) {
@@ -247,9 +244,6 @@ export default function Chat({
         setPostScroll(true);
         socket.emit("NEXT MSGS", chatMessages[0].id);
     };
-
-    
-
 
     const getBack2Top = () => {
         elemRef.current.scrollTop = -elemRef.current.scrollTop;
@@ -659,37 +653,41 @@ export default function Chat({
                     setShakeUser={(e) => setShakeUser(e)}
                 />
             </div>
-            {!chatBan &&  <div
-                className="jukeBox"
-                onClick={(e) => {
-                    if (!nightFlightProg) {
-                        setRadioBroadcast(
-                            radioBroadcasts.radioBroadcasts[
-                                radioBroadcasts.radioBroadcasts.length - 1
-                            ]
-                        );
-                    } else {
-                        setRadioBroadcast(false);
-                    }
-                }}
-            ></div>}
-         {!chatBan && <div
-                className="tickerButton"
-                onClick={(e) => {
-                    toggleTicker(!tickerBar);
-                }}
-            >
-                {tickerBar && `Stop Ticker`} {!tickerBar && `Start Ticker`}
-            </div>
-            } 
-             {!chatBan && 
-            <div
-                className={(list && "DarkMode") || (!list && "lightMode")}
-                onClick={(e) => {
-                    listSet(!list);
-                    setDarkMode(!darkMode);
-                }}
-            ></div>}
+            {!chatBan && (
+                <div
+                    className="jukeBox"
+                    onClick={(e) => {
+                        if (!nightFlightProg) {
+                            setRadioBroadcast(
+                                radioBroadcasts.radioBroadcasts[
+                                    radioBroadcasts.radioBroadcasts.length - 1
+                                ]
+                            );
+                        } else {
+                            setRadioBroadcast(false);
+                        }
+                    }}
+                ></div>
+            )}
+            {!chatBan && (
+                <div
+                    className="tickerButton"
+                    onClick={(e) => {
+                        toggleTicker(!tickerBar);
+                    }}
+                >
+                    {tickerBar && `Stop Ticker`} {!tickerBar && `Start Ticker`}
+                </div>
+            )}
+            {!chatBan && (
+                <div
+                    className={(list && "DarkMode") || (!list && "lightMode")}
+                    onClick={(e) => {
+                        listSet(!list);
+                        setDarkMode(!darkMode);
+                    }}
+                ></div>
+            )}
         </div>
     );
 }

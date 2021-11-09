@@ -112,6 +112,7 @@ a:hover {
     border: 1px solid rgba(0, 255, 170, 0.032);
     border-radius: 1vh;
     padding: 0 1vmax 1vmax 1vmax;
+    border-bottom: 1px solid rgba(0, 255, 170, 0.052);;
     background-color: rgba(147, 156, 23, 0.022);
 }
 
@@ -120,10 +121,8 @@ a:hover {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-
     font-family: "Black Ops One", cursive;
     height: 80vh;
-
     user-select: none;
 }
 
@@ -1423,6 +1422,18 @@ input {
         font-size: 2vmax !important;
     }
 
+    .posterEditBox input {
+        margin-right:2vmax !important
+    }
+
+    .editorGallery div {
+        margin:0 1vmax 0 -1vmax !important;
+    }
+
+    .editorGallery img {
+        margin:0  0 0 -1vmax !important
+    }
+
     .superAdminContainer {
         margin-top: 3vh !important;
     }
@@ -1881,9 +1892,14 @@ input {
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
+
     .gigCreatorContainer,
     .gigEditorContainer {
         height: unset !important;
+    }
+
+    .gigEditorContainerInner{
+        width:60vw !important;
     }
 
     #chatContainerDark {
@@ -2156,13 +2172,33 @@ input {
         height: 20vmax !important;
     }
 
+     #editorCloseTab {
+         width:60vw !important;
+     }
+
+.posterEditBox input{
+    margin-right: -1vmax !important;
+}
+
+    .editorGallery div {
+        margin-left:0.7vmax !important;
+    }
+
     .imgPreview {
         width: 6vmax !important;
         height: 6vmax !important;
+        margin: 0 -3vmax 0 -2vmax!important;
+    }
+
+
+
+    #fileUploaderEdit {
+        padding:1vmax 2vmax 1vmax 1vmax !important;
+        margin-right:-3vmax !important
     }
 
     .fileUploader input {
-        width: 17vmax !important;
+        width: 19vmax !important;
         height: 2.5vmax !important;
     }
 
