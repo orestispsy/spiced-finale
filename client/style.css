@@ -5203,7 +5203,7 @@ input[type="number"] {
     font-family: "Poller One", cursive;
     font-size: 3vmax;
     color: black;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.158);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.258);
 }
 
 .aboutText a {
@@ -5230,8 +5230,8 @@ input[type="number"] {
     color: rgba(255, 255, 255, 0.842);
     width: 60vmax;
     padding: 0 1vmax;
-    text-shadow: -1px 1px 0 rgba(0, 0, 0, 1), 1px -1px 0 rgba(0, 0, 0, 1),
-        -1px -1px 0 rgba(0, 0, 0, 1), 1px 1px 0 rgba(0, 0, 0, 1);
+    text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.7), 1px -1px 10px rgba(0, 0, 0, 0.7),
+        -1px -1px 10px rgba(0, 0, 0, 0.7), 1px 1px 10px rgba(0, 0, 0, 0.7);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -5277,7 +5277,7 @@ input[type="number"] {
 .aboutBack {
     margin: 2vh auto 0 auto;
     height: 63vh;
-    background-color: rgba(0, 0, 0, 0.13);
+    background-color: rgba(0, 0, 0, 0.33);
     overflow-y: auto;
     border-radius: 1vh;
 }
@@ -5343,6 +5343,7 @@ input[type="number"] {
 .sendAboutComment {
     text-align: center;
     cursor: pointer;
+       margin-bottom:1vmax;
 }
 
 .sendAboutComment:hover {
@@ -5362,6 +5363,7 @@ input[type="number"] {
     text-align: center;
     cursor: pointer;
     margin-top: -1vmax;
+    margin-bottom:1vmax;
 }
 
 .sendAboutCommentToggler:hover {
@@ -5399,7 +5401,9 @@ input[type="number"] {
 .blogName a {
     text-shadow: none;
     font-size: 1.7vmax;
-    color: white;
+    color:  #ffd900a1;;
+     text-shadow: -1px 1px 10px rgba(255, 255, 255, 0.2), 1px -1px 10px rgba(255, 255, 255, 0.2),
+        -1px -1px 10px rgba(255, 255, 255, 0.2), 1px 1px 10px rgba(255, 255, 255, 0.2);
 }
 
 #replyBlogText {
@@ -5407,9 +5411,10 @@ input[type="number"] {
 }
 
 .blogText {
-    color: black;
+    color: white;
     font-size: 1.5vmax;
-    text-shadow: none;
+        text-shadow: -1px 1px 10px rgba(255, 255, 255, 0.2), 1px -1px 10px rgba(255, 255, 255, 0.2),
+        -1px -1px 10px rgba(255, 255, 255, 0.2), 1px 1px 10px rgba(255, 255, 255, 0.2);
 }
 
 .blogName span {

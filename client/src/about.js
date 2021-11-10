@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment} from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import axios from "./tools/axios";
 import { Link } from "react-router-dom";
 
@@ -14,12 +14,10 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
     const [reply, setReply] = useState(false);
     const [selectedComment, setSelectedComment] = useState(false);
 
-      
     useEffect(function () {
         setAboutMode(true);
         getAboutComments();
     }, []);
-
 
     const getAboutComments = (e) => {
         axios
@@ -67,7 +65,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                     console.log(err);
                 });
         }
-        if (replyText && userName && email) {
+        if (replyText && userName && email && reply) {
             axios
                 .post("/add-about-comment/", {
                     comment: replyText,
@@ -121,7 +119,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                     <div className="logo2AboutDesc"> The Gig Guide</div>
                 </Link>
 
-                <div className="aboutBack" >
+                <div className="aboutBack">
                     <div className="about"> About</div>
                     <div className="authWrapper">
                         <div className="aboutText">
@@ -442,9 +440,9 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                                             <div
                                                                 className="sendAboutComment"
                                                                 id={
-                                                                    (!comment &&
-                                                                        !userName &&
-                                                                        !email &&
+                                                                    ((!replyText ||
+                                                                        !userName ||
+                                                                        !email) &&
                                                                         "sendAboutComment") ||
                                                                     "sendReply"
                                                                 }
@@ -479,6 +477,9 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                             className="sendAboutCommentToggler"
                             onClick={(e) => {
                                 setCommentSection(!commentSection);
+                                setReply(false);
+                                setUserName(false);
+                                setEmail(false);
                             }}
                         >
                             Leave A Message
@@ -516,9 +517,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                         <div
                             className="sendAboutComment"
                             id={
-                                (!comment &&
-                                    !userName &&
-                                    !email &&
+                                ((!comment || !userName || !email) &&
                                     "sendAboutComment") ||
                                 ""
                             }
