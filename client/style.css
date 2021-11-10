@@ -5340,10 +5340,18 @@ input[type="number"] {
     color: rgba(255, 208, 0, 0.418);
 }
 
+.sendAboutCommentBack {
+        display: flex;
+        flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .sendAboutComment {
     text-align: center;
     cursor: pointer;
        margin-bottom:1vmax;
+       width:max-content;
 }
 
 .sendAboutComment:hover {

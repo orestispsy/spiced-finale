@@ -437,6 +437,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                                     {reply &&
                                                         selectedComment ==
                                                             blogEntry.id && (
+                                                                <div className="sendAboutCommentBack">
                                                             <div
                                                                 className="sendAboutComment"
                                                                 id={
@@ -453,6 +454,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                                                 }}
                                                             >
                                                                 Send Reply
+                                                            </div>
                                                             </div>
                                                         )}
                                                 </div>
@@ -480,6 +482,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                                 setReply(false);
                                 setUserName(false);
                                 setEmail(false);
+                                setWebsite("")
                             }}
                         >
                             Leave A Message
@@ -514,6 +517,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                         </div>
                     )}
                     {!commentSection && (
+                        <div className="sendAboutCommentBack">
                         <div
                             className="sendAboutComment"
                             id={
@@ -526,6 +530,7 @@ export default function About({ setAboutMode, aboutMode, super_admin }) {
                             }}
                         >
                             Send
+                        </div>
                         </div>
                     )}
                 </div>
