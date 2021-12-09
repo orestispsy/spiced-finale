@@ -14,6 +14,8 @@ import GigEntry from "./gigEntry";
 import SuperAdmin from "./superAdmin";
 import About from "./about";
 
+import C4 from "./c4"
+
 import radioBroadcasts from "./tools/radioBroadcasts";
 
 var body = document.querySelectorAll("body");
@@ -323,6 +325,15 @@ export default class App extends Component {
                                 setGigEntry={(e) => this.setGigEntry(e)}
                                 selectedGigEntry={this.state.selectedGigEntry}
                                 guest={this.state.guest}
+                            />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/c4"
+                        render={(props) => (
+                            <C4
+                                
                             />
                         )}
                     />
